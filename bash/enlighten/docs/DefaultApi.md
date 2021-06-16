@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**ConsumptionLifetime**](ConsumptionLifetime.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ the last reported interval. | [optional] [default to null]
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**ConsumptionStats**](ConsumptionStats.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**EnergyLifetime**](EnergyLifetime.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Envoys**](Envoys.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**Inventory**](Inventory.md)
 
 ### Authorization
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ start date is the first of a calendar month, the end end date is the last day of
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**MonthlyProduction**](MonthlyProduction.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**ProductionMeterReadings**](ProductionMeterReadings.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ the last reported interval. | [optional] [default to null]
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**RgmStats**](RgmStats.md)
 
 ### Authorization
 
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**SearchSystemId**](SearchSystemId.md)
 
 ### Authorization
 
@@ -477,7 +477,7 @@ reported interval. | [optional] [default to null]
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**Stats**](Stats.md)
 
 ### Authorization
 
@@ -515,7 +515,7 @@ day. If the requested date cannot be parsed or is in the future, the response in
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**Summary**](Summary.md)
 
 ### Authorization
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**Systems**](Systems.md)
 
 ### Authorization
 

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **consumption_lifetime**
-> InlineResponse2009 consumption_lifetime(user_id, system_id)
+> ConsumptionLifetime consumption_lifetime(user_id, system_id)
 
 
 
@@ -33,10 +33,10 @@ Returns a time series of energy consumption as measured by the consumption meter
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response2009 import InlineResponse2009
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.consumption_lifetime import ConsumptionLifetime
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**ConsumptionLifetime**](ConsumptionLifetime.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **consumption_stats**
-> InlineResponse20010 consumption_stats(user_id, system_id)
+> ConsumptionStats consumption_stats(user_id, system_id)
 
 
 
@@ -130,10 +130,10 @@ Returns consumption as measured by the consumption meter installed on the specif
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response20010 import InlineResponse20010
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
+from enlighten.model.consumption_stats import ConsumptionStats
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**ConsumptionStats**](ConsumptionStats.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **energy_lifetime**
-> InlineResponse200 energy_lifetime(user_id, system_id)
+> EnergyLifetime energy_lifetime(user_id, system_id)
 
 
 
@@ -227,10 +227,10 @@ Returns a time series of energy produced on the system over its lifetime. All me
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response200 import InlineResponse200
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.energy_lifetime import EnergyLifetime
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**EnergyLifetime**](EnergyLifetime.md)
 
 ### Authorization
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **envoys**
-> InlineResponse2001 envoys(user_id, system_id)
+> Envoys envoys(user_id, system_id)
 
 
 
@@ -327,10 +327,10 @@ Returns a listing of all active Envoys currently deployed on the system.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response2001 import InlineResponse2001
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.envoys import Envoys
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Envoys**](Envoys.md)
 
 ### Authorization
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inventory**
-> InlineResponse2003 inventory(user_id, system_id)
+> Inventory inventory(user_id, system_id)
 
 
 
@@ -412,10 +412,10 @@ Returns a listing of active devices on the given system. A device is considered 
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response2003 import InlineResponse2003
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.inventory import Inventory
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**Inventory**](Inventory.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inverters_summary_by_envoy_or_site**
-> InlineResponse2004 inverters_summary_by_envoy_or_site(user_id, site_id)
+> InvertersSummaryByEnvoyOrSite inverters_summary_by_envoy_or_site(user_id, site_id)
 
 
 
@@ -497,10 +497,10 @@ Returns the summary along with the energy produced on the system over its lifeti
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response2004 import InlineResponse2004
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
+from enlighten.model.inverters_summary_by_envoy_or_site import InvertersSummaryByEnvoyOrSite
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **monthly_production**
-> InlineResponse2005 monthly_production(user_id, system_id)
+> MonthlyProduction monthly_production(user_id, system_id)
 
 
 
@@ -582,10 +582,10 @@ This endpoint is deprecated and will be removed in a future release. Use `produc
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response2005 import InlineResponse2005
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.monthly_production import MonthlyProduction
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**MonthlyProduction**](MonthlyProduction.md)
 
 ### Authorization
 
@@ -664,7 +664,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **production_meter_readings**
-> InlineResponse2006 production_meter_readings(user_id, system_id)
+> ProductionMeterReadings production_meter_readings(user_id, system_id)
 
 
 
@@ -677,10 +677,10 @@ Returns the last known \"odometer\" reading of each revenue-grade production met
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response2006 import InlineResponse2006
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.production_meter_readings import ProductionMeterReadings
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -734,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**ProductionMeterReadings**](ProductionMeterReadings.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rgm_stats**
-> InlineResponse2007 rgm_stats(user_id, system_id)
+> RgmStats rgm_stats(user_id, system_id)
 
 
 
@@ -772,10 +772,10 @@ Returns performance statistics as measured by the revenue-grade meters installed
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response2007 import InlineResponse2007
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.rgm_stats import RgmStats
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**RgmStats**](RgmStats.md)
 
 ### Authorization
 
@@ -856,7 +856,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_system_id**
-> InlineResponse20012 search_system_id(user_id, serial_num)
+> SearchSystemId search_system_id(user_id, serial_num)
 
 
 
@@ -869,10 +869,10 @@ Get system ID by envoy serial number.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response20012 import InlineResponse20012
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.server_error import ServerError
+from enlighten.model.search_system_id import SearchSystemId
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -916,7 +916,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**SearchSystemId**](SearchSystemId.md)
 
 ### Authorization
 
@@ -941,7 +941,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stats**
-> InlineResponse2008 stats(user_id, system_id)
+> Stats stats(user_id, system_id)
 
 
 
@@ -954,10 +954,10 @@ Returns performance statistics for the specified system as reported by microinve
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response2008 import InlineResponse2008
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.server_error import ServerError
+from enlighten.model.stats import Stats
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1013,7 +1013,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**Stats**](Stats.md)
 
 ### Authorization
 
@@ -1038,7 +1038,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **summary**
-> InlineResponse20011 summary(user_id, system_id)
+> Summary summary(user_id, system_id)
 
 
 
@@ -1051,10 +1051,10 @@ Returns summary information for the specified system.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response20011 import InlineResponse20011
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.summary import Summary
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1108,7 +1108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**Summary**](Summary.md)
 
 ### Authorization
 
@@ -1133,7 +1133,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **systems**
-> InlineResponse2002 systems(user_id)
+> Systems systems(user_id)
 
 
 
@@ -1146,12 +1146,12 @@ Returns a list of systems for which the user can make API requests. There is a l
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.systems import Systems
 from enlighten.model.connection_type import ConnectionType
-from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.status import Status
-from enlighten.model.inline_response2002 import InlineResponse2002
-from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.server_error import ServerError
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1237,7 +1237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**Systems**](Systems.md)
 
 ### Authorization
 

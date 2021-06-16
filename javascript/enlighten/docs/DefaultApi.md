@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## consumptionLifetime
 
-> InlineResponse2009 consumptionLifetime(userId, systemId, opts)
+> ConsumptionLifetime consumptionLifetime(userId, systemId, opts)
 
 
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**ConsumptionLifetime**](ConsumptionLifetime.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## consumptionStats
 
-> InlineResponse20010 consumptionStats(userId, systemId, opts)
+> ConsumptionStats consumptionStats(userId, systemId, opts)
 
 
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**ConsumptionStats**](ConsumptionStats.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ## energyLifetime
 
-> InlineResponse200 energyLifetime(userId, systemId, opts)
+> EnergyLifetime energyLifetime(userId, systemId, opts)
 
 
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**EnergyLifetime**](EnergyLifetime.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ## envoys
 
-> InlineResponse2001 envoys(userId, systemId)
+> Envoys envoys(userId, systemId)
 
 
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Envoys**](Envoys.md)
 
 ### Authorization
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ## inventory
 
-> InlineResponse2003 inventory(userId, systemId)
+> Inventory inventory(userId, systemId)
 
 
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**Inventory**](Inventory.md)
 
 ### Authorization
 
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ## invertersSummaryByEnvoyOrSite
 
-> InlineResponse2004 invertersSummaryByEnvoyOrSite(userId, siteId)
+> InvertersSummaryByEnvoyOrSite invertersSummaryByEnvoyOrSite(userId, siteId)
 
 
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ## monthlyProduction
 
-> InlineResponse2005 monthlyProduction(userId, systemId, opts)
+> MonthlyProduction monthlyProduction(userId, systemId, opts)
 
 
 
@@ -403,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**MonthlyProduction**](MonthlyProduction.md)
 
 ### Authorization
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ## productionMeterReadings
 
-> InlineResponse2006 productionMeterReadings(userId, systemId, opts)
+> ProductionMeterReadings productionMeterReadings(userId, systemId, opts)
 
 
 
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**ProductionMeterReadings**](ProductionMeterReadings.md)
 
 ### Authorization
 
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ## rgmStats
 
-> InlineResponse2007 rgmStats(userId, systemId, opts)
+> RgmStats rgmStats(userId, systemId, opts)
 
 
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**RgmStats**](RgmStats.md)
 
 ### Authorization
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ## searchSystemId
 
-> InlineResponse20012 searchSystemId(userId, serialNum)
+> SearchSystemId searchSystemId(userId, serialNum)
 
 
 
@@ -572,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**SearchSystemId**](SearchSystemId.md)
 
 ### Authorization
 
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ## stats
 
-> InlineResponse2008 stats(userId, systemId, opts)
+> Stats stats(userId, systemId, opts)
 
 
 
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**Stats**](Stats.md)
 
 ### Authorization
 
@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 
 ## summary
 
-> InlineResponse20011 summary(userId, systemId, opts)
+> Summary summary(userId, systemId, opts)
 
 
 
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**Summary**](Summary.md)
 
 ### Authorization
 
@@ -702,7 +702,7 @@ Name | Type | Description  | Notes
 
 ## systems
 
-> InlineResponse2002 systems(userId, opts)
+> Systems systems(userId, opts)
 
 
 
@@ -769,7 +769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**Systems**](Systems.md)
 
 ### Authorization
 

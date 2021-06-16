@@ -124,7 +124,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2009|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\ConsumptionLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function consumptionLifetime($user_id, $system_id, $start_date = null, $end_date = null)
     {
@@ -142,7 +142,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2009|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ConsumptionLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumptionLifetimeWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null)
     {
@@ -178,80 +178,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2009' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConsumptionLifetime' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2009', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConsumptionLifetime', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2009';
+            $returnType = '\OpenAPI\Client\Model\ConsumptionLifetime';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -269,7 +269,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2009',
+                        '\OpenAPI\Client\Model\ConsumptionLifetime',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -277,7 +277,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -285,7 +285,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -293,7 +293,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -309,7 +309,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -353,7 +353,7 @@ class DefaultApi
      */
     public function consumptionLifetimeAsyncWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2009';
+        $returnType = '\OpenAPI\Client\Model\ConsumptionLifetime';
         $request = $this->consumptionLifetimeRequest($user_id, $system_id, $start_date, $end_date);
 
         return $this->client
@@ -539,7 +539,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20010|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\ConsumptionStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function consumptionStats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -557,7 +557,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20010|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ConsumptionStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumptionStatsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -593,80 +593,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20010' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConsumptionStats' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20010', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConsumptionStats', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20010';
+            $returnType = '\OpenAPI\Client\Model\ConsumptionStats';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -684,7 +684,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20010',
+                        '\OpenAPI\Client\Model\ConsumptionStats',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -692,7 +692,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -700,7 +700,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -708,7 +708,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -716,7 +716,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -724,7 +724,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -768,7 +768,7 @@ class DefaultApi
      */
     public function consumptionStatsAsyncWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20010';
+        $returnType = '\OpenAPI\Client\Model\ConsumptionStats';
         $request = $this->consumptionStatsRequest($user_id, $system_id, $start_at, $end_at);
 
         return $this->client
@@ -955,7 +955,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse200|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\EnergyLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function energyLifetime($user_id, $system_id, $start_date = null, $end_date = null, $production = null)
     {
@@ -974,7 +974,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse200|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\EnergyLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function energyLifetimeWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null, $production = null)
     {
@@ -1010,80 +1010,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\EnergyLifetime' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EnergyLifetime', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse200';
+            $returnType = '\OpenAPI\Client\Model\EnergyLifetime';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1101,7 +1101,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse200',
+                        '\OpenAPI\Client\Model\EnergyLifetime',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1109,7 +1109,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1117,7 +1117,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1125,7 +1125,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1133,7 +1133,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1141,7 +1141,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1187,7 +1187,7 @@ class DefaultApi
      */
     public function energyLifetimeAsyncWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null, $production = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse200';
+        $returnType = '\OpenAPI\Client\Model\EnergyLifetime';
         $request = $this->energyLifetimeRequest($user_id, $system_id, $start_date, $end_date, $production);
 
         return $this->client
@@ -1383,7 +1383,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2001|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\Envoys|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function envoys($user_id, $system_id)
     {
@@ -1399,7 +1399,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2001|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Envoys|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function envoysWithHttpInfo($user_id, $system_id)
     {
@@ -1435,80 +1435,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2001' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Envoys' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Envoys', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2001';
+            $returnType = '\OpenAPI\Client\Model\Envoys';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1526,7 +1526,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2001',
+                        '\OpenAPI\Client\Model\Envoys',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1534,7 +1534,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1542,7 +1542,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1550,7 +1550,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1558,7 +1558,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1566,7 +1566,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1606,7 +1606,7 @@ class DefaultApi
      */
     public function envoysAsyncWithHttpInfo($user_id, $system_id)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2001';
+        $returnType = '\OpenAPI\Client\Model\Envoys';
         $request = $this->envoysRequest($user_id, $system_id);
 
         return $this->client
@@ -1766,7 +1766,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2003|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\Inventory|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function inventory($user_id, $system_id)
     {
@@ -1782,7 +1782,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2003|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Inventory|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function inventoryWithHttpInfo($user_id, $system_id)
     {
@@ -1818,80 +1818,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Inventory' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Inventory', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2003';
+            $returnType = '\OpenAPI\Client\Model\Inventory';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1909,7 +1909,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2003',
+                        '\OpenAPI\Client\Model\Inventory',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1917,7 +1917,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1925,7 +1925,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1933,7 +1933,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1941,7 +1941,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1949,7 +1949,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1989,7 +1989,7 @@ class DefaultApi
      */
     public function inventoryAsyncWithHttpInfo($user_id, $system_id)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2003';
+        $returnType = '\OpenAPI\Client\Model\Inventory';
         $request = $this->inventoryRequest($user_id, $system_id);
 
         return $this->client
@@ -2149,7 +2149,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2004|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function invertersSummaryByEnvoyOrSite($user_id, $site_id)
     {
@@ -2165,7 +2165,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2004|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function invertersSummaryByEnvoyOrSiteWithHttpInfo($user_id, $site_id)
     {
@@ -2201,80 +2201,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2004' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2004', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2004';
+            $returnType = '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2292,7 +2292,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2004',
+                        '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2300,7 +2300,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2308,7 +2308,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2316,7 +2316,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2324,7 +2324,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2332,7 +2332,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2372,7 +2372,7 @@ class DefaultApi
      */
     public function invertersSummaryByEnvoyOrSiteAsyncWithHttpInfo($user_id, $site_id)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2004';
+        $returnType = '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite';
         $request = $this->invertersSummaryByEnvoyOrSiteRequest($user_id, $site_id);
 
         return $this->client
@@ -2536,7 +2536,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2005|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function monthlyProduction($user_id, $system_id, $start_date = null)
     {
@@ -2553,7 +2553,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2005|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function monthlyProductionWithHttpInfo($user_id, $system_id, $start_date = null)
     {
@@ -2589,80 +2589,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2005' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\MonthlyProduction' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2005', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MonthlyProduction', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2005';
+            $returnType = '\OpenAPI\Client\Model\MonthlyProduction';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2680,7 +2680,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2005',
+                        '\OpenAPI\Client\Model\MonthlyProduction',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2688,7 +2688,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2696,7 +2696,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2704,7 +2704,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2712,7 +2712,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2720,7 +2720,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2762,7 +2762,7 @@ class DefaultApi
      */
     public function monthlyProductionAsyncWithHttpInfo($user_id, $system_id, $start_date = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2005';
+        $returnType = '\OpenAPI\Client\Model\MonthlyProduction';
         $request = $this->monthlyProductionRequest($user_id, $system_id, $start_date);
 
         return $this->client
@@ -2935,7 +2935,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2006|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\ProductionMeterReadings|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function productionMeterReadings($user_id, $system_id, $end_at = null)
     {
@@ -2952,7 +2952,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2006|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ProductionMeterReadings|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function productionMeterReadingsWithHttpInfo($user_id, $system_id, $end_at = null)
     {
@@ -2988,80 +2988,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2006' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ProductionMeterReadings' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2006', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ProductionMeterReadings', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2006';
+            $returnType = '\OpenAPI\Client\Model\ProductionMeterReadings';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3079,7 +3079,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2006',
+                        '\OpenAPI\Client\Model\ProductionMeterReadings',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3087,7 +3087,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3095,7 +3095,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3103,7 +3103,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3111,7 +3111,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3119,7 +3119,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3161,7 +3161,7 @@ class DefaultApi
      */
     public function productionMeterReadingsAsyncWithHttpInfo($user_id, $system_id, $end_at = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2006';
+        $returnType = '\OpenAPI\Client\Model\ProductionMeterReadings';
         $request = $this->productionMeterReadingsRequest($user_id, $system_id, $end_at);
 
         return $this->client
@@ -3335,7 +3335,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2007|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\RgmStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function rgmStats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3353,7 +3353,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2007|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RgmStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function rgmStatsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3389,80 +3389,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2007' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\RgmStats' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2007', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RgmStats', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2007';
+            $returnType = '\OpenAPI\Client\Model\RgmStats';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3480,7 +3480,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2007',
+                        '\OpenAPI\Client\Model\RgmStats',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3488,7 +3488,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3496,7 +3496,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3504,7 +3504,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3512,7 +3512,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3520,7 +3520,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3564,7 +3564,7 @@ class DefaultApi
      */
     public function rgmStatsAsyncWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2007';
+        $returnType = '\OpenAPI\Client\Model\RgmStats';
         $request = $this->rgmStatsRequest($user_id, $system_id, $start_at, $end_at);
 
         return $this->client
@@ -3748,7 +3748,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20012|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function searchSystemId($user_id, $serial_num)
     {
@@ -3764,7 +3764,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20012|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchSystemIdWithHttpInfo($user_id, $serial_num)
     {
@@ -3800,80 +3800,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20012' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\SearchSystemId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20012', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SearchSystemId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20012';
+            $returnType = '\OpenAPI\Client\Model\SearchSystemId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3891,7 +3891,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20012',
+                        '\OpenAPI\Client\Model\SearchSystemId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3899,7 +3899,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3907,7 +3907,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3915,7 +3915,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3923,7 +3923,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3931,7 +3931,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3971,7 +3971,7 @@ class DefaultApi
      */
     public function searchSystemIdAsyncWithHttpInfo($user_id, $serial_num)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20012';
+        $returnType = '\OpenAPI\Client\Model\SearchSystemId';
         $request = $this->searchSystemIdRequest($user_id, $serial_num);
 
         return $this->client
@@ -4136,7 +4136,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2008|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\Stats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function stats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -4154,7 +4154,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2008|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Stats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function statsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -4190,80 +4190,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2008' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Stats' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2008', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Stats', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2008';
+            $returnType = '\OpenAPI\Client\Model\Stats';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4281,7 +4281,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2008',
+                        '\OpenAPI\Client\Model\Stats',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4289,7 +4289,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4297,7 +4297,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4305,7 +4305,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4313,7 +4313,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4321,7 +4321,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4365,7 +4365,7 @@ class DefaultApi
      */
     public function statsAsyncWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2008';
+        $returnType = '\OpenAPI\Client\Model\Stats';
         $request = $this->statsRequest($user_id, $system_id, $start_at, $end_at);
 
         return $this->client
@@ -4550,7 +4550,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20011|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\Summary|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function summary($user_id, $system_id, $summary_date = null)
     {
@@ -4567,7 +4567,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20011|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Summary|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function summaryWithHttpInfo($user_id, $system_id, $summary_date = null)
     {
@@ -4603,80 +4603,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20011' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Summary' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20011', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Summary', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20011';
+            $returnType = '\OpenAPI\Client\Model\Summary';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4694,7 +4694,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20011',
+                        '\OpenAPI\Client\Model\Summary',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4702,7 +4702,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4710,7 +4710,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4718,7 +4718,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4726,7 +4726,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4734,7 +4734,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4776,7 +4776,7 @@ class DefaultApi
      */
     public function summaryAsyncWithHttpInfo($user_id, $system_id, $summary_date = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20011';
+        $returnType = '\OpenAPI\Client\Model\Summary';
         $request = $this->summaryRequest($user_id, $system_id, $summary_date);
 
         return $this->client
@@ -4961,7 +4961,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2002|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500
+     * @return \OpenAPI\Client\Model\Systems|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function systems($user_id, $next = null, $limit = 100, $system_id = null, $system_id2 = null, $system_name = null, $system_name2 = null, $status = null, $status2 = null, $reference = null, $reference2 = null, $installer = null, $installer2 = null, $connection_type = null, $connection_type2 = null)
     {
@@ -4990,7 +4990,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2002|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse401|\OpenAPI\Client\Model\InlineResponse500|\OpenAPI\Client\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Systems|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function systemsWithHttpInfo($user_id, $next = null, $limit = 100, $system_id = null, $system_id2 = null, $system_name = null, $system_name2 = null, $status = null, $status2 = null, $reference = null, $reference2 = null, $installer = null, $installer2 = null, $connection_type = null, $connection_type2 = null)
     {
@@ -5026,80 +5026,80 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2002' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Systems' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2002', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Systems', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConflictError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConflictError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\InlineResponse401' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse401', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\OpenAPI\Client\Model\InlineResponse500' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse500', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2002';
+            $returnType = '\OpenAPI\Client\Model\Systems';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5117,7 +5117,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2002',
+                        '\OpenAPI\Client\Model\Systems',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5125,7 +5125,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5133,7 +5133,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse409',
+                        '\OpenAPI\Client\Model\ConflictError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5141,7 +5141,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse401',
+                        '\OpenAPI\Client\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5149,7 +5149,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5157,7 +5157,7 @@ class DefaultApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse500',
+                        '\OpenAPI\Client\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5223,7 +5223,7 @@ class DefaultApi
      */
     public function systemsAsyncWithHttpInfo($user_id, $next = null, $limit = 100, $system_id = null, $system_id2 = null, $system_name = null, $system_name2 = null, $status = null, $status2 = null, $reference = null, $reference2 = null, $installer = null, $installer2 = null, $connection_type = null, $connection_type2 = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2002';
+        $returnType = '\OpenAPI\Client\Model\Systems';
         $request = $this->systemsRequest($user_id, $next, $limit, $system_id, $system_id2, $system_name, $system_name2, $status, $status2, $reference, $reference2, $installer, $installer2, $connection_type, $connection_type2);
 
         return $this->client

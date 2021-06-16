@@ -52,24 +52,24 @@ import time
 import enlighten
 from pprint import pprint
 from enlighten.api import default_api
+from enlighten.model.client_error import ClientError
+from enlighten.model.conflict_error import ConflictError
 from enlighten.model.connection_type import ConnectionType
-from enlighten.model.inline_response200 import InlineResponse200
-from enlighten.model.inline_response2001 import InlineResponse2001
-from enlighten.model.inline_response20010 import InlineResponse20010
-from enlighten.model.inline_response20011 import InlineResponse20011
-from enlighten.model.inline_response20012 import InlineResponse20012
-from enlighten.model.inline_response2002 import InlineResponse2002
-from enlighten.model.inline_response2003 import InlineResponse2003
-from enlighten.model.inline_response2004 import InlineResponse2004
-from enlighten.model.inline_response2005 import InlineResponse2005
-from enlighten.model.inline_response2006 import InlineResponse2006
-from enlighten.model.inline_response2007 import InlineResponse2007
-from enlighten.model.inline_response2008 import InlineResponse2008
-from enlighten.model.inline_response2009 import InlineResponse2009
-from enlighten.model.inline_response401 import InlineResponse401
-from enlighten.model.inline_response409 import InlineResponse409
-from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.consumption_lifetime import ConsumptionLifetime
+from enlighten.model.consumption_stats import ConsumptionStats
+from enlighten.model.energy_lifetime import EnergyLifetime
+from enlighten.model.envoys import Envoys
+from enlighten.model.inventory import Inventory
+from enlighten.model.inverters_summary_by_envoy_or_site import InvertersSummaryByEnvoyOrSite
+from enlighten.model.monthly_production import MonthlyProduction
+from enlighten.model.production_meter_readings import ProductionMeterReadings
+from enlighten.model.rgm_stats import RgmStats
+from enlighten.model.search_system_id import SearchSystemId
+from enlighten.model.server_error import ServerError
+from enlighten.model.stats import Stats
 from enlighten.model.status import Status
+from enlighten.model.summary import Summary
+from enlighten.model.systems import Systems
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = enlighten.Configuration(
@@ -127,38 +127,38 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ClientError](docs/ClientError.md)
+ - [ConflictError](docs/ConflictError.md)
  - [ConnectionType](docs/ConnectionType.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
- - [InlineResponse20010](docs/InlineResponse20010.md)
- - [InlineResponse20010Intervals](docs/InlineResponse20010Intervals.md)
- - [InlineResponse20011](docs/InlineResponse20011.md)
- - [InlineResponse20012](docs/InlineResponse20012.md)
- - [InlineResponse2001Envoys](docs/InlineResponse2001Envoys.md)
- - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse2002Systems](docs/InlineResponse2002Systems.md)
- - [InlineResponse2003](docs/InlineResponse2003.md)
- - [InlineResponse2003Envoys](docs/InlineResponse2003Envoys.md)
- - [InlineResponse2003Meters](docs/InlineResponse2003Meters.md)
- - [InlineResponse2004](docs/InlineResponse2004.md)
- - [InlineResponse2004Energy](docs/InlineResponse2004Energy.md)
- - [InlineResponse2004MicroInverters](docs/InlineResponse2004MicroInverters.md)
- - [InlineResponse2005](docs/InlineResponse2005.md)
- - [InlineResponse2005MeterReadings](docs/InlineResponse2005MeterReadings.md)
- - [InlineResponse2006](docs/InlineResponse2006.md)
- - [InlineResponse2006MeterReadings](docs/InlineResponse2006MeterReadings.md)
- - [InlineResponse2007](docs/InlineResponse2007.md)
- - [InlineResponse2007Intervals](docs/InlineResponse2007Intervals.md)
- - [InlineResponse2007Intervals1](docs/InlineResponse2007Intervals1.md)
- - [InlineResponse2007MeterIntervals](docs/InlineResponse2007MeterIntervals.md)
- - [InlineResponse2008](docs/InlineResponse2008.md)
- - [InlineResponse2008Intervals](docs/InlineResponse2008Intervals.md)
- - [InlineResponse2009](docs/InlineResponse2009.md)
- - [InlineResponse401](docs/InlineResponse401.md)
- - [InlineResponse409](docs/InlineResponse409.md)
- - [InlineResponse500](docs/InlineResponse500.md)
+ - [ConsumptionLifetime](docs/ConsumptionLifetime.md)
+ - [ConsumptionStats](docs/ConsumptionStats.md)
+ - [ConsumptionStatsIntervals](docs/ConsumptionStatsIntervals.md)
+ - [EnergyLifetime](docs/EnergyLifetime.md)
+ - [Envoys](docs/Envoys.md)
+ - [EnvoysEnvoys](docs/EnvoysEnvoys.md)
+ - [Inventory](docs/Inventory.md)
+ - [InventoryEnvoys](docs/InventoryEnvoys.md)
+ - [InventoryMeters](docs/InventoryMeters.md)
+ - [InvertersSummaryByEnvoyOrSite](docs/InvertersSummaryByEnvoyOrSite.md)
+ - [InvertersSummaryByEnvoyOrSiteEnergy](docs/InvertersSummaryByEnvoyOrSiteEnergy.md)
+ - [InvertersSummaryByEnvoyOrSiteMicroInverters](docs/InvertersSummaryByEnvoyOrSiteMicroInverters.md)
  - [Meta](docs/Meta.md)
+ - [MonthlyProduction](docs/MonthlyProduction.md)
+ - [MonthlyProductionMeterReadings](docs/MonthlyProductionMeterReadings.md)
+ - [ProductionMeterReadings](docs/ProductionMeterReadings.md)
+ - [ProductionMeterReadingsMeterReadings](docs/ProductionMeterReadingsMeterReadings.md)
+ - [RgmStats](docs/RgmStats.md)
+ - [RgmStatsIntervals](docs/RgmStatsIntervals.md)
+ - [RgmStatsIntervals1](docs/RgmStatsIntervals1.md)
+ - [RgmStatsMeterIntervals](docs/RgmStatsMeterIntervals.md)
+ - [SearchSystemId](docs/SearchSystemId.md)
+ - [ServerError](docs/ServerError.md)
+ - [Stats](docs/Stats.md)
+ - [StatsIntervals](docs/StatsIntervals.md)
  - [Status](docs/Status.md)
+ - [Summary](docs/Summary.md)
+ - [Systems](docs/Systems.md)
+ - [SystemsSystems](docs/SystemsSystems.md)
 
 
 ## Documentation For Authorization

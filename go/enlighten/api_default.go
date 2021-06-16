@@ -50,7 +50,7 @@ func (r ApiConsumptionLifetimeRequest) EndDate(endDate string) ApiConsumptionLif
 	return r
 }
 
-func (r ApiConsumptionLifetimeRequest) Execute() (InlineResponse2009, *_nethttp.Response, error) {
+func (r ApiConsumptionLifetimeRequest) Execute() (ConsumptionLifetime, *_nethttp.Response, error) {
 	return r.ApiService.ConsumptionLifetimeExecute(r)
 }
 
@@ -76,16 +76,16 @@ func (a *DefaultApiService) ConsumptionLifetime(ctx _context.Context, systemId i
 
 /*
  * Execute executes the request
- * @return InlineResponse2009
+ * @return ConsumptionLifetime
  */
-func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeRequest) (InlineResponse2009, *_nethttp.Response, error) {
+func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeRequest) (ConsumptionLifetime, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2009
+		localVarReturnValue  ConsumptionLifetime
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ConsumptionLifetime")
@@ -164,7 +164,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -174,7 +174,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -184,7 +184,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -194,7 +194,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -204,7 +204,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -249,7 +249,7 @@ func (r ApiConsumptionStatsRequest) EndAt(endAt int32) ApiConsumptionStatsReques
 	return r
 }
 
-func (r ApiConsumptionStatsRequest) Execute() (InlineResponse20010, *_nethttp.Response, error) {
+func (r ApiConsumptionStatsRequest) Execute() (ConsumptionStats, *_nethttp.Response, error) {
 	return r.ApiService.ConsumptionStatsExecute(r)
 }
 
@@ -280,16 +280,16 @@ func (a *DefaultApiService) ConsumptionStats(ctx _context.Context, systemId int3
 
 /*
  * Execute executes the request
- * @return InlineResponse20010
+ * @return ConsumptionStats
  */
-func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest) (InlineResponse20010, *_nethttp.Response, error) {
+func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest) (ConsumptionStats, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20010
+		localVarReturnValue  ConsumptionStats
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ConsumptionStats")
@@ -368,7 +368,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -378,7 +378,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -388,7 +388,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -398,7 +398,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -408,7 +408,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -458,7 +458,7 @@ func (r ApiEnergyLifetimeRequest) Production(production string) ApiEnergyLifetim
 	return r
 }
 
-func (r ApiEnergyLifetimeRequest) Execute() (InlineResponse200, *_nethttp.Response, error) {
+func (r ApiEnergyLifetimeRequest) Execute() (EnergyLifetime, *_nethttp.Response, error) {
 	return r.ApiService.EnergyLifetimeExecute(r)
 }
 
@@ -487,16 +487,16 @@ func (a *DefaultApiService) EnergyLifetime(ctx _context.Context, systemId int32)
 
 /*
  * Execute executes the request
- * @return InlineResponse200
+ * @return EnergyLifetime
  */
-func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (InlineResponse200, *_nethttp.Response, error) {
+func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (EnergyLifetime, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse200
+		localVarReturnValue  EnergyLifetime
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.EnergyLifetime")
@@ -578,7 +578,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (I
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -588,7 +588,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -598,7 +598,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -608,7 +608,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -618,7 +618,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -653,7 +653,7 @@ func (r ApiEnvoysRequest) UserId(userId string) ApiEnvoysRequest {
 	return r
 }
 
-func (r ApiEnvoysRequest) Execute() (InlineResponse2001, *_nethttp.Response, error) {
+func (r ApiEnvoysRequest) Execute() (Envoys, *_nethttp.Response, error) {
 	return r.ApiService.EnvoysExecute(r)
 }
 
@@ -674,16 +674,16 @@ func (a *DefaultApiService) Envoys(ctx _context.Context, systemId int32) ApiEnvo
 
 /*
  * Execute executes the request
- * @return InlineResponse2001
+ * @return Envoys
  */
-func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (InlineResponse2001, *_nethttp.Response, error) {
+func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (Envoys, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2001
+		localVarReturnValue  Envoys
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Envoys")
@@ -756,7 +756,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (InlineResponse200
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -766,7 +766,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (InlineResponse200
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -776,7 +776,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (InlineResponse200
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -786,7 +786,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (InlineResponse200
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -796,7 +796,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (InlineResponse200
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -831,7 +831,7 @@ func (r ApiInventoryRequest) UserId(userId string) ApiInventoryRequest {
 	return r
 }
 
-func (r ApiInventoryRequest) Execute() (InlineResponse2003, *_nethttp.Response, error) {
+func (r ApiInventoryRequest) Execute() (Inventory, *_nethttp.Response, error) {
 	return r.ApiService.InventoryExecute(r)
 }
 
@@ -853,16 +853,16 @@ func (a *DefaultApiService) Inventory(ctx _context.Context, systemId int32) ApiI
 
 /*
  * Execute executes the request
- * @return InlineResponse2003
+ * @return Inventory
  */
-func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InlineResponse2003, *_nethttp.Response, error) {
+func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (Inventory, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2003
+		localVarReturnValue  Inventory
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Inventory")
@@ -935,7 +935,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InlineRespo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -945,7 +945,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InlineRespo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -955,7 +955,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InlineRespo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -965,7 +965,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InlineRespo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -975,7 +975,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InlineRespo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1014,7 +1014,7 @@ func (r ApiInvertersSummaryByEnvoyOrSiteRequest) SiteId(siteId int32) ApiInverte
 	return r
 }
 
-func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() (InlineResponse2004, *_nethttp.Response, error) {
+func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() (InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
 	return r.ApiService.InvertersSummaryByEnvoyOrSiteExecute(r)
 }
 
@@ -1033,16 +1033,16 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSite(ctx _context.Context) 
 
 /*
  * Execute executes the request
- * @return InlineResponse2004
+ * @return InvertersSummaryByEnvoyOrSite
  */
-func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) (InlineResponse2004, *_nethttp.Response, error) {
+func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) (InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2004
+		localVarReturnValue  InvertersSummaryByEnvoyOrSite
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.InvertersSummaryByEnvoyOrSite")
@@ -1118,7 +1118,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1128,7 +1128,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1138,7 +1138,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1148,7 +1148,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1158,7 +1158,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1198,7 +1198,7 @@ func (r ApiMonthlyProductionRequest) StartDate(startDate string) ApiMonthlyProdu
 	return r
 }
 
-func (r ApiMonthlyProductionRequest) Execute() (InlineResponse2005, *_nethttp.Response, error) {
+func (r ApiMonthlyProductionRequest) Execute() (MonthlyProduction, *_nethttp.Response, error) {
 	return r.ApiService.MonthlyProductionExecute(r)
 }
 
@@ -1224,16 +1224,16 @@ func (a *DefaultApiService) MonthlyProduction(ctx _context.Context, systemId int
 
 /*
  * Execute executes the request
- * @return InlineResponse2005
+ * @return MonthlyProduction
  */
-func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionRequest) (InlineResponse2005, *_nethttp.Response, error) {
+func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionRequest) (MonthlyProduction, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2005
+		localVarReturnValue  MonthlyProduction
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.MonthlyProduction")
@@ -1309,7 +1309,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1319,7 +1319,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1329,7 +1329,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1339,7 +1339,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1349,7 +1349,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1389,7 +1389,7 @@ func (r ApiProductionMeterReadingsRequest) EndAt(endAt int32) ApiProductionMeter
 	return r
 }
 
-func (r ApiProductionMeterReadingsRequest) Execute() (InlineResponse2006, *_nethttp.Response, error) {
+func (r ApiProductionMeterReadingsRequest) Execute() (ProductionMeterReadings, *_nethttp.Response, error) {
 	return r.ApiService.ProductionMeterReadingsExecute(r)
 }
 
@@ -1415,16 +1415,16 @@ func (a *DefaultApiService) ProductionMeterReadings(ctx _context.Context, system
 
 /*
  * Execute executes the request
- * @return InlineResponse2006
+ * @return ProductionMeterReadings
  */
-func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterReadingsRequest) (InlineResponse2006, *_nethttp.Response, error) {
+func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterReadingsRequest) (ProductionMeterReadings, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2006
+		localVarReturnValue  ProductionMeterReadings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ProductionMeterReadings")
@@ -1500,7 +1500,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1510,7 +1510,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1520,7 +1520,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1530,7 +1530,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1540,7 +1540,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1585,7 +1585,7 @@ func (r ApiRgmStatsRequest) EndAt(endAt int32) ApiRgmStatsRequest {
 	return r
 }
 
-func (r ApiRgmStatsRequest) Execute() (InlineResponse2007, *_nethttp.Response, error) {
+func (r ApiRgmStatsRequest) Execute() (RgmStats, *_nethttp.Response, error) {
 	return r.ApiService.RgmStatsExecute(r)
 }
 
@@ -1614,16 +1614,16 @@ func (a *DefaultApiService) RgmStats(ctx _context.Context, systemId int32) ApiRg
 
 /*
  * Execute executes the request
- * @return InlineResponse2007
+ * @return RgmStats
  */
-func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (InlineResponse2007, *_nethttp.Response, error) {
+func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStats, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2007
+		localVarReturnValue  RgmStats
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.RgmStats")
@@ -1702,7 +1702,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (InlineRespons
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1712,7 +1712,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (InlineRespons
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1722,7 +1722,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (InlineRespons
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1732,7 +1732,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (InlineRespons
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1742,7 +1742,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (InlineRespons
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1781,7 +1781,7 @@ func (r ApiSearchSystemIdRequest) SerialNum(serialNum string) ApiSearchSystemIdR
 	return r
 }
 
-func (r ApiSearchSystemIdRequest) Execute() (InlineResponse20012, *_nethttp.Response, error) {
+func (r ApiSearchSystemIdRequest) Execute() (SearchSystemId, *_nethttp.Response, error) {
 	return r.ApiService.SearchSystemIdExecute(r)
 }
 
@@ -1800,16 +1800,16 @@ func (a *DefaultApiService) SearchSystemId(ctx _context.Context) ApiSearchSystem
 
 /*
  * Execute executes the request
- * @return InlineResponse20012
+ * @return SearchSystemId
  */
-func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (InlineResponse20012, *_nethttp.Response, error) {
+func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (SearchSystemId, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20012
+		localVarReturnValue  SearchSystemId
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SearchSystemId")
@@ -1885,7 +1885,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (I
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1895,7 +1895,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1905,7 +1905,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1915,7 +1915,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1925,7 +1925,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (I
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1970,7 +1970,7 @@ func (r ApiStatsRequest) EndAt(endAt int32) ApiStatsRequest {
 	return r
 }
 
-func (r ApiStatsRequest) Execute() (InlineResponse2008, *_nethttp.Response, error) {
+func (r ApiStatsRequest) Execute() (Stats, *_nethttp.Response, error) {
 	return r.ApiService.StatsExecute(r)
 }
 
@@ -2004,16 +2004,16 @@ func (a *DefaultApiService) Stats(ctx _context.Context, systemId int32) ApiStats
 
 /*
  * Execute executes the request
- * @return InlineResponse2008
+ * @return Stats
  */
-func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (InlineResponse2008, *_nethttp.Response, error) {
+func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (Stats, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2008
+		localVarReturnValue  Stats
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Stats")
@@ -2092,7 +2092,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (InlineResponse2008,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2102,7 +2102,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (InlineResponse2008,
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2112,7 +2112,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (InlineResponse2008,
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2122,7 +2122,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (InlineResponse2008,
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2132,7 +2132,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (InlineResponse2008,
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2172,7 +2172,7 @@ func (r ApiSummaryRequest) SummaryDate(summaryDate string) ApiSummaryRequest {
 	return r
 }
 
-func (r ApiSummaryRequest) Execute() (InlineResponse20011, *_nethttp.Response, error) {
+func (r ApiSummaryRequest) Execute() (Summary, *_nethttp.Response, error) {
 	return r.ApiService.SummaryExecute(r)
 }
 
@@ -2193,16 +2193,16 @@ func (a *DefaultApiService) Summary(ctx _context.Context, systemId int32) ApiSum
 
 /*
  * Execute executes the request
- * @return InlineResponse20011
+ * @return Summary
  */
-func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (InlineResponse20011, *_nethttp.Response, error) {
+func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (Summary, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20011
+		localVarReturnValue  Summary
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Summary")
@@ -2278,7 +2278,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (InlineResponse2
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2288,7 +2288,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2298,7 +2298,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2308,7 +2308,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2318,7 +2318,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2422,7 +2422,7 @@ func (r ApiSystemsRequest) ConnectionType2(connectionType2 []ConnectionType) Api
 	return r
 }
 
-func (r ApiSystemsRequest) Execute() (InlineResponse2002, *_nethttp.Response, error) {
+func (r ApiSystemsRequest) Execute() (Systems, *_nethttp.Response, error) {
 	return r.ApiService.SystemsExecute(r)
 }
 
@@ -2442,16 +2442,16 @@ func (a *DefaultApiService) Systems(ctx _context.Context) ApiSystemsRequest {
 
 /*
  * Execute executes the request
- * @return InlineResponse2002
+ * @return Systems
  */
-func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (InlineResponse2002, *_nethttp.Response, error) {
+func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (Systems, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2002
+		localVarReturnValue  Systems
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Systems")
@@ -2613,7 +2613,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (InlineResponse2
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2623,7 +2623,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v ConflictError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2633,7 +2633,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse401
+			var v ClientError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2643,7 +2643,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2653,7 +2653,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (InlineResponse2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v InlineResponse500
+			var v ServerError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

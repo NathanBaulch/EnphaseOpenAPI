@@ -88,7 +88,7 @@ namespace Example
 
             try
             {
-                InlineResponse2009 result = apiInstance.ConsumptionLifetime(userId, systemId, startDate, endDate);
+                ConsumptionLifetime result = apiInstance.ConsumptionLifetime(userId, systemId, startDate, endDate);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -128,38 +128,38 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.ClientError](docs/ClientError.md)
+ - [Model.ConflictError](docs/ConflictError.md)
  - [Model.ConnectionType](docs/ConnectionType.md)
- - [Model.InlineResponse200](docs/InlineResponse200.md)
- - [Model.InlineResponse2001](docs/InlineResponse2001.md)
- - [Model.InlineResponse20010](docs/InlineResponse20010.md)
- - [Model.InlineResponse20010Intervals](docs/InlineResponse20010Intervals.md)
- - [Model.InlineResponse20011](docs/InlineResponse20011.md)
- - [Model.InlineResponse20012](docs/InlineResponse20012.md)
- - [Model.InlineResponse2001Envoys](docs/InlineResponse2001Envoys.md)
- - [Model.InlineResponse2002](docs/InlineResponse2002.md)
- - [Model.InlineResponse2002Systems](docs/InlineResponse2002Systems.md)
- - [Model.InlineResponse2003](docs/InlineResponse2003.md)
- - [Model.InlineResponse2003Envoys](docs/InlineResponse2003Envoys.md)
- - [Model.InlineResponse2003Meters](docs/InlineResponse2003Meters.md)
- - [Model.InlineResponse2004](docs/InlineResponse2004.md)
- - [Model.InlineResponse2004Energy](docs/InlineResponse2004Energy.md)
- - [Model.InlineResponse2004MicroInverters](docs/InlineResponse2004MicroInverters.md)
- - [Model.InlineResponse2005](docs/InlineResponse2005.md)
- - [Model.InlineResponse2005MeterReadings](docs/InlineResponse2005MeterReadings.md)
- - [Model.InlineResponse2006](docs/InlineResponse2006.md)
- - [Model.InlineResponse2006MeterReadings](docs/InlineResponse2006MeterReadings.md)
- - [Model.InlineResponse2007](docs/InlineResponse2007.md)
- - [Model.InlineResponse2007Intervals](docs/InlineResponse2007Intervals.md)
- - [Model.InlineResponse2007Intervals1](docs/InlineResponse2007Intervals1.md)
- - [Model.InlineResponse2007MeterIntervals](docs/InlineResponse2007MeterIntervals.md)
- - [Model.InlineResponse2008](docs/InlineResponse2008.md)
- - [Model.InlineResponse2008Intervals](docs/InlineResponse2008Intervals.md)
- - [Model.InlineResponse2009](docs/InlineResponse2009.md)
- - [Model.InlineResponse401](docs/InlineResponse401.md)
- - [Model.InlineResponse409](docs/InlineResponse409.md)
- - [Model.InlineResponse500](docs/InlineResponse500.md)
+ - [Model.ConsumptionLifetime](docs/ConsumptionLifetime.md)
+ - [Model.ConsumptionStats](docs/ConsumptionStats.md)
+ - [Model.ConsumptionStatsIntervals](docs/ConsumptionStatsIntervals.md)
+ - [Model.EnergyLifetime](docs/EnergyLifetime.md)
+ - [Model.Envoys](docs/Envoys.md)
+ - [Model.EnvoysEnvoys](docs/EnvoysEnvoys.md)
+ - [Model.Inventory](docs/Inventory.md)
+ - [Model.InventoryEnvoys](docs/InventoryEnvoys.md)
+ - [Model.InventoryMeters](docs/InventoryMeters.md)
+ - [Model.InvertersSummaryByEnvoyOrSite](docs/InvertersSummaryByEnvoyOrSite.md)
+ - [Model.InvertersSummaryByEnvoyOrSiteEnergy](docs/InvertersSummaryByEnvoyOrSiteEnergy.md)
+ - [Model.InvertersSummaryByEnvoyOrSiteMicroInverters](docs/InvertersSummaryByEnvoyOrSiteMicroInverters.md)
  - [Model.Meta](docs/Meta.md)
+ - [Model.MonthlyProduction](docs/MonthlyProduction.md)
+ - [Model.MonthlyProductionMeterReadings](docs/MonthlyProductionMeterReadings.md)
+ - [Model.ProductionMeterReadings](docs/ProductionMeterReadings.md)
+ - [Model.ProductionMeterReadingsMeterReadings](docs/ProductionMeterReadingsMeterReadings.md)
+ - [Model.RgmStats](docs/RgmStats.md)
+ - [Model.RgmStatsIntervals](docs/RgmStatsIntervals.md)
+ - [Model.RgmStatsIntervals1](docs/RgmStatsIntervals1.md)
+ - [Model.RgmStatsMeterIntervals](docs/RgmStatsMeterIntervals.md)
+ - [Model.SearchSystemId](docs/SearchSystemId.md)
+ - [Model.ServerError](docs/ServerError.md)
+ - [Model.Stats](docs/Stats.md)
+ - [Model.StatsIntervals](docs/StatsIntervals.md)
  - [Model.Status](docs/Status.md)
+ - [Model.Summary](docs/Summary.md)
+ - [Model.Systems](docs/Systems.md)
+ - [Model.SystemsSystems](docs/SystemsSystems.md)
 
 
 <a name="documentation-for-authorization"></a>

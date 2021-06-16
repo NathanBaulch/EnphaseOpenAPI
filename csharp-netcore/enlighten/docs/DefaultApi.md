@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 <a name="consumptionlifetime"></a>
 # **ConsumptionLifetime**
-> InlineResponse2009 ConsumptionLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null)
+> ConsumptionLifetime ConsumptionLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null)
 
 
 
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                InlineResponse2009 result = apiInstance.ConsumptionLifetime(userId, systemId, startDate, endDate);
+                ConsumptionLifetime result = apiInstance.ConsumptionLifetime(userId, systemId, startDate, endDate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**ConsumptionLifetime**](ConsumptionLifetime.md)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 <a name="consumptionstats"></a>
 # **ConsumptionStats**
-> InlineResponse20010 ConsumptionStats (string userId, int systemId, int? startAt = null, int? endAt = null)
+> ConsumptionStats ConsumptionStats (string userId, int systemId, int? startAt = null, int? endAt = null)
 
 
 
@@ -142,7 +142,7 @@ namespace Example
 
             try
             {
-                InlineResponse20010 result = apiInstance.ConsumptionStats(userId, systemId, startAt, endAt);
+                ConsumptionStats result = apiInstance.ConsumptionStats(userId, systemId, startAt, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**ConsumptionStats**](ConsumptionStats.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 <a name="energylifetime"></a>
 # **EnergyLifetime**
-> InlineResponse200 EnergyLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null, string production = null)
+> EnergyLifetime EnergyLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null, string production = null)
 
 
 
@@ -229,7 +229,7 @@ namespace Example
 
             try
             {
-                InlineResponse200 result = apiInstance.EnergyLifetime(userId, systemId, startDate, endDate, production);
+                EnergyLifetime result = apiInstance.EnergyLifetime(userId, systemId, startDate, endDate, production);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**EnergyLifetime**](EnergyLifetime.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 <a name="envoys"></a>
 # **Envoys**
-> InlineResponse2001 Envoys (string userId, int systemId)
+> Envoys Envoys (string userId, int systemId)
 
 
 
@@ -315,7 +315,7 @@ namespace Example
 
             try
             {
-                InlineResponse2001 result = apiInstance.Envoys(userId, systemId);
+                Envoys result = apiInstance.Envoys(userId, systemId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Envoys**](Envoys.md)
 
 ### Authorization
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 <a name="inventory"></a>
 # **Inventory**
-> InlineResponse2003 Inventory (string userId, int systemId)
+> Inventory Inventory (string userId, int systemId)
 
 
 
@@ -397,7 +397,7 @@ namespace Example
 
             try
             {
-                InlineResponse2003 result = apiInstance.Inventory(userId, systemId);
+                Inventory result = apiInstance.Inventory(userId, systemId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**Inventory**](Inventory.md)
 
 ### Authorization
 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 <a name="inverterssummarybyenvoyorsite"></a>
 # **InvertersSummaryByEnvoyOrSite**
-> InlineResponse2004 InvertersSummaryByEnvoyOrSite (string userId, int siteId)
+> InvertersSummaryByEnvoyOrSite InvertersSummaryByEnvoyOrSite (string userId, int siteId)
 
 
 
@@ -479,7 +479,7 @@ namespace Example
 
             try
             {
-                InlineResponse2004 result = apiInstance.InvertersSummaryByEnvoyOrSite(userId, siteId);
+                InvertersSummaryByEnvoyOrSite result = apiInstance.InvertersSummaryByEnvoyOrSite(userId, siteId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 <a name="monthlyproduction"></a>
 # **MonthlyProduction**
-> InlineResponse2005 MonthlyProduction (string userId, int systemId, DateTime? startDate = null)
+> MonthlyProduction MonthlyProduction (string userId, int systemId, DateTime? startDate = null)
 
 
 
@@ -562,7 +562,7 @@ namespace Example
 
             try
             {
-                InlineResponse2005 result = apiInstance.MonthlyProduction(userId, systemId, startDate);
+                MonthlyProduction result = apiInstance.MonthlyProduction(userId, systemId, startDate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**MonthlyProduction**](MonthlyProduction.md)
 
 ### Authorization
 
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 <a name="productionmeterreadings"></a>
 # **ProductionMeterReadings**
-> InlineResponse2006 ProductionMeterReadings (string userId, int systemId, int? endAt = null)
+> ProductionMeterReadings ProductionMeterReadings (string userId, int systemId, int? endAt = null)
 
 
 
@@ -646,7 +646,7 @@ namespace Example
 
             try
             {
-                InlineResponse2006 result = apiInstance.ProductionMeterReadings(userId, systemId, endAt);
+                ProductionMeterReadings result = apiInstance.ProductionMeterReadings(userId, systemId, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**ProductionMeterReadings**](ProductionMeterReadings.md)
 
 ### Authorization
 
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 
 <a name="rgmstats"></a>
 # **RgmStats**
-> InlineResponse2007 RgmStats (string userId, int systemId, int? startAt = null, int? endAt = null)
+> RgmStats RgmStats (string userId, int systemId, int? startAt = null, int? endAt = null)
 
 
 
@@ -731,7 +731,7 @@ namespace Example
 
             try
             {
-                InlineResponse2007 result = apiInstance.RgmStats(userId, systemId, startAt, endAt);
+                RgmStats result = apiInstance.RgmStats(userId, systemId, startAt, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -756,7 +756,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**RgmStats**](RgmStats.md)
 
 ### Authorization
 
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 <a name="searchsystemid"></a>
 # **SearchSystemId**
-> InlineResponse20012 SearchSystemId (string userId, string serialNum)
+> SearchSystemId SearchSystemId (string userId, string serialNum)
 
 
 
@@ -815,7 +815,7 @@ namespace Example
 
             try
             {
-                InlineResponse20012 result = apiInstance.SearchSystemId(userId, serialNum);
+                SearchSystemId result = apiInstance.SearchSystemId(userId, serialNum);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -838,7 +838,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**SearchSystemId**](SearchSystemId.md)
 
 ### Authorization
 
@@ -864,7 +864,7 @@ Name | Type | Description  | Notes
 
 <a name="stats"></a>
 # **Stats**
-> InlineResponse2008 Stats (string userId, int systemId, int? startAt = null, int? endAt = null)
+> Stats Stats (string userId, int systemId, int? startAt = null, int? endAt = null)
 
 
 
@@ -899,7 +899,7 @@ namespace Example
 
             try
             {
-                InlineResponse2008 result = apiInstance.Stats(userId, systemId, startAt, endAt);
+                Stats result = apiInstance.Stats(userId, systemId, startAt, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -924,7 +924,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**Stats**](Stats.md)
 
 ### Authorization
 
@@ -950,7 +950,7 @@ Name | Type | Description  | Notes
 
 <a name="summary"></a>
 # **Summary**
-> InlineResponse20011 Summary (string userId, int systemId, DateTime? summaryDate = null)
+> Summary Summary (string userId, int systemId, DateTime? summaryDate = null)
 
 
 
@@ -984,7 +984,7 @@ namespace Example
 
             try
             {
-                InlineResponse20011 result = apiInstance.Summary(userId, systemId, summaryDate);
+                Summary result = apiInstance.Summary(userId, systemId, summaryDate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1008,7 +1008,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**Summary**](Summary.md)
 
 ### Authorization
 
@@ -1034,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="systems"></a>
 # **Systems**
-> InlineResponse2002 Systems (string userId, string next = null, int? limit = null, int? systemId = null, List<int> systemId2 = null, string systemName = null, List<string> systemName2 = null, Status? status = null, List<Status> status2 = null, string reference = null, List<string> reference2 = null, string installer = null, List<string> installer2 = null, ConnectionType? connectionType = null, List<ConnectionType> connectionType2 = null)
+> Systems Systems (string userId, string next = null, int? limit = null, int? systemId = null, List<int> systemId2 = null, string systemName = null, List<string> systemName2 = null, Status? status = null, List<Status> status2 = null, string reference = null, List<string> reference2 = null, string installer = null, List<string> installer2 = null, ConnectionType? connectionType = null, List<ConnectionType> connectionType2 = null)
 
 
 
@@ -1080,7 +1080,7 @@ namespace Example
 
             try
             {
-                InlineResponse2002 result = apiInstance.Systems(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2);
+                Systems result = apiInstance.Systems(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1116,7 +1116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**Systems**](Systems.md)
 
 ### Authorization
 

@@ -13,38 +13,38 @@
 
 
 import ApiClient from './ApiClient';
+import ClientError from './model/ClientError';
+import ConflictError from './model/ConflictError';
 import ConnectionType from './model/ConnectionType';
-import InlineResponse200 from './model/InlineResponse200';
-import InlineResponse2001 from './model/InlineResponse2001';
-import InlineResponse20010 from './model/InlineResponse20010';
-import InlineResponse20010Intervals from './model/InlineResponse20010Intervals';
-import InlineResponse20011 from './model/InlineResponse20011';
-import InlineResponse20012 from './model/InlineResponse20012';
-import InlineResponse2001Envoys from './model/InlineResponse2001Envoys';
-import InlineResponse2002 from './model/InlineResponse2002';
-import InlineResponse2002Systems from './model/InlineResponse2002Systems';
-import InlineResponse2003 from './model/InlineResponse2003';
-import InlineResponse2003Envoys from './model/InlineResponse2003Envoys';
-import InlineResponse2003Meters from './model/InlineResponse2003Meters';
-import InlineResponse2004 from './model/InlineResponse2004';
-import InlineResponse2004Energy from './model/InlineResponse2004Energy';
-import InlineResponse2004MicroInverters from './model/InlineResponse2004MicroInverters';
-import InlineResponse2005 from './model/InlineResponse2005';
-import InlineResponse2005MeterReadings from './model/InlineResponse2005MeterReadings';
-import InlineResponse2006 from './model/InlineResponse2006';
-import InlineResponse2006MeterReadings from './model/InlineResponse2006MeterReadings';
-import InlineResponse2007 from './model/InlineResponse2007';
-import InlineResponse2007Intervals from './model/InlineResponse2007Intervals';
-import InlineResponse2007Intervals1 from './model/InlineResponse2007Intervals1';
-import InlineResponse2007MeterIntervals from './model/InlineResponse2007MeterIntervals';
-import InlineResponse2008 from './model/InlineResponse2008';
-import InlineResponse2008Intervals from './model/InlineResponse2008Intervals';
-import InlineResponse2009 from './model/InlineResponse2009';
-import InlineResponse401 from './model/InlineResponse401';
-import InlineResponse409 from './model/InlineResponse409';
-import InlineResponse500 from './model/InlineResponse500';
+import ConsumptionLifetime from './model/ConsumptionLifetime';
+import ConsumptionStats from './model/ConsumptionStats';
+import ConsumptionStatsIntervals from './model/ConsumptionStatsIntervals';
+import EnergyLifetime from './model/EnergyLifetime';
+import Envoys from './model/Envoys';
+import EnvoysEnvoys from './model/EnvoysEnvoys';
+import Inventory from './model/Inventory';
+import InventoryEnvoys from './model/InventoryEnvoys';
+import InventoryMeters from './model/InventoryMeters';
+import InvertersSummaryByEnvoyOrSite from './model/InvertersSummaryByEnvoyOrSite';
+import InvertersSummaryByEnvoyOrSiteEnergy from './model/InvertersSummaryByEnvoyOrSiteEnergy';
+import InvertersSummaryByEnvoyOrSiteMicroInverters from './model/InvertersSummaryByEnvoyOrSiteMicroInverters';
 import Meta from './model/Meta';
+import MonthlyProduction from './model/MonthlyProduction';
+import MonthlyProductionMeterReadings from './model/MonthlyProductionMeterReadings';
+import ProductionMeterReadings from './model/ProductionMeterReadings';
+import ProductionMeterReadingsMeterReadings from './model/ProductionMeterReadingsMeterReadings';
+import RgmStats from './model/RgmStats';
+import RgmStatsIntervals from './model/RgmStatsIntervals';
+import RgmStatsIntervals1 from './model/RgmStatsIntervals1';
+import RgmStatsMeterIntervals from './model/RgmStatsMeterIntervals';
+import SearchSystemId from './model/SearchSystemId';
+import ServerError from './model/ServerError';
+import Stats from './model/Stats';
+import StatsIntervals from './model/StatsIntervals';
 import Status from './model/Status';
+import Summary from './model/Summary';
+import Systems from './model/Systems';
+import SystemsSystems from './model/SystemsSystems';
 import DefaultApi from './api/DefaultApi';
 
 
@@ -87,184 +87,94 @@ export {
     ApiClient,
 
     /**
+     * The ClientError model constructor.
+     * @property {module:model/ClientError}
+     */
+    ClientError,
+
+    /**
+     * The ConflictError model constructor.
+     * @property {module:model/ConflictError}
+     */
+    ConflictError,
+
+    /**
      * The ConnectionType model constructor.
      * @property {module:model/ConnectionType}
      */
     ConnectionType,
 
     /**
-     * The InlineResponse200 model constructor.
-     * @property {module:model/InlineResponse200}
+     * The ConsumptionLifetime model constructor.
+     * @property {module:model/ConsumptionLifetime}
      */
-    InlineResponse200,
+    ConsumptionLifetime,
 
     /**
-     * The InlineResponse2001 model constructor.
-     * @property {module:model/InlineResponse2001}
+     * The ConsumptionStats model constructor.
+     * @property {module:model/ConsumptionStats}
      */
-    InlineResponse2001,
+    ConsumptionStats,
 
     /**
-     * The InlineResponse20010 model constructor.
-     * @property {module:model/InlineResponse20010}
+     * The ConsumptionStatsIntervals model constructor.
+     * @property {module:model/ConsumptionStatsIntervals}
      */
-    InlineResponse20010,
+    ConsumptionStatsIntervals,
 
     /**
-     * The InlineResponse20010Intervals model constructor.
-     * @property {module:model/InlineResponse20010Intervals}
+     * The EnergyLifetime model constructor.
+     * @property {module:model/EnergyLifetime}
      */
-    InlineResponse20010Intervals,
+    EnergyLifetime,
 
     /**
-     * The InlineResponse20011 model constructor.
-     * @property {module:model/InlineResponse20011}
+     * The Envoys model constructor.
+     * @property {module:model/Envoys}
      */
-    InlineResponse20011,
+    Envoys,
 
     /**
-     * The InlineResponse20012 model constructor.
-     * @property {module:model/InlineResponse20012}
+     * The EnvoysEnvoys model constructor.
+     * @property {module:model/EnvoysEnvoys}
      */
-    InlineResponse20012,
+    EnvoysEnvoys,
 
     /**
-     * The InlineResponse2001Envoys model constructor.
-     * @property {module:model/InlineResponse2001Envoys}
+     * The Inventory model constructor.
+     * @property {module:model/Inventory}
      */
-    InlineResponse2001Envoys,
+    Inventory,
 
     /**
-     * The InlineResponse2002 model constructor.
-     * @property {module:model/InlineResponse2002}
+     * The InventoryEnvoys model constructor.
+     * @property {module:model/InventoryEnvoys}
      */
-    InlineResponse2002,
+    InventoryEnvoys,
 
     /**
-     * The InlineResponse2002Systems model constructor.
-     * @property {module:model/InlineResponse2002Systems}
+     * The InventoryMeters model constructor.
+     * @property {module:model/InventoryMeters}
      */
-    InlineResponse2002Systems,
+    InventoryMeters,
 
     /**
-     * The InlineResponse2003 model constructor.
-     * @property {module:model/InlineResponse2003}
+     * The InvertersSummaryByEnvoyOrSite model constructor.
+     * @property {module:model/InvertersSummaryByEnvoyOrSite}
      */
-    InlineResponse2003,
+    InvertersSummaryByEnvoyOrSite,
 
     /**
-     * The InlineResponse2003Envoys model constructor.
-     * @property {module:model/InlineResponse2003Envoys}
+     * The InvertersSummaryByEnvoyOrSiteEnergy model constructor.
+     * @property {module:model/InvertersSummaryByEnvoyOrSiteEnergy}
      */
-    InlineResponse2003Envoys,
+    InvertersSummaryByEnvoyOrSiteEnergy,
 
     /**
-     * The InlineResponse2003Meters model constructor.
-     * @property {module:model/InlineResponse2003Meters}
+     * The InvertersSummaryByEnvoyOrSiteMicroInverters model constructor.
+     * @property {module:model/InvertersSummaryByEnvoyOrSiteMicroInverters}
      */
-    InlineResponse2003Meters,
-
-    /**
-     * The InlineResponse2004 model constructor.
-     * @property {module:model/InlineResponse2004}
-     */
-    InlineResponse2004,
-
-    /**
-     * The InlineResponse2004Energy model constructor.
-     * @property {module:model/InlineResponse2004Energy}
-     */
-    InlineResponse2004Energy,
-
-    /**
-     * The InlineResponse2004MicroInverters model constructor.
-     * @property {module:model/InlineResponse2004MicroInverters}
-     */
-    InlineResponse2004MicroInverters,
-
-    /**
-     * The InlineResponse2005 model constructor.
-     * @property {module:model/InlineResponse2005}
-     */
-    InlineResponse2005,
-
-    /**
-     * The InlineResponse2005MeterReadings model constructor.
-     * @property {module:model/InlineResponse2005MeterReadings}
-     */
-    InlineResponse2005MeterReadings,
-
-    /**
-     * The InlineResponse2006 model constructor.
-     * @property {module:model/InlineResponse2006}
-     */
-    InlineResponse2006,
-
-    /**
-     * The InlineResponse2006MeterReadings model constructor.
-     * @property {module:model/InlineResponse2006MeterReadings}
-     */
-    InlineResponse2006MeterReadings,
-
-    /**
-     * The InlineResponse2007 model constructor.
-     * @property {module:model/InlineResponse2007}
-     */
-    InlineResponse2007,
-
-    /**
-     * The InlineResponse2007Intervals model constructor.
-     * @property {module:model/InlineResponse2007Intervals}
-     */
-    InlineResponse2007Intervals,
-
-    /**
-     * The InlineResponse2007Intervals1 model constructor.
-     * @property {module:model/InlineResponse2007Intervals1}
-     */
-    InlineResponse2007Intervals1,
-
-    /**
-     * The InlineResponse2007MeterIntervals model constructor.
-     * @property {module:model/InlineResponse2007MeterIntervals}
-     */
-    InlineResponse2007MeterIntervals,
-
-    /**
-     * The InlineResponse2008 model constructor.
-     * @property {module:model/InlineResponse2008}
-     */
-    InlineResponse2008,
-
-    /**
-     * The InlineResponse2008Intervals model constructor.
-     * @property {module:model/InlineResponse2008Intervals}
-     */
-    InlineResponse2008Intervals,
-
-    /**
-     * The InlineResponse2009 model constructor.
-     * @property {module:model/InlineResponse2009}
-     */
-    InlineResponse2009,
-
-    /**
-     * The InlineResponse401 model constructor.
-     * @property {module:model/InlineResponse401}
-     */
-    InlineResponse401,
-
-    /**
-     * The InlineResponse409 model constructor.
-     * @property {module:model/InlineResponse409}
-     */
-    InlineResponse409,
-
-    /**
-     * The InlineResponse500 model constructor.
-     * @property {module:model/InlineResponse500}
-     */
-    InlineResponse500,
+    InvertersSummaryByEnvoyOrSiteMicroInverters,
 
     /**
      * The Meta model constructor.
@@ -273,10 +183,100 @@ export {
     Meta,
 
     /**
+     * The MonthlyProduction model constructor.
+     * @property {module:model/MonthlyProduction}
+     */
+    MonthlyProduction,
+
+    /**
+     * The MonthlyProductionMeterReadings model constructor.
+     * @property {module:model/MonthlyProductionMeterReadings}
+     */
+    MonthlyProductionMeterReadings,
+
+    /**
+     * The ProductionMeterReadings model constructor.
+     * @property {module:model/ProductionMeterReadings}
+     */
+    ProductionMeterReadings,
+
+    /**
+     * The ProductionMeterReadingsMeterReadings model constructor.
+     * @property {module:model/ProductionMeterReadingsMeterReadings}
+     */
+    ProductionMeterReadingsMeterReadings,
+
+    /**
+     * The RgmStats model constructor.
+     * @property {module:model/RgmStats}
+     */
+    RgmStats,
+
+    /**
+     * The RgmStatsIntervals model constructor.
+     * @property {module:model/RgmStatsIntervals}
+     */
+    RgmStatsIntervals,
+
+    /**
+     * The RgmStatsIntervals1 model constructor.
+     * @property {module:model/RgmStatsIntervals1}
+     */
+    RgmStatsIntervals1,
+
+    /**
+     * The RgmStatsMeterIntervals model constructor.
+     * @property {module:model/RgmStatsMeterIntervals}
+     */
+    RgmStatsMeterIntervals,
+
+    /**
+     * The SearchSystemId model constructor.
+     * @property {module:model/SearchSystemId}
+     */
+    SearchSystemId,
+
+    /**
+     * The ServerError model constructor.
+     * @property {module:model/ServerError}
+     */
+    ServerError,
+
+    /**
+     * The Stats model constructor.
+     * @property {module:model/Stats}
+     */
+    Stats,
+
+    /**
+     * The StatsIntervals model constructor.
+     * @property {module:model/StatsIntervals}
+     */
+    StatsIntervals,
+
+    /**
      * The Status model constructor.
      * @property {module:model/Status}
      */
     Status,
+
+    /**
+     * The Summary model constructor.
+     * @property {module:model/Summary}
+     */
+    Summary,
+
+    /**
+     * The Systems model constructor.
+     * @property {module:model/Systems}
+     */
+    Systems,
+
+    /**
+     * The SystemsSystems model constructor.
+     * @property {module:model/SystemsSystems}
+     */
+    SystemsSystems,
 
     /**
     * The DefaultApi service constructor.

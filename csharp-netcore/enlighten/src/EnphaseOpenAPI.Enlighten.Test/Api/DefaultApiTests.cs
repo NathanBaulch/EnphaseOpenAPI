@@ -66,7 +66,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //DateTime? startDate = null;
             //DateTime? endDate = null;
             //var response = instance.ConsumptionLifetime(userId, systemId, startDate, endDate);
-            //Assert.IsType<InlineResponse2009>(response);
+            //Assert.IsType<ConsumptionLifetime>(response);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //int? startAt = null;
             //int? endAt = null;
             //var response = instance.ConsumptionStats(userId, systemId, startAt, endAt);
-            //Assert.IsType<InlineResponse20010>(response);
+            //Assert.IsType<ConsumptionStats>(response);
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //DateTime? endDate = null;
             //string production = null;
             //var response = instance.EnergyLifetime(userId, systemId, startDate, endDate, production);
-            //Assert.IsType<InlineResponse200>(response);
+            //Assert.IsType<EnergyLifetime>(response);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //string userId = null;
             //int systemId = null;
             //var response = instance.Envoys(userId, systemId);
-            //Assert.IsType<InlineResponse2001>(response);
+            //Assert.IsType<Envoys>(response);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //string userId = null;
             //int systemId = null;
             //var response = instance.Inventory(userId, systemId);
-            //Assert.IsType<InlineResponse2003>(response);
+            //Assert.IsType<Inventory>(response);
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //string userId = null;
             //int siteId = null;
             //var response = instance.InvertersSummaryByEnvoyOrSite(userId, siteId);
-            //Assert.IsType<InlineResponse2004>(response);
+            //Assert.IsType<InvertersSummaryByEnvoyOrSite>(response);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //int systemId = null;
             //DateTime? startDate = null;
             //var response = instance.MonthlyProduction(userId, systemId, startDate);
-            //Assert.IsType<InlineResponse2005>(response);
+            //Assert.IsType<MonthlyProduction>(response);
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //int systemId = null;
             //int? endAt = null;
             //var response = instance.ProductionMeterReadings(userId, systemId, endAt);
-            //Assert.IsType<InlineResponse2006>(response);
+            //Assert.IsType<ProductionMeterReadings>(response);
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //int? startAt = null;
             //int? endAt = null;
             //var response = instance.RgmStats(userId, systemId, startAt, endAt);
-            //Assert.IsType<InlineResponse2007>(response);
+            //Assert.IsType<RgmStats>(response);
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //string userId = null;
             //string serialNum = null;
             //var response = instance.SearchSystemId(userId, serialNum);
-            //Assert.IsType<InlineResponse20012>(response);
+            //Assert.IsType<SearchSystemId>(response);
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //int? startAt = null;
             //int? endAt = null;
             //var response = instance.Stats(userId, systemId, startAt, endAt);
-            //Assert.IsType<InlineResponse2008>(response);
+            //Assert.IsType<Stats>(response);
         }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //int systemId = null;
             //DateTime? summaryDate = null;
             //var response = instance.Summary(userId, systemId, summaryDate);
-            //Assert.IsType<InlineResponse20011>(response);
+            //Assert.IsType<Summary>(response);
         }
 
         /// <summary>
@@ -247,7 +247,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //ConnectionType? connectionType = null;
             //List<ConnectionType> connectionType2 = null;
             //var response = instance.Systems(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2);
-            //Assert.IsType<InlineResponse2002>(response);
+            //Assert.IsType<Systems>(response);
         }
     }
 }

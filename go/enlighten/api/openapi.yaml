@@ -81,7 +81,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                $ref: '#/components/schemas/EnergyLifetime'
           description: OK
         "204":
           description: No Content
@@ -89,31 +89,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/envoys:
     get:
@@ -142,37 +142,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: '#/components/schemas/Envoys'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems:
     get:
@@ -320,37 +320,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_2'
+                $ref: '#/components/schemas/Systems'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/inventory:
     get:
@@ -380,37 +380,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/Inventory'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/inverters_summary_by_envoy_or_site:
     get:
@@ -440,37 +440,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_4'
+                $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/monthly_production:
     get:
@@ -517,37 +517,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_5'
+                $ref: '#/components/schemas/MonthlyProduction'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/production_meter_readings:
     get:
@@ -590,37 +590,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_6'
+                $ref: '#/components/schemas/ProductionMeterReadings'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/rgm_stats:
     get:
@@ -681,37 +681,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_7'
+                $ref: '#/components/schemas/RgmStats'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/stats:
     get:
@@ -777,37 +777,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_8'
+                $ref: '#/components/schemas/Stats'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/consumption_lifetime:
     get:
@@ -863,37 +863,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_9'
+                $ref: '#/components/schemas/ConsumptionLifetime'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/consumption_stats:
     get:
@@ -956,37 +956,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_10'
+                $ref: '#/components/schemas/ConsumptionStats'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/{system_id}/summary:
     get:
@@ -1026,37 +1026,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_11'
+                $ref: '#/components/schemas/Summary'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
   /systems/search_system_id:
     get:
@@ -1085,37 +1085,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_12'
+                $ref: '#/components/schemas/SearchSystemId'
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_409'
+                $ref: '#/components/schemas/ConflictError'
           description: Conflict
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_401'
+                $ref: '#/components/schemas/ClientError'
           description: Client error
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/ServerError'
           description: Server error
 components:
   parameters:
@@ -1138,82 +1138,26 @@ components:
         type: integer
       style: simple
   responses:
-    Conflict:
+    ConflictError:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_409'
+            $ref: '#/components/schemas/ConflictError'
       description: Conflict
     ClientError:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_401'
+            $ref: '#/components/schemas/ClientError'
       description: Client error
     ServerError:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_500'
+            $ref: '#/components/schemas/ServerError'
       description: Server error
   schemas:
-    ConnectionType:
-      description: How the system is connected to the Internet.
-      enum:
-      - ethernet
-      - cellular
-      - wifi
-      example: ethernet
-      type: string
-    Status:
-      description: |-
-        The current status of the system.
-        * `comm` - One or more Envoys on the system are not communicating to Enlighten.
-        * `power` - There is a production issue on the system.
-        * `meter` - There is a communication problem between an Envoy and a revenue-grade meter on the system.
-        * `meter_issue` - One or more meters on the system are reporting unusual measurements.
-        * `micro` - There is a communication problem between an Envoy and microinverters that it monitors.
-        * `battery` - There is a communication problem between an Envoy and an AC battery on the system.
-        * `storage_idle` - An AC battery on the system has not changed its state of charge for more than 72 hours.
-        * `normal` - The system is operating normally.
-      enum:
-      - comm
-      - power
-      - meter
-      - meter_issue
-      - micro
-      - battery
-      - storage_idle
-      - normal
-      example: normal
-      type: string
-    Meta:
-      description: Information about the system that you can use to ascertain the
-        timeliness of the production data included in the response.
-      example:
-        status: normal
-        last_report_at: 1445619615
-        last_energy_at: 1445619033
-        operational_at: 1357023600
-      properties:
-        status:
-          $ref: '#/components/schemas/Status'
-        last_report_at:
-          format: date-time
-          type: integer
-        last_energy_at:
-          format: date-time
-          type: integer
-        operational_at:
-          format: date-time
-          type: integer
-      required:
-      - last_energy_at
-      - last_report_at
-      - operational_at
-      - status
-      type: object
-    inline_response_200:
+    EnergyLifetime:
       example:
         start_date: 2013-01-01
         system_id: 66
@@ -1272,112 +1216,7 @@ components:
       - start_date
       - system_id
       type: object
-    inline_response_401:
-      example:
-        reason: 401
-        message:
-        - Not authorized to access requested resource
-      properties:
-        reason:
-          type: string
-        message:
-          items:
-            type: string
-          type: array
-      required:
-      - message
-      - reason
-      type: object
-    inline_response_409:
-      example:
-        reason: "409"
-        message:
-        - Usage limit exceeded for plan Watt
-        period: minute
-        period_start: 1401742440
-        period_end: 1401742500
-        limit: 10
-      properties:
-        reason:
-          type: string
-        message:
-          items:
-            type: string
-          type: array
-        period:
-          enum:
-          - hour
-          - minute
-          - second
-          type: string
-        period_start:
-          type: integer
-        period_end:
-          type: integer
-        limit:
-          type: integer
-      required:
-      - limit
-      - message
-      - period
-      - period_end
-      - period_start
-      - reason
-      type: object
-    inline_response_500:
-      example:
-        errorCode: 7
-        errorMessages:
-        - Data temporarily unavailable.
-      properties:
-        errorCode:
-          type: integer
-        errorMessages:
-          items:
-            type: string
-          type: array
-      required:
-      - errorCode
-      - errorMessages
-      type: object
-    inline_response_200_1_envoys:
-      properties:
-        envoy_id:
-          description: The Enlighten ID of the Envoy.
-          type: integer
-        last_report_at:
-          description: |-
-            The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the `datetime_format` query parameter is `iso8601`, `last_report_at` is in
-            ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null.
-          format: date-time
-          type: integer
-        name:
-          description: The human-friendly name of this Envoy.
-          type: string
-        part_number:
-          description: The Enphase part number of this Envoy.
-          type: string
-        serial_number:
-          description: The serial number of this Envoy.
-          type: string
-        status:
-          description: |-
-            The current status of this Envoy.
-            * `normal` - The Envoy is operating normally.
-            * `comm` - The Envoy is not communicating to Enlighten.
-          enum:
-          - normal
-          - comm
-          type: string
-      required:
-      - envoy_id
-      - last_report_at
-      - name
-      - part_number
-      - serial_number
-      - status
-      type: object
-    inline_response_200_1:
+    Envoys:
       example:
         system_id: 67
         envoys:
@@ -1400,93 +1239,13 @@ components:
         envoys:
           description: A list of active Envoys on this system.
           items:
-            $ref: '#/components/schemas/inline_response_200_1_envoys'
+            $ref: '#/components/schemas/Envoys_envoys'
           type: array
       required:
       - envoys
       - system_id
       type: object
-    inline_response_200_2_systems:
-      properties:
-        system_id:
-          description: The Enlighten ID of the system.
-          type: integer
-        system_name:
-          description: |-
-            The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification
-            purposes.
-          type: string
-        system_public_name:
-          description: The display name of the system. Use this when displaying the
-            system name on a public list or view.
-          type: string
-        reference:
-          description: |-
-            If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not
-            returned.
-          type: string
-        other_references:
-          description: If any other companies have provided their own identifiers
-            for a system, those identifiers are included here. Otherwise, this attribute
-            is not returned.
-          items:
-            type: string
-          type: array
-        country:
-          description: The two-letter code for the country where the system is located.
-            See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-            for reference.
-          maxLength: 2
-          minLength: 2
-          type: string
-        state:
-          description: The two-letter code for the state where the system is located.
-            See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference.
-          minLength: 2
-          type: string
-        city:
-          description: The name of the city where the system is located.
-          type: string
-        postal_code:
-          description: The postal code where the system is located.
-          type: string
-        timezone:
-          description: The timezone of the system.
-          type: string
-        connection_type:
-          $ref: '#/components/schemas/ConnectionType'
-        status:
-          deprecated: true
-          description: The current status of the system. You can find this and more
-            in the `meta` property.
-          enum:
-          - comm
-          - power
-          - meter
-          - meter_issue
-          - micro
-          - battery
-          - storage_idle
-          - normal
-          type: string
-        meta:
-          $ref: '#/components/schemas/Meta'
-      required:
-      - city
-      - connection_type
-      - country
-      - meta
-      - other_references
-      - postal_code
-      - reference
-      - state
-      - status
-      - system_id
-      - system_name
-      - system_public_name
-      - timezone
-      type: object
-    inline_response_200_2:
+    Systems:
       example:
         systems:
         - system_id: 67
@@ -1523,7 +1282,7 @@ components:
       properties:
         systems:
           items:
-            $ref: '#/components/schemas/inline_response_200_2_systems'
+            $ref: '#/components/schemas/Systems_systems'
           type: array
         next:
           type: string
@@ -1531,30 +1290,7 @@ components:
       - next
       - systems
       type: object
-    inline_response_200_3_envoys:
-      properties:
-        sn:
-          type: string
-        model:
-          type: string
-      required:
-      - model
-      - sn
-      type: object
-    inline_response_200_3_meters:
-      properties:
-        sn:
-          type: string
-        manufacturer:
-          type: string
-        model:
-          type: string
-      required:
-      - manufacturer
-      - model
-      - sn
-      type: object
-    inline_response_200_3:
+    Inventory:
       example:
         system_id: 1765
         inverters:
@@ -1573,19 +1309,19 @@ components:
         envoys:
           description: A list of Envoys on this system, including serial number.
           items:
-            $ref: '#/components/schemas/inline_response_200_3_envoys'
+            $ref: '#/components/schemas/Inventory_envoys'
           type: array
         inverters:
           description: A list of inverters on this system, including serial and model
             numbers.
           items:
-            $ref: '#/components/schemas/inline_response_200_3_envoys'
+            $ref: '#/components/schemas/Inventory_envoys'
           type: array
         meters:
           description: A list of meters on this system, including serial number, manufacturer,
             and model number.
           items:
-            $ref: '#/components/schemas/inline_response_200_3_meters'
+            $ref: '#/components/schemas/Inventory_meters'
           type: array
         meta:
           $ref: '#/components/schemas/Meta'
@@ -1595,86 +1331,7 @@ components:
       - meters
       - system_id
       type: object
-    inline_response_200_4_energy:
-      description: Returns the lifetime energy of the Microinverter. If the system
-        has never produced energy, the energy value would be 0.
-      properties:
-        value:
-          type: integer
-        units:
-          enum:
-          - Wh
-          - kJ
-          type: string
-        precision:
-          type: integer
-      required:
-      - precision
-      - units
-      - value
-      type: object
-    inline_response_200_4_micro_inverters:
-      properties:
-        id:
-          type: integer
-        model:
-          description: Model number of this Microinverter.
-          type: string
-        part_number:
-          description: The Enphase part number of this Microinverter.
-          type: string
-        serial_number:
-          description: The serial number of this Microinverter.
-          type: string
-        sku:
-          type: string
-        status:
-          description: |-
-            The current status of this Microinverter.
-            * `normal` - The microinverter is operating normally.
-            * `power` - There is a production issue.
-            * `micro` - The microinverter is not reporting.
-            * `retired` - The microinverter is retired.
-          enum:
-          - normal
-          - power
-          - micro
-          - retired
-          type: string
-        power_produced:
-          type: integer
-        proc_load:
-          type: string
-        param_table:
-          type: string
-        envoy_serial_number:
-          type: string
-        energy:
-          $ref: '#/components/schemas/inline_response_200_4_energy'
-        grid_profile:
-          type: string
-        last_report_date:
-          description: The last time this device submitted a report, by default expressed
-            in Unix epoch time. If Enlighten has no record of a report from this Envoy,
-            returns null.
-          format: date
-          type: string
-      required:
-      - energy
-      - envoy_serial_number
-      - grid_profile
-      - id
-      - last_report_date
-      - model
-      - param_table
-      - part_number
-      - power_produced
-      - proc_load
-      - serial_number
-      - sku
-      - status
-      type: object
-    inline_response_200_4:
+    InvertersSummaryByEnvoyOrSite:
       example:
         signal_strength: 5
         micro_inverters:
@@ -1717,26 +1374,13 @@ components:
           description: A list of active inverters on this system, including serial
             and model numbers.
           items:
-            $ref: '#/components/schemas/inline_response_200_4_micro_inverters'
+            $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite_micro_inverters'
           type: array
       required:
       - micro_inverters
       - signal_strength
       type: object
-    inline_response_200_5_meter_readings:
-      properties:
-        serial_number:
-          type: string
-        start:
-          type: integer
-        end:
-          type: integer
-      required:
-      - end
-      - serial_number
-      - start
-      type: object
-    inline_response_200_5:
+    MonthlyProduction:
       example:
         system_id: 66
         start_date: 2011-07-01
@@ -1773,7 +1417,7 @@ components:
             readings at the beginning and end of the reporting period are included
             here. Otherwise, the array is empty.
           items:
-            $ref: '#/components/schemas/inline_response_200_5_meter_readings'
+            $ref: '#/components/schemas/MonthlyProduction_meter_readings'
           type: array
         meta:
           $ref: '#/components/schemas/Meta'
@@ -1785,25 +1429,7 @@ components:
       - start_date
       - system_id
       type: object
-    inline_response_200_6_meter_readings:
-      properties:
-        serial_number:
-          description: The serial number of the meter.
-          type: string
-        value:
-          description: The odometer reading, in Watt-hours.
-          type: integer
-        read_at:
-          description: The time when the reading was taken, always prior or equal
-            to the requested `end_at`.
-          format: date-time
-          type: integer
-      required:
-      - read_at
-      - serial_number
-      - value
-      type: object
-    inline_response_200_6:
+    ProductionMeterReadings:
       example:
         system_id: 66
         meter_readings:
@@ -1820,7 +1446,7 @@ components:
           type: integer
         meter_readings:
           items:
-            $ref: '#/components/schemas/inline_response_200_6_meter_readings'
+            $ref: '#/components/schemas/ProductionMeterReadings_meter_readings'
           type: array
         meta:
           $ref: '#/components/schemas/Meta'
@@ -1829,66 +1455,7 @@ components:
       - meter_readings
       - system_id
       type: object
-    inline_response_200_7_intervals:
-      properties:
-        end_at:
-          description: End of interval. The format is Unix epoch time unless you pass
-            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-          format: date-time
-          type: integer
-        wh_del:
-          description: Energy delivered during this interval, in Watt-hours.
-          type: integer
-        devices_reporting:
-          description: Number of revenue-grade meters that reported data for this
-            interval at the time of the request.
-          type: integer
-      required:
-      - devices_reporting
-      - end_at
-      - wh_del
-      type: object
-    inline_response_200_7_intervals_1:
-      properties:
-        channel:
-          description: The reporting channel identifier.
-          type: integer
-        end_at:
-          description: End of interval. The format is Unix epoch time unless you pass
-            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-          format: date-time
-          type: integer
-        wh_del:
-          description: Energy delivered during this interval, in Watt-hours.
-          type: integer
-        curr_w:
-          description: Energy delivered during this interval, in Watts.
-          type: integer
-      required:
-      - channel
-      - curr_w
-      - end_at
-      - wh_del
-      type: object
-    inline_response_200_7_meter_intervals:
-      properties:
-        meter_serial_number:
-          description: Serial number of the revenue grade meter.
-          type: string
-        envoy_serial_number:
-          description: Serial number of the reporting envoy.
-          type: string
-        intervals:
-          description: Individual meter level interval.
-          items:
-            $ref: '#/components/schemas/inline_response_200_7_intervals_1'
-          type: array
-      required:
-      - envoy_serial_number
-      - intervals
-      - meter_serial_number
-      type: object
-    inline_response_200_7:
+    RgmStats:
       example:
         system_id: 1765
         total_devices: 2
@@ -1972,13 +1539,13 @@ components:
         intervals:
           description: A list of intervals between the requested start and end times.
           items:
-            $ref: '#/components/schemas/inline_response_200_7_intervals'
+            $ref: '#/components/schemas/RgmStats_intervals'
           type: array
         meter_intervals:
           description: A list of intervals of a meter between the requested start
             and end times.
           items:
-            $ref: '#/components/schemas/inline_response_200_7_meter_intervals'
+            $ref: '#/components/schemas/RgmStats_meter_intervals'
           type: array
       required:
       - intervals
@@ -1987,32 +1554,7 @@ components:
       - system_id
       - total_devices
       type: object
-    inline_response_200_8_intervals:
-      properties:
-        end_at:
-          description: End date for interval. The format is Unix epoch time unless
-            you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-          format: date-time
-          type: integer
-        powr:
-          description: Average power produced by microinverters during this interval,
-            in Watts.
-          type: integer
-        enwh:
-          description: Energy produced by microinverters during this interval, in
-            Watt-hours.
-          type: integer
-        devices_reporting:
-          description: Number of microinverters that reported data for this interval
-            at the time of the request.
-          type: integer
-      required:
-      - devices_reporting
-      - end_at
-      - enwh
-      - powr
-      type: object
-    inline_response_200_8:
+    Stats:
       example:
         system_id: 1765
         total_devices: 31
@@ -2054,7 +1596,7 @@ components:
         intervals:
           description: A list of intervals between the requested start and end times.
           items:
-            $ref: '#/components/schemas/inline_response_200_8_intervals'
+            $ref: '#/components/schemas/Stats_intervals'
           type: array
       required:
       - intervals
@@ -2062,7 +1604,7 @@ components:
       - system_id
       - total_devices
       type: object
-    inline_response_200_9:
+    ConsumptionLifetime:
       example:
         system_id: 66
         start_date: 2016-08-01
@@ -2102,26 +1644,7 @@ components:
       - start_date
       - system_id
       type: object
-    inline_response_200_10_intervals:
-      properties:
-        end_at:
-          description: End of interval. The format is Unix epoch time unless you pass
-            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-          format: date-time
-          type: integer
-        enwh:
-          description: Energy consumed during this interval, in Watt-hours.
-          type: integer
-        devices_reporting:
-          description: Number of consumption meters that reported data for this interval
-            at the time of the request.
-          type: integer
-      required:
-      - devices_reporting
-      - end_at
-      - enwh
-      type: object
-    inline_response_200_10:
+    ConsumptionStats:
       example:
         system_id: 1765
         total_devices: 1
@@ -2158,7 +1681,7 @@ components:
         intervals:
           description: A list of intervals between the requested start and end times.
           items:
-            $ref: '#/components/schemas/inline_response_200_10_intervals'
+            $ref: '#/components/schemas/ConsumptionStats_intervals'
           type: array
       required:
       - intervals
@@ -2166,7 +1689,7 @@ components:
       - system_id
       - total_devices
       type: object
-    inline_response_200_11:
+    Summary:
       example:
         current_power: 3322
         energy_lifetime: 19050353
@@ -2251,7 +1774,7 @@ components:
       - summary_date
       - system_id
       type: object
-    inline_response_200_12:
+    SearchSystemId:
       example:
         system_id: 123
       properties:
@@ -2260,6 +1783,483 @@ components:
           type: integer
       required:
       - system_id
+      type: object
+    ConnectionType:
+      description: How the system is connected to the Internet.
+      enum:
+      - ethernet
+      - cellular
+      - wifi
+      example: ethernet
+      type: string
+    Status:
+      description: |-
+        The current status of the system.
+        * `comm` - One or more Envoys on the system are not communicating to Enlighten.
+        * `power` - There is a production issue on the system.
+        * `meter` - There is a communication problem between an Envoy and a revenue-grade meter on the system.
+        * `meter_issue` - One or more meters on the system are reporting unusual measurements.
+        * `micro` - There is a communication problem between an Envoy and microinverters that it monitors.
+        * `battery` - There is a communication problem between an Envoy and an AC battery on the system.
+        * `storage_idle` - An AC battery on the system has not changed its state of charge for more than 72 hours.
+        * `normal` - The system is operating normally.
+      enum:
+      - comm
+      - power
+      - meter
+      - meter_issue
+      - micro
+      - battery
+      - storage_idle
+      - normal
+      example: normal
+      type: string
+    Meta:
+      description: Information about the system that you can use to ascertain the
+        timeliness of the production data included in the response.
+      example:
+        status: normal
+        last_report_at: 1445619615
+        last_energy_at: 1445619033
+        operational_at: 1357023600
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        last_report_at:
+          format: date-time
+          type: integer
+        last_energy_at:
+          format: date-time
+          type: integer
+        operational_at:
+          format: date-time
+          type: integer
+      required:
+      - last_energy_at
+      - last_report_at
+      - operational_at
+      - status
+      type: object
+    ConflictError:
+      example:
+        reason: "409"
+        message:
+        - Usage limit exceeded for plan Watt
+        period: minute
+        period_start: 1401742440
+        period_end: 1401742500
+        limit: 10
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+        period:
+          enum:
+          - hour
+          - minute
+          - second
+          type: string
+        period_start:
+          type: integer
+        period_end:
+          type: integer
+        limit:
+          type: integer
+      required:
+      - limit
+      - message
+      - period
+      - period_end
+      - period_start
+      - reason
+      type: object
+    ClientError:
+      example:
+        reason: 401
+        message:
+        - Not authorized to access requested resource
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+      required:
+      - message
+      - reason
+      type: object
+    ServerError:
+      example:
+        errorCode: 7
+        errorMessages:
+        - Data temporarily unavailable.
+      properties:
+        errorCode:
+          type: integer
+        errorMessages:
+          items:
+            type: string
+          type: array
+      required:
+      - errorCode
+      - errorMessages
+      type: object
+    Envoys_envoys:
+      properties:
+        envoy_id:
+          description: The Enlighten ID of the Envoy.
+          type: integer
+        last_report_at:
+          description: |-
+            The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the `datetime_format` query parameter is `iso8601`, `last_report_at` is in
+            ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null.
+          format: date-time
+          type: integer
+        name:
+          description: The human-friendly name of this Envoy.
+          type: string
+        part_number:
+          description: The Enphase part number of this Envoy.
+          type: string
+        serial_number:
+          description: The serial number of this Envoy.
+          type: string
+        status:
+          description: |-
+            The current status of this Envoy.
+            * `normal` - The Envoy is operating normally.
+            * `comm` - The Envoy is not communicating to Enlighten.
+          enum:
+          - normal
+          - comm
+          type: string
+      required:
+      - envoy_id
+      - last_report_at
+      - name
+      - part_number
+      - serial_number
+      - status
+      type: object
+    Systems_systems:
+      properties:
+        system_id:
+          description: The Enlighten ID of the system.
+          type: integer
+        system_name:
+          description: |-
+            The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification
+            purposes.
+          type: string
+        system_public_name:
+          description: The display name of the system. Use this when displaying the
+            system name on a public list or view.
+          type: string
+        reference:
+          description: |-
+            If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not
+            returned.
+          type: string
+        other_references:
+          description: If any other companies have provided their own identifiers
+            for a system, those identifiers are included here. Otherwise, this attribute
+            is not returned.
+          items:
+            type: string
+          type: array
+        country:
+          description: The two-letter code for the country where the system is located.
+            See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+            for reference.
+          maxLength: 2
+          minLength: 2
+          type: string
+        state:
+          description: The two-letter code for the state where the system is located.
+            See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference.
+          minLength: 2
+          type: string
+        city:
+          description: The name of the city where the system is located.
+          type: string
+        postal_code:
+          description: The postal code where the system is located.
+          type: string
+        timezone:
+          description: The timezone of the system.
+          type: string
+        connection_type:
+          $ref: '#/components/schemas/ConnectionType'
+        status:
+          deprecated: true
+          description: The current status of the system. You can find this and more
+            in the `meta` property.
+          enum:
+          - comm
+          - power
+          - meter
+          - meter_issue
+          - micro
+          - battery
+          - storage_idle
+          - normal
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - city
+      - connection_type
+      - country
+      - meta
+      - other_references
+      - postal_code
+      - reference
+      - state
+      - status
+      - system_id
+      - system_name
+      - system_public_name
+      - timezone
+      type: object
+    Inventory_envoys:
+      properties:
+        sn:
+          type: string
+        model:
+          type: string
+      required:
+      - model
+      - sn
+      type: object
+    Inventory_meters:
+      properties:
+        sn:
+          type: string
+        manufacturer:
+          type: string
+        model:
+          type: string
+      required:
+      - manufacturer
+      - model
+      - sn
+      type: object
+    InvertersSummaryByEnvoyOrSite_energy:
+      description: Returns the lifetime energy of the Microinverter. If the system
+        has never produced energy, the energy value would be 0.
+      properties:
+        value:
+          type: integer
+        units:
+          enum:
+          - Wh
+          - kJ
+          type: string
+        precision:
+          type: integer
+      required:
+      - precision
+      - units
+      - value
+      type: object
+    InvertersSummaryByEnvoyOrSite_micro_inverters:
+      properties:
+        id:
+          type: integer
+        model:
+          description: Model number of this Microinverter.
+          type: string
+        part_number:
+          description: The Enphase part number of this Microinverter.
+          type: string
+        serial_number:
+          description: The serial number of this Microinverter.
+          type: string
+        sku:
+          type: string
+        status:
+          description: |-
+            The current status of this Microinverter.
+            * `normal` - The microinverter is operating normally.
+            * `power` - There is a production issue.
+            * `micro` - The microinverter is not reporting.
+            * `retired` - The microinverter is retired.
+          enum:
+          - normal
+          - power
+          - micro
+          - retired
+          type: string
+        power_produced:
+          type: integer
+        proc_load:
+          type: string
+        param_table:
+          type: string
+        envoy_serial_number:
+          type: string
+        energy:
+          $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite_energy'
+        grid_profile:
+          type: string
+        last_report_date:
+          description: The last time this device submitted a report, by default expressed
+            in Unix epoch time. If Enlighten has no record of a report from this Envoy,
+            returns null.
+          format: date
+          type: string
+      required:
+      - energy
+      - envoy_serial_number
+      - grid_profile
+      - id
+      - last_report_date
+      - model
+      - param_table
+      - part_number
+      - power_produced
+      - proc_load
+      - serial_number
+      - sku
+      - status
+      type: object
+    MonthlyProduction_meter_readings:
+      properties:
+        serial_number:
+          type: string
+        start:
+          type: integer
+        end:
+          type: integer
+      required:
+      - end
+      - serial_number
+      - start
+      type: object
+    ProductionMeterReadings_meter_readings:
+      properties:
+        serial_number:
+          description: The serial number of the meter.
+          type: string
+        value:
+          description: The odometer reading, in Watt-hours.
+          type: integer
+        read_at:
+          description: The time when the reading was taken, always prior or equal
+            to the requested `end_at`.
+          format: date-time
+          type: integer
+      required:
+      - read_at
+      - serial_number
+      - value
+      type: object
+    RgmStats_intervals:
+      properties:
+        end_at:
+          description: End of interval. The format is Unix epoch time unless you pass
+            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        wh_del:
+          description: Energy delivered during this interval, in Watt-hours.
+          type: integer
+        devices_reporting:
+          description: Number of revenue-grade meters that reported data for this
+            interval at the time of the request.
+          type: integer
+      required:
+      - devices_reporting
+      - end_at
+      - wh_del
+      type: object
+    RgmStats_intervals_1:
+      properties:
+        channel:
+          description: The reporting channel identifier.
+          type: integer
+        end_at:
+          description: End of interval. The format is Unix epoch time unless you pass
+            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        wh_del:
+          description: Energy delivered during this interval, in Watt-hours.
+          type: integer
+        curr_w:
+          description: Energy delivered during this interval, in Watts.
+          type: integer
+      required:
+      - channel
+      - curr_w
+      - end_at
+      - wh_del
+      type: object
+    RgmStats_meter_intervals:
+      properties:
+        meter_serial_number:
+          description: Serial number of the revenue grade meter.
+          type: string
+        envoy_serial_number:
+          description: Serial number of the reporting envoy.
+          type: string
+        intervals:
+          description: Individual meter level interval.
+          items:
+            $ref: '#/components/schemas/RgmStats_intervals_1'
+          type: array
+      required:
+      - envoy_serial_number
+      - intervals
+      - meter_serial_number
+      type: object
+    Stats_intervals:
+      properties:
+        end_at:
+          description: End date for interval. The format is Unix epoch time unless
+            you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        powr:
+          description: Average power produced by microinverters during this interval,
+            in Watts.
+          type: integer
+        enwh:
+          description: Energy produced by microinverters during this interval, in
+            Watt-hours.
+          type: integer
+        devices_reporting:
+          description: Number of microinverters that reported data for this interval
+            at the time of the request.
+          type: integer
+      required:
+      - devices_reporting
+      - end_at
+      - enwh
+      - powr
+      type: object
+    ConsumptionStats_intervals:
+      properties:
+        end_at:
+          description: End of interval. The format is Unix epoch time unless you pass
+            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        enwh:
+          description: Energy consumed during this interval, in Watt-hours.
+          type: integer
+        devices_reporting:
+          description: Number of consumption meters that reported data for this interval
+            at the time of the request.
+          type: integer
+      required:
+      - devices_reporting
+      - end_at
+      - enwh
       type: object
   securitySchemes:
     ApiKey:
