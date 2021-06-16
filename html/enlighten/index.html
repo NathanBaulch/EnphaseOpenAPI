@@ -1,0 +1,1810 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The Enlighten Systems API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>The Enlighten Systems API</h1>
+    <div class="app-desc"><p>The Enlighten Systems API is a JSON-based API that provides access to performance data for a PV system. By using the Enlighten Systems API, you agree to the Enphase Energy API License Agreement.</p>
+<p>Please note that the Enlighten Systems API does not provide performance data at a panel or microinverter level.</p>
+</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 2.0</div>
+    <div class="app-desc">BasePath:/api/v2</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#consumptionLifetime"><code><span class="http-method">get</span> /systems/{system_id}/consumption_lifetime</code></a></li>
+  <li><a href="#consumptionStats"><code><span class="http-method">get</span> /systems/{system_id}/consumption_stats</code></a></li>
+  <li><a href="#energyLifetime"><code><span class="http-method">get</span> /systems/{system_id}/energy_lifetime</code></a></li>
+  <li><a href="#envoys"><code><span class="http-method">get</span> /systems/{system_id}/envoys</code></a></li>
+  <li><a href="#inventory"><code><span class="http-method">get</span> /systems/{system_id}/inventory</code></a></li>
+  <li><a href="#invertersSummaryByEnvoyOrSite"><code><span class="http-method">get</span> /systems/inverters_summary_by_envoy_or_site</code></a></li>
+  <li><a href="#monthlyProduction"><code><span class="http-method">get</span> /systems/{system_id}/monthly_production</code></a></li>
+  <li><a href="#productionMeterReadings"><code><span class="http-method">get</span> /systems/{system_id}/production_meter_readings</code></a></li>
+  <li><a href="#rgmStats"><code><span class="http-method">get</span> /systems/{system_id}/rgm_stats</code></a></li>
+  <li><a href="#searchSystemId"><code><span class="http-method">get</span> /systems/search_system_id</code></a></li>
+  <li><a href="#stats"><code><span class="http-method">get</span> /systems/{system_id}/stats</code></a></li>
+  <li><a href="#summary"><code><span class="http-method">get</span> /systems/{system_id}/summary</code></a></li>
+  <li><a href="#systems"><code><span class="http-method">get</span> /systems</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="consumptionLifetime"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/consumption_lifetime</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">consumptionLifetime</span>)</div>
+    <div class="method-notes"><p>Returns a time series of energy consumption as measured by the consumption meter installed on the specified system. All measurements are in Watt-hours. If the system does not have a meter,
+returns <code>204</code> - No Content. If you don't have permission to view consumption data, the response code is <code>401</code>.</p>
+<p>The time series includes one entry for each day from the <code>start_date</code> to the <code>end_date</code>. There are no gaps in the time series. If the response includes trailing zeroes, such as
+[909, 4970, 0, 0, 0], then no data has been reported for the last days in the series. You can check the system's status in the <code>meta</code> attribute of the response to determine when the system
+last reported and whether it has communication or metering problems.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date on which to start the time series. Defaults to the system's operational date. default: null format: date</div><div class="param">end_date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. default: null format: date</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_9">inline_response_200_9</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 66,
+  "start_date" : "2016-08-01",
+  "consumption" : [ 15422, 15421, 17118, 18505, 18511, 18487 ],
+  "meta" : {
+    "status" : "normal",
+    "last_report_at" : 1470087000,
+    "last_energy_at" : 1470086106,
+    "operational_at" : 1357023600
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_9">inline_response_200_9</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="consumptionStats"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/consumption_stats</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">consumptionStats</span>)</div>
+    <div class="method-notes"><p>Returns consumption as measured by the consumption meter installed on the specified system. If the total duration requested is more than one month, returns one month of intervals. Intervals
+are 15 minutes in length and start at the top of the hour.</p>
+<p>Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed
+by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.</p>
+<p>If the system doesn't have any consumption meters installed, the response includes an empty intervals array.</p>
+<p>If you don't have permission to view consumption data, the response code is <code>401</code>.</p>
+<p>Under some conditions, data for a given period may be temporarily unavailable.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_at (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago,
+the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the first interval of the <code>operational_date</code>. default: null format: date-time</div><div class="param">end_at (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with
+the last reported interval. default: null format: date-time</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_10">inline_response_200_10</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 1765,
+  "total_devices" : 1,
+  "meta" : {
+    "status" : "normal",
+    "last_report_at" : 1449011615,
+    "last_energy_at" : 1449011015,
+    "operational_at" : 1357023600
+  },
+  "intervals" : [ {
+    "end_at" : 1448946900,
+    "enwh" : 0,
+    "devices_reporting" : 1
+  }, {
+    "end_at" : 1448947800,
+    "enwh" : 0,
+    "devices_reporting" : 1
+  }, {
+    "end_at" : 1448948700,
+    "enwh" : 2,
+    "devices_reporting" : 1
+  }, {
+    "end_at" : 1448949600,
+    "enwh" : 2,
+    "devices_reporting" : 1
+  }, {
+    "end_at" : 1448950500,
+    "enwh" : 3,
+    "devices_reporting" : 1
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_10">inline_response_200_10</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="energyLifetime"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/energy_lifetime</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">energyLifetime</span>)</div>
+    <div class="method-notes"><p>Returns a time series of energy produced on the system over its lifetime. All measurements are in Watt-hours.</p>
+<p>The time series includes one entry for each day from the <code>start_date</code> to the <code>end_date</code>. There are no gaps in the time series. If the response includes trailing zeroes, such as
+<code>[909, 4970, 0, 0, 0]</code>, then no energy has been reported for the last days in the series. You can check the system's status in the <code>meta</code> attribute of the response to determine when the
+system last reported and whether it has communication or production problems.</p>
+<p>If the system has a meter, the time series includes data as measured by the microinverters until the first full day after the meter has been installed, when it switches to using the data as
+measured by the meter. This is called the &quot;merged time series&quot;. In addition, the response includes the attribute <code>meter_start_date</code>, to indicate where in the time series the meter
+measurements begin to be used. You can retrieve the complete time series from the meter and from the microinverters by adding the parameter <code>production=all</code> to the request.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date on which to start the time series. Defaults to the system's operational date. default: null format: date</div><div class="param">end_date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. default: null format: date</div><div class="param">production (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; When <code>all</code>, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "start_date" : "2013-01-01",
+  "system_id" : 66,
+  "production" : [ 15422, 15421, 17118, 18505, 18511, 18487 ],
+  "meter_start_date" : "2013-02-15",
+  "meta" : {
+    "status" : "normal",
+    "last_report_at" : 1445619615,
+    "last_energy_at" : 1445619033,
+    "operational_at" : 1357023600
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200">inline_response_200</a>
+    <h4 class="field-label">204</h4>
+    No Content
+        <a href="#"></a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="envoys"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/envoys</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">envoys</span>)</div>
+    <div class="method-notes">Returns a listing of all active Envoys currently deployed on the system.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_1">inline_response_200_1</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 67,
+  "envoys" : [ {
+    "envoy_id" : 512,
+    "last_report_at" : 1308008107,
+    "name" : "Envoy 010731000003",
+    "part_number" : "800-00002-r00",
+    "serial_number" : "010731000003",
+    "status" : "normal"
+  }, {
+    "envoy_id" : 841,
+    "last_report_at" : null,
+    "name" : "Envoy 010814000001",
+    "part_number" : "910-10000-r01",
+    "serial_number" : "010814000001",
+    "status" : "normal"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_1">inline_response_200_1</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="inventory"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/inventory</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">inventory</span>)</div>
+    <div class="method-notes">Returns a listing of active devices on the given system. A device is considered active if it has not been retired in Enlighten. &quot;Active&quot; does not imply that the device is currently
+reporting, producing, or measuring energy.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_3">inline_response_200_3</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 1765,
+  "inverters" : [ {
+    "sn" : "123456789123",
+    "model" : "M215"
+  }, {
+    "sn" : "123455589199",
+    "model" : "M215"
+  } ],
+  "meters" : [ {
+    "sn" : "999111222333",
+    "manufacturer" : "GE",
+    "model" : "I-210+"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_3">inline_response_200_3</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="invertersSummaryByEnvoyOrSite"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/inverters_summary_by_envoy_or_site</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">invertersSummaryByEnvoyOrSite</span>)</div>
+    <div class="method-notes">Returns the summary along with the energy produced on the system over its lifetime.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">site_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The identifier of the system. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_4">inline_response_200_4</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "signal_strength" : 5,
+  "micro_inverters" : [ {
+    "id" : 1059689835,
+    "serial_number" : "688346865858",
+    "model" : "M215",
+    "part_number" : "800-00107-r01",
+    "sku" : "M215-60-2LL-S22-NA",
+    "status" : "normal",
+    "power_produced" : 34,
+    "proc_load" : "undetermined-v",
+    "param_table" : "undetermined-v",
+    "envoy_serial_number" : "121842012242",
+    "energy" : {
+      "value" : 232,
+      "units" : "Wh",
+      "precision" : 0
+    },
+    "grid_profile" : "57227c50e4d7973ae602c4e6",
+    "last_report_date" : 1600427843
+  }, {
+    "id" : 1059689836,
+    "serial_number" : "686868727227",
+    "model" : "M215",
+    "part_number" : "800-00107-r01",
+    "sku" : "M215-60-2LL-S22-NA",
+    "status" : "normal",
+    "power_produced" : 20,
+    "proc_load" : "undetermined-v",
+    "param_table" : "undetermined-v",
+    "envoy_serial_number" : "121842012242",
+    "energy" : {
+      "value" : 120,
+      "units" : "Wh",
+      "precision" : 0
+    },
+    "grid_profile" : "57227c50e4d7973ae602c4e6",
+    "last_report_date" : 1600427843
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_4">inline_response_200_4</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="monthlyProduction"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/monthly_production</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">monthlyProduction</span>)</div>
+    <div class="method-notes"><p>This endpoint is deprecated and will be removed in a future release. Use <code>production_meter_readings</code> or <code>energy_lifetime</code> instead.</p>
+<p>Returns the energy production of the system for the month starting on the given date. The start date must be at least one month ago. If a meter or meters are installed on the system,
+measurements come from the meter; otherwise, measurements come from the microinverters.</p>
+<p>This endpoint can return a response of Data Temporarily Unavailable.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a <code>start_date</code> of 2011-07-20 returns data through 2011-06-19. When the
+start date is the first of a calendar month, the end end date is the last day of that month. default: null format: date</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_5">inline_response_200_5</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 66,
+  "start_date" : "2011-07-01",
+  "end_date" : "2011-07-31",
+  "production_wh" : 208435,
+  "meter_readings" : [ {
+    "serial_number" : "123123123123",
+    "start" : 196077,
+    "end" : 404512
+  } ],
+  "meta" : {
+    "status" : "normal",
+    "last_report_at" : 1445619615,
+    "last_energy_at" : 1445619033,
+    "operational_at" : 1357023600
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_5">inline_response_200_5</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="productionMeterReadings"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/production_meter_readings</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">productionMeterReadings</span>)</div>
+    <div class="method-notes"><p>Returns the last known &quot;odometer&quot; reading of each revenue-grade production meter on the system as of the requested time.</p>
+<p>This endpoint includes entries for every production meter on the requested system, regardless of whether the meter is currently in service or retired. <code>read_at</code> is the time at which the
+reading was taken, and is always less than or equal to the requested <code>end_at</code>. Commonly, the reading will be within 30 minutes of the requested <code>end_at</code>; however, larger deltas can occur and
+do not necessarily mean there is a problem with the meter or the system it is on. Systems that are configured to report infrequently can show large deltas on all meters, especially when
+<code>end_at</code> is close to the current time. Meters that have been retired from a system will show an <code>end_at</code> that doesn't change, and that eventually is far away from the current time.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">end_at (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null format: date-time</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_6">inline_response_200_6</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 66,
+  "meter_readings" : [ {
+    "serial_number" : "123123123123EIM1",
+    "value" : 6180635,
+    "read_at" : 1473901200
+  } ],
+  "meta" : {
+    "status" : "normal",
+    "last_report_at" : 1473902079,
+    "last_energy_at" : 1473901200,
+    "operational_at" : 1357023600
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_6">inline_response_200_6</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rgmStats"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/rgm_stats</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">rgmStats</span>)</div>
+    <div class="method-notes"><p>Returns performance statistics as measured by the revenue-grade meters installed on the specified system. If the total duration requested is more than one month, returns one month of
+intervals. Intervals are 15 minutes in length and start at the top of the hour.</p>
+<p>Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed
+by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.</p>
+<p>If the system doesn't have any revenue-grade meters installed, the response includes an empty intervals array.</p>
+<p>Under some conditions, data for a given period may be temporarily unavailable.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_at (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago,
+the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the first interval of the <code>operational_date</code>. default: null format: date-time</div><div class="param">end_at (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with
+the last reported interval. default: null format: date-time</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_7">inline_response_200_7</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 1765,
+  "total_devices" : 2,
+  "meta" : {
+    "status" : "normal",
+    "last_report_at" : 1445619615,
+    "last_energy_at" : 1445619033,
+    "operational_at" : 1357023600
+  },
+  "intervals" : [ {
+    "end_at" : 1384122700,
+    "wh_del" : 50,
+    "devices_reporting" : 2
+  }, {
+    "end_at" : 1384123600,
+    "wh_del" : 100,
+    "devices_reporting" : 2
+  }, {
+    "end_at" : 1384124500,
+    "wh_del" : 15,
+    "devices_reporting" : 2
+  }, {
+    "end_at" : 1384125400,
+    "wh_del" : 21,
+    "devices_reporting" : 2
+  }, {
+    "end_at" : 1384126300,
+    "wh_del" : 34,
+    "devices_reporting" : 2
+  } ],
+  "meter_intervals" : [ {
+    "meter_serial_number" : "1218676784",
+    "envoy_serial_number" : "1218347675",
+    "intervals" : [ {
+      "channel" : 1,
+      "end_at" : 1384122700,
+      "wh_del" : 30,
+      "curr_w" : 120
+    }, {
+      "channel" : 1,
+      "end_at" : 1384123600,
+      "wh_del" : 50,
+      "curr_w" : 200
+    }, {
+      "channel" : 1,
+      "end_at" : 1384124500,
+      "wh_del" : 10,
+      "curr_w" : 40
+    }, {
+      "channel" : 1,
+      "end_at" : 1384125400,
+      "wh_del" : 10,
+      "curr_w" : 40
+    }, {
+      "channel" : 1,
+      "end_at" : 1384126300,
+      "wh_del" : 20,
+      "curr_w" : 80
+    } ]
+  }, {
+    "meter_serial_number" : "1218676791",
+    "envoy_serial_number" : "1218347675",
+    "intervals" : [ {
+      "channel" : 1,
+      "end_at" : 1384122700,
+      "wh_del" : 20,
+      "curr_w" : 80
+    }, {
+      "channel" : 1,
+      "end_at" : 1384123600,
+      "wh_del" : 50,
+      "curr_w" : 200
+    }, {
+      "channel" : 1,
+      "end_at" : 1384124500,
+      "wh_del" : 5,
+      "curr_w" : 20
+    }, {
+      "channel" : 1,
+      "end_at" : 1384125400,
+      "wh_del" : 11,
+      "curr_w" : 44
+    }, {
+      "channel" : 1,
+      "end_at" : 1384126300,
+      "wh_del" : 14,
+      "curr_w" : 56
+    } ]
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_7">inline_response_200_7</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchSystemId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/search_system_id</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">searchSystemId</span>)</div>
+    <div class="method-notes">Get system ID by envoy serial number.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">serial_num (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Serial number of the envoy. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_12">inline_response_200_12</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 123
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_12">inline_response_200_12</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="stats"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/stats</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">stats</span>)</div>
+    <div class="method-notes"><p>Returns performance statistics for the specified system as reported by microinverters installed on the system. If the total duration requested is more than one day, returns one day of
+intervals. Intervals are 5 minutes in length and start at the top of the hour.</p>
+<p>Requests for times that do not fall on the 5-minute marks are rounded down. For example, a request for 08:01, 08:02, 08:03, or 08:04 is treated as a request for 08:00. Intervals are listed
+by their end dates; therefore, the first interval returned is 5 minutes after the requested start date.</p>
+<p>The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a
+gap, because the microinverters do not produce at night.</p>
+<p>Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the
+system's last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is <code>422</code> and the response body includes an error reason
+as well as the parameters used to process the request.</p>
+<p>If the system doesn't have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_at (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today,
+the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the <code>operational_date</code>. default: null format: date-time</div><div class="param">end_at (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last
+reported interval. default: null format: date-time</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_8">inline_response_200_8</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 1765,
+  "total_devices" : 31,
+  "meta" : {
+    "status" : "normal",
+    "last_report_at" : 1445619615,
+    "last_energy_at" : 1445619033,
+    "operational_at" : 1357023600
+  },
+  "intervals" : [ {
+    "end_at" : 1381496400,
+    "powr" : 173,
+    "enwh" : 14,
+    "devices_reporting" : 27
+  }, {
+    "end_at" : 1381496700,
+    "powr" : 258,
+    "enwh" : 22,
+    "devices_reporting" : 31
+  }, {
+    "end_at" : 1381497000,
+    "powr" : 308,
+    "enwh" : 26,
+    "devices_reporting" : 31
+  }, {
+    "end_at" : 1381497300,
+    "powr" : 386,
+    "enwh" : 32,
+    "devices_reporting" : 31
+  }, {
+    "end_at" : 1381497600,
+    "powr" : 476,
+    "enwh" : 40,
+    "devices_reporting" : 31
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_8">inline_response_200_8</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="summary"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/summary</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">summary</span>)</div>
+    <div class="method-notes">Returns summary information for the specified system.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">summary_date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of reporting period. If no <code>summary_date</code> is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested
+day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and <code>422</code> status. default: null format: date</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_11">inline_response_200_11</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "current_power" : 3322,
+  "energy_lifetime" : 19050353,
+  "energy_today" : 25639,
+  "last_interval_end_at" : 1380632400,
+  "last_report_at" : 1380632791,
+  "modules" : 31,
+  "operational_at" : 1201362300,
+  "size_w" : 5250,
+  "source" : "microinverters",
+  "status" : "normal",
+  "summary_date" : "2014-01-06",
+  "system_id" : 123
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_11">inline_response_200_11</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="systems"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">systems</span>)</div>
+    <div class="method-notes">Returns a list of systems for which the user can make API requests. There is a limit to the number of systems that can be returned at one time. If the first request does not return a full
+list, use the <code>next</code> attribute in the response body to request the next page of systems. By default, systems are returned in batches of 100. The maximum page size is 1000.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">user_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">next (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: 100 </div><div class="param">system_id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">system_id[] (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">system_name (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">system_name[] (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">status[] (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">reference (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">reference[] (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">installer (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">installer[] (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">connection_type (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">connection_type[] (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200_2">inline_response_200_2</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "systems" : [ {
+    "system_id" : 67,
+    "system_name" : "Sample Residence 1",
+    "system_public_name" : "Sample Residence 1",
+    "status" : "normal",
+    "timezone" : "America/Los_Angeles",
+    "country" : "US",
+    "state" : "CA",
+    "city" : "Sebastopol",
+    "postal_code" : "95472",
+    "connection_type" : "ethernet",
+    "meta" : {
+      "status" : "normal",
+      "last_report_at" : 1445619615,
+      "last_energy_at" : 1445619033,
+      "operational_at" : 1357023600
+    }
+  }, {
+    "system_id" : 72,
+    "system_name" : "Sample Residence 2",
+    "system_public_name" : "Sample Residence 2",
+    "status" : "normal",
+    "timezone" : "America/Los_Angeles",
+    "country" : "US",
+    "state" : "CA",
+    "city" : "Placerville",
+    "postal_code" : "95667",
+    "connection_type" : "ethernet",
+    "meta" : {
+      "status" : "comm",
+      "last_report_at" : 1449959488,
+      "last_energy_at" : 1449945104,
+      "operational_at" : 1418912581
+    }
+  } ],
+  "next" : "4e7a453d0a"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#inline_response_200_2">inline_response_200_2</a>
+    <h4 class="field-label">409</h4>
+    Conflict
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">4XX</h4>
+    Client error
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">5XX</h4>
+    Server error
+        <a href="#inline_response_5XX">inline_response_5XX</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ClientError"><code>ClientError</code> - </a></li>
+    <li><a href="#ConnectionType"><code>ConnectionType</code> - </a></li>
+    <li><a href="#Meta"><code>Meta</code> - </a></li>
+    <li><a href="#Status"><code>Status</code> - </a></li>
+    <li><a href="#inline_response_200"><code>inline_response_200</code> - </a></li>
+    <li><a href="#inline_response_200_1"><code>inline_response_200_1</code> - </a></li>
+    <li><a href="#inline_response_200_10"><code>inline_response_200_10</code> - </a></li>
+    <li><a href="#inline_response_200_10_intervals"><code>inline_response_200_10_intervals</code> - </a></li>
+    <li><a href="#inline_response_200_11"><code>inline_response_200_11</code> - </a></li>
+    <li><a href="#inline_response_200_12"><code>inline_response_200_12</code> - </a></li>
+    <li><a href="#inline_response_200_1_envoys"><code>inline_response_200_1_envoys</code> - </a></li>
+    <li><a href="#inline_response_200_2"><code>inline_response_200_2</code> - </a></li>
+    <li><a href="#inline_response_200_2_systems"><code>inline_response_200_2_systems</code> - </a></li>
+    <li><a href="#inline_response_200_3"><code>inline_response_200_3</code> - </a></li>
+    <li><a href="#inline_response_200_3_envoys"><code>inline_response_200_3_envoys</code> - </a></li>
+    <li><a href="#inline_response_200_3_meters"><code>inline_response_200_3_meters</code> - </a></li>
+    <li><a href="#inline_response_200_4"><code>inline_response_200_4</code> - </a></li>
+    <li><a href="#inline_response_200_4_energy"><code>inline_response_200_4_energy</code> - </a></li>
+    <li><a href="#inline_response_200_4_micro_inverters"><code>inline_response_200_4_micro_inverters</code> - </a></li>
+    <li><a href="#inline_response_200_5"><code>inline_response_200_5</code> - </a></li>
+    <li><a href="#inline_response_200_5_meter_readings"><code>inline_response_200_5_meter_readings</code> - </a></li>
+    <li><a href="#inline_response_200_6"><code>inline_response_200_6</code> - </a></li>
+    <li><a href="#inline_response_200_6_meter_readings"><code>inline_response_200_6_meter_readings</code> - </a></li>
+    <li><a href="#inline_response_200_7"><code>inline_response_200_7</code> - </a></li>
+    <li><a href="#inline_response_200_7_intervals"><code>inline_response_200_7_intervals</code> - </a></li>
+    <li><a href="#inline_response_200_7_intervals_1"><code>inline_response_200_7_intervals_1</code> - </a></li>
+    <li><a href="#inline_response_200_7_meter_intervals"><code>inline_response_200_7_meter_intervals</code> - </a></li>
+    <li><a href="#inline_response_200_8"><code>inline_response_200_8</code> - </a></li>
+    <li><a href="#inline_response_200_8_intervals"><code>inline_response_200_8_intervals</code> - </a></li>
+    <li><a href="#inline_response_200_9"><code>inline_response_200_9</code> - </a></li>
+    <li><a href="#inline_response_5XX"><code>inline_response_5XX</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ClientError"><code>ClientError</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">reason </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">message </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConnectionType"><code>ConnectionType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>How the system is connected to the Internet.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Meta"><code>Meta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about the system that you can use to ascertain the timeliness of the production data included in the response.</div>
+    <div class="field-items">
+      <div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
+<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: date-time</div>
+<div class="param">last_energy_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: date-time</div>
+<div class="param">operational_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Status"><code>Status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>The current status of the system.</p>
+<ul>
+<li><code>comm</code> - One or more Envoys on the system are not communicating to Enlighten.</li>
+<li><code>power</code> - There is a production issue on the system.</li>
+<li><code>meter</code> - There is a communication problem between an Envoy and a revenue-grade meter on the system.</li>
+<li><code>meter_issue</code> - One or more meters on the system are reporting unusual measurements.</li>
+<li><code>micro</code> - There is a communication problem between an Envoy and microinverters that it monitors.</li>
+<li><code>battery</code> - There is a communication problem between an Envoy and an AC battery on the system.</li>
+<li><code>storage_idle</code> - An AC battery on the system has not changed its state of charge for more than 72 hours.</li>
+<li><code>normal</code> - The system is operating normally.</li>
+</ul>
+</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200"><code>inline_response_200</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> When no <code>start_date</code> parameter is specified on the request, this is the <code>operational_date</code> of the system. May be null if system has never produced. When a <code>start_date</code>
+parameter is included in the request, it is included here in the response. format: date</div>
+<div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The identifier of the system. </div>
+<div class="param">production </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span> An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy,
+the array may be empty. </div>
+<div class="param">micro_production </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  </div>
+<div class="param">meter_production </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  </div>
+<div class="param">meter_start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. format: date</div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_1"><code>inline_response_200_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The identifier of the system. </div>
+<div class="param">envoys </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_1_envoys">array[inline_response_200_1_envoys]</a></span> A list of active Envoys on this system. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_10"><code>inline_response_200_10</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
+<div class="param">total_devices </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active consumption meters for this system. </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_10_intervals">array[inline_response_200_10_intervals]</a></span> A list of intervals between the requested start and end times. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_10_intervals"><code>inline_response_200_10_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">enwh </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy consumed during this interval, in Watt-hours. </div>
+<div class="param">devices_reporting </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of consumption meters that reported data for this interval at the time of the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_11"><code>inline_response_200_11</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">current_power </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Current power production, in Watts. For historical requests, returns 0. </div>
+<div class="param">energy_lifetime </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy produced in the lifetime of the system, excluding the requested day, in Watt-hours. </div>
+<div class="param">energy_today </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy produced on the requested day, in Watt-hours. </div>
+<div class="param">last_interval_end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The last known time that the system produced energy. When a system has not been communicating for a length of time, the <code>last_report_at</code> can be recent, whereas the
+<code>last_interval_end_at</code> may be further back. format: date-time</div>
+<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described
+<a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">modules </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active (not retired) modules. For historical requests, returns 0. </div>
+<div class="param">operational_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The time at which this system became operational. Corresponds to the system's interconnect time, if one is specified. Otherwise, it is the system's first interval end time. The
+format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">size_w </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The size of the system, in Watts. For historical requests, returns 0. </div>
+<div class="param">source </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Indicates whether the production of this system is measured by its microinverters (<code>microinverters</code>) or by revenue-grade meters (<code>meter</code>) installed on the system. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">microinverters</div><div class="param-enum">meter</div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
+<div class="param">summary_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is <code>YYYY-mm-dd</code> unless you pass
+a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date</div>
+<div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the system. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_12"><code>inline_response_200_12</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the system. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_1_envoys"><code>inline_response_200_1_envoys</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">envoy_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the Envoy. </div>
+<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the <code>datetime_format</code> query parameter is <code>iso8601</code>, <code>last_report_at</code> is in
+ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null. format: date-time</div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The human-friendly name of this Envoy. </div>
+<div class="param">part_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Enphase part number of this Envoy. </div>
+<div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The serial number of this Envoy. </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The current status of this Envoy.</p>
+<ul>
+<li><code>normal</code> - The Envoy is operating normally.</li>
+<li><code>comm</code> - The Envoy is not communicating to Enlighten.</li>
+</ul>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">normal</div><div class="param-enum">comm</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_2"><code>inline_response_200_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">systems </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_2_systems">array[inline_response_200_2_systems]</a></span>  </div>
+<div class="param">next </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_2_systems"><code>inline_response_200_2_systems</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the system. </div>
+<div class="param">system_name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification
+purposes. </div>
+<div class="param">system_public_name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name of the system. Use this when displaying the system name on a public list or view. </div>
+<div class="param">reference </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not
+returned. </div>
+<div class="param">other_references </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. </div>
+<div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The two-letter code for the country where the system is located. See <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO_3166-1_alpha-2</a> for reference. </div>
+<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The two-letter code for the state where the system is located. See <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO_3166-2</a> for reference. </div>
+<div class="param">city </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the city where the system is located. </div>
+<div class="param">postal_code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The postal code where the system is located. </div>
+<div class="param">timezone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The timezone of the system. </div>
+<div class="param">connection_type </div><div class="param-desc"><span class="param-type"><a href="#ConnectionType">ConnectionType</a></span>  </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The current status of the system. You can find this and more in the <code>meta</code> property. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">comm</div><div class="param-enum">power</div><div class="param-enum">meter</div><div class="param-enum">meter_issue</div><div class="param-enum">micro</div><div class="param-enum">battery</div><div class="param-enum">storage_idle</div><div class="param-enum">normal</div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_3"><code>inline_response_200_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
+<div class="param">envoys (optional)</div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_3_envoys">array[inline_response_200_3_envoys]</a></span> A list of Envoys on this system, including serial number. </div>
+<div class="param">inverters </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_3_envoys">array[inline_response_200_3_envoys]</a></span> A list of inverters on this system, including serial and model numbers. </div>
+<div class="param">meters </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_3_meters">array[inline_response_200_3_meters]</a></span> A list of meters on this system, including serial number, manufacturer, and model number. </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_3_envoys"><code>inline_response_200_3_envoys</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">sn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">model </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_3_meters"><code>inline_response_200_3_meters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">sn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">manufacturer </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">model </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_4"><code>inline_response_200_4</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">signal_strength </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">micro_inverters </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_4_micro_inverters">array[inline_response_200_4_micro_inverters]</a></span> A list of active inverters on this system, including serial and model numbers. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_4_energy"><code>inline_response_200_4_energy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Returns the lifetime energy of the Microinverter. If the system has never produced energy, the energy value would be 0.</div>
+    <div class="field-items">
+      <div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">units </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Wh</div><div class="param-enum">kJ</div>
+<div class="param">precision </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_4_micro_inverters"><code>inline_response_200_4_micro_inverters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">model </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Model number of this Microinverter. </div>
+<div class="param">part_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Enphase part number of this Microinverter. </div>
+<div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The serial number of this Microinverter. </div>
+<div class="param">sku </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The current status of this Microinverter.</p>
+<ul>
+<li><code>normal</code> - The microinverter is operating normally.</li>
+<li><code>power</code> - There is a production issue.</li>
+<li><code>micro</code> - The microinverter is not reporting.</li>
+<li><code>retired</code> - The microinverter is retired.</li>
+</ul>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">normal</div><div class="param-enum">power</div><div class="param-enum">micro</div><div class="param-enum">retired</div>
+<div class="param">power_produced </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">proc_load </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">param_table </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">envoy_serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">energy </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_4_energy">inline_response_200_4_energy</a></span>  </div>
+<div class="param">grid_profile </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">last_report_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null. format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_5"><code>inline_response_200_5</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
+<div class="param">start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> First day included in the reporting period. The format is <code>YYYY-mm-dd</code> unless you pass a <code>datetime_format</code> parameter as described
+<a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date</div>
+<div class="param">end_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Last day included in the reporting period. format: date</div>
+<div class="param">production_wh </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total production for the requested period in Watt-hours. </div>
+<div class="param">meter_readings </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_5_meter_readings">array[inline_response_200_5_meter_readings]</a></span> If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_5_meter_readings"><code>inline_response_200_5_meter_readings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">start </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">end </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_6"><code>inline_response_200_6</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">meter_readings </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_6_meter_readings">array[inline_response_200_6_meter_readings]</a></span>  </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_6_meter_readings"><code>inline_response_200_6_meter_readings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The serial number of the meter. </div>
+<div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The odometer reading, in Watt-hours. </div>
+<div class="param">read_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The time when the reading was taken, always prior or equal to the requested <code>end_at</code>. format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_7"><code>inline_response_200_7</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
+<div class="param">total_devices </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active revenue-grade meters for this system. </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_intervals">array[inline_response_200_7_intervals]</a></span> A list of intervals between the requested start and end times. </div>
+<div class="param">meter_intervals </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_meter_intervals">array[inline_response_200_7_meter_intervals]</a></span> A list of intervals of a meter between the requested start and end times. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_7_intervals"><code>inline_response_200_7_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">wh_del </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy delivered during this interval, in Watt-hours. </div>
+<div class="param">devices_reporting </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of revenue-grade meters that reported data for this interval at the time of the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_7_intervals_1"><code>inline_response_200_7_intervals_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The reporting channel identifier. </div>
+<div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">wh_del </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy delivered during this interval, in Watt-hours. </div>
+<div class="param">curr_w </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy delivered during this interval, in Watts. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_7_meter_intervals"><code>inline_response_200_7_meter_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meter_serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Serial number of the revenue grade meter. </div>
+<div class="param">envoy_serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Serial number of the reporting envoy. </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_7_intervals_1">array[inline_response_200_7_intervals_1]</a></span> Individual meter level interval. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_8"><code>inline_response_200_8</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
+<div class="param">total_devices </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active microinverters for this system. </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#inline_response_200_8_intervals">array[inline_response_200_8_intervals]</a></span> A list of intervals between the requested start and end times. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_8_intervals"><code>inline_response_200_8_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End date for interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">powr </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Average power produced by microinverters during this interval, in Watts. </div>
+<div class="param">enwh </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy produced by microinverters during this interval, in Watt-hours. </div>
+<div class="param">devices_reporting </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of microinverters that reported data for this interval at the time of the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_200_9"><code>inline_response_200_9</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> When no <code>start_date</code> parameter is specified on the request, this is the <code>operational_date</code> of the system. May be null if system has never produced. When a <code>start_date</code>
+parameter is included in the request, it is included here in the response. format: date</div>
+<div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The identifier of the system. </div>
+<div class="param">consumption </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span> An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period. </div>
+<div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inline_response_5XX"><code>inline_response_5XX</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">errorCode </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">errorMessages </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

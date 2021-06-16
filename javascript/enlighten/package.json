@@ -1,0 +1,46 @@
+{
+  "name": "the_enlighten_systems_api",
+  "version": "2.0",
+  "description": "The_Enlighten_Systems_API_is_a_JSON_based_API_that_provides_access_to_performance_data_for_a_PV_system__By_using_the_Enlighten_Systems_API_you_agree_to_the_Enphase_Energy_API_License_Agreement_Please_note_that_the_Enlighten_Systems_API_does_not_provide_performance_data_at_a_panel_or_microinverter_level_",
+  "license": "Unlicense",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

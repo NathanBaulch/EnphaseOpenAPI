@@ -1,0 +1,2468 @@
+openapi: 3.0.0
+info:
+  description: |-
+    The Enlighten Systems API is a JSON-based API that provides access to performance data for a PV system. By using the Enlighten Systems API, you agree to the Enphase Energy API License Agreement.
+
+    Please note that the Enlighten Systems API does not provide performance data at a panel or microinverter level.
+  title: The Enlighten Systems API
+  version: "2.0"
+servers:
+- url: https://api.enphaseenergy.com/api/v2
+security:
+- ApiKey: []
+paths:
+  /systems/{system_id}/energy_lifetime:
+    get:
+      description: |-
+        Returns a time series of energy produced on the system over its lifetime. All measurements are in Watt-hours.
+
+        The time series includes one entry for each day from the `start_date` to the `end_date`. There are no gaps in the time series. If the response includes trailing zeroes, such as
+        `[909, 4970, 0, 0, 0]`, then no energy has been reported for the last days in the series. You can check the system's status in the `meta` attribute of the response to determine when the
+        system last reported and whether it has communication or production problems.
+
+        If the system has a meter, the time series includes data as measured by the microinverters until the first full day after the meter has been installed, when it switches to using the data as
+        measured by the meter. This is called the "merged time series". In addition, the response includes the attribute `meter_start_date`, to indicate where in the time series the meter
+        measurements begin to be used. You can retrieve the complete time series from the meter and from the microinverters by adding the parameter `production=all` to the request.
+      operationId: EnergyLifetime
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - description: The date on which to start the time series. Defaults to the system's
+          operational date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          example: 2013-01-01
+          format: date
+          type: string
+        style: form
+      - description: The last date to include in the time series. Defaults to yesterday
+          or the last day the system reported, whichever is earlier.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          example: 2013-01-06
+          format: date
+          type: string
+        style: form
+      - description: When `all`, returns the merged time series plus the time series
+          as reported by the microinverters and the meter on the system. Other values
+          are ignored.
+        explode: true
+        in: query
+        name: production
+        required: false
+        schema:
+          enum:
+          - all
+          example: all
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: OK
+        "204":
+          description: No Content
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/envoys:
+    get:
+      description: Returns a listing of all active Envoys currently deployed on the
+        system.
+      operationId: Envoys
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems:
+    get:
+      description: |-
+        Returns a list of systems for which the user can make API requests. There is a limit to the number of systems that can be returned at one time. If the first request does not return a full
+        list, use the `next` attribute in the response body to request the next page of systems. By default, systems are returned in batches of 100. The maximum page size is 1000.
+      operationId: Systems
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: next
+        required: false
+        schema:
+          example: 4d5467784d5445770a
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 100
+          example: 100
+          maximum: 1000
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: system_id
+        required: false
+        schema:
+          example: 67
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: system_id[]
+        required: false
+        schema:
+          example:
+          - 67
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: system_name
+        required: false
+        schema:
+          example: Green
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: system_name[]
+        required: false
+        schema:
+          example:
+          - Green
+          items:
+            type: string
+          type: array
+        style: form
+      - example: power
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          $ref: '#/components/schemas/Status'
+        style: form
+      - explode: true
+        in: query
+        name: status[]
+        required: false
+        schema:
+          example:
+          - comm
+          - micro
+          items:
+            $ref: '#/components/schemas/Status'
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: reference
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: reference[]
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: installer
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: installer[]
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: connection_type
+        required: false
+        schema:
+          $ref: '#/components/schemas/ConnectionType'
+        style: form
+      - explode: true
+        in: query
+        name: connection_type[]
+        required: false
+        schema:
+          example:
+          - ethernet
+          items:
+            $ref: '#/components/schemas/ConnectionType'
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/inventory:
+    get:
+      description: |-
+        Returns a listing of active devices on the given system. A device is considered active if it has not been retired in Enlighten. "Active" does not imply that the device is currently
+        reporting, producing, or measuring energy.
+      operationId: Inventory
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/inverters_summary_by_envoy_or_site:
+    get:
+      description: Returns the summary along with the energy produced on the system
+        over its lifetime.
+      operationId: InvertersSummaryByEnvoyOrSite
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - description: The identifier of the system.
+        explode: true
+        in: query
+        name: site_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/monthly_production:
+    get:
+      deprecated: true
+      description: |-
+        This endpoint is deprecated and will be removed in a future release. Use `production_meter_readings` or `energy_lifetime` instead.
+
+        Returns the energy production of the system for the month starting on the given date. The start date must be at least one month ago. If a meter or meters are installed on the system,
+        measurements come from the meter; otherwise, measurements come from the microinverters.
+
+        This endpoint can return a response of Data Temporarily Unavailable.
+      operationId: MonthlyProduction
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - description: |-
+          Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the
+          start date is the first of a calendar month, the end end date is the last day of that month.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          example: 2011-07-01
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/production_meter_readings:
+    get:
+      description: |-
+        Returns the last known "odometer" reading of each revenue-grade production meter on the system as of the requested time.
+
+        This endpoint includes entries for every production meter on the requested system, regardless of whether the meter is currently in service or retired. `read_at` is the time at which the
+        reading was taken, and is always less than or equal to the requested `end_at`. Commonly, the reading will be within 30 minutes of the requested `end_at`; however, larger deltas can occur and
+        do not necessarily mean there is a problem with the meter or the system it is on. Systems that are configured to report infrequently can show large deltas on all meters, especially when
+        `end_at` is close to the current time. Meters that have been retired from a system will show an `end_at` that doesn't change, and that eventually is far away from the current time.
+      operationId: ProductionMeterReadings
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: end_at
+        required: false
+        schema:
+          example: 1473901755
+          format: date-time
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_6'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/rgm_stats:
+    get:
+      description: |-
+        Returns performance statistics as measured by the revenue-grade meters installed on the specified system. If the total duration requested is more than one month, returns one month of
+        intervals. Intervals are 15 minutes in length and start at the top of the hour.
+
+        Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed
+        by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.
+
+        If the system doesn't have any revenue-grade meters installed, the response includes an empty intervals array.
+
+        Under some conditions, data for a given period may be temporarily unavailable.
+      operationId: RgmStats
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - description: |-
+          Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago,
+          the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
+        explode: true
+        in: query
+        name: start_at
+        required: false
+        schema:
+          example: 1381474800
+          format: date-time
+          type: integer
+        style: form
+      - description: |-
+          End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with
+          the last reported interval.
+        explode: true
+        in: query
+        name: end_at
+        required: false
+        schema:
+          example: 1381561200
+          format: date-time
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_7'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/stats:
+    get:
+      description: |-
+        Returns performance statistics for the specified system as reported by microinverters installed on the system. If the total duration requested is more than one day, returns one day of
+        intervals. Intervals are 5 minutes in length and start at the top of the hour.
+
+        Requests for times that do not fall on the 5-minute marks are rounded down. For example, a request for 08:01, 08:02, 08:03, or 08:04 is treated as a request for 08:00. Intervals are listed
+        by their end dates; therefore, the first interval returned is 5 minutes after the requested start date.
+
+        The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a
+        gap, because the microinverters do not produce at night.
+
+        Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the
+        system's last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is `422` and the response body includes an error reason
+        as well as the parameters used to process the request.
+
+        If the system doesn't have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.
+      operationId: Stats
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - description: |-
+          Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today,
+          the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`.
+        explode: true
+        in: query
+        name: start_at
+        required: false
+        schema:
+          example: 1381496100
+          format: date-time
+          type: integer
+        style: form
+      - description: |-
+          End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last
+          reported interval.
+        explode: true
+        in: query
+        name: end_at
+        required: false
+        schema:
+          example: 1381497600
+          format: date-time
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_8'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/consumption_lifetime:
+    get:
+      description: |-
+        Returns a time series of energy consumption as measured by the consumption meter installed on the specified system. All measurements are in Watt-hours. If the system does not have a meter,
+        returns `204` - No Content. If you don't have permission to view consumption data, the response code is `401`.
+
+        The time series includes one entry for each day from the `start_date` to the `end_date`. There are no gaps in the time series. If the response includes trailing zeroes, such as
+        [909, 4970, 0, 0, 0], then no data has been reported for the last days in the series. You can check the system's status in the `meta` attribute of the response to determine when the system
+        last reported and whether it has communication or metering problems.
+      operationId: ConsumptionLifetime
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - description: The date on which to start the time series. Defaults to the system's
+          operational date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          example: 2016-07-01
+          format: date
+          type: string
+        style: form
+      - description: The last date to include in the time series. Defaults to yesterday
+          or the last day the system reported, whichever is earlier.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          example: 2016-07-31
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_9'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/consumption_stats:
+    get:
+      description: |-
+        Returns consumption as measured by the consumption meter installed on the specified system. If the total duration requested is more than one month, returns one month of intervals. Intervals
+        are 15 minutes in length and start at the top of the hour.
+
+        Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed
+        by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.
+
+        If the system doesn't have any consumption meters installed, the response includes an empty intervals array.
+
+        If you don't have permission to view consumption data, the response code is `401`.
+
+        Under some conditions, data for a given period may be temporarily unavailable.
+      operationId: ConsumptionStats
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - description: |-
+          Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago,
+          the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
+        explode: true
+        in: query
+        name: start_at
+        required: false
+        schema:
+          example: 1448946000
+          format: date-time
+          type: integer
+        style: form
+      - description: |-
+          End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with
+          the last reported interval.
+        explode: true
+        in: query
+        name: end_at
+        required: false
+        schema:
+          example: 1449011615
+          format: date-time
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_10'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/{system_id}/summary:
+    get:
+      description: Returns summary information for the specified system.
+      operationId: Summary
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          example: 66
+          type: integer
+        style: simple
+      - description: |-
+          Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested
+          day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status.
+        explode: true
+        in: query
+        name: summary_date
+        required: false
+        schema:
+          example: 2010-09-17
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_11'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+  /systems/search_system_id:
+    get:
+      description: Get system ID by envoy serial number.
+      operationId: SearchSystemId
+      parameters:
+      - explode: true
+        in: query
+        name: user_id
+        required: true
+        schema:
+          example: 4d6a51330a
+          type: string
+        style: form
+      - description: Serial number of the envoy.
+        explode: true
+        in: query
+        name: serial_num
+        required: true
+        schema:
+          example: "23435345345"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_12'
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ClientError'
+                - example:
+                    reason: "409"
+                    message:
+                    - Usage limit exceeded for plan Watt
+                    period: minute
+                    period_start: 1401742440
+                    period_end: 1401742500
+                    limit: 10
+                  properties:
+                    period:
+                      enum:
+                      - hour
+                      - minute
+                      - second
+                      type: string
+                    period_start:
+                      type: integer
+                    period_end:
+                      type: integer
+                    limit:
+                      type: integer
+                  required:
+                  - limit
+                  - period
+                  - period_end
+                  - period_start
+                  type: object
+          description: Conflict
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_5XX'
+          description: Server error
+components:
+  parameters:
+    UserId:
+      explode: true
+      in: query
+      name: user_id
+      required: true
+      schema:
+        example: 4d6a51330a
+        type: string
+      style: form
+    SystemId:
+      explode: false
+      in: path
+      name: system_id
+      required: true
+      schema:
+        example: 66
+        type: integer
+      style: simple
+  responses:
+    Conflict:
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '#/components/schemas/ClientError'
+            - example:
+                reason: "409"
+                message:
+                - Usage limit exceeded for plan Watt
+                period: minute
+                period_start: 1401742440
+                period_end: 1401742500
+                limit: 10
+              properties:
+                period:
+                  enum:
+                  - hour
+                  - minute
+                  - second
+                  type: string
+                period_start:
+                  type: integer
+                period_end:
+                  type: integer
+                limit:
+                  type: integer
+              required:
+              - limit
+              - period
+              - period_end
+              - period_start
+              type: object
+      description: Conflict
+    ClientError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ClientError'
+      description: Client error
+    ServerError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_5XX'
+      description: Server error
+  schemas:
+    ConnectionType:
+      description: How the system is connected to the Internet.
+      enum:
+      - ethernet
+      - cellular
+      - wifi
+      example: ethernet
+      type: string
+    Status:
+      description: |-
+        The current status of the system.
+        * `comm` - One or more Envoys on the system are not communicating to Enlighten.
+        * `power` - There is a production issue on the system.
+        * `meter` - There is a communication problem between an Envoy and a revenue-grade meter on the system.
+        * `meter_issue` - One or more meters on the system are reporting unusual measurements.
+        * `micro` - There is a communication problem between an Envoy and microinverters that it monitors.
+        * `battery` - There is a communication problem between an Envoy and an AC battery on the system.
+        * `storage_idle` - An AC battery on the system has not changed its state of charge for more than 72 hours.
+        * `normal` - The system is operating normally.
+      enum:
+      - comm
+      - power
+      - meter
+      - meter_issue
+      - micro
+      - battery
+      - storage_idle
+      - normal
+      example: normal
+      type: string
+    Meta:
+      description: Information about the system that you can use to ascertain the
+        timeliness of the production data included in the response.
+      example:
+        status: normal
+        last_report_at: 1445619615
+        last_energy_at: 1445619033
+        operational_at: 1357023600
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        last_report_at:
+          format: date-time
+          type: integer
+        last_energy_at:
+          format: date-time
+          type: integer
+        operational_at:
+          format: date-time
+          type: integer
+      required:
+      - last_energy_at
+      - last_report_at
+      - operational_at
+      - status
+      type: object
+    ClientError:
+      example:
+        reason: 401
+        message:
+        - Not authorized to access requested resource
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+      required:
+      - message
+      - reason
+      type: object
+    inline_response_200:
+      example:
+        start_date: 2013-01-01
+        system_id: 66
+        production:
+        - 15422
+        - 15421
+        - 17118
+        - 18505
+        - 18511
+        - 18487
+        meter_start_date: 2013-02-15
+        meta:
+          status: normal
+          last_report_at: 1445619615
+          last_energy_at: 1445619033
+          operational_at: 1357023600
+      properties:
+        start_date:
+          description: |-
+            When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date`
+            parameter is included in the request, it is included here in the response.
+          format: date
+          type: string
+        system_id:
+          description: The identifier of the system.
+          type: integer
+        production:
+          description: |-
+            An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy,
+            the array may be empty.
+          items:
+            type: integer
+          type: array
+        micro_production:
+          items:
+            type: integer
+          type: array
+        meter_production:
+          items:
+            type: integer
+          type: array
+        meter_start_date:
+          description: The first day in the time series when measurements are taken
+            from a meter instead of from microinverters. This field is not present
+            unless the system has a meter.
+          format: date
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - meta
+      - meter_production
+      - meter_start_date
+      - micro_production
+      - production
+      - start_date
+      - system_id
+      type: object
+    inline_response_5XX:
+      example:
+        errorCode: 7
+        errorMessages:
+        - Data temporarily unavailable.
+      properties:
+        errorCode:
+          type: integer
+        errorMessages:
+          items:
+            type: string
+          type: array
+      required:
+      - errorCode
+      - errorMessages
+      type: object
+    inline_response_200_1_envoys:
+      properties:
+        envoy_id:
+          description: The Enlighten ID of the Envoy.
+          type: integer
+        last_report_at:
+          description: |-
+            The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the `datetime_format` query parameter is `iso8601`, `last_report_at` is in
+            ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null.
+          format: date-time
+          type: integer
+        name:
+          description: The human-friendly name of this Envoy.
+          type: string
+        part_number:
+          description: The Enphase part number of this Envoy.
+          type: string
+        serial_number:
+          description: The serial number of this Envoy.
+          type: string
+        status:
+          description: |-
+            The current status of this Envoy.
+            * `normal` - The Envoy is operating normally.
+            * `comm` - The Envoy is not communicating to Enlighten.
+          enum:
+          - normal
+          - comm
+          type: string
+      required:
+      - envoy_id
+      - last_report_at
+      - name
+      - part_number
+      - serial_number
+      - status
+      type: object
+    inline_response_200_1:
+      example:
+        system_id: 67
+        envoys:
+        - envoy_id: 512
+          last_report_at: 1308008107
+          name: Envoy 010731000003
+          part_number: 800-00002-r00
+          serial_number: "010731000003"
+          status: normal
+        - envoy_id: 841
+          last_report_at: null
+          name: Envoy 010814000001
+          part_number: 910-10000-r01
+          serial_number: "010814000001"
+          status: normal
+      properties:
+        system_id:
+          description: The identifier of the system.
+          type: integer
+        envoys:
+          description: A list of active Envoys on this system.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_envoys'
+          type: array
+      required:
+      - envoys
+      - system_id
+      type: object
+    inline_response_200_2_systems:
+      properties:
+        system_id:
+          description: The Enlighten ID of the system.
+          type: integer
+        system_name:
+          description: |-
+            The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification
+            purposes.
+          type: string
+        system_public_name:
+          description: The display name of the system. Use this when displaying the
+            system name on a public list or view.
+          type: string
+        reference:
+          description: |-
+            If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not
+            returned.
+          type: string
+        other_references:
+          description: If any other companies have provided their own identifiers
+            for a system, those identifiers are included here. Otherwise, this attribute
+            is not returned.
+          items:
+            type: string
+          type: array
+        country:
+          description: The two-letter code for the country where the system is located.
+            See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+            for reference.
+          maxLength: 2
+          minLength: 2
+          type: string
+        state:
+          description: The two-letter code for the state where the system is located.
+            See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference.
+          minLength: 2
+          type: string
+        city:
+          description: The name of the city where the system is located.
+          type: string
+        postal_code:
+          description: The postal code where the system is located.
+          type: string
+        timezone:
+          description: The timezone of the system.
+          type: string
+        connection_type:
+          $ref: '#/components/schemas/ConnectionType'
+        status:
+          deprecated: true
+          description: The current status of the system. You can find this and more
+            in the `meta` property.
+          enum:
+          - comm
+          - power
+          - meter
+          - meter_issue
+          - micro
+          - battery
+          - storage_idle
+          - normal
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - city
+      - connection_type
+      - country
+      - meta
+      - other_references
+      - postal_code
+      - reference
+      - state
+      - status
+      - system_id
+      - system_name
+      - system_public_name
+      - timezone
+      type: object
+    inline_response_200_2:
+      example:
+        systems:
+        - system_id: 67
+          system_name: Sample Residence 1
+          system_public_name: Sample Residence 1
+          status: normal
+          timezone: America/Los_Angeles
+          country: US
+          state: CA
+          city: Sebastopol
+          postal_code: "95472"
+          connection_type: ethernet
+          meta:
+            status: normal
+            last_report_at: 1445619615
+            last_energy_at: 1445619033
+            operational_at: 1357023600
+        - system_id: 72
+          system_name: Sample Residence 2
+          system_public_name: Sample Residence 2
+          status: normal
+          timezone: America/Los_Angeles
+          country: US
+          state: CA
+          city: Placerville
+          postal_code: "95667"
+          connection_type: ethernet
+          meta:
+            status: comm
+            last_report_at: 1449959488
+            last_energy_at: 1449945104
+            operational_at: 1418912581
+        next: 4e7a453d0a
+      properties:
+        systems:
+          items:
+            $ref: '#/components/schemas/inline_response_200_2_systems'
+          type: array
+        next:
+          type: string
+      required:
+      - next
+      - systems
+      type: object
+    inline_response_200_3_envoys:
+      properties:
+        sn:
+          type: string
+        model:
+          type: string
+      required:
+      - model
+      - sn
+      type: object
+    inline_response_200_3_meters:
+      properties:
+        sn:
+          type: string
+        manufacturer:
+          type: string
+        model:
+          type: string
+      required:
+      - manufacturer
+      - model
+      - sn
+      type: object
+    inline_response_200_3:
+      example:
+        system_id: 1765
+        inverters:
+        - sn: "123456789123"
+          model: M215
+        - sn: "123455589199"
+          model: M215
+        meters:
+        - sn: "999111222333"
+          manufacturer: GE
+          model: I-210+
+      properties:
+        system_id:
+          description: Enlighten ID for this system.
+          type: integer
+        envoys:
+          description: A list of Envoys on this system, including serial number.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_envoys'
+          type: array
+        inverters:
+          description: A list of inverters on this system, including serial and model
+            numbers.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_envoys'
+          type: array
+        meters:
+          description: A list of meters on this system, including serial number, manufacturer,
+            and model number.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_meters'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - inverters
+      - meta
+      - meters
+      - system_id
+      type: object
+    inline_response_200_4_energy:
+      description: Returns the lifetime energy of the Microinverter. If the system
+        has never produced energy, the energy value would be 0.
+      properties:
+        value:
+          type: integer
+        units:
+          enum:
+          - Wh
+          - kJ
+          type: string
+        precision:
+          type: integer
+      required:
+      - precision
+      - units
+      - value
+      type: object
+    inline_response_200_4_micro_inverters:
+      properties:
+        id:
+          type: integer
+        model:
+          description: Model number of this Microinverter.
+          type: string
+        part_number:
+          description: The Enphase part number of this Microinverter.
+          type: string
+        serial_number:
+          description: The serial number of this Microinverter.
+          type: string
+        sku:
+          type: string
+        status:
+          description: |-
+            The current status of this Microinverter.
+            * `normal` - The microinverter is operating normally.
+            * `power` - There is a production issue.
+            * `micro` - The microinverter is not reporting.
+            * `retired` - The microinverter is retired.
+          enum:
+          - normal
+          - power
+          - micro
+          - retired
+          type: string
+        power_produced:
+          type: integer
+        proc_load:
+          type: string
+        param_table:
+          type: string
+        envoy_serial_number:
+          type: string
+        energy:
+          $ref: '#/components/schemas/inline_response_200_4_energy'
+        grid_profile:
+          type: string
+        last_report_date:
+          description: The last time this device submitted a report, by default expressed
+            in Unix epoch time. If Enlighten has no record of a report from this Envoy,
+            returns null.
+          format: date
+          type: string
+      required:
+      - energy
+      - envoy_serial_number
+      - grid_profile
+      - id
+      - last_report_date
+      - model
+      - param_table
+      - part_number
+      - power_produced
+      - proc_load
+      - serial_number
+      - sku
+      - status
+      type: object
+    inline_response_200_4:
+      example:
+        signal_strength: 5
+        micro_inverters:
+        - id: 1059689835
+          serial_number: "688346865858"
+          model: M215
+          part_number: 800-00107-r01
+          sku: M215-60-2LL-S22-NA
+          status: normal
+          power_produced: 34
+          proc_load: undetermined-v
+          param_table: undetermined-v
+          envoy_serial_number: "121842012242"
+          energy:
+            value: 232
+            units: Wh
+            precision: 0
+          grid_profile: 57227c50e4d7973ae602c4e6
+          last_report_date: 1600427843
+        - id: 1059689836
+          serial_number: "686868727227"
+          model: M215
+          part_number: 800-00107-r01
+          sku: M215-60-2LL-S22-NA
+          status: normal
+          power_produced: 20
+          proc_load: undetermined-v
+          param_table: undetermined-v
+          envoy_serial_number: "121842012242"
+          energy:
+            value: 120
+            units: Wh
+            precision: 0
+          grid_profile: 57227c50e4d7973ae602c4e6
+          last_report_date: 1600427843
+      properties:
+        signal_strength:
+          type: integer
+        micro_inverters:
+          description: A list of active inverters on this system, including serial
+            and model numbers.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_micro_inverters'
+          type: array
+      required:
+      - micro_inverters
+      - signal_strength
+      type: object
+    inline_response_200_5_meter_readings:
+      properties:
+        serial_number:
+          type: string
+        start:
+          type: integer
+        end:
+          type: integer
+      required:
+      - end
+      - serial_number
+      - start
+      type: object
+    inline_response_200_5:
+      example:
+        system_id: 66
+        start_date: 2011-07-01
+        end_date: 2011-07-31
+        production_wh: 208435
+        meter_readings:
+        - serial_number: "123123123123"
+          start: 196077
+          end: 404512
+        meta:
+          status: normal
+          last_report_at: 1445619615
+          last_energy_at: 1445619033
+          operational_at: 1357023600
+      properties:
+        system_id:
+          description: Enlighten ID for this system.
+          type: integer
+        start_date:
+          description: |-
+            First day included in the reporting period. The format is `YYYY-mm-dd` unless you pass a `datetime_format` parameter as described
+            [here](https://developer.enphase.com/docs#Datetimes).
+          format: date
+          type: string
+        end_date:
+          description: Last day included in the reporting period.
+          format: date
+          type: string
+        production_wh:
+          description: Total production for the requested period in Watt-hours.
+          type: integer
+        meter_readings:
+          description: If the system has any revenue-grade meters installed, the meter
+            readings at the beginning and end of the reporting period are included
+            here. Otherwise, the array is empty.
+          items:
+            $ref: '#/components/schemas/inline_response_200_5_meter_readings'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - end_date
+      - meta
+      - meter_readings
+      - production_wh
+      - start_date
+      - system_id
+      type: object
+    inline_response_200_6_meter_readings:
+      properties:
+        serial_number:
+          description: The serial number of the meter.
+          type: string
+        value:
+          description: The odometer reading, in Watt-hours.
+          type: integer
+        read_at:
+          description: The time when the reading was taken, always prior or equal
+            to the requested `end_at`.
+          format: date-time
+          type: integer
+      required:
+      - read_at
+      - serial_number
+      - value
+      type: object
+    inline_response_200_6:
+      example:
+        system_id: 66
+        meter_readings:
+        - serial_number: 123123123123EIM1
+          value: 6180635
+          read_at: 1473901200
+        meta:
+          status: normal
+          last_report_at: 1473902079
+          last_energy_at: 1473901200
+          operational_at: 1357023600
+      properties:
+        system_id:
+          type: integer
+        meter_readings:
+          items:
+            $ref: '#/components/schemas/inline_response_200_6_meter_readings'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - meta
+      - meter_readings
+      - system_id
+      type: object
+    inline_response_200_7_intervals:
+      properties:
+        end_at:
+          description: End of interval. The format is Unix epoch time unless you pass
+            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        wh_del:
+          description: Energy delivered during this interval, in Watt-hours.
+          type: integer
+        devices_reporting:
+          description: Number of revenue-grade meters that reported data for this
+            interval at the time of the request.
+          type: integer
+      required:
+      - devices_reporting
+      - end_at
+      - wh_del
+      type: object
+    inline_response_200_7_intervals_1:
+      properties:
+        channel:
+          description: The reporting channel identifier.
+          type: integer
+        end_at:
+          description: End of interval. The format is Unix epoch time unless you pass
+            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        wh_del:
+          description: Energy delivered during this interval, in Watt-hours.
+          type: integer
+        curr_w:
+          description: Energy delivered during this interval, in Watts.
+          type: integer
+      required:
+      - channel
+      - curr_w
+      - end_at
+      - wh_del
+      type: object
+    inline_response_200_7_meter_intervals:
+      properties:
+        meter_serial_number:
+          description: Serial number of the revenue grade meter.
+          type: string
+        envoy_serial_number:
+          description: Serial number of the reporting envoy.
+          type: string
+        intervals:
+          description: Individual meter level interval.
+          items:
+            $ref: '#/components/schemas/inline_response_200_7_intervals_1'
+          type: array
+      required:
+      - envoy_serial_number
+      - intervals
+      - meter_serial_number
+      type: object
+    inline_response_200_7:
+      example:
+        system_id: 1765
+        total_devices: 2
+        meta:
+          status: normal
+          last_report_at: 1445619615
+          last_energy_at: 1445619033
+          operational_at: 1357023600
+        intervals:
+        - end_at: 1384122700
+          wh_del: 50
+          devices_reporting: 2
+        - end_at: 1384123600
+          wh_del: 100
+          devices_reporting: 2
+        - end_at: 1384124500
+          wh_del: 15
+          devices_reporting: 2
+        - end_at: 1384125400
+          wh_del: 21
+          devices_reporting: 2
+        - end_at: 1384126300
+          wh_del: 34
+          devices_reporting: 2
+        meter_intervals:
+        - meter_serial_number: "1218676784"
+          envoy_serial_number: "1218347675"
+          intervals:
+          - channel: 1
+            end_at: 1384122700
+            wh_del: 30
+            curr_w: 120
+          - channel: 1
+            end_at: 1384123600
+            wh_del: 50
+            curr_w: 200
+          - channel: 1
+            end_at: 1384124500
+            wh_del: 10
+            curr_w: 40
+          - channel: 1
+            end_at: 1384125400
+            wh_del: 10
+            curr_w: 40
+          - channel: 1
+            end_at: 1384126300
+            wh_del: 20
+            curr_w: 80
+        - meter_serial_number: "1218676791"
+          envoy_serial_number: "1218347675"
+          intervals:
+          - channel: 1
+            end_at: 1384122700
+            wh_del: 20
+            curr_w: 80
+          - channel: 1
+            end_at: 1384123600
+            wh_del: 50
+            curr_w: 200
+          - channel: 1
+            end_at: 1384124500
+            wh_del: 5
+            curr_w: 20
+          - channel: 1
+            end_at: 1384125400
+            wh_del: 11
+            curr_w: 44
+          - channel: 1
+            end_at: 1384126300
+            wh_del: 14
+            curr_w: 56
+      properties:
+        system_id:
+          description: Enlighten ID for this system.
+          type: integer
+        total_devices:
+          description: Number of active revenue-grade meters for this system.
+          type: integer
+        meta:
+          $ref: '#/components/schemas/Meta'
+        intervals:
+          description: A list of intervals between the requested start and end times.
+          items:
+            $ref: '#/components/schemas/inline_response_200_7_intervals'
+          type: array
+        meter_intervals:
+          description: A list of intervals of a meter between the requested start
+            and end times.
+          items:
+            $ref: '#/components/schemas/inline_response_200_7_meter_intervals'
+          type: array
+      required:
+      - intervals
+      - meta
+      - meter_intervals
+      - system_id
+      - total_devices
+      type: object
+    inline_response_200_8_intervals:
+      properties:
+        end_at:
+          description: End date for interval. The format is Unix epoch time unless
+            you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        powr:
+          description: Average power produced by microinverters during this interval,
+            in Watts.
+          type: integer
+        enwh:
+          description: Energy produced by microinverters during this interval, in
+            Watt-hours.
+          type: integer
+        devices_reporting:
+          description: Number of microinverters that reported data for this interval
+            at the time of the request.
+          type: integer
+      required:
+      - devices_reporting
+      - end_at
+      - enwh
+      - powr
+      type: object
+    inline_response_200_8:
+      example:
+        system_id: 1765
+        total_devices: 31
+        meta:
+          status: normal
+          last_report_at: 1445619615
+          last_energy_at: 1445619033
+          operational_at: 1357023600
+        intervals:
+        - end_at: 1381496400
+          powr: 173
+          enwh: 14
+          devices_reporting: 27
+        - end_at: 1381496700
+          powr: 258
+          enwh: 22
+          devices_reporting: 31
+        - end_at: 1381497000
+          powr: 308
+          enwh: 26
+          devices_reporting: 31
+        - end_at: 1381497300
+          powr: 386
+          enwh: 32
+          devices_reporting: 31
+        - end_at: 1381497600
+          powr: 476
+          enwh: 40
+          devices_reporting: 31
+      properties:
+        system_id:
+          description: Enlighten ID for this system.
+          type: integer
+        total_devices:
+          description: Number of active microinverters for this system.
+          type: integer
+        meta:
+          $ref: '#/components/schemas/Meta'
+        intervals:
+          description: A list of intervals between the requested start and end times.
+          items:
+            $ref: '#/components/schemas/inline_response_200_8_intervals'
+          type: array
+      required:
+      - intervals
+      - meta
+      - system_id
+      - total_devices
+      type: object
+    inline_response_200_9:
+      example:
+        system_id: 66
+        start_date: 2016-08-01
+        consumption:
+        - 15422
+        - 15421
+        - 17118
+        - 18505
+        - 18511
+        - 18487
+        meta:
+          status: normal
+          last_report_at: 1470087000
+          last_energy_at: 1470086106
+          operational_at: 1357023600
+      properties:
+        start_date:
+          description: |-
+            When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date`
+            parameter is included in the request, it is included here in the response.
+          format: date
+          type: string
+        system_id:
+          description: The identifier of the system.
+          type: integer
+        consumption:
+          description: An array of consumption measurements, one for each day since
+            consumption metering began, or one for each day of the requested period.
+          items:
+            type: integer
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - consumption
+      - meta
+      - start_date
+      - system_id
+      type: object
+    inline_response_200_10_intervals:
+      properties:
+        end_at:
+          description: End of interval. The format is Unix epoch time unless you pass
+            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        enwh:
+          description: Energy consumed during this interval, in Watt-hours.
+          type: integer
+        devices_reporting:
+          description: Number of consumption meters that reported data for this interval
+            at the time of the request.
+          type: integer
+      required:
+      - devices_reporting
+      - end_at
+      - enwh
+      type: object
+    inline_response_200_10:
+      example:
+        system_id: 1765
+        total_devices: 1
+        meta:
+          status: normal
+          last_report_at: 1449011615
+          last_energy_at: 1449011015
+          operational_at: 1357023600
+        intervals:
+        - end_at: 1448946900
+          enwh: 0
+          devices_reporting: 1
+        - end_at: 1448947800
+          enwh: 0
+          devices_reporting: 1
+        - end_at: 1448948700
+          enwh: 2
+          devices_reporting: 1
+        - end_at: 1448949600
+          enwh: 2
+          devices_reporting: 1
+        - end_at: 1448950500
+          enwh: 3
+          devices_reporting: 1
+      properties:
+        system_id:
+          description: Enlighten ID for this system.
+          type: integer
+        total_devices:
+          description: Number of active consumption meters for this system.
+          type: integer
+        meta:
+          $ref: '#/components/schemas/Meta'
+        intervals:
+          description: A list of intervals between the requested start and end times.
+          items:
+            $ref: '#/components/schemas/inline_response_200_10_intervals'
+          type: array
+      required:
+      - intervals
+      - meta
+      - system_id
+      - total_devices
+      type: object
+    inline_response_200_11:
+      example:
+        current_power: 3322
+        energy_lifetime: 19050353
+        energy_today: 25639
+        last_interval_end_at: 1380632400
+        last_report_at: 1380632791
+        modules: 31
+        operational_at: 1201362300
+        size_w: 5250
+        source: microinverters
+        status: normal
+        summary_date: 2014-01-06
+        system_id: 123
+      properties:
+        current_power:
+          description: Current power production, in Watts. For historical requests,
+            returns 0.
+          type: integer
+        energy_lifetime:
+          description: Energy produced in the lifetime of the system, excluding the
+            requested day, in Watt-hours.
+          type: integer
+        energy_today:
+          description: Energy produced on the requested day, in Watt-hours.
+          type: integer
+        last_interval_end_at:
+          description: |-
+            The last known time that the system produced energy. When a system has not been communicating for a length of time, the `last_report_at` can be recent, whereas the
+            `last_interval_end_at` may be further back.
+          format: date-time
+          type: integer
+        last_report_at:
+          description: |-
+            The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a `datetime_format` parameter as described
+            [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        modules:
+          description: Number of active (not retired) modules. For historical requests,
+            returns 0.
+          type: integer
+        operational_at:
+          description: |-
+            The time at which this system became operational. Corresponds to the system's interconnect time, if one is specified. Otherwise, it is the system's first interval end time. The
+            format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date-time
+          type: integer
+        size_w:
+          description: The size of the system, in Watts. For historical requests,
+            returns 0.
+          type: integer
+        source:
+          description: Indicates whether the production of this system is measured
+            by its microinverters (`microinverters`) or by revenue-grade meters (`meter`)
+            installed on the system.
+          enum:
+          - microinverters
+          - meter
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+        summary_date:
+          description: |-
+            Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is `YYYY-mm-dd` unless you pass
+            a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
+          format: date
+          type: string
+        system_id:
+          description: The Enlighten ID of the system.
+          type: integer
+      required:
+      - current_power
+      - energy_lifetime
+      - energy_today
+      - last_interval_end_at
+      - last_report_at
+      - modules
+      - operational_at
+      - size_w
+      - source
+      - status
+      - summary_date
+      - system_id
+      type: object
+    inline_response_200_12:
+      example:
+        system_id: 123
+      properties:
+        system_id:
+          description: The Enlighten ID of the system.
+          type: integer
+      required:
+      - system_id
+      type: object
+  securitySchemes:
+    ApiKey:
+      in: query
+      name: key
+      type: apiKey
