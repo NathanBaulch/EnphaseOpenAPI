@@ -9,7 +9,6 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from enlighten.model.client_error import ClientError
 from enlighten.model.connection_type import ConnectionType
 from enlighten.model.inline_response200 import InlineResponse200
 from enlighten.model.inline_response2001 import InlineResponse2001
@@ -37,6 +36,8 @@ from enlighten.model.inline_response2007_meter_intervals import InlineResponse20
 from enlighten.model.inline_response2008 import InlineResponse2008
 from enlighten.model.inline_response2008_intervals import InlineResponse2008Intervals
 from enlighten.model.inline_response2009 import InlineResponse2009
+from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.inline_response4_xx import InlineResponse4XX
 from enlighten.model.inline_response5_xx import InlineResponse5XX
 from enlighten.model.meta import Meta
 from enlighten.model.status import Status

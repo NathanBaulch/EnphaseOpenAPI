@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import ClientError from '../model/ClientError';
 import ConnectionType from '../model/ConnectionType';
 import InlineResponse200 from '../model/InlineResponse200';
 import InlineResponse2001 from '../model/InlineResponse2001';
@@ -28,6 +27,8 @@ import InlineResponse2006 from '../model/InlineResponse2006';
 import InlineResponse2007 from '../model/InlineResponse2007';
 import InlineResponse2008 from '../model/InlineResponse2008';
 import InlineResponse2009 from '../model/InlineResponse2009';
+import InlineResponse409 from '../model/InlineResponse409';
+import InlineResponse4XX from '../model/InlineResponse4XX';
 import InlineResponse5XX from '../model/InlineResponse5XX';
 import Status from '../model/Status';
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientError
+ * InlineResponse409
  *
  * PHP version 7.2
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * ClientError Class Doc Comment
+ * InlineResponse409 Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -42,7 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse409 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientError';
+    protected static $openAPIModelName = 'inline_response_409';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,11 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'reason' => 'string',
-        'message' => 'string[]'
+        'message' => 'string[]',
+        'period' => 'string',
+        'period_start' => 'int',
+        'period_end' => 'int',
+        'limit' => 'int'
     ];
 
     /**
@@ -72,7 +76,11 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'reason' => null,
-        'message' => null
+        'message' => null,
+        'period' => null,
+        'period_start' => null,
+        'period_end' => null,
+        'limit' => null
     ];
 
     /**
@@ -103,7 +111,11 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'reason' => 'reason',
-        'message' => 'message'
+        'message' => 'message',
+        'period' => 'period',
+        'period_start' => 'period_start',
+        'period_end' => 'period_end',
+        'limit' => 'limit'
     ];
 
     /**
@@ -113,7 +125,11 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'reason' => 'setReason',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'period' => 'setPeriod',
+        'period_start' => 'setPeriodStart',
+        'period_end' => 'setPeriodEnd',
+        'limit' => 'setLimit'
     ];
 
     /**
@@ -123,7 +139,11 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'reason' => 'getReason',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'period' => 'getPeriod',
+        'period_start' => 'getPeriodStart',
+        'period_end' => 'getPeriodEnd',
+        'limit' => 'getLimit'
     ];
 
     /**
@@ -167,6 +187,23 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const PERIOD_HOUR = 'hour';
+    const PERIOD_MINUTE = 'minute';
+    const PERIOD_SECOND = 'second';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPeriodAllowableValues()
+    {
+        return [
+            self::PERIOD_HOUR,
+            self::PERIOD_MINUTE,
+            self::PERIOD_SECOND,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -185,6 +222,10 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['reason'] = $data['reason'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
+        $this->container['period'] = $data['period'] ?? null;
+        $this->container['period_start'] = $data['period_start'] ?? null;
+        $this->container['period_end'] = $data['period_end'] ?? null;
+        $this->container['limit'] = $data['limit'] ?? null;
     }
 
     /**
@@ -201,6 +242,27 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
+        }
+        if ($this->container['period'] === null) {
+            $invalidProperties[] = "'period' can't be null";
+        }
+        $allowedValues = $this->getPeriodAllowableValues();
+        if (!is_null($this->container['period']) && !in_array($this->container['period'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'period', must be one of '%s'",
+                $this->container['period'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['period_start'] === null) {
+            $invalidProperties[] = "'period_start' can't be null";
+        }
+        if ($this->container['period_end'] === null) {
+            $invalidProperties[] = "'period_end' can't be null";
+        }
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
         }
         return $invalidProperties;
     }
@@ -261,6 +323,112 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return string
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param string $period period
+     *
+     * @return self
+     */
+    public function setPeriod($period)
+    {
+        $allowedValues = $this->getPeriodAllowableValues();
+        if (!in_array($period, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'period', must be one of '%s'",
+                    $period,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets period_start
+     *
+     * @return int
+     */
+    public function getPeriodStart()
+    {
+        return $this->container['period_start'];
+    }
+
+    /**
+     * Sets period_start
+     *
+     * @param int $period_start period_start
+     *
+     * @return self
+     */
+    public function setPeriodStart($period_start)
+    {
+        $this->container['period_start'] = $period_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets period_end
+     *
+     * @return int
+     */
+    public function getPeriodEnd()
+    {
+        return $this->container['period_end'];
+    }
+
+    /**
+     * Sets period_end
+     *
+     * @param int $period_end period_end
+     *
+     * @return self
+     */
+    public function setPeriodEnd($period_end)
+    {
+        $this->container['period_end'] = $period_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit limit
+     *
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
 
         return $this;
     }

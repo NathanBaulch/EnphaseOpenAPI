@@ -124,7 +124,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2009|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2009|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function consumptionLifetime($user_id, $system_id, $start_date = null, $end_date = null)
     {
@@ -142,7 +142,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2009|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2009|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumptionLifetimeWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null)
     {
@@ -190,26 +190,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -253,7 +253,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -499,7 +499,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20010|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse20010|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function consumptionStats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -517,7 +517,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20010|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse20010|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumptionStatsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -565,26 +565,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -628,7 +628,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -636,7 +636,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -875,7 +875,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse200|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse200|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function energyLifetime($user_id, $system_id, $start_date = null, $end_date = null, $production = null)
     {
@@ -894,7 +894,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse200|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse200|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function energyLifetimeWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null, $production = null)
     {
@@ -942,26 +942,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1005,7 +1005,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1013,7 +1013,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1263,7 +1263,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2001|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2001|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function envoys($user_id, $system_id)
     {
@@ -1279,7 +1279,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2001|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2001|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function envoysWithHttpInfo($user_id, $system_id)
     {
@@ -1327,26 +1327,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1390,7 +1390,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1398,7 +1398,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1606,7 +1606,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2003|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2003|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function inventory($user_id, $system_id)
     {
@@ -1622,7 +1622,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2003|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2003|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function inventoryWithHttpInfo($user_id, $system_id)
     {
@@ -1670,26 +1670,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1733,7 +1733,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1741,7 +1741,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1949,7 +1949,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2004|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2004|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function invertersSummaryByEnvoyOrSite($user_id, $site_id)
     {
@@ -1965,7 +1965,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2004|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2004|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function invertersSummaryByEnvoyOrSiteWithHttpInfo($user_id, $site_id)
     {
@@ -2013,26 +2013,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2076,7 +2076,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2084,7 +2084,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2296,7 +2296,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2005|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2005|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function monthlyProduction($user_id, $system_id, $start_date = null)
     {
@@ -2313,7 +2313,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2005|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2005|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function monthlyProductionWithHttpInfo($user_id, $system_id, $start_date = null)
     {
@@ -2361,26 +2361,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2424,7 +2424,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2432,7 +2432,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2655,7 +2655,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2006|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2006|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function productionMeterReadings($user_id, $system_id, $end_at = null)
     {
@@ -2672,7 +2672,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2006|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2006|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function productionMeterReadingsWithHttpInfo($user_id, $system_id, $end_at = null)
     {
@@ -2720,26 +2720,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2783,7 +2783,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2791,7 +2791,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3015,7 +3015,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2007|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2007|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function rgmStats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3033,7 +3033,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2007|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2007|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function rgmStatsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3081,26 +3081,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3144,7 +3144,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3152,7 +3152,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3388,7 +3388,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20012|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse20012|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function searchSystemId($user_id, $serial_num)
     {
@@ -3404,7 +3404,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20012|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse20012|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchSystemIdWithHttpInfo($user_id, $serial_num)
     {
@@ -3452,26 +3452,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3515,7 +3515,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3523,7 +3523,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3736,7 +3736,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2008|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2008|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function stats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3754,7 +3754,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2008|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2008|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function statsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3802,26 +3802,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3865,7 +3865,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3873,7 +3873,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4110,7 +4110,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20011|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse20011|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function summary($user_id, $system_id, $summary_date = null)
     {
@@ -4127,7 +4127,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20011|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse20011|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function summaryWithHttpInfo($user_id, $system_id, $summary_date = null)
     {
@@ -4175,26 +4175,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4238,7 +4238,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4246,7 +4246,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4481,7 +4481,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2002|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX
+     * @return \OpenAPI\Client\Model\InlineResponse2002|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX
      */
     public function systems($user_id, $next = null, $limit = 100, $system_id = null, $system_id2 = null, $system_name = null, $system_name2 = null, $status = null, $status2 = null, $reference = null, $reference2 = null, $installer = null, $installer2 = null, $connection_type = null, $connection_type2 = null)
     {
@@ -4510,7 +4510,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2002|ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2002|\OpenAPI\Client\Model\InlineResponse409|\OpenAPI\Client\Model\InlineResponse4XX|\OpenAPI\Client\Model\InlineResponse5XX, HTTP status code, HTTP response headers (array of strings)
      */
     public function systemsWithHttpInfo($user_id, $next = null, $limit = 100, $system_id = null, $system_id2 = null, $system_name = null, $system_name2 = null, $status = null, $status2 = null, $reference = null, $reference2 = null, $installer = null, $installer2 = null, $connection_type = null, $connection_type2 = null)
     {
@@ -4558,26 +4558,26 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse409' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse409', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 4XX:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse4XX' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse4XX', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4621,7 +4621,7 @@ class DefaultApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse409',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4629,7 +4629,7 @@ class DefaultApi
                 case 4XX:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\InlineResponse4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

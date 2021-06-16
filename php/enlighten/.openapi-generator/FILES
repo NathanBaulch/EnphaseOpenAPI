@@ -5,7 +5,6 @@
 README.md
 composer.json
 docs/Api/DefaultApi.md
-docs/Model/ClientError.md
 docs/Model/ConnectionType.md
 docs/Model/InlineResponse200.md
 docs/Model/InlineResponse2001.md
@@ -33,6 +32,8 @@ docs/Model/InlineResponse2007MeterIntervals.md
 docs/Model/InlineResponse2008.md
 docs/Model/InlineResponse2008Intervals.md
 docs/Model/InlineResponse2009.md
+docs/Model/InlineResponse409.md
+docs/Model/InlineResponse4XX.md
 docs/Model/InlineResponse5XX.md
 docs/Model/Meta.md
 docs/Model/Status.md
@@ -41,7 +42,6 @@ lib/ApiException.php
 lib/Api/DefaultApi.php
 lib/Configuration.php
 lib/HeaderSelector.php
-lib/Model/ClientError.php
 lib/Model/ConnectionType.php
 lib/Model/InlineResponse200.php
 lib/Model/InlineResponse2001.php
@@ -69,6 +69,8 @@ lib/Model/InlineResponse2007MeterIntervals.php
 lib/Model/InlineResponse2008.php
 lib/Model/InlineResponse2008Intervals.php
 lib/Model/InlineResponse2009.php
+lib/Model/InlineResponse409.php
+lib/Model/InlineResponse4XX.php
 lib/Model/InlineResponse5XX.php
 lib/Model/Meta.php
 lib/Model/ModelInterface.php
@@ -76,7 +78,6 @@ lib/Model/Status.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/DefaultApiTest.php
-test/Model/ClientErrorTest.php
 test/Model/ConnectionTypeTest.php
 test/Model/InlineResponse20010IntervalsTest.php
 test/Model/InlineResponse20010Test.php
@@ -104,6 +105,8 @@ test/Model/InlineResponse2008IntervalsTest.php
 test/Model/InlineResponse2008Test.php
 test/Model/InlineResponse2009Test.php
 test/Model/InlineResponse200Test.php
+test/Model/InlineResponse409Test.php
+test/Model/InlineResponse4XXTest.php
 test/Model/InlineResponse5XXTest.php
 test/Model/MetaTest.php
 test/Model/StatusTest.php

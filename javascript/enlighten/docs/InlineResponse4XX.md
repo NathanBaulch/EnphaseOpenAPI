@@ -1,4 +1,4 @@
-# TheEnlightenSystemsApi.ClientError
+# TheEnlightenSystemsApi.InlineResponse4XX
 
 ## Properties
 

@@ -3,7 +3,6 @@
 .openapi-generator-ignore
 .travis.yml
 README.md
-docs/ClientError.md
 docs/ConnectionType.md
 docs/DefaultApi.md
 docs/InlineResponse200.md
@@ -32,6 +31,8 @@ docs/InlineResponse2007MeterIntervals.md
 docs/InlineResponse2008.md
 docs/InlineResponse2008Intervals.md
 docs/InlineResponse2009.md
+docs/InlineResponse409.md
+docs/InlineResponse4XX.md
 docs/InlineResponse5XX.md
 docs/Meta.md
 docs/Status.md
@@ -43,7 +44,6 @@ enlighten/apis/__init__.py
 enlighten/configuration.py
 enlighten/exceptions.py
 enlighten/model/__init__.py
-enlighten/model/client_error.py
 enlighten/model/connection_type.py
 enlighten/model/inline_response200.py
 enlighten/model/inline_response2001.py
@@ -71,6 +71,8 @@ enlighten/model/inline_response2007_meter_intervals.py
 enlighten/model/inline_response2008.py
 enlighten/model/inline_response2008_intervals.py
 enlighten/model/inline_response2009.py
+enlighten/model/inline_response409.py
+enlighten/model/inline_response4_xx.py
 enlighten/model/inline_response5_xx.py
 enlighten/model/meta.py
 enlighten/model/status.py
@@ -83,7 +85,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_client_error.py
 test/test_connection_type.py
 test/test_default_api.py
 test/test_inline_response200.py
@@ -112,6 +113,8 @@ test/test_inline_response2007_meter_intervals.py
 test/test_inline_response2008.py
 test/test_inline_response2008_intervals.py
 test/test_inline_response2009.py
+test/test_inline_response409.py
+test/test_inline_response4_xx.py
 test/test_inline_response5_xx.py
 test/test_meta.py
 test/test_status.py

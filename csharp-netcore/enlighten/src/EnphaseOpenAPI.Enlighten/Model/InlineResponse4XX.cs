@@ -26,27 +26,27 @@ using OpenAPIDateConverter = EnphaseOpenAPI.Enlighten.Client.OpenAPIDateConverte
 namespace EnphaseOpenAPI.Enlighten.Model
 {
     /// <summary>
-    /// ClientError
+    /// InlineResponse4XX
     /// </summary>
-    [DataContract(Name = "ClientError")]
-    public partial class ClientError : IEquatable<ClientError>, IValidatableObject
+    [DataContract(Name = "inline_response_4XX")]
+    public partial class InlineResponse4XX : IEquatable<InlineResponse4XX>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientError" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse4XX" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ClientError() { }
+        protected InlineResponse4XX() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientError" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse4XX" /> class.
         /// </summary>
         /// <param name="reason">reason (required).</param>
         /// <param name="message">message (required).</param>
-        public ClientError(string reason = default(string), List<string> message = default(List<string>))
+        public InlineResponse4XX(string reason = default(string), List<string> message = default(List<string>))
         {
             // to ensure "reason" is required (not null)
-            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for ClientError and cannot be null");
+            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for InlineResponse4XX and cannot be null");
             // to ensure "message" is required (not null)
-            this.Message = message ?? throw new ArgumentNullException("message is a required property for ClientError and cannot be null");
+            this.Message = message ?? throw new ArgumentNullException("message is a required property for InlineResponse4XX and cannot be null");
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ClientError {\n");
+            sb.Append("class InlineResponse4XX {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
@@ -91,15 +91,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ClientError);
+            return this.Equals(input as InlineResponse4XX);
         }
 
         /// <summary>
-        /// Returns true if ClientError instances are equal
+        /// Returns true if InlineResponse4XX instances are equal
         /// </summary>
-        /// <param name="input">Instance of ClientError to be compared</param>
+        /// <param name="input">Instance of InlineResponse4XX to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ClientError input)
+        public bool Equals(InlineResponse4XX input)
         {
             if (input == null)
                 return false;

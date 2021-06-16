@@ -4,7 +4,6 @@ README.md
 _client.sh
 client.sh
 client.sh.bash-completion
-docs/ClientError.md
 docs/ConnectionType.md
 docs/DefaultApi.md
 docs/InlineResponse200.md
@@ -33,6 +32,8 @@ docs/InlineResponse2007MeterIntervals.md
 docs/InlineResponse2008.md
 docs/InlineResponse2008Intervals.md
 docs/InlineResponse2009.md
+docs/InlineResponse409.md
+docs/InlineResponse4XX.md
 docs/InlineResponse5XX.md
 docs/Meta.md
 docs/Status.md

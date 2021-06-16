@@ -89,41 +89,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -164,41 +136,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -358,41 +302,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -434,41 +350,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -510,41 +398,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -603,41 +463,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -692,41 +524,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -799,41 +603,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -911,41 +687,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -1013,41 +761,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -1122,41 +842,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -1208,41 +900,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -1283,41 +947,13 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/ClientError'
-                - example:
-                    reason: "409"
-                    message:
-                    - Usage limit exceeded for plan Watt
-                    period: minute
-                    period_start: 1401742440
-                    period_end: 1401742500
-                    limit: 10
-                  properties:
-                    period:
-                      enum:
-                      - hour
-                      - minute
-                      - second
-                      type: string
-                    period_start:
-                      type: integer
-                    period_end:
-                      type: integer
-                    limit:
-                      type: integer
-                  required:
-                  - limit
-                  - period
-                  - period_end
-                  - period_start
-                  type: object
+                $ref: '#/components/schemas/inline_response_409'
           description: Conflict
         "4XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
+                $ref: '#/components/schemas/inline_response_4XX'
           description: Client error
         "5XX":
           content:
@@ -1350,41 +986,13 @@ components:
       content:
         application/json:
           schema:
-            allOf:
-            - $ref: '#/components/schemas/ClientError'
-            - example:
-                reason: "409"
-                message:
-                - Usage limit exceeded for plan Watt
-                period: minute
-                period_start: 1401742440
-                period_end: 1401742500
-                limit: 10
-              properties:
-                period:
-                  enum:
-                  - hour
-                  - minute
-                  - second
-                  type: string
-                period_start:
-                  type: integer
-                period_end:
-                  type: integer
-                limit:
-                  type: integer
-              required:
-              - limit
-              - period
-              - period_end
-              - period_start
-              type: object
+            $ref: '#/components/schemas/inline_response_409'
       description: Conflict
     ClientError:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ClientError'
+            $ref: '#/components/schemas/inline_response_4XX'
       description: Client error
     ServerError:
       content:
@@ -1449,22 +1057,6 @@ components:
       - operational_at
       - status
       type: object
-    ClientError:
-      example:
-        reason: 401
-        message:
-        - Not authorized to access requested resource
-      properties:
-        reason:
-          type: string
-        message:
-          items:
-            type: string
-          type: array
-      required:
-      - message
-      - reason
-      type: object
     inline_response_200:
       example:
         start_date: 2013-01-01
@@ -1523,6 +1115,58 @@ components:
       - production
       - start_date
       - system_id
+      type: object
+    inline_response_409:
+      example:
+        reason: "409"
+        message:
+        - Usage limit exceeded for plan Watt
+        period: minute
+        period_start: 1401742440
+        period_end: 1401742500
+        limit: 10
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+        period:
+          enum:
+          - hour
+          - minute
+          - second
+          type: string
+        period_start:
+          type: integer
+        period_end:
+          type: integer
+        limit:
+          type: integer
+      required:
+      - limit
+      - message
+      - period
+      - period_end
+      - period_start
+      - reason
+      type: object
+    inline_response_4XX:
+      example:
+        reason: 401
+        message:
+        - Not authorized to access requested resource
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+      required:
+      - message
+      - reason
       type: object
     inline_response_5XX:
       example:

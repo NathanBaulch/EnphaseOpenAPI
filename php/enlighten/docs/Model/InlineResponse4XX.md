@@ -1,4 +1,4 @@
-# # ClientError
+# # InlineResponse4XX
 
 ## Properties
 

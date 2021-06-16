@@ -3,7 +3,6 @@
 EnphaseOpenAPI.Enlighten.sln
 README.md
 appveyor.yml
-docs/ClientError.md
 docs/ConnectionType.md
 docs/DefaultApi.md
 docs/InlineResponse200.md
@@ -32,13 +31,14 @@ docs/InlineResponse2007MeterIntervals.md
 docs/InlineResponse2008.md
 docs/InlineResponse2008Intervals.md
 docs/InlineResponse2009.md
+docs/InlineResponse409.md
+docs/InlineResponse4XX.md
 docs/InlineResponse5XX.md
 docs/Meta.md
 docs/Status.md
 git_push.sh
 src/EnphaseOpenAPI.Enlighten.Test/Api/DefaultApiTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/EnphaseOpenAPI.Enlighten.Test.csproj
-src/EnphaseOpenAPI.Enlighten.Test/Model/ClientErrorTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/ConnectionTypeTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse20010IntervalsTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse20010Tests.cs
@@ -66,6 +66,8 @@ src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse2008IntervalsTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse2008Tests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse2009Tests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse200Tests.cs
+src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse409Tests.cs
+src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse4XXTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/InlineResponse5XXTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/MetaTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/StatusTests.cs
@@ -88,7 +90,6 @@ src/EnphaseOpenAPI.Enlighten/Client/RequestOptions.cs
 src/EnphaseOpenAPI.Enlighten/Client/RetryConfiguration.cs
 src/EnphaseOpenAPI.Enlighten/EnphaseOpenAPI.Enlighten.csproj
 src/EnphaseOpenAPI.Enlighten/Model/AbstractOpenAPISchema.cs
-src/EnphaseOpenAPI.Enlighten/Model/ClientError.cs
 src/EnphaseOpenAPI.Enlighten/Model/ConnectionType.cs
 src/EnphaseOpenAPI.Enlighten/Model/InlineResponse200.cs
 src/EnphaseOpenAPI.Enlighten/Model/InlineResponse2001.cs
@@ -116,6 +117,8 @@ src/EnphaseOpenAPI.Enlighten/Model/InlineResponse2007MeterIntervals.cs
 src/EnphaseOpenAPI.Enlighten/Model/InlineResponse2008.cs
 src/EnphaseOpenAPI.Enlighten/Model/InlineResponse2008Intervals.cs
 src/EnphaseOpenAPI.Enlighten/Model/InlineResponse2009.cs
+src/EnphaseOpenAPI.Enlighten/Model/InlineResponse409.cs
+src/EnphaseOpenAPI.Enlighten/Model/InlineResponse4XX.cs
 src/EnphaseOpenAPI.Enlighten/Model/InlineResponse5XX.cs
 src/EnphaseOpenAPI.Enlighten/Model/Meta.cs
 src/EnphaseOpenAPI.Enlighten/Model/Status.cs

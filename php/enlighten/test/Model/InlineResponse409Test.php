@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientErrorTest
+ * InlineResponse409Test
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ClientErrorTest Class Doc Comment
+ * InlineResponse409Test Class Doc Comment
  *
  * @category    Class
- * @description ClientError
+ * @description InlineResponse409
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ClientErrorTest extends TestCase
+class InlineResponse409Test extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ClientErrorTest extends TestCase
     }
 
     /**
-     * Test "ClientError"
+     * Test "InlineResponse409"
      */
-    public function testClientError()
+    public function testInlineResponse409()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -92,6 +92,42 @@ class ClientErrorTest extends TestCase
      * Test attribute "message"
      */
     public function testPropertyMessage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "period"
+     */
+    public function testPropertyPeriod()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "period_start"
+     */
+    public function testPropertyPeriodStart()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "period_end"
+     */
+    public function testPropertyPeriodEnd()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "limit"
+     */
+    public function testPropertyLimit()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

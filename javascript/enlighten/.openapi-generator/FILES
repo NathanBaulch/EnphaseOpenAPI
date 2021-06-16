@@ -3,7 +3,6 @@
 .openapi-generator-ignore
 .travis.yml
 README.md
-docs/ClientError.md
 docs/ConnectionType.md
 docs/DefaultApi.md
 docs/InlineResponse200.md
@@ -32,6 +31,8 @@ docs/InlineResponse2007MeterIntervals.md
 docs/InlineResponse2008.md
 docs/InlineResponse2008Intervals.md
 docs/InlineResponse2009.md
+docs/InlineResponse409.md
+docs/InlineResponse4XX.md
 docs/InlineResponse5XX.md
 docs/Meta.md
 docs/Status.md
@@ -41,7 +42,6 @@ package.json
 src/ApiClient.js
 src/api/DefaultApi.js
 src/index.js
-src/model/ClientError.js
 src/model/ConnectionType.js
 src/model/InlineResponse200.js
 src/model/InlineResponse2001.js
@@ -69,11 +69,12 @@ src/model/InlineResponse2007MeterIntervals.js
 src/model/InlineResponse2008.js
 src/model/InlineResponse2008Intervals.js
 src/model/InlineResponse2009.js
+src/model/InlineResponse409.js
+src/model/InlineResponse4XX.js
 src/model/InlineResponse5XX.js
 src/model/Meta.js
 src/model/Status.js
 test/api/DefaultApi.spec.js
-test/model/ClientError.spec.js
 test/model/ConnectionType.spec.js
 test/model/InlineResponse200.spec.js
 test/model/InlineResponse2001.spec.js
@@ -101,6 +102,8 @@ test/model/InlineResponse2007MeterIntervals.spec.js
 test/model/InlineResponse2008.spec.js
 test/model/InlineResponse2008Intervals.spec.js
 test/model/InlineResponse2009.spec.js
+test/model/InlineResponse409.spec.js
+test/model/InlineResponse4XX.spec.js
 test/model/InlineResponse5XX.spec.js
 test/model/Meta.spec.js
 test/model/Status.spec.js

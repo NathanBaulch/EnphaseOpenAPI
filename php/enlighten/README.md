@@ -98,7 +98,6 @@ Class | Method | HTTP request | Description
 
 ## Models
 
-- [ClientError](docs/Model/ClientError.md)
 - [ConnectionType](docs/Model/ConnectionType.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
 - [InlineResponse2001](docs/Model/InlineResponse2001.md)
@@ -126,6 +125,8 @@ Class | Method | HTTP request | Description
 - [InlineResponse2008](docs/Model/InlineResponse2008.md)
 - [InlineResponse2008Intervals](docs/Model/InlineResponse2008Intervals.md)
 - [InlineResponse2009](docs/Model/InlineResponse2009.md)
+- [InlineResponse409](docs/Model/InlineResponse409.md)
+- [InlineResponse4XX](docs/Model/InlineResponse4XX.md)
 - [InlineResponse5XX](docs/Model/InlineResponse5XX.md)
 - [Meta](docs/Model/Meta.md)
 - [Status](docs/Model/Status.md)

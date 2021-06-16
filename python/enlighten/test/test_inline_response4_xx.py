@@ -12,11 +12,11 @@ import sys
 import unittest
 
 import enlighten
-from enlighten.model.client_error import ClientError
+from enlighten.model.inline_response4_xx import InlineResponse4XX
 
 
-class TestClientError(unittest.TestCase):
-    """ClientError unit test stubs"""
+class TestInlineResponse4XX(unittest.TestCase):
+    """InlineResponse4XX unit test stubs"""
 
     def setUp(self):
         pass
@@ -24,10 +24,10 @@ class TestClientError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClientError(self):
-        """Test ClientError"""
+    def testInlineResponse4XX(self):
+        """Test InlineResponse4XX"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClientError()  # noqa: E501
+        # model = InlineResponse4XX()  # noqa: E501
         pass
 
 

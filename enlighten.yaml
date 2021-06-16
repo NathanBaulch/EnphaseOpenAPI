@@ -1507,22 +1507,6 @@ components:
         last_report_at: 1445619615
         last_energy_at: 1445619033
         operational_at: 1357023600
-    ClientError:
-      type: object
-      properties:
-        reason:
-          type: string
-        message:
-          type: array
-          items:
-            type: string
-      required:
-        - reason
-        - message
-      example:
-        reason: 401
-        message:
-          - Not authorized to access requested resource
   parameters:
     UserId:
       name: user_id
@@ -1544,40 +1528,60 @@ components:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: '#/components/schemas/ClientError'
-              - type: object
-                properties:
-                  period:
-                    type: string
-                    enum:
-                      - hour
-                      - minute
-                      - second
-                  period_start:
-                    type: integer
-                  period_end:
-                    type: integer
-                  limit:
-                    type: integer
-                required:
-                  - period
-                  - period_start
-                  - period_end
-                  - limit
-                example:
-                  reason: '409'
-                  message: ['Usage limit exceeded for plan Watt']
-                  period: 'minute'
-                  period_start: 1401742440
-                  period_end: 1401742500
-                  limit: 10
+            type: object
+            properties:
+              reason:
+                type: string
+              message:
+                type: array
+                items:
+                  type: string
+              period:
+                type: string
+                enum:
+                  - hour
+                  - minute
+                  - second
+              period_start:
+                type: integer
+              period_end:
+                type: integer
+              limit:
+                type: integer
+            required:
+              - reason
+              - message
+              - period
+              - period_start
+              - period_end
+              - limit
+            example:
+              reason: '409'
+              message: ['Usage limit exceeded for plan Watt']
+              period: 'minute'
+              period_start: 1401742440
+              period_end: 1401742500
+              limit: 10
     ClientError:
       description: Client error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ClientError'
+            type: object
+            properties:
+              reason:
+                type: string
+              message:
+                type: array
+                items:
+                  type: string
+            required:
+              - reason
+              - message
+            example:
+              reason: 401
+              message:
+                - Not authorized to access requested resource
     ServerError:
       description: Server error
       content:

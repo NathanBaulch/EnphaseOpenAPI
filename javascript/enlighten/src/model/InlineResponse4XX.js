@@ -14,20 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The ClientError model module.
- * @module model/ClientError
+ * The InlineResponse4XX model module.
+ * @module model/InlineResponse4XX
  * @version 2.0
  */
-class ClientError {
+class InlineResponse4XX {
     /**
-     * Constructs a new <code>ClientError</code>.
-     * @alias module:model/ClientError
+     * Constructs a new <code>InlineResponse4XX</code>.
+     * @alias module:model/InlineResponse4XX
      * @param reason {String} 
      * @param message {Array.<String>} 
      */
     constructor(reason, message) { 
         
-        ClientError.initialize(this, reason, message);
+        InlineResponse4XX.initialize(this, reason, message);
     }
 
     /**
@@ -41,15 +41,15 @@ class ClientError {
     }
 
     /**
-     * Constructs a <code>ClientError</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>InlineResponse4XX</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ClientError} obj Optional instance to populate.
-     * @return {module:model/ClientError} The populated <code>ClientError</code> instance.
+     * @param {module:model/InlineResponse4XX} obj Optional instance to populate.
+     * @return {module:model/InlineResponse4XX} The populated <code>InlineResponse4XX</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ClientError();
+            obj = obj || new InlineResponse4XX();
 
             if (data.hasOwnProperty('reason')) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
@@ -67,17 +67,17 @@ class ClientError {
 /**
  * @member {String} reason
  */
-ClientError.prototype['reason'] = undefined;
+InlineResponse4XX.prototype['reason'] = undefined;
 
 /**
  * @member {Array.<String>} message
  */
-ClientError.prototype['message'] = undefined;
+InlineResponse4XX.prototype['message'] = undefined;
 
 
 
 
 
 
-export default ClientError;
+export default InlineResponse4XX;
 

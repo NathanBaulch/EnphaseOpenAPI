@@ -52,7 +52,6 @@ import time
 import enlighten
 from pprint import pprint
 from enlighten.api import default_api
-from enlighten.model.client_error import ClientError
 from enlighten.model.connection_type import ConnectionType
 from enlighten.model.inline_response200 import InlineResponse200
 from enlighten.model.inline_response2001 import InlineResponse2001
@@ -67,6 +66,8 @@ from enlighten.model.inline_response2006 import InlineResponse2006
 from enlighten.model.inline_response2007 import InlineResponse2007
 from enlighten.model.inline_response2008 import InlineResponse2008
 from enlighten.model.inline_response2009 import InlineResponse2009
+from enlighten.model.inline_response409 import InlineResponse409
+from enlighten.model.inline_response4_xx import InlineResponse4XX
 from enlighten.model.inline_response5_xx import InlineResponse5XX
 from enlighten.model.status import Status
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
@@ -126,7 +127,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [ClientError](docs/ClientError.md)
  - [ConnectionType](docs/ConnectionType.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
@@ -154,6 +154,8 @@ Class | Method | HTTP request | Description
  - [InlineResponse2008](docs/InlineResponse2008.md)
  - [InlineResponse2008Intervals](docs/InlineResponse2008Intervals.md)
  - [InlineResponse2009](docs/InlineResponse2009.md)
+ - [InlineResponse409](docs/InlineResponse409.md)
+ - [InlineResponse4XX](docs/InlineResponse4XX.md)
  - [InlineResponse5XX](docs/InlineResponse5XX.md)
  - [Meta](docs/Meta.md)
  - [Status](docs/Status.md)

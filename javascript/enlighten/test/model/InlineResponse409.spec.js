@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new TheEnlightenSystemsApi.ClientError();
+    instance = new TheEnlightenSystemsApi.InlineResponse409();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,46 @@
       object[property] = value;
   }
 
-  describe('ClientError', function() {
-    it('should create an instance of ClientError', function() {
-      // uncomment below and update the code to test ClientError
-      //var instane = new TheEnlightenSystemsApi.ClientError();
-      //expect(instance).to.be.a(TheEnlightenSystemsApi.ClientError);
+  describe('InlineResponse409', function() {
+    it('should create an instance of InlineResponse409', function() {
+      // uncomment below and update the code to test InlineResponse409
+      //var instane = new TheEnlightenSystemsApi.InlineResponse409();
+      //expect(instance).to.be.a(TheEnlightenSystemsApi.InlineResponse409);
     });
 
     it('should have the property reason (base name: "reason")', function() {
       // uncomment below and update the code to test the property reason
-      //var instance = new TheEnlightenSystemsApi.ClientError();
+      //var instance = new TheEnlightenSystemsApi.InlineResponse409();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instance = new TheEnlightenSystemsApi.ClientError();
+      //var instance = new TheEnlightenSystemsApi.InlineResponse409();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property period (base name: "period")', function() {
+      // uncomment below and update the code to test the property period
+      //var instance = new TheEnlightenSystemsApi.InlineResponse409();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property periodStart (base name: "period_start")', function() {
+      // uncomment below and update the code to test the property periodStart
+      //var instance = new TheEnlightenSystemsApi.InlineResponse409();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property periodEnd (base name: "period_end")', function() {
+      // uncomment below and update the code to test the property periodEnd
+      //var instance = new TheEnlightenSystemsApi.InlineResponse409();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property limit (base name: "limit")', function() {
+      // uncomment below and update the code to test the property limit
+      //var instance = new TheEnlightenSystemsApi.InlineResponse409();
       //expect(instance).to.be();
     });
 

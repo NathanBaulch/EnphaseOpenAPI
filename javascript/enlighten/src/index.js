@@ -13,7 +13,6 @@
 
 
 import ApiClient from './ApiClient';
-import ClientError from './model/ClientError';
 import ConnectionType from './model/ConnectionType';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
@@ -41,6 +40,8 @@ import InlineResponse2007MeterIntervals from './model/InlineResponse2007MeterInt
 import InlineResponse2008 from './model/InlineResponse2008';
 import InlineResponse2008Intervals from './model/InlineResponse2008Intervals';
 import InlineResponse2009 from './model/InlineResponse2009';
+import InlineResponse409 from './model/InlineResponse409';
+import InlineResponse4XX from './model/InlineResponse4XX';
 import InlineResponse5XX from './model/InlineResponse5XX';
 import Meta from './model/Meta';
 import Status from './model/Status';
@@ -84,12 +85,6 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
-
-    /**
-     * The ClientError model constructor.
-     * @property {module:model/ClientError}
-     */
-    ClientError,
 
     /**
      * The ConnectionType model constructor.
@@ -252,6 +247,18 @@ export {
      * @property {module:model/InlineResponse2009}
      */
     InlineResponse2009,
+
+    /**
+     * The InlineResponse409 model constructor.
+     * @property {module:model/InlineResponse409}
+     */
+    InlineResponse409,
+
+    /**
+     * The InlineResponse4XX model constructor.
+     * @property {module:model/InlineResponse4XX}
+     */
+    InlineResponse4XX,
 
     /**
      * The InlineResponse5XX model constructor.

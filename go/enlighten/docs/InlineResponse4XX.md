@@ -1,4 +1,4 @@
-# ClientError
+# InlineResponse4XX
 
 ## Properties
 
@@ -9,59 +9,59 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewClientError
+### NewInlineResponse4XX
 
-`func NewClientError(reason string, message []string, ) *ClientError`
+`func NewInlineResponse4XX(reason string, message []string, ) *InlineResponse4XX`
 
-NewClientError instantiates a new ClientError object
+NewInlineResponse4XX instantiates a new InlineResponse4XX object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewClientErrorWithDefaults
+### NewInlineResponse4XXWithDefaults
 
-`func NewClientErrorWithDefaults() *ClientError`
+`func NewInlineResponse4XXWithDefaults() *InlineResponse4XX`
 
-NewClientErrorWithDefaults instantiates a new ClientError object
+NewInlineResponse4XXWithDefaults instantiates a new InlineResponse4XX object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetReason
 
-`func (o *ClientError) GetReason() string`
+`func (o *InlineResponse4XX) GetReason() string`
 
 GetReason returns the Reason field if non-nil, zero value otherwise.
 
 ### GetReasonOk
 
-`func (o *ClientError) GetReasonOk() (*string, bool)`
+`func (o *InlineResponse4XX) GetReasonOk() (*string, bool)`
 
 GetReasonOk returns a tuple with the Reason field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReason
 
-`func (o *ClientError) SetReason(v string)`
+`func (o *InlineResponse4XX) SetReason(v string)`
 
 SetReason sets Reason field to given value.
 
 
 ### GetMessage
 
-`func (o *ClientError) GetMessage() []string`
+`func (o *InlineResponse4XX) GetMessage() []string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *ClientError) GetMessageOk() (*[]string, bool)`
+`func (o *InlineResponse4XX) GetMessageOk() (*[]string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *ClientError) SetMessage(v []string)`
+`func (o *InlineResponse4XX) SetMessage(v []string)`
 
 SetMessage sets Message field to given value.
 
