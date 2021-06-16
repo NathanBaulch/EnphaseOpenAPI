@@ -36,7 +36,7 @@ clean/html:
 	$(call clean,html)
 
 define generate
-	$(OPENAPICLI) generate -i ./enlighten.yaml -g $(1) -o ./$(1)/enlighten --package-name $(2)
+	$(OPENAPICLI) generate -i ./enlighten.yaml -g $(1) -o ./$(1)/enlighten --package-name $(2) --git-user-id NathanBaulch --git-repo-id EnphaseOpenAPI
 	dos2unix -o ./$(1)/enlighten/.openapi-generator/FILES
 endef
 
