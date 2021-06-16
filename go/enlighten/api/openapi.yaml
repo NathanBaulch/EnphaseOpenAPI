@@ -85,23 +85,35 @@ paths:
           description: OK
         "204":
           description: No Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/envoys:
     get:
@@ -132,23 +144,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems:
     get:
@@ -298,23 +322,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_2'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/inventory:
     get:
@@ -346,23 +382,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_3'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/inverters_summary_by_envoy_or_site:
     get:
@@ -394,23 +442,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_4'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/monthly_production:
     get:
@@ -459,23 +519,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_5'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/production_meter_readings:
     get:
@@ -520,23 +592,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_6'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/rgm_stats:
     get:
@@ -599,23 +683,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_7'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/stats:
     get:
@@ -683,23 +779,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_8'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/consumption_lifetime:
     get:
@@ -757,23 +865,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_9'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/consumption_stats:
     get:
@@ -838,23 +958,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_10'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/{system_id}/summary:
     get:
@@ -896,23 +1028,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_11'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
   /systems/search_system_id:
     get:
@@ -943,23 +1087,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_12'
           description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Client error
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_409'
           description: Conflict
-        "4XX":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_4XX'
+                $ref: '#/components/schemas/inline_response_401'
           description: Client error
-        "5XX":
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_5XX'
+                $ref: '#/components/schemas/inline_response_500'
+          description: Server error
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
           description: Server error
 components:
   parameters:
@@ -992,13 +1148,13 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_4XX'
+            $ref: '#/components/schemas/inline_response_401'
       description: Client error
     ServerError:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_5XX'
+            $ref: '#/components/schemas/inline_response_500'
       description: Server error
   schemas:
     ConnectionType:
@@ -1116,6 +1272,22 @@ components:
       - start_date
       - system_id
       type: object
+    inline_response_401:
+      example:
+        reason: 401
+        message:
+        - Not authorized to access requested resource
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+      required:
+      - message
+      - reason
+      type: object
     inline_response_409:
       example:
         reason: "409"
@@ -1152,23 +1324,7 @@ components:
       - period_start
       - reason
       type: object
-    inline_response_4XX:
-      example:
-        reason: 401
-        message:
-        - Not authorized to access requested resource
-      properties:
-        reason:
-          type: string
-        message:
-          items:
-            type: string
-          type: array
-      required:
-      - message
-      - reason
-      type: object
-    inline_response_5XX:
+    inline_response_500:
       example:
         errorCode: 7
         errorMessages:

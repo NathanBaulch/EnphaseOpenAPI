@@ -1,4 +1,4 @@
-# EnphaseOpenAPI.Enlighten.Model.InlineResponse5XX
+# EnphaseOpenAPI.Enlighten.Model.InlineResponse500
 
 ## Properties
 

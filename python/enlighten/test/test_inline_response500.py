@@ -12,11 +12,11 @@ import sys
 import unittest
 
 import enlighten
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
 
 
-class TestInlineResponse5XX(unittest.TestCase):
-    """InlineResponse5XX unit test stubs"""
+class TestInlineResponse500(unittest.TestCase):
+    """InlineResponse500 unit test stubs"""
 
     def setUp(self):
         pass
@@ -24,10 +24,10 @@ class TestInlineResponse5XX(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineResponse5XX(self):
-        """Test InlineResponse5XX"""
+    def testInlineResponse500(self):
+        """Test InlineResponse500"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = InlineResponse5XX()  # noqa: E501
+        # model = InlineResponse500()  # noqa: E501
         pass
 
 

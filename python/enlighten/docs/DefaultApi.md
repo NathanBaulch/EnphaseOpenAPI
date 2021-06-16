@@ -33,8 +33,8 @@ Returns a time series of energy consumption as measured by the consumption meter
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response2009 import InlineResponse2009
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -108,9 +108,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -128,8 +130,8 @@ Returns consumption as measured by the consumption meter installed on the specif
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response20010 import InlineResponse20010
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -203,9 +205,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -223,9 +227,9 @@ Returns a time series of energy produced on the system over its lifetime. All me
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
 from enlighten.model.inline_response200 import InlineResponse200
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
@@ -301,9 +305,11 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **204** | No Content |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -321,9 +327,9 @@ Returns a listing of all active Envoys currently deployed on the system.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
 from enlighten.model.inline_response2001 import InlineResponse2001
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
@@ -384,9 +390,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -404,9 +412,9 @@ Returns a listing of active devices on the given system. A device is considered 
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
 from enlighten.model.inline_response2003 import InlineResponse2003
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
@@ -467,9 +475,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -487,8 +497,8 @@ Returns the summary along with the energy produced on the system over its lifeti
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response2004 import InlineResponse2004
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -550,9 +560,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -570,8 +582,8 @@ This endpoint is deprecated and will be removed in a future release. Use `produc
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response2005 import InlineResponse2005
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -643,9 +655,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -663,9 +677,9 @@ Returns the last known \"odometer\" reading of each revenue-grade production met
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
 from enlighten.model.inline_response2006 import InlineResponse2006
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
@@ -736,9 +750,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -756,8 +772,8 @@ Returns performance statistics as measured by the revenue-grade meters installed
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response2007 import InlineResponse2007
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -831,9 +847,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -851,8 +869,8 @@ Get system ID by envoy serial number.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response20012 import InlineResponse20012
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -914,9 +932,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -934,8 +954,8 @@ Returns performance statistics for the specified system as reported by microinve
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response2008 import InlineResponse2008
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -1009,9 +1029,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1029,8 +1051,8 @@ Returns summary information for the specified system.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response20011 import InlineResponse20011
 from enlighten.model.inline_response409 import InlineResponse409
 from pprint import pprint
@@ -1102,9 +1124,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1122,9 +1146,9 @@ Returns a list of systems for which the user can make API requests. There is a l
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
 from enlighten.model.connection_type import ConnectionType
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.status import Status
 from enlighten.model.inline_response2002 import InlineResponse2002
 from enlighten.model.inline_response409 import InlineResponse409
@@ -1229,9 +1253,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Client error |  -  |
 **409** | Conflict |  -  |
-**4XX** | Client error |  -  |
-**5XX** | Server error |  -  |
+**422** | Client error |  -  |
+**500** | Server error |  -  |
+**503** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

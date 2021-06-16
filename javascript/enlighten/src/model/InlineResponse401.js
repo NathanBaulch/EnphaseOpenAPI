@@ -14,20 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The InlineResponse4XX model module.
- * @module model/InlineResponse4XX
+ * The InlineResponse401 model module.
+ * @module model/InlineResponse401
  * @version 2.0
  */
-class InlineResponse4XX {
+class InlineResponse401 {
     /**
-     * Constructs a new <code>InlineResponse4XX</code>.
-     * @alias module:model/InlineResponse4XX
+     * Constructs a new <code>InlineResponse401</code>.
+     * @alias module:model/InlineResponse401
      * @param reason {String} 
      * @param message {Array.<String>} 
      */
     constructor(reason, message) { 
         
-        InlineResponse4XX.initialize(this, reason, message);
+        InlineResponse401.initialize(this, reason, message);
     }
 
     /**
@@ -41,15 +41,15 @@ class InlineResponse4XX {
     }
 
     /**
-     * Constructs a <code>InlineResponse4XX</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>InlineResponse401</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/InlineResponse4XX} obj Optional instance to populate.
-     * @return {module:model/InlineResponse4XX} The populated <code>InlineResponse4XX</code> instance.
+     * @param {module:model/InlineResponse401} obj Optional instance to populate.
+     * @return {module:model/InlineResponse401} The populated <code>InlineResponse401</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new InlineResponse4XX();
+            obj = obj || new InlineResponse401();
 
             if (data.hasOwnProperty('reason')) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
@@ -67,17 +67,17 @@ class InlineResponse4XX {
 /**
  * @member {String} reason
  */
-InlineResponse4XX.prototype['reason'] = undefined;
+InlineResponse401.prototype['reason'] = undefined;
 
 /**
  * @member {Array.<String>} message
  */
-InlineResponse4XX.prototype['message'] = undefined;
+InlineResponse401.prototype['message'] = undefined;
 
 
 
 
 
 
-export default InlineResponse4XX;
+export default InlineResponse401;
 

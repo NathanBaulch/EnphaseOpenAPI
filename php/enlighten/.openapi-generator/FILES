@@ -32,9 +32,9 @@ docs/Model/InlineResponse2007MeterIntervals.md
 docs/Model/InlineResponse2008.md
 docs/Model/InlineResponse2008Intervals.md
 docs/Model/InlineResponse2009.md
+docs/Model/InlineResponse401.md
 docs/Model/InlineResponse409.md
-docs/Model/InlineResponse4XX.md
-docs/Model/InlineResponse5XX.md
+docs/Model/InlineResponse500.md
 docs/Model/Meta.md
 docs/Model/Status.md
 git_push.sh
@@ -69,9 +69,9 @@ lib/Model/InlineResponse2007MeterIntervals.php
 lib/Model/InlineResponse2008.php
 lib/Model/InlineResponse2008Intervals.php
 lib/Model/InlineResponse2009.php
+lib/Model/InlineResponse401.php
 lib/Model/InlineResponse409.php
-lib/Model/InlineResponse4XX.php
-lib/Model/InlineResponse5XX.php
+lib/Model/InlineResponse500.php
 lib/Model/Meta.php
 lib/Model/ModelInterface.php
 lib/Model/Status.php
@@ -105,8 +105,8 @@ test/Model/InlineResponse2008IntervalsTest.php
 test/Model/InlineResponse2008Test.php
 test/Model/InlineResponse2009Test.php
 test/Model/InlineResponse200Test.php
+test/Model/InlineResponse401Test.php
 test/Model/InlineResponse409Test.php
-test/Model/InlineResponse4XXTest.php
-test/Model/InlineResponse5XXTest.php
+test/Model/InlineResponse500Test.php
 test/Model/MetaTest.php
 test/Model/StatusTest.php

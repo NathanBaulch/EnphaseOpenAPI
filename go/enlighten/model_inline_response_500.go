@@ -14,33 +14,33 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse5XX struct for InlineResponse5XX
-type InlineResponse5XX struct {
+// InlineResponse500 struct for InlineResponse500
+type InlineResponse500 struct {
 	ErrorCode int32 `json:"errorCode"`
 	ErrorMessages []string `json:"errorMessages"`
 }
 
-// NewInlineResponse5XX instantiates a new InlineResponse5XX object
+// NewInlineResponse500 instantiates a new InlineResponse500 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse5XX(errorCode int32, errorMessages []string) *InlineResponse5XX {
-	this := InlineResponse5XX{}
+func NewInlineResponse500(errorCode int32, errorMessages []string) *InlineResponse500 {
+	this := InlineResponse500{}
 	this.ErrorCode = errorCode
 	this.ErrorMessages = errorMessages
 	return &this
 }
 
-// NewInlineResponse5XXWithDefaults instantiates a new InlineResponse5XX object
+// NewInlineResponse500WithDefaults instantiates a new InlineResponse500 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse5XXWithDefaults() *InlineResponse5XX {
-	this := InlineResponse5XX{}
+func NewInlineResponse500WithDefaults() *InlineResponse500 {
+	this := InlineResponse500{}
 	return &this
 }
 
 // GetErrorCode returns the ErrorCode field value
-func (o *InlineResponse5XX) GetErrorCode() int32 {
+func (o *InlineResponse500) GetErrorCode() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -51,7 +51,7 @@ func (o *InlineResponse5XX) GetErrorCode() int32 {
 
 // GetErrorCodeOk returns a tuple with the ErrorCode field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse5XX) GetErrorCodeOk() (*int32, bool) {
+func (o *InlineResponse500) GetErrorCodeOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -59,12 +59,12 @@ func (o *InlineResponse5XX) GetErrorCodeOk() (*int32, bool) {
 }
 
 // SetErrorCode sets field value
-func (o *InlineResponse5XX) SetErrorCode(v int32) {
+func (o *InlineResponse500) SetErrorCode(v int32) {
 	o.ErrorCode = v
 }
 
 // GetErrorMessages returns the ErrorMessages field value
-func (o *InlineResponse5XX) GetErrorMessages() []string {
+func (o *InlineResponse500) GetErrorMessages() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -75,7 +75,7 @@ func (o *InlineResponse5XX) GetErrorMessages() []string {
 
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse5XX) GetErrorMessagesOk() (*[]string, bool) {
+func (o *InlineResponse500) GetErrorMessagesOk() (*[]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -83,11 +83,11 @@ func (o *InlineResponse5XX) GetErrorMessagesOk() (*[]string, bool) {
 }
 
 // SetErrorMessages sets field value
-func (o *InlineResponse5XX) SetErrorMessages(v []string) {
+func (o *InlineResponse500) SetErrorMessages(v []string) {
 	o.ErrorMessages = v
 }
 
-func (o InlineResponse5XX) MarshalJSON() ([]byte, error) {
+func (o InlineResponse500) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["errorCode"] = o.ErrorCode
@@ -98,38 +98,38 @@ func (o InlineResponse5XX) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse5XX struct {
-	value *InlineResponse5XX
+type NullableInlineResponse500 struct {
+	value *InlineResponse500
 	isSet bool
 }
 
-func (v NullableInlineResponse5XX) Get() *InlineResponse5XX {
+func (v NullableInlineResponse500) Get() *InlineResponse500 {
 	return v.value
 }
 
-func (v *NullableInlineResponse5XX) Set(val *InlineResponse5XX) {
+func (v *NullableInlineResponse500) Set(val *InlineResponse500) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse5XX) IsSet() bool {
+func (v NullableInlineResponse500) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse5XX) Unset() {
+func (v *NullableInlineResponse500) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse5XX(val *InlineResponse5XX) *NullableInlineResponse5XX {
-	return &NullableInlineResponse5XX{value: val, isSet: true}
+func NewNullableInlineResponse500(val *InlineResponse500) *NullableInlineResponse500 {
+	return &NullableInlineResponse500{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse5XX) MarshalJSON() ([]byte, error) {
+func (v NullableInlineResponse500) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse5XX) UnmarshalJSON(src []byte) error {
+func (v *NullableInlineResponse500) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

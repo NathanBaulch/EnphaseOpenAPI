@@ -27,9 +27,9 @@ import InlineResponse2006 from '../model/InlineResponse2006';
 import InlineResponse2007 from '../model/InlineResponse2007';
 import InlineResponse2008 from '../model/InlineResponse2008';
 import InlineResponse2009 from '../model/InlineResponse2009';
+import InlineResponse401 from '../model/InlineResponse401';
 import InlineResponse409 from '../model/InlineResponse409';
-import InlineResponse4XX from '../model/InlineResponse4XX';
-import InlineResponse5XX from '../model/InlineResponse5XX';
+import InlineResponse500 from '../model/InlineResponse500';
 import Status from '../model/Status';
 
 /**

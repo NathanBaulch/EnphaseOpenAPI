@@ -14,20 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The InlineResponse5XX model module.
- * @module model/InlineResponse5XX
+ * The InlineResponse500 model module.
+ * @module model/InlineResponse500
  * @version 2.0
  */
-class InlineResponse5XX {
+class InlineResponse500 {
     /**
-     * Constructs a new <code>InlineResponse5XX</code>.
-     * @alias module:model/InlineResponse5XX
+     * Constructs a new <code>InlineResponse500</code>.
+     * @alias module:model/InlineResponse500
      * @param errorCode {Number} 
      * @param errorMessages {Array.<String>} 
      */
     constructor(errorCode, errorMessages) { 
         
-        InlineResponse5XX.initialize(this, errorCode, errorMessages);
+        InlineResponse500.initialize(this, errorCode, errorMessages);
     }
 
     /**
@@ -41,15 +41,15 @@ class InlineResponse5XX {
     }
 
     /**
-     * Constructs a <code>InlineResponse5XX</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>InlineResponse500</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/InlineResponse5XX} obj Optional instance to populate.
-     * @return {module:model/InlineResponse5XX} The populated <code>InlineResponse5XX</code> instance.
+     * @param {module:model/InlineResponse500} obj Optional instance to populate.
+     * @return {module:model/InlineResponse500} The populated <code>InlineResponse500</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new InlineResponse5XX();
+            obj = obj || new InlineResponse500();
 
             if (data.hasOwnProperty('errorCode')) {
                 obj['errorCode'] = ApiClient.convertToType(data['errorCode'], 'Number');
@@ -67,17 +67,17 @@ class InlineResponse5XX {
 /**
  * @member {Number} errorCode
  */
-InlineResponse5XX.prototype['errorCode'] = undefined;
+InlineResponse500.prototype['errorCode'] = undefined;
 
 /**
  * @member {Array.<String>} errorMessages
  */
-InlineResponse5XX.prototype['errorMessages'] = undefined;
+InlineResponse500.prototype['errorMessages'] = undefined;
 
 
 
 
 
 
-export default InlineResponse5XX;
+export default InlineResponse500;
 

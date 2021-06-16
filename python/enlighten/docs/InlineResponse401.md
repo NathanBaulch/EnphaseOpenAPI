@@ -1,4 +1,4 @@
-# InlineResponse4XX
+# InlineResponse401
 
 
 ## Properties

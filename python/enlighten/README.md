@@ -66,9 +66,9 @@ from enlighten.model.inline_response2006 import InlineResponse2006
 from enlighten.model.inline_response2007 import InlineResponse2007
 from enlighten.model.inline_response2008 import InlineResponse2008
 from enlighten.model.inline_response2009 import InlineResponse2009
+from enlighten.model.inline_response401 import InlineResponse401
 from enlighten.model.inline_response409 import InlineResponse409
-from enlighten.model.inline_response4_xx import InlineResponse4XX
-from enlighten.model.inline_response5_xx import InlineResponse5XX
+from enlighten.model.inline_response500 import InlineResponse500
 from enlighten.model.status import Status
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,9 +154,9 @@ Class | Method | HTTP request | Description
  - [InlineResponse2008](docs/InlineResponse2008.md)
  - [InlineResponse2008Intervals](docs/InlineResponse2008Intervals.md)
  - [InlineResponse2009](docs/InlineResponse2009.md)
+ - [InlineResponse401](docs/InlineResponse401.md)
  - [InlineResponse409](docs/InlineResponse409.md)
- - [InlineResponse4XX](docs/InlineResponse4XX.md)
- - [InlineResponse5XX](docs/InlineResponse5XX.md)
+ - [InlineResponse500](docs/InlineResponse500.md)
  - [Meta](docs/Meta.md)
  - [Status](docs/Status.md)
 

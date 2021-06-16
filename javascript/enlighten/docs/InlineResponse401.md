@@ -1,4 +1,4 @@
-# TheEnlightenSystemsApi.InlineResponse4XX
+# TheEnlightenSystemsApi.InlineResponse401
 
 ## Properties
 

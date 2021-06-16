@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse4XX
+ * InlineResponse401
  *
  * PHP version 7.2
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * InlineResponse4XX Class Doc Comment
+ * InlineResponse401 Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -42,7 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse4XX implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse401 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class InlineResponse4XX implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_4XX';
+    protected static $openAPIModelName = 'inline_response_401';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

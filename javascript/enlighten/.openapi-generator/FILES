@@ -31,9 +31,9 @@ docs/InlineResponse2007MeterIntervals.md
 docs/InlineResponse2008.md
 docs/InlineResponse2008Intervals.md
 docs/InlineResponse2009.md
+docs/InlineResponse401.md
 docs/InlineResponse409.md
-docs/InlineResponse4XX.md
-docs/InlineResponse5XX.md
+docs/InlineResponse500.md
 docs/Meta.md
 docs/Status.md
 git_push.sh
@@ -69,9 +69,9 @@ src/model/InlineResponse2007MeterIntervals.js
 src/model/InlineResponse2008.js
 src/model/InlineResponse2008Intervals.js
 src/model/InlineResponse2009.js
+src/model/InlineResponse401.js
 src/model/InlineResponse409.js
-src/model/InlineResponse4XX.js
-src/model/InlineResponse5XX.js
+src/model/InlineResponse500.js
 src/model/Meta.js
 src/model/Status.js
 test/api/DefaultApi.spec.js
@@ -102,8 +102,8 @@ test/model/InlineResponse2007MeterIntervals.spec.js
 test/model/InlineResponse2008.spec.js
 test/model/InlineResponse2008Intervals.spec.js
 test/model/InlineResponse2009.spec.js
+test/model/InlineResponse401.spec.js
 test/model/InlineResponse409.spec.js
-test/model/InlineResponse4XX.spec.js
-test/model/InlineResponse5XX.spec.js
+test/model/InlineResponse500.spec.js
 test/model/Meta.spec.js
 test/model/Status.spec.js

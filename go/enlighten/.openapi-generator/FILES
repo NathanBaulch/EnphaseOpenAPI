@@ -34,9 +34,9 @@ docs/InlineResponse2007MeterIntervals.md
 docs/InlineResponse2008.md
 docs/InlineResponse2008Intervals.md
 docs/InlineResponse2009.md
+docs/InlineResponse401.md
 docs/InlineResponse409.md
-docs/InlineResponse4XX.md
-docs/InlineResponse5XX.md
+docs/InlineResponse500.md
 docs/Meta.md
 docs/Status.md
 git_push.sh
@@ -69,9 +69,9 @@ model_inline_response_200_7_meter_intervals.go
 model_inline_response_200_8.go
 model_inline_response_200_8_intervals.go
 model_inline_response_200_9.go
+model_inline_response_401.go
 model_inline_response_409.go
-model_inline_response_4_xx.go
-model_inline_response_5_xx.go
+model_inline_response_500.go
 model_meta.go
 model_status.go
 response.go

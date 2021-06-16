@@ -177,9 +177,9 @@ Class | Method | HTTP request | Description
  - [TheEnlightenSystemsApi.InlineResponse2008](docs/InlineResponse2008.md)
  - [TheEnlightenSystemsApi.InlineResponse2008Intervals](docs/InlineResponse2008Intervals.md)
  - [TheEnlightenSystemsApi.InlineResponse2009](docs/InlineResponse2009.md)
+ - [TheEnlightenSystemsApi.InlineResponse401](docs/InlineResponse401.md)
  - [TheEnlightenSystemsApi.InlineResponse409](docs/InlineResponse409.md)
- - [TheEnlightenSystemsApi.InlineResponse4XX](docs/InlineResponse4XX.md)
- - [TheEnlightenSystemsApi.InlineResponse5XX](docs/InlineResponse5XX.md)
+ - [TheEnlightenSystemsApi.InlineResponse500](docs/InlineResponse500.md)
  - [TheEnlightenSystemsApi.Meta](docs/Meta.md)
  - [TheEnlightenSystemsApi.Status](docs/Status.md)
 

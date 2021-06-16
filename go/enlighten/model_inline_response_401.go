@@ -14,33 +14,33 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse4XX struct for InlineResponse4XX
-type InlineResponse4XX struct {
+// InlineResponse401 struct for InlineResponse401
+type InlineResponse401 struct {
 	Reason string `json:"reason"`
 	Message []string `json:"message"`
 }
 
-// NewInlineResponse4XX instantiates a new InlineResponse4XX object
+// NewInlineResponse401 instantiates a new InlineResponse401 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse4XX(reason string, message []string) *InlineResponse4XX {
-	this := InlineResponse4XX{}
+func NewInlineResponse401(reason string, message []string) *InlineResponse401 {
+	this := InlineResponse401{}
 	this.Reason = reason
 	this.Message = message
 	return &this
 }
 
-// NewInlineResponse4XXWithDefaults instantiates a new InlineResponse4XX object
+// NewInlineResponse401WithDefaults instantiates a new InlineResponse401 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse4XXWithDefaults() *InlineResponse4XX {
-	this := InlineResponse4XX{}
+func NewInlineResponse401WithDefaults() *InlineResponse401 {
+	this := InlineResponse401{}
 	return &this
 }
 
 // GetReason returns the Reason field value
-func (o *InlineResponse4XX) GetReason() string {
+func (o *InlineResponse401) GetReason() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -51,7 +51,7 @@ func (o *InlineResponse4XX) GetReason() string {
 
 // GetReasonOk returns a tuple with the Reason field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse4XX) GetReasonOk() (*string, bool) {
+func (o *InlineResponse401) GetReasonOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -59,12 +59,12 @@ func (o *InlineResponse4XX) GetReasonOk() (*string, bool) {
 }
 
 // SetReason sets field value
-func (o *InlineResponse4XX) SetReason(v string) {
+func (o *InlineResponse401) SetReason(v string) {
 	o.Reason = v
 }
 
 // GetMessage returns the Message field value
-func (o *InlineResponse4XX) GetMessage() []string {
+func (o *InlineResponse401) GetMessage() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -75,7 +75,7 @@ func (o *InlineResponse4XX) GetMessage() []string {
 
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse4XX) GetMessageOk() (*[]string, bool) {
+func (o *InlineResponse401) GetMessageOk() (*[]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -83,11 +83,11 @@ func (o *InlineResponse4XX) GetMessageOk() (*[]string, bool) {
 }
 
 // SetMessage sets field value
-func (o *InlineResponse4XX) SetMessage(v []string) {
+func (o *InlineResponse401) SetMessage(v []string) {
 	o.Message = v
 }
 
-func (o InlineResponse4XX) MarshalJSON() ([]byte, error) {
+func (o InlineResponse401) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["reason"] = o.Reason
@@ -98,38 +98,38 @@ func (o InlineResponse4XX) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse4XX struct {
-	value *InlineResponse4XX
+type NullableInlineResponse401 struct {
+	value *InlineResponse401
 	isSet bool
 }
 
-func (v NullableInlineResponse4XX) Get() *InlineResponse4XX {
+func (v NullableInlineResponse401) Get() *InlineResponse401 {
 	return v.value
 }
 
-func (v *NullableInlineResponse4XX) Set(val *InlineResponse4XX) {
+func (v *NullableInlineResponse401) Set(val *InlineResponse401) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse4XX) IsSet() bool {
+func (v NullableInlineResponse401) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse4XX) Unset() {
+func (v *NullableInlineResponse401) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse4XX(val *InlineResponse4XX) *NullableInlineResponse4XX {
-	return &NullableInlineResponse4XX{value: val, isSet: true}
+func NewNullableInlineResponse401(val *InlineResponse401) *NullableInlineResponse401 {
+	return &NullableInlineResponse401{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse4XX) MarshalJSON() ([]byte, error) {
+func (v NullableInlineResponse401) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse4XX) UnmarshalJSON(src []byte) error {
+func (v *NullableInlineResponse401) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

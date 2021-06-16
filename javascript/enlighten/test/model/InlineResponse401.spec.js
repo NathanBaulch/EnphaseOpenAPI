@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new TheEnlightenSystemsApi.InlineResponse5XX();
+    instance = new TheEnlightenSystemsApi.InlineResponse401();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,22 @@
       object[property] = value;
   }
 
-  describe('InlineResponse5XX', function() {
-    it('should create an instance of InlineResponse5XX', function() {
-      // uncomment below and update the code to test InlineResponse5XX
-      //var instane = new TheEnlightenSystemsApi.InlineResponse5XX();
-      //expect(instance).to.be.a(TheEnlightenSystemsApi.InlineResponse5XX);
+  describe('InlineResponse401', function() {
+    it('should create an instance of InlineResponse401', function() {
+      // uncomment below and update the code to test InlineResponse401
+      //var instane = new TheEnlightenSystemsApi.InlineResponse401();
+      //expect(instance).to.be.a(TheEnlightenSystemsApi.InlineResponse401);
     });
 
-    it('should have the property errorCode (base name: "errorCode")', function() {
-      // uncomment below and update the code to test the property errorCode
-      //var instance = new TheEnlightenSystemsApi.InlineResponse5XX();
+    it('should have the property reason (base name: "reason")', function() {
+      // uncomment below and update the code to test the property reason
+      //var instance = new TheEnlightenSystemsApi.InlineResponse401();
       //expect(instance).to.be();
     });
 
-    it('should have the property errorMessages (base name: "errorMessages")', function() {
-      // uncomment below and update the code to test the property errorMessages
-      //var instance = new TheEnlightenSystemsApi.InlineResponse5XX();
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
+      //var instance = new TheEnlightenSystemsApi.InlineResponse401();
       //expect(instance).to.be();
     });
 

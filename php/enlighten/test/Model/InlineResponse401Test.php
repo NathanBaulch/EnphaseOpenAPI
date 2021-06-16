@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse5XXTest
+ * InlineResponse401Test
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * InlineResponse5XXTest Class Doc Comment
+ * InlineResponse401Test Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse5XX
+ * @description InlineResponse401
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class InlineResponse5XXTest extends TestCase
+class InlineResponse401Test extends TestCase
 {
 
     /**
@@ -71,27 +71,27 @@ class InlineResponse5XXTest extends TestCase
     }
 
     /**
-     * Test "InlineResponse5XX"
+     * Test "InlineResponse401"
      */
-    public function testInlineResponse5XX()
+    public function testInlineResponse401()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "error_code"
+     * Test attribute "reason"
      */
-    public function testPropertyErrorCode()
+    public function testPropertyReason()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "error_messages"
+     * Test attribute "message"
      */
-    public function testPropertyErrorMessages()
+    public function testPropertyMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

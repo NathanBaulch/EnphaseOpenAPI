@@ -40,9 +40,9 @@ import InlineResponse2007MeterIntervals from './model/InlineResponse2007MeterInt
 import InlineResponse2008 from './model/InlineResponse2008';
 import InlineResponse2008Intervals from './model/InlineResponse2008Intervals';
 import InlineResponse2009 from './model/InlineResponse2009';
+import InlineResponse401 from './model/InlineResponse401';
 import InlineResponse409 from './model/InlineResponse409';
-import InlineResponse4XX from './model/InlineResponse4XX';
-import InlineResponse5XX from './model/InlineResponse5XX';
+import InlineResponse500 from './model/InlineResponse500';
 import Meta from './model/Meta';
 import Status from './model/Status';
 import DefaultApi from './api/DefaultApi';
@@ -249,22 +249,22 @@ export {
     InlineResponse2009,
 
     /**
+     * The InlineResponse401 model constructor.
+     * @property {module:model/InlineResponse401}
+     */
+    InlineResponse401,
+
+    /**
      * The InlineResponse409 model constructor.
      * @property {module:model/InlineResponse409}
      */
     InlineResponse409,
 
     /**
-     * The InlineResponse4XX model constructor.
-     * @property {module:model/InlineResponse4XX}
+     * The InlineResponse500 model constructor.
+     * @property {module:model/InlineResponse500}
      */
-    InlineResponse4XX,
-
-    /**
-     * The InlineResponse5XX model constructor.
-     * @property {module:model/InlineResponse5XX}
-     */
-    InlineResponse5XX,
+    InlineResponse500,
 
     /**
      * The Meta model constructor.

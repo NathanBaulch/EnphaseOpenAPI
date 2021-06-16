@@ -1,12 +1,11 @@
-# InlineResponse5XX
-
+# EnphaseOpenAPI.Enlighten.Model.InlineResponse401
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error_code** | **int** |  | 
-**error_messages** | **[str]** |  | 
+**Reason** | **string** |  | 
+**Message** | **List&lt;string&gt;** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

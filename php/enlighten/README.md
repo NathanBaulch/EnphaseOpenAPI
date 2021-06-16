@@ -125,9 +125,9 @@ Class | Method | HTTP request | Description
 - [InlineResponse2008](docs/Model/InlineResponse2008.md)
 - [InlineResponse2008Intervals](docs/Model/InlineResponse2008Intervals.md)
 - [InlineResponse2009](docs/Model/InlineResponse2009.md)
+- [InlineResponse401](docs/Model/InlineResponse401.md)
 - [InlineResponse409](docs/Model/InlineResponse409.md)
-- [InlineResponse4XX](docs/Model/InlineResponse4XX.md)
-- [InlineResponse5XX](docs/Model/InlineResponse5XX.md)
+- [InlineResponse500](docs/Model/InlineResponse500.md)
 - [Meta](docs/Model/Meta.md)
 - [Status](docs/Model/Status.md)
 

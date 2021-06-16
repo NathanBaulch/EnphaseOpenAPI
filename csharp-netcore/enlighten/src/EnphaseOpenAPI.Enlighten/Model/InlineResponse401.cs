@@ -26,39 +26,40 @@ using OpenAPIDateConverter = EnphaseOpenAPI.Enlighten.Client.OpenAPIDateConverte
 namespace EnphaseOpenAPI.Enlighten.Model
 {
     /// <summary>
-    /// InlineResponse5XX
+    /// InlineResponse401
     /// </summary>
-    [DataContract(Name = "inline_response_5XX")]
-    public partial class InlineResponse5XX : IEquatable<InlineResponse5XX>, IValidatableObject
+    [DataContract(Name = "inline_response_401")]
+    public partial class InlineResponse401 : IEquatable<InlineResponse401>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse5XX" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse401" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InlineResponse5XX() { }
+        protected InlineResponse401() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse5XX" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse401" /> class.
         /// </summary>
-        /// <param name="errorCode">errorCode (required).</param>
-        /// <param name="errorMessages">errorMessages (required).</param>
-        public InlineResponse5XX(int errorCode = default(int), List<string> errorMessages = default(List<string>))
+        /// <param name="reason">reason (required).</param>
+        /// <param name="message">message (required).</param>
+        public InlineResponse401(string reason = default(string), List<string> message = default(List<string>))
         {
-            this.ErrorCode = errorCode;
-            // to ensure "errorMessages" is required (not null)
-            this.ErrorMessages = errorMessages ?? throw new ArgumentNullException("errorMessages is a required property for InlineResponse5XX and cannot be null");
+            // to ensure "reason" is required (not null)
+            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for InlineResponse401 and cannot be null");
+            // to ensure "message" is required (not null)
+            this.Message = message ?? throw new ArgumentNullException("message is a required property for InlineResponse401 and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets ErrorCode
+        /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "errorCode", IsRequired = true, EmitDefaultValue = false)]
-        public int ErrorCode { get; set; }
+        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = false)]
+        public string Reason { get; set; }
 
         /// <summary>
-        /// Gets or Sets ErrorMessages
+        /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "errorMessages", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> ErrorMessages { get; set; }
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
+        public List<string> Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,9 +68,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse5XX {\n");
-            sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
-            sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
+            sb.Append("class InlineResponse401 {\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,29 +91,30 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse5XX);
+            return this.Equals(input as InlineResponse401);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse5XX instances are equal
+        /// Returns true if InlineResponse401 instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse5XX to be compared</param>
+        /// <param name="input">Instance of InlineResponse401 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse5XX input)
+        public bool Equals(InlineResponse401 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ErrorCode == input.ErrorCode ||
-                    this.ErrorCode.Equals(input.ErrorCode)
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 ) && 
                 (
-                    this.ErrorMessages == input.ErrorMessages ||
-                    this.ErrorMessages != null &&
-                    input.ErrorMessages != null &&
-                    this.ErrorMessages.SequenceEqual(input.ErrorMessages)
+                    this.Message == input.Message ||
+                    this.Message != null &&
+                    input.Message != null &&
+                    this.Message.SequenceEqual(input.Message)
                 );
         }
 
@@ -125,9 +127,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
-                if (this.ErrorMessages != null)
-                    hashCode = hashCode * 59 + this.ErrorMessages.GetHashCode();
+                if (this.Reason != null)
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 return hashCode;
             }
         }
