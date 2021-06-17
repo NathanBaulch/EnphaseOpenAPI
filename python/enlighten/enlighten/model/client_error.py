@@ -73,7 +73,7 @@ class ClientError(ModelNormal):
         """
         return {
             'reason': (str,),  # noqa: E501
-            'message': ([str],),  # noqa: E501
+            'error_messages': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -83,7 +83,7 @@ class ClientError(ModelNormal):
 
     attribute_map = {
         'reason': 'reason',  # noqa: E501
-        'message': 'message',  # noqa: E501
+        'error_messages': 'errorMessages',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -98,12 +98,12 @@ class ClientError(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, reason, message, *args, **kwargs):  # noqa: E501
+    def __init__(self, reason, error_messages, *args, **kwargs):  # noqa: E501
         """ClientError - a model defined in OpenAPI
 
         Args:
             reason (str):
-            message ([str]):
+            error_messages ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -162,7 +162,7 @@ class ClientError(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.reason = reason
-        self.message = message
+        self.error_messages = error_messages
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

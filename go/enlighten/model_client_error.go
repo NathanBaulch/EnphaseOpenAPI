@@ -17,17 +17,17 @@ import (
 // ClientError struct for ClientError
 type ClientError struct {
 	Reason string `json:"reason"`
-	Message []string `json:"message"`
+	ErrorMessages []string `json:"errorMessages"`
 }
 
 // NewClientError instantiates a new ClientError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClientError(reason string, message []string) *ClientError {
+func NewClientError(reason string, errorMessages []string) *ClientError {
 	this := ClientError{}
 	this.Reason = reason
-	this.Message = message
+	this.ErrorMessages = errorMessages
 	return &this
 }
 
@@ -63,28 +63,28 @@ func (o *ClientError) SetReason(v string) {
 	o.Reason = v
 }
 
-// GetMessage returns the Message field value
-func (o *ClientError) GetMessage() []string {
+// GetErrorMessages returns the ErrorMessages field value
+func (o *ClientError) GetErrorMessages() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
 
-	return o.Message
+	return o.ErrorMessages
 }
 
-// GetMessageOk returns a tuple with the Message field value
+// GetErrorMessagesOk returns a tuple with the ErrorMessages field value
 // and a boolean to check if the value has been set.
-func (o *ClientError) GetMessageOk() (*[]string, bool) {
+func (o *ClientError) GetErrorMessagesOk() (*[]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Message, true
+	return &o.ErrorMessages, true
 }
 
-// SetMessage sets field value
-func (o *ClientError) SetMessage(v []string) {
-	o.Message = v
+// SetErrorMessages sets field value
+func (o *ClientError) SetErrorMessages(v []string) {
+	o.ErrorMessages = v
 }
 
 func (o ClientError) MarshalJSON() ([]byte, error) {
@@ -93,7 +93,7 @@ func (o ClientError) MarshalJSON() ([]byte, error) {
 		toSerialize["reason"] = o.Reason
 	}
 	if true {
-		toSerialize["message"] = o.Message
+		toSerialize["errorMessages"] = o.ErrorMessages
 	}
 	return json.Marshal(toSerialize)
 }

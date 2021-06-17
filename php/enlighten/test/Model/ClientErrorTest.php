@@ -89,9 +89,9 @@ class ClientErrorTest extends TestCase
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "error_messages"
      */
-    public function testPropertyMessage()
+    public function testPropertyErrorMessages()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

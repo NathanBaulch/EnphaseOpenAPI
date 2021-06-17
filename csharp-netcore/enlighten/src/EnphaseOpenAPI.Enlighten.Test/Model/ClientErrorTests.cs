@@ -65,12 +65,12 @@ namespace EnphaseOpenAPI.Enlighten.Test.Model
             // TODO unit test for the property 'Reason'
         }
         /// <summary>
-        /// Test the property 'Message'
+        /// Test the property 'ErrorMessages'
         /// </summary>
         [Fact]
-        public void MessageTest()
+        public void ErrorMessagesTest()
         {
-            // TODO unit test for the property 'Message'
+            // TODO unit test for the property 'ErrorMessages'
         }
 
     }

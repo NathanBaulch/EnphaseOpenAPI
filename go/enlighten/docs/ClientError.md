@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Reason** | **string** |  | 
-**Message** | **[]string** |  | 
+**ErrorMessages** | **[]string** |  | 
 
 ## Methods
 
 ### NewClientError
 
-`func NewClientError(reason string, message []string, ) *ClientError`
+`func NewClientError(reason string, errorMessages []string, ) *ClientError`
 
 NewClientError instantiates a new ClientError object
 This constructor will assign default values to properties that have it defined,
@@ -46,24 +46,24 @@ and a boolean to check if the value has been set.
 SetReason sets Reason field to given value.
 
 
-### GetMessage
+### GetErrorMessages
 
-`func (o *ClientError) GetMessage() []string`
+`func (o *ClientError) GetErrorMessages() []string`
 
-GetMessage returns the Message field if non-nil, zero value otherwise.
+GetErrorMessages returns the ErrorMessages field if non-nil, zero value otherwise.
 
-### GetMessageOk
+### GetErrorMessagesOk
 
-`func (o *ClientError) GetMessageOk() (*[]string, bool)`
+`func (o *ClientError) GetErrorMessagesOk() (*[]string, bool)`
 
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+GetErrorMessagesOk returns a tuple with the ErrorMessages field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMessage
+### SetErrorMessages
 
-`func (o *ClientError) SetMessage(v []string)`
+`func (o *ClientError) SetErrorMessages(v []string)`
 
-SetMessage sets Message field to given value.
+SetErrorMessages sets ErrorMessages field to given value.
 
 
 

@@ -1629,13 +1629,13 @@ components:
       properties:
         reason:
           type: string
-        message:
+        errorMessages:
           type: array
           items:
             type: string
       required:
         - reason
-        - message
+        - errorMessages
       example:
         reason: 401
         message:

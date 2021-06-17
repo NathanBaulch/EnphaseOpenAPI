@@ -1888,12 +1888,12 @@ components:
       properties:
         reason:
           type: string
-        message:
+        errorMessages:
           items:
             type: string
           type: array
       required:
-      - message
+      - errorMessages
       - reason
       type: object
     ServerError:

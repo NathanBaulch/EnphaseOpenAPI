@@ -23,11 +23,11 @@ class ClientError {
      * Constructs a new <code>ClientError</code>.
      * @alias module:model/ClientError
      * @param reason {String} 
-     * @param message {Array.<String>} 
+     * @param errorMessages {Array.<String>} 
      */
-    constructor(reason, message) { 
+    constructor(reason, errorMessages) { 
         
-        ClientError.initialize(this, reason, message);
+        ClientError.initialize(this, reason, errorMessages);
     }
 
     /**
@@ -35,9 +35,9 @@ class ClientError {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, reason, message) { 
+    static initialize(obj, reason, errorMessages) { 
         obj['reason'] = reason;
-        obj['message'] = message;
+        obj['errorMessages'] = errorMessages;
     }
 
     /**
@@ -54,8 +54,8 @@ class ClientError {
             if (data.hasOwnProperty('reason')) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
-                obj['message'] = ApiClient.convertToType(data['message'], ['String']);
+            if (data.hasOwnProperty('errorMessages')) {
+                obj['errorMessages'] = ApiClient.convertToType(data['errorMessages'], ['String']);
             }
         }
         return obj;
@@ -70,9 +70,9 @@ class ClientError {
 ClientError.prototype['reason'] = undefined;
 
 /**
- * @member {Array.<String>} message
+ * @member {Array.<String>} errorMessages
  */
-ClientError.prototype['message'] = undefined;
+ClientError.prototype['errorMessages'] = undefined;
 
 
 

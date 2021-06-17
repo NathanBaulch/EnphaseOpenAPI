@@ -60,7 +60,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'reason' => 'string',
-        'message' => 'string[]'
+        'error_messages' => 'string[]'
     ];
 
     /**
@@ -72,7 +72,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'reason' => null,
-        'message' => null
+        'error_messages' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'reason' => 'reason',
-        'message' => 'message'
+        'error_messages' => 'errorMessages'
     ];
 
     /**
@@ -113,7 +113,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'reason' => 'setReason',
-        'message' => 'setMessage'
+        'error_messages' => 'setErrorMessages'
     ];
 
     /**
@@ -123,7 +123,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'reason' => 'getReason',
-        'message' => 'getMessage'
+        'error_messages' => 'getErrorMessages'
     ];
 
     /**
@@ -184,7 +184,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['reason'] = $data['reason'] ?? null;
-        $this->container['message'] = $data['message'] ?? null;
+        $this->container['error_messages'] = $data['error_messages'] ?? null;
     }
 
     /**
@@ -199,8 +199,8 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['error_messages'] === null) {
+            $invalidProperties[] = "'error_messages' can't be null";
         }
         return $invalidProperties;
     }
@@ -242,25 +242,25 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets message
+     * Gets error_messages
      *
      * @return string[]
      */
-    public function getMessage()
+    public function getErrorMessages()
     {
-        return $this->container['message'];
+        return $this->container['error_messages'];
     }
 
     /**
-     * Sets message
+     * Sets error_messages
      *
-     * @param string[] $message message
+     * @param string[] $error_messages error_messages
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setErrorMessages($error_messages)
     {
-        $this->container['message'] = $message;
+        $this->container['error_messages'] = $error_messages;
 
         return $this;
     }

@@ -40,13 +40,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Initializes a new instance of the <see cref="ClientError" /> class.
         /// </summary>
         /// <param name="reason">reason (required).</param>
-        /// <param name="message">message (required).</param>
-        public ClientError(string reason = default(string), List<string> message = default(List<string>))
+        /// <param name="errorMessages">errorMessages (required).</param>
+        public ClientError(string reason = default(string), List<string> errorMessages = default(List<string>))
         {
             // to ensure "reason" is required (not null)
             this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for ClientError and cannot be null");
-            // to ensure "message" is required (not null)
-            this.Message = message ?? throw new ArgumentNullException("message is a required property for ClientError and cannot be null");
+            // to ensure "errorMessages" is required (not null)
+            this.ErrorMessages = errorMessages ?? throw new ArgumentNullException("errorMessages is a required property for ClientError and cannot be null");
         }
 
         /// <summary>
@@ -56,10 +56,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public string Reason { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Gets or Sets ErrorMessages
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Message { get; set; }
+        [DataMember(Name = "errorMessages", IsRequired = true, EmitDefaultValue = false)]
+        public List<string> ErrorMessages { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,7 +70,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
             var sb = new StringBuilder();
             sb.Append("class ClientError {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,10 +111,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     this.Reason.Equals(input.Reason))
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    this.Message != null &&
-                    input.Message != null &&
-                    this.Message.SequenceEqual(input.Message)
+                    this.ErrorMessages == input.ErrorMessages ||
+                    this.ErrorMessages != null &&
+                    input.ErrorMessages != null &&
+                    this.ErrorMessages.SequenceEqual(input.ErrorMessages)
                 );
         }
 
@@ -129,8 +129,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 int hashCode = 41;
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.ErrorMessages != null)
+                    hashCode = hashCode * 59 + this.ErrorMessages.GetHashCode();
                 return hashCode;
             }
         }
