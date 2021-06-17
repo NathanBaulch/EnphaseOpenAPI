@@ -15,7 +15,7 @@
 # This is a Bash client for The Enlighten Systems API.
 #
 # LICENSE:
-# 
+# https://www.enphase.com/en-us/legal/api-license-agreement
 #
 # CONTACT:
 # 
@@ -686,7 +686,7 @@ print_about() {
     echo ""
     echo -e "${BOLD}${WHITE}The Enlighten Systems API command line client (API version 2.0)${OFF}"
     echo ""
-    echo -e "License: "
+    echo -e "License: Enphase API License Agreement"
     echo -e "Contact: "
     echo ""
 read -r -d '' appdescription <<EOF

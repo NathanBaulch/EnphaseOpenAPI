@@ -6,6 +6,10 @@ info:
 
     Please note that the Enlighten Systems API does not provide performance data at a panel or microinverter level.
   version: '2.0'
+  termsOfService: https://developer.enphase.com/docs#Display-Requirements
+  license:
+    name: Enphase API License Agreement
+    url: https://www.enphase.com/en-us/legal/api-license-agreement
 servers:
   - url: 'https://api.enphaseenergy.com/api/v2'
 paths:

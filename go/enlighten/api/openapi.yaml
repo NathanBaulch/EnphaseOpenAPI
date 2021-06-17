@@ -4,6 +4,10 @@ info:
     The Enlighten Systems API is a JSON-based API that provides access to performance data for a PV system. By using the Enlighten Systems API, you agree to the Enphase Energy API License Agreement.
 
     Please note that the Enlighten Systems API does not provide performance data at a panel or microinverter level.
+  license:
+    name: Enphase API License Agreement
+    url: https://www.enphase.com/en-us/legal/api-license-agreement
+  termsOfService: https://developer.enphase.com/docs#Display-Requirements
   title: The Enlighten Systems API
   version: "2.0"
 servers:
