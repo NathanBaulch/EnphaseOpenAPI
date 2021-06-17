@@ -3,12 +3,15 @@ OPENAPICLI := ./bin/openapi-generator-cli
 export OPENAPI_GENERATOR_VERSION = 5.1.1
 export JAVA_OPTS = -Dlog.level=warn
 
-all: validate $(shell grep -o "^generate/[a-z-]\+" ./Makefile | tr '\n' ' ')
+.SILENT:
+
+generate: validate $(shell grep -o "^generate/[a-z-]\+" ./Makefile | tr '\n' ' ')
 
 validate:
 	$(OPENAPICLI) validate -i ./enlighten.yaml --recommend
 
 define clean
+	echo Removing previously generated $(1) files
 	sed -e 's|^|./$(1)/enlighten/|' ./$(1)/enlighten/.openapi-generator/FILES | xargs -r rm
 	rm -r ./$(1)/enlighten/.openapi-generator | true
 	find ./$(1)/enlighten -type d -empty -delete | true
