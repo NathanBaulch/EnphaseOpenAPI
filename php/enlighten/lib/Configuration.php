@@ -90,7 +90,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/1.0.0/PHP';
+    protected $userAgent = 'EnphaseOpenAPI/php';
 
     /**
      * Debug switch (default set to false)

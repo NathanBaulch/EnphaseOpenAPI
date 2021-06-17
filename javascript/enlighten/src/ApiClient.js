@@ -50,7 +50,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/2.0/Javascript'
+            'User-Agent': 'EnphaseOpenAPI/javascript'
         };
 
         /**

@@ -101,7 +101,7 @@ namespace EnphaseOpenAPI.Enlighten.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator/1.0.0/csharp";
+            UserAgent = "EnphaseOpenAPI/csharp-netcore";
             BasePath = "https://api.enphaseenergy.com/api/v2";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
