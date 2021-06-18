@@ -1,6 +1,4 @@
 .gitignore
-.openapi-generator-ignore
-.travis.yml
 README.md
 api/openapi.yaml
 api_default.go
@@ -40,7 +38,6 @@ docs/Summary.md
 docs/Systems.md
 docs/SystemsSystems.md
 docs/UnprocessableEntityError.md
-git_push.sh
 go.mod
 go.sum
 model_client_error.go

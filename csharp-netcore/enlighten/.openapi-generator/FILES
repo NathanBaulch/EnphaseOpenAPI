@@ -1,8 +1,5 @@
 .gitignore
-.openapi-generator-ignore
-EnphaseOpenAPI.Enlighten.sln
 README.md
-appveyor.yml
 docs/ClientError.md
 docs/ConflictError.md
 docs/ConnectionType.md
@@ -37,7 +34,6 @@ docs/Summary.md
 docs/Systems.md
 docs/SystemsSystems.md
 docs/UnprocessableEntityError.md
-git_push.sh
 src/EnphaseOpenAPI.Enlighten.Test/Api/DefaultApiTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/EnphaseOpenAPI.Enlighten.Test.csproj
 src/EnphaseOpenAPI.Enlighten.Test/Model/ClientErrorTests.cs

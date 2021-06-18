@@ -1,7 +1,5 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
-.travis.yml
 README.md
 docs/ClientError.md
 docs/ConflictError.md
@@ -37,7 +35,6 @@ docs/Summary.md
 docs/Systems.md
 docs/SystemsSystems.md
 docs/UnprocessableEntityError.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

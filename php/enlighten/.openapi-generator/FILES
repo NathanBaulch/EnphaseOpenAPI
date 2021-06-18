@@ -1,7 +1,5 @@
 .gitignore
-.openapi-generator-ignore
 .php_cs
-.travis.yml
 README.md
 composer.json
 docs/Api/DefaultApi.md
@@ -38,7 +36,6 @@ docs/Model/Summary.md
 docs/Model/Systems.md
 docs/Model/SystemsSystems.md
 docs/Model/UnprocessableEntityError.md
-git_push.sh
 lib/ApiException.php
 lib/Api/DefaultApi.php
 lib/Configuration.php

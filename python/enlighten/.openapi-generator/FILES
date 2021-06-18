@@ -1,7 +1,4 @@
 .gitignore
-.gitlab-ci.yml
-.openapi-generator-ignore
-.travis.yml
 README.md
 docs/ClientError.md
 docs/ConflictError.md
@@ -81,7 +78,6 @@ enlighten/model/unprocessable_entity_error.py
 enlighten/model_utils.py
 enlighten/models/__init__.py
 enlighten/rest.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py
