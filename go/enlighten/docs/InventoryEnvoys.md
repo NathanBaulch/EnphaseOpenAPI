@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Sn** | **string** |  | 
 **Model** | **string** |  | 
+**Sku** | **string** |  | 
 
 ## Methods
 
 ### NewInventoryEnvoys
 
-`func NewInventoryEnvoys(sn string, model string, ) *InventoryEnvoys`
+`func NewInventoryEnvoys(sn string, model string, sku string, ) *InventoryEnvoys`
 
 NewInventoryEnvoys instantiates a new InventoryEnvoys object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *InventoryEnvoys) SetModel(v string)`
 
 SetModel sets Model field to given value.
+
+
+### GetSku
+
+`func (o *InventoryEnvoys) GetSku() string`
+
+GetSku returns the Sku field if non-nil, zero value otherwise.
+
+### GetSkuOk
+
+`func (o *InventoryEnvoys) GetSkuOk() (*string, bool)`
+
+GetSkuOk returns a tuple with the Sku field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSku
+
+`func (o *InventoryEnvoys) SetSku(v string)`
+
+SetSku sets Sku field to given value.
 
 
 

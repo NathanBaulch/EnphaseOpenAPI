@@ -72,6 +72,14 @@ namespace EnphaseOpenAPI.Enlighten.Test.Model
         {
             // TODO unit test for the property 'Model'
         }
+        /// <summary>
+        /// Test the property 'Sku'
+        /// </summary>
+        [Fact]
+        public void SkuTest()
+        {
+            // TODO unit test for the property 'Sku'
+        }
 
     }
 

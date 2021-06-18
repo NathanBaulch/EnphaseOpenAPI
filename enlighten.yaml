@@ -861,9 +861,12 @@ components:
                 type: string
               model:
                 type: string
+              sku:
+                type: string
             required:
               - sn
               - model
+              - sku
         inverters:
           description: A list of inverters on this system, including serial and model numbers.
           type: array
@@ -874,9 +877,12 @@ components:
                 type: string
               model:
                 type: string
+              sku:
+                type: string
             required:
               - sn
               - model
+              - sku
         meters:
           description: A list of meters on this system, including serial number, manufacturer, and model number.
           type: array

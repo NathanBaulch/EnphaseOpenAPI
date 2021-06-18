@@ -18,16 +18,18 @@ import (
 type InventoryEnvoys struct {
 	Sn string `json:"sn"`
 	Model string `json:"model"`
+	Sku string `json:"sku"`
 }
 
 // NewInventoryEnvoys instantiates a new InventoryEnvoys object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInventoryEnvoys(sn string, model string) *InventoryEnvoys {
+func NewInventoryEnvoys(sn string, model string, sku string) *InventoryEnvoys {
 	this := InventoryEnvoys{}
 	this.Sn = sn
 	this.Model = model
+	this.Sku = sku
 	return &this
 }
 
@@ -87,6 +89,30 @@ func (o *InventoryEnvoys) SetModel(v string) {
 	o.Model = v
 }
 
+// GetSku returns the Sku field value
+func (o *InventoryEnvoys) GetSku() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Sku
+}
+
+// GetSkuOk returns a tuple with the Sku field value
+// and a boolean to check if the value has been set.
+func (o *InventoryEnvoys) GetSkuOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Sku, true
+}
+
+// SetSku sets field value
+func (o *InventoryEnvoys) SetSku(v string) {
+	o.Sku = v
+}
+
 func (o InventoryEnvoys) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -94,6 +120,9 @@ func (o InventoryEnvoys) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["model"] = o.Model
+	}
+	if true {
+		toSerialize["sku"] = o.Sku
 	}
 	return json.Marshal(toSerialize)
 }

@@ -2043,8 +2043,11 @@ components:
           type: string
         model:
           type: string
+        sku:
+          type: string
       required:
       - model
+      - sku
       - sn
       type: object
     Inventory_meters:

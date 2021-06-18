@@ -60,7 +60,8 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'sn' => 'string',
-        'model' => 'string'
+        'model' => 'string',
+        'sku' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'sn' => null,
-        'model' => null
+        'model' => null,
+        'sku' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'sn' => 'sn',
-        'model' => 'model'
+        'model' => 'model',
+        'sku' => 'sku'
     ];
 
     /**
@@ -113,7 +116,8 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'sn' => 'setSn',
-        'model' => 'setModel'
+        'model' => 'setModel',
+        'sku' => 'setSku'
     ];
 
     /**
@@ -123,7 +127,8 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'sn' => 'getSn',
-        'model' => 'getModel'
+        'model' => 'getModel',
+        'sku' => 'getSku'
     ];
 
     /**
@@ -185,6 +190,7 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['sn'] = $data['sn'] ?? null;
         $this->container['model'] = $data['model'] ?? null;
+        $this->container['sku'] = $data['sku'] ?? null;
     }
 
     /**
@@ -201,6 +207,9 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['model'] === null) {
             $invalidProperties[] = "'model' can't be null";
+        }
+        if ($this->container['sku'] === null) {
+            $invalidProperties[] = "'sku' can't be null";
         }
         return $invalidProperties;
     }
@@ -261,6 +270,30 @@ class InventoryEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setModel($model)
     {
         $this->container['model'] = $model;
+
+        return $this;
+    }
+
+    /**
+     * Gets sku
+     *
+     * @return string
+     */
+    public function getSku()
+    {
+        return $this->container['sku'];
+    }
+
+    /**
+     * Sets sku
+     *
+     * @param string $sku sku
+     *
+     * @return self
+     */
+    public function setSku($sku)
+    {
+        $this->container['sku'] = $sku;
 
         return $this;
     }

@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sku (base name: "sku")', function() {
+      // uncomment below and update the code to test the property sku
+      //var instance = new TheEnlightenSystemsApi.InventoryEnvoys();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

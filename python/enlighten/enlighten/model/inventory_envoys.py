@@ -74,6 +74,7 @@ class InventoryEnvoys(ModelNormal):
         return {
             'sn': (str,),  # noqa: E501
             'model': (str,),  # noqa: E501
+            'sku': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -84,6 +85,7 @@ class InventoryEnvoys(ModelNormal):
     attribute_map = {
         'sn': 'sn',  # noqa: E501
         'model': 'model',  # noqa: E501
+        'sku': 'sku',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -98,12 +100,13 @@ class InventoryEnvoys(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, sn, model, *args, **kwargs):  # noqa: E501
+    def __init__(self, sn, model, sku, *args, **kwargs):  # noqa: E501
         """InventoryEnvoys - a model defined in OpenAPI
 
         Args:
             sn (str):
             model (str):
+            sku (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -163,6 +166,7 @@ class InventoryEnvoys(ModelNormal):
 
         self.sn = sn
         self.model = model
+        self.sku = sku
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

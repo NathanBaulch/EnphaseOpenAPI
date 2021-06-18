@@ -24,10 +24,11 @@ class InventoryEnvoys {
      * @alias module:model/InventoryEnvoys
      * @param sn {String} 
      * @param model {String} 
+     * @param sku {String} 
      */
-    constructor(sn, model) { 
+    constructor(sn, model, sku) { 
         
-        InventoryEnvoys.initialize(this, sn, model);
+        InventoryEnvoys.initialize(this, sn, model, sku);
     }
 
     /**
@@ -35,9 +36,10 @@ class InventoryEnvoys {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, sn, model) { 
+    static initialize(obj, sn, model, sku) { 
         obj['sn'] = sn;
         obj['model'] = model;
+        obj['sku'] = sku;
     }
 
     /**
@@ -57,6 +59,9 @@ class InventoryEnvoys {
             if (data.hasOwnProperty('model')) {
                 obj['model'] = ApiClient.convertToType(data['model'], 'String');
             }
+            if (data.hasOwnProperty('sku')) {
+                obj['sku'] = ApiClient.convertToType(data['sku'], 'String');
+            }
         }
         return obj;
     }
@@ -73,6 +78,11 @@ InventoryEnvoys.prototype['sn'] = undefined;
  * @member {String} model
  */
 InventoryEnvoys.prototype['model'] = undefined;
+
+/**
+ * @member {String} sku
+ */
+InventoryEnvoys.prototype['sku'] = undefined;
 
 
 

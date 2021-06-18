@@ -96,4 +96,13 @@ class InventoryEnvoysTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "sku"
+     */
+    public function testPropertySku()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
