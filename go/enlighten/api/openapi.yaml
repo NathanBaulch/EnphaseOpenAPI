@@ -2225,7 +2225,8 @@ components:
           type: integer
         wh_del:
           description: Energy delivered during this interval, in Watt-hours.
-          type: integer
+          format: float
+          type: number
         curr_w:
           description: Energy delivered during this interval, in Watts.
           type: integer

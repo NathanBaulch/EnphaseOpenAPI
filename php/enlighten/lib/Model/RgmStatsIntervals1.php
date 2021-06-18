@@ -61,7 +61,7 @@ class RgmStatsIntervals1 implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'channel' => 'int',
         'end_at' => 'int',
-        'wh_del' => 'int',
+        'wh_del' => 'float',
         'curr_w' => 'int'
     ];
 
@@ -75,7 +75,7 @@ class RgmStatsIntervals1 implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'channel' => null,
         'end_at' => 'date-time',
-        'wh_del' => null,
+        'wh_del' => 'float',
         'curr_w' => null
     ];
 
@@ -286,7 +286,7 @@ class RgmStatsIntervals1 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets wh_del
      *
-     * @return int
+     * @return float
      */
     public function getWhDel()
     {
@@ -296,7 +296,7 @@ class RgmStatsIntervals1 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets wh_del
      *
-     * @param int $wh_del Energy delivered during this interval, in Watt-hours.
+     * @param float $wh_del Energy delivered during this interval, in Watt-hours.
      *
      * @return self
      */

@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Channel** | **int32** | The reporting channel identifier. | 
 **EndAt** | **int32** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
-**WhDel** | **int32** | Energy delivered during this interval, in Watt-hours. | 
+**WhDel** | **float32** | Energy delivered during this interval, in Watt-hours. | 
 **CurrW** | **int32** | Energy delivered during this interval, in Watts. | 
 
 ## Methods
 
 ### NewRgmStatsIntervals1
 
-`func NewRgmStatsIntervals1(channel int32, endAt int32, whDel int32, currW int32, ) *RgmStatsIntervals1`
+`func NewRgmStatsIntervals1(channel int32, endAt int32, whDel float32, currW int32, ) *RgmStatsIntervals1`
 
 NewRgmStatsIntervals1 instantiates a new RgmStatsIntervals1 object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetEndAt sets EndAt field to given value.
 
 ### GetWhDel
 
-`func (o *RgmStatsIntervals1) GetWhDel() int32`
+`func (o *RgmStatsIntervals1) GetWhDel() float32`
 
 GetWhDel returns the WhDel field if non-nil, zero value otherwise.
 
 ### GetWhDelOk
 
-`func (o *RgmStatsIntervals1) GetWhDelOk() (*int32, bool)`
+`func (o *RgmStatsIntervals1) GetWhDelOk() (*float32, bool)`
 
 GetWhDelOk returns a tuple with the WhDel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWhDel
 
-`func (o *RgmStatsIntervals1) SetWhDel(v int32)`
+`func (o *RgmStatsIntervals1) SetWhDel(v float32)`
 
 SetWhDel sets WhDel field to given value.
 

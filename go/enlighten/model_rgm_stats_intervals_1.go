@@ -21,7 +21,7 @@ type RgmStatsIntervals1 struct {
 	// End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
 	EndAt int32 `json:"end_at"`
 	// Energy delivered during this interval, in Watt-hours.
-	WhDel int32 `json:"wh_del"`
+	WhDel float32 `json:"wh_del"`
 	// Energy delivered during this interval, in Watts.
 	CurrW int32 `json:"curr_w"`
 }
@@ -30,7 +30,7 @@ type RgmStatsIntervals1 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRgmStatsIntervals1(channel int32, endAt int32, whDel int32, currW int32) *RgmStatsIntervals1 {
+func NewRgmStatsIntervals1(channel int32, endAt int32, whDel float32, currW int32) *RgmStatsIntervals1 {
 	this := RgmStatsIntervals1{}
 	this.Channel = channel
 	this.EndAt = endAt
@@ -96,9 +96,9 @@ func (o *RgmStatsIntervals1) SetEndAt(v int32) {
 }
 
 // GetWhDel returns the WhDel field value
-func (o *RgmStatsIntervals1) GetWhDel() int32 {
+func (o *RgmStatsIntervals1) GetWhDel() float32 {
 	if o == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 
@@ -107,7 +107,7 @@ func (o *RgmStatsIntervals1) GetWhDel() int32 {
 
 // GetWhDelOk returns a tuple with the WhDel field value
 // and a boolean to check if the value has been set.
-func (o *RgmStatsIntervals1) GetWhDelOk() (*int32, bool) {
+func (o *RgmStatsIntervals1) GetWhDelOk() (*float32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -115,7 +115,7 @@ func (o *RgmStatsIntervals1) GetWhDelOk() (*int32, bool) {
 }
 
 // SetWhDel sets field value
-func (o *RgmStatsIntervals1) SetWhDel(v int32) {
+func (o *RgmStatsIntervals1) SetWhDel(v float32) {
 	o.WhDel = v
 }
 
