@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
  - [Summary](docs/Summary.md)
  - [Systems](docs/Systems.md)
  - [SystemsSystems](docs/SystemsSystems.md)
+ - [UnprocessableEntityError](docs/UnprocessableEntityError.md)
 
 
 ## Documentation For Authorization

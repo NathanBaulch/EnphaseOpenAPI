@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
  - [Model.Summary](docs/Summary.md)
  - [Model.Systems](docs/Systems.md)
  - [Model.SystemsSystems](docs/SystemsSystems.md)
+ - [Model.UnprocessableEntityError](docs/UnprocessableEntityError.md)
 
 
 <a name="documentation-for-authorization"></a>

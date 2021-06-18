@@ -743,7 +743,7 @@ last reported and whether it has communication or metering problems." | paste -s
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -789,7 +789,7 @@ the last reported interval.${YELLOW} Specify as: end_at=value${OFF}" \
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -835,7 +835,7 @@ measurements begin to be used. You can retrieve the complete time series from th
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -865,7 +865,7 @@ print_envoys_help() {
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -896,7 +896,7 @@ reporting, producing, or measuring energy." | paste -sd' ' | fold -sw 80
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -927,7 +927,7 @@ print_invertersSummaryByEnvoyOrSite_help() {
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -965,7 +965,7 @@ start date is the first of a calendar month, the end end date is the last day of
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -1002,7 +1002,7 @@ do not necessarily mean there is a problem with the meter or the system it is on
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -1046,7 +1046,7 @@ the last reported interval.${YELLOW} Specify as: end_at=value${OFF}" \
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -1079,7 +1079,7 @@ print_searchSystemId_help() {
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -1128,7 +1128,7 @@ reported interval.${YELLOW} Specify as: end_at=value${OFF}" \
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -1161,7 +1161,7 @@ day. If the requested date cannot be parsed or is in the future, the response in
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503
@@ -1219,7 +1219,7 @@ list, use the 'next' attribute in the response body to request the next page of 
     code=409
     echo -e "${result_color_table[${code:0:1}]}  409;Conflict${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Client error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
     echo -e "${result_color_table[${code:0:1}]}  500;Server error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=503

@@ -45,6 +45,7 @@ import Status from './model/Status';
 import Summary from './model/Summary';
 import Systems from './model/Systems';
 import SystemsSystems from './model/SystemsSystems';
+import UnprocessableEntityError from './model/UnprocessableEntityError';
 import DefaultApi from './api/DefaultApi';
 
 
@@ -277,6 +278,12 @@ export {
      * @property {module:model/SystemsSystems}
      */
     SystemsSystems,
+
+    /**
+     * The UnprocessableEntityError model constructor.
+     * @property {module:model/UnprocessableEntityError}
+     */
+    UnprocessableEntityError,
 
     /**
     * The DefaultApi service constructor.

@@ -36,6 +36,7 @@ docs/Status.md
 docs/Summary.md
 docs/Systems.md
 docs/SystemsSystems.md
+docs/UnprocessableEntityError.md
 git_push.sh
 src/EnphaseOpenAPI.Enlighten.Test/Api/DefaultApiTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/EnphaseOpenAPI.Enlighten.Test.csproj
@@ -71,6 +72,7 @@ src/EnphaseOpenAPI.Enlighten.Test/Model/StatusTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/SummaryTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/SystemsSystemsTests.cs
 src/EnphaseOpenAPI.Enlighten.Test/Model/SystemsTests.cs
+src/EnphaseOpenAPI.Enlighten.Test/Model/UnprocessableEntityErrorTests.cs
 src/EnphaseOpenAPI.Enlighten/Api/DefaultApi.cs
 src/EnphaseOpenAPI.Enlighten/Client/ApiClient.cs
 src/EnphaseOpenAPI.Enlighten/Client/ApiException.cs
@@ -122,3 +124,4 @@ src/EnphaseOpenAPI.Enlighten/Model/Status.cs
 src/EnphaseOpenAPI.Enlighten/Model/Summary.cs
 src/EnphaseOpenAPI.Enlighten/Model/Systems.cs
 src/EnphaseOpenAPI.Enlighten/Model/SystemsSystems.cs
+src/EnphaseOpenAPI.Enlighten/Model/UnprocessableEntityError.cs

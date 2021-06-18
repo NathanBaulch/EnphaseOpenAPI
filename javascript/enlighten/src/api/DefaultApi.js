@@ -31,6 +31,7 @@ import Stats from '../model/Stats';
 import Status from '../model/Status';
 import Summary from '../model/Summary';
 import Systems from '../model/Systems';
+import UnprocessableEntityError from '../model/UnprocessableEntityError';
 
 /**
 * Default service.

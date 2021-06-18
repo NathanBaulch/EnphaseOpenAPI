@@ -37,6 +37,7 @@ docs/Model/Status.md
 docs/Model/Summary.md
 docs/Model/Systems.md
 docs/Model/SystemsSystems.md
+docs/Model/UnprocessableEntityError.md
 git_push.sh
 lib/ApiException.php
 lib/Api/DefaultApi.php
@@ -75,6 +76,7 @@ lib/Model/Status.php
 lib/Model/Summary.php
 lib/Model/Systems.php
 lib/Model/SystemsSystems.php
+lib/Model/UnprocessableEntityError.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/DefaultApiTest.php
@@ -110,3 +112,4 @@ test/Model/StatusTest.php
 test/Model/SummaryTest.php
 test/Model/SystemsSystemsTest.php
 test/Model/SystemsTest.php
+test/Model/UnprocessableEntityErrorTest.php

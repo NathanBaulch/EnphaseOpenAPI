@@ -39,6 +39,7 @@ docs/Status.md
 docs/Summary.md
 docs/Systems.md
 docs/SystemsSystems.md
+docs/UnprocessableEntityError.md
 git_push.sh
 go.mod
 go.sum
@@ -74,5 +75,6 @@ model_status.go
 model_summary.go
 model_systems.go
 model_systems_systems.go
+model_unprocessable_entity_error.go
 response.go
 utils.go

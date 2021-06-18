@@ -41,3 +41,4 @@ from enlighten.model.status import Status
 from enlighten.model.summary import Summary
 from enlighten.model.systems import Systems
 from enlighten.model.systems_systems import SystemsSystems
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError

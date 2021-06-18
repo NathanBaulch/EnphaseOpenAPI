@@ -184,7 +184,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -388,7 +388,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -598,7 +598,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (E
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -776,7 +776,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (Envoys, *_nethttp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -955,7 +955,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (Inventory, 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1138,7 +1138,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1330,7 +1330,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1521,7 +1521,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1723,7 +1723,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStats, *_n
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1916,7 +1916,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (S
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2123,7 +2123,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (Stats, *_nethttp.Re
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2309,7 +2309,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (Summary, *_neth
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2644,7 +2644,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (Systems, *_neth
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v ClientError
+			var v UnprocessableEntityError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -70,6 +70,7 @@ from enlighten.model.stats import Stats
 from enlighten.model.status import Status
 from enlighten.model.summary import Summary
 from enlighten.model.systems import Systems
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = enlighten.Configuration(
@@ -159,6 +160,7 @@ Class | Method | HTTP request | Description
  - [Summary](docs/Summary.md)
  - [Systems](docs/Systems.md)
  - [SystemsSystems](docs/SystemsSystems.md)
+ - [UnprocessableEntityError](docs/UnprocessableEntityError.md)
 
 
 ## Documentation For Authorization

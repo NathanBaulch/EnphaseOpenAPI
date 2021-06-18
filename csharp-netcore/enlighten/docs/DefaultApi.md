@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 | **204** | No Content |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -774,7 +774,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -857,7 +857,7 @@ Name | Type | Description  | Notes
 | **401** | Client error |  -  |
 | **404** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -1027,7 +1027,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 
@@ -1135,7 +1135,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
 | **409** | Conflict |  -  |
-| **422** | Client error |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |
 | **503** | Server error |  -  |
 

@@ -124,7 +124,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ConsumptionLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\ConsumptionLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function consumptionLifetime($user_id, $system_id, $start_date = null, $end_date = null)
     {
@@ -142,7 +142,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ConsumptionLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ConsumptionLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumptionLifetimeWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null)
     {
@@ -214,14 +214,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -293,7 +293,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -539,7 +539,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ConsumptionStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\ConsumptionStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function consumptionStats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -557,7 +557,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ConsumptionStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ConsumptionStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumptionStatsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -629,14 +629,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -708,7 +708,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -955,7 +955,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\EnergyLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\EnergyLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function energyLifetime($user_id, $system_id, $start_date = null, $end_date = null, $production = null)
     {
@@ -974,7 +974,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\EnergyLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\EnergyLifetime|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function energyLifetimeWithHttpInfo($user_id, $system_id, $start_date = null, $end_date = null, $production = null)
     {
@@ -1046,14 +1046,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1125,7 +1125,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1383,7 +1383,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Envoys|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\Envoys|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function envoys($user_id, $system_id)
     {
@@ -1399,7 +1399,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Envoys|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Envoys|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function envoysWithHttpInfo($user_id, $system_id)
     {
@@ -1471,14 +1471,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1550,7 +1550,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1766,7 +1766,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Inventory|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\Inventory|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function inventory($user_id, $system_id)
     {
@@ -1782,7 +1782,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Inventory|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Inventory|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function inventoryWithHttpInfo($user_id, $system_id)
     {
@@ -1854,14 +1854,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1933,7 +1933,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2149,7 +2149,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function invertersSummaryByEnvoyOrSite($user_id, $site_id)
     {
@@ -2165,7 +2165,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function invertersSummaryByEnvoyOrSiteWithHttpInfo($user_id, $site_id)
     {
@@ -2237,14 +2237,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2316,7 +2316,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2536,7 +2536,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function monthlyProduction($user_id, $system_id, $start_date)
     {
@@ -2553,7 +2553,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function monthlyProductionWithHttpInfo($user_id, $system_id, $start_date)
     {
@@ -2625,14 +2625,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2704,7 +2704,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2941,7 +2941,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ProductionMeterReadings|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\ProductionMeterReadings|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function productionMeterReadings($user_id, $system_id, $end_at = null)
     {
@@ -2958,7 +2958,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ProductionMeterReadings|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ProductionMeterReadings|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function productionMeterReadingsWithHttpInfo($user_id, $system_id, $end_at = null)
     {
@@ -3030,14 +3030,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3109,7 +3109,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3341,7 +3341,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RgmStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\RgmStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function rgmStats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3359,7 +3359,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RgmStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RgmStats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function rgmStatsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -3431,14 +3431,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3510,7 +3510,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3754,7 +3754,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function searchSystemId($user_id, $serial_num)
     {
@@ -3770,7 +3770,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchSystemIdWithHttpInfo($user_id, $serial_num)
     {
@@ -3854,14 +3854,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3941,7 +3941,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4162,7 +4162,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Stats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\Stats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function stats($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -4180,7 +4180,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Stats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Stats|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function statsWithHttpInfo($user_id, $system_id, $start_at = null, $end_at = null)
     {
@@ -4252,14 +4252,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4331,7 +4331,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4576,7 +4576,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Summary|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\Summary|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function summary($user_id, $system_id, $summary_date = null)
     {
@@ -4593,7 +4593,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Summary|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Summary|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function summaryWithHttpInfo($user_id, $system_id, $summary_date = null)
     {
@@ -4665,14 +4665,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4744,7 +4744,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4987,7 +4987,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Systems|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\Systems|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function systems($user_id, $next = null, $limit = 100, $system_id = null, $system_id2 = null, $system_name = null, $system_name2 = null, $status = null, $status2 = null, $reference = null, $reference2 = null, $installer = null, $installer2 = null, $connection_type = null, $connection_type2 = null)
     {
@@ -5016,7 +5016,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Systems|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Systems|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function systemsWithHttpInfo($user_id, $next = null, $limit = 100, $system_id = null, $system_id2 = null, $system_name = null, $system_name2 = null, $status = null, $status2 = null, $reference = null, $reference2 = null, $installer = null, $installer2 = null, $connection_type = null, $connection_type2 = null)
     {
@@ -5088,14 +5088,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5167,7 +5167,7 @@ class DefaultApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

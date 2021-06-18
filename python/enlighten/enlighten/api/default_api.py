@@ -39,6 +39,7 @@ from enlighten.model.stats import Stats
 from enlighten.model.status import Status
 from enlighten.model.summary import Summary
 from enlighten.model.systems import Systems
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 
 
 class DefaultApi(object):

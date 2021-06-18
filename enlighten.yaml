@@ -65,7 +65,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -89,7 +89,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -198,7 +198,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -224,7 +224,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -256,7 +256,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -297,7 +297,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -333,7 +333,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -384,7 +384,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -440,7 +440,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -484,7 +484,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -537,7 +537,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -570,7 +570,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -602,7 +602,7 @@ paths:
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/UnprocessableEntityError'
         '500':
           $ref: '#/components/responses/ServerError'
         '503':
@@ -1635,6 +1635,21 @@ components:
         period_start: 1401742440
         period_end: 1401742500
         limit: 10
+    UnprocessableEntityError:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: string
+        errorMessages:
+          type: array
+          items:
+            type: string
+      required:
+        - reason
+        - message
+        - errorMessages
     ClientError:
       type: object
       properties:
@@ -1689,6 +1704,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ConflictError'
+    UnprocessableEntityError:
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UnprocessableEntityError'
     ClientError:
       description: Client error
       content:

@@ -36,6 +36,7 @@ docs/Status.md
 docs/Summary.md
 docs/Systems.md
 docs/SystemsSystems.md
+docs/UnprocessableEntityError.md
 enlighten/__init__.py
 enlighten/api/__init__.py
 enlighten/api/default_api.py
@@ -76,6 +77,7 @@ enlighten/model/status.py
 enlighten/model/summary.py
 enlighten/model/systems.py
 enlighten/model/systems_systems.py
+enlighten/model/unprocessable_entity_error.py
 enlighten/model_utils.py
 enlighten/models/__init__.py
 enlighten/rest.py
@@ -118,4 +120,5 @@ test/test_status.py
 test/test_summary.py
 test/test_systems.py
 test/test_systems_systems.py
+test/test_unprocessable_entity_error.py
 tox.ini

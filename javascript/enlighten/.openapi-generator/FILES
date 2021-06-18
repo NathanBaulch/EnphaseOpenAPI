@@ -36,6 +36,7 @@ docs/Status.md
 docs/Summary.md
 docs/Systems.md
 docs/SystemsSystems.md
+docs/UnprocessableEntityError.md
 git_push.sh
 mocha.opts
 package.json
@@ -74,6 +75,7 @@ src/model/Status.js
 src/model/Summary.js
 src/model/Systems.js
 src/model/SystemsSystems.js
+src/model/UnprocessableEntityError.js
 test/api/DefaultApi.spec.js
 test/model/ClientError.spec.js
 test/model/ConflictError.spec.js
@@ -107,3 +109,4 @@ test/model/Status.spec.js
 test/model/Summary.spec.js
 test/model/Systems.spec.js
 test/model/SystemsSystems.spec.js
+test/model/UnprocessableEntityError.spec.js

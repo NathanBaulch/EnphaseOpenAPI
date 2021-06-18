@@ -37,6 +37,7 @@ from enlighten.model.consumption_lifetime import ConsumptionLifetime
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -110,7 +111,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -133,6 +134,7 @@ from enlighten.api import default_api
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from enlighten.model.consumption_stats import ConsumptionStats
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
@@ -207,7 +209,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -231,6 +233,7 @@ from enlighten.model.energy_lifetime import EnergyLifetime
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -307,7 +310,7 @@ Name | Type | Description  | Notes
 **204** | No Content |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -331,6 +334,7 @@ from enlighten.model.envoys import Envoys
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -392,7 +396,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -416,6 +420,7 @@ from enlighten.model.inventory import Inventory
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -477,7 +482,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -500,6 +505,7 @@ from enlighten.api import default_api
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from enlighten.model.inverters_summary_by_envoy_or_site import InvertersSummaryByEnvoyOrSite
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
@@ -562,7 +568,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -586,6 +592,7 @@ from enlighten.model.monthly_production import MonthlyProduction
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -649,7 +656,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -673,6 +680,7 @@ from enlighten.model.production_meter_readings import ProductionMeterReadings
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -744,7 +752,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -768,6 +776,7 @@ from enlighten.model.rgm_stats import RgmStats
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -841,7 +850,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -865,6 +874,7 @@ from enlighten.model.server_error import ServerError
 from enlighten.model.search_system_id import SearchSystemId
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -927,7 +937,7 @@ Name | Type | Description  | Notes
 **401** | Client error |  -  |
 **404** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -951,6 +961,7 @@ from enlighten.model.server_error import ServerError
 from enlighten.model.stats import Stats
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1024,7 +1035,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -1048,6 +1059,7 @@ from enlighten.model.summary import Summary
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1119,7 +1131,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 
@@ -1145,6 +1157,7 @@ from enlighten.model.status import Status
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1248,7 +1261,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Client error |  -  |
 **409** | Conflict |  -  |
-**422** | Client error |  -  |
+**422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |
 **503** | Server error |  -  |
 

@@ -105,8 +105,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -164,8 +164,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -342,8 +342,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -402,8 +402,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -464,8 +464,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -541,8 +541,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -614,8 +614,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -705,8 +705,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -801,8 +801,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -887,8 +887,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -980,8 +980,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -1050,8 +1050,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -1115,8 +1115,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable Entity
         "500":
           content:
             application/json:
@@ -1156,6 +1156,12 @@ components:
           schema:
             $ref: '#/components/schemas/ConflictError'
       description: Conflict
+    UnprocessableEntityError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UnprocessableEntityError'
+      description: Unprocessable Entity
     ClientError:
       content:
         application/json:
@@ -1886,6 +1892,21 @@ components:
       - period
       - period_end
       - period_start
+      - reason
+      type: object
+    UnprocessableEntityError:
+      properties:
+        reason:
+          type: string
+        message:
+          type: string
+        errorMessages:
+          items:
+            type: string
+          type: array
+      required:
+      - errorMessages
+      - message
       - reason
       type: object
     ClientError:

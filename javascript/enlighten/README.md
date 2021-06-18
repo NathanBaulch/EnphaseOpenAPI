@@ -182,6 +182,7 @@ Class | Method | HTTP request | Description
  - [TheEnlightenSystemsApi.Summary](docs/Summary.md)
  - [TheEnlightenSystemsApi.Systems](docs/Systems.md)
  - [TheEnlightenSystemsApi.SystemsSystems](docs/SystemsSystems.md)
+ - [TheEnlightenSystemsApi.UnprocessableEntityError](docs/UnprocessableEntityError.md)
 
 
 ## Documentation for Authorization

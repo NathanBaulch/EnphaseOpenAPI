@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 - [Summary](docs/Model/Summary.md)
 - [Systems](docs/Model/Systems.md)
 - [SystemsSystems](docs/Model/SystemsSystems.md)
+- [UnprocessableEntityError](docs/Model/UnprocessableEntityError.md)
 
 ## Authorization
 
