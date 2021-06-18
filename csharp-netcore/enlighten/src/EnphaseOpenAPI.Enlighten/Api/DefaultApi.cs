@@ -187,9 +187,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <returns>MonthlyProduction</returns>
-        MonthlyProduction MonthlyProduction(string userId, int systemId, DateTime? startDate = default(DateTime?));
+        MonthlyProduction MonthlyProduction(string userId, int systemId, DateTime startDate);
 
         /// <summary>
         /// 
@@ -200,9 +200,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <returns>ApiResponse of MonthlyProduction</returns>
-        ApiResponse<MonthlyProduction> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTime? startDate = default(DateTime?));
+        ApiResponse<MonthlyProduction> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTime startDate);
         /// <summary>
         /// 
         /// </summary>
@@ -561,10 +561,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MonthlyProduction</returns>
-        System.Threading.Tasks.Task<MonthlyProduction> MonthlyProductionAsync(string userId, int systemId, DateTime? startDate = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MonthlyProduction> MonthlyProductionAsync(string userId, int systemId, DateTime startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -575,10 +575,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MonthlyProduction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MonthlyProduction>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTime? startDate = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MonthlyProduction>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTime startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1763,9 +1763,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <returns>MonthlyProduction</returns>
-        public MonthlyProduction MonthlyProduction(string userId, int systemId, DateTime? startDate = default(DateTime?))
+        public MonthlyProduction MonthlyProduction(string userId, int systemId, DateTime startDate)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProduction> localVarResponse = MonthlyProductionWithHttpInfo(userId, systemId, startDate);
             return localVarResponse.Data;
@@ -1777,9 +1777,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <returns>ApiResponse of MonthlyProduction</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProduction> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTime? startDate = default(DateTime?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProduction> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTime startDate)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1803,10 +1803,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
-            if (startDate != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
-            }
+            localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
 
             // authentication (ApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1832,10 +1829,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MonthlyProduction</returns>
-        public async System.Threading.Tasks.Task<MonthlyProduction> MonthlyProductionAsync(string userId, int systemId, DateTime? startDate = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MonthlyProduction> MonthlyProductionAsync(string userId, int systemId, DateTime startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProduction> localVarResponse = await MonthlyProductionWithHttpInfoAsync(userId, systemId, startDate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1847,10 +1844,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
-        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)</param>
+        /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MonthlyProduction)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProduction>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTime? startDate = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProduction>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTime startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1876,10 +1873,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
-            if (startDate != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
-            }
+            localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
 
             // authentication (ApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))

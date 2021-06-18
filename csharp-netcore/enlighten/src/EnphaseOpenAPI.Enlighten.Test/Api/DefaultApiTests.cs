@@ -148,7 +148,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //DateTime? startDate = null;
+            //DateTime startDate = null;
             //var response = instance.MonthlyProduction(userId, systemId, startDate);
             //Assert.IsType<MonthlyProduction>(response);
         }

@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 <a name="monthlyproduction"></a>
 # **MonthlyProduction**
-> MonthlyProduction MonthlyProduction (string userId, int systemId, DateTime? startDate = null)
+> MonthlyProduction MonthlyProduction (string userId, int systemId, DateTime startDate)
 
 
 
@@ -558,7 +558,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startDate = Fri Jul 01 10:00:00 AEST 2011;  // DateTime? | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional) 
+            var startDate = Fri Jul 01 10:00:00 AEST 2011;  // DateTime | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
 
             try
             {
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **startDate** | **DateTime?**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. | [optional] 
+ **startDate** | **DateTime**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. | 
 
 ### Return type
 

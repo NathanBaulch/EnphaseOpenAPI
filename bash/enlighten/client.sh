@@ -116,7 +116,7 @@ operation_parameters_minimum_occurrences["invertersSummaryByEnvoyOrSite:::user_i
 operation_parameters_minimum_occurrences["invertersSummaryByEnvoyOrSite:::site_id"]=1
 operation_parameters_minimum_occurrences["monthlyProduction:::user_id"]=1
 operation_parameters_minimum_occurrences["monthlyProduction:::system_id"]=1
-operation_parameters_minimum_occurrences["monthlyProduction:::start_date"]=0
+operation_parameters_minimum_occurrences["monthlyProduction:::start_date"]=1
 operation_parameters_minimum_occurrences["productionMeterReadings:::user_id"]=1
 operation_parameters_minimum_occurrences["productionMeterReadings:::system_id"]=1
 operation_parameters_minimum_occurrences["productionMeterReadings:::end_at"]=0
@@ -953,7 +953,7 @@ This endpoint can return a response of Data Temporarily Unavailable." | paste -s
     echo -e "  * ${GREEN}user_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: user_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start_date${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a 'start_date' of 2011-07-20 returns data through 2011-06-19. When the
+    echo -e "  * ${GREEN}start_date${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a 'start_date' of 2011-07-20 returns data through 2011-06-19. When the
 start date is the first of a calendar month, the end end date is the last day of that month.${YELLOW} Specify as: start_date=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""

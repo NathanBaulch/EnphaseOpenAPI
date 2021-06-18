@@ -2532,13 +2532,13 @@ class DefaultApi
      *
      * @param  string $user_id user_id (required)
      * @param  int $system_id system_id (required)
-     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)
+     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
-    public function monthlyProduction($user_id, $system_id, $start_date = null)
+    public function monthlyProduction($user_id, $system_id, $start_date)
     {
         list($response) = $this->monthlyProductionWithHttpInfo($user_id, $system_id, $start_date);
         return $response;
@@ -2549,13 +2549,13 @@ class DefaultApi
      *
      * @param  string $user_id (required)
      * @param  int $system_id (required)
-     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)
+     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MonthlyProduction|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function monthlyProductionWithHttpInfo($user_id, $system_id, $start_date = null)
+    public function monthlyProductionWithHttpInfo($user_id, $system_id, $start_date)
     {
         $request = $this->monthlyProductionRequest($user_id, $system_id, $start_date);
 
@@ -2735,12 +2735,12 @@ class DefaultApi
      *
      * @param  string $user_id (required)
      * @param  int $system_id (required)
-     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)
+     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function monthlyProductionAsync($user_id, $system_id, $start_date = null)
+    public function monthlyProductionAsync($user_id, $system_id, $start_date)
     {
         return $this->monthlyProductionAsyncWithHttpInfo($user_id, $system_id, $start_date)
             ->then(
@@ -2755,12 +2755,12 @@ class DefaultApi
      *
      * @param  string $user_id (required)
      * @param  int $system_id (required)
-     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)
+     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function monthlyProductionAsyncWithHttpInfo($user_id, $system_id, $start_date = null)
+    public function monthlyProductionAsyncWithHttpInfo($user_id, $system_id, $start_date)
     {
         $returnType = '\OpenAPI\Client\Model\MonthlyProduction';
         $request = $this->monthlyProductionRequest($user_id, $system_id, $start_date);
@@ -2803,12 +2803,12 @@ class DefaultApi
      *
      * @param  string $user_id (required)
      * @param  int $system_id (required)
-     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (optional)
+     * @param  \DateTime $start_date Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function monthlyProductionRequest($user_id, $system_id, $start_date = null)
+    public function monthlyProductionRequest($user_id, $system_id, $start_date)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
@@ -2820,6 +2820,12 @@ class DefaultApi
         if ($system_id === null || (is_array($system_id) && count($system_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $system_id when calling monthlyProduction'
+            );
+        }
+        // verify the required parameter 'start_date' is set
+        if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $start_date when calling monthlyProduction'
             );
         }
 

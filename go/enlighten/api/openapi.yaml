@@ -512,7 +512,7 @@ paths:
         explode: true
         in: query
         name: start_date
-        required: false
+        required: true
         schema:
           example: 2011-07-01
           format: date

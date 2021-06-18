@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
  **userId** | **string** |  | [default to null]
  **systemId** | **integer** |  | [default to null]
  **startDate** | **string** | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a 'start_date' of 2011-07-20 returns data through 2011-06-19. When the
-start date is the first of a calendar month, the end end date is the last day of that month. | [optional] [default to null]
+start date is the first of a calendar month, the end end date is the last day of that month. | [default to null]
 
 ### Return type
 

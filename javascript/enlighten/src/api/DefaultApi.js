@@ -371,13 +371,11 @@ export default class DefaultApi {
      * This endpoint is deprecated and will be removed in a future release. Use `production_meter_readings` or `energy_lifetime` instead.  Returns the energy production of the system for the month starting on the given date. The start date must be at least one month ago. If a meter or meters are installed on the system, measurements come from the meter; otherwise, measurements come from the microinverters.  This endpoint can return a response of Data Temporarily Unavailable.
      * @param {String} userId 
      * @param {Number} systemId 
-     * @param {Object} opts Optional parameters
-     * @param {Date} opts.startDate Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
+     * @param {Date} startDate Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
      * @param {module:api/DefaultApi~monthlyProductionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MonthlyProduction}
      */
-    monthlyProduction(userId, systemId, opts, callback) {
-      opts = opts || {};
+    monthlyProduction(userId, systemId, startDate, callback) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -387,13 +385,17 @@ export default class DefaultApi {
       if (systemId === undefined || systemId === null) {
         throw new Error("Missing the required parameter 'systemId' when calling monthlyProduction");
       }
+      // verify the required parameter 'startDate' is set
+      if (startDate === undefined || startDate === null) {
+        throw new Error("Missing the required parameter 'startDate' when calling monthlyProduction");
+      }
 
       let pathParams = {
         'system_id': systemId
       };
       let queryParams = {
         'user_id': userId,
-        'start_date': opts['startDate']
+        'start_date': startDate
       };
       let headerParams = {
       };

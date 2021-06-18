@@ -1250,11 +1250,12 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
+	if r.startDate == nil {
+		return localVarReturnValue, nil, reportError("startDate is required and must be specified")
+	}
 
 	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
-	if r.startDate != nil {
-		localVarQueryParams.Add("start_date", parameterToString(*r.startDate, ""))
-	}
+	localVarQueryParams.Add("start_date", parameterToString(*r.startDate, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
