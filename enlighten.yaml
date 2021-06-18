@@ -248,7 +248,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite'
+                type: array
+                items:
+                  $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':

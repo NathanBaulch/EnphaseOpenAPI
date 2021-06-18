@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 ## `invertersSummaryByEnvoyOrSite()`
 
 ```php
-invertersSummaryByEnvoyOrSite($user_id, $site_id): \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite
+invertersSummaryByEnvoyOrSite($user_id, $site_id): \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]
 ```
 
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite**](../Model/InvertersSummaryByEnvoyOrSite.md)
+[**\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]**](../Model/InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 

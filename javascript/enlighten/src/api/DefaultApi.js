@@ -315,7 +315,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the invertersSummaryByEnvoyOrSite operation.
      * @callback module:api/DefaultApi~invertersSummaryByEnvoyOrSiteCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InvertersSummaryByEnvoyOrSite} data The data returned by the service call.
+     * @param {Array.<module:model/InvertersSummaryByEnvoyOrSite>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -324,7 +324,7 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} siteId The identifier of the system.
      * @param {module:api/DefaultApi~invertersSummaryByEnvoyOrSiteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InvertersSummaryByEnvoyOrSite}
+     * data is of type: {@link Array.<module:model/InvertersSummaryByEnvoyOrSite>}
      */
     invertersSummaryByEnvoyOrSite(userId, siteId, callback) {
       let postBody = null;
@@ -351,7 +351,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InvertersSummaryByEnvoyOrSite;
+      let returnType = [InvertersSummaryByEnvoyOrSite];
       return this.apiClient.callApi(
         '/systems/inverters_summary_by_envoy_or_site', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

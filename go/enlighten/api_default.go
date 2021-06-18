@@ -1014,7 +1014,7 @@ func (r ApiInvertersSummaryByEnvoyOrSiteRequest) SiteId(siteId int32) ApiInverte
 	return r
 }
 
-func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() (InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
+func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() ([]InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
 	return r.ApiService.InvertersSummaryByEnvoyOrSiteExecute(r)
 }
 
@@ -1033,16 +1033,16 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSite(ctx _context.Context) 
 
 /*
  * Execute executes the request
- * @return InvertersSummaryByEnvoyOrSite
+ * @return []InvertersSummaryByEnvoyOrSite
  */
-func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) (InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
+func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) ([]InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InvertersSummaryByEnvoyOrSite
+		localVarReturnValue  []InvertersSummaryByEnvoyOrSite
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.InvertersSummaryByEnvoyOrSite")

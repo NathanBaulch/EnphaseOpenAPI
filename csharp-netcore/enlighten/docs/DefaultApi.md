@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 <a name="inverterssummarybyenvoyorsite"></a>
 # **InvertersSummaryByEnvoyOrSite**
-> InvertersSummaryByEnvoyOrSite InvertersSummaryByEnvoyOrSite (string userId, int siteId)
+> List&lt;InvertersSummaryByEnvoyOrSite&gt; InvertersSummaryByEnvoyOrSite (string userId, int siteId)
 
 
 
@@ -479,7 +479,7 @@ namespace Example
 
             try
             {
-                InvertersSummaryByEnvoyOrSite result = apiInstance.InvertersSummaryByEnvoyOrSite(userId, siteId);
+                List<InvertersSummaryByEnvoyOrSite> result = apiInstance.InvertersSummaryByEnvoyOrSite(userId, siteId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
+[**List&lt;InvertersSummaryByEnvoyOrSite&gt;**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 

@@ -786,7 +786,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                InvertersSummaryByEnvoyOrSite
+                [InvertersSummaryByEnvoyOrSite]
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -817,7 +817,7 @@ class DefaultApi(object):
 
         self.inverters_summary_by_envoy_or_site = _Endpoint(
             settings={
-                'response_type': (InvertersSummaryByEnvoyOrSite,),
+                'response_type': ([InvertersSummaryByEnvoyOrSite],),
                 'auth': [
                     'ApiKey'
                 ],

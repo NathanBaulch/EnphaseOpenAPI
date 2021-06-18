@@ -444,7 +444,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite'
+                items:
+                  $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite'
+                type: array
           description: OK
         "401":
           content:

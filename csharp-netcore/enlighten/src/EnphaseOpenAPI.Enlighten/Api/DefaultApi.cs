@@ -164,8 +164,8 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
-        /// <returns>InvertersSummaryByEnvoyOrSite</returns>
-        InvertersSummaryByEnvoyOrSite InvertersSummaryByEnvoyOrSite(string userId, int siteId);
+        /// <returns>List&lt;InvertersSummaryByEnvoyOrSite&gt;</returns>
+        List<InvertersSummaryByEnvoyOrSite> InvertersSummaryByEnvoyOrSite(string userId, int siteId);
 
         /// <summary>
         /// 
@@ -176,8 +176,8 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
-        /// <returns>ApiResponse of InvertersSummaryByEnvoyOrSite</returns>
-        ApiResponse<InvertersSummaryByEnvoyOrSite> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId);
+        /// <returns>ApiResponse of List&lt;InvertersSummaryByEnvoyOrSite&gt;</returns>
+        ApiResponse<List<InvertersSummaryByEnvoyOrSite>> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId);
         /// <summary>
         /// 
         /// </summary>
@@ -537,8 +537,8 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InvertersSummaryByEnvoyOrSite</returns>
-        System.Threading.Tasks.Task<InvertersSummaryByEnvoyOrSite> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;InvertersSummaryByEnvoyOrSite&gt;</returns>
+        System.Threading.Tasks.Task<List<InvertersSummaryByEnvoyOrSite>> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -550,8 +550,8 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InvertersSummaryByEnvoyOrSite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvertersSummaryByEnvoyOrSite>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;InvertersSummaryByEnvoyOrSite&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<InvertersSummaryByEnvoyOrSite>>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1632,10 +1632,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
-        /// <returns>InvertersSummaryByEnvoyOrSite</returns>
-        public InvertersSummaryByEnvoyOrSite InvertersSummaryByEnvoyOrSite(string userId, int siteId)
+        /// <returns>List&lt;InvertersSummaryByEnvoyOrSite&gt;</returns>
+        public List<InvertersSummaryByEnvoyOrSite> InvertersSummaryByEnvoyOrSite(string userId, int siteId)
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<InvertersSummaryByEnvoyOrSite> localVarResponse = InvertersSummaryByEnvoyOrSiteWithHttpInfo(userId, siteId);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSite>> localVarResponse = InvertersSummaryByEnvoyOrSiteWithHttpInfo(userId, siteId);
             return localVarResponse.Data;
         }
 
@@ -1645,8 +1645,8 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
-        /// <returns>ApiResponse of InvertersSummaryByEnvoyOrSite</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<InvertersSummaryByEnvoyOrSite> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId)
+        /// <returns>ApiResponse of List&lt;InvertersSummaryByEnvoyOrSite&gt;</returns>
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSite>> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1678,7 +1678,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InvertersSummaryByEnvoyOrSite>("/systems/inverters_summary_by_envoy_or_site", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<InvertersSummaryByEnvoyOrSite>>("/systems/inverters_summary_by_envoy_or_site", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1696,10 +1696,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InvertersSummaryByEnvoyOrSite</returns>
-        public async System.Threading.Tasks.Task<InvertersSummaryByEnvoyOrSite> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;InvertersSummaryByEnvoyOrSite&gt;</returns>
+        public async System.Threading.Tasks.Task<List<InvertersSummaryByEnvoyOrSite>> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<InvertersSummaryByEnvoyOrSite> localVarResponse = await InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(userId, siteId, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSite>> localVarResponse = await InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(userId, siteId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1710,8 +1710,8 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InvertersSummaryByEnvoyOrSite)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<InvertersSummaryByEnvoyOrSite>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;InvertersSummaryByEnvoyOrSite&gt;)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSite>>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1746,7 +1746,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InvertersSummaryByEnvoyOrSite>("/systems/inverters_summary_by_envoy_or_site", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<InvertersSummaryByEnvoyOrSite>>("/systems/inverters_summary_by_envoy_or_site", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

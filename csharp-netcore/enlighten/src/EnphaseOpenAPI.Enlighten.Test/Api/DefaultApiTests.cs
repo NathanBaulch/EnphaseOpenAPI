@@ -136,7 +136,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             //string userId = null;
             //int siteId = null;
             //var response = instance.InvertersSummaryByEnvoyOrSite(userId, siteId);
-            //Assert.IsType<InvertersSummaryByEnvoyOrSite>(response);
+            //Assert.IsType<List<InvertersSummaryByEnvoyOrSite>>(response);
         }
 
         /// <summary>

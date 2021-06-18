@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
+[**array[InvertersSummaryByEnvoyOrSite]**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 

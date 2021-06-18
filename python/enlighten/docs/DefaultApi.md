@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inverters_summary_by_envoy_or_site**
-> InvertersSummaryByEnvoyOrSite inverters_summary_by_envoy_or_site(user_id, site_id)
+> [InvertersSummaryByEnvoyOrSite] inverters_summary_by_envoy_or_site(user_id, site_id)
 
 
 
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
+[**[InvertersSummaryByEnvoyOrSite]**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 

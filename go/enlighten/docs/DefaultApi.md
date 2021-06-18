@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ## InvertersSummaryByEnvoyOrSite
 
-> InvertersSummaryByEnvoyOrSite InvertersSummaryByEnvoyOrSite(ctx).UserId(userId).SiteId(siteId).Execute()
+> []InvertersSummaryByEnvoyOrSite InvertersSummaryByEnvoyOrSite(ctx).UserId(userId).SiteId(siteId).Execute()
 
 
 
@@ -427,7 +427,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.InvertersSummaryByEnvoyOrSite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InvertersSummaryByEnvoyOrSite`: InvertersSummaryByEnvoyOrSite
+    // response from `InvertersSummaryByEnvoyOrSite`: []InvertersSummaryByEnvoyOrSite
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.InvertersSummaryByEnvoyOrSite`: %v\n", resp)
 }
 ```
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
+[**[]InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 

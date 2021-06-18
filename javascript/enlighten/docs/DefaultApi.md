@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ## invertersSummaryByEnvoyOrSite
 
-> InvertersSummaryByEnvoyOrSite invertersSummaryByEnvoyOrSite(userId, siteId)
+> [InvertersSummaryByEnvoyOrSite] invertersSummaryByEnvoyOrSite(userId, siteId)
 
 
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
+[**[InvertersSummaryByEnvoyOrSite]**](InvertersSummaryByEnvoyOrSite.md)
 
 ### Authorization
 

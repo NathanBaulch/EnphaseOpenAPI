@@ -2149,7 +2149,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function invertersSummaryByEnvoyOrSite($user_id, $site_id)
     {
@@ -2165,7 +2165,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function invertersSummaryByEnvoyOrSiteWithHttpInfo($user_id, $site_id)
     {
@@ -2201,14 +2201,14 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2274,7 +2274,7 @@ class DefaultApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite';
+            $returnType = '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2292,7 +2292,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite',
+                        '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2372,7 +2372,7 @@ class DefaultApi
      */
     public function invertersSummaryByEnvoyOrSiteAsyncWithHttpInfo($user_id, $site_id)
     {
-        $returnType = '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite';
+        $returnType = '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]';
         $request = $this->invertersSummaryByEnvoyOrSiteRequest($user_id, $site_id);
 
         return $this->client
