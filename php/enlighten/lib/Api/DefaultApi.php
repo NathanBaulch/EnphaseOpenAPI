@@ -3748,7 +3748,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function searchSystemId($user_id, $serial_num)
     {
@@ -3764,7 +3764,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\SearchSystemId|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchSystemIdWithHttpInfo($user_id, $serial_num)
     {
@@ -3812,6 +3812,18 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 401:
+                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
                     if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -3897,6 +3909,14 @@ class DefaultApi
                     $e->setResponseObject($data);
                     break;
                 case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\ClientError',

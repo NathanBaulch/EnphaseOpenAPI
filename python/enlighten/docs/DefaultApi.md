@@ -933,6 +933,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **401** | Client error |  -  |
+**404** | Client error |  -  |
 **409** | Conflict |  -  |
 **422** | Client error |  -  |
 **500** | Server error |  -  |

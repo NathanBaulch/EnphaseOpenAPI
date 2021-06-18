@@ -1097,6 +1097,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ClientError'
           description: Client error
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Client error
         "409":
           content:
             application/json:
