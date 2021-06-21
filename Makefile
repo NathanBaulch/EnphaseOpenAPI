@@ -39,7 +39,7 @@ clean/html:
 	$(call clean,html)
 
 define generate
-	$(OPENAPICLI) generate -i ./enlighten.yaml -g $(1) -o ./$(1)/enlighten --package-name $(2) --git-user-id NathanBaulch --git-repo-id EnphaseOpenAPI --http-user-agent EnphaseOpenAPI/$(1)
+	$(OPENAPICLI) generate -i ./enlighten.yaml -g $(1) -o ./$(1)/enlighten --package-name $(2) --git-user-id NathanBaulch --git-repo-id EnphaseOpenAPI --http-user-agent EnphaseOpenAPI/$(1) $(foreach n,3 4 5,$(if $($(n)),-p $($(n))))
 	dos2unix -o ./$(1)/enlighten/.openapi-generator/FILES
 endef
 
@@ -49,7 +49,7 @@ generate/go: clean/go $(OPENAPICLI)
 	cd ./go/enlighten; go get -u ./...; go mod tidy
 
 generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
-	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten)
+	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten,useDateTimeOffset=true)
 
 generate/php: clean/php $(OPENAPICLI)
 	$(call generate,php,enlighten)

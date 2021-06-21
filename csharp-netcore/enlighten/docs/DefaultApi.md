@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 <a name="consumptionlifetime"></a>
 # **ConsumptionLifetime**
-> ConsumptionLifetimeResponse ConsumptionLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null)
+> ConsumptionLifetimeResponse ConsumptionLifetime (string userId, int systemId, DateTimeOffset? startDate = null, DateTimeOffset? endDate = null)
 
 
 
@@ -51,8 +51,8 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startDate = Fri Jul 01 10:00:00 AEST 2016;  // DateTime? | The date on which to start the time series. Defaults to the system's operational date. (optional) 
-            var endDate = Sun Jul 31 10:00:00 AEST 2016;  // DateTime? | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional) 
+            var startDate = Fri Jul 01 10:00:00 AEST 2016;  // DateTimeOffset? | The date on which to start the time series. Defaults to the system's operational date. (optional) 
+            var endDate = Sun Jul 31 10:00:00 AEST 2016;  // DateTimeOffset? | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional) 
 
             try
             {
@@ -76,8 +76,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **startDate** | **DateTime?**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] 
- **endDate** | **DateTime?**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] 
+ **startDate** | **DateTimeOffset?**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] 
+ **endDate** | **DateTimeOffset?**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] 
 
 ### Return type
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 <a name="energylifetime"></a>
 # **EnergyLifetime**
-> EnergyLifetimeResponse EnergyLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null, string production = null)
+> EnergyLifetimeResponse EnergyLifetime (string userId, int systemId, DateTimeOffset? startDate = null, DateTimeOffset? endDate = null, string production = null)
 
 
 
@@ -223,8 +223,8 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startDate = Tue Jan 01 11:00:00 AEDT 2013;  // DateTime? | The date on which to start the time series. Defaults to the system's operational date. (optional) 
-            var endDate = Sun Jan 06 11:00:00 AEDT 2013;  // DateTime? | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional) 
+            var startDate = Tue Jan 01 11:00:00 AEDT 2013;  // DateTimeOffset? | The date on which to start the time series. Defaults to the system's operational date. (optional) 
+            var endDate = Sun Jan 06 11:00:00 AEDT 2013;  // DateTimeOffset? | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional) 
             var production = all;  // string | When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional) 
 
             try
@@ -249,8 +249,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **startDate** | **DateTime?**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] 
- **endDate** | **DateTime?**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] 
+ **startDate** | **DateTimeOffset?**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] 
+ **endDate** | **DateTimeOffset?**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] 
  **production** | **string**| When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. | [optional] 
 
 ### Return type
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 <a name="monthlyproduction"></a>
 # **MonthlyProduction**
-> MonthlyProductionResponse MonthlyProduction (string userId, int systemId, DateTime startDate)
+> MonthlyProductionResponse MonthlyProduction (string userId, int systemId, DateTimeOffset startDate)
 
 
 
@@ -558,7 +558,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startDate = Fri Jul 01 10:00:00 AEST 2011;  // DateTime | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
+            var startDate = Fri Jul 01 10:00:00 AEST 2011;  // DateTimeOffset | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
 
             try
             {
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **startDate** | **DateTime**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. | 
+ **startDate** | **DateTimeOffset**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. | 
 
 ### Return type
 
@@ -951,7 +951,7 @@ Name | Type | Description  | Notes
 
 <a name="summary"></a>
 # **Summary**
-> SummaryResponse Summary (string userId, int systemId, DateTime? summaryDate = null)
+> SummaryResponse Summary (string userId, int systemId, DateTimeOffset? summaryDate = null)
 
 
 
@@ -981,7 +981,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var summaryDate = Fri Sep 17 10:00:00 AEST 2010;  // DateTime? | Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status. (optional) 
+            var summaryDate = Fri Sep 17 10:00:00 AEST 2010;  // DateTimeOffset? | Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status. (optional) 
 
             try
             {
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **summaryDate** | **DateTime?**| Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. | [optional] 
+ **summaryDate** | **DateTimeOffset?**| Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. | [optional] 
 
 ### Return type
 

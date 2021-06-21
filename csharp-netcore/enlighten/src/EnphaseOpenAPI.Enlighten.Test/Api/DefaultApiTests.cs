@@ -63,8 +63,8 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //DateTime? startDate = null;
-            //DateTime? endDate = null;
+            //DateTimeOffset? startDate = null;
+            //DateTimeOffset? endDate = null;
             //var response = instance.ConsumptionLifetime(userId, systemId, startDate, endDate);
             //Assert.IsType<ConsumptionLifetimeResponse>(response);
         }
@@ -93,8 +93,8 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //DateTime? startDate = null;
-            //DateTime? endDate = null;
+            //DateTimeOffset? startDate = null;
+            //DateTimeOffset? endDate = null;
             //string production = null;
             //var response = instance.EnergyLifetime(userId, systemId, startDate, endDate, production);
             //Assert.IsType<EnergyLifetimeResponse>(response);
@@ -148,7 +148,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //DateTime startDate = null;
+            //DateTimeOffset startDate = null;
             //var response = instance.MonthlyProduction(userId, systemId, startDate);
             //Assert.IsType<MonthlyProductionResponse>(response);
         }
@@ -219,7 +219,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //DateTime? summaryDate = null;
+            //DateTimeOffset? summaryDate = null;
             //var response = instance.Summary(userId, systemId, summaryDate);
             //Assert.IsType<SummaryResponse>(response);
         }

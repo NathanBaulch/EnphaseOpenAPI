@@ -92,7 +92,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="energy">energy (required).</param>
         /// <param name="gridProfile">gridProfile (required).</param>
         /// <param name="lastReportDate">The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null. (required).</param>
-        public InvertersSummaryByEnvoyOrSiteResponseMicroInverters(int id = default(int), string model = default(string), string partNumber = default(string), string serialNumber = default(string), string sku = default(string), StatusEnum status = default(StatusEnum), int powerProduced = default(int), string procLoad = default(string), string paramTable = default(string), string envoySerialNumber = default(string), InvertersSummaryByEnvoyOrSiteResponseEnergy energy = default(InvertersSummaryByEnvoyOrSiteResponseEnergy), string gridProfile = default(string), DateTime lastReportDate = default(DateTime))
+        public InvertersSummaryByEnvoyOrSiteResponseMicroInverters(int id = default(int), string model = default(string), string partNumber = default(string), string serialNumber = default(string), string sku = default(string), StatusEnum status = default(StatusEnum), int powerProduced = default(int), string procLoad = default(string), string paramTable = default(string), string envoySerialNumber = default(string), InvertersSummaryByEnvoyOrSiteResponseEnergy energy = default(InvertersSummaryByEnvoyOrSiteResponseEnergy), string gridProfile = default(string), DateTimeOffset lastReportDate = default(DateTimeOffset))
         {
             this.Id = id;
             // to ensure "model" is required (not null)
@@ -193,7 +193,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <value>The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null.</value>
         [DataMember(Name = "last_report_date", IsRequired = true, EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime LastReportDate { get; set; }
+        public DateTimeOffset LastReportDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

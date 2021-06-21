@@ -83,8 +83,8 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startDate = Fri Jul 01 10:00:00 AEST 2016;  // DateTime? | The date on which to start the time series. Defaults to the system's operational date. (optional) 
-            var endDate = Sun Jul 31 10:00:00 AEST 2016;  // DateTime? | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional) 
+            var startDate = Fri Jul 01 10:00:00 AEST 2016;  // DateTimeOffset? | The date on which to start the time series. Defaults to the system's operational date. (optional) 
+            var endDate = Sun Jul 31 10:00:00 AEST 2016;  // DateTimeOffset? | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional) 
 
             try
             {

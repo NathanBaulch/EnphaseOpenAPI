@@ -45,7 +45,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="productionWh">Total production for the requested period in Watt-hours. (required).</param>
         /// <param name="meterReadings">If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. (required).</param>
         /// <param name="meta">meta (required).</param>
-        public MonthlyProductionResponse(int systemId = default(int), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), int productionWh = default(int), List<MonthlyProductionResponseMeterReadings> meterReadings = default(List<MonthlyProductionResponseMeterReadings>), Meta meta = default(Meta))
+        public MonthlyProductionResponse(int systemId = default(int), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), int productionWh = default(int), List<MonthlyProductionResponseMeterReadings> meterReadings = default(List<MonthlyProductionResponseMeterReadings>), Meta meta = default(Meta))
         {
             this.SystemId = systemId;
             this.StartDate = startDate;
@@ -70,7 +70,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <value>First day included in the reporting period. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
         [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime StartDate { get; set; }
+        public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
         /// Last day included in the reporting period.
@@ -78,7 +78,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <value>Last day included in the reporting period.</value>
         [DataMember(Name = "end_date", IsRequired = true, EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime EndDate { get; set; }
+        public DateTimeOffset EndDate { get; set; }
 
         /// <summary>
         /// Total production for the requested period in Watt-hours.

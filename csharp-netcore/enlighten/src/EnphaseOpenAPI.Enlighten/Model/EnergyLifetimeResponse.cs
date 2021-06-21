@@ -46,7 +46,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="meterProduction">meterProduction (required).</param>
         /// <param name="meterStartDate">The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. (required).</param>
         /// <param name="meta">meta (required).</param>
-        public EnergyLifetimeResponse(DateTime startDate = default(DateTime), int systemId = default(int), List<int> production = default(List<int>), List<int> microProduction = default(List<int>), List<int> meterProduction = default(List<int>), DateTime meterStartDate = default(DateTime), Meta meta = default(Meta))
+        public EnergyLifetimeResponse(DateTimeOffset startDate = default(DateTimeOffset), int systemId = default(int), List<int> production = default(List<int>), List<int> microProduction = default(List<int>), List<int> meterProduction = default(List<int>), DateTimeOffset meterStartDate = default(DateTimeOffset), Meta meta = default(Meta))
         {
             this.StartDate = startDate;
             this.SystemId = systemId;
@@ -67,7 +67,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <value>When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response.</value>
         [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime StartDate { get; set; }
+        public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
         /// The identifier of the system.
@@ -101,7 +101,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <value>The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.</value>
         [DataMember(Name = "meter_start_date", IsRequired = true, EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime MeterStartDate { get; set; }
+        public DateTimeOffset MeterStartDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta

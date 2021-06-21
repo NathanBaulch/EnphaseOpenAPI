@@ -85,7 +85,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="status">status (required).</param>
         /// <param name="summaryDate">Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). (required).</param>
         /// <param name="systemId">The Enlighten ID of the system. (required).</param>
-        public SummaryResponse(int currentPower = default(int), int energyLifetime = default(int), int energyToday = default(int), long lastIntervalEndAt = default(long), long lastReportAt = default(long), int modules = default(int), long operationalAt = default(long), int sizeW = default(int), SourceEnum source = default(SourceEnum), Status status = default(Status), DateTime summaryDate = default(DateTime), int systemId = default(int))
+        public SummaryResponse(int currentPower = default(int), int energyLifetime = default(int), int energyToday = default(int), long lastIntervalEndAt = default(long), long lastReportAt = default(long), int modules = default(int), long operationalAt = default(long), int sizeW = default(int), SourceEnum source = default(SourceEnum), Status status = default(Status), DateTimeOffset summaryDate = default(DateTimeOffset), int systemId = default(int))
         {
             this.CurrentPower = currentPower;
             this.EnergyLifetime = energyLifetime;
@@ -163,7 +163,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <value>Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
         [DataMember(Name = "summary_date", IsRequired = true, EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime SummaryDate { get; set; }
+        public DateTimeOffset SummaryDate { get; set; }
 
         /// <summary>
         /// The Enlighten ID of the system.

@@ -43,7 +43,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="systemId">The identifier of the system. (required).</param>
         /// <param name="consumption">An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period. (required).</param>
         /// <param name="meta">meta (required).</param>
-        public ConsumptionLifetimeResponse(DateTime startDate = default(DateTime), int systemId = default(int), List<int> consumption = default(List<int>), Meta meta = default(Meta))
+        public ConsumptionLifetimeResponse(DateTimeOffset startDate = default(DateTimeOffset), int systemId = default(int), List<int> consumption = default(List<int>), Meta meta = default(Meta))
         {
             this.StartDate = startDate;
             this.SystemId = systemId;
@@ -59,7 +59,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <value>When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response.</value>
         [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime StartDate { get; set; }
+        public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
         /// The identifier of the system.
