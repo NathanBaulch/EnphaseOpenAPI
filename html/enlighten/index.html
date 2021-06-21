@@ -332,10 +332,10 @@ by their end dates; therefore, the first interval returned is 15 minutes after t
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_at (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago,
-the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the first interval of the <code>operational_date</code>. default: null format: date-time</div><div class="param">end_at (optional)</div>
+the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the first interval of the <code>operational_date</code>. default: null format: int64</div><div class="param">end_at (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with
-the last reported interval. default: null format: date-time</div>
+the last reported interval. default: null format: int64</div>
     </div>  <!-- field-items -->
 
 
@@ -879,7 +879,7 @@ do not necessarily mean there is a problem with the meter or the system it is on
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">end_at (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null format: date-time</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null format: int64</div>
     </div>  <!-- field-items -->
 
 
@@ -966,10 +966,10 @@ by their end dates; therefore, the first interval returned is 15 minutes after t
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_at (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago,
-the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the first interval of the <code>operational_date</code>. default: null format: date-time</div><div class="param">end_at (optional)</div>
+the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the first interval of the <code>operational_date</code>. default: null format: int64</div><div class="param">end_at (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with
-the last reported interval. default: null format: date-time</div>
+the last reported interval. default: null format: int64</div>
     </div>  <!-- field-items -->
 
 
@@ -1202,10 +1202,10 @@ as well as the parameters used to process the request.</p>
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_at (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today,
-the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the <code>operational_date</code>. default: null format: date-time</div><div class="param">end_at (optional)</div>
+the response includes an empty intervals list. If the start is earlier than the system's <code>operational_date</code>, the response data begins with the <code>operational_date</code>. default: null format: int64</div><div class="param">end_at (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last
-reported interval. default: null format: date-time</div>
+reported interval. default: null format: int64</div>
     </div>  <!-- field-items -->
 
 
@@ -1584,7 +1584,7 @@ parameter is included in the request, it is included here in the response. forma
     <h3><a name="ConsumptionStats_intervals"><code>ConsumptionStats_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
 <div class="param">enwh </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy consumed during this interval, in Watt-hours. </div>
 <div class="param">devices_reporting </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of consumption meters that reported data for this interval at the time of the request. </div>
     </div>  <!-- field-items -->
@@ -1617,8 +1617,8 @@ the array may be empty. </div>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">envoy_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the Envoy. </div>
-<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the <code>datetime_format</code> query parameter is <code>iso8601</code>, <code>last_report_at</code> is in
-ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null. format: date-time</div>
+<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the <code>datetime_format</code> query parameter is <code>iso8601</code>, <code>last_report_at</code> is in
+ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null. format: int64</div>
 <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The human-friendly name of this Envoy. </div>
 <div class="param">part_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Enphase part number of this Envoy. </div>
 <div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The serial number of this Envoy. </div>
@@ -1713,9 +1713,9 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     <div class='model-description'>Information about the system that you can use to ascertain the timeliness of the production data included in the response.</div>
     <div class="field-items">
       <div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
-<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: date-time</div>
-<div class="param">last_energy_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: date-time</div>
-<div class="param">operational_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: date-time</div>
+<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">last_energy_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">operational_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -1755,7 +1755,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     <div class="field-items">
       <div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The serial number of the meter. </div>
 <div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The odometer reading, in Watt-hours. </div>
-<div class="param">read_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The time when the reading was taken, always prior or equal to the requested <code>end_at</code>. format: date-time</div>
+<div class="param">read_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The time when the reading was taken, always prior or equal to the requested <code>end_at</code>. format: int64</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -1773,7 +1773,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     <h3><a name="RgmStats_intervals"><code>RgmStats_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
 <div class="param">wh_del </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy delivered during this interval, in Watt-hours. </div>
 <div class="param">devices_reporting </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of revenue-grade meters that reported data for this interval at the time of the request. </div>
     </div>  <!-- field-items -->
@@ -1783,7 +1783,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The reporting channel identifier. </div>
-<div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
 <div class="param">wh_del </div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> Energy delivered during this interval, in Watt-hours. format: float</div>
 <div class="param">curr_w </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy delivered during this interval, in Watts. </div>
     </div>  <!-- field-items -->
@@ -1826,7 +1826,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     <h3><a name="Stats_intervals"><code>Stats_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> End date for interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+      <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> End date for interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
 <div class="param">powr </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Average power produced by microinverters during this interval, in Watts. </div>
 <div class="param">enwh </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy produced by microinverters during this interval, in Watt-hours. </div>
 <div class="param">devices_reporting </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of microinverters that reported data for this interval at the time of the request. </div>
@@ -1856,13 +1856,13 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
       <div class="param">current_power </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Current power production, in Watts. For historical requests, returns 0. </div>
 <div class="param">energy_lifetime </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy produced in the lifetime of the system, excluding the requested day, in Watt-hours. </div>
 <div class="param">energy_today </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy produced on the requested day, in Watt-hours. </div>
-<div class="param">last_interval_end_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The last known time that the system produced energy. When a system has not been communicating for a length of time, the <code>last_report_at</code> can be recent, whereas the
-<code>last_interval_end_at</code> may be further back. format: date-time</div>
-<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described
-<a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">last_interval_end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The last known time that the system produced energy. When a system has not been communicating for a length of time, the <code>last_report_at</code> can be recent, whereas the
+<code>last_interval_end_at</code> may be further back. format: int64</div>
+<div class="param">last_report_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described
+<a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
 <div class="param">modules </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active (not retired) modules. For historical requests, returns 0. </div>
-<div class="param">operational_at </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The time at which this system became operational. Corresponds to the system's interconnect time, if one is specified. Otherwise, it is the system's first interval end time. The
-format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date-time</div>
+<div class="param">operational_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The time at which this system became operational. Corresponds to the system's interconnect time, if one is specified. Otherwise, it is the system's first interval end time. The
+format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
 <div class="param">size_w </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The size of the system, in Watts. For historical requests, returns 0. </div>
 <div class="param">source </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Indicates whether the production of this system is measured by its microinverters (<code>microinverters</code>) or by revenue-grade meters (<code>meter</code>) installed on the system. </div>
         <div class="param-enum-header">Enum:</div>

@@ -65,7 +65,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ConsumptionStats</returns>
-        ConsumptionStats ConsumptionStats(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?));
+        ConsumptionStats ConsumptionStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
 
         /// <summary>
         /// 
@@ -79,7 +79,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ApiResponse of ConsumptionStats</returns>
-        ApiResponse<ConsumptionStats> ConsumptionStatsWithHttpInfo(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?));
+        ApiResponse<ConsumptionStats> ConsumptionStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
         /// <summary>
         /// 
         /// </summary>
@@ -214,7 +214,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
         /// <returns>ProductionMeterReadings</returns>
-        ProductionMeterReadings ProductionMeterReadings(string userId, int systemId, int? endAt = default(int?));
+        ProductionMeterReadings ProductionMeterReadings(string userId, int systemId, long? endAt = default(long?));
 
         /// <summary>
         /// 
@@ -227,7 +227,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
         /// <returns>ApiResponse of ProductionMeterReadings</returns>
-        ApiResponse<ProductionMeterReadings> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, int? endAt = default(int?));
+        ApiResponse<ProductionMeterReadings> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, long? endAt = default(long?));
         /// <summary>
         /// 
         /// </summary>
@@ -240,7 +240,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>RgmStats</returns>
-        RgmStats RgmStats(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?));
+        RgmStats RgmStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
 
         /// <summary>
         /// 
@@ -254,7 +254,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ApiResponse of RgmStats</returns>
-        ApiResponse<RgmStats> RgmStatsWithHttpInfo(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?));
+        ApiResponse<RgmStats> RgmStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
         /// <summary>
         /// 
         /// </summary>
@@ -290,7 +290,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>Stats</returns>
-        Stats Stats(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?));
+        Stats Stats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
 
         /// <summary>
         /// 
@@ -304,7 +304,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ApiResponse of Stats</returns>
-        ApiResponse<Stats> StatsWithHttpInfo(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?));
+        ApiResponse<Stats> StatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
         /// <summary>
         /// 
         /// </summary>
@@ -430,7 +430,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsumptionStats</returns>
-        System.Threading.Tasks.Task<ConsumptionStats> ConsumptionStatsAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConsumptionStats> ConsumptionStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -445,7 +445,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsumptionStats)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConsumptionStats>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConsumptionStats>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -591,7 +591,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductionMeterReadings</returns>
-        System.Threading.Tasks.Task<ProductionMeterReadings> ProductionMeterReadingsAsync(string userId, int systemId, int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductionMeterReadings> ProductionMeterReadingsAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -605,7 +605,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductionMeterReadings)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductionMeterReadings>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductionMeterReadings>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -619,7 +619,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RgmStats</returns>
-        System.Threading.Tasks.Task<RgmStats> RgmStatsAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RgmStats> RgmStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -634,7 +634,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RgmStats)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RgmStats>> RgmStatsWithHttpInfoAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RgmStats>> RgmStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -673,7 +673,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Stats</returns>
-        System.Threading.Tasks.Task<Stats> StatsAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Stats> StatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -688,7 +688,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Stats)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Stats>> StatsWithHttpInfoAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Stats>> StatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1051,7 +1051,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ConsumptionStats</returns>
-        public ConsumptionStats ConsumptionStats(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?))
+        public ConsumptionStats ConsumptionStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStats> localVarResponse = ConsumptionStatsWithHttpInfo(userId, systemId, startAt, endAt);
             return localVarResponse.Data;
@@ -1066,7 +1066,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ApiResponse of ConsumptionStats</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStats> ConsumptionStatsWithHttpInfo(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStats> ConsumptionStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1127,7 +1127,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsumptionStats</returns>
-        public async System.Threading.Tasks.Task<ConsumptionStats> ConsumptionStatsAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConsumptionStats> ConsumptionStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStats> localVarResponse = await ConsumptionStatsWithHttpInfoAsync(userId, systemId, startAt, endAt, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1143,7 +1143,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsumptionStats)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStats>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStats>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1902,7 +1902,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
         /// <returns>ProductionMeterReadings</returns>
-        public ProductionMeterReadings ProductionMeterReadings(string userId, int systemId, int? endAt = default(int?))
+        public ProductionMeterReadings ProductionMeterReadings(string userId, int systemId, long? endAt = default(long?))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadings> localVarResponse = ProductionMeterReadingsWithHttpInfo(userId, systemId, endAt);
             return localVarResponse.Data;
@@ -1916,7 +1916,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
         /// <returns>ApiResponse of ProductionMeterReadings</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadings> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, int? endAt = default(int?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadings> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, long? endAt = default(long?))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1972,7 +1972,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductionMeterReadings</returns>
-        public async System.Threading.Tasks.Task<ProductionMeterReadings> ProductionMeterReadingsAsync(string userId, int systemId, int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductionMeterReadings> ProductionMeterReadingsAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadings> localVarResponse = await ProductionMeterReadingsWithHttpInfoAsync(userId, systemId, endAt, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1987,7 +1987,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductionMeterReadings)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadings>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadings>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2046,7 +2046,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>RgmStats</returns>
-        public RgmStats RgmStats(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?))
+        public RgmStats RgmStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStats> localVarResponse = RgmStatsWithHttpInfo(userId, systemId, startAt, endAt);
             return localVarResponse.Data;
@@ -2061,7 +2061,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ApiResponse of RgmStats</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStats> RgmStatsWithHttpInfo(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStats> RgmStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2122,7 +2122,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RgmStats</returns>
-        public async System.Threading.Tasks.Task<RgmStats> RgmStatsAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RgmStats> RgmStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStats> localVarResponse = await RgmStatsWithHttpInfoAsync(userId, systemId, startAt, endAt, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2138,7 +2138,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RgmStats)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStats>> RgmStatsWithHttpInfoAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStats>> RgmStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2340,7 +2340,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>Stats</returns>
-        public Stats Stats(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?))
+        public Stats Stats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<Stats> localVarResponse = StatsWithHttpInfo(userId, systemId, startAt, endAt);
             return localVarResponse.Data;
@@ -2355,7 +2355,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <returns>ApiResponse of Stats</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<Stats> StatsWithHttpInfo(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<Stats> StatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2416,7 +2416,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Stats</returns>
-        public async System.Threading.Tasks.Task<Stats> StatsAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Stats> StatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<Stats> localVarResponse = await StatsWithHttpInfoAsync(userId, systemId, startAt, endAt, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2432,7 +2432,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Stats)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<Stats>> StatsWithHttpInfoAsync(string userId, int systemId, int? startAt = default(int?), int? endAt = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<Stats>> StatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)

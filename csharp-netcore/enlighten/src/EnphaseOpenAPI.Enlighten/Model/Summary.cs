@@ -85,7 +85,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="status">status (required).</param>
         /// <param name="summaryDate">Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). (required).</param>
         /// <param name="systemId">The Enlighten ID of the system. (required).</param>
-        public Summary(int currentPower = default(int), int energyLifetime = default(int), int energyToday = default(int), int lastIntervalEndAt = default(int), int lastReportAt = default(int), int modules = default(int), int operationalAt = default(int), int sizeW = default(int), SourceEnum source = default(SourceEnum), Status status = default(Status), DateTime summaryDate = default(DateTime), int systemId = default(int))
+        public Summary(int currentPower = default(int), int energyLifetime = default(int), int energyToday = default(int), long lastIntervalEndAt = default(long), long lastReportAt = default(long), int modules = default(int), long operationalAt = default(long), int sizeW = default(int), SourceEnum source = default(SourceEnum), Status status = default(Status), DateTime summaryDate = default(DateTime), int systemId = default(int))
         {
             this.CurrentPower = currentPower;
             this.EnergyLifetime = energyLifetime;
@@ -127,14 +127,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <value>The last known time that the system produced energy. When a system has not been communicating for a length of time, the &#x60;last_report_at&#x60; can be recent, whereas the &#x60;last_interval_end_at&#x60; may be further back.</value>
         [DataMember(Name = "last_interval_end_at", IsRequired = true, EmitDefaultValue = false)]
-        public int LastIntervalEndAt { get; set; }
+        public long LastIntervalEndAt { get; set; }
 
         /// <summary>
         /// The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).
         /// </summary>
         /// <value>The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
         [DataMember(Name = "last_report_at", IsRequired = true, EmitDefaultValue = false)]
-        public int LastReportAt { get; set; }
+        public long LastReportAt { get; set; }
 
         /// <summary>
         /// Number of active (not retired) modules. For historical requests, returns 0.
@@ -148,7 +148,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <value>The time at which this system became operational. Corresponds to the system&#39;s interconnect time, if one is specified. Otherwise, it is the system&#39;s first interval end time. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
         [DataMember(Name = "operational_at", IsRequired = true, EmitDefaultValue = false)]
-        public int OperationalAt { get; set; }
+        public long OperationalAt { get; set; }
 
         /// <summary>
         /// The size of the system, in Watts. For historical requests, returns 0.

@@ -17,7 +17,7 @@ import (
 // ConsumptionStatsIntervals struct for ConsumptionStatsIntervals
 type ConsumptionStatsIntervals struct {
 	// End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-	EndAt int32 `json:"end_at"`
+	EndAt int64 `json:"end_at"`
 	// Energy consumed during this interval, in Watt-hours.
 	Enwh int32 `json:"enwh"`
 	// Number of consumption meters that reported data for this interval at the time of the request.
@@ -28,7 +28,7 @@ type ConsumptionStatsIntervals struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsumptionStatsIntervals(endAt int32, enwh int32, devicesReporting int32) *ConsumptionStatsIntervals {
+func NewConsumptionStatsIntervals(endAt int64, enwh int32, devicesReporting int32) *ConsumptionStatsIntervals {
 	this := ConsumptionStatsIntervals{}
 	this.EndAt = endAt
 	this.Enwh = enwh
@@ -45,9 +45,9 @@ func NewConsumptionStatsIntervalsWithDefaults() *ConsumptionStatsIntervals {
 }
 
 // GetEndAt returns the EndAt field value
-func (o *ConsumptionStatsIntervals) GetEndAt() int32 {
+func (o *ConsumptionStatsIntervals) GetEndAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *ConsumptionStatsIntervals) GetEndAt() int32 {
 
 // GetEndAtOk returns a tuple with the EndAt field value
 // and a boolean to check if the value has been set.
-func (o *ConsumptionStatsIntervals) GetEndAtOk() (*int32, bool) {
+func (o *ConsumptionStatsIntervals) GetEndAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *ConsumptionStatsIntervals) GetEndAtOk() (*int32, bool) {
 }
 
 // SetEndAt sets field value
-func (o *ConsumptionStatsIntervals) SetEndAt(v int32) {
+func (o *ConsumptionStatsIntervals) SetEndAt(v int64) {
 	o.EndAt = v
 }
 

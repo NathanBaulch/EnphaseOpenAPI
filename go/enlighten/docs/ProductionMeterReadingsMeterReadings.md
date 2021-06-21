@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SerialNumber** | **string** | The serial number of the meter. | 
 **Value** | **int32** | The odometer reading, in Watt-hours. | 
-**ReadAt** | **int32** | The time when the reading was taken, always prior or equal to the requested &#x60;end_at&#x60;. | 
+**ReadAt** | **int64** | The time when the reading was taken, always prior or equal to the requested &#x60;end_at&#x60;. | 
 
 ## Methods
 
 ### NewProductionMeterReadingsMeterReadings
 
-`func NewProductionMeterReadingsMeterReadings(serialNumber string, value int32, readAt int32, ) *ProductionMeterReadingsMeterReadings`
+`func NewProductionMeterReadingsMeterReadings(serialNumber string, value int32, readAt int64, ) *ProductionMeterReadingsMeterReadings`
 
 NewProductionMeterReadingsMeterReadings instantiates a new ProductionMeterReadingsMeterReadings object
 This constructor will assign default values to properties that have it defined,
@@ -69,20 +69,20 @@ SetValue sets Value field to given value.
 
 ### GetReadAt
 
-`func (o *ProductionMeterReadingsMeterReadings) GetReadAt() int32`
+`func (o *ProductionMeterReadingsMeterReadings) GetReadAt() int64`
 
 GetReadAt returns the ReadAt field if non-nil, zero value otherwise.
 
 ### GetReadAtOk
 
-`func (o *ProductionMeterReadingsMeterReadings) GetReadAtOk() (*int32, bool)`
+`func (o *ProductionMeterReadingsMeterReadings) GetReadAtOk() (*int64, bool)`
 
 GetReadAtOk returns a tuple with the ReadAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReadAt
 
-`func (o *ProductionMeterReadingsMeterReadings) SetReadAt(v int32)`
+`func (o *ProductionMeterReadingsMeterReadings) SetReadAt(v int64)`
 
 SetReadAt sets ReadAt field to given value.
 

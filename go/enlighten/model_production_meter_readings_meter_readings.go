@@ -21,14 +21,14 @@ type ProductionMeterReadingsMeterReadings struct {
 	// The odometer reading, in Watt-hours.
 	Value int32 `json:"value"`
 	// The time when the reading was taken, always prior or equal to the requested `end_at`.
-	ReadAt int32 `json:"read_at"`
+	ReadAt int64 `json:"read_at"`
 }
 
 // NewProductionMeterReadingsMeterReadings instantiates a new ProductionMeterReadingsMeterReadings object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProductionMeterReadingsMeterReadings(serialNumber string, value int32, readAt int32) *ProductionMeterReadingsMeterReadings {
+func NewProductionMeterReadingsMeterReadings(serialNumber string, value int32, readAt int64) *ProductionMeterReadingsMeterReadings {
 	this := ProductionMeterReadingsMeterReadings{}
 	this.SerialNumber = serialNumber
 	this.Value = value
@@ -93,9 +93,9 @@ func (o *ProductionMeterReadingsMeterReadings) SetValue(v int32) {
 }
 
 // GetReadAt returns the ReadAt field value
-func (o *ProductionMeterReadingsMeterReadings) GetReadAt() int32 {
+func (o *ProductionMeterReadingsMeterReadings) GetReadAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -104,7 +104,7 @@ func (o *ProductionMeterReadingsMeterReadings) GetReadAt() int32 {
 
 // GetReadAtOk returns a tuple with the ReadAt field value
 // and a boolean to check if the value has been set.
-func (o *ProductionMeterReadingsMeterReadings) GetReadAtOk() (*int32, bool) {
+func (o *ProductionMeterReadingsMeterReadings) GetReadAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -112,7 +112,7 @@ func (o *ProductionMeterReadingsMeterReadings) GetReadAtOk() (*int32, bool) {
 }
 
 // SetReadAt sets field value
-func (o *ProductionMeterReadingsMeterReadings) SetReadAt(v int32) {
+func (o *ProductionMeterReadingsMeterReadings) SetReadAt(v int64) {
 	o.ReadAt = v
 }
 

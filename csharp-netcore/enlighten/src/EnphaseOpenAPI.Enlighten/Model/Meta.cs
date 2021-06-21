@@ -49,7 +49,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="lastReportAt">lastReportAt (required).</param>
         /// <param name="lastEnergyAt">lastEnergyAt (required).</param>
         /// <param name="operationalAt">operationalAt (required).</param>
-        public Meta(Status status = default(Status), int lastReportAt = default(int), int lastEnergyAt = default(int), int operationalAt = default(int))
+        public Meta(Status status = default(Status), long lastReportAt = default(long), long lastEnergyAt = default(long), long operationalAt = default(long))
         {
             this.Status = status;
             this.LastReportAt = lastReportAt;
@@ -61,19 +61,19 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Gets or Sets LastReportAt
         /// </summary>
         [DataMember(Name = "last_report_at", IsRequired = true, EmitDefaultValue = false)]
-        public int LastReportAt { get; set; }
+        public long LastReportAt { get; set; }
 
         /// <summary>
         /// Gets or Sets LastEnergyAt
         /// </summary>
         [DataMember(Name = "last_energy_at", IsRequired = true, EmitDefaultValue = false)]
-        public int LastEnergyAt { get; set; }
+        public long LastEnergyAt { get; set; }
 
         /// <summary>
         /// Gets or Sets OperationalAt
         /// </summary>
         [DataMember(Name = "operational_at", IsRequired = true, EmitDefaultValue = false)]
-        public int OperationalAt { get; set; }
+        public long OperationalAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -76,7 +76,7 @@ class EnvoysEnvoys implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'envoy_id' => null,
-        'last_report_at' => 'date-time',
+        'last_report_at' => 'int64',
         'name' => null,
         'part_number' => null,
         'serial_number' => null,

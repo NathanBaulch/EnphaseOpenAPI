@@ -17,7 +17,7 @@ import (
 // StatsIntervals struct for StatsIntervals
 type StatsIntervals struct {
 	// End date for interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-	EndAt int32 `json:"end_at"`
+	EndAt int64 `json:"end_at"`
 	// Average power produced by microinverters during this interval, in Watts.
 	Powr int32 `json:"powr"`
 	// Energy produced by microinverters during this interval, in Watt-hours.
@@ -30,7 +30,7 @@ type StatsIntervals struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatsIntervals(endAt int32, powr int32, enwh int32, devicesReporting int32) *StatsIntervals {
+func NewStatsIntervals(endAt int64, powr int32, enwh int32, devicesReporting int32) *StatsIntervals {
 	this := StatsIntervals{}
 	this.EndAt = endAt
 	this.Powr = powr
@@ -48,9 +48,9 @@ func NewStatsIntervalsWithDefaults() *StatsIntervals {
 }
 
 // GetEndAt returns the EndAt field value
-func (o *StatsIntervals) GetEndAt() int32 {
+func (o *StatsIntervals) GetEndAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *StatsIntervals) GetEndAt() int32 {
 
 // GetEndAtOk returns a tuple with the EndAt field value
 // and a boolean to check if the value has been set.
-func (o *StatsIntervals) GetEndAtOk() (*int32, bool) {
+func (o *StatsIntervals) GetEndAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *StatsIntervals) GetEndAtOk() (*int32, bool) {
 }
 
 // SetEndAt sets field value
-func (o *StatsIntervals) SetEndAt(v int32) {
+func (o *StatsIntervals) SetEndAt(v int64) {
 	o.EndAt = v
 }
 

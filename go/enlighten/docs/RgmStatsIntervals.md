@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EndAt** | **int32** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
+**EndAt** | **int64** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **WhDel** | **int32** | Energy delivered during this interval, in Watt-hours. | 
 **DevicesReporting** | **int32** | Number of revenue-grade meters that reported data for this interval at the time of the request. | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewRgmStatsIntervals
 
-`func NewRgmStatsIntervals(endAt int32, whDel int32, devicesReporting int32, ) *RgmStatsIntervals`
+`func NewRgmStatsIntervals(endAt int64, whDel int32, devicesReporting int32, ) *RgmStatsIntervals`
 
 NewRgmStatsIntervals instantiates a new RgmStatsIntervals object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEndAt
 
-`func (o *RgmStatsIntervals) GetEndAt() int32`
+`func (o *RgmStatsIntervals) GetEndAt() int64`
 
 GetEndAt returns the EndAt field if non-nil, zero value otherwise.
 
 ### GetEndAtOk
 
-`func (o *RgmStatsIntervals) GetEndAtOk() (*int32, bool)`
+`func (o *RgmStatsIntervals) GetEndAtOk() (*int64, bool)`
 
 GetEndAtOk returns a tuple with the EndAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndAt
 
-`func (o *RgmStatsIntervals) SetEndAt(v int32)`
+`func (o *RgmStatsIntervals) SetEndAt(v int64)`
 
 SetEndAt sets EndAt field to given value.
 

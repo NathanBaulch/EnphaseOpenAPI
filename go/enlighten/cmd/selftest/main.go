@@ -26,8 +26,8 @@ func main() {
 
 	startDate := time.Now().Add(-31 * 24 * time.Hour).Format("2006-01-02")
 	endDate := time.Now().Add(-25 * 24 * time.Hour).Format("2006-01-02")
-	startAt := int32(time.Now().Add(-7 * 24 * time.Hour).Unix())
-	endAt := int32(time.Now().Add(-24 * time.Hour).Unix())
+	startAt := time.Now().Add(-7 * 24 * time.Hour).Unix()
+	endAt := time.Now().Add(-24 * time.Hour).Unix()
 
 	var next string
 	for {

@@ -17,16 +17,16 @@ import (
 // Meta Information about the system that you can use to ascertain the timeliness of the production data included in the response.
 type Meta struct {
 	Status Status `json:"status"`
-	LastReportAt int32 `json:"last_report_at"`
-	LastEnergyAt int32 `json:"last_energy_at"`
-	OperationalAt int32 `json:"operational_at"`
+	LastReportAt int64 `json:"last_report_at"`
+	LastEnergyAt int64 `json:"last_energy_at"`
+	OperationalAt int64 `json:"operational_at"`
 }
 
 // NewMeta instantiates a new Meta object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMeta(status Status, lastReportAt int32, lastEnergyAt int32, operationalAt int32) *Meta {
+func NewMeta(status Status, lastReportAt int64, lastEnergyAt int64, operationalAt int64) *Meta {
 	this := Meta{}
 	this.Status = status
 	this.LastReportAt = lastReportAt
@@ -68,9 +68,9 @@ func (o *Meta) SetStatus(v Status) {
 }
 
 // GetLastReportAt returns the LastReportAt field value
-func (o *Meta) GetLastReportAt() int32 {
+func (o *Meta) GetLastReportAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -79,7 +79,7 @@ func (o *Meta) GetLastReportAt() int32 {
 
 // GetLastReportAtOk returns a tuple with the LastReportAt field value
 // and a boolean to check if the value has been set.
-func (o *Meta) GetLastReportAtOk() (*int32, bool) {
+func (o *Meta) GetLastReportAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -87,14 +87,14 @@ func (o *Meta) GetLastReportAtOk() (*int32, bool) {
 }
 
 // SetLastReportAt sets field value
-func (o *Meta) SetLastReportAt(v int32) {
+func (o *Meta) SetLastReportAt(v int64) {
 	o.LastReportAt = v
 }
 
 // GetLastEnergyAt returns the LastEnergyAt field value
-func (o *Meta) GetLastEnergyAt() int32 {
+func (o *Meta) GetLastEnergyAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -103,7 +103,7 @@ func (o *Meta) GetLastEnergyAt() int32 {
 
 // GetLastEnergyAtOk returns a tuple with the LastEnergyAt field value
 // and a boolean to check if the value has been set.
-func (o *Meta) GetLastEnergyAtOk() (*int32, bool) {
+func (o *Meta) GetLastEnergyAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -111,14 +111,14 @@ func (o *Meta) GetLastEnergyAtOk() (*int32, bool) {
 }
 
 // SetLastEnergyAt sets field value
-func (o *Meta) SetLastEnergyAt(v int32) {
+func (o *Meta) SetLastEnergyAt(v int64) {
 	o.LastEnergyAt = v
 }
 
 // GetOperationalAt returns the OperationalAt field value
-func (o *Meta) GetOperationalAt() int32 {
+func (o *Meta) GetOperationalAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -127,7 +127,7 @@ func (o *Meta) GetOperationalAt() int32 {
 
 // GetOperationalAtOk returns a tuple with the OperationalAt field value
 // and a boolean to check if the value has been set.
-func (o *Meta) GetOperationalAtOk() (*int32, bool) {
+func (o *Meta) GetOperationalAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -135,7 +135,7 @@ func (o *Meta) GetOperationalAtOk() (*int32, bool) {
 }
 
 // SetOperationalAt sets field value
-func (o *Meta) SetOperationalAt(v int32) {
+func (o *Meta) SetOperationalAt(v int64) {
 	o.OperationalAt = v
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EndAt** | **int32** | End date for interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
+**EndAt** | **int64** | End date for interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **Powr** | **int32** | Average power produced by microinverters during this interval, in Watts. | 
 **Enwh** | **int32** | Energy produced by microinverters during this interval, in Watt-hours. | 
 **DevicesReporting** | **int32** | Number of microinverters that reported data for this interval at the time of the request. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewStatsIntervals
 
-`func NewStatsIntervals(endAt int32, powr int32, enwh int32, devicesReporting int32, ) *StatsIntervals`
+`func NewStatsIntervals(endAt int64, powr int32, enwh int32, devicesReporting int32, ) *StatsIntervals`
 
 NewStatsIntervals instantiates a new StatsIntervals object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEndAt
 
-`func (o *StatsIntervals) GetEndAt() int32`
+`func (o *StatsIntervals) GetEndAt() int64`
 
 GetEndAt returns the EndAt field if non-nil, zero value otherwise.
 
 ### GetEndAtOk
 
-`func (o *StatsIntervals) GetEndAtOk() (*int32, bool)`
+`func (o *StatsIntervals) GetEndAtOk() (*int64, bool)`
 
 GetEndAtOk returns a tuple with the EndAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndAt
 
-`func (o *StatsIntervals) SetEndAt(v int32)`
+`func (o *StatsIntervals) SetEndAt(v int64)`
 
 SetEndAt sets EndAt field to given value.
 

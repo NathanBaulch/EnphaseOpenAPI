@@ -74,7 +74,7 @@ class RgmStatsIntervals1 implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'channel' => null,
-        'end_at' => 'date-time',
+        'end_at' => 'int64',
         'wh_del' => 'float',
         'curr_w' => null
     ];

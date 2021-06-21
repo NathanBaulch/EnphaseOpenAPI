@@ -319,7 +319,7 @@ paths:
           in: query
           schema:
             type: integer
-            format: date-time
+            format: int64
             example: 1473901755
       responses:
         '200':
@@ -361,7 +361,7 @@ paths:
           in: query
           schema:
             type: integer
-            format: date-time
+            format: int64
             example: 1381474800
         - name: end_at
           description: |-
@@ -370,7 +370,7 @@ paths:
           in: query
           schema:
             type: integer
-            format: date-time
+            format: int64
             example: 1381561200
       responses:
         '200':
@@ -417,7 +417,7 @@ paths:
           in: query
           schema:
             type: integer
-            format: date-time
+            format: int64
             example: 1381496100
         - name: end_at
           description: |-
@@ -426,7 +426,7 @@ paths:
           in: query
           schema:
             type: integer
-            format: date-time
+            format: int64
             example: 1381497600
       responses:
         '200':
@@ -514,7 +514,7 @@ paths:
           in: query
           schema:
             type: integer
-            format: date-time
+            format: int64
             example: 1448946000
         - name: end_at
           description: |-
@@ -523,7 +523,7 @@ paths:
           in: query
           schema:
             type: integer
-            format: date-time
+            format: int64
             example: 1449011615
       responses:
         '200':
@@ -686,7 +686,7 @@ components:
                   The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the `datetime_format` query parameter is `iso8601`, `last_report_at` is in
                   ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null.
                 type: integer
-                format: date-time
+                format: int64
               name:
                 description: The human-friendly name of this Envoy.
                 type: string
@@ -1116,7 +1116,7 @@ components:
               read_at:
                 description: The time when the reading was taken, always prior or equal to the requested `end_at`.
                 type: integer
-                format: date-time
+                format: int64
             required:
               - serial_number
               - value
@@ -1158,7 +1158,7 @@ components:
               end_at:
                 description: End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
                 type: integer
-                format: date-time
+                format: int64
               wh_del:
                 description: Energy delivered during this interval, in Watt-hours.
                 type: integer
@@ -1194,7 +1194,7 @@ components:
                       description: |-
                         End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
                       type: integer
-                      format: date-time
+                      format: int64
                     wh_del:
                       description: Energy delivered during this interval, in Watt-hours.
                       type: number
@@ -1309,7 +1309,7 @@ components:
                 description: |-
                   End date for interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
                 type: integer
-                format: date-time
+                format: int64
               powr:
                 description: Average power produced by microinverters during this interval, in Watts.
                 type: integer
@@ -1417,7 +1417,7 @@ components:
               end_at:
                 description: End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
                 type: integer
-                format: date-time
+                format: int64
               enwh:
                 description: Energy consumed during this interval, in Watt-hours.
                 type: integer
@@ -1474,13 +1474,13 @@ components:
             The last known time that the system produced energy. When a system has not been communicating for a length of time, the `last_report_at` can be recent, whereas the
             `last_interval_end_at` may be further back.
           type: integer
-          format: date-time
+          format: int64
         last_report_at:
           description: |-
             The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a `datetime_format` parameter as described
             [here](https://developer.enphase.com/docs#Datetimes).
           type: integer
-          format: date-time
+          format: int64
         modules:
           description: Number of active (not retired) modules. For historical requests, returns 0.
           type: integer
@@ -1489,7 +1489,7 @@ components:
             The time at which this system became operational. Corresponds to the system's interconnect time, if one is specified. Otherwise, it is the system's first interval end time. The
             format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
           type: integer
-          format: date-time
+          format: int64
         size_w:
           description: The size of the system, in Watts. For historical requests, returns 0.
           type: integer
@@ -1584,13 +1584,13 @@ components:
           $ref: '#/components/schemas/Status'
         last_report_at:
           type: integer
-          format: date-time
+          format: int64
         last_energy_at:
           type: integer
-          format: date-time
+          format: int64
         operational_at:
           type: integer
-          format: date-time
+          format: int64
       required:
         - status
         - last_report_at

@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 <a name="consumptionstats"></a>
 # **ConsumptionStats**
-> ConsumptionStats ConsumptionStats (string userId, int systemId, int? startAt = null, int? endAt = null)
+> ConsumptionStats ConsumptionStats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
 
 
@@ -137,8 +137,8 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startAt = 1448946000;  // int? | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`. (optional) 
-            var endAt = 1449011615;  // int? | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional) 
+            var startAt = 1448946000;  // long? | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`. (optional) 
+            var endAt = 1449011615;  // long? | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional) 
 
             try
             {
@@ -162,8 +162,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **startAt** | **int?**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] 
- **endAt** | **int?**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] 
+ **startAt** | **long?**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] 
+ **endAt** | **long?**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] 
 
 ### Return type
 
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 <a name="productionmeterreadings"></a>
 # **ProductionMeterReadings**
-> ProductionMeterReadings ProductionMeterReadings (string userId, int systemId, int? endAt = null)
+> ProductionMeterReadings ProductionMeterReadings (string userId, int systemId, long? endAt = null)
 
 
 
@@ -642,7 +642,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var endAt = 1473901755;  // int? |  (optional) 
+            var endAt = 1473901755;  // long? |  (optional) 
 
             try
             {
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **endAt** | **int?**|  | [optional] 
+ **endAt** | **long?**|  | [optional] 
 
 ### Return type
 
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 
 <a name="rgmstats"></a>
 # **RgmStats**
-> RgmStats RgmStats (string userId, int systemId, int? startAt = null, int? endAt = null)
+> RgmStats RgmStats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
 
 
@@ -726,8 +726,8 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startAt = 1381474800;  // int? | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`. (optional) 
-            var endAt = 1381561200;  // int? | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional) 
+            var startAt = 1381474800;  // long? | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`. (optional) 
+            var endAt = 1381561200;  // long? | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional) 
 
             try
             {
@@ -751,8 +751,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **startAt** | **int?**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] 
- **endAt** | **int?**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] 
+ **startAt** | **long?**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] 
+ **endAt** | **long?**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] 
 
 ### Return type
 
@@ -865,7 +865,7 @@ Name | Type | Description  | Notes
 
 <a name="stats"></a>
 # **Stats**
-> Stats Stats (string userId, int systemId, int? startAt = null, int? endAt = null)
+> Stats Stats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
 
 
@@ -895,8 +895,8 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var userId = 4d6a51330a;  // string | 
             var systemId = 66;  // int | 
-            var startAt = 1381496100;  // int? | Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`. (optional) 
-            var endAt = 1381497600;  // int? | End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional) 
+            var startAt = 1381496100;  // long? | Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`. (optional) 
+            var endAt = 1381497600;  // long? | End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional) 
 
             try
             {
@@ -920,8 +920,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **systemId** | **int**|  | 
- **startAt** | **int?**| Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. | [optional] 
- **endAt** | **int?**| End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. | [optional] 
+ **startAt** | **long?**| Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. | [optional] 
+ **endAt** | **long?**| End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. | [optional] 
 
 ### Return type
 

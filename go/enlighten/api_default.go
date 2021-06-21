@@ -232,19 +232,19 @@ type ApiConsumptionStatsRequest struct {
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
-	startAt *int32
-	endAt *int32
+	startAt *int64
+	endAt *int64
 }
 
 func (r ApiConsumptionStatsRequest) UserId(userId string) ApiConsumptionStatsRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiConsumptionStatsRequest) StartAt(startAt int32) ApiConsumptionStatsRequest {
+func (r ApiConsumptionStatsRequest) StartAt(startAt int64) ApiConsumptionStatsRequest {
 	r.startAt = &startAt
 	return r
 }
-func (r ApiConsumptionStatsRequest) EndAt(endAt int32) ApiConsumptionStatsRequest {
+func (r ApiConsumptionStatsRequest) EndAt(endAt int64) ApiConsumptionStatsRequest {
 	r.endAt = &endAt
 	return r
 }
@@ -1378,14 +1378,14 @@ type ApiProductionMeterReadingsRequest struct {
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
-	endAt *int32
+	endAt *int64
 }
 
 func (r ApiProductionMeterReadingsRequest) UserId(userId string) ApiProductionMeterReadingsRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiProductionMeterReadingsRequest) EndAt(endAt int32) ApiProductionMeterReadingsRequest {
+func (r ApiProductionMeterReadingsRequest) EndAt(endAt int64) ApiProductionMeterReadingsRequest {
 	r.endAt = &endAt
 	return r
 }
@@ -1569,19 +1569,19 @@ type ApiRgmStatsRequest struct {
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
-	startAt *int32
-	endAt *int32
+	startAt *int64
+	endAt *int64
 }
 
 func (r ApiRgmStatsRequest) UserId(userId string) ApiRgmStatsRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiRgmStatsRequest) StartAt(startAt int32) ApiRgmStatsRequest {
+func (r ApiRgmStatsRequest) StartAt(startAt int64) ApiRgmStatsRequest {
 	r.startAt = &startAt
 	return r
 }
-func (r ApiRgmStatsRequest) EndAt(endAt int32) ApiRgmStatsRequest {
+func (r ApiRgmStatsRequest) EndAt(endAt int64) ApiRgmStatsRequest {
 	r.endAt = &endAt
 	return r
 }
@@ -1964,19 +1964,19 @@ type ApiStatsRequest struct {
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
-	startAt *int32
-	endAt *int32
+	startAt *int64
+	endAt *int64
 }
 
 func (r ApiStatsRequest) UserId(userId string) ApiStatsRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiStatsRequest) StartAt(startAt int32) ApiStatsRequest {
+func (r ApiStatsRequest) StartAt(startAt int64) ApiStatsRequest {
 	r.startAt = &startAt
 	return r
 }
-func (r ApiStatsRequest) EndAt(endAt int32) ApiStatsRequest {
+func (r ApiStatsRequest) EndAt(endAt int64) ApiStatsRequest {
 	r.endAt = &endAt
 	return r
 }

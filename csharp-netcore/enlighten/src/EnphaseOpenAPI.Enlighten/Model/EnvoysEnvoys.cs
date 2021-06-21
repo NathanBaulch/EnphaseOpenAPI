@@ -73,7 +73,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="partNumber">The Enphase part number of this Envoy. (required).</param>
         /// <param name="serialNumber">The serial number of this Envoy. (required).</param>
         /// <param name="status">The current status of this Envoy. * &#x60;normal&#x60; - The Envoy is operating normally. * &#x60;comm&#x60; - The Envoy is not communicating to Enlighten. (required).</param>
-        public EnvoysEnvoys(int envoyId = default(int), int lastReportAt = default(int), string name = default(string), string partNumber = default(string), string serialNumber = default(string), StatusEnum status = default(StatusEnum))
+        public EnvoysEnvoys(int envoyId = default(int), long lastReportAt = default(long), string name = default(string), string partNumber = default(string), string serialNumber = default(string), StatusEnum status = default(StatusEnum))
         {
             this.EnvoyId = envoyId;
             this.LastReportAt = lastReportAt;
@@ -98,7 +98,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <value>The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the &#x60;datetime_format&#x60; query parameter is &#x60;iso8601&#x60;, &#x60;last_report_at&#x60; is in ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null.</value>
         [DataMember(Name = "last_report_at", IsRequired = true, EmitDefaultValue = false)]
-        public int LastReportAt { get; set; }
+        public long LastReportAt { get; set; }
 
         /// <summary>
         /// The human-friendly name of this Envoy.

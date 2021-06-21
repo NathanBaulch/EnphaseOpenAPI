@@ -42,7 +42,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="endAt">End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). (required).</param>
         /// <param name="whDel">Energy delivered during this interval, in Watt-hours. (required).</param>
         /// <param name="devicesReporting">Number of revenue-grade meters that reported data for this interval at the time of the request. (required).</param>
-        public RgmStatsIntervals(int endAt = default(int), int whDel = default(int), int devicesReporting = default(int))
+        public RgmStatsIntervals(long endAt = default(long), int whDel = default(int), int devicesReporting = default(int))
         {
             this.EndAt = endAt;
             this.WhDel = whDel;
@@ -54,7 +54,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <value>End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
         [DataMember(Name = "end_at", IsRequired = true, EmitDefaultValue = false)]
-        public int EndAt { get; set; }
+        public long EndAt { get; set; }
 
         /// <summary>
         /// Energy delivered during this interval, in Watt-hours.

@@ -19,7 +19,7 @@ type EnvoysEnvoys struct {
 	// The Enlighten ID of the Envoy.
 	EnvoyId int32 `json:"envoy_id"`
 	// The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the `datetime_format` query parameter is `iso8601`, `last_report_at` is in ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null.
-	LastReportAt int32 `json:"last_report_at"`
+	LastReportAt int64 `json:"last_report_at"`
 	// The human-friendly name of this Envoy.
 	Name string `json:"name"`
 	// The Enphase part number of this Envoy.
@@ -34,7 +34,7 @@ type EnvoysEnvoys struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvoysEnvoys(envoyId int32, lastReportAt int32, name string, partNumber string, serialNumber string, status string) *EnvoysEnvoys {
+func NewEnvoysEnvoys(envoyId int32, lastReportAt int64, name string, partNumber string, serialNumber string, status string) *EnvoysEnvoys {
 	this := EnvoysEnvoys{}
 	this.EnvoyId = envoyId
 	this.LastReportAt = lastReportAt
@@ -78,9 +78,9 @@ func (o *EnvoysEnvoys) SetEnvoyId(v int32) {
 }
 
 // GetLastReportAt returns the LastReportAt field value
-func (o *EnvoysEnvoys) GetLastReportAt() int32 {
+func (o *EnvoysEnvoys) GetLastReportAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -89,7 +89,7 @@ func (o *EnvoysEnvoys) GetLastReportAt() int32 {
 
 // GetLastReportAtOk returns a tuple with the LastReportAt field value
 // and a boolean to check if the value has been set.
-func (o *EnvoysEnvoys) GetLastReportAtOk() (*int32, bool) {
+func (o *EnvoysEnvoys) GetLastReportAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -97,7 +97,7 @@ func (o *EnvoysEnvoys) GetLastReportAtOk() (*int32, bool) {
 }
 
 // SetLastReportAt sets field value
-func (o *EnvoysEnvoys) SetLastReportAt(v int32) {
+func (o *EnvoysEnvoys) SetLastReportAt(v int64) {
 	o.LastReportAt = v
 }
 

@@ -74,7 +74,7 @@ class ProductionMeterReadingsMeterReadings implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'serial_number' => null,
         'value' => null,
-        'read_at' => 'date-time'
+        'read_at' => 'int64'
     ];
 
     /**

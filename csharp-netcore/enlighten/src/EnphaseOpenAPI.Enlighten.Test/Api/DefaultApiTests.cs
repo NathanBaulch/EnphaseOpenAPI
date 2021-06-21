@@ -78,8 +78,8 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //int? startAt = null;
-            //int? endAt = null;
+            //long? startAt = null;
+            //long? endAt = null;
             //var response = instance.ConsumptionStats(userId, systemId, startAt, endAt);
             //Assert.IsType<ConsumptionStats>(response);
         }
@@ -162,7 +162,7 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //int? endAt = null;
+            //long? endAt = null;
             //var response = instance.ProductionMeterReadings(userId, systemId, endAt);
             //Assert.IsType<ProductionMeterReadings>(response);
         }
@@ -176,8 +176,8 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //int? startAt = null;
-            //int? endAt = null;
+            //long? startAt = null;
+            //long? endAt = null;
             //var response = instance.RgmStats(userId, systemId, startAt, endAt);
             //Assert.IsType<RgmStats>(response);
         }
@@ -204,8 +204,8 @@ namespace EnphaseOpenAPI.Enlighten.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
             //int systemId = null;
-            //int? startAt = null;
-            //int? endAt = null;
+            //long? startAt = null;
+            //long? endAt = null;
             //var response = instance.Stats(userId, systemId, startAt, endAt);
             //Assert.IsType<Stats>(response);
         }

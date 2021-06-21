@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **CurrentPower** | **int32** | Current power production, in Watts. For historical requests, returns 0. | 
 **EnergyLifetime** | **int32** | Energy produced in the lifetime of the system, excluding the requested day, in Watt-hours. | 
 **EnergyToday** | **int32** | Energy produced on the requested day, in Watt-hours. | 
-**LastIntervalEndAt** | **int32** | The last known time that the system produced energy. When a system has not been communicating for a length of time, the &#x60;last_report_at&#x60; can be recent, whereas the &#x60;last_interval_end_at&#x60; may be further back. | 
-**LastReportAt** | **int32** | The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
+**LastIntervalEndAt** | **int64** | The last known time that the system produced energy. When a system has not been communicating for a length of time, the &#x60;last_report_at&#x60; can be recent, whereas the &#x60;last_interval_end_at&#x60; may be further back. | 
+**LastReportAt** | **int64** | The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **Modules** | **int32** | Number of active (not retired) modules. For historical requests, returns 0. | 
-**OperationalAt** | **int32** | The time at which this system became operational. Corresponds to the system&#39;s interconnect time, if one is specified. Otherwise, it is the system&#39;s first interval end time. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
+**OperationalAt** | **int64** | The time at which this system became operational. Corresponds to the system&#39;s interconnect time, if one is specified. Otherwise, it is the system&#39;s first interval end time. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **SizeW** | **int32** | The size of the system, in Watts. For historical requests, returns 0. | 
 **Source** | **string** | Indicates whether the production of this system is measured by its microinverters (&#x60;microinverters&#x60;) or by revenue-grade meters (&#x60;meter&#x60;) installed on the system. | 
 **Status** | [**Status**](Status.md) |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSummary
 
-`func NewSummary(currentPower int32, energyLifetime int32, energyToday int32, lastIntervalEndAt int32, lastReportAt int32, modules int32, operationalAt int32, sizeW int32, source string, status Status, summaryDate string, systemId int32, ) *Summary`
+`func NewSummary(currentPower int32, energyLifetime int32, energyToday int32, lastIntervalEndAt int64, lastReportAt int64, modules int32, operationalAt int64, sizeW int32, source string, status Status, summaryDate string, systemId int32, ) *Summary`
 
 NewSummary instantiates a new Summary object
 This constructor will assign default values to properties that have it defined,
@@ -98,40 +98,40 @@ SetEnergyToday sets EnergyToday field to given value.
 
 ### GetLastIntervalEndAt
 
-`func (o *Summary) GetLastIntervalEndAt() int32`
+`func (o *Summary) GetLastIntervalEndAt() int64`
 
 GetLastIntervalEndAt returns the LastIntervalEndAt field if non-nil, zero value otherwise.
 
 ### GetLastIntervalEndAtOk
 
-`func (o *Summary) GetLastIntervalEndAtOk() (*int32, bool)`
+`func (o *Summary) GetLastIntervalEndAtOk() (*int64, bool)`
 
 GetLastIntervalEndAtOk returns a tuple with the LastIntervalEndAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastIntervalEndAt
 
-`func (o *Summary) SetLastIntervalEndAt(v int32)`
+`func (o *Summary) SetLastIntervalEndAt(v int64)`
 
 SetLastIntervalEndAt sets LastIntervalEndAt field to given value.
 
 
 ### GetLastReportAt
 
-`func (o *Summary) GetLastReportAt() int32`
+`func (o *Summary) GetLastReportAt() int64`
 
 GetLastReportAt returns the LastReportAt field if non-nil, zero value otherwise.
 
 ### GetLastReportAtOk
 
-`func (o *Summary) GetLastReportAtOk() (*int32, bool)`
+`func (o *Summary) GetLastReportAtOk() (*int64, bool)`
 
 GetLastReportAtOk returns a tuple with the LastReportAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastReportAt
 
-`func (o *Summary) SetLastReportAt(v int32)`
+`func (o *Summary) SetLastReportAt(v int64)`
 
 SetLastReportAt sets LastReportAt field to given value.
 
@@ -158,20 +158,20 @@ SetModules sets Modules field to given value.
 
 ### GetOperationalAt
 
-`func (o *Summary) GetOperationalAt() int32`
+`func (o *Summary) GetOperationalAt() int64`
 
 GetOperationalAt returns the OperationalAt field if non-nil, zero value otherwise.
 
 ### GetOperationalAtOk
 
-`func (o *Summary) GetOperationalAtOk() (*int32, bool)`
+`func (o *Summary) GetOperationalAtOk() (*int64, bool)`
 
 GetOperationalAtOk returns a tuple with the OperationalAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOperationalAt
 
-`func (o *Summary) SetOperationalAt(v int32)`
+`func (o *Summary) SetOperationalAt(v int64)`
 
 SetOperationalAt sets OperationalAt field to given value.
 

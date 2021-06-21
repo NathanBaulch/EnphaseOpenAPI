@@ -75,9 +75,9 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'last_report_at' => 'date-time',
-        'last_energy_at' => 'date-time',
-        'operational_at' => 'date-time'
+        'last_report_at' => 'int64',
+        'last_energy_at' => 'int64',
+        'operational_at' => 'int64'
     ];
 
     /**

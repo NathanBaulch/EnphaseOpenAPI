@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EndAt** | **int32** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
+**EndAt** | **int64** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **Enwh** | **int32** | Energy consumed during this interval, in Watt-hours. | 
 **DevicesReporting** | **int32** | Number of consumption meters that reported data for this interval at the time of the request. | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewConsumptionStatsIntervals
 
-`func NewConsumptionStatsIntervals(endAt int32, enwh int32, devicesReporting int32, ) *ConsumptionStatsIntervals`
+`func NewConsumptionStatsIntervals(endAt int64, enwh int32, devicesReporting int32, ) *ConsumptionStatsIntervals`
 
 NewConsumptionStatsIntervals instantiates a new ConsumptionStatsIntervals object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEndAt
 
-`func (o *ConsumptionStatsIntervals) GetEndAt() int32`
+`func (o *ConsumptionStatsIntervals) GetEndAt() int64`
 
 GetEndAt returns the EndAt field if non-nil, zero value otherwise.
 
 ### GetEndAtOk
 
-`func (o *ConsumptionStatsIntervals) GetEndAtOk() (*int32, bool)`
+`func (o *ConsumptionStatsIntervals) GetEndAtOk() (*int64, bool)`
 
 GetEndAtOk returns a tuple with the EndAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndAt
 
-`func (o *ConsumptionStatsIntervals) SetEndAt(v int32)`
+`func (o *ConsumptionStatsIntervals) SetEndAt(v int64)`
 
 SetEndAt sets EndAt field to given value.
 

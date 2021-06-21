@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvoyId** | **int32** | The Enlighten ID of the Envoy. | 
-**LastReportAt** | **int32** | The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the &#x60;datetime_format&#x60; query parameter is &#x60;iso8601&#x60;, &#x60;last_report_at&#x60; is in ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null. | 
+**LastReportAt** | **int64** | The last time this Envoy submitted a report, by default expressed in Unix epoch time. When the &#x60;datetime_format&#x60; query parameter is &#x60;iso8601&#x60;, &#x60;last_report_at&#x60; is in ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns null. | 
 **Name** | **string** | The human-friendly name of this Envoy. | 
 **PartNumber** | **string** | The Enphase part number of this Envoy. | 
 **SerialNumber** | **string** | The serial number of this Envoy. | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewEnvoysEnvoys
 
-`func NewEnvoysEnvoys(envoyId int32, lastReportAt int32, name string, partNumber string, serialNumber string, status string, ) *EnvoysEnvoys`
+`func NewEnvoysEnvoys(envoyId int32, lastReportAt int64, name string, partNumber string, serialNumber string, status string, ) *EnvoysEnvoys`
 
 NewEnvoysEnvoys instantiates a new EnvoysEnvoys object
 This constructor will assign default values to properties that have it defined,
@@ -52,20 +52,20 @@ SetEnvoyId sets EnvoyId field to given value.
 
 ### GetLastReportAt
 
-`func (o *EnvoysEnvoys) GetLastReportAt() int32`
+`func (o *EnvoysEnvoys) GetLastReportAt() int64`
 
 GetLastReportAt returns the LastReportAt field if non-nil, zero value otherwise.
 
 ### GetLastReportAtOk
 
-`func (o *EnvoysEnvoys) GetLastReportAtOk() (*int32, bool)`
+`func (o *EnvoysEnvoys) GetLastReportAtOk() (*int64, bool)`
 
 GetLastReportAtOk returns a tuple with the LastReportAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastReportAt
 
-`func (o *EnvoysEnvoys) SetLastReportAt(v int32)`
+`func (o *EnvoysEnvoys) SetLastReportAt(v int64)`
 
 SetLastReportAt sets LastReportAt field to given value.
 

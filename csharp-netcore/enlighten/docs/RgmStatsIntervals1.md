@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Channel** | **int** | The reporting channel identifier. | 
-**EndAt** | **int** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
+**EndAt** | **long** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **WhDel** | **float** | Energy delivered during this interval, in Watt-hours. | 
 **CurrW** | **int** | Energy delivered during this interval, in Watts. | 
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Channel** | **int32** | The reporting channel identifier. | 
-**EndAt** | **int32** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
+**EndAt** | **int64** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **WhDel** | **float32** | Energy delivered during this interval, in Watt-hours. | 
 **CurrW** | **int32** | Energy delivered during this interval, in Watts. | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewRgmStatsIntervals1
 
-`func NewRgmStatsIntervals1(channel int32, endAt int32, whDel float32, currW int32, ) *RgmStatsIntervals1`
+`func NewRgmStatsIntervals1(channel int32, endAt int64, whDel float32, currW int32, ) *RgmStatsIntervals1`
 
 NewRgmStatsIntervals1 instantiates a new RgmStatsIntervals1 object
 This constructor will assign default values to properties that have it defined,
@@ -50,20 +50,20 @@ SetChannel sets Channel field to given value.
 
 ### GetEndAt
 
-`func (o *RgmStatsIntervals1) GetEndAt() int32`
+`func (o *RgmStatsIntervals1) GetEndAt() int64`
 
 GetEndAt returns the EndAt field if non-nil, zero value otherwise.
 
 ### GetEndAtOk
 
-`func (o *RgmStatsIntervals1) GetEndAtOk() (*int32, bool)`
+`func (o *RgmStatsIntervals1) GetEndAtOk() (*int64, bool)`
 
 GetEndAtOk returns a tuple with the EndAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndAt
 
-`func (o *RgmStatsIntervals1) SetEndAt(v int32)`
+`func (o *RgmStatsIntervals1) SetEndAt(v int64)`
 
 SetEndAt sets EndAt field to given value.
 

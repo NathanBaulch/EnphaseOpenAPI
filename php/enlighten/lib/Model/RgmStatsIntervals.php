@@ -72,7 +72,7 @@ class RgmStatsIntervals implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_at' => 'date-time',
+        'end_at' => 'int64',
         'wh_del' => null,
         'devices_reporting' => null
     ];

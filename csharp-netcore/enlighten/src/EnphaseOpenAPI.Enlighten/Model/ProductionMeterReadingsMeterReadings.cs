@@ -42,7 +42,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="serialNumber">The serial number of the meter. (required).</param>
         /// <param name="value">The odometer reading, in Watt-hours. (required).</param>
         /// <param name="readAt">The time when the reading was taken, always prior or equal to the requested &#x60;end_at&#x60;. (required).</param>
-        public ProductionMeterReadingsMeterReadings(string serialNumber = default(string), int value = default(int), int readAt = default(int))
+        public ProductionMeterReadingsMeterReadings(string serialNumber = default(string), int value = default(int), long readAt = default(long))
         {
             // to ensure "serialNumber" is required (not null)
             this.SerialNumber = serialNumber ?? throw new ArgumentNullException("serialNumber is a required property for ProductionMeterReadingsMeterReadings and cannot be null");
@@ -69,7 +69,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <value>The time when the reading was taken, always prior or equal to the requested &#x60;end_at&#x60;.</value>
         [DataMember(Name = "read_at", IsRequired = true, EmitDefaultValue = false)]
-        public int ReadAt { get; set; }
+        public long ReadAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

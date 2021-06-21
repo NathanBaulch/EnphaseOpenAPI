@@ -72,7 +72,7 @@ class ConsumptionStatsIntervals implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_at' => 'date-time',
+        'end_at' => 'int64',
         'enwh' => null,
         'devices_reporting' => null
     ];

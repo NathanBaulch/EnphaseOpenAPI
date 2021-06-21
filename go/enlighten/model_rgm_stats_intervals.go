@@ -17,7 +17,7 @@ import (
 // RgmStatsIntervals struct for RgmStatsIntervals
 type RgmStatsIntervals struct {
 	// End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-	EndAt int32 `json:"end_at"`
+	EndAt int64 `json:"end_at"`
 	// Energy delivered during this interval, in Watt-hours.
 	WhDel int32 `json:"wh_del"`
 	// Number of revenue-grade meters that reported data for this interval at the time of the request.
@@ -28,7 +28,7 @@ type RgmStatsIntervals struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRgmStatsIntervals(endAt int32, whDel int32, devicesReporting int32) *RgmStatsIntervals {
+func NewRgmStatsIntervals(endAt int64, whDel int32, devicesReporting int32) *RgmStatsIntervals {
 	this := RgmStatsIntervals{}
 	this.EndAt = endAt
 	this.WhDel = whDel
@@ -45,9 +45,9 @@ func NewRgmStatsIntervalsWithDefaults() *RgmStatsIntervals {
 }
 
 // GetEndAt returns the EndAt field value
-func (o *RgmStatsIntervals) GetEndAt() int32 {
+func (o *RgmStatsIntervals) GetEndAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *RgmStatsIntervals) GetEndAt() int32 {
 
 // GetEndAtOk returns a tuple with the EndAt field value
 // and a boolean to check if the value has been set.
-func (o *RgmStatsIntervals) GetEndAtOk() (*int32, bool) {
+func (o *RgmStatsIntervals) GetEndAtOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *RgmStatsIntervals) GetEndAtOk() (*int32, bool) {
 }
 
 // SetEndAt sets field value
-func (o *RgmStatsIntervals) SetEndAt(v int32) {
+func (o *RgmStatsIntervals) SetEndAt(v int64) {
 	o.EndAt = v
 }
 

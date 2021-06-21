@@ -73,7 +73,7 @@ class StatsIntervals implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'end_at' => 'date-time',
+        'end_at' => 'int64',
         'powr' => null,
         'enwh' => null,
         'devices_reporting' => null
