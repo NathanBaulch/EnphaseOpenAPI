@@ -57,7 +57,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnergyLifetime'
+                $ref: '#/components/schemas/EnergyLifetimeResponse'
         '204':
           description: No Content
         '401':
@@ -83,7 +83,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Envoys'
+                $ref: '#/components/schemas/EnvoysResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -192,7 +192,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Systems'
+                $ref: '#/components/schemas/SystemsResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -218,7 +218,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Inventory'
+                $ref: '#/components/schemas/InventoryResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -250,7 +250,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite'
+                  $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSiteResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -291,7 +291,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MonthlyProduction'
+                $ref: '#/components/schemas/MonthlyProductionResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -327,7 +327,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductionMeterReadings'
+                $ref: '#/components/schemas/ProductionMeterReadingsResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -378,7 +378,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RgmStats'
+                $ref: '#/components/schemas/RgmStatsResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -434,7 +434,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Stats'
+                $ref: '#/components/schemas/StatsResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -478,7 +478,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConsumptionLifetime'
+                $ref: '#/components/schemas/ConsumptionLifetimeResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -531,7 +531,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConsumptionStats'
+                $ref: '#/components/schemas/ConsumptionStatsResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -564,7 +564,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Summary'
+                $ref: '#/components/schemas/SummaryResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '409':
@@ -594,7 +594,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchSystemId'
+                $ref: '#/components/schemas/SearchSystemIdResponse'
         '401':
           $ref: '#/components/responses/ClientError'
         '404':
@@ -609,7 +609,7 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
-    EnergyLifetime:
+    EnergyLifetimeResponse:
       type: object
       properties:
         start_date:
@@ -666,7 +666,7 @@ components:
           last_report_at: 1445619615
           last_energy_at: 1445619033
           operational_at: 1357023600
-    Envoys:
+    EnvoysResponse:
       type: object
       properties:
         system_id:
@@ -730,7 +730,7 @@ components:
             part_number: 910-10000-r01
             serial_number: '010814000001'
             status: normal
-    Systems:
+    SystemsResponse:
       type: object
       properties:
         systems:
@@ -846,7 +846,7 @@ components:
               last_energy_at: 1449945104
               operational_at: 1418912581
         next: 4e7a453d0a
-    Inventory:
+    InventoryResponse:
       type: object
       properties:
         system_id:
@@ -918,7 +918,7 @@ components:
           - sn: '999111222333'
             manufacturer: GE
             model: I-210+
-    InvertersSummaryByEnvoyOrSite:
+    InvertersSummaryByEnvoyOrSiteResponse:
       type: object
       properties:
         signal_strength:
@@ -1038,7 +1038,7 @@ components:
               precision: 0
             grid_profile: 57227c50e4d7973ae602c4e6
             last_report_date: 1600427843
-    MonthlyProduction:
+    MonthlyProductionResponse:
       type: object
       properties:
         system_id:
@@ -1097,7 +1097,7 @@ components:
           last_report_at: 1445619615
           last_energy_at: 1445619033
           operational_at: 1357023600
-    ProductionMeterReadings:
+    ProductionMeterReadingsResponse:
       type: object
       properties:
         system_id:
@@ -1138,7 +1138,7 @@ components:
           last_report_at: 1473902079
           last_energy_at: 1473901200
           operational_at: 1357023600
-    RgmStats:
+    RgmStatsResponse:
       type: object
       properties:
         system_id:
@@ -1288,7 +1288,7 @@ components:
                 end_at: 1384126300
                 wh_del: 14
                 curr_w: 56
-    Stats:
+    StatsResponse:
       type: object
       properties:
         system_id:
@@ -1358,7 +1358,7 @@ components:
             powr: 476
             enwh: 40
             devices_reporting: 31
-    ConsumptionLifetime:
+    ConsumptionLifetimeResponse:
       type: object
       properties:
         start_date:
@@ -1397,7 +1397,7 @@ components:
           last_report_at: 1470087000
           last_energy_at: 1470086106
           operational_at: 1357023600
-    ConsumptionStats:
+    ConsumptionStatsResponse:
       type: object
       properties:
         system_id:
@@ -1457,7 +1457,7 @@ components:
           - end_at: 1448950500
             enwh: 3
             devices_reporting: 1
-    Summary:
+    SummaryResponse:
       type: object
       properties:
         current_power:
@@ -1536,7 +1536,7 @@ components:
         status: normal
         summary_date: '2014-01-06'
         system_id: 123
-    SearchSystemId:
+    SearchSystemIdResponse:
       type: object
       properties:
         system_id:

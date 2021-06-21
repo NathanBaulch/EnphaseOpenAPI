@@ -16,21 +16,21 @@ import ApiClient from "../ApiClient";
 import ClientError from '../model/ClientError';
 import ConflictError from '../model/ConflictError';
 import ConnectionType from '../model/ConnectionType';
-import ConsumptionLifetime from '../model/ConsumptionLifetime';
-import ConsumptionStats from '../model/ConsumptionStats';
-import EnergyLifetime from '../model/EnergyLifetime';
-import Envoys from '../model/Envoys';
-import Inventory from '../model/Inventory';
-import InvertersSummaryByEnvoyOrSite from '../model/InvertersSummaryByEnvoyOrSite';
-import MonthlyProduction from '../model/MonthlyProduction';
-import ProductionMeterReadings from '../model/ProductionMeterReadings';
-import RgmStats from '../model/RgmStats';
-import SearchSystemId from '../model/SearchSystemId';
+import ConsumptionLifetimeResponse from '../model/ConsumptionLifetimeResponse';
+import ConsumptionStatsResponse from '../model/ConsumptionStatsResponse';
+import EnergyLifetimeResponse from '../model/EnergyLifetimeResponse';
+import EnvoysResponse from '../model/EnvoysResponse';
+import InventoryResponse from '../model/InventoryResponse';
+import InvertersSummaryByEnvoyOrSiteResponse from '../model/InvertersSummaryByEnvoyOrSiteResponse';
+import MonthlyProductionResponse from '../model/MonthlyProductionResponse';
+import ProductionMeterReadingsResponse from '../model/ProductionMeterReadingsResponse';
+import RgmStatsResponse from '../model/RgmStatsResponse';
+import SearchSystemIdResponse from '../model/SearchSystemIdResponse';
 import ServerError from '../model/ServerError';
-import Stats from '../model/Stats';
+import StatsResponse from '../model/StatsResponse';
 import Status from '../model/Status';
-import Summary from '../model/Summary';
-import Systems from '../model/Systems';
+import SummaryResponse from '../model/SummaryResponse';
+import SystemsResponse from '../model/SystemsResponse';
 import UnprocessableEntityError from '../model/UnprocessableEntityError';
 
 /**
@@ -56,7 +56,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the consumptionLifetime operation.
      * @callback module:api/DefaultApi~consumptionLifetimeCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ConsumptionLifetime} data The data returned by the service call.
+     * @param {module:model/ConsumptionLifetimeResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -68,7 +68,7 @@ export default class DefaultApi {
      * @param {Date} opts.startDate The date on which to start the time series. Defaults to the system's operational date.
      * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
      * @param {module:api/DefaultApi~consumptionLifetimeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ConsumptionLifetime}
+     * data is of type: {@link module:model/ConsumptionLifetimeResponse}
      */
     consumptionLifetime(userId, systemId, opts, callback) {
       opts = opts || {};
@@ -98,7 +98,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ConsumptionLifetime;
+      let returnType = ConsumptionLifetimeResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/consumption_lifetime', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -110,7 +110,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the consumptionStats operation.
      * @callback module:api/DefaultApi~consumptionStatsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ConsumptionStats} data The data returned by the service call.
+     * @param {module:model/ConsumptionStatsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -122,7 +122,7 @@ export default class DefaultApi {
      * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
      * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
      * @param {module:api/DefaultApi~consumptionStatsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ConsumptionStats}
+     * data is of type: {@link module:model/ConsumptionStatsResponse}
      */
     consumptionStats(userId, systemId, opts, callback) {
       opts = opts || {};
@@ -152,7 +152,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ConsumptionStats;
+      let returnType = ConsumptionStatsResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/consumption_stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -164,7 +164,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the energyLifetime operation.
      * @callback module:api/DefaultApi~energyLifetimeCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/EnergyLifetime} data The data returned by the service call.
+     * @param {module:model/EnergyLifetimeResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -177,7 +177,7 @@ export default class DefaultApi {
      * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
      * @param {module:model/String} opts.production When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
      * @param {module:api/DefaultApi~energyLifetimeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/EnergyLifetime}
+     * data is of type: {@link module:model/EnergyLifetimeResponse}
      */
     energyLifetime(userId, systemId, opts, callback) {
       opts = opts || {};
@@ -208,7 +208,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = EnergyLifetime;
+      let returnType = EnergyLifetimeResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/energy_lifetime', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -220,7 +220,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the envoys operation.
      * @callback module:api/DefaultApi~envoysCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Envoys} data The data returned by the service call.
+     * @param {module:model/EnvoysResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -229,7 +229,7 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {module:api/DefaultApi~envoysCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Envoys}
+     * data is of type: {@link module:model/EnvoysResponse}
      */
     envoys(userId, systemId, callback) {
       let postBody = null;
@@ -256,7 +256,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Envoys;
+      let returnType = EnvoysResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/envoys', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -268,7 +268,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the inventory operation.
      * @callback module:api/DefaultApi~inventoryCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Inventory} data The data returned by the service call.
+     * @param {module:model/InventoryResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -277,7 +277,7 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {module:api/DefaultApi~inventoryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Inventory}
+     * data is of type: {@link module:model/InventoryResponse}
      */
     inventory(userId, systemId, callback) {
       let postBody = null;
@@ -304,7 +304,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Inventory;
+      let returnType = InventoryResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/inventory', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -316,7 +316,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the invertersSummaryByEnvoyOrSite operation.
      * @callback module:api/DefaultApi~invertersSummaryByEnvoyOrSiteCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/InvertersSummaryByEnvoyOrSite>} data The data returned by the service call.
+     * @param {Array.<module:model/InvertersSummaryByEnvoyOrSiteResponse>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -325,7 +325,7 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} siteId The identifier of the system.
      * @param {module:api/DefaultApi~invertersSummaryByEnvoyOrSiteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/InvertersSummaryByEnvoyOrSite>}
+     * data is of type: {@link Array.<module:model/InvertersSummaryByEnvoyOrSiteResponse>}
      */
     invertersSummaryByEnvoyOrSite(userId, siteId, callback) {
       let postBody = null;
@@ -352,7 +352,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [InvertersSummaryByEnvoyOrSite];
+      let returnType = [InvertersSummaryByEnvoyOrSiteResponse];
       return this.apiClient.callApi(
         '/systems/inverters_summary_by_envoy_or_site', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -364,7 +364,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the monthlyProduction operation.
      * @callback module:api/DefaultApi~monthlyProductionCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/MonthlyProduction} data The data returned by the service call.
+     * @param {module:model/MonthlyProductionResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -374,7 +374,7 @@ export default class DefaultApi {
      * @param {Number} systemId 
      * @param {Date} startDate Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
      * @param {module:api/DefaultApi~monthlyProductionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MonthlyProduction}
+     * data is of type: {@link module:model/MonthlyProductionResponse}
      */
     monthlyProduction(userId, systemId, startDate, callback) {
       let postBody = null;
@@ -406,7 +406,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = MonthlyProduction;
+      let returnType = MonthlyProductionResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/monthly_production', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -418,7 +418,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the productionMeterReadings operation.
      * @callback module:api/DefaultApi~productionMeterReadingsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ProductionMeterReadings} data The data returned by the service call.
+     * @param {module:model/ProductionMeterReadingsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -429,7 +429,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.endAt 
      * @param {module:api/DefaultApi~productionMeterReadingsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ProductionMeterReadings}
+     * data is of type: {@link module:model/ProductionMeterReadingsResponse}
      */
     productionMeterReadings(userId, systemId, opts, callback) {
       opts = opts || {};
@@ -458,7 +458,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ProductionMeterReadings;
+      let returnType = ProductionMeterReadingsResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/production_meter_readings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -470,7 +470,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the rgmStats operation.
      * @callback module:api/DefaultApi~rgmStatsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/RgmStats} data The data returned by the service call.
+     * @param {module:model/RgmStatsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -482,7 +482,7 @@ export default class DefaultApi {
      * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
      * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
      * @param {module:api/DefaultApi~rgmStatsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/RgmStats}
+     * data is of type: {@link module:model/RgmStatsResponse}
      */
     rgmStats(userId, systemId, opts, callback) {
       opts = opts || {};
@@ -512,7 +512,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = RgmStats;
+      let returnType = RgmStatsResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/rgm_stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -524,7 +524,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the searchSystemId operation.
      * @callback module:api/DefaultApi~searchSystemIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SearchSystemId} data The data returned by the service call.
+     * @param {module:model/SearchSystemIdResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -533,7 +533,7 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {String} serialNum Serial number of the envoy.
      * @param {module:api/DefaultApi~searchSystemIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SearchSystemId}
+     * data is of type: {@link module:model/SearchSystemIdResponse}
      */
     searchSystemId(userId, serialNum, callback) {
       let postBody = null;
@@ -560,7 +560,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = SearchSystemId;
+      let returnType = SearchSystemIdResponse;
       return this.apiClient.callApi(
         '/systems/search_system_id', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -572,7 +572,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the stats operation.
      * @callback module:api/DefaultApi~statsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Stats} data The data returned by the service call.
+     * @param {module:model/StatsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -584,7 +584,7 @@ export default class DefaultApi {
      * @param {Number} opts.startAt Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`.
      * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval.
      * @param {module:api/DefaultApi~statsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Stats}
+     * data is of type: {@link module:model/StatsResponse}
      */
     stats(userId, systemId, opts, callback) {
       opts = opts || {};
@@ -614,7 +614,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Stats;
+      let returnType = StatsResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -626,7 +626,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the summary operation.
      * @callback module:api/DefaultApi~summaryCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Summary} data The data returned by the service call.
+     * @param {module:model/SummaryResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -637,7 +637,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.summaryDate Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status.
      * @param {module:api/DefaultApi~summaryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Summary}
+     * data is of type: {@link module:model/SummaryResponse}
      */
     summary(userId, systemId, opts, callback) {
       opts = opts || {};
@@ -666,7 +666,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Summary;
+      let returnType = SummaryResponse;
       return this.apiClient.callApi(
         '/systems/{system_id}/summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -678,7 +678,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the systems operation.
      * @callback module:api/DefaultApi~systemsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Systems} data The data returned by the service call.
+     * @param {module:model/SystemsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -701,7 +701,7 @@ export default class DefaultApi {
      * @param {module:model/ConnectionType} opts.connectionType 
      * @param {Array.<module:model/ConnectionType>} opts.connectionType2 
      * @param {module:api/DefaultApi~systemsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Systems}
+     * data is of type: {@link module:model/SystemsResponse}
      */
     systems(userId, opts, callback) {
       opts = opts || {};
@@ -738,7 +738,7 @@ export default class DefaultApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Systems;
+      let returnType = SystemsResponse;
       return this.apiClient.callApi(
         '/systems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

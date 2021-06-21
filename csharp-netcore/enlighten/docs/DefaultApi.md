@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 <a name="consumptionlifetime"></a>
 # **ConsumptionLifetime**
-> ConsumptionLifetime ConsumptionLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null)
+> ConsumptionLifetimeResponse ConsumptionLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null)
 
 
 
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                ConsumptionLifetime result = apiInstance.ConsumptionLifetime(userId, systemId, startDate, endDate);
+                ConsumptionLifetimeResponse result = apiInstance.ConsumptionLifetime(userId, systemId, startDate, endDate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionLifetime**](ConsumptionLifetime.md)
+[**ConsumptionLifetimeResponse**](ConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 <a name="consumptionstats"></a>
 # **ConsumptionStats**
-> ConsumptionStats ConsumptionStats (string userId, int systemId, long? startAt = null, long? endAt = null)
+> ConsumptionStatsResponse ConsumptionStats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
 
 
@@ -142,7 +142,7 @@ namespace Example
 
             try
             {
-                ConsumptionStats result = apiInstance.ConsumptionStats(userId, systemId, startAt, endAt);
+                ConsumptionStatsResponse result = apiInstance.ConsumptionStats(userId, systemId, startAt, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionStats**](ConsumptionStats.md)
+[**ConsumptionStatsResponse**](ConsumptionStatsResponse.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 <a name="energylifetime"></a>
 # **EnergyLifetime**
-> EnergyLifetime EnergyLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null, string production = null)
+> EnergyLifetimeResponse EnergyLifetime (string userId, int systemId, DateTime? startDate = null, DateTime? endDate = null, string production = null)
 
 
 
@@ -229,7 +229,7 @@ namespace Example
 
             try
             {
-                EnergyLifetime result = apiInstance.EnergyLifetime(userId, systemId, startDate, endDate, production);
+                EnergyLifetimeResponse result = apiInstance.EnergyLifetime(userId, systemId, startDate, endDate, production);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnergyLifetime**](EnergyLifetime.md)
+[**EnergyLifetimeResponse**](EnergyLifetimeResponse.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 <a name="envoys"></a>
 # **Envoys**
-> Envoys Envoys (string userId, int systemId)
+> EnvoysResponse Envoys (string userId, int systemId)
 
 
 
@@ -315,7 +315,7 @@ namespace Example
 
             try
             {
-                Envoys result = apiInstance.Envoys(userId, systemId);
+                EnvoysResponse result = apiInstance.Envoys(userId, systemId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Envoys**](Envoys.md)
+[**EnvoysResponse**](EnvoysResponse.md)
 
 ### Authorization
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 <a name="inventory"></a>
 # **Inventory**
-> Inventory Inventory (string userId, int systemId)
+> InventoryResponse Inventory (string userId, int systemId)
 
 
 
@@ -397,7 +397,7 @@ namespace Example
 
             try
             {
-                Inventory result = apiInstance.Inventory(userId, systemId);
+                InventoryResponse result = apiInstance.Inventory(userId, systemId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Inventory**](Inventory.md)
+[**InventoryResponse**](InventoryResponse.md)
 
 ### Authorization
 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 <a name="inverterssummarybyenvoyorsite"></a>
 # **InvertersSummaryByEnvoyOrSite**
-> List&lt;InvertersSummaryByEnvoyOrSite&gt; InvertersSummaryByEnvoyOrSite (string userId, int siteId)
+> List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt; InvertersSummaryByEnvoyOrSite (string userId, int siteId)
 
 
 
@@ -479,7 +479,7 @@ namespace Example
 
             try
             {
-                List<InvertersSummaryByEnvoyOrSite> result = apiInstance.InvertersSummaryByEnvoyOrSite(userId, siteId);
+                List<InvertersSummaryByEnvoyOrSiteResponse> result = apiInstance.InvertersSummaryByEnvoyOrSite(userId, siteId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InvertersSummaryByEnvoyOrSite&gt;**](InvertersSummaryByEnvoyOrSite.md)
+[**List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;**](InvertersSummaryByEnvoyOrSiteResponse.md)
 
 ### Authorization
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 <a name="monthlyproduction"></a>
 # **MonthlyProduction**
-> MonthlyProduction MonthlyProduction (string userId, int systemId, DateTime startDate)
+> MonthlyProductionResponse MonthlyProduction (string userId, int systemId, DateTime startDate)
 
 
 
@@ -562,7 +562,7 @@ namespace Example
 
             try
             {
-                MonthlyProduction result = apiInstance.MonthlyProduction(userId, systemId, startDate);
+                MonthlyProductionResponse result = apiInstance.MonthlyProduction(userId, systemId, startDate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MonthlyProduction**](MonthlyProduction.md)
+[**MonthlyProductionResponse**](MonthlyProductionResponse.md)
 
 ### Authorization
 
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 <a name="productionmeterreadings"></a>
 # **ProductionMeterReadings**
-> ProductionMeterReadings ProductionMeterReadings (string userId, int systemId, long? endAt = null)
+> ProductionMeterReadingsResponse ProductionMeterReadings (string userId, int systemId, long? endAt = null)
 
 
 
@@ -646,7 +646,7 @@ namespace Example
 
             try
             {
-                ProductionMeterReadings result = apiInstance.ProductionMeterReadings(userId, systemId, endAt);
+                ProductionMeterReadingsResponse result = apiInstance.ProductionMeterReadings(userId, systemId, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductionMeterReadings**](ProductionMeterReadings.md)
+[**ProductionMeterReadingsResponse**](ProductionMeterReadingsResponse.md)
 
 ### Authorization
 
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 
 <a name="rgmstats"></a>
 # **RgmStats**
-> RgmStats RgmStats (string userId, int systemId, long? startAt = null, long? endAt = null)
+> RgmStatsResponse RgmStats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
 
 
@@ -731,7 +731,7 @@ namespace Example
 
             try
             {
-                RgmStats result = apiInstance.RgmStats(userId, systemId, startAt, endAt);
+                RgmStatsResponse result = apiInstance.RgmStats(userId, systemId, startAt, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -756,7 +756,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RgmStats**](RgmStats.md)
+[**RgmStatsResponse**](RgmStatsResponse.md)
 
 ### Authorization
 
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 <a name="searchsystemid"></a>
 # **SearchSystemId**
-> SearchSystemId SearchSystemId (string userId, string serialNum)
+> SearchSystemIdResponse SearchSystemId (string userId, string serialNum)
 
 
 
@@ -815,7 +815,7 @@ namespace Example
 
             try
             {
-                SearchSystemId result = apiInstance.SearchSystemId(userId, serialNum);
+                SearchSystemIdResponse result = apiInstance.SearchSystemId(userId, serialNum);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -838,7 +838,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchSystemId**](SearchSystemId.md)
+[**SearchSystemIdResponse**](SearchSystemIdResponse.md)
 
 ### Authorization
 
@@ -865,7 +865,7 @@ Name | Type | Description  | Notes
 
 <a name="stats"></a>
 # **Stats**
-> Stats Stats (string userId, int systemId, long? startAt = null, long? endAt = null)
+> StatsResponse Stats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
 
 
@@ -900,7 +900,7 @@ namespace Example
 
             try
             {
-                Stats result = apiInstance.Stats(userId, systemId, startAt, endAt);
+                StatsResponse result = apiInstance.Stats(userId, systemId, startAt, endAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -925,7 +925,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Stats**](Stats.md)
+[**StatsResponse**](StatsResponse.md)
 
 ### Authorization
 
@@ -951,7 +951,7 @@ Name | Type | Description  | Notes
 
 <a name="summary"></a>
 # **Summary**
-> Summary Summary (string userId, int systemId, DateTime? summaryDate = null)
+> SummaryResponse Summary (string userId, int systemId, DateTime? summaryDate = null)
 
 
 
@@ -985,7 +985,7 @@ namespace Example
 
             try
             {
-                Summary result = apiInstance.Summary(userId, systemId, summaryDate);
+                SummaryResponse result = apiInstance.Summary(userId, systemId, summaryDate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Summary**](Summary.md)
+[**SummaryResponse**](SummaryResponse.md)
 
 ### Authorization
 
@@ -1035,7 +1035,7 @@ Name | Type | Description  | Notes
 
 <a name="systems"></a>
 # **Systems**
-> Systems Systems (string userId, string next = null, int? limit = null, int? systemId = null, List<int> systemId2 = null, string systemName = null, List<string> systemName2 = null, Status? status = null, List<Status> status2 = null, string reference = null, List<string> reference2 = null, string installer = null, List<string> installer2 = null, ConnectionType? connectionType = null, List<ConnectionType> connectionType2 = null)
+> SystemsResponse Systems (string userId, string next = null, int? limit = null, int? systemId = null, List<int> systemId2 = null, string systemName = null, List<string> systemName2 = null, Status? status = null, List<Status> status2 = null, string reference = null, List<string> reference2 = null, string installer = null, List<string> installer2 = null, ConnectionType? connectionType = null, List<ConnectionType> connectionType2 = null)
 
 
 
@@ -1081,7 +1081,7 @@ namespace Example
 
             try
             {
-                Systems result = apiInstance.Systems(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2);
+                SystemsResponse result = apiInstance.Systems(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1117,7 +1117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Systems**](Systems.md)
+[**SystemsResponse**](SystemsResponse.md)
 
 ### Authorization
 

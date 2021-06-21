@@ -16,35 +16,35 @@ import ApiClient from './ApiClient';
 import ClientError from './model/ClientError';
 import ConflictError from './model/ConflictError';
 import ConnectionType from './model/ConnectionType';
-import ConsumptionLifetime from './model/ConsumptionLifetime';
-import ConsumptionStats from './model/ConsumptionStats';
-import ConsumptionStatsIntervals from './model/ConsumptionStatsIntervals';
-import EnergyLifetime from './model/EnergyLifetime';
-import Envoys from './model/Envoys';
-import EnvoysEnvoys from './model/EnvoysEnvoys';
-import Inventory from './model/Inventory';
-import InventoryEnvoys from './model/InventoryEnvoys';
-import InventoryMeters from './model/InventoryMeters';
-import InvertersSummaryByEnvoyOrSite from './model/InvertersSummaryByEnvoyOrSite';
-import InvertersSummaryByEnvoyOrSiteEnergy from './model/InvertersSummaryByEnvoyOrSiteEnergy';
-import InvertersSummaryByEnvoyOrSiteMicroInverters from './model/InvertersSummaryByEnvoyOrSiteMicroInverters';
+import ConsumptionLifetimeResponse from './model/ConsumptionLifetimeResponse';
+import ConsumptionStatsResponse from './model/ConsumptionStatsResponse';
+import ConsumptionStatsResponseIntervals from './model/ConsumptionStatsResponseIntervals';
+import EnergyLifetimeResponse from './model/EnergyLifetimeResponse';
+import EnvoysResponse from './model/EnvoysResponse';
+import EnvoysResponseEnvoys from './model/EnvoysResponseEnvoys';
+import InventoryResponse from './model/InventoryResponse';
+import InventoryResponseEnvoys from './model/InventoryResponseEnvoys';
+import InventoryResponseMeters from './model/InventoryResponseMeters';
+import InvertersSummaryByEnvoyOrSiteResponse from './model/InvertersSummaryByEnvoyOrSiteResponse';
+import InvertersSummaryByEnvoyOrSiteResponseEnergy from './model/InvertersSummaryByEnvoyOrSiteResponseEnergy';
+import InvertersSummaryByEnvoyOrSiteResponseMicroInverters from './model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters';
 import Meta from './model/Meta';
-import MonthlyProduction from './model/MonthlyProduction';
-import MonthlyProductionMeterReadings from './model/MonthlyProductionMeterReadings';
-import ProductionMeterReadings from './model/ProductionMeterReadings';
-import ProductionMeterReadingsMeterReadings from './model/ProductionMeterReadingsMeterReadings';
-import RgmStats from './model/RgmStats';
-import RgmStatsIntervals from './model/RgmStatsIntervals';
-import RgmStatsIntervals1 from './model/RgmStatsIntervals1';
-import RgmStatsMeterIntervals from './model/RgmStatsMeterIntervals';
-import SearchSystemId from './model/SearchSystemId';
+import MonthlyProductionResponse from './model/MonthlyProductionResponse';
+import MonthlyProductionResponseMeterReadings from './model/MonthlyProductionResponseMeterReadings';
+import ProductionMeterReadingsResponse from './model/ProductionMeterReadingsResponse';
+import ProductionMeterReadingsResponseMeterReadings from './model/ProductionMeterReadingsResponseMeterReadings';
+import RgmStatsResponse from './model/RgmStatsResponse';
+import RgmStatsResponseIntervals from './model/RgmStatsResponseIntervals';
+import RgmStatsResponseIntervals1 from './model/RgmStatsResponseIntervals1';
+import RgmStatsResponseMeterIntervals from './model/RgmStatsResponseMeterIntervals';
+import SearchSystemIdResponse from './model/SearchSystemIdResponse';
 import ServerError from './model/ServerError';
-import Stats from './model/Stats';
-import StatsIntervals from './model/StatsIntervals';
+import StatsResponse from './model/StatsResponse';
+import StatsResponseIntervals from './model/StatsResponseIntervals';
 import Status from './model/Status';
-import Summary from './model/Summary';
-import Systems from './model/Systems';
-import SystemsSystems from './model/SystemsSystems';
+import SummaryResponse from './model/SummaryResponse';
+import SystemsResponse from './model/SystemsResponse';
+import SystemsResponseSystems from './model/SystemsResponseSystems';
 import UnprocessableEntityError from './model/UnprocessableEntityError';
 import DefaultApi from './api/DefaultApi';
 
@@ -106,76 +106,76 @@ export {
     ConnectionType,
 
     /**
-     * The ConsumptionLifetime model constructor.
-     * @property {module:model/ConsumptionLifetime}
+     * The ConsumptionLifetimeResponse model constructor.
+     * @property {module:model/ConsumptionLifetimeResponse}
      */
-    ConsumptionLifetime,
+    ConsumptionLifetimeResponse,
 
     /**
-     * The ConsumptionStats model constructor.
-     * @property {module:model/ConsumptionStats}
+     * The ConsumptionStatsResponse model constructor.
+     * @property {module:model/ConsumptionStatsResponse}
      */
-    ConsumptionStats,
+    ConsumptionStatsResponse,
 
     /**
-     * The ConsumptionStatsIntervals model constructor.
-     * @property {module:model/ConsumptionStatsIntervals}
+     * The ConsumptionStatsResponseIntervals model constructor.
+     * @property {module:model/ConsumptionStatsResponseIntervals}
      */
-    ConsumptionStatsIntervals,
+    ConsumptionStatsResponseIntervals,
 
     /**
-     * The EnergyLifetime model constructor.
-     * @property {module:model/EnergyLifetime}
+     * The EnergyLifetimeResponse model constructor.
+     * @property {module:model/EnergyLifetimeResponse}
      */
-    EnergyLifetime,
+    EnergyLifetimeResponse,
 
     /**
-     * The Envoys model constructor.
-     * @property {module:model/Envoys}
+     * The EnvoysResponse model constructor.
+     * @property {module:model/EnvoysResponse}
      */
-    Envoys,
+    EnvoysResponse,
 
     /**
-     * The EnvoysEnvoys model constructor.
-     * @property {module:model/EnvoysEnvoys}
+     * The EnvoysResponseEnvoys model constructor.
+     * @property {module:model/EnvoysResponseEnvoys}
      */
-    EnvoysEnvoys,
+    EnvoysResponseEnvoys,
 
     /**
-     * The Inventory model constructor.
-     * @property {module:model/Inventory}
+     * The InventoryResponse model constructor.
+     * @property {module:model/InventoryResponse}
      */
-    Inventory,
+    InventoryResponse,
 
     /**
-     * The InventoryEnvoys model constructor.
-     * @property {module:model/InventoryEnvoys}
+     * The InventoryResponseEnvoys model constructor.
+     * @property {module:model/InventoryResponseEnvoys}
      */
-    InventoryEnvoys,
+    InventoryResponseEnvoys,
 
     /**
-     * The InventoryMeters model constructor.
-     * @property {module:model/InventoryMeters}
+     * The InventoryResponseMeters model constructor.
+     * @property {module:model/InventoryResponseMeters}
      */
-    InventoryMeters,
+    InventoryResponseMeters,
 
     /**
-     * The InvertersSummaryByEnvoyOrSite model constructor.
-     * @property {module:model/InvertersSummaryByEnvoyOrSite}
+     * The InvertersSummaryByEnvoyOrSiteResponse model constructor.
+     * @property {module:model/InvertersSummaryByEnvoyOrSiteResponse}
      */
-    InvertersSummaryByEnvoyOrSite,
+    InvertersSummaryByEnvoyOrSiteResponse,
 
     /**
-     * The InvertersSummaryByEnvoyOrSiteEnergy model constructor.
-     * @property {module:model/InvertersSummaryByEnvoyOrSiteEnergy}
+     * The InvertersSummaryByEnvoyOrSiteResponseEnergy model constructor.
+     * @property {module:model/InvertersSummaryByEnvoyOrSiteResponseEnergy}
      */
-    InvertersSummaryByEnvoyOrSiteEnergy,
+    InvertersSummaryByEnvoyOrSiteResponseEnergy,
 
     /**
-     * The InvertersSummaryByEnvoyOrSiteMicroInverters model constructor.
-     * @property {module:model/InvertersSummaryByEnvoyOrSiteMicroInverters}
+     * The InvertersSummaryByEnvoyOrSiteResponseMicroInverters model constructor.
+     * @property {module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters}
      */
-    InvertersSummaryByEnvoyOrSiteMicroInverters,
+    InvertersSummaryByEnvoyOrSiteResponseMicroInverters,
 
     /**
      * The Meta model constructor.
@@ -184,58 +184,58 @@ export {
     Meta,
 
     /**
-     * The MonthlyProduction model constructor.
-     * @property {module:model/MonthlyProduction}
+     * The MonthlyProductionResponse model constructor.
+     * @property {module:model/MonthlyProductionResponse}
      */
-    MonthlyProduction,
+    MonthlyProductionResponse,
 
     /**
-     * The MonthlyProductionMeterReadings model constructor.
-     * @property {module:model/MonthlyProductionMeterReadings}
+     * The MonthlyProductionResponseMeterReadings model constructor.
+     * @property {module:model/MonthlyProductionResponseMeterReadings}
      */
-    MonthlyProductionMeterReadings,
+    MonthlyProductionResponseMeterReadings,
 
     /**
-     * The ProductionMeterReadings model constructor.
-     * @property {module:model/ProductionMeterReadings}
+     * The ProductionMeterReadingsResponse model constructor.
+     * @property {module:model/ProductionMeterReadingsResponse}
      */
-    ProductionMeterReadings,
+    ProductionMeterReadingsResponse,
 
     /**
-     * The ProductionMeterReadingsMeterReadings model constructor.
-     * @property {module:model/ProductionMeterReadingsMeterReadings}
+     * The ProductionMeterReadingsResponseMeterReadings model constructor.
+     * @property {module:model/ProductionMeterReadingsResponseMeterReadings}
      */
-    ProductionMeterReadingsMeterReadings,
+    ProductionMeterReadingsResponseMeterReadings,
 
     /**
-     * The RgmStats model constructor.
-     * @property {module:model/RgmStats}
+     * The RgmStatsResponse model constructor.
+     * @property {module:model/RgmStatsResponse}
      */
-    RgmStats,
+    RgmStatsResponse,
 
     /**
-     * The RgmStatsIntervals model constructor.
-     * @property {module:model/RgmStatsIntervals}
+     * The RgmStatsResponseIntervals model constructor.
+     * @property {module:model/RgmStatsResponseIntervals}
      */
-    RgmStatsIntervals,
+    RgmStatsResponseIntervals,
 
     /**
-     * The RgmStatsIntervals1 model constructor.
-     * @property {module:model/RgmStatsIntervals1}
+     * The RgmStatsResponseIntervals1 model constructor.
+     * @property {module:model/RgmStatsResponseIntervals1}
      */
-    RgmStatsIntervals1,
+    RgmStatsResponseIntervals1,
 
     /**
-     * The RgmStatsMeterIntervals model constructor.
-     * @property {module:model/RgmStatsMeterIntervals}
+     * The RgmStatsResponseMeterIntervals model constructor.
+     * @property {module:model/RgmStatsResponseMeterIntervals}
      */
-    RgmStatsMeterIntervals,
+    RgmStatsResponseMeterIntervals,
 
     /**
-     * The SearchSystemId model constructor.
-     * @property {module:model/SearchSystemId}
+     * The SearchSystemIdResponse model constructor.
+     * @property {module:model/SearchSystemIdResponse}
      */
-    SearchSystemId,
+    SearchSystemIdResponse,
 
     /**
      * The ServerError model constructor.
@@ -244,16 +244,16 @@ export {
     ServerError,
 
     /**
-     * The Stats model constructor.
-     * @property {module:model/Stats}
+     * The StatsResponse model constructor.
+     * @property {module:model/StatsResponse}
      */
-    Stats,
+    StatsResponse,
 
     /**
-     * The StatsIntervals model constructor.
-     * @property {module:model/StatsIntervals}
+     * The StatsResponseIntervals model constructor.
+     * @property {module:model/StatsResponseIntervals}
      */
-    StatsIntervals,
+    StatsResponseIntervals,
 
     /**
      * The Status model constructor.
@@ -262,22 +262,22 @@ export {
     Status,
 
     /**
-     * The Summary model constructor.
-     * @property {module:model/Summary}
+     * The SummaryResponse model constructor.
+     * @property {module:model/SummaryResponse}
      */
-    Summary,
+    SummaryResponse,
 
     /**
-     * The Systems model constructor.
-     * @property {module:model/Systems}
+     * The SystemsResponse model constructor.
+     * @property {module:model/SystemsResponse}
      */
-    Systems,
+    SystemsResponse,
 
     /**
-     * The SystemsSystems model constructor.
-     * @property {module:model/SystemsSystems}
+     * The SystemsResponseSystems model constructor.
+     * @property {module:model/SystemsResponseSystems}
      */
-    SystemsSystems,
+    SystemsResponseSystems,
 
     /**
      * The UnprocessableEntityError model constructor.

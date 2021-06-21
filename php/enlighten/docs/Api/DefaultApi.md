@@ -22,7 +22,7 @@ Method | HTTP request | Description
 ## `consumptionLifetime()`
 
 ```php
-consumptionLifetime($user_id, $system_id, $start_date, $end_date): \OpenAPI\Client\Model\ConsumptionLifetime
+consumptionLifetime($user_id, $system_id, $start_date, $end_date): \OpenAPI\Client\Model\ConsumptionLifetimeResponse
 ```
 
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ConsumptionLifetime**](../Model/ConsumptionLifetime.md)
+[**\OpenAPI\Client\Model\ConsumptionLifetimeResponse**](../Model/ConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 ## `consumptionStats()`
 
 ```php
-consumptionStats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\ConsumptionStats
+consumptionStats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\ConsumptionStatsResponse
 ```
 
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ConsumptionStats**](../Model/ConsumptionStats.md)
+[**\OpenAPI\Client\Model\ConsumptionStatsResponse**](../Model/ConsumptionStatsResponse.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 ## `energyLifetime()`
 
 ```php
-energyLifetime($user_id, $system_id, $start_date, $end_date, $production): \OpenAPI\Client\Model\EnergyLifetime
+energyLifetime($user_id, $system_id, $start_date, $end_date, $production): \OpenAPI\Client\Model\EnergyLifetimeResponse
 ```
 
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\EnergyLifetime**](../Model/EnergyLifetime.md)
+[**\OpenAPI\Client\Model\EnergyLifetimeResponse**](../Model/EnergyLifetimeResponse.md)
 
 ### Authorization
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 ## `envoys()`
 
 ```php
-envoys($user_id, $system_id): \OpenAPI\Client\Model\Envoys
+envoys($user_id, $system_id): \OpenAPI\Client\Model\EnvoysResponse
 ```
 
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Envoys**](../Model/Envoys.md)
+[**\OpenAPI\Client\Model\EnvoysResponse**](../Model/EnvoysResponse.md)
 
 ### Authorization
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 ## `inventory()`
 
 ```php
-inventory($user_id, $system_id): \OpenAPI\Client\Model\Inventory
+inventory($user_id, $system_id): \OpenAPI\Client\Model\InventoryResponse
 ```
 
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Inventory**](../Model/Inventory.md)
+[**\OpenAPI\Client\Model\InventoryResponse**](../Model/InventoryResponse.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 ## `invertersSummaryByEnvoyOrSite()`
 
 ```php
-invertersSummaryByEnvoyOrSite($user_id, $site_id): \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]
+invertersSummaryByEnvoyOrSite($user_id, $site_id): \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponse[]
 ```
 
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSite[]**](../Model/InvertersSummaryByEnvoyOrSite.md)
+[**\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponse[]**](../Model/InvertersSummaryByEnvoyOrSiteResponse.md)
 
 ### Authorization
 
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 ## `monthlyProduction()`
 
 ```php
-monthlyProduction($user_id, $system_id, $start_date): \OpenAPI\Client\Model\MonthlyProduction
+monthlyProduction($user_id, $system_id, $start_date): \OpenAPI\Client\Model\MonthlyProductionResponse
 ```
 
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MonthlyProduction**](../Model/MonthlyProduction.md)
+[**\OpenAPI\Client\Model\MonthlyProductionResponse**](../Model/MonthlyProductionResponse.md)
 
 ### Authorization
 
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 ## `productionMeterReadings()`
 
 ```php
-productionMeterReadings($user_id, $system_id, $end_at): \OpenAPI\Client\Model\ProductionMeterReadings
+productionMeterReadings($user_id, $system_id, $end_at): \OpenAPI\Client\Model\ProductionMeterReadingsResponse
 ```
 
 
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ProductionMeterReadings**](../Model/ProductionMeterReadings.md)
+[**\OpenAPI\Client\Model\ProductionMeterReadingsResponse**](../Model/ProductionMeterReadingsResponse.md)
 
 ### Authorization
 
@@ -552,7 +552,7 @@ Name | Type | Description  | Notes
 ## `rgmStats()`
 
 ```php
-rgmStats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\RgmStats
+rgmStats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\RgmStatsResponse
 ```
 
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RgmStats**](../Model/RgmStats.md)
+[**\OpenAPI\Client\Model\RgmStatsResponse**](../Model/RgmStatsResponse.md)
 
 ### Authorization
 
@@ -620,7 +620,7 @@ Name | Type | Description  | Notes
 ## `searchSystemId()`
 
 ```php
-searchSystemId($user_id, $serial_num): \OpenAPI\Client\Model\SearchSystemId
+searchSystemId($user_id, $serial_num): \OpenAPI\Client\Model\SearchSystemIdResponse
 ```
 
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SearchSystemId**](../Model/SearchSystemId.md)
+[**\OpenAPI\Client\Model\SearchSystemIdResponse**](../Model/SearchSystemIdResponse.md)
 
 ### Authorization
 
@@ -684,7 +684,7 @@ Name | Type | Description  | Notes
 ## `stats()`
 
 ```php
-stats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\Stats
+stats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\StatsResponse
 ```
 
 
@@ -734,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Stats**](../Model/Stats.md)
+[**\OpenAPI\Client\Model\StatsResponse**](../Model/StatsResponse.md)
 
 ### Authorization
 
@@ -752,7 +752,7 @@ Name | Type | Description  | Notes
 ## `summary()`
 
 ```php
-summary($user_id, $system_id, $summary_date): \OpenAPI\Client\Model\Summary
+summary($user_id, $system_id, $summary_date): \OpenAPI\Client\Model\SummaryResponse
 ```
 
 
@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Summary**](../Model/Summary.md)
+[**\OpenAPI\Client\Model\SummaryResponse**](../Model/SummaryResponse.md)
 
 ### Authorization
 
@@ -818,7 +818,7 @@ Name | Type | Description  | Notes
 ## `systems()`
 
 ```php
-systems($user_id, $next, $limit, $system_id, $system_id2, $system_name, $system_name2, $status, $status2, $reference, $reference2, $installer, $installer2, $connection_type, $connection_type2): \OpenAPI\Client\Model\Systems
+systems($user_id, $next, $limit, $system_id, $system_id2, $system_name, $system_name2, $status, $status2, $reference, $reference2, $installer, $installer2, $connection_type, $connection_type2): \OpenAPI\Client\Model\SystemsResponse
 ```
 
 
@@ -890,7 +890,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Systems**](../Model/Systems.md)
+[**\OpenAPI\Client\Model\SystemsResponse**](../Model/SystemsResponse.md)
 
 ### Authorization
 

@@ -55,21 +55,21 @@ from enlighten.api import default_api
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.connection_type import ConnectionType
-from enlighten.model.consumption_lifetime import ConsumptionLifetime
-from enlighten.model.consumption_stats import ConsumptionStats
-from enlighten.model.energy_lifetime import EnergyLifetime
-from enlighten.model.envoys import Envoys
-from enlighten.model.inventory import Inventory
-from enlighten.model.inverters_summary_by_envoy_or_site import InvertersSummaryByEnvoyOrSite
-from enlighten.model.monthly_production import MonthlyProduction
-from enlighten.model.production_meter_readings import ProductionMeterReadings
-from enlighten.model.rgm_stats import RgmStats
-from enlighten.model.search_system_id import SearchSystemId
+from enlighten.model.consumption_lifetime_response import ConsumptionLifetimeResponse
+from enlighten.model.consumption_stats_response import ConsumptionStatsResponse
+from enlighten.model.energy_lifetime_response import EnergyLifetimeResponse
+from enlighten.model.envoys_response import EnvoysResponse
+from enlighten.model.inventory_response import InventoryResponse
+from enlighten.model.inverters_summary_by_envoy_or_site_response import InvertersSummaryByEnvoyOrSiteResponse
+from enlighten.model.monthly_production_response import MonthlyProductionResponse
+from enlighten.model.production_meter_readings_response import ProductionMeterReadingsResponse
+from enlighten.model.rgm_stats_response import RgmStatsResponse
+from enlighten.model.search_system_id_response import SearchSystemIdResponse
 from enlighten.model.server_error import ServerError
-from enlighten.model.stats import Stats
+from enlighten.model.stats_response import StatsResponse
 from enlighten.model.status import Status
-from enlighten.model.summary import Summary
-from enlighten.model.systems import Systems
+from enlighten.model.summary_response import SummaryResponse
+from enlighten.model.systems_response import SystemsResponse
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -131,35 +131,35 @@ Class | Method | HTTP request | Description
  - [ClientError](docs/ClientError.md)
  - [ConflictError](docs/ConflictError.md)
  - [ConnectionType](docs/ConnectionType.md)
- - [ConsumptionLifetime](docs/ConsumptionLifetime.md)
- - [ConsumptionStats](docs/ConsumptionStats.md)
- - [ConsumptionStatsIntervals](docs/ConsumptionStatsIntervals.md)
- - [EnergyLifetime](docs/EnergyLifetime.md)
- - [Envoys](docs/Envoys.md)
- - [EnvoysEnvoys](docs/EnvoysEnvoys.md)
- - [Inventory](docs/Inventory.md)
- - [InventoryEnvoys](docs/InventoryEnvoys.md)
- - [InventoryMeters](docs/InventoryMeters.md)
- - [InvertersSummaryByEnvoyOrSite](docs/InvertersSummaryByEnvoyOrSite.md)
- - [InvertersSummaryByEnvoyOrSiteEnergy](docs/InvertersSummaryByEnvoyOrSiteEnergy.md)
- - [InvertersSummaryByEnvoyOrSiteMicroInverters](docs/InvertersSummaryByEnvoyOrSiteMicroInverters.md)
+ - [ConsumptionLifetimeResponse](docs/ConsumptionLifetimeResponse.md)
+ - [ConsumptionStatsResponse](docs/ConsumptionStatsResponse.md)
+ - [ConsumptionStatsResponseIntervals](docs/ConsumptionStatsResponseIntervals.md)
+ - [EnergyLifetimeResponse](docs/EnergyLifetimeResponse.md)
+ - [EnvoysResponse](docs/EnvoysResponse.md)
+ - [EnvoysResponseEnvoys](docs/EnvoysResponseEnvoys.md)
+ - [InventoryResponse](docs/InventoryResponse.md)
+ - [InventoryResponseEnvoys](docs/InventoryResponseEnvoys.md)
+ - [InventoryResponseMeters](docs/InventoryResponseMeters.md)
+ - [InvertersSummaryByEnvoyOrSiteResponse](docs/InvertersSummaryByEnvoyOrSiteResponse.md)
+ - [InvertersSummaryByEnvoyOrSiteResponseEnergy](docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md)
+ - [InvertersSummaryByEnvoyOrSiteResponseMicroInverters](docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md)
  - [Meta](docs/Meta.md)
- - [MonthlyProduction](docs/MonthlyProduction.md)
- - [MonthlyProductionMeterReadings](docs/MonthlyProductionMeterReadings.md)
- - [ProductionMeterReadings](docs/ProductionMeterReadings.md)
- - [ProductionMeterReadingsMeterReadings](docs/ProductionMeterReadingsMeterReadings.md)
- - [RgmStats](docs/RgmStats.md)
- - [RgmStatsIntervals](docs/RgmStatsIntervals.md)
- - [RgmStatsIntervals1](docs/RgmStatsIntervals1.md)
- - [RgmStatsMeterIntervals](docs/RgmStatsMeterIntervals.md)
- - [SearchSystemId](docs/SearchSystemId.md)
+ - [MonthlyProductionResponse](docs/MonthlyProductionResponse.md)
+ - [MonthlyProductionResponseMeterReadings](docs/MonthlyProductionResponseMeterReadings.md)
+ - [ProductionMeterReadingsResponse](docs/ProductionMeterReadingsResponse.md)
+ - [ProductionMeterReadingsResponseMeterReadings](docs/ProductionMeterReadingsResponseMeterReadings.md)
+ - [RgmStatsResponse](docs/RgmStatsResponse.md)
+ - [RgmStatsResponseIntervals](docs/RgmStatsResponseIntervals.md)
+ - [RgmStatsResponseIntervals1](docs/RgmStatsResponseIntervals1.md)
+ - [RgmStatsResponseMeterIntervals](docs/RgmStatsResponseMeterIntervals.md)
+ - [SearchSystemIdResponse](docs/SearchSystemIdResponse.md)
  - [ServerError](docs/ServerError.md)
- - [Stats](docs/Stats.md)
- - [StatsIntervals](docs/StatsIntervals.md)
+ - [StatsResponse](docs/StatsResponse.md)
+ - [StatsResponseIntervals](docs/StatsResponseIntervals.md)
  - [Status](docs/Status.md)
- - [Summary](docs/Summary.md)
- - [Systems](docs/Systems.md)
- - [SystemsSystems](docs/SystemsSystems.md)
+ - [SummaryResponse](docs/SummaryResponse.md)
+ - [SystemsResponse](docs/SystemsResponse.md)
+ - [SystemsResponseSystems](docs/SystemsResponseSystems.md)
  - [UnprocessableEntityError](docs/UnprocessableEntityError.md)
 
 

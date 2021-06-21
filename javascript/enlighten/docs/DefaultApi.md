@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## consumptionLifetime
 
-> ConsumptionLifetime consumptionLifetime(userId, systemId, opts)
+> ConsumptionLifetimeResponse consumptionLifetime(userId, systemId, opts)
 
 
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionLifetime**](ConsumptionLifetime.md)
+[**ConsumptionLifetimeResponse**](ConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## consumptionStats
 
-> ConsumptionStats consumptionStats(userId, systemId, opts)
+> ConsumptionStatsResponse consumptionStats(userId, systemId, opts)
 
 
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionStats**](ConsumptionStats.md)
+[**ConsumptionStatsResponse**](ConsumptionStatsResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ## energyLifetime
 
-> EnergyLifetime energyLifetime(userId, systemId, opts)
+> EnergyLifetimeResponse energyLifetime(userId, systemId, opts)
 
 
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnergyLifetime**](EnergyLifetime.md)
+[**EnergyLifetimeResponse**](EnergyLifetimeResponse.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ## envoys
 
-> Envoys envoys(userId, systemId)
+> EnvoysResponse envoys(userId, systemId)
 
 
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Envoys**](Envoys.md)
+[**EnvoysResponse**](EnvoysResponse.md)
 
 ### Authorization
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ## inventory
 
-> Inventory inventory(userId, systemId)
+> InventoryResponse inventory(userId, systemId)
 
 
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Inventory**](Inventory.md)
+[**InventoryResponse**](InventoryResponse.md)
 
 ### Authorization
 
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ## invertersSummaryByEnvoyOrSite
 
-> [InvertersSummaryByEnvoyOrSite] invertersSummaryByEnvoyOrSite(userId, siteId)
+> [InvertersSummaryByEnvoyOrSiteResponse] invertersSummaryByEnvoyOrSite(userId, siteId)
 
 
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[InvertersSummaryByEnvoyOrSite]**](InvertersSummaryByEnvoyOrSite.md)
+[**[InvertersSummaryByEnvoyOrSiteResponse]**](InvertersSummaryByEnvoyOrSiteResponse.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ## monthlyProduction
 
-> MonthlyProduction monthlyProduction(userId, systemId, startDate)
+> MonthlyProductionResponse monthlyProduction(userId, systemId, startDate)
 
 
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MonthlyProduction**](MonthlyProduction.md)
+[**MonthlyProductionResponse**](MonthlyProductionResponse.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ## productionMeterReadings
 
-> ProductionMeterReadings productionMeterReadings(userId, systemId, opts)
+> ProductionMeterReadingsResponse productionMeterReadings(userId, systemId, opts)
 
 
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductionMeterReadings**](ProductionMeterReadings.md)
+[**ProductionMeterReadingsResponse**](ProductionMeterReadingsResponse.md)
 
 ### Authorization
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ## rgmStats
 
-> RgmStats rgmStats(userId, systemId, opts)
+> RgmStatsResponse rgmStats(userId, systemId, opts)
 
 
 
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RgmStats**](RgmStats.md)
+[**RgmStatsResponse**](RgmStatsResponse.md)
 
 ### Authorization
 
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 ## searchSystemId
 
-> SearchSystemId searchSystemId(userId, serialNum)
+> SearchSystemIdResponse searchSystemId(userId, serialNum)
 
 
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchSystemId**](SearchSystemId.md)
+[**SearchSystemIdResponse**](SearchSystemIdResponse.md)
 
 ### Authorization
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 ## stats
 
-> Stats stats(userId, systemId, opts)
+> StatsResponse stats(userId, systemId, opts)
 
 
 
@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Stats**](Stats.md)
+[**StatsResponse**](StatsResponse.md)
 
 ### Authorization
 
@@ -643,7 +643,7 @@ Name | Type | Description  | Notes
 
 ## summary
 
-> Summary summary(userId, systemId, opts)
+> SummaryResponse summary(userId, systemId, opts)
 
 
 
@@ -686,7 +686,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Summary**](Summary.md)
+[**SummaryResponse**](SummaryResponse.md)
 
 ### Authorization
 
@@ -700,7 +700,7 @@ Name | Type | Description  | Notes
 
 ## systems
 
-> Systems systems(userId, opts)
+> SystemsResponse systems(userId, opts)
 
 
 
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Systems**](Systems.md)
+[**SystemsResponse**](SystemsResponse.md)
 
 ### Authorization
 

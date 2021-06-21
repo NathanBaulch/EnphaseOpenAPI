@@ -253,7 +253,7 @@ last reported and whether it has communication or metering problems.</p>
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ConsumptionLifetime">ConsumptionLifetime</a>
+      <a href="#ConsumptionLifetimeResponse">ConsumptionLifetimeResponse</a>
       
     </div>
 
@@ -283,7 +283,7 @@ last reported and whether it has communication or metering problems.</p>
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#ConsumptionLifetime">ConsumptionLifetime</a>
+        <a href="#ConsumptionLifetimeResponse">ConsumptionLifetimeResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -341,7 +341,7 @@ the last reported interval. default: null format: int64</div>
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ConsumptionStats">ConsumptionStats</a>
+      <a href="#ConsumptionStatsResponse">ConsumptionStatsResponse</a>
       
     </div>
 
@@ -391,7 +391,7 @@ the last reported interval. default: null format: int64</div>
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#ConsumptionStats">ConsumptionStats</a>
+        <a href="#ConsumptionStatsResponse">ConsumptionStatsResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -449,7 +449,7 @@ measurements begin to be used. You can retrieve the complete time series from th
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#EnergyLifetime">EnergyLifetime</a>
+      <a href="#EnergyLifetimeResponse">EnergyLifetimeResponse</a>
       
     </div>
 
@@ -480,7 +480,7 @@ measurements begin to be used. You can retrieve the complete time series from th
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#EnergyLifetime">EnergyLifetime</a>
+        <a href="#EnergyLifetimeResponse">EnergyLifetimeResponse</a>
     <h4 class="field-label">204</h4>
     No Content
         <a href="#"></a>
@@ -528,7 +528,7 @@ measurements begin to be used. You can retrieve the complete time series from th
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Envoys">Envoys</a>
+      <a href="#EnvoysResponse">EnvoysResponse</a>
       
     </div>
 
@@ -565,7 +565,7 @@ measurements begin to be used. You can retrieve the complete time series from th
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#Envoys">Envoys</a>
+        <a href="#EnvoysResponse">EnvoysResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -611,7 +611,7 @@ reporting, producing, or measuring energy.</div>
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Inventory">Inventory</a>
+      <a href="#InventoryResponse">InventoryResponse</a>
       
     </div>
 
@@ -645,7 +645,7 @@ reporting, producing, or measuring energy.</div>
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#Inventory">Inventory</a>
+        <a href="#InventoryResponse">InventoryResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -686,7 +686,7 @@ reporting, producing, or measuring energy.</div>
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#InvertersSummaryByEnvoyOrSite">InvertersSummaryByEnvoyOrSite</a>]
+      array[<a href="#InvertersSummaryByEnvoyOrSiteResponse">InvertersSummaryByEnvoyOrSiteResponse</a>]
       
     </div>
 
@@ -797,7 +797,7 @@ start date is the first of a calendar month, the end end date is the last day of
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#MonthlyProduction">MonthlyProduction</a>
+      <a href="#MonthlyProductionResponse">MonthlyProductionResponse</a>
       
     </div>
 
@@ -833,7 +833,7 @@ start date is the first of a calendar month, the end end date is the last day of
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#MonthlyProduction">MonthlyProduction</a>
+        <a href="#MonthlyProductionResponse">MonthlyProductionResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -885,7 +885,7 @@ do not necessarily mean there is a problem with the meter or the system it is on
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ProductionMeterReadings">ProductionMeterReadings</a>
+      <a href="#ProductionMeterReadingsResponse">ProductionMeterReadingsResponse</a>
       
     </div>
 
@@ -918,7 +918,7 @@ do not necessarily mean there is a problem with the meter or the system it is on
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#ProductionMeterReadings">ProductionMeterReadings</a>
+        <a href="#ProductionMeterReadingsResponse">ProductionMeterReadingsResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -975,7 +975,7 @@ the last reported interval. default: null format: int64</div>
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#RgmStats">RgmStats</a>
+      <a href="#RgmStatsResponse">RgmStatsResponse</a>
       
     </div>
 
@@ -1084,7 +1084,7 @@ the last reported interval. default: null format: int64</div>
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#RgmStats">RgmStats</a>
+        <a href="#RgmStatsResponse">RgmStatsResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -1125,7 +1125,7 @@ the last reported interval. default: null format: int64</div>
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#SearchSystemId">SearchSystemId</a>
+      <a href="#SearchSystemIdResponse">SearchSystemIdResponse</a>
       
     </div>
 
@@ -1147,7 +1147,7 @@ the last reported interval. default: null format: int64</div>
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#SearchSystemId">SearchSystemId</a>
+        <a href="#SearchSystemIdResponse">SearchSystemIdResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -1211,7 +1211,7 @@ reported interval. default: null format: int64</div>
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Stats">Stats</a>
+      <a href="#StatsResponse">StatsResponse</a>
       
     </div>
 
@@ -1266,7 +1266,7 @@ reported interval. default: null format: int64</div>
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#Stats">Stats</a>
+        <a href="#StatsResponse">StatsResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -1314,7 +1314,7 @@ day. If the requested date cannot be parsed or is in the future, the response in
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Summary">Summary</a>
+      <a href="#SummaryResponse">SummaryResponse</a>
       
     </div>
 
@@ -1347,7 +1347,7 @@ day. If the requested date cannot be parsed or is in the future, the response in
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#Summary">Summary</a>
+        <a href="#SummaryResponse">SummaryResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -1415,7 +1415,7 @@ list, use the <code>next</code> attribute in the response body to request the ne
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Systems">Systems</a>
+      <a href="#SystemsResponse">SystemsResponse</a>
       
     </div>
 
@@ -1472,7 +1472,7 @@ list, use the <code>next</code> attribute in the response body to request the ne
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#Systems">Systems</a>
+        <a href="#SystemsResponse">SystemsResponse</a>
     <h4 class="field-label">401</h4>
     Client error
         <a href="#ClientError">ClientError</a>
@@ -1499,35 +1499,35 @@ list, use the <code>next</code> attribute in the response body to request the ne
     <li><a href="#ClientError"><code>ClientError</code> - </a></li>
     <li><a href="#ConflictError"><code>ConflictError</code> - </a></li>
     <li><a href="#ConnectionType"><code>ConnectionType</code> - </a></li>
-    <li><a href="#ConsumptionLifetime"><code>ConsumptionLifetime</code> - </a></li>
-    <li><a href="#ConsumptionStats"><code>ConsumptionStats</code> - </a></li>
-    <li><a href="#ConsumptionStats_intervals"><code>ConsumptionStats_intervals</code> - </a></li>
-    <li><a href="#EnergyLifetime"><code>EnergyLifetime</code> - </a></li>
-    <li><a href="#Envoys"><code>Envoys</code> - </a></li>
-    <li><a href="#Envoys_envoys"><code>Envoys_envoys</code> - </a></li>
-    <li><a href="#Inventory"><code>Inventory</code> - </a></li>
-    <li><a href="#Inventory_envoys"><code>Inventory_envoys</code> - </a></li>
-    <li><a href="#Inventory_meters"><code>Inventory_meters</code> - </a></li>
-    <li><a href="#InvertersSummaryByEnvoyOrSite"><code>InvertersSummaryByEnvoyOrSite</code> - </a></li>
-    <li><a href="#InvertersSummaryByEnvoyOrSite_energy"><code>InvertersSummaryByEnvoyOrSite_energy</code> - </a></li>
-    <li><a href="#InvertersSummaryByEnvoyOrSite_micro_inverters"><code>InvertersSummaryByEnvoyOrSite_micro_inverters</code> - </a></li>
+    <li><a href="#ConsumptionLifetimeResponse"><code>ConsumptionLifetimeResponse</code> - </a></li>
+    <li><a href="#ConsumptionStatsResponse"><code>ConsumptionStatsResponse</code> - </a></li>
+    <li><a href="#ConsumptionStatsResponse_intervals"><code>ConsumptionStatsResponse_intervals</code> - </a></li>
+    <li><a href="#EnergyLifetimeResponse"><code>EnergyLifetimeResponse</code> - </a></li>
+    <li><a href="#EnvoysResponse"><code>EnvoysResponse</code> - </a></li>
+    <li><a href="#EnvoysResponse_envoys"><code>EnvoysResponse_envoys</code> - </a></li>
+    <li><a href="#InventoryResponse"><code>InventoryResponse</code> - </a></li>
+    <li><a href="#InventoryResponse_envoys"><code>InventoryResponse_envoys</code> - </a></li>
+    <li><a href="#InventoryResponse_meters"><code>InventoryResponse_meters</code> - </a></li>
+    <li><a href="#InvertersSummaryByEnvoyOrSiteResponse"><code>InvertersSummaryByEnvoyOrSiteResponse</code> - </a></li>
+    <li><a href="#InvertersSummaryByEnvoyOrSiteResponse_energy"><code>InvertersSummaryByEnvoyOrSiteResponse_energy</code> - </a></li>
+    <li><a href="#InvertersSummaryByEnvoyOrSiteResponse_micro_inverters"><code>InvertersSummaryByEnvoyOrSiteResponse_micro_inverters</code> - </a></li>
     <li><a href="#Meta"><code>Meta</code> - </a></li>
-    <li><a href="#MonthlyProduction"><code>MonthlyProduction</code> - </a></li>
-    <li><a href="#MonthlyProduction_meter_readings"><code>MonthlyProduction_meter_readings</code> - </a></li>
-    <li><a href="#ProductionMeterReadings"><code>ProductionMeterReadings</code> - </a></li>
-    <li><a href="#ProductionMeterReadings_meter_readings"><code>ProductionMeterReadings_meter_readings</code> - </a></li>
-    <li><a href="#RgmStats"><code>RgmStats</code> - </a></li>
-    <li><a href="#RgmStats_intervals"><code>RgmStats_intervals</code> - </a></li>
-    <li><a href="#RgmStats_intervals_1"><code>RgmStats_intervals_1</code> - </a></li>
-    <li><a href="#RgmStats_meter_intervals"><code>RgmStats_meter_intervals</code> - </a></li>
-    <li><a href="#SearchSystemId"><code>SearchSystemId</code> - </a></li>
+    <li><a href="#MonthlyProductionResponse"><code>MonthlyProductionResponse</code> - </a></li>
+    <li><a href="#MonthlyProductionResponse_meter_readings"><code>MonthlyProductionResponse_meter_readings</code> - </a></li>
+    <li><a href="#ProductionMeterReadingsResponse"><code>ProductionMeterReadingsResponse</code> - </a></li>
+    <li><a href="#ProductionMeterReadingsResponse_meter_readings"><code>ProductionMeterReadingsResponse_meter_readings</code> - </a></li>
+    <li><a href="#RgmStatsResponse"><code>RgmStatsResponse</code> - </a></li>
+    <li><a href="#RgmStatsResponse_intervals"><code>RgmStatsResponse_intervals</code> - </a></li>
+    <li><a href="#RgmStatsResponse_intervals_1"><code>RgmStatsResponse_intervals_1</code> - </a></li>
+    <li><a href="#RgmStatsResponse_meter_intervals"><code>RgmStatsResponse_meter_intervals</code> - </a></li>
+    <li><a href="#SearchSystemIdResponse"><code>SearchSystemIdResponse</code> - </a></li>
     <li><a href="#ServerError"><code>ServerError</code> - </a></li>
-    <li><a href="#Stats"><code>Stats</code> - </a></li>
-    <li><a href="#Stats_intervals"><code>Stats_intervals</code> - </a></li>
+    <li><a href="#StatsResponse"><code>StatsResponse</code> - </a></li>
+    <li><a href="#StatsResponse_intervals"><code>StatsResponse_intervals</code> - </a></li>
     <li><a href="#Status"><code>Status</code> - </a></li>
-    <li><a href="#Summary"><code>Summary</code> - </a></li>
-    <li><a href="#Systems"><code>Systems</code> - </a></li>
-    <li><a href="#Systems_systems"><code>Systems_systems</code> - </a></li>
+    <li><a href="#SummaryResponse"><code>SummaryResponse</code> - </a></li>
+    <li><a href="#SystemsResponse"><code>SystemsResponse</code> - </a></li>
+    <li><a href="#SystemsResponse_systems"><code>SystemsResponse_systems</code> - </a></li>
     <li><a href="#UnprocessableEntityError"><code>UnprocessableEntityError</code> - </a></li>
   </ol>
 
@@ -1560,7 +1560,7 @@ list, use the <code>next</code> attribute in the response body to request the ne
           </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ConsumptionLifetime"><code>ConsumptionLifetime</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="ConsumptionLifetimeResponse"><code>ConsumptionLifetimeResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> When no <code>start_date</code> parameter is specified on the request, this is the <code>operational_date</code> of the system. May be null if system has never produced. When a <code>start_date</code>
@@ -1571,17 +1571,17 @@ parameter is included in the request, it is included here in the response. forma
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ConsumptionStats"><code>ConsumptionStats</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="ConsumptionStatsResponse"><code>ConsumptionStatsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
 <div class="param">total_devices </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active consumption meters for this system. </div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
-<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#ConsumptionStats_intervals">array[ConsumptionStats_intervals]</a></span> A list of intervals between the requested start and end times. </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#ConsumptionStatsResponse_intervals">array[ConsumptionStatsResponse_intervals]</a></span> A list of intervals between the requested start and end times. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ConsumptionStats_intervals"><code>ConsumptionStats_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="ConsumptionStatsResponse_intervals"><code>ConsumptionStatsResponse_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
@@ -1590,7 +1590,7 @@ parameter is included in the request, it is included here in the response. forma
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="EnergyLifetime"><code>EnergyLifetime</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="EnergyLifetimeResponse"><code>EnergyLifetimeResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> When no <code>start_date</code> parameter is specified on the request, this is the <code>operational_date</code> of the system. May be null if system has never produced. When a <code>start_date</code>
@@ -1605,15 +1605,15 @@ the array may be empty. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Envoys"><code>Envoys</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="EnvoysResponse"><code>EnvoysResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The identifier of the system. </div>
-<div class="param">envoys </div><div class="param-desc"><span class="param-type"><a href="#Envoys_envoys">array[Envoys_envoys]</a></span> A list of active Envoys on this system. </div>
+<div class="param">envoys </div><div class="param-desc"><span class="param-type"><a href="#EnvoysResponse_envoys">array[EnvoysResponse_envoys]</a></span> A list of active Envoys on this system. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Envoys_envoys"><code>Envoys_envoys</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="EnvoysResponse_envoys"><code>EnvoysResponse_envoys</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">envoy_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the Envoy. </div>
@@ -1633,18 +1633,18 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Inventory"><code>Inventory</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InventoryResponse"><code>InventoryResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
-<div class="param">envoys (optional)</div><div class="param-desc"><span class="param-type"><a href="#Inventory_envoys">array[Inventory_envoys]</a></span> A list of Envoys on this system, including serial number. </div>
-<div class="param">inverters </div><div class="param-desc"><span class="param-type"><a href="#Inventory_envoys">array[Inventory_envoys]</a></span> A list of inverters on this system, including serial and model numbers. </div>
-<div class="param">meters </div><div class="param-desc"><span class="param-type"><a href="#Inventory_meters">array[Inventory_meters]</a></span> A list of meters on this system, including serial number, manufacturer, and model number. </div>
+<div class="param">envoys (optional)</div><div class="param-desc"><span class="param-type"><a href="#InventoryResponse_envoys">array[InventoryResponse_envoys]</a></span> A list of Envoys on this system, including serial number. </div>
+<div class="param">inverters </div><div class="param-desc"><span class="param-type"><a href="#InventoryResponse_envoys">array[InventoryResponse_envoys]</a></span> A list of inverters on this system, including serial and model numbers. </div>
+<div class="param">meters </div><div class="param-desc"><span class="param-type"><a href="#InventoryResponse_meters">array[InventoryResponse_meters]</a></span> A list of meters on this system, including serial number, manufacturer, and model number. </div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Inventory_envoys"><code>Inventory_envoys</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InventoryResponse_envoys"><code>InventoryResponse_envoys</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">sn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1653,7 +1653,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Inventory_meters"><code>Inventory_meters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InventoryResponse_meters"><code>InventoryResponse_meters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">sn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1662,15 +1662,15 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="InvertersSummaryByEnvoyOrSite"><code>InvertersSummaryByEnvoyOrSite</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InvertersSummaryByEnvoyOrSiteResponse"><code>InvertersSummaryByEnvoyOrSiteResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">signal_strength </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">micro_inverters </div><div class="param-desc"><span class="param-type"><a href="#InvertersSummaryByEnvoyOrSite_micro_inverters">array[InvertersSummaryByEnvoyOrSite_micro_inverters]</a></span> A list of active inverters on this system, including serial and model numbers. </div>
+<div class="param">micro_inverters </div><div class="param-desc"><span class="param-type"><a href="#InvertersSummaryByEnvoyOrSiteResponse_micro_inverters">array[InvertersSummaryByEnvoyOrSiteResponse_micro_inverters]</a></span> A list of active inverters on this system, including serial and model numbers. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="InvertersSummaryByEnvoyOrSite_energy"><code>InvertersSummaryByEnvoyOrSite_energy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InvertersSummaryByEnvoyOrSiteResponse_energy"><code>InvertersSummaryByEnvoyOrSiteResponse_energy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'>Returns the lifetime energy of the Microinverter. If the system has never produced energy, the energy value would be 0.</div>
     <div class="field-items">
       <div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
@@ -1681,7 +1681,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="InvertersSummaryByEnvoyOrSite_micro_inverters"><code>InvertersSummaryByEnvoyOrSite_micro_inverters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InvertersSummaryByEnvoyOrSiteResponse_micro_inverters"><code>InvertersSummaryByEnvoyOrSiteResponse_micro_inverters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
@@ -1703,7 +1703,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
 <div class="param">proc_load </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">param_table </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">envoy_serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">energy </div><div class="param-desc"><span class="param-type"><a href="#InvertersSummaryByEnvoyOrSite_energy">InvertersSummaryByEnvoyOrSite_energy</a></span>  </div>
+<div class="param">energy </div><div class="param-desc"><span class="param-type"><a href="#InvertersSummaryByEnvoyOrSiteResponse_energy">InvertersSummaryByEnvoyOrSiteResponse_energy</a></span>  </div>
 <div class="param">grid_profile </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">last_report_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null. format: date</div>
     </div>  <!-- field-items -->
@@ -1719,7 +1719,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="MonthlyProduction"><code>MonthlyProduction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="MonthlyProductionResponse"><code>MonthlyProductionResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
@@ -1727,12 +1727,12 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
 <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: date</div>
 <div class="param">end_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Last day included in the reporting period. format: date</div>
 <div class="param">production_wh </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total production for the requested period in Watt-hours. </div>
-<div class="param">meter_readings </div><div class="param-desc"><span class="param-type"><a href="#MonthlyProduction_meter_readings">array[MonthlyProduction_meter_readings]</a></span> If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. </div>
+<div class="param">meter_readings </div><div class="param-desc"><span class="param-type"><a href="#MonthlyProductionResponse_meter_readings">array[MonthlyProductionResponse_meter_readings]</a></span> If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. </div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="MonthlyProduction_meter_readings"><code>MonthlyProduction_meter_readings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="MonthlyProductionResponse_meter_readings"><code>MonthlyProductionResponse_meter_readings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1741,16 +1741,16 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ProductionMeterReadings"><code>ProductionMeterReadings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="ProductionMeterReadingsResponse"><code>ProductionMeterReadingsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">meter_readings </div><div class="param-desc"><span class="param-type"><a href="#ProductionMeterReadings_meter_readings">array[ProductionMeterReadings_meter_readings]</a></span>  </div>
+<div class="param">meter_readings </div><div class="param-desc"><span class="param-type"><a href="#ProductionMeterReadingsResponse_meter_readings">array[ProductionMeterReadingsResponse_meter_readings]</a></span>  </div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ProductionMeterReadings_meter_readings"><code>ProductionMeterReadings_meter_readings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="ProductionMeterReadingsResponse_meter_readings"><code>ProductionMeterReadingsResponse_meter_readings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The serial number of the meter. </div>
@@ -1759,18 +1759,18 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="RgmStats"><code>RgmStats</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="RgmStatsResponse"><code>RgmStatsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
 <div class="param">total_devices </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active revenue-grade meters for this system. </div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
-<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#RgmStats_intervals">array[RgmStats_intervals]</a></span> A list of intervals between the requested start and end times. </div>
-<div class="param">meter_intervals </div><div class="param-desc"><span class="param-type"><a href="#RgmStats_meter_intervals">array[RgmStats_meter_intervals]</a></span> A list of intervals of a meter between the requested start and end times. </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#RgmStatsResponse_intervals">array[RgmStatsResponse_intervals]</a></span> A list of intervals between the requested start and end times. </div>
+<div class="param">meter_intervals </div><div class="param-desc"><span class="param-type"><a href="#RgmStatsResponse_meter_intervals">array[RgmStatsResponse_meter_intervals]</a></span> A list of intervals of a meter between the requested start and end times. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="RgmStats_intervals"><code>RgmStats_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="RgmStatsResponse_intervals"><code>RgmStatsResponse_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> End of interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
@@ -1779,7 +1779,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="RgmStats_intervals_1"><code>RgmStats_intervals_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="RgmStatsResponse_intervals_1"><code>RgmStatsResponse_intervals_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The reporting channel identifier. </div>
@@ -1789,16 +1789,16 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="RgmStats_meter_intervals"><code>RgmStats_meter_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="RgmStatsResponse_meter_intervals"><code>RgmStatsResponse_meter_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">meter_serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Serial number of the revenue grade meter. </div>
 <div class="param">envoy_serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Serial number of the reporting envoy. </div>
-<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#RgmStats_intervals_1">array[RgmStats_intervals_1]</a></span> Individual meter level interval. </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#RgmStatsResponse_intervals_1">array[RgmStatsResponse_intervals_1]</a></span> Individual meter level interval. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="SearchSystemId"><code>SearchSystemId</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="SearchSystemIdResponse"><code>SearchSystemIdResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the system. </div>
@@ -1813,17 +1813,17 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Stats"><code>Stats</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="StatsResponse"><code>StatsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID for this system. </div>
 <div class="param">total_devices </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of active microinverters for this system. </div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
-<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#Stats_intervals">array[Stats_intervals]</a></span> A list of intervals between the requested start and end times. </div>
+<div class="param">intervals </div><div class="param-desc"><span class="param-type"><a href="#StatsResponse_intervals">array[StatsResponse_intervals]</a></span> A list of intervals between the requested start and end times. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Stats_intervals"><code>Stats_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="StatsResponse_intervals"><code>StatsResponse_intervals</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">end_at </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> End date for interval. The format is Unix epoch time unless you pass a <code>datetime_format</code> parameter as described <a href="https://developer.enphase.com/docs#Datetimes">here</a>. format: int64</div>
@@ -1850,7 +1850,7 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
           </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Summary"><code>Summary</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="SummaryResponse"><code>SummaryResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">current_power </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Current power production, in Watts. For historical requests, returns 0. </div>
@@ -1874,15 +1874,15 @@ a <code>datetime_format</code> parameter as described <a href="https://developer
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Systems"><code>Systems</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="SystemsResponse"><code>SystemsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">systems </div><div class="param-desc"><span class="param-type"><a href="#Systems_systems">array[Systems_systems]</a></span>  </div>
+      <div class="param">systems </div><div class="param-desc"><span class="param-type"><a href="#SystemsResponse_systems">array[SystemsResponse_systems]</a></span>  </div>
 <div class="param">next </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Systems_systems"><code>Systems_systems</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="SystemsResponse_systems"><code>SystemsResponse_systems</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the system. </div>

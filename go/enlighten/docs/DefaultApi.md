@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## ConsumptionLifetime
 
-> ConsumptionLifetime ConsumptionLifetime(ctx, systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Execute()
+> ConsumptionLifetimeResponse ConsumptionLifetime(ctx, systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Execute()
 
 
 
@@ -54,7 +54,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ConsumptionLifetime``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ConsumptionLifetime`: ConsumptionLifetime
+    // response from `ConsumptionLifetime`: ConsumptionLifetimeResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ConsumptionLifetime`: %v\n", resp)
 }
 ```
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionLifetime**](ConsumptionLifetime.md)
+[**ConsumptionLifetimeResponse**](ConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ## ConsumptionStats
 
-> ConsumptionStats ConsumptionStats(ctx, systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
+> ConsumptionStatsResponse ConsumptionStats(ctx, systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
 
 
 
@@ -130,7 +130,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ConsumptionStats``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ConsumptionStats`: ConsumptionStats
+    // response from `ConsumptionStats`: ConsumptionStatsResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ConsumptionStats`: %v\n", resp)
 }
 ```
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionStats**](ConsumptionStats.md)
+[**ConsumptionStatsResponse**](ConsumptionStatsResponse.md)
 
 ### Authorization
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ## EnergyLifetime
 
-> EnergyLifetime EnergyLifetime(ctx, systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Production(production).Execute()
+> EnergyLifetimeResponse EnergyLifetime(ctx, systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Production(production).Execute()
 
 
 
@@ -208,7 +208,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.EnergyLifetime``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EnergyLifetime`: EnergyLifetime
+    // response from `EnergyLifetime`: EnergyLifetimeResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.EnergyLifetime`: %v\n", resp)
 }
 ```
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnergyLifetime**](EnergyLifetime.md)
+[**EnergyLifetimeResponse**](EnergyLifetimeResponse.md)
 
 ### Authorization
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ## Envoys
 
-> Envoys Envoys(ctx, systemId).UserId(userId).Execute()
+> EnvoysResponse Envoys(ctx, systemId).UserId(userId).Execute()
 
 
 
@@ -283,7 +283,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Envoys``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Envoys`: Envoys
+    // response from `Envoys`: EnvoysResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Envoys`: %v\n", resp)
 }
 ```
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Envoys**](Envoys.md)
+[**EnvoysResponse**](EnvoysResponse.md)
 
 ### Authorization
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ## Inventory
 
-> Inventory Inventory(ctx, systemId).UserId(userId).Execute()
+> InventoryResponse Inventory(ctx, systemId).UserId(userId).Execute()
 
 
 
@@ -355,7 +355,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Inventory``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Inventory`: Inventory
+    // response from `Inventory`: InventoryResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Inventory`: %v\n", resp)
 }
 ```
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Inventory**](Inventory.md)
+[**InventoryResponse**](InventoryResponse.md)
 
 ### Authorization
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ## InvertersSummaryByEnvoyOrSite
 
-> []InvertersSummaryByEnvoyOrSite InvertersSummaryByEnvoyOrSite(ctx).UserId(userId).SiteId(siteId).Execute()
+> []InvertersSummaryByEnvoyOrSiteResponse InvertersSummaryByEnvoyOrSite(ctx).UserId(userId).SiteId(siteId).Execute()
 
 
 
@@ -427,7 +427,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.InvertersSummaryByEnvoyOrSite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InvertersSummaryByEnvoyOrSite`: []InvertersSummaryByEnvoyOrSite
+    // response from `InvertersSummaryByEnvoyOrSite`: []InvertersSummaryByEnvoyOrSiteResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.InvertersSummaryByEnvoyOrSite`: %v\n", resp)
 }
 ```
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]InvertersSummaryByEnvoyOrSite**](InvertersSummaryByEnvoyOrSite.md)
+[**[]InvertersSummaryByEnvoyOrSiteResponse**](InvertersSummaryByEnvoyOrSiteResponse.md)
 
 ### Authorization
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 ## MonthlyProduction
 
-> MonthlyProduction MonthlyProduction(ctx, systemId).UserId(userId).StartDate(startDate).Execute()
+> MonthlyProductionResponse MonthlyProduction(ctx, systemId).UserId(userId).StartDate(startDate).Execute()
 
 
 
@@ -497,7 +497,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.MonthlyProduction``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MonthlyProduction`: MonthlyProduction
+    // response from `MonthlyProduction`: MonthlyProductionResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.MonthlyProduction`: %v\n", resp)
 }
 ```
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MonthlyProduction**](MonthlyProduction.md)
+[**MonthlyProductionResponse**](MonthlyProductionResponse.md)
 
 ### Authorization
 
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 ## ProductionMeterReadings
 
-> ProductionMeterReadings ProductionMeterReadings(ctx, systemId).UserId(userId).EndAt(endAt).Execute()
+> ProductionMeterReadingsResponse ProductionMeterReadings(ctx, systemId).UserId(userId).EndAt(endAt).Execute()
 
 
 
@@ -571,7 +571,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ProductionMeterReadings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ProductionMeterReadings`: ProductionMeterReadings
+    // response from `ProductionMeterReadings`: ProductionMeterReadingsResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ProductionMeterReadings`: %v\n", resp)
 }
 ```
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductionMeterReadings**](ProductionMeterReadings.md)
+[**ProductionMeterReadingsResponse**](ProductionMeterReadingsResponse.md)
 
 ### Authorization
 
@@ -615,7 +615,7 @@ Name | Type | Description  | Notes
 
 ## RgmStats
 
-> RgmStats RgmStats(ctx, systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
+> RgmStatsResponse RgmStats(ctx, systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
 
 
 
@@ -646,7 +646,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RgmStats``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `RgmStats`: RgmStats
+    // response from `RgmStats`: RgmStatsResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.RgmStats`: %v\n", resp)
 }
 ```
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RgmStats**](RgmStats.md)
+[**RgmStatsResponse**](RgmStatsResponse.md)
 
 ### Authorization
 
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 
 ## SearchSystemId
 
-> SearchSystemId SearchSystemId(ctx).UserId(userId).SerialNum(serialNum).Execute()
+> SearchSystemIdResponse SearchSystemId(ctx).UserId(userId).SerialNum(serialNum).Execute()
 
 
 
@@ -720,7 +720,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.SearchSystemId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SearchSystemId`: SearchSystemId
+    // response from `SearchSystemId`: SearchSystemIdResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.SearchSystemId`: %v\n", resp)
 }
 ```
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchSystemId**](SearchSystemId.md)
+[**SearchSystemIdResponse**](SearchSystemIdResponse.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 
 ## Stats
 
-> Stats Stats(ctx, systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
+> StatsResponse Stats(ctx, systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
 
 
 
@@ -790,7 +790,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Stats``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Stats`: Stats
+    // response from `Stats`: StatsResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Stats`: %v\n", resp)
 }
 ```
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Stats**](Stats.md)
+[**StatsResponse**](StatsResponse.md)
 
 ### Authorization
 
@@ -835,7 +835,7 @@ Name | Type | Description  | Notes
 
 ## Summary
 
-> Summary Summary(ctx, systemId).UserId(userId).SummaryDate(summaryDate).Execute()
+> SummaryResponse Summary(ctx, systemId).UserId(userId).SummaryDate(summaryDate).Execute()
 
 
 
@@ -866,7 +866,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Summary``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Summary`: Summary
+    // response from `Summary`: SummaryResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Summary`: %v\n", resp)
 }
 ```
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Summary**](Summary.md)
+[**SummaryResponse**](SummaryResponse.md)
 
 ### Authorization
 
@@ -910,7 +910,7 @@ Name | Type | Description  | Notes
 
 ## Systems
 
-> Systems Systems(ctx).UserId(userId).Next(next).Limit(limit).SystemId(systemId).SystemId2(systemId2).SystemName(systemName).SystemName2(systemName2).Status(status).Status2(status2).Reference(reference).Reference2(reference2).Installer(installer).Installer2(installer2).ConnectionType(connectionType).ConnectionType2(connectionType2).Execute()
+> SystemsResponse Systems(ctx).UserId(userId).Next(next).Limit(limit).SystemId(systemId).SystemId2(systemId2).SystemName(systemName).SystemName2(systemName2).Status(status).Status2(status2).Reference(reference).Reference2(reference2).Installer(installer).Installer2(installer2).ConnectionType(connectionType).ConnectionType2(connectionType2).Execute()
 
 
 
@@ -952,7 +952,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Systems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Systems`: Systems
+    // response from `Systems`: SystemsResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Systems`: %v\n", resp)
 }
 ```
@@ -986,7 +986,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Systems**](Systems.md)
+[**SystemsResponse**](SystemsResponse.md)
 
 ### Authorization
 

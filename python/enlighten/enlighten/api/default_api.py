@@ -24,21 +24,21 @@ from enlighten.model_utils import (  # noqa: F401
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.connection_type import ConnectionType
-from enlighten.model.consumption_lifetime import ConsumptionLifetime
-from enlighten.model.consumption_stats import ConsumptionStats
-from enlighten.model.energy_lifetime import EnergyLifetime
-from enlighten.model.envoys import Envoys
-from enlighten.model.inventory import Inventory
-from enlighten.model.inverters_summary_by_envoy_or_site import InvertersSummaryByEnvoyOrSite
-from enlighten.model.monthly_production import MonthlyProduction
-from enlighten.model.production_meter_readings import ProductionMeterReadings
-from enlighten.model.rgm_stats import RgmStats
-from enlighten.model.search_system_id import SearchSystemId
+from enlighten.model.consumption_lifetime_response import ConsumptionLifetimeResponse
+from enlighten.model.consumption_stats_response import ConsumptionStatsResponse
+from enlighten.model.energy_lifetime_response import EnergyLifetimeResponse
+from enlighten.model.envoys_response import EnvoysResponse
+from enlighten.model.inventory_response import InventoryResponse
+from enlighten.model.inverters_summary_by_envoy_or_site_response import InvertersSummaryByEnvoyOrSiteResponse
+from enlighten.model.monthly_production_response import MonthlyProductionResponse
+from enlighten.model.production_meter_readings_response import ProductionMeterReadingsResponse
+from enlighten.model.rgm_stats_response import RgmStatsResponse
+from enlighten.model.search_system_id_response import SearchSystemIdResponse
 from enlighten.model.server_error import ServerError
-from enlighten.model.stats import Stats
+from enlighten.model.stats_response import StatsResponse
 from enlighten.model.status import Status
-from enlighten.model.summary import Summary
-from enlighten.model.systems import Systems
+from enlighten.model.summary_response import SummaryResponse
+from enlighten.model.systems_response import SystemsResponse
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 
 
@@ -97,7 +97,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ConsumptionLifetime
+                ConsumptionLifetimeResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -128,7 +128,7 @@ class DefaultApi(object):
 
         self.consumption_lifetime = _Endpoint(
             settings={
-                'response_type': (ConsumptionLifetime,),
+                'response_type': (ConsumptionLifetimeResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -238,7 +238,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ConsumptionStats
+                ConsumptionStatsResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -269,7 +269,7 @@ class DefaultApi(object):
 
         self.consumption_stats = _Endpoint(
             settings={
-                'response_type': (ConsumptionStats,),
+                'response_type': (ConsumptionStatsResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -380,7 +380,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                EnergyLifetime
+                EnergyLifetimeResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -411,7 +411,7 @@ class DefaultApi(object):
 
         self.energy_lifetime = _Endpoint(
             settings={
-                'response_type': (EnergyLifetime,),
+                'response_type': (EnergyLifetimeResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -529,7 +529,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Envoys
+                EnvoysResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -560,7 +560,7 @@ class DefaultApi(object):
 
         self.envoys = _Endpoint(
             settings={
-                'response_type': (Envoys,),
+                'response_type': (EnvoysResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -658,7 +658,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Inventory
+                InventoryResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -689,7 +689,7 @@ class DefaultApi(object):
 
         self.inventory = _Endpoint(
             settings={
-                'response_type': (Inventory,),
+                'response_type': (InventoryResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -787,7 +787,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                [InvertersSummaryByEnvoyOrSite]
+                [InvertersSummaryByEnvoyOrSiteResponse]
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -818,7 +818,7 @@ class DefaultApi(object):
 
         self.inverters_summary_by_envoy_or_site = _Endpoint(
             settings={
-                'response_type': ([InvertersSummaryByEnvoyOrSite],),
+                'response_type': ([InvertersSummaryByEnvoyOrSiteResponse],),
                 'auth': [
                     'ApiKey'
                 ],
@@ -918,7 +918,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                MonthlyProduction
+                MonthlyProductionResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -951,7 +951,7 @@ class DefaultApi(object):
 
         self.monthly_production = _Endpoint(
             settings={
-                'response_type': (MonthlyProduction,),
+                'response_type': (MonthlyProductionResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1056,7 +1056,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ProductionMeterReadings
+                ProductionMeterReadingsResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1087,7 +1087,7 @@ class DefaultApi(object):
 
         self.production_meter_readings = _Endpoint(
             settings={
-                'response_type': (ProductionMeterReadings,),
+                'response_type': (ProductionMeterReadingsResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1192,7 +1192,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                RgmStats
+                RgmStatsResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1223,7 +1223,7 @@ class DefaultApi(object):
 
         self.rgm_stats = _Endpoint(
             settings={
-                'response_type': (RgmStats,),
+                'response_type': (RgmStatsResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1331,7 +1331,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                SearchSystemId
+                SearchSystemIdResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1362,7 +1362,7 @@ class DefaultApi(object):
 
         self.search_system_id = _Endpoint(
             settings={
-                'response_type': (SearchSystemId,),
+                'response_type': (SearchSystemIdResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1462,7 +1462,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Stats
+                StatsResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1493,7 +1493,7 @@ class DefaultApi(object):
 
         self.stats = _Endpoint(
             settings={
-                'response_type': (Stats,),
+                'response_type': (StatsResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1602,7 +1602,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Summary
+                SummaryResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1633,7 +1633,7 @@ class DefaultApi(object):
 
         self.summary = _Endpoint(
             settings={
-                'response_type': (Summary,),
+                'response_type': (SummaryResponse,),
                 'auth': [
                     'ApiKey'
                 ],
@@ -1748,7 +1748,7 @@ class DefaultApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                Systems
+                SystemsResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -1777,7 +1777,7 @@ class DefaultApi(object):
 
         self.systems = _Endpoint(
             settings={
-                'response_type': (Systems,),
+                'response_type': (SystemsResponse,),
                 'auth': [
                     'ApiKey'
                 ],

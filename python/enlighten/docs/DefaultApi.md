@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **consumption_lifetime**
-> ConsumptionLifetime consumption_lifetime(user_id, system_id)
+> ConsumptionLifetimeResponse consumption_lifetime(user_id, system_id)
 
 
 
@@ -33,7 +33,7 @@ Returns a time series of energy consumption as measured by the consumption meter
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.consumption_lifetime import ConsumptionLifetime
+from enlighten.model.consumption_lifetime_response import ConsumptionLifetimeResponse
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionLifetime**](ConsumptionLifetime.md)
+[**ConsumptionLifetimeResponse**](ConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **consumption_stats**
-> ConsumptionStats consumption_stats(user_id, system_id)
+> ConsumptionStatsResponse consumption_stats(user_id, system_id)
 
 
 
@@ -131,11 +131,11 @@ Returns consumption as measured by the consumption meter installed on the specif
 import time
 import enlighten
 from enlighten.api import default_api
+from enlighten.model.consumption_stats_response import ConsumptionStatsResponse
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
-from enlighten.model.consumption_stats import ConsumptionStats
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionStats**](ConsumptionStats.md)
+[**ConsumptionStatsResponse**](ConsumptionStatsResponse.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **energy_lifetime**
-> EnergyLifetime energy_lifetime(user_id, system_id)
+> EnergyLifetimeResponse energy_lifetime(user_id, system_id)
 
 
 
@@ -229,8 +229,8 @@ Returns a time series of energy produced on the system over its lifetime. All me
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.energy_lifetime import EnergyLifetime
 from enlighten.model.server_error import ServerError
+from enlighten.model.energy_lifetime_response import EnergyLifetimeResponse
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnergyLifetime**](EnergyLifetime.md)
+[**EnergyLifetimeResponse**](EnergyLifetimeResponse.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **envoys**
-> Envoys envoys(user_id, system_id)
+> EnvoysResponse envoys(user_id, system_id)
 
 
 
@@ -330,8 +330,8 @@ Returns a listing of all active Envoys currently deployed on the system.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.envoys import Envoys
 from enlighten.model.server_error import ServerError
+from enlighten.model.envoys_response import EnvoysResponse
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Envoys**](Envoys.md)
+[**EnvoysResponse**](EnvoysResponse.md)
 
 ### Authorization
 
@@ -403,7 +403,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inventory**
-> Inventory inventory(user_id, system_id)
+> InventoryResponse inventory(user_id, system_id)
 
 
 
@@ -416,11 +416,11 @@ Returns a listing of active devices on the given system. A device is considered 
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.inventory import Inventory
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
+from enlighten.model.inventory_response import InventoryResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Inventory**](Inventory.md)
+[**InventoryResponse**](InventoryResponse.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inverters_summary_by_envoy_or_site**
-> [InvertersSummaryByEnvoyOrSite] inverters_summary_by_envoy_or_site(user_id, site_id)
+> [InvertersSummaryByEnvoyOrSiteResponse] inverters_summary_by_envoy_or_site(user_id, site_id)
 
 
 
@@ -502,11 +502,11 @@ Returns the summary along with the energy produced on the system over its lifeti
 import time
 import enlighten
 from enlighten.api import default_api
+from enlighten.model.inverters_summary_by_envoy_or_site_response import InvertersSummaryByEnvoyOrSiteResponse
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
-from enlighten.model.inverters_summary_by_envoy_or_site import InvertersSummaryByEnvoyOrSite
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[InvertersSummaryByEnvoyOrSite]**](InvertersSummaryByEnvoyOrSite.md)
+[**[InvertersSummaryByEnvoyOrSiteResponse]**](InvertersSummaryByEnvoyOrSiteResponse.md)
 
 ### Authorization
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **monthly_production**
-> MonthlyProduction monthly_production(user_id, system_id, start_date)
+> MonthlyProductionResponse monthly_production(user_id, system_id, start_date)
 
 
 
@@ -588,8 +588,8 @@ This endpoint is deprecated and will be removed in a future release. Use `produc
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.monthly_production import MonthlyProduction
 from enlighten.model.server_error import ServerError
+from enlighten.model.monthly_production_response import MonthlyProductionResponse
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MonthlyProduction**](MonthlyProduction.md)
+[**MonthlyProductionResponse**](MonthlyProductionResponse.md)
 
 ### Authorization
 
@@ -663,7 +663,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **production_meter_readings**
-> ProductionMeterReadings production_meter_readings(user_id, system_id)
+> ProductionMeterReadingsResponse production_meter_readings(user_id, system_id)
 
 
 
@@ -676,7 +676,7 @@ Returns the last known \"odometer\" reading of each revenue-grade production met
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.production_meter_readings import ProductionMeterReadings
+from enlighten.model.production_meter_readings_response import ProductionMeterReadingsResponse
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
@@ -734,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductionMeterReadings**](ProductionMeterReadings.md)
+[**ProductionMeterReadingsResponse**](ProductionMeterReadingsResponse.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rgm_stats**
-> RgmStats rgm_stats(user_id, system_id)
+> RgmStatsResponse rgm_stats(user_id, system_id)
 
 
 
@@ -772,7 +772,7 @@ Returns performance statistics as measured by the revenue-grade meters installed
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.rgm_stats import RgmStats
+from enlighten.model.rgm_stats_response import RgmStatsResponse
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RgmStats**](RgmStats.md)
+[**RgmStatsResponse**](RgmStatsResponse.md)
 
 ### Authorization
 
@@ -857,7 +857,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_system_id**
-> SearchSystemId search_system_id(user_id, serial_num)
+> SearchSystemIdResponse search_system_id(user_id, serial_num)
 
 
 
@@ -871,10 +871,10 @@ import time
 import enlighten
 from enlighten.api import default_api
 from enlighten.model.server_error import ServerError
-from enlighten.model.search_system_id import SearchSystemId
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
+from enlighten.model.search_system_id_response import SearchSystemIdResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchSystemId**](SearchSystemId.md)
+[**SearchSystemIdResponse**](SearchSystemIdResponse.md)
 
 ### Authorization
 
@@ -944,7 +944,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stats**
-> Stats stats(user_id, system_id)
+> StatsResponse stats(user_id, system_id)
 
 
 
@@ -957,8 +957,8 @@ Returns performance statistics for the specified system as reported by microinve
 import time
 import enlighten
 from enlighten.api import default_api
+from enlighten.model.stats_response import StatsResponse
 from enlighten.model.server_error import ServerError
-from enlighten.model.stats import Stats
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
@@ -1017,7 +1017,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Stats**](Stats.md)
+[**StatsResponse**](StatsResponse.md)
 
 ### Authorization
 
@@ -1042,7 +1042,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **summary**
-> Summary summary(user_id, system_id)
+> SummaryResponse summary(user_id, system_id)
 
 
 
@@ -1055,7 +1055,7 @@ Returns summary information for the specified system.
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.summary import Summary
+from enlighten.model.summary_response import SummaryResponse
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
@@ -1113,7 +1113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Summary**](Summary.md)
+[**SummaryResponse**](SummaryResponse.md)
 
 ### Authorization
 
@@ -1138,7 +1138,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **systems**
-> Systems systems(user_id)
+> SystemsResponse systems(user_id)
 
 
 
@@ -1151,13 +1151,13 @@ Returns a list of systems for which the user can make API requests. There is a l
 import time
 import enlighten
 from enlighten.api import default_api
-from enlighten.model.systems import Systems
 from enlighten.model.connection_type import ConnectionType
 from enlighten.model.status import Status
 from enlighten.model.server_error import ServerError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
+from enlighten.model.systems_response import SystemsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1243,7 +1243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Systems**](Systems.md)
+[**SystemsResponse**](SystemsResponse.md)
 
 ### Authorization
 

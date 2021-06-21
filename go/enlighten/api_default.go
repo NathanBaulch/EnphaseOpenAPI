@@ -50,7 +50,7 @@ func (r ApiConsumptionLifetimeRequest) EndDate(endDate string) ApiConsumptionLif
 	return r
 }
 
-func (r ApiConsumptionLifetimeRequest) Execute() (ConsumptionLifetime, *_nethttp.Response, error) {
+func (r ApiConsumptionLifetimeRequest) Execute() (ConsumptionLifetimeResponse, *_nethttp.Response, error) {
 	return r.ApiService.ConsumptionLifetimeExecute(r)
 }
 
@@ -76,16 +76,16 @@ func (a *DefaultApiService) ConsumptionLifetime(ctx _context.Context, systemId i
 
 /*
  * Execute executes the request
- * @return ConsumptionLifetime
+ * @return ConsumptionLifetimeResponse
  */
-func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeRequest) (ConsumptionLifetime, *_nethttp.Response, error) {
+func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeRequest) (ConsumptionLifetimeResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ConsumptionLifetime
+		localVarReturnValue  ConsumptionLifetimeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ConsumptionLifetime")
@@ -249,7 +249,7 @@ func (r ApiConsumptionStatsRequest) EndAt(endAt int64) ApiConsumptionStatsReques
 	return r
 }
 
-func (r ApiConsumptionStatsRequest) Execute() (ConsumptionStats, *_nethttp.Response, error) {
+func (r ApiConsumptionStatsRequest) Execute() (ConsumptionStatsResponse, *_nethttp.Response, error) {
 	return r.ApiService.ConsumptionStatsExecute(r)
 }
 
@@ -280,16 +280,16 @@ func (a *DefaultApiService) ConsumptionStats(ctx _context.Context, systemId int3
 
 /*
  * Execute executes the request
- * @return ConsumptionStats
+ * @return ConsumptionStatsResponse
  */
-func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest) (ConsumptionStats, *_nethttp.Response, error) {
+func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest) (ConsumptionStatsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ConsumptionStats
+		localVarReturnValue  ConsumptionStatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ConsumptionStats")
@@ -458,7 +458,7 @@ func (r ApiEnergyLifetimeRequest) Production(production string) ApiEnergyLifetim
 	return r
 }
 
-func (r ApiEnergyLifetimeRequest) Execute() (EnergyLifetime, *_nethttp.Response, error) {
+func (r ApiEnergyLifetimeRequest) Execute() (EnergyLifetimeResponse, *_nethttp.Response, error) {
 	return r.ApiService.EnergyLifetimeExecute(r)
 }
 
@@ -487,16 +487,16 @@ func (a *DefaultApiService) EnergyLifetime(ctx _context.Context, systemId int32)
 
 /*
  * Execute executes the request
- * @return EnergyLifetime
+ * @return EnergyLifetimeResponse
  */
-func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (EnergyLifetime, *_nethttp.Response, error) {
+func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (EnergyLifetimeResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  EnergyLifetime
+		localVarReturnValue  EnergyLifetimeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.EnergyLifetime")
@@ -653,7 +653,7 @@ func (r ApiEnvoysRequest) UserId(userId string) ApiEnvoysRequest {
 	return r
 }
 
-func (r ApiEnvoysRequest) Execute() (Envoys, *_nethttp.Response, error) {
+func (r ApiEnvoysRequest) Execute() (EnvoysResponse, *_nethttp.Response, error) {
 	return r.ApiService.EnvoysExecute(r)
 }
 
@@ -674,16 +674,16 @@ func (a *DefaultApiService) Envoys(ctx _context.Context, systemId int32) ApiEnvo
 
 /*
  * Execute executes the request
- * @return Envoys
+ * @return EnvoysResponse
  */
-func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (Envoys, *_nethttp.Response, error) {
+func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (EnvoysResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Envoys
+		localVarReturnValue  EnvoysResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Envoys")
@@ -831,7 +831,7 @@ func (r ApiInventoryRequest) UserId(userId string) ApiInventoryRequest {
 	return r
 }
 
-func (r ApiInventoryRequest) Execute() (Inventory, *_nethttp.Response, error) {
+func (r ApiInventoryRequest) Execute() (InventoryResponse, *_nethttp.Response, error) {
 	return r.ApiService.InventoryExecute(r)
 }
 
@@ -853,16 +853,16 @@ func (a *DefaultApiService) Inventory(ctx _context.Context, systemId int32) ApiI
 
 /*
  * Execute executes the request
- * @return Inventory
+ * @return InventoryResponse
  */
-func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (Inventory, *_nethttp.Response, error) {
+func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InventoryResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Inventory
+		localVarReturnValue  InventoryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Inventory")
@@ -1014,7 +1014,7 @@ func (r ApiInvertersSummaryByEnvoyOrSiteRequest) SiteId(siteId int32) ApiInverte
 	return r
 }
 
-func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() ([]InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
+func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() ([]InvertersSummaryByEnvoyOrSiteResponse, *_nethttp.Response, error) {
 	return r.ApiService.InvertersSummaryByEnvoyOrSiteExecute(r)
 }
 
@@ -1033,16 +1033,16 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSite(ctx _context.Context) 
 
 /*
  * Execute executes the request
- * @return []InvertersSummaryByEnvoyOrSite
+ * @return []InvertersSummaryByEnvoyOrSiteResponse
  */
-func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) ([]InvertersSummaryByEnvoyOrSite, *_nethttp.Response, error) {
+func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) ([]InvertersSummaryByEnvoyOrSiteResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []InvertersSummaryByEnvoyOrSite
+		localVarReturnValue  []InvertersSummaryByEnvoyOrSiteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.InvertersSummaryByEnvoyOrSite")
@@ -1198,7 +1198,7 @@ func (r ApiMonthlyProductionRequest) StartDate(startDate string) ApiMonthlyProdu
 	return r
 }
 
-func (r ApiMonthlyProductionRequest) Execute() (MonthlyProduction, *_nethttp.Response, error) {
+func (r ApiMonthlyProductionRequest) Execute() (MonthlyProductionResponse, *_nethttp.Response, error) {
 	return r.ApiService.MonthlyProductionExecute(r)
 }
 
@@ -1224,16 +1224,16 @@ func (a *DefaultApiService) MonthlyProduction(ctx _context.Context, systemId int
 
 /*
  * Execute executes the request
- * @return MonthlyProduction
+ * @return MonthlyProductionResponse
  */
-func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionRequest) (MonthlyProduction, *_nethttp.Response, error) {
+func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionRequest) (MonthlyProductionResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  MonthlyProduction
+		localVarReturnValue  MonthlyProductionResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.MonthlyProduction")
@@ -1390,7 +1390,7 @@ func (r ApiProductionMeterReadingsRequest) EndAt(endAt int64) ApiProductionMeter
 	return r
 }
 
-func (r ApiProductionMeterReadingsRequest) Execute() (ProductionMeterReadings, *_nethttp.Response, error) {
+func (r ApiProductionMeterReadingsRequest) Execute() (ProductionMeterReadingsResponse, *_nethttp.Response, error) {
 	return r.ApiService.ProductionMeterReadingsExecute(r)
 }
 
@@ -1416,16 +1416,16 @@ func (a *DefaultApiService) ProductionMeterReadings(ctx _context.Context, system
 
 /*
  * Execute executes the request
- * @return ProductionMeterReadings
+ * @return ProductionMeterReadingsResponse
  */
-func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterReadingsRequest) (ProductionMeterReadings, *_nethttp.Response, error) {
+func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterReadingsRequest) (ProductionMeterReadingsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ProductionMeterReadings
+		localVarReturnValue  ProductionMeterReadingsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ProductionMeterReadings")
@@ -1586,7 +1586,7 @@ func (r ApiRgmStatsRequest) EndAt(endAt int64) ApiRgmStatsRequest {
 	return r
 }
 
-func (r ApiRgmStatsRequest) Execute() (RgmStats, *_nethttp.Response, error) {
+func (r ApiRgmStatsRequest) Execute() (RgmStatsResponse, *_nethttp.Response, error) {
 	return r.ApiService.RgmStatsExecute(r)
 }
 
@@ -1615,16 +1615,16 @@ func (a *DefaultApiService) RgmStats(ctx _context.Context, systemId int32) ApiRg
 
 /*
  * Execute executes the request
- * @return RgmStats
+ * @return RgmStatsResponse
  */
-func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStats, *_nethttp.Response, error) {
+func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStatsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  RgmStats
+		localVarReturnValue  RgmStatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.RgmStats")
@@ -1782,7 +1782,7 @@ func (r ApiSearchSystemIdRequest) SerialNum(serialNum string) ApiSearchSystemIdR
 	return r
 }
 
-func (r ApiSearchSystemIdRequest) Execute() (SearchSystemId, *_nethttp.Response, error) {
+func (r ApiSearchSystemIdRequest) Execute() (SearchSystemIdResponse, *_nethttp.Response, error) {
 	return r.ApiService.SearchSystemIdExecute(r)
 }
 
@@ -1801,16 +1801,16 @@ func (a *DefaultApiService) SearchSystemId(ctx _context.Context) ApiSearchSystem
 
 /*
  * Execute executes the request
- * @return SearchSystemId
+ * @return SearchSystemIdResponse
  */
-func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (SearchSystemId, *_nethttp.Response, error) {
+func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (SearchSystemIdResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  SearchSystemId
+		localVarReturnValue  SearchSystemIdResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SearchSystemId")
@@ -1981,7 +1981,7 @@ func (r ApiStatsRequest) EndAt(endAt int64) ApiStatsRequest {
 	return r
 }
 
-func (r ApiStatsRequest) Execute() (Stats, *_nethttp.Response, error) {
+func (r ApiStatsRequest) Execute() (StatsResponse, *_nethttp.Response, error) {
 	return r.ApiService.StatsExecute(r)
 }
 
@@ -2015,16 +2015,16 @@ func (a *DefaultApiService) Stats(ctx _context.Context, systemId int32) ApiStats
 
 /*
  * Execute executes the request
- * @return Stats
+ * @return StatsResponse
  */
-func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (Stats, *_nethttp.Response, error) {
+func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (StatsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Stats
+		localVarReturnValue  StatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Stats")
@@ -2183,7 +2183,7 @@ func (r ApiSummaryRequest) SummaryDate(summaryDate string) ApiSummaryRequest {
 	return r
 }
 
-func (r ApiSummaryRequest) Execute() (Summary, *_nethttp.Response, error) {
+func (r ApiSummaryRequest) Execute() (SummaryResponse, *_nethttp.Response, error) {
 	return r.ApiService.SummaryExecute(r)
 }
 
@@ -2204,16 +2204,16 @@ func (a *DefaultApiService) Summary(ctx _context.Context, systemId int32) ApiSum
 
 /*
  * Execute executes the request
- * @return Summary
+ * @return SummaryResponse
  */
-func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (Summary, *_nethttp.Response, error) {
+func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (SummaryResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Summary
+		localVarReturnValue  SummaryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Summary")
@@ -2433,7 +2433,7 @@ func (r ApiSystemsRequest) ConnectionType2(connectionType2 []ConnectionType) Api
 	return r
 }
 
-func (r ApiSystemsRequest) Execute() (Systems, *_nethttp.Response, error) {
+func (r ApiSystemsRequest) Execute() (SystemsResponse, *_nethttp.Response, error) {
 	return r.ApiService.SystemsExecute(r)
 }
 
@@ -2453,16 +2453,16 @@ func (a *DefaultApiService) Systems(ctx _context.Context) ApiSystemsRequest {
 
 /*
  * Execute executes the request
- * @return Systems
+ * @return SystemsResponse
  */
-func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (Systems, *_nethttp.Response, error) {
+func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (SystemsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Systems
+		localVarReturnValue  SystemsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Systems")

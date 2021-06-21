@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConsumptionLifetime**](ConsumptionLifetime.md)
+[**ConsumptionLifetimeResponse**](ConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ the last reported interval. | [optional] [default to null]
 
 ### Return type
 
-[**ConsumptionStats**](ConsumptionStats.md)
+[**ConsumptionStatsResponse**](ConsumptionStatsResponse.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnergyLifetime**](EnergyLifetime.md)
+[**EnergyLifetimeResponse**](EnergyLifetimeResponse.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Envoys**](Envoys.md)
+[**EnvoysResponse**](EnvoysResponse.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Inventory**](Inventory.md)
+[**InventoryResponse**](InventoryResponse.md)
 
 ### Authorization
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[InvertersSummaryByEnvoyOrSite]**](InvertersSummaryByEnvoyOrSite.md)
+[**array[InvertersSummaryByEnvoyOrSiteResponse]**](InvertersSummaryByEnvoyOrSiteResponse.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ start date is the first of a calendar month, the end end date is the last day of
 
 ### Return type
 
-[**MonthlyProduction**](MonthlyProduction.md)
+[**MonthlyProductionResponse**](MonthlyProductionResponse.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductionMeterReadings**](ProductionMeterReadings.md)
+[**ProductionMeterReadingsResponse**](ProductionMeterReadingsResponse.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ the last reported interval. | [optional] [default to null]
 
 ### Return type
 
-[**RgmStats**](RgmStats.md)
+[**RgmStatsResponse**](RgmStatsResponse.md)
 
 ### Authorization
 
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchSystemId**](SearchSystemId.md)
+[**SearchSystemIdResponse**](SearchSystemIdResponse.md)
 
 ### Authorization
 
@@ -477,7 +477,7 @@ reported interval. | [optional] [default to null]
 
 ### Return type
 
-[**Stats**](Stats.md)
+[**StatsResponse**](StatsResponse.md)
 
 ### Authorization
 
@@ -515,7 +515,7 @@ day. If the requested date cannot be parsed or is in the future, the response in
 
 ### Return type
 
-[**Summary**](Summary.md)
+[**SummaryResponse**](SummaryResponse.md)
 
 ### Authorization
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Systems**](Systems.md)
+[**SystemsResponse**](SystemsResponse.md)
 
 ### Authorization
 

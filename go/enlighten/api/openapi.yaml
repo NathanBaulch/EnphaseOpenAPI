@@ -85,7 +85,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnergyLifetime'
+                $ref: '#/components/schemas/EnergyLifetimeResponse'
           description: OK
         "204":
           description: No Content
@@ -146,7 +146,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Envoys'
+                $ref: '#/components/schemas/EnvoysResponse'
           description: OK
         "401":
           content:
@@ -324,7 +324,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Systems'
+                $ref: '#/components/schemas/SystemsResponse'
           description: OK
         "401":
           content:
@@ -384,7 +384,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Inventory'
+                $ref: '#/components/schemas/InventoryResponse'
           description: OK
         "401":
           content:
@@ -445,7 +445,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite'
+                  $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSiteResponse'
                 type: array
           description: OK
         "401":
@@ -523,7 +523,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MonthlyProduction'
+                $ref: '#/components/schemas/MonthlyProductionResponse'
           description: OK
         "401":
           content:
@@ -596,7 +596,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductionMeterReadings'
+                $ref: '#/components/schemas/ProductionMeterReadingsResponse'
           description: OK
         "401":
           content:
@@ -687,7 +687,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RgmStats'
+                $ref: '#/components/schemas/RgmStatsResponse'
           description: OK
         "401":
           content:
@@ -783,7 +783,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Stats'
+                $ref: '#/components/schemas/StatsResponse'
           description: OK
         "401":
           content:
@@ -869,7 +869,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConsumptionLifetime'
+                $ref: '#/components/schemas/ConsumptionLifetimeResponse'
           description: OK
         "401":
           content:
@@ -962,7 +962,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConsumptionStats'
+                $ref: '#/components/schemas/ConsumptionStatsResponse'
           description: OK
         "401":
           content:
@@ -1032,7 +1032,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Summary'
+                $ref: '#/components/schemas/SummaryResponse'
           description: OK
         "401":
           content:
@@ -1091,7 +1091,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchSystemId'
+                $ref: '#/components/schemas/SearchSystemIdResponse'
           description: OK
         "401":
           content:
@@ -1175,7 +1175,7 @@ components:
             $ref: '#/components/schemas/ServerError'
       description: Server error
   schemas:
-    EnergyLifetime:
+    EnergyLifetimeResponse:
       example:
         start_date: 2013-01-01
         system_id: 66
@@ -1234,7 +1234,7 @@ components:
       - start_date
       - system_id
       type: object
-    Envoys:
+    EnvoysResponse:
       example:
         system_id: 67
         envoys:
@@ -1257,13 +1257,13 @@ components:
         envoys:
           description: A list of active Envoys on this system.
           items:
-            $ref: '#/components/schemas/Envoys_envoys'
+            $ref: '#/components/schemas/EnvoysResponse_envoys'
           type: array
       required:
       - envoys
       - system_id
       type: object
-    Systems:
+    SystemsResponse:
       example:
         systems:
         - system_id: 67
@@ -1300,7 +1300,7 @@ components:
       properties:
         systems:
           items:
-            $ref: '#/components/schemas/Systems_systems'
+            $ref: '#/components/schemas/SystemsResponse_systems'
           type: array
         next:
           type: string
@@ -1308,7 +1308,7 @@ components:
       - next
       - systems
       type: object
-    Inventory:
+    InventoryResponse:
       example:
         system_id: 1765
         inverters:
@@ -1327,19 +1327,19 @@ components:
         envoys:
           description: A list of Envoys on this system, including serial number.
           items:
-            $ref: '#/components/schemas/Inventory_envoys'
+            $ref: '#/components/schemas/InventoryResponse_envoys'
           type: array
         inverters:
           description: A list of inverters on this system, including serial and model
             numbers.
           items:
-            $ref: '#/components/schemas/Inventory_envoys'
+            $ref: '#/components/schemas/InventoryResponse_envoys'
           type: array
         meters:
           description: A list of meters on this system, including serial number, manufacturer,
             and model number.
           items:
-            $ref: '#/components/schemas/Inventory_meters'
+            $ref: '#/components/schemas/InventoryResponse_meters'
           type: array
         meta:
           $ref: '#/components/schemas/Meta'
@@ -1349,7 +1349,7 @@ components:
       - meters
       - system_id
       type: object
-    InvertersSummaryByEnvoyOrSite:
+    InvertersSummaryByEnvoyOrSiteResponse:
       example:
         signal_strength: 5
         micro_inverters:
@@ -1392,13 +1392,13 @@ components:
           description: A list of active inverters on this system, including serial
             and model numbers.
           items:
-            $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite_micro_inverters'
+            $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSiteResponse_micro_inverters'
           type: array
       required:
       - micro_inverters
       - signal_strength
       type: object
-    MonthlyProduction:
+    MonthlyProductionResponse:
       example:
         system_id: 66
         start_date: 2011-07-01
@@ -1435,7 +1435,7 @@ components:
             readings at the beginning and end of the reporting period are included
             here. Otherwise, the array is empty.
           items:
-            $ref: '#/components/schemas/MonthlyProduction_meter_readings'
+            $ref: '#/components/schemas/MonthlyProductionResponse_meter_readings'
           type: array
         meta:
           $ref: '#/components/schemas/Meta'
@@ -1447,7 +1447,7 @@ components:
       - start_date
       - system_id
       type: object
-    ProductionMeterReadings:
+    ProductionMeterReadingsResponse:
       example:
         system_id: 66
         meter_readings:
@@ -1464,7 +1464,7 @@ components:
           type: integer
         meter_readings:
           items:
-            $ref: '#/components/schemas/ProductionMeterReadings_meter_readings'
+            $ref: '#/components/schemas/ProductionMeterReadingsResponse_meter_readings'
           type: array
         meta:
           $ref: '#/components/schemas/Meta'
@@ -1473,7 +1473,7 @@ components:
       - meter_readings
       - system_id
       type: object
-    RgmStats:
+    RgmStatsResponse:
       example:
         system_id: 1765
         total_devices: 2
@@ -1557,13 +1557,13 @@ components:
         intervals:
           description: A list of intervals between the requested start and end times.
           items:
-            $ref: '#/components/schemas/RgmStats_intervals'
+            $ref: '#/components/schemas/RgmStatsResponse_intervals'
           type: array
         meter_intervals:
           description: A list of intervals of a meter between the requested start
             and end times.
           items:
-            $ref: '#/components/schemas/RgmStats_meter_intervals'
+            $ref: '#/components/schemas/RgmStatsResponse_meter_intervals'
           type: array
       required:
       - intervals
@@ -1572,7 +1572,7 @@ components:
       - system_id
       - total_devices
       type: object
-    Stats:
+    StatsResponse:
       example:
         system_id: 1765
         total_devices: 31
@@ -1614,7 +1614,7 @@ components:
         intervals:
           description: A list of intervals between the requested start and end times.
           items:
-            $ref: '#/components/schemas/Stats_intervals'
+            $ref: '#/components/schemas/StatsResponse_intervals'
           type: array
       required:
       - intervals
@@ -1622,7 +1622,7 @@ components:
       - system_id
       - total_devices
       type: object
-    ConsumptionLifetime:
+    ConsumptionLifetimeResponse:
       example:
         system_id: 66
         start_date: 2016-08-01
@@ -1662,7 +1662,7 @@ components:
       - start_date
       - system_id
       type: object
-    ConsumptionStats:
+    ConsumptionStatsResponse:
       example:
         system_id: 1765
         total_devices: 1
@@ -1699,7 +1699,7 @@ components:
         intervals:
           description: A list of intervals between the requested start and end times.
           items:
-            $ref: '#/components/schemas/ConsumptionStats_intervals'
+            $ref: '#/components/schemas/ConsumptionStatsResponse_intervals'
           type: array
       required:
       - intervals
@@ -1707,7 +1707,7 @@ components:
       - system_id
       - total_devices
       type: object
-    Summary:
+    SummaryResponse:
       example:
         current_power: 3322
         energy_lifetime: 19050353
@@ -1792,7 +1792,7 @@ components:
       - summary_date
       - system_id
       type: object
-    SearchSystemId:
+    SearchSystemIdResponse:
       example:
         system_id: 123
       properties:
@@ -1941,7 +1941,7 @@ components:
       - errorCode
       - errorMessages
       type: object
-    Envoys_envoys:
+    EnvoysResponse_envoys:
       properties:
         envoy_id:
           description: The Enlighten ID of the Envoy.
@@ -1978,7 +1978,7 @@ components:
       - serial_number
       - status
       type: object
-    Systems_systems:
+    SystemsResponse_systems:
       properties:
         system_id:
           description: The Enlighten ID of the system.
@@ -2058,7 +2058,7 @@ components:
       - system_public_name
       - timezone
       type: object
-    Inventory_envoys:
+    InventoryResponse_envoys:
       properties:
         sn:
           type: string
@@ -2071,7 +2071,7 @@ components:
       - sku
       - sn
       type: object
-    Inventory_meters:
+    InventoryResponse_meters:
       properties:
         sn:
           type: string
@@ -2084,7 +2084,7 @@ components:
       - model
       - sn
       type: object
-    InvertersSummaryByEnvoyOrSite_energy:
+    InvertersSummaryByEnvoyOrSiteResponse_energy:
       description: Returns the lifetime energy of the Microinverter. If the system
         has never produced energy, the energy value would be 0.
       properties:
@@ -2102,7 +2102,7 @@ components:
       - units
       - value
       type: object
-    InvertersSummaryByEnvoyOrSite_micro_inverters:
+    InvertersSummaryByEnvoyOrSiteResponse_micro_inverters:
       properties:
         id:
           type: integer
@@ -2139,7 +2139,7 @@ components:
         envoy_serial_number:
           type: string
         energy:
-          $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSite_energy'
+          $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSiteResponse_energy'
         grid_profile:
           type: string
         last_report_date:
@@ -2163,7 +2163,7 @@ components:
       - sku
       - status
       type: object
-    MonthlyProduction_meter_readings:
+    MonthlyProductionResponse_meter_readings:
       properties:
         serial_number:
           type: string
@@ -2176,7 +2176,7 @@ components:
       - serial_number
       - start
       type: object
-    ProductionMeterReadings_meter_readings:
+    ProductionMeterReadingsResponse_meter_readings:
       properties:
         serial_number:
           description: The serial number of the meter.
@@ -2194,7 +2194,7 @@ components:
       - serial_number
       - value
       type: object
-    RgmStats_intervals:
+    RgmStatsResponse_intervals:
       properties:
         end_at:
           description: End of interval. The format is Unix epoch time unless you pass
@@ -2213,7 +2213,7 @@ components:
       - end_at
       - wh_del
       type: object
-    RgmStats_intervals_1:
+    RgmStatsResponse_intervals_1:
       properties:
         channel:
           description: The reporting channel identifier.
@@ -2236,7 +2236,7 @@ components:
       - end_at
       - wh_del
       type: object
-    RgmStats_meter_intervals:
+    RgmStatsResponse_meter_intervals:
       properties:
         meter_serial_number:
           description: Serial number of the revenue grade meter.
@@ -2247,14 +2247,14 @@ components:
         intervals:
           description: Individual meter level interval.
           items:
-            $ref: '#/components/schemas/RgmStats_intervals_1'
+            $ref: '#/components/schemas/RgmStatsResponse_intervals_1'
           type: array
       required:
       - envoy_serial_number
       - intervals
       - meter_serial_number
       type: object
-    Stats_intervals:
+    StatsResponse_intervals:
       properties:
         end_at:
           description: End date for interval. The format is Unix epoch time unless
@@ -2279,7 +2279,7 @@ components:
       - enwh
       - powr
       type: object
-    ConsumptionStats_intervals:
+    ConsumptionStatsResponse_intervals:
       properties:
         end_at:
           description: End of interval. The format is Unix epoch time unless you pass
