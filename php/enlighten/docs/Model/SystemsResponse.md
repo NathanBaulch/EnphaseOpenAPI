@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **systems** | [**\OpenAPI\Client\Model\SystemsResponseSystems[]**](SystemsResponseSystems.md) |  |
-**next** | **string** |  |
+**next** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

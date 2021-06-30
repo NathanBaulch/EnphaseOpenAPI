@@ -40,17 +40,17 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Initializes a new instance of the <see cref="ConsumptionLifetimeResponse" /> class.
         /// </summary>
         /// <param name="startDate">When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response. (required).</param>
-        /// <param name="systemId">The identifier of the system. (required).</param>
+        /// <param name="systemId">The identifier of the system..</param>
         /// <param name="consumption">An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period. (required).</param>
         /// <param name="meta">meta (required).</param>
         public ConsumptionLifetimeResponse(DateTimeOffset startDate = default(DateTimeOffset), int systemId = default(int), List<int> consumption = default(List<int>), Meta meta = default(Meta))
         {
             this.StartDate = startDate;
-            this.SystemId = systemId;
             // to ensure "consumption" is required (not null)
             this.Consumption = consumption ?? throw new ArgumentNullException("consumption is a required property for ConsumptionLifetimeResponse and cannot be null");
             // to ensure "meta" is required (not null)
             this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for ConsumptionLifetimeResponse and cannot be null");
+            this.SystemId = systemId;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// The identifier of the system.
         /// </summary>
         /// <value>The identifier of the system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", EmitDefaultValue = false)]
         public int SystemId { get; set; }
 
         /// <summary>

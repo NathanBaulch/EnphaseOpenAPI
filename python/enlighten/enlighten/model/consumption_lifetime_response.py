@@ -78,9 +78,9 @@ class ConsumptionLifetimeResponse(ModelNormal):
         lazy_import()
         return {
             'start_date': (date,),  # noqa: E501
-            'system_id': (int,),  # noqa: E501
             'consumption': ([int],),  # noqa: E501
             'meta': (Meta,),  # noqa: E501
+            'system_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -90,9 +90,9 @@ class ConsumptionLifetimeResponse(ModelNormal):
 
     attribute_map = {
         'start_date': 'start_date',  # noqa: E501
-        'system_id': 'system_id',  # noqa: E501
         'consumption': 'consumption',  # noqa: E501
         'meta': 'meta',  # noqa: E501
+        'system_id': 'system_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -107,12 +107,11 @@ class ConsumptionLifetimeResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, start_date, system_id, consumption, meta, *args, **kwargs):  # noqa: E501
+    def __init__(self, start_date, consumption, meta, *args, **kwargs):  # noqa: E501
         """ConsumptionLifetimeResponse - a model defined in OpenAPI
 
         Args:
             start_date (date): When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date` parameter is included in the request, it is included here in the response.
-            system_id (int): The identifier of the system.
             consumption ([int]): An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period.
             meta (Meta):
 
@@ -147,6 +146,7 @@ class ConsumptionLifetimeResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            system_id (int): The identifier of the system.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,7 +173,6 @@ class ConsumptionLifetimeResponse(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.start_date = start_date
-        self.system_id = system_id
         self.consumption = consumption
         self.meta = meta
         for var_name, var_value in kwargs.items():

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartDate** | **string** | When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response. | 
-**SystemId** | **int32** | The identifier of the system. | 
+**SystemId** | Pointer to **int32** | The identifier of the system. | [optional] 
 **Consumption** | **[]int32** | An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period. | 
 **Meta** | [**Meta**](Meta.md) |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewConsumptionLifetimeResponse
 
-`func NewConsumptionLifetimeResponse(startDate string, systemId int32, consumption []int32, meta Meta, ) *ConsumptionLifetimeResponse`
+`func NewConsumptionLifetimeResponse(startDate string, consumption []int32, meta Meta, ) *ConsumptionLifetimeResponse`
 
 NewConsumptionLifetimeResponse instantiates a new ConsumptionLifetimeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +67,11 @@ and a boolean to check if the value has been set.
 
 SetSystemId sets SystemId field to given value.
 
+### HasSystemId
+
+`func (o *ConsumptionLifetimeResponse) HasSystemId() bool`
+
+HasSystemId returns a boolean if a field has been set.
 
 ### GetConsumption
 

@@ -99,8 +99,6 @@ class SystemsResponseSystems(ModelNormal):
             'system_id': (int,),  # noqa: E501
             'system_name': (str,),  # noqa: E501
             'system_public_name': (str,),  # noqa: E501
-            'reference': (str,),  # noqa: E501
-            'other_references': ([str],),  # noqa: E501
             'country': (str,),  # noqa: E501
             'state': (str,),  # noqa: E501
             'city': (str,),  # noqa: E501
@@ -109,6 +107,8 @@ class SystemsResponseSystems(ModelNormal):
             'connection_type': (ConnectionType,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'meta': (Meta,),  # noqa: E501
+            'reference': (str,),  # noqa: E501
+            'other_references': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -120,8 +120,6 @@ class SystemsResponseSystems(ModelNormal):
         'system_id': 'system_id',  # noqa: E501
         'system_name': 'system_name',  # noqa: E501
         'system_public_name': 'system_public_name',  # noqa: E501
-        'reference': 'reference',  # noqa: E501
-        'other_references': 'other_references',  # noqa: E501
         'country': 'country',  # noqa: E501
         'state': 'state',  # noqa: E501
         'city': 'city',  # noqa: E501
@@ -130,6 +128,8 @@ class SystemsResponseSystems(ModelNormal):
         'connection_type': 'connection_type',  # noqa: E501
         'status': 'status',  # noqa: E501
         'meta': 'meta',  # noqa: E501
+        'reference': 'reference',  # noqa: E501
+        'other_references': 'other_references',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -144,15 +144,13 @@ class SystemsResponseSystems(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, system_id, system_name, system_public_name, reference, other_references, country, state, city, postal_code, timezone, connection_type, status, meta, *args, **kwargs):  # noqa: E501
+    def __init__(self, system_id, system_name, system_public_name, country, state, city, postal_code, timezone, connection_type, status, meta, *args, **kwargs):  # noqa: E501
         """SystemsResponseSystems - a model defined in OpenAPI
 
         Args:
             system_id (int): The Enlighten ID of the system.
             system_name (str): The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification purposes.
             system_public_name (str): The display name of the system. Use this when displaying the system name on a public list or view.
-            reference (str): If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.
-            other_references ([str]): If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
             country (str): The two-letter code for the country where the system is located. See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for reference.
             state (str): The two-letter code for the state where the system is located. See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference.
             city (str): The name of the city where the system is located.
@@ -193,6 +191,8 @@ class SystemsResponseSystems(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            reference (str): If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.. [optional]  # noqa: E501
+            other_references ([str]): If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,8 +221,6 @@ class SystemsResponseSystems(ModelNormal):
         self.system_id = system_id
         self.system_name = system_name
         self.system_public_name = system_public_name
-        self.reference = reference
-        self.other_references = other_references
         self.country = country
         self.state = state
         self.city = city

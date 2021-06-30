@@ -298,12 +298,6 @@ class SystemsResponseSystems implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['system_public_name'] === null) {
             $invalidProperties[] = "'system_public_name' can't be null";
         }
-        if ($this->container['reference'] === null) {
-            $invalidProperties[] = "'reference' can't be null";
-        }
-        if ($this->container['other_references'] === null) {
-            $invalidProperties[] = "'other_references' can't be null";
-        }
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
         }
@@ -439,7 +433,7 @@ class SystemsResponseSystems implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets reference
      *
-     * @return string
+     * @return string|null
      */
     public function getReference()
     {
@@ -449,7 +443,7 @@ class SystemsResponseSystems implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets reference
      *
-     * @param string $reference If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.
+     * @param string|null $reference If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.
      *
      * @return self
      */
@@ -463,7 +457,7 @@ class SystemsResponseSystems implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets other_references
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getOtherReferences()
     {
@@ -473,7 +467,7 @@ class SystemsResponseSystems implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets other_references
      *
-     * @param string[] $other_references If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
+     * @param string[]|null $other_references If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
      *
      * @return self
      */

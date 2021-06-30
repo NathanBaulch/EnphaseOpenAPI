@@ -199,9 +199,6 @@ class SystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['systems'] === null) {
             $invalidProperties[] = "'systems' can't be null";
         }
-        if ($this->container['next'] === null) {
-            $invalidProperties[] = "'next' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -244,7 +241,7 @@ class SystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next
      *
-     * @return string
+     * @return string|null
      */
     public function getNext()
     {
@@ -254,7 +251,7 @@ class SystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next
      *
-     * @param string $next next
+     * @param string|null $next next
      *
      * @return self
      */

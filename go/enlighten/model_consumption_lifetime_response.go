@@ -19,7 +19,7 @@ type ConsumptionLifetimeResponse struct {
 	// When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date` parameter is included in the request, it is included here in the response.
 	StartDate string `json:"start_date"`
 	// The identifier of the system.
-	SystemId int32 `json:"system_id"`
+	SystemId *int32 `json:"system_id,omitempty"`
 	// An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period.
 	Consumption []int32 `json:"consumption"`
 	Meta Meta `json:"meta"`
@@ -29,10 +29,9 @@ type ConsumptionLifetimeResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsumptionLifetimeResponse(startDate string, systemId int32, consumption []int32, meta Meta) *ConsumptionLifetimeResponse {
+func NewConsumptionLifetimeResponse(startDate string, consumption []int32, meta Meta) *ConsumptionLifetimeResponse {
 	this := ConsumptionLifetimeResponse{}
 	this.StartDate = startDate
-	this.SystemId = systemId
 	this.Consumption = consumption
 	this.Meta = meta
 	return &this
@@ -70,28 +69,36 @@ func (o *ConsumptionLifetimeResponse) SetStartDate(v string) {
 	o.StartDate = v
 }
 
-// GetSystemId returns the SystemId field value
+// GetSystemId returns the SystemId field value if set, zero value otherwise.
 func (o *ConsumptionLifetimeResponse) GetSystemId() int32 {
-	if o == nil {
+	if o == nil || o.SystemId == nil {
 		var ret int32
 		return ret
 	}
-
-	return o.SystemId
+	return *o.SystemId
 }
 
-// GetSystemIdOk returns a tuple with the SystemId field value
+// GetSystemIdOk returns a tuple with the SystemId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil || o.SystemId == nil {
 		return nil, false
 	}
-	return &o.SystemId, true
+	return o.SystemId, true
 }
 
-// SetSystemId sets field value
+// HasSystemId returns a boolean if a field has been set.
+func (o *ConsumptionLifetimeResponse) HasSystemId() bool {
+	if o != nil && o.SystemId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSystemId gets a reference to the given int32 and assigns it to the SystemId field.
 func (o *ConsumptionLifetimeResponse) SetSystemId(v int32) {
-	o.SystemId = v
+	o.SystemId = &v
 }
 
 // GetConsumption returns the Consumption field value
@@ -147,7 +154,7 @@ func (o ConsumptionLifetimeResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["start_date"] = o.StartDate
 	}
-	if true {
+	if o.SystemId != nil {
 		toSerialize["system_id"] = o.SystemId
 	}
 	if true {

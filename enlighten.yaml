@@ -646,9 +646,6 @@ components:
         - start_date
         - system_id
         - production
-        - micro_production
-        - meter_production
-        - meter_start_date
         - meta
       example:
         start_date: '2013-01-01'
@@ -798,8 +795,6 @@ components:
               - system_id
               - system_name
               - system_public_name
-              - reference
-              - other_references
               - status
               - timezone
               - country
@@ -812,7 +807,6 @@ components:
           type: string
       required:
         - systems
-        - next
       example:
         systems:
           - system_id: 67
@@ -1379,7 +1373,6 @@ components:
           $ref: '#/components/schemas/Meta'
       required:
         - start_date
-        - system_id
         - consumption
         - meta
       example:

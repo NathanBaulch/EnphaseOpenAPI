@@ -7,16 +7,16 @@ Name | Type | Description | Notes
 **StartDate** | **string** | When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response. | 
 **SystemId** | **int32** | The identifier of the system. | 
 **Production** | **[]int32** | An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty. | 
-**MicroProduction** | **[]int32** |  | 
-**MeterProduction** | **[]int32** |  | 
-**MeterStartDate** | **string** | The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. | 
+**MicroProduction** | Pointer to **[]int32** |  | [optional] 
+**MeterProduction** | Pointer to **[]int32** |  | [optional] 
+**MeterStartDate** | Pointer to **string** | The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. | [optional] 
 **Meta** | [**Meta**](Meta.md) |  | 
 
 ## Methods
 
 ### NewEnergyLifetimeResponse
 
-`func NewEnergyLifetimeResponse(startDate string, systemId int32, production []int32, microProduction []int32, meterProduction []int32, meterStartDate string, meta Meta, ) *EnergyLifetimeResponse`
+`func NewEnergyLifetimeResponse(startDate string, systemId int32, production []int32, meta Meta, ) *EnergyLifetimeResponse`
 
 NewEnergyLifetimeResponse instantiates a new EnergyLifetimeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -110,6 +110,11 @@ and a boolean to check if the value has been set.
 
 SetMicroProduction sets MicroProduction field to given value.
 
+### HasMicroProduction
+
+`func (o *EnergyLifetimeResponse) HasMicroProduction() bool`
+
+HasMicroProduction returns a boolean if a field has been set.
 
 ### GetMeterProduction
 
@@ -130,6 +135,11 @@ and a boolean to check if the value has been set.
 
 SetMeterProduction sets MeterProduction field to given value.
 
+### HasMeterProduction
+
+`func (o *EnergyLifetimeResponse) HasMeterProduction() bool`
+
+HasMeterProduction returns a boolean if a field has been set.
 
 ### GetMeterStartDate
 
@@ -150,6 +160,11 @@ and a boolean to check if the value has been set.
 
 SetMeterStartDate sets MeterStartDate field to given value.
 
+### HasMeterStartDate
+
+`func (o *EnergyLifetimeResponse) HasMeterStartDate() bool`
+
+HasMeterStartDate returns a boolean if a field has been set.
 
 ### GetMeta
 

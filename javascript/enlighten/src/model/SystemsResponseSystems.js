@@ -27,8 +27,6 @@ class SystemsResponseSystems {
      * @param systemId {Number} The Enlighten ID of the system.
      * @param systemName {String} The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification purposes.
      * @param systemPublicName {String} The display name of the system. Use this when displaying the system name on a public list or view.
-     * @param reference {String} If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.
-     * @param otherReferences {Array.<String>} If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
      * @param country {String} The two-letter code for the country where the system is located. See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for reference.
      * @param state {String} The two-letter code for the state where the system is located. See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference.
      * @param city {String} The name of the city where the system is located.
@@ -38,9 +36,9 @@ class SystemsResponseSystems {
      * @param status {module:model/SystemsResponseSystems.StatusEnum} The current status of the system. You can find this and more in the `meta` property.
      * @param meta {module:model/Meta} 
      */
-    constructor(systemId, systemName, systemPublicName, reference, otherReferences, country, state, city, postalCode, timezone, connectionType, status, meta) { 
+    constructor(systemId, systemName, systemPublicName, country, state, city, postalCode, timezone, connectionType, status, meta) { 
         
-        SystemsResponseSystems.initialize(this, systemId, systemName, systemPublicName, reference, otherReferences, country, state, city, postalCode, timezone, connectionType, status, meta);
+        SystemsResponseSystems.initialize(this, systemId, systemName, systemPublicName, country, state, city, postalCode, timezone, connectionType, status, meta);
     }
 
     /**
@@ -48,12 +46,10 @@ class SystemsResponseSystems {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, systemId, systemName, systemPublicName, reference, otherReferences, country, state, city, postalCode, timezone, connectionType, status, meta) { 
+    static initialize(obj, systemId, systemName, systemPublicName, country, state, city, postalCode, timezone, connectionType, status, meta) { 
         obj['system_id'] = systemId;
         obj['system_name'] = systemName;
         obj['system_public_name'] = systemPublicName;
-        obj['reference'] = reference;
-        obj['other_references'] = otherReferences;
         obj['country'] = country;
         obj['state'] = state;
         obj['city'] = city;

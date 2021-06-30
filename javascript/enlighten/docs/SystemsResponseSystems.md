@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **systemId** | **Number** | The Enlighten ID of the system. | 
 **systemName** | **String** | The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification purposes. | 
 **systemPublicName** | **String** | The display name of the system. Use this when displaying the system name on a public list or view. | 
-**reference** | **String** | If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned. | 
-**otherReferences** | **[String]** | If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. | 
+**reference** | **String** | If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned. | [optional] 
+**otherReferences** | **[String]** | If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. | [optional] 
 **country** | **String** | The two-letter code for the country where the system is located. See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for reference. | 
 **state** | **String** | The two-letter code for the state where the system is located. See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference. | 
 **city** | **String** | The name of the city where the system is located. | 

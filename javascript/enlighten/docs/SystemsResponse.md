@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **systems** | [**[SystemsResponseSystems]**](SystemsResponseSystems.md) |  | 
-**next** | **String** |  | 
+**next** | **String** |  | [optional] 
 
 

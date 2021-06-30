@@ -112,8 +112,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="systemId">The Enlighten ID of the system. (required).</param>
         /// <param name="systemName">The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification purposes. (required).</param>
         /// <param name="systemPublicName">The display name of the system. Use this when displaying the system name on a public list or view. (required).</param>
-        /// <param name="reference">If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned. (required).</param>
-        /// <param name="otherReferences">If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. (required).</param>
+        /// <param name="reference">If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned..</param>
+        /// <param name="otherReferences">If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned..</param>
         /// <param name="country">The two-letter code for the country where the system is located. See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for reference. (required).</param>
         /// <param name="state">The two-letter code for the state where the system is located. See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference. (required).</param>
         /// <param name="city">The name of the city where the system is located. (required).</param>
@@ -129,10 +129,6 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.SystemName = systemName ?? throw new ArgumentNullException("systemName is a required property for SystemsResponseSystems and cannot be null");
             // to ensure "systemPublicName" is required (not null)
             this.SystemPublicName = systemPublicName ?? throw new ArgumentNullException("systemPublicName is a required property for SystemsResponseSystems and cannot be null");
-            // to ensure "reference" is required (not null)
-            this.Reference = reference ?? throw new ArgumentNullException("reference is a required property for SystemsResponseSystems and cannot be null");
-            // to ensure "otherReferences" is required (not null)
-            this.OtherReferences = otherReferences ?? throw new ArgumentNullException("otherReferences is a required property for SystemsResponseSystems and cannot be null");
             // to ensure "country" is required (not null)
             this.Country = country ?? throw new ArgumentNullException("country is a required property for SystemsResponseSystems and cannot be null");
             // to ensure "state" is required (not null)
@@ -147,6 +143,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.Status = status;
             // to ensure "meta" is required (not null)
             this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for SystemsResponseSystems and cannot be null");
+            this.Reference = reference;
+            this.OtherReferences = otherReferences;
         }
 
         /// <summary>
@@ -174,14 +172,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.
         /// </summary>
         /// <value>If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.</value>
-        [DataMember(Name = "reference", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "reference", EmitDefaultValue = false)]
         public string Reference { get; set; }
 
         /// <summary>
         /// If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
         /// </summary>
         /// <value>If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.</value>
-        [DataMember(Name = "other_references", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "other_references", EmitDefaultValue = false)]
         public List<string> OtherReferences { get; set; }
 
         /// <summary>

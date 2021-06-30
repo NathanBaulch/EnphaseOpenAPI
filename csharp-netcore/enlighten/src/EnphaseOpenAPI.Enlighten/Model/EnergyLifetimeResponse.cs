@@ -42,9 +42,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="startDate">When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response. (required).</param>
         /// <param name="systemId">The identifier of the system. (required).</param>
         /// <param name="production">An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty. (required).</param>
-        /// <param name="microProduction">microProduction (required).</param>
-        /// <param name="meterProduction">meterProduction (required).</param>
-        /// <param name="meterStartDate">The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. (required).</param>
+        /// <param name="microProduction">microProduction.</param>
+        /// <param name="meterProduction">meterProduction.</param>
+        /// <param name="meterStartDate">The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter..</param>
         /// <param name="meta">meta (required).</param>
         public EnergyLifetimeResponse(DateTimeOffset startDate = default(DateTimeOffset), int systemId = default(int), List<int> production = default(List<int>), List<int> microProduction = default(List<int>), List<int> meterProduction = default(List<int>), DateTimeOffset meterStartDate = default(DateTimeOffset), Meta meta = default(Meta))
         {
@@ -52,13 +52,11 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.SystemId = systemId;
             // to ensure "production" is required (not null)
             this.Production = production ?? throw new ArgumentNullException("production is a required property for EnergyLifetimeResponse and cannot be null");
-            // to ensure "microProduction" is required (not null)
-            this.MicroProduction = microProduction ?? throw new ArgumentNullException("microProduction is a required property for EnergyLifetimeResponse and cannot be null");
-            // to ensure "meterProduction" is required (not null)
-            this.MeterProduction = meterProduction ?? throw new ArgumentNullException("meterProduction is a required property for EnergyLifetimeResponse and cannot be null");
-            this.MeterStartDate = meterStartDate;
             // to ensure "meta" is required (not null)
             this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for EnergyLifetimeResponse and cannot be null");
+            this.MicroProduction = microProduction;
+            this.MeterProduction = meterProduction;
+            this.MeterStartDate = meterStartDate;
         }
 
         /// <summary>
@@ -86,20 +84,20 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets MicroProduction
         /// </summary>
-        [DataMember(Name = "micro_production", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "micro_production", EmitDefaultValue = false)]
         public List<int> MicroProduction { get; set; }
 
         /// <summary>
         /// Gets or Sets MeterProduction
         /// </summary>
-        [DataMember(Name = "meter_production", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meter_production", EmitDefaultValue = false)]
         public List<int> MeterProduction { get; set; }
 
         /// <summary>
         /// The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.
         /// </summary>
         /// <value>The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.</value>
-        [DataMember(Name = "meter_start_date", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meter_start_date", EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTimeOffset MeterStartDate { get; set; }
 

@@ -24,13 +24,12 @@ class ConsumptionLifetimeResponse {
      * Constructs a new <code>ConsumptionLifetimeResponse</code>.
      * @alias module:model/ConsumptionLifetimeResponse
      * @param startDate {Date} When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date` parameter is included in the request, it is included here in the response.
-     * @param systemId {Number} The identifier of the system.
      * @param consumption {Array.<Number>} An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period.
      * @param meta {module:model/Meta} 
      */
-    constructor(startDate, systemId, consumption, meta) { 
+    constructor(startDate, consumption, meta) { 
         
-        ConsumptionLifetimeResponse.initialize(this, startDate, systemId, consumption, meta);
+        ConsumptionLifetimeResponse.initialize(this, startDate, consumption, meta);
     }
 
     /**
@@ -38,9 +37,8 @@ class ConsumptionLifetimeResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, startDate, systemId, consumption, meta) { 
+    static initialize(obj, startDate, consumption, meta) { 
         obj['start_date'] = startDate;
-        obj['system_id'] = systemId;
         obj['consumption'] = consumption;
         obj['meta'] = meta;
     }

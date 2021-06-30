@@ -24,11 +24,10 @@ class SystemsResponse {
      * Constructs a new <code>SystemsResponse</code>.
      * @alias module:model/SystemsResponse
      * @param systems {Array.<module:model/SystemsResponseSystems>} 
-     * @param next {String} 
      */
-    constructor(systems, next) { 
+    constructor(systems) { 
         
-        SystemsResponse.initialize(this, systems, next);
+        SystemsResponse.initialize(this, systems);
     }
 
     /**
@@ -36,9 +35,8 @@ class SystemsResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, systems, next) { 
+    static initialize(obj, systems) { 
         obj['systems'] = systems;
-        obj['next'] = next;
     }
 
     /**

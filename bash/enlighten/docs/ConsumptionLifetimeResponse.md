@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **startUnderscoredate** | **string** |  | [default to null]
-**systemUnderscoreid** | **integer** |  | [default to null]
+**systemUnderscoreid** | **integer** |  | [optional] [default to null]
 **consumption** | **array[integer]** |  | [default to null]
 **meta** | [**Meta**](Meta.md) |  | [default to null]
 

@@ -80,10 +80,10 @@ class EnergyLifetimeResponse(ModelNormal):
             'start_date': (date,),  # noqa: E501
             'system_id': (int,),  # noqa: E501
             'production': ([int],),  # noqa: E501
+            'meta': (Meta,),  # noqa: E501
             'micro_production': ([int],),  # noqa: E501
             'meter_production': ([int],),  # noqa: E501
             'meter_start_date': (date,),  # noqa: E501
-            'meta': (Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -95,10 +95,10 @@ class EnergyLifetimeResponse(ModelNormal):
         'start_date': 'start_date',  # noqa: E501
         'system_id': 'system_id',  # noqa: E501
         'production': 'production',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
         'micro_production': 'micro_production',  # noqa: E501
         'meter_production': 'meter_production',  # noqa: E501
         'meter_start_date': 'meter_start_date',  # noqa: E501
-        'meta': 'meta',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -113,16 +113,13 @@ class EnergyLifetimeResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, start_date, system_id, production, micro_production, meter_production, meter_start_date, meta, *args, **kwargs):  # noqa: E501
+    def __init__(self, start_date, system_id, production, meta, *args, **kwargs):  # noqa: E501
         """EnergyLifetimeResponse - a model defined in OpenAPI
 
         Args:
             start_date (date): When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date` parameter is included in the request, it is included here in the response.
             system_id (int): The identifier of the system.
             production ([int]): An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty.
-            micro_production ([int]):
-            meter_production ([int]):
-            meter_start_date (date): The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.
             meta (Meta):
 
         Keyword Args:
@@ -156,6 +153,9 @@ class EnergyLifetimeResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            micro_production ([int]): [optional]  # noqa: E501
+            meter_production ([int]): [optional]  # noqa: E501
+            meter_start_date (date): The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,9 +184,6 @@ class EnergyLifetimeResponse(ModelNormal):
         self.start_date = start_date
         self.system_id = system_id
         self.production = production
-        self.micro_production = micro_production
-        self.meter_production = meter_production
-        self.meter_start_date = meter_start_date
         self.meta = meta
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

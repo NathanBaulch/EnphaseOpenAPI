@@ -1227,9 +1227,6 @@ components:
           $ref: '#/components/schemas/Meta'
       required:
       - meta
-      - meter_production
-      - meter_start_date
-      - micro_production
       - production
       - start_date
       - system_id
@@ -1305,7 +1302,6 @@ components:
         next:
           type: string
       required:
-      - next
       - systems
       type: object
     InventoryResponse:
@@ -1660,7 +1656,6 @@ components:
       - consumption
       - meta
       - start_date
-      - system_id
       type: object
     ConsumptionStatsResponse:
       example:
@@ -2048,9 +2043,7 @@ components:
       - connection_type
       - country
       - meta
-      - other_references
       - postal_code
-      - reference
       - state
       - status
       - system_id

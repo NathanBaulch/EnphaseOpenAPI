@@ -17,17 +17,16 @@ import (
 // SystemsResponse struct for SystemsResponse
 type SystemsResponse struct {
 	Systems []SystemsResponseSystems `json:"systems"`
-	Next string `json:"next"`
+	Next *string `json:"next,omitempty"`
 }
 
 // NewSystemsResponse instantiates a new SystemsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSystemsResponse(systems []SystemsResponseSystems, next string) *SystemsResponse {
+func NewSystemsResponse(systems []SystemsResponseSystems) *SystemsResponse {
 	this := SystemsResponse{}
 	this.Systems = systems
-	this.Next = next
 	return &this
 }
 
@@ -63,28 +62,36 @@ func (o *SystemsResponse) SetSystems(v []SystemsResponseSystems) {
 	o.Systems = v
 }
 
-// GetNext returns the Next field value
+// GetNext returns the Next field value if set, zero value otherwise.
 func (o *SystemsResponse) GetNext() string {
-	if o == nil {
+	if o == nil || o.Next == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Next
+	return *o.Next
 }
 
-// GetNextOk returns a tuple with the Next field value
+// GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SystemsResponse) GetNextOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.Next == nil {
 		return nil, false
 	}
-	return &o.Next, true
+	return o.Next, true
 }
 
-// SetNext sets field value
+// HasNext returns a boolean if a field has been set.
+func (o *SystemsResponse) HasNext() bool {
+	if o != nil && o.Next != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNext gets a reference to the given string and assigns it to the Next field.
 func (o *SystemsResponse) SetNext(v string) {
-	o.Next = v
+	o.Next = &v
 }
 
 func (o SystemsResponse) MarshalJSON() ([]byte, error) {
@@ -92,7 +99,7 @@ func (o SystemsResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["systems"] = o.Systems
 	}
-	if true {
+	if o.Next != nil {
 		toSerialize["next"] = o.Next
 	}
 	return json.Marshal(toSerialize)

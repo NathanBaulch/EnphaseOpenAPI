@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **SystemId** | **int32** | The Enlighten ID of the system. | 
 **SystemName** | **string** | The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification purposes. | 
 **SystemPublicName** | **string** | The display name of the system. Use this when displaying the system name on a public list or view. | 
-**Reference** | **string** | If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned. | 
-**OtherReferences** | **[]string** | If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. | 
+**Reference** | Pointer to **string** | If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned. | [optional] 
+**OtherReferences** | Pointer to **[]string** | If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. | [optional] 
 **Country** | **string** | The two-letter code for the country where the system is located. See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for reference. | 
 **State** | **string** | The two-letter code for the state where the system is located. See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference. | 
 **City** | **string** | The name of the city where the system is located. | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewSystemsResponseSystems
 
-`func NewSystemsResponseSystems(systemId int32, systemName string, systemPublicName string, reference string, otherReferences []string, country string, state string, city string, postalCode string, timezone string, connectionType ConnectionType, status string, meta Meta, ) *SystemsResponseSystems`
+`func NewSystemsResponseSystems(systemId int32, systemName string, systemPublicName string, country string, state string, city string, postalCode string, timezone string, connectionType ConnectionType, status string, meta Meta, ) *SystemsResponseSystems`
 
 NewSystemsResponseSystems instantiates a new SystemsResponseSystems object
 This constructor will assign default values to properties that have it defined,
@@ -116,6 +116,11 @@ and a boolean to check if the value has been set.
 
 SetReference sets Reference field to given value.
 
+### HasReference
+
+`func (o *SystemsResponseSystems) HasReference() bool`
+
+HasReference returns a boolean if a field has been set.
 
 ### GetOtherReferences
 
@@ -136,6 +141,11 @@ and a boolean to check if the value has been set.
 
 SetOtherReferences sets OtherReferences field to given value.
 
+### HasOtherReferences
+
+`func (o *SystemsResponseSystems) HasOtherReferences() bool`
+
+HasOtherReferences returns a boolean if a field has been set.
 
 ### GetCountry
 

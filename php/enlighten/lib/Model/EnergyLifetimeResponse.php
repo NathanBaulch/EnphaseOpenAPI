@@ -235,15 +235,6 @@ class EnergyLifetimeResponse implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['production'] === null) {
             $invalidProperties[] = "'production' can't be null";
         }
-        if ($this->container['micro_production'] === null) {
-            $invalidProperties[] = "'micro_production' can't be null";
-        }
-        if ($this->container['meter_production'] === null) {
-            $invalidProperties[] = "'meter_production' can't be null";
-        }
-        if ($this->container['meter_start_date'] === null) {
-            $invalidProperties[] = "'meter_start_date' can't be null";
-        }
         if ($this->container['meta'] === null) {
             $invalidProperties[] = "'meta' can't be null";
         }
@@ -337,7 +328,7 @@ class EnergyLifetimeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets micro_production
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getMicroProduction()
     {
@@ -347,7 +338,7 @@ class EnergyLifetimeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets micro_production
      *
-     * @param int[] $micro_production micro_production
+     * @param int[]|null $micro_production micro_production
      *
      * @return self
      */
@@ -361,7 +352,7 @@ class EnergyLifetimeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets meter_production
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getMeterProduction()
     {
@@ -371,7 +362,7 @@ class EnergyLifetimeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets meter_production
      *
-     * @param int[] $meter_production meter_production
+     * @param int[]|null $meter_production meter_production
      *
      * @return self
      */
@@ -385,7 +376,7 @@ class EnergyLifetimeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets meter_start_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getMeterStartDate()
     {
@@ -395,7 +386,7 @@ class EnergyLifetimeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets meter_start_date
      *
-     * @param \DateTime $meter_start_date The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.
+     * @param \DateTime|null $meter_start_date The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.
      *
      * @return self
      */

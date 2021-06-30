@@ -1565,7 +1565,7 @@ list, use the <code>next</code> attribute in the response body to request the ne
     <div class="field-items">
       <div class="param">start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> When no <code>start_date</code> parameter is specified on the request, this is the <code>operational_date</code> of the system. May be null if system has never produced. When a <code>start_date</code>
 parameter is included in the request, it is included here in the response. format: date</div>
-<div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The identifier of the system. </div>
+<div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The identifier of the system. </div>
 <div class="param">consumption </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span> An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period. </div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
     </div>  <!-- field-items -->
@@ -1598,9 +1598,9 @@ parameter is included in the request, it is included here in the response. forma
 <div class="param">system_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The identifier of the system. </div>
 <div class="param">production </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span> An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy,
 the array may be empty. </div>
-<div class="param">micro_production </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  </div>
-<div class="param">meter_production </div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  </div>
-<div class="param">meter_start_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. format: date</div>
+<div class="param">micro_production (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  </div>
+<div class="param">meter_production (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  </div>
+<div class="param">meter_start_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. format: date</div>
 <div class="param">meta </div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
@@ -1878,7 +1878,7 @@ a <code>datetime_format</code> parameter as described <a href="https://developer
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">systems </div><div class="param-desc"><span class="param-type"><a href="#SystemsResponse_systems">array[SystemsResponse_systems]</a></span>  </div>
-<div class="param">next </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -1889,9 +1889,9 @@ a <code>datetime_format</code> parameter as described <a href="https://developer
 <div class="param">system_name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the system. Even if the system owner has indicated their site is anonymous for public lists, the actual system name is returned here for identification
 purposes. </div>
 <div class="param">system_public_name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name of the system. Use this when displaying the system name on a public list or view. </div>
-<div class="param">reference </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not
+<div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not
 returned. </div>
-<div class="param">other_references </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. </div>
+<div class="param">other_references (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned. </div>
 <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The two-letter code for the country where the system is located. See <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO_3166-1_alpha-2</a> for reference. </div>
 <div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The two-letter code for the state where the system is located. See <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO_3166-2</a> for reference. </div>
 <div class="param">city </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the city where the system is located. </div>

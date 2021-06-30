@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Systems** | [**[]SystemsResponseSystems**](SystemsResponseSystems.md) |  | 
-**Next** | **string** |  | 
+**Next** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewSystemsResponse
 
-`func NewSystemsResponse(systems []SystemsResponseSystems, next string, ) *SystemsResponse`
+`func NewSystemsResponse(systems []SystemsResponseSystems, ) *SystemsResponse`
 
 NewSystemsResponse instantiates a new SystemsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +65,11 @@ and a boolean to check if the value has been set.
 
 SetNext sets Next field to given value.
 
+### HasNext
+
+`func (o *SystemsResponse) HasNext() bool`
+
+HasNext returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

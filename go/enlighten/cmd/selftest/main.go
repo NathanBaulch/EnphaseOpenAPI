@@ -29,11 +29,11 @@ func main() {
 	startAt := time.Now().Add(-7 * 24 * time.Hour).Unix()
 	endAt := time.Now().Add(-24 * time.Hour).Unix()
 
-	var next string
+	var next *string
 	for {
 		req := api.Systems(ctx).UserId(*userID)
-		if next != "" {
-			req.Next(next)
+		if next != nil {
+			req.Next(*next)
 		}
 		if mdl, res, err := req.Execute(); err != nil {
 			handleError(err)
@@ -45,8 +45,8 @@ func main() {
 				if sys.SystemName != "" {
 					req.SystemName(sys.SystemName)
 				}
-				if sys.Reference != "" {
-					req.Reference(sys.Reference)
+				if sys.Reference != nil {
+					req.Reference(*sys.Reference)
 				}
 				if mdl, res, err := req.Execute(); err != nil {
 					handleError(err)
@@ -173,7 +173,7 @@ func main() {
 				}
 			}
 
-			if next = mdl.Next; next == "" {
+			if next = mdl.Next; next == nil {
 				break
 			}
 		}

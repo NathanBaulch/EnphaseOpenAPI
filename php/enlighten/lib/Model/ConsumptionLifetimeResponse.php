@@ -211,9 +211,6 @@ class ConsumptionLifetimeResponse implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
-        if ($this->container['system_id'] === null) {
-            $invalidProperties[] = "'system_id' can't be null";
-        }
         if ($this->container['consumption'] === null) {
             $invalidProperties[] = "'consumption' can't be null";
         }
@@ -262,7 +259,7 @@ class ConsumptionLifetimeResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets system_id
      *
-     * @return int
+     * @return int|null
      */
     public function getSystemId()
     {
@@ -272,7 +269,7 @@ class ConsumptionLifetimeResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets system_id
      *
-     * @param int $system_id The identifier of the system.
+     * @param int|null $system_id The identifier of the system.
      *
      * @return self
      */

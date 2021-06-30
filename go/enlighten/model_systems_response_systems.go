@@ -23,9 +23,9 @@ type SystemsResponseSystems struct {
 	// The display name of the system. Use this when displaying the system name on a public list or view.
 	SystemPublicName string `json:"system_public_name"`
 	// If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.
-	Reference string `json:"reference"`
+	Reference *string `json:"reference,omitempty"`
 	// If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
-	OtherReferences []string `json:"other_references"`
+	OtherReferences *[]string `json:"other_references,omitempty"`
 	// The two-letter code for the country where the system is located. See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for reference.
 	Country string `json:"country"`
 	// The two-letter code for the state where the system is located. See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference.
@@ -46,13 +46,11 @@ type SystemsResponseSystems struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSystemsResponseSystems(systemId int32, systemName string, systemPublicName string, reference string, otherReferences []string, country string, state string, city string, postalCode string, timezone string, connectionType ConnectionType, status string, meta Meta) *SystemsResponseSystems {
+func NewSystemsResponseSystems(systemId int32, systemName string, systemPublicName string, country string, state string, city string, postalCode string, timezone string, connectionType ConnectionType, status string, meta Meta) *SystemsResponseSystems {
 	this := SystemsResponseSystems{}
 	this.SystemId = systemId
 	this.SystemName = systemName
 	this.SystemPublicName = systemPublicName
-	this.Reference = reference
-	this.OtherReferences = otherReferences
 	this.Country = country
 	this.State = state
 	this.City = city
@@ -144,52 +142,68 @@ func (o *SystemsResponseSystems) SetSystemPublicName(v string) {
 	o.SystemPublicName = v
 }
 
-// GetReference returns the Reference field value
+// GetReference returns the Reference field value if set, zero value otherwise.
 func (o *SystemsResponseSystems) GetReference() string {
-	if o == nil {
+	if o == nil || o.Reference == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Reference
+	return *o.Reference
 }
 
-// GetReferenceOk returns a tuple with the Reference field value
+// GetReferenceOk returns a tuple with the Reference field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystems) GetReferenceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.Reference == nil {
 		return nil, false
 	}
-	return &o.Reference, true
+	return o.Reference, true
 }
 
-// SetReference sets field value
+// HasReference returns a boolean if a field has been set.
+func (o *SystemsResponseSystems) HasReference() bool {
+	if o != nil && o.Reference != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReference gets a reference to the given string and assigns it to the Reference field.
 func (o *SystemsResponseSystems) SetReference(v string) {
-	o.Reference = v
+	o.Reference = &v
 }
 
-// GetOtherReferences returns the OtherReferences field value
+// GetOtherReferences returns the OtherReferences field value if set, zero value otherwise.
 func (o *SystemsResponseSystems) GetOtherReferences() []string {
-	if o == nil {
+	if o == nil || o.OtherReferences == nil {
 		var ret []string
 		return ret
 	}
-
-	return o.OtherReferences
+	return *o.OtherReferences
 }
 
-// GetOtherReferencesOk returns a tuple with the OtherReferences field value
+// GetOtherReferencesOk returns a tuple with the OtherReferences field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystems) GetOtherReferencesOk() (*[]string, bool) {
-	if o == nil  {
+	if o == nil || o.OtherReferences == nil {
 		return nil, false
 	}
-	return &o.OtherReferences, true
+	return o.OtherReferences, true
 }
 
-// SetOtherReferences sets field value
+// HasOtherReferences returns a boolean if a field has been set.
+func (o *SystemsResponseSystems) HasOtherReferences() bool {
+	if o != nil && o.OtherReferences != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOtherReferences gets a reference to the given []string and assigns it to the OtherReferences field.
 func (o *SystemsResponseSystems) SetOtherReferences(v []string) {
-	o.OtherReferences = v
+	o.OtherReferences = &v
 }
 
 // GetCountry returns the Country field value
@@ -395,10 +409,10 @@ func (o SystemsResponseSystems) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["system_public_name"] = o.SystemPublicName
 	}
-	if true {
+	if o.Reference != nil {
 		toSerialize["reference"] = o.Reference
 	}
-	if true {
+	if o.OtherReferences != nil {
 		toSerialize["other_references"] = o.OtherReferences
 	}
 	if true {
