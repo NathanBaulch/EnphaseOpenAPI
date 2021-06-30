@@ -6,4 +6,7 @@
 
 .openapi-generator-ignore
 .travis.yml
+client.go
 git_push.sh
+response.go
+utils.go
