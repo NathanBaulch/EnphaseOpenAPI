@@ -50,6 +50,7 @@ generate/go: clean/go $(OPENAPICLI)
 
 generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
 	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten,useDateTimeOffset=true)
+	cd ./csharp-netcore/enlighten; dotnet outdated -u; dotnet build
 
 generate/php: clean/php $(OPENAPICLI)
 	$(call generate,php,enlighten)
