@@ -58,27 +58,6 @@ class Configuration
     protected $apiKeyPrefixes = [];
 
     /**
-     * Access token for OAuth/Bearer authentication
-     *
-     * @var string
-     */
-    protected $accessToken = '';
-
-    /**
-     * Username for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $username = '';
-
-    /**
-     * Password for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $password = '';
-
-    /**
      * The host
      *
      * @var string
@@ -171,75 +150,6 @@ class Configuration
     public function getApiKeyPrefix($apiKeyIdentifier)
     {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
-    }
-
-    /**
-     * Sets the access token for OAuth
-     *
-     * @param string $accessToken Token for OAuth
-     *
-     * @return $this
-     */
-    public function setAccessToken($accessToken)
-    {
-        $this->accessToken = $accessToken;
-        return $this;
-    }
-
-    /**
-     * Gets the access token for OAuth
-     *
-     * @return string Access token for OAuth
-     */
-    public function getAccessToken()
-    {
-        return $this->accessToken;
-    }
-
-    /**
-     * Sets the username for HTTP basic authentication
-     *
-     * @param string $username Username for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-        return $this;
-    }
-
-    /**
-     * Gets the username for HTTP basic authentication
-     *
-     * @return string Username for HTTP basic authentication
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Sets the password for HTTP basic authentication
-     *
-     * @param string $password Password for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * Gets the password for HTTP basic authentication
-     *
-     * @return string Password for HTTP basic authentication
-     */
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     /**
