@@ -797,7 +797,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// Initializes a new instance of the <see cref="DefaultApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DefaultApi(String basePath)
+        public DefaultApi(string basePath)
         {
             this.Configuration = EnphaseOpenAPI.Enlighten.Client.Configuration.MergeConfigurations(
                 EnphaseOpenAPI.Enlighten.Client.GlobalConfiguration.Instance,
@@ -860,7 +860,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
             return this.Configuration.BasePath;
         }
@@ -919,11 +919,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -945,7 +945,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -997,11 +997,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1024,7 +1024,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1074,11 +1074,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1100,7 +1100,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1152,11 +1152,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1179,7 +1179,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1231,11 +1231,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1261,7 +1261,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1315,11 +1315,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1346,7 +1346,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1392,11 +1392,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1410,7 +1410,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1458,11 +1458,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1477,7 +1477,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1523,11 +1523,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1541,7 +1541,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1589,11 +1589,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1608,7 +1608,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1654,11 +1654,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1672,7 +1672,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "site_id", siteId));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1720,11 +1720,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1739,7 +1739,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "site_id", siteId));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1787,11 +1787,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1806,7 +1806,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1856,11 +1856,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1876,7 +1876,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1924,11 +1924,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1946,7 +1946,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -1996,11 +1996,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2019,7 +2019,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2069,11 +2069,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2095,7 +2095,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2147,11 +2147,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2174,7 +2174,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2224,11 +2224,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2242,7 +2242,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "serial_num", serialNum));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2294,11 +2294,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2313,7 +2313,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "serial_num", serialNum));
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2363,11 +2363,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2389,7 +2389,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2441,11 +2441,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2468,7 +2468,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2516,11 +2516,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2538,7 +2538,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2588,11 +2588,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2611,7 +2611,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2683,11 +2683,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2756,7 +2756,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }
@@ -2830,11 +2830,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -2904,7 +2904,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // authentication (ApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
             }

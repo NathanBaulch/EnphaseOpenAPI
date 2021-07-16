@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **part_number** | **str** | The Enphase part number of this Envoy. | 
 **serial_number** | **str** | The serial number of this Envoy. | 
 **status** | **str** | The current status of this Envoy. * &#x60;normal&#x60; - The Envoy is operating normally. * &#x60;comm&#x60; - The Envoy is not communicating to Enlighten. | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

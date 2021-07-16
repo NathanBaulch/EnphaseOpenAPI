@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **production_wh** | **int** | Total production for the requested period in Watt-hours. | 
 **meter_readings** | [**[MonthlyProductionResponseMeterReadings]**](MonthlyProductionResponseMeterReadings.md) | If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. | 
 **meta** | [**Meta**](Meta.md) |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

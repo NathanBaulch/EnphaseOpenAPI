@@ -67,7 +67,7 @@ namespace EnphaseOpenAPI.Enlighten.Client
         /// Defines the base path of the target API server.
         /// Example: http://localhost:3000/v1/
         /// </summary>
-        private String _basePath;
+        private string _basePath;
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
@@ -440,9 +440,9 @@ namespace EnphaseOpenAPI.Enlighten.Client
         /// <summary>
         /// Returns a string with essential information for debugging.
         /// </summary>
-        public static String ToDebugReport()
+        public static string ToDebugReport()
         {
-            String report = "C# SDK (EnphaseOpenAPI.Enlighten) Debug Report:\n";
+            string report = "C# SDK (EnphaseOpenAPI.Enlighten) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.0\n";

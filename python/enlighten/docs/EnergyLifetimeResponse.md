@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **micro_production** | **[int]** |  | [optional] 
 **meter_production** | **[int]** |  | [optional] 
 **meter_start_date** | **date** | The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
