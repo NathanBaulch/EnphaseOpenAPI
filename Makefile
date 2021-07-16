@@ -46,7 +46,7 @@ endef
 generate/go: clean/go $(OPENAPICLI)
 	$(call generate,go,enlighten)
 	echo Updating go dependencies
-	cd ./go/enlighten; go get -u ./...; go mod tidy
+	cd ./go/enlighten; go get -u -v ./...; go mod tidy
 
 generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
 	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten,useDateTimeOffset=true)
@@ -54,6 +54,7 @@ generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
 
 generate/php: clean/php $(OPENAPICLI)
 	$(call generate,php,enlighten)
+	cd ./php/enlighten; composer require spatie/guzzle-rate-limiter-middleware; composer update
 
 generate/python: clean/python $(OPENAPICLI)
 	$(call generate,python,enlighten)
