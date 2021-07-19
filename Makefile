@@ -58,6 +58,7 @@ generate/php: clean/php $(OPENAPICLI)
 
 generate/python: clean/python $(OPENAPICLI)
 	$(call generate,python,enlighten)
+	cd ./python/enlighten; source ./venv/scripts/activate; pip install --upgrade -r requirements.txt; pip freeze > requirements.txt; dos2unix -o requirements.txt
 
 generate/javascript: clean/javascript $(OPENAPICLI)
 	$(call generate,javascript,enlighten)
