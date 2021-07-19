@@ -7,4 +7,11 @@
 .gitlab-ci.yml
 .openapi-generator-ignore
 .travis.yml
+enlighten/apis/
+enlighten/models/
+enlighten/model_utils.py
+enlighten/rest.py
 git_push.sh
+test-requirements.txt
+test/
+requirements.txt
