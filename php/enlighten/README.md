@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 - [Meta](docs/Model/Meta.md)
 - [MonthlyProductionResponse](docs/Model/MonthlyProductionResponse.md)
 - [MonthlyProductionResponseMeterReadings](docs/Model/MonthlyProductionResponseMeterReadings.md)
+- [NotFoundError](docs/Model/NotFoundError.md)
 - [ProductionMeterReadingsResponse](docs/Model/ProductionMeterReadingsResponse.md)
 - [ProductionMeterReadingsResponseMeterReadings](docs/Model/ProductionMeterReadingsResponseMeterReadings.md)
 - [RgmStatsResponse](docs/Model/RgmStatsResponse.md)

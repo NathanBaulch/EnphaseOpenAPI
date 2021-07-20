@@ -1,10 +1,10 @@
-# TheEnlightenSystemsApi.ClientError
+# TheEnlightenSystemsApi.NotFoundError
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reason** | **String** |  | 
-**message** | **[String]** |  | 
+**errorMessages** | **[String]** |  | 
 
 

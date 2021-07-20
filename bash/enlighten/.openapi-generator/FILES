@@ -22,6 +22,7 @@ docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md
+docs/NotFoundError.md
 docs/ProductionMeterReadingsResponse.md
 docs/ProductionMeterReadingsResponseMeterReadings.md
 docs/RgmStatsResponse.md

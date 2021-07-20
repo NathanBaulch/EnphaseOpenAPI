@@ -1103,8 +1103,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Client error
+                $ref: '#/components/schemas/NotFoundError'
+          description: Not Found
         "409":
           content:
             application/json:
@@ -1150,6 +1150,18 @@ components:
         type: integer
       style: simple
   responses:
+    ClientError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ClientError'
+      description: Client error
+    NotFoundError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+      description: Not Found
     ConflictError:
       content:
         application/json:
@@ -1162,12 +1174,6 @@ components:
           schema:
             $ref: '#/components/schemas/UnprocessableEntityError'
       description: Unprocessable Entity
-    ClientError:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ClientError'
-      description: Client error
     ServerError:
       content:
         application/json:
@@ -1853,6 +1859,38 @@ components:
       - operational_at
       - status
       type: object
+    ClientError:
+      example:
+        reason: 401
+        message:
+        - Not authorized to access requested resource
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+      required:
+      - message
+      - reason
+      type: object
+    NotFoundError:
+      example:
+        reason: 404
+        errorMessages:
+        - Envoy not found with this serial number
+      properties:
+        reason:
+          type: string
+        errorMessages:
+          items:
+            type: string
+          type: array
+      required:
+      - errorMessages
+      - reason
+      type: object
     ConflictError:
       example:
         reason: "409"
@@ -1902,22 +1940,6 @@ components:
       required:
       - errorMessages
       - message
-      - reason
-      type: object
-    ClientError:
-      example:
-        reason: 401
-        message:
-        - Not authorized to access requested resource
-      properties:
-        reason:
-          type: string
-        errorMessages:
-          items:
-            type: string
-          type: array
-      required:
-      - errorMessages
       - reason
       type: object
     ServerError:

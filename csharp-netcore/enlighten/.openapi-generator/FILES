@@ -19,6 +19,7 @@ docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md
+docs/NotFoundError.md
 docs/ProductionMeterReadingsResponse.md
 docs/ProductionMeterReadingsResponseMeterReadings.md
 docs/RgmStatsResponse.md
@@ -68,6 +69,7 @@ src/EnphaseOpenAPI.Enlighten/Model/InvertersSummaryByEnvoyOrSiteResponseMicroInv
 src/EnphaseOpenAPI.Enlighten/Model/Meta.cs
 src/EnphaseOpenAPI.Enlighten/Model/MonthlyProductionResponse.cs
 src/EnphaseOpenAPI.Enlighten/Model/MonthlyProductionResponseMeterReadings.cs
+src/EnphaseOpenAPI.Enlighten/Model/NotFoundError.cs
 src/EnphaseOpenAPI.Enlighten/Model/ProductionMeterReadingsResponse.cs
 src/EnphaseOpenAPI.Enlighten/Model/ProductionMeterReadingsResponseMeterReadings.cs
 src/EnphaseOpenAPI.Enlighten/Model/RgmStatsResponse.cs

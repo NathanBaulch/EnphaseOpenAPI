@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
  - [Meta](docs/Meta.md)
  - [MonthlyProductionResponse](docs/MonthlyProductionResponse.md)
  - [MonthlyProductionResponseMeterReadings](docs/MonthlyProductionResponseMeterReadings.md)
+ - [NotFoundError](docs/NotFoundError.md)
  - [ProductionMeterReadingsResponse](docs/ProductionMeterReadingsResponse.md)
  - [ProductionMeterReadingsResponseMeterReadings](docs/ProductionMeterReadingsResponseMeterReadings.md)
  - [RgmStatsResponse](docs/RgmStatsResponse.md)

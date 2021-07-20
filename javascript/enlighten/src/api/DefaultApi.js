@@ -23,6 +23,7 @@ import EnvoysResponse from '../model/EnvoysResponse';
 import InventoryResponse from '../model/InventoryResponse';
 import InvertersSummaryByEnvoyOrSiteResponse from '../model/InvertersSummaryByEnvoyOrSiteResponse';
 import MonthlyProductionResponse from '../model/MonthlyProductionResponse';
+import NotFoundError from '../model/NotFoundError';
 import ProductionMeterReadingsResponse from '../model/ProductionMeterReadingsResponse';
 import RgmStatsResponse from '../model/RgmStatsResponse';
 import SearchSystemIdResponse from '../model/SearchSystemIdResponse';

@@ -14,20 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The ClientError model module.
- * @module model/ClientError
+ * The NotFoundError model module.
+ * @module model/NotFoundError
  * @version 2.0
  */
-class ClientError {
+class NotFoundError {
     /**
-     * Constructs a new <code>ClientError</code>.
-     * @alias module:model/ClientError
+     * Constructs a new <code>NotFoundError</code>.
+     * @alias module:model/NotFoundError
      * @param reason {String} 
-     * @param message {Array.<String>} 
+     * @param errorMessages {Array.<String>} 
      */
-    constructor(reason, message) { 
+    constructor(reason, errorMessages) { 
         
-        ClientError.initialize(this, reason, message);
+        NotFoundError.initialize(this, reason, errorMessages);
     }
 
     /**
@@ -35,27 +35,27 @@ class ClientError {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, reason, message) { 
+    static initialize(obj, reason, errorMessages) { 
         obj['reason'] = reason;
-        obj['message'] = message;
+        obj['errorMessages'] = errorMessages;
     }
 
     /**
-     * Constructs a <code>ClientError</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>NotFoundError</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ClientError} obj Optional instance to populate.
-     * @return {module:model/ClientError} The populated <code>ClientError</code> instance.
+     * @param {module:model/NotFoundError} obj Optional instance to populate.
+     * @return {module:model/NotFoundError} The populated <code>NotFoundError</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ClientError();
+            obj = obj || new NotFoundError();
 
             if (data.hasOwnProperty('reason')) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
-                obj['message'] = ApiClient.convertToType(data['message'], ['String']);
+            if (data.hasOwnProperty('errorMessages')) {
+                obj['errorMessages'] = ApiClient.convertToType(data['errorMessages'], ['String']);
             }
         }
         return obj;
@@ -67,17 +67,17 @@ class ClientError {
 /**
  * @member {String} reason
  */
-ClientError.prototype['reason'] = undefined;
+NotFoundError.prototype['reason'] = undefined;
 
 /**
- * @member {Array.<String>} message
+ * @member {Array.<String>} errorMessages
  */
-ClientError.prototype['message'] = undefined;
+NotFoundError.prototype['errorMessages'] = undefined;
 
 
 
 
 
 
-export default ClientError;
+export default NotFoundError;
 

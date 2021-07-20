@@ -31,6 +31,7 @@ import InvertersSummaryByEnvoyOrSiteResponseMicroInverters from './model/Inverte
 import Meta from './model/Meta';
 import MonthlyProductionResponse from './model/MonthlyProductionResponse';
 import MonthlyProductionResponseMeterReadings from './model/MonthlyProductionResponseMeterReadings';
+import NotFoundError from './model/NotFoundError';
 import ProductionMeterReadingsResponse from './model/ProductionMeterReadingsResponse';
 import ProductionMeterReadingsResponseMeterReadings from './model/ProductionMeterReadingsResponseMeterReadings';
 import RgmStatsResponse from './model/RgmStatsResponse';
@@ -194,6 +195,12 @@ export {
      * @property {module:model/MonthlyProductionResponseMeterReadings}
      */
     MonthlyProductionResponseMeterReadings,
+
+    /**
+     * The NotFoundError model constructor.
+     * @property {module:model/NotFoundError}
+     */
+    NotFoundError,
 
     /**
      * The ProductionMeterReadingsResponse model constructor.

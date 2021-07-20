@@ -1,69 +1,69 @@
-# ClientError
+# NotFoundError
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Reason** | **string** |  | 
-**Message** | **[]string** |  | 
+**ErrorMessages** | **[]string** |  | 
 
 ## Methods
 
-### NewClientError
+### NewNotFoundError
 
-`func NewClientError(reason string, message []string, ) *ClientError`
+`func NewNotFoundError(reason string, errorMessages []string, ) *NotFoundError`
 
-NewClientError instantiates a new ClientError object
+NewNotFoundError instantiates a new NotFoundError object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewClientErrorWithDefaults
+### NewNotFoundErrorWithDefaults
 
-`func NewClientErrorWithDefaults() *ClientError`
+`func NewNotFoundErrorWithDefaults() *NotFoundError`
 
-NewClientErrorWithDefaults instantiates a new ClientError object
+NewNotFoundErrorWithDefaults instantiates a new NotFoundError object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetReason
 
-`func (o *ClientError) GetReason() string`
+`func (o *NotFoundError) GetReason() string`
 
 GetReason returns the Reason field if non-nil, zero value otherwise.
 
 ### GetReasonOk
 
-`func (o *ClientError) GetReasonOk() (*string, bool)`
+`func (o *NotFoundError) GetReasonOk() (*string, bool)`
 
 GetReasonOk returns a tuple with the Reason field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReason
 
-`func (o *ClientError) SetReason(v string)`
+`func (o *NotFoundError) SetReason(v string)`
 
 SetReason sets Reason field to given value.
 
 
-### GetMessage
+### GetErrorMessages
 
-`func (o *ClientError) GetMessage() []string`
+`func (o *NotFoundError) GetErrorMessages() []string`
 
-GetMessage returns the Message field if non-nil, zero value otherwise.
+GetErrorMessages returns the ErrorMessages field if non-nil, zero value otherwise.
 
-### GetMessageOk
+### GetErrorMessagesOk
 
-`func (o *ClientError) GetMessageOk() (*[]string, bool)`
+`func (o *NotFoundError) GetErrorMessagesOk() (*[]string, bool)`
 
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+GetErrorMessagesOk returns a tuple with the ErrorMessages field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMessage
+### SetErrorMessages
 
-`func (o *ClientError) SetMessage(v []string)`
+`func (o *NotFoundError) SetErrorMessages(v []string)`
 
-SetMessage sets Message field to given value.
+SetErrorMessages sets ErrorMessages field to given value.
 
 
 

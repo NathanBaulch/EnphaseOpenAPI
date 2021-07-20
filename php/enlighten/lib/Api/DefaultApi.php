@@ -3754,7 +3754,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SearchSystemIdResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
+     * @return \OpenAPI\Client\Model\SearchSystemIdResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\NotFoundError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError
      */
     public function searchSystemId($user_id, $serial_num)
     {
@@ -3770,7 +3770,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SearchSystemIdResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\SearchSystemIdResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\NotFoundError|\OpenAPI\Client\Model\ConflictError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchSystemIdWithHttpInfo($user_id, $serial_num)
     {
@@ -3830,14 +3830,14 @@ class DefaultApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NotFoundError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NotFoundError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3925,7 +3925,7 @@ class DefaultApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\OpenAPI\Client\Model\NotFoundError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

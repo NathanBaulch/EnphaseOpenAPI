@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
  - [TheEnlightenSystemsApi.Meta](docs/Meta.md)
  - [TheEnlightenSystemsApi.MonthlyProductionResponse](docs/MonthlyProductionResponse.md)
  - [TheEnlightenSystemsApi.MonthlyProductionResponseMeterReadings](docs/MonthlyProductionResponseMeterReadings.md)
+ - [TheEnlightenSystemsApi.NotFoundError](docs/NotFoundError.md)
  - [TheEnlightenSystemsApi.ProductionMeterReadingsResponse](docs/ProductionMeterReadingsResponse.md)
  - [TheEnlightenSystemsApi.ProductionMeterReadingsResponseMeterReadings](docs/ProductionMeterReadingsResponseMeterReadings.md)
  - [TheEnlightenSystemsApi.RgmStatsResponse](docs/RgmStatsResponse.md)

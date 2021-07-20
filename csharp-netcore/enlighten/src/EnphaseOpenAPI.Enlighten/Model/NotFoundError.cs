@@ -26,27 +26,27 @@ using OpenAPIDateConverter = EnphaseOpenAPI.Enlighten.Client.OpenAPIDateConverte
 namespace EnphaseOpenAPI.Enlighten.Model
 {
     /// <summary>
-    /// ClientError
+    /// NotFoundError
     /// </summary>
-    [DataContract(Name = "ClientError")]
-    public partial class ClientError : IEquatable<ClientError>, IValidatableObject
+    [DataContract(Name = "NotFoundError")]
+    public partial class NotFoundError : IEquatable<NotFoundError>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientError" /> class.
+        /// Initializes a new instance of the <see cref="NotFoundError" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ClientError() { }
+        protected NotFoundError() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientError" /> class.
+        /// Initializes a new instance of the <see cref="NotFoundError" /> class.
         /// </summary>
         /// <param name="reason">reason (required).</param>
-        /// <param name="message">message (required).</param>
-        public ClientError(string reason = default(string), List<string> message = default(List<string>))
+        /// <param name="errorMessages">errorMessages (required).</param>
+        public NotFoundError(string reason = default(string), List<string> errorMessages = default(List<string>))
         {
             // to ensure "reason" is required (not null)
-            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for ClientError and cannot be null");
-            // to ensure "message" is required (not null)
-            this.Message = message ?? throw new ArgumentNullException("message is a required property for ClientError and cannot be null");
+            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for NotFoundError and cannot be null");
+            // to ensure "errorMessages" is required (not null)
+            this.ErrorMessages = errorMessages ?? throw new ArgumentNullException("errorMessages is a required property for NotFoundError and cannot be null");
         }
 
         /// <summary>
@@ -56,10 +56,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public string Reason { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Gets or Sets ErrorMessages
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Message { get; set; }
+        [DataMember(Name = "errorMessages", IsRequired = true, EmitDefaultValue = false)]
+        public List<string> ErrorMessages { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +68,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ClientError {\n");
+            sb.Append("class NotFoundError {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,15 +91,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ClientError);
+            return this.Equals(input as NotFoundError);
         }
 
         /// <summary>
-        /// Returns true if ClientError instances are equal
+        /// Returns true if NotFoundError instances are equal
         /// </summary>
-        /// <param name="input">Instance of ClientError to be compared</param>
+        /// <param name="input">Instance of NotFoundError to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ClientError input)
+        public bool Equals(NotFoundError input)
         {
             if (input == null)
                 return false;
@@ -111,10 +111,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     this.Reason.Equals(input.Reason))
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    this.Message != null &&
-                    input.Message != null &&
-                    this.Message.SequenceEqual(input.Message)
+                    this.ErrorMessages == input.ErrorMessages ||
+                    this.ErrorMessages != null &&
+                    input.ErrorMessages != null &&
+                    this.ErrorMessages.SequenceEqual(input.ErrorMessages)
                 );
         }
 
@@ -129,8 +129,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 int hashCode = 41;
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.ErrorMessages != null)
+                    hashCode = hashCode * 59 + this.ErrorMessages.GetHashCode();
                 return hashCode;
             }
         }

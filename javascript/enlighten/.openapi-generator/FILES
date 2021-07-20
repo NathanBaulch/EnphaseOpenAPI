@@ -20,6 +20,7 @@ docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md
+docs/NotFoundError.md
 docs/ProductionMeterReadingsResponse.md
 docs/ProductionMeterReadingsResponseMeterReadings.md
 docs/RgmStatsResponse.md
@@ -58,6 +59,7 @@ src/model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.js
 src/model/Meta.js
 src/model/MonthlyProductionResponse.js
 src/model/MonthlyProductionResponseMeterReadings.js
+src/model/NotFoundError.js
 src/model/ProductionMeterReadingsResponse.js
 src/model/ProductionMeterReadingsResponseMeterReadings.js
 src/model/RgmStatsResponse.js
@@ -92,6 +94,7 @@ test/model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.spec.js
 test/model/Meta.spec.js
 test/model/MonthlyProductionResponse.spec.js
 test/model/MonthlyProductionResponseMeterReadings.spec.js
+test/model/NotFoundError.spec.js
 test/model/ProductionMeterReadingsResponse.spec.js
 test/model/ProductionMeterReadingsResponseMeterReadings.spec.js
 test/model/RgmStatsResponse.spec.js

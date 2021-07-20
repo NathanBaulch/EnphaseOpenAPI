@@ -598,7 +598,7 @@ paths:
         '401':
           $ref: '#/components/responses/ClientError'
         '404':
-          $ref: '#/components/responses/ClientError'
+          $ref: '#/components/responses/NotFoundError'
         '409':
           $ref: '#/components/responses/ConflictError'
         '422':
@@ -1594,6 +1594,38 @@ components:
         last_report_at: 1445619615
         last_energy_at: 1445619033
         operational_at: 1357023600
+    ClientError:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
+      required:
+        - reason
+        - message
+      example:
+        reason: 401
+        message:
+          - Not authorized to access requested resource
+    NotFoundError:
+      type: object
+      properties:
+        reason:
+          type: string
+        errorMessages:
+          type: array
+          items:
+            type: string
+      required:
+        - reason
+        - errorMessages
+      example:
+        reason: 404
+        errorMessages:
+          - Envoy not found with this serial number
     ConflictError:
       type: object
       properties:
@@ -1644,22 +1676,6 @@ components:
         - reason
         - message
         - errorMessages
-    ClientError:
-      type: object
-      properties:
-        reason:
-          type: string
-        errorMessages:
-          type: array
-          items:
-            type: string
-      required:
-        - reason
-        - errorMessages
-      example:
-        reason: 401
-        message:
-          - Not authorized to access requested resource
     ServerError:
       type: object
       properties:
@@ -1692,6 +1708,18 @@ components:
         type: integer
         example: 66
   responses:
+    ClientError:
+      description: Client error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ClientError'
+    NotFoundError:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
     ConflictError:
       description: Conflict
       content:
@@ -1704,12 +1732,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/UnprocessableEntityError'
-    ClientError:
-      description: Client error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ClientError'
     ServerError:
       description: Server error
       content:

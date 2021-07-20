@@ -855,7 +855,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **401** | Client error |  -  |
-| **404** | Client error |  -  |
+| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Server error |  -  |

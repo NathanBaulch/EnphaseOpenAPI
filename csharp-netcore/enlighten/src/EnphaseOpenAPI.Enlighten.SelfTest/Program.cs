@@ -49,6 +49,15 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                         }
 
                         break;
+                    case HttpStatusCode.NotFound:
+                        var notFoundError = JsonConvert.DeserializeObject<NotFoundError>(response.RawContent, settings);
+                        content = notFoundError;
+                        if (notFoundError != null && notFoundError.ErrorMessages.Count > 0)
+                        {
+                            message = notFoundError.ErrorMessages[0];
+                        }
+
+                        break;
                     case HttpStatusCode.Conflict:
                         var conflictError = JsonConvert.DeserializeObject<ConflictError>(response.RawContent, settings);
                         content = conflictError;
@@ -81,9 +90,9 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                     case >= HttpStatusCode.BadRequest:
                         var clientError = JsonConvert.DeserializeObject<ClientError>(response.RawContent, settings);
                         content = clientError;
-                        if (clientError != null && clientError.ErrorMessages.Count > 0)
+                        if (clientError != null && clientError.Message.Count > 0)
                         {
-                            message = clientError.ErrorMessages[0];
+                            message = clientError.Message[0];
                         }
 
                         break;

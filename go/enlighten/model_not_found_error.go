@@ -14,33 +14,33 @@ import (
 	"encoding/json"
 )
 
-// ClientError struct for ClientError
-type ClientError struct {
+// NotFoundError struct for NotFoundError
+type NotFoundError struct {
 	Reason string `json:"reason"`
-	Message []string `json:"message"`
+	ErrorMessages []string `json:"errorMessages"`
 }
 
-// NewClientError instantiates a new ClientError object
+// NewNotFoundError instantiates a new NotFoundError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClientError(reason string, message []string) *ClientError {
-	this := ClientError{}
+func NewNotFoundError(reason string, errorMessages []string) *NotFoundError {
+	this := NotFoundError{}
 	this.Reason = reason
-	this.Message = message
+	this.ErrorMessages = errorMessages
 	return &this
 }
 
-// NewClientErrorWithDefaults instantiates a new ClientError object
+// NewNotFoundErrorWithDefaults instantiates a new NotFoundError object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewClientErrorWithDefaults() *ClientError {
-	this := ClientError{}
+func NewNotFoundErrorWithDefaults() *NotFoundError {
+	this := NotFoundError{}
 	return &this
 }
 
 // GetReason returns the Reason field value
-func (o *ClientError) GetReason() string {
+func (o *NotFoundError) GetReason() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -51,7 +51,7 @@ func (o *ClientError) GetReason() string {
 
 // GetReasonOk returns a tuple with the Reason field value
 // and a boolean to check if the value has been set.
-func (o *ClientError) GetReasonOk() (*string, bool) {
+func (o *NotFoundError) GetReasonOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -59,77 +59,77 @@ func (o *ClientError) GetReasonOk() (*string, bool) {
 }
 
 // SetReason sets field value
-func (o *ClientError) SetReason(v string) {
+func (o *NotFoundError) SetReason(v string) {
 	o.Reason = v
 }
 
-// GetMessage returns the Message field value
-func (o *ClientError) GetMessage() []string {
+// GetErrorMessages returns the ErrorMessages field value
+func (o *NotFoundError) GetErrorMessages() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
 
-	return o.Message
+	return o.ErrorMessages
 }
 
-// GetMessageOk returns a tuple with the Message field value
+// GetErrorMessagesOk returns a tuple with the ErrorMessages field value
 // and a boolean to check if the value has been set.
-func (o *ClientError) GetMessageOk() (*[]string, bool) {
+func (o *NotFoundError) GetErrorMessagesOk() (*[]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Message, true
+	return &o.ErrorMessages, true
 }
 
-// SetMessage sets field value
-func (o *ClientError) SetMessage(v []string) {
-	o.Message = v
+// SetErrorMessages sets field value
+func (o *NotFoundError) SetErrorMessages(v []string) {
+	o.ErrorMessages = v
 }
 
-func (o ClientError) MarshalJSON() ([]byte, error) {
+func (o NotFoundError) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["reason"] = o.Reason
 	}
 	if true {
-		toSerialize["message"] = o.Message
+		toSerialize["errorMessages"] = o.ErrorMessages
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableClientError struct {
-	value *ClientError
+type NullableNotFoundError struct {
+	value *NotFoundError
 	isSet bool
 }
 
-func (v NullableClientError) Get() *ClientError {
+func (v NullableNotFoundError) Get() *NotFoundError {
 	return v.value
 }
 
-func (v *NullableClientError) Set(val *ClientError) {
+func (v *NullableNotFoundError) Set(val *NotFoundError) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableClientError) IsSet() bool {
+func (v NullableNotFoundError) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableClientError) Unset() {
+func (v *NullableNotFoundError) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableClientError(val *ClientError) *NullableClientError {
-	return &NullableClientError{value: val, isSet: true}
+func NewNullableNotFoundError(val *NotFoundError) *NullableNotFoundError {
+	return &NullableNotFoundError{value: val, isSet: true}
 }
 
-func (v NullableClientError) MarshalJSON() ([]byte, error) {
+func (v NullableNotFoundError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableClientError) UnmarshalJSON(src []byte) error {
+func (v *NullableNotFoundError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new TheEnlightenSystemsApi.ClientError();
+    instance = new TheEnlightenSystemsApi.NotFoundError();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,22 @@
       object[property] = value;
   }
 
-  describe('ClientError', function() {
-    it('should create an instance of ClientError', function() {
-      // uncomment below and update the code to test ClientError
-      //var instane = new TheEnlightenSystemsApi.ClientError();
-      //expect(instance).to.be.a(TheEnlightenSystemsApi.ClientError);
+  describe('NotFoundError', function() {
+    it('should create an instance of NotFoundError', function() {
+      // uncomment below and update the code to test NotFoundError
+      //var instane = new TheEnlightenSystemsApi.NotFoundError();
+      //expect(instance).to.be.a(TheEnlightenSystemsApi.NotFoundError);
     });
 
     it('should have the property reason (base name: "reason")', function() {
       // uncomment below and update the code to test the property reason
-      //var instance = new TheEnlightenSystemsApi.ClientError();
+      //var instance = new TheEnlightenSystemsApi.NotFoundError();
       //expect(instance).to.be();
     });
 
-    it('should have the property message (base name: "message")', function() {
-      // uncomment below and update the code to test the property message
-      //var instance = new TheEnlightenSystemsApi.ClientError();
+    it('should have the property errorMessages (base name: "errorMessages")', function() {
+      // uncomment below and update the code to test the property errorMessages
+      //var instance = new TheEnlightenSystemsApi.NotFoundError();
       //expect(instance).to.be();
     });
 

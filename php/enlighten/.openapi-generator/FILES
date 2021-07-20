@@ -21,6 +21,7 @@ docs/Model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
 docs/Model/Meta.md
 docs/Model/MonthlyProductionResponse.md
 docs/Model/MonthlyProductionResponseMeterReadings.md
+docs/Model/NotFoundError.md
 docs/Model/ProductionMeterReadingsResponse.md
 docs/Model/ProductionMeterReadingsResponseMeterReadings.md
 docs/Model/RgmStatsResponse.md
@@ -58,6 +59,7 @@ lib/Model/Meta.php
 lib/Model/ModelInterface.php
 lib/Model/MonthlyProductionResponse.php
 lib/Model/MonthlyProductionResponseMeterReadings.php
+lib/Model/NotFoundError.php
 lib/Model/ProductionMeterReadingsResponse.php
 lib/Model/ProductionMeterReadingsResponseMeterReadings.php
 lib/Model/RgmStatsResponse.php

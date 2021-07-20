@@ -22,6 +22,7 @@ docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md
+docs/NotFoundError.md
 docs/ProductionMeterReadingsResponse.md
 docs/ProductionMeterReadingsResponseMeterReadings.md
 docs/RgmStatsResponse.md
@@ -57,6 +58,7 @@ model_inverters_summary_by_envoy_or_site_response_micro_inverters.go
 model_meta.go
 model_monthly_production_response.go
 model_monthly_production_response_meter_readings.go
+model_not_found_error.go
 model_production_meter_readings_response.go
 model_production_meter_readings_response_meter_readings.go
 model_rgm_stats_response.go

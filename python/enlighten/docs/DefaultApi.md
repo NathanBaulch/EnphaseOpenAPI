@@ -871,6 +871,7 @@ import time
 import enlighten
 from enlighten.api import default_api
 from enlighten.model.server_error import ServerError
+from enlighten.model.not_found_error import NotFoundError
 from enlighten.model.client_error import ClientError
 from enlighten.model.conflict_error import ConflictError
 from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
@@ -935,7 +936,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **401** | Client error |  -  |
-**404** | Client error |  -  |
+**404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Server error |  -  |

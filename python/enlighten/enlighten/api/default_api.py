@@ -31,6 +31,7 @@ from enlighten.model.envoys_response import EnvoysResponse
 from enlighten.model.inventory_response import InventoryResponse
 from enlighten.model.inverters_summary_by_envoy_or_site_response import InvertersSummaryByEnvoyOrSiteResponse
 from enlighten.model.monthly_production_response import MonthlyProductionResponse
+from enlighten.model.not_found_error import NotFoundError
 from enlighten.model.production_meter_readings_response import ProductionMeterReadingsResponse
 from enlighten.model.rgm_stats_response import RgmStatsResponse
 from enlighten.model.search_system_id_response import SearchSystemIdResponse
