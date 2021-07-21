@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/NathanBaulch/EnphaseOpenAPI"
-	"golang.org/x/time/rate"
 )
 
 var (
@@ -21,8 +20,8 @@ func main() {
 	ctx := context.WithValue(context.Background(), enlighten.ContextAPIKeys, map[string]enlighten.APIKey{"ApiKey": {Key: *apiKey}})
 	cfg := enlighten.NewConfiguration()
 	cfg.Debug = true
+	cfg.RateLimit(10, time.Minute)
 	api := enlighten.NewAPIClient(cfg).DefaultApi
-	WithRateLimit(cfg.HTTPClient, rate.NewLimiter(rate.Every(time.Minute), 10))
 
 	startDate := time.Now().Add(-31 * 24 * time.Hour).Format("2006-01-02")
 	endDate := time.Now().Add(-25 * 24 * time.Hour).Format("2006-01-02")
@@ -178,24 +177,6 @@ func main() {
 			}
 		}
 	}
-}
-
-func WithRateLimit(c *http.Client, r *rate.Limiter) {
-	t := c.Transport
-	if t == nil {
-		t = http.DefaultTransport
-	}
-	c.Transport = &rateLimitTransport{RoundTripper: t, r: r}
-}
-
-type rateLimitTransport struct {
-	http.RoundTripper
-	r *rate.Limiter
-}
-
-func (t *rateLimitTransport) RoundTrip(req *http.Request) (*http.Response, error) {
-	_ = t.r.Wait(req.Context())
-	return t.RoundTripper.RoundTrip(req)
 }
 
 func handleError(err error) {
