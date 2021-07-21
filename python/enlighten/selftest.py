@@ -6,6 +6,7 @@ import ratelimit
 from dateutil.relativedelta import relativedelta
 
 import enlighten
+from enlighten import errors
 from enlighten.api import default_api
 
 parser = argparse.ArgumentParser()
@@ -18,6 +19,7 @@ cfg.debug = True
 
 with enlighten.ApiClient(cfg) as cli:
     cli.call_api = ratelimit.sleep_and_retry(ratelimit.limits(calls=10, period=60)(cli.call_api))
+    errors.fix(cli)
     api = default_api.DefaultApi(cli)
 
     start_date = date.today() - relativedelta(months=1)
