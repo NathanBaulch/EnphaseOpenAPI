@@ -2,6 +2,7 @@
 using CommandLine;
 using EnphaseOpenAPI.Enlighten.Api;
 using EnphaseOpenAPI.Enlighten.Client;
+using EnphaseOpenAPI.Enlighten.Model;
 using Newtonsoft.Json;
 
 namespace EnphaseOpenAPI.Enlighten.SelfTest
@@ -38,6 +39,15 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
             var startAt = DateTimeOffset.Now.AddDays(-7).ToUnixTimeSeconds();
             var endAt = DateTimeOffset.Now.AddDays(-1).ToUnixTimeSeconds();
 
+            try
+            {
+                api.Systems("dummy");
+                throw new Exception("systems: expected error");
+            }
+            catch (ApiException e) when ((e.ErrorContent as ClientError)?.Reason == "401")
+            {
+            }
+
             string next = null;
             while (true)
             {
@@ -55,8 +65,25 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                     }
 
                     CheckUnknownFields(api.InvertersSummaryByEnvoyOrSiteWithHttpInfo(uid, sys.SystemId));
+                    try
+                    {
+                        api.InvertersSummaryByEnvoyOrSite(uid, -1);
+                        throw new Exception("inverters_summary_by_envoy_or_site: expected error");
+                    }
+                    catch (ApiException e) when ((e.ErrorContent as UnprocessableEntityError)?.Message == "Couldn't find Site with 'id'=-1")
+                    {
+                    }
+
                     CheckUnknownFields(api.EnergyLifetimeWithHttpInfo(uid, sys.SystemId));
                     CheckUnknownFields(api.EnergyLifetimeWithHttpInfo(uid, sys.SystemId, DateTimeOffset.Now.AddMonths(-1), DateTimeOffset.Now.AddMonths(-1).AddDays(7)));
+                    try
+                    {
+                        api.EnergyLifetime(uid, sys.SystemId, DateTimeOffset.Now);
+                        throw new Exception("energy_lifetime: expected error");
+                    }
+                    catch (ApiException e) when ((e.ErrorContent as UnprocessableEntityError)?.Reason == "Requested date range is invalid for this system")
+                    {
+                    }
 
                     var res3 = api.EnvoysWithHttpInfo(uid, sys.SystemId);
                     CheckUnknownFields(res3);
@@ -64,6 +91,14 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                     foreach (var env in res3.Data.Envoys)
                     {
                         CheckUnknownFields(api.SearchSystemIdWithHttpInfo(uid, env.SerialNumber));
+                        try
+                        {
+                            api.SearchSystemId(uid, "dummy");
+                            throw new Exception("search_system_id: expected error");
+                        }
+                        catch (ApiException e) when ((e.ErrorContent as NotFoundError)?.Reason == "404")
+                        {
+                        }
                     }
 
                     CheckUnknownFields(api.InventoryWithHttpInfo(uid, sys.SystemId));

@@ -8,6 +8,10 @@ from dateutil.relativedelta import relativedelta
 import enlighten
 from enlighten import errors
 from enlighten.api import default_api
+from enlighten.exceptions import ApiException
+from enlighten.model.client_error import ClientError
+from enlighten.model.not_found_error import NotFoundError
+from enlighten.model.unprocessable_entity_error import UnprocessableEntityError
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--api_key')
@@ -27,6 +31,14 @@ with enlighten.ApiClient(cfg) as cli:
     start_at = int((datetime.now() - relativedelta(weeks=1)).timestamp())
     end_at = int((datetime.now() - relativedelta(days=1)).timestamp())
 
+    try:
+        api.systems('dummy')
+    except ApiException as e:
+        if not hasattr(e, 'model') or not isinstance(e.model, ClientError) or e.model.reason != '401':
+            raise e
+    else:
+        sys.exit('systems: expected error')
+
     next = ''
     while True:
         res = api.systems(uid)
@@ -40,11 +52,34 @@ with enlighten.ApiClient(cfg) as cli:
                 sys.exit('systems: expected one result')
 
             api.inverters_summary_by_envoy_or_site(uid, s.system_id)
+            try:
+                api.inverters_summary_by_envoy_or_site(uid, -1)
+            except ApiException as e:
+                if not hasattr(e, 'model') or not isinstance(e.model, UnprocessableEntityError) or \
+                        e.model.message != "Couldn't find Site with 'id'=-1":
+                    raise e
+            else:
+                sys.exit('inverters_summary_by_envoy_or_site: expected error')
             api.energy_lifetime(uid, s.system_id)
             api.energy_lifetime(uid, s.system_id, start_date=start_date, end_date=end_date, production='all')
+            try:
+                api.energy_lifetime(uid, s.system_id, start_date=date.today())
+            except ApiException as e:
+                if not hasattr(e, 'model') or not isinstance(e.model, UnprocessableEntityError) or \
+                        e.model.reason != 'Requested date range is invalid for this system':
+                    raise e
+            else:
+                sys.exit('energy_lifetime: expected error')
 
             for env in api.envoys(uid, s.system_id).envoys:
                 api.search_system_id(uid, env.serial_number)
+                try:
+                    api.search_system_id(uid, 'dummy')
+                except ApiException as e:
+                    if not hasattr(e, 'model') or not isinstance(e.model, NotFoundError) or e.model.reason != '404':
+                        raise e
+                else:
+                    sys.exit('search_system_id: expected error')
 
             api.inventory(uid, s.system_id)
             api.monthly_production(uid, s.system_id, start_date)

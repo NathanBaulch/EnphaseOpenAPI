@@ -28,6 +28,14 @@ func main() {
 	startAt := time.Now().Add(-7 * 24 * time.Hour).Unix()
 	endAt := time.Now().Add(-24 * time.Hour).Unix()
 
+	if _, _, err := api.Systems(ctx).UserId("dummy").Execute(); err == nil {
+		panic("systems: expected error")
+	} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+		handleError(err)
+	} else if mdl, ok := oerr.Model().(enlighten.ClientError); !ok || mdl.Reason != "401" {
+		handleError(err)
+	}
+
 	var next *string
 	for {
 		req := api.Systems(ctx).UserId(*userID)
@@ -61,6 +69,13 @@ func main() {
 				} else {
 					checkUnknownFields(&mdl, res)
 				}
+				if _, _, err := api.InvertersSummaryByEnvoyOrSite(ctx).UserId(*userID).SiteId(-1).Execute(); err == nil {
+					panic("inverters_summary_by_envoy_or_site: expected error")
+				} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+					handleError(err)
+				} else if mdl, ok := oerr.Model().(enlighten.UnprocessableEntityError); !ok || mdl.Message == nil || *mdl.Message != "Couldn't find Site with 'id'=-1" {
+					handleError(err)
+				}
 
 				if mdl, res, err := api.EnergyLifetime(ctx, sys.SystemId).UserId(*userID).Execute(); err != nil {
 					handleError(err)
@@ -73,6 +88,13 @@ func main() {
 				} else {
 					checkUnknownFields(&mdl, res)
 				}
+				if _, _, err := api.EnergyLifetime(ctx, sys.SystemId).UserId(*userID).StartDate(time.Now().Format("2006-01-02")).Execute(); err == nil {
+					panic("energy_lifetime: expected error")
+				} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+					handleError(err)
+				} else if mdl, ok := oerr.Model().(enlighten.UnprocessableEntityError); !ok || mdl.Reason == nil || *mdl.Reason != "Requested date range is invalid for this system" {
+					handleError(err)
+				}
 
 				if mdl, res, err := api.Envoys(ctx, sys.SystemId).UserId(*userID).Execute(); err != nil {
 					handleError(err)
@@ -83,6 +105,13 @@ func main() {
 							handleError(err)
 						} else {
 							checkUnknownFields(&mdl, res)
+						}
+						if _, _, err := api.SearchSystemId(ctx).UserId(*userID).SerialNum("dummy").Execute(); err == nil {
+							panic("search_system_id: expected error")
+						} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+							handleError(err)
+						} else if mdl, ok := oerr.Model().(enlighten.NotFoundError); !ok || mdl.Reason != "404" {
+							handleError(err)
 						}
 					}
 				}
