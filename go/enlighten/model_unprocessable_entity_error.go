@@ -16,20 +16,19 @@ import (
 
 // UnprocessableEntityError struct for UnprocessableEntityError
 type UnprocessableEntityError struct {
-	Reason string `json:"reason"`
-	Message string `json:"message"`
-	ErrorMessages []string `json:"errorMessages"`
+	Reason *string `json:"reason,omitempty"`
+	Message *string `json:"message,omitempty"`
+	ErrorMessages *[]string `json:"errorMessages,omitempty"`
+	Start *string `json:"start,omitempty"`
+	End *string `json:"end,omitempty"`
 }
 
 // NewUnprocessableEntityError instantiates a new UnprocessableEntityError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUnprocessableEntityError(reason string, message string, errorMessages []string) *UnprocessableEntityError {
+func NewUnprocessableEntityError() *UnprocessableEntityError {
 	this := UnprocessableEntityError{}
-	this.Reason = reason
-	this.Message = message
-	this.ErrorMessages = errorMessages
 	return &this
 }
 
@@ -41,88 +40,182 @@ func NewUnprocessableEntityErrorWithDefaults() *UnprocessableEntityError {
 	return &this
 }
 
-// GetReason returns the Reason field value
+// GetReason returns the Reason field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetReason() string {
-	if o == nil {
+	if o == nil || o.Reason == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Reason
+	return *o.Reason
 }
 
-// GetReasonOk returns a tuple with the Reason field value
+// GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetReasonOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.Reason == nil {
 		return nil, false
 	}
-	return &o.Reason, true
+	return o.Reason, true
 }
 
-// SetReason sets field value
+// HasReason returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasReason() bool {
+	if o != nil && o.Reason != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReason gets a reference to the given string and assigns it to the Reason field.
 func (o *UnprocessableEntityError) SetReason(v string) {
-	o.Reason = v
+	o.Reason = &v
 }
 
-// GetMessage returns the Message field value
+// GetMessage returns the Message field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetMessage() string {
-	if o == nil {
+	if o == nil || o.Message == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Message
+	return *o.Message
 }
 
-// GetMessageOk returns a tuple with the Message field value
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.Message == nil {
 		return nil, false
 	}
-	return &o.Message, true
+	return o.Message, true
 }
 
-// SetMessage sets field value
+// HasMessage returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasMessage() bool {
+	if o != nil && o.Message != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given string and assigns it to the Message field.
 func (o *UnprocessableEntityError) SetMessage(v string) {
-	o.Message = v
+	o.Message = &v
 }
 
-// GetErrorMessages returns the ErrorMessages field value
+// GetErrorMessages returns the ErrorMessages field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetErrorMessages() []string {
-	if o == nil {
+	if o == nil || o.ErrorMessages == nil {
 		var ret []string
 		return ret
 	}
-
-	return o.ErrorMessages
+	return *o.ErrorMessages
 }
 
-// GetErrorMessagesOk returns a tuple with the ErrorMessages field value
+// GetErrorMessagesOk returns a tuple with the ErrorMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetErrorMessagesOk() (*[]string, bool) {
-	if o == nil  {
+	if o == nil || o.ErrorMessages == nil {
 		return nil, false
 	}
-	return &o.ErrorMessages, true
+	return o.ErrorMessages, true
 }
 
-// SetErrorMessages sets field value
+// HasErrorMessages returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasErrorMessages() bool {
+	if o != nil && o.ErrorMessages != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorMessages gets a reference to the given []string and assigns it to the ErrorMessages field.
 func (o *UnprocessableEntityError) SetErrorMessages(v []string) {
-	o.ErrorMessages = v
+	o.ErrorMessages = &v
+}
+
+// GetStart returns the Start field value if set, zero value otherwise.
+func (o *UnprocessableEntityError) GetStart() string {
+	if o == nil || o.Start == nil {
+		var ret string
+		return ret
+	}
+	return *o.Start
+}
+
+// GetStartOk returns a tuple with the Start field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UnprocessableEntityError) GetStartOk() (*string, bool) {
+	if o == nil || o.Start == nil {
+		return nil, false
+	}
+	return o.Start, true
+}
+
+// HasStart returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasStart() bool {
+	if o != nil && o.Start != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStart gets a reference to the given string and assigns it to the Start field.
+func (o *UnprocessableEntityError) SetStart(v string) {
+	o.Start = &v
+}
+
+// GetEnd returns the End field value if set, zero value otherwise.
+func (o *UnprocessableEntityError) GetEnd() string {
+	if o == nil || o.End == nil {
+		var ret string
+		return ret
+	}
+	return *o.End
+}
+
+// GetEndOk returns a tuple with the End field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UnprocessableEntityError) GetEndOk() (*string, bool) {
+	if o == nil || o.End == nil {
+		return nil, false
+	}
+	return o.End, true
+}
+
+// HasEnd returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasEnd() bool {
+	if o != nil && o.End != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEnd gets a reference to the given string and assigns it to the End field.
+func (o *UnprocessableEntityError) SetEnd(v string) {
+	o.End = &v
 }
 
 func (o UnprocessableEntityError) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.Reason != nil {
 		toSerialize["reason"] = o.Reason
 	}
-	if true {
+	if o.Message != nil {
 		toSerialize["message"] = o.Message
 	}
-	if true {
+	if o.ErrorMessages != nil {
 		toSerialize["errorMessages"] = o.ErrorMessages
+	}
+	if o.Start != nil {
+		toSerialize["start"] = o.Start
+	}
+	if o.End != nil {
+		toSerialize["end"] = o.End
 	}
 	return json.Marshal(toSerialize)
 }

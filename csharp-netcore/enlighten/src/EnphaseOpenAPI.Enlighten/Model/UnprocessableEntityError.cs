@@ -34,41 +34,51 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnprocessableEntityError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UnprocessableEntityError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnprocessableEntityError" /> class.
-        /// </summary>
-        /// <param name="reason">reason (required).</param>
-        /// <param name="message">message (required).</param>
-        /// <param name="errorMessages">errorMessages (required).</param>
-        public UnprocessableEntityError(string reason = default(string), string message = default(string), List<string> errorMessages = default(List<string>))
+        /// <param name="reason">reason.</param>
+        /// <param name="message">message.</param>
+        /// <param name="errorMessages">errorMessages.</param>
+        /// <param name="start">start.</param>
+        /// <param name="end">end.</param>
+        public UnprocessableEntityError(string reason = default(string), string message = default(string), List<string> errorMessages = default(List<string>), DateTimeOffset start = default(DateTimeOffset), DateTimeOffset end = default(DateTimeOffset))
         {
-            // to ensure "reason" is required (not null)
-            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for UnprocessableEntityError and cannot be null");
-            // to ensure "message" is required (not null)
-            this.Message = message ?? throw new ArgumentNullException("message is a required property for UnprocessableEntityError and cannot be null");
-            // to ensure "errorMessages" is required (not null)
-            this.ErrorMessages = errorMessages ?? throw new ArgumentNullException("errorMessages is a required property for UnprocessableEntityError and cannot be null");
+            this.Reason = reason;
+            this.Message = message;
+            this.ErrorMessages = errorMessages;
+            this.Start = start;
+            this.End = end;
         }
 
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "reason", EmitDefaultValue = false)]
         public string Reason { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorMessages
         /// </summary>
-        [DataMember(Name = "errorMessages", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "errorMessages", EmitDefaultValue = false)]
         public List<string> ErrorMessages { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Start
+        /// </summary>
+        [DataMember(Name = "start", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTimeOffset Start { get; set; }
+
+        /// <summary>
+        /// Gets or Sets End
+        /// </summary>
+        [DataMember(Name = "end", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTimeOffset End { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,6 +91,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
+            sb.Append("  Start: ").Append(Start).Append("\n");
+            sb.Append("  End: ").Append(End).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +142,16 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     this.ErrorMessages != null &&
                     input.ErrorMessages != null &&
                     this.ErrorMessages.SequenceEqual(input.ErrorMessages)
+                ) && 
+                (
+                    this.Start == input.Start ||
+                    (this.Start != null &&
+                    this.Start.Equals(input.Start))
+                ) && 
+                (
+                    this.End == input.End ||
+                    (this.End != null &&
+                    this.End.Equals(input.End))
                 );
         }
 
@@ -148,6 +170,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.ErrorMessages != null)
                     hashCode = hashCode * 59 + this.ErrorMessages.GetHashCode();
+                if (this.Start != null)
+                    hashCode = hashCode * 59 + this.Start.GetHashCode();
+                if (this.End != null)
+                    hashCode = hashCode * 59 + this.End.GetHashCode();
                 return hashCode;
             }
         }

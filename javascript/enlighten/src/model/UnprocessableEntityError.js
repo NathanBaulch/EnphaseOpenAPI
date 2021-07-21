@@ -22,13 +22,10 @@ class UnprocessableEntityError {
     /**
      * Constructs a new <code>UnprocessableEntityError</code>.
      * @alias module:model/UnprocessableEntityError
-     * @param reason {String} 
-     * @param message {String} 
-     * @param errorMessages {Array.<String>} 
      */
-    constructor(reason, message, errorMessages) { 
+    constructor() { 
         
-        UnprocessableEntityError.initialize(this, reason, message, errorMessages);
+        UnprocessableEntityError.initialize(this);
     }
 
     /**
@@ -36,10 +33,7 @@ class UnprocessableEntityError {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, reason, message, errorMessages) { 
-        obj['reason'] = reason;
-        obj['message'] = message;
-        obj['errorMessages'] = errorMessages;
+    static initialize(obj) { 
     }
 
     /**
@@ -62,6 +56,12 @@ class UnprocessableEntityError {
             if (data.hasOwnProperty('errorMessages')) {
                 obj['errorMessages'] = ApiClient.convertToType(data['errorMessages'], ['String']);
             }
+            if (data.hasOwnProperty('start')) {
+                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
+            }
+            if (data.hasOwnProperty('end')) {
+                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
+            }
         }
         return obj;
     }
@@ -83,6 +83,16 @@ UnprocessableEntityError.prototype['message'] = undefined;
  * @member {Array.<String>} errorMessages
  */
 UnprocessableEntityError.prototype['errorMessages'] = undefined;
+
+/**
+ * @member {Date} start
+ */
+UnprocessableEntityError.prototype['start'] = undefined;
+
+/**
+ * @member {Date} end
+ */
+UnprocessableEntityError.prototype['end'] = undefined;
 
 
 

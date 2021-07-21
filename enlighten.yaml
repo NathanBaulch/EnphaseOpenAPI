@@ -1672,10 +1672,12 @@ components:
           type: array
           items:
             type: string
-      required:
-        - reason
-        - message
-        - errorMessages
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
     ServerError:
       type: object
       properties:

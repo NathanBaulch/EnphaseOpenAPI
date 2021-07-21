@@ -61,7 +61,9 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'reason' => 'string',
         'message' => 'string',
-        'error_messages' => 'string[]'
+        'error_messages' => 'string[]',
+        'start' => '\DateTime',
+        'end' => '\DateTime'
     ];
 
     /**
@@ -74,7 +76,9 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'reason' => null,
         'message' => null,
-        'error_messages' => null
+        'error_messages' => null,
+        'start' => 'date',
+        'end' => 'date'
     ];
 
     /**
@@ -106,7 +110,9 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'reason' => 'reason',
         'message' => 'message',
-        'error_messages' => 'errorMessages'
+        'error_messages' => 'errorMessages',
+        'start' => 'start',
+        'end' => 'end'
     ];
 
     /**
@@ -117,7 +123,9 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'reason' => 'setReason',
         'message' => 'setMessage',
-        'error_messages' => 'setErrorMessages'
+        'error_messages' => 'setErrorMessages',
+        'start' => 'setStart',
+        'end' => 'setEnd'
     ];
 
     /**
@@ -128,7 +136,9 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'reason' => 'getReason',
         'message' => 'getMessage',
-        'error_messages' => 'getErrorMessages'
+        'error_messages' => 'getErrorMessages',
+        'start' => 'getStart',
+        'end' => 'getEnd'
     ];
 
     /**
@@ -191,6 +201,8 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['reason'] = $data['reason'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['error_messages'] = $data['error_messages'] ?? null;
+        $this->container['start'] = $data['start'] ?? null;
+        $this->container['end'] = $data['end'] ?? null;
     }
 
     /**
@@ -202,15 +214,6 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['reason'] === null) {
-            $invalidProperties[] = "'reason' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['error_messages'] === null) {
-            $invalidProperties[] = "'error_messages' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -229,7 +232,7 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets reason
      *
-     * @return string
+     * @return string|null
      */
     public function getReason()
     {
@@ -239,7 +242,7 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets reason
      *
-     * @param string $reason reason
+     * @param string|null $reason reason
      *
      * @return self
      */
@@ -253,7 +256,7 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
     public function getMessage()
     {
@@ -263,7 +266,7 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string|null $message message
      *
      * @return self
      */
@@ -277,7 +280,7 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets error_messages
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getErrorMessages()
     {
@@ -287,13 +290,61 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets error_messages
      *
-     * @param string[] $error_messages error_messages
+     * @param string[]|null $error_messages error_messages
      *
      * @return self
      */
     public function setErrorMessages($error_messages)
     {
         $this->container['error_messages'] = $error_messages;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     *
+     * @return \DateTime|null
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     *
+     * @param \DateTime|null $start start
+     *
+     * @return self
+     */
+    public function setStart($start)
+    {
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets end
+     *
+     * @return \DateTime|null
+     */
+    public function getEnd()
+    {
+        return $this->container['end'];
+    }
+
+    /**
+     * Sets end
+     *
+     * @param \DateTime|null $end end
+     *
+     * @return self
+     */
+    public function setEnd($end)
+    {
+        $this->container['end'] = $end;
 
         return $this;
     }

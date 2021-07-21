@@ -84,6 +84,8 @@ class UnprocessableEntityError(ModelNormal):
             'reason': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'error_messages': ([str],),  # noqa: E501
+            'start': (date,),  # noqa: E501
+            'end': (date,),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +97,8 @@ class UnprocessableEntityError(ModelNormal):
         'reason': 'reason',  # noqa: E501
         'message': 'message',  # noqa: E501
         'error_messages': 'errorMessages',  # noqa: E501
+        'start': 'start',  # noqa: E501
+        'end': 'end',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,13 +108,8 @@ class UnprocessableEntityError(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, reason, message, error_messages, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """UnprocessableEntityError - a model defined in OpenAPI
-
-        Args:
-            reason (str):
-            message (str):
-            error_messages ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,6 +142,11 @@ class UnprocessableEntityError(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            reason (str): [optional]  # noqa: E501
+            message (str): [optional]  # noqa: E501
+            error_messages ([str]): [optional]  # noqa: E501
+            start (date): [optional]  # noqa: E501
+            end (date): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,9 +174,6 @@ class UnprocessableEntityError(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.reason = reason
-        self.message = message
-        self.error_messages = error_messages
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,13 +194,8 @@ class UnprocessableEntityError(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, reason, message, error_messages, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """UnprocessableEntityError - a model defined in OpenAPI
-
-        Args:
-            reason (str):
-            message (str):
-            error_messages ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -232,6 +228,11 @@ class UnprocessableEntityError(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            reason (str): [optional]  # noqa: E501
+            message (str): [optional]  # noqa: E501
+            error_messages ([str]): [optional]  # noqa: E501
+            start (date): [optional]  # noqa: E501
+            end (date): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,9 +258,6 @@ class UnprocessableEntityError(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.reason = reason
-        self.message = message
-        self.error_messages = error_messages
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

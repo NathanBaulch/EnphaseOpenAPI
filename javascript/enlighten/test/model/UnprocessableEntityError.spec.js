@@ -72,6 +72,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property start (base name: "start")', function() {
+      // uncomment below and update the code to test the property start
+      //var instance = new TheEnlightenSystemsApi.UnprocessableEntityError();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property end (base name: "end")', function() {
+      // uncomment below and update the code to test the property end
+      //var instance = new TheEnlightenSystemsApi.UnprocessableEntityError();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

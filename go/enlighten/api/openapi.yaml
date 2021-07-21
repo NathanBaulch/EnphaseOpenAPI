@@ -1937,10 +1937,12 @@ components:
           items:
             type: string
           type: array
-      required:
-      - errorMessages
-      - message
-      - reason
+        start:
+          format: date
+          type: string
+        end:
+          format: date
+          type: string
       type: object
     ServerError:
       example:
