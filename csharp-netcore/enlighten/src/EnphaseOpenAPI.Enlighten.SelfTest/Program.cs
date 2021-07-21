@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Net;
 using CommandLine;
 using EnphaseOpenAPI.Enlighten.Api;
 using EnphaseOpenAPI.Enlighten.Client;
-using EnphaseOpenAPI.Enlighten.Model;
 using Newtonsoft.Json;
 
 namespace EnphaseOpenAPI.Enlighten.SelfTest
@@ -33,75 +31,7 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                 uid = opts.UserId;
             });
             var api = new DefaultApi(cfg);
-            api.ExceptionFactory = (methodName, response) =>
-            {
-                object content;
-                var message = "unknown";
-                var settings = ((ApiClient) api.Client).SerializerSettings;
-                switch (response.StatusCode)
-                {
-                    case >= HttpStatusCode.InternalServerError:
-                        var serverError = JsonConvert.DeserializeObject<ServerError>(response.RawContent, settings);
-                        content = serverError;
-                        if (serverError != null && serverError.ErrorMessages.Count > 0)
-                        {
-                            message = serverError.ErrorMessages[0];
-                        }
-
-                        break;
-                    case HttpStatusCode.NotFound:
-                        var notFoundError = JsonConvert.DeserializeObject<NotFoundError>(response.RawContent, settings);
-                        content = notFoundError;
-                        if (notFoundError != null && notFoundError.ErrorMessages.Count > 0)
-                        {
-                            message = notFoundError.ErrorMessages[0];
-                        }
-
-                        break;
-                    case HttpStatusCode.Conflict:
-                        var conflictError = JsonConvert.DeserializeObject<ConflictError>(response.RawContent, settings);
-                        content = conflictError;
-                        if (conflictError != null && conflictError.Message.Count > 0)
-                        {
-                            message = conflictError.Message[0];
-                        }
-
-                        break;
-                    case HttpStatusCode.UnprocessableEntity:
-                        var unprocessableEntityError = JsonConvert.DeserializeObject<UnprocessableEntityError>(response.RawContent, settings);
-                        content = unprocessableEntityError;
-                        if (unprocessableEntityError != null)
-                        {
-                            if (!string.IsNullOrEmpty(unprocessableEntityError.Message))
-                            {
-                                message = unprocessableEntityError.Message;
-                            }
-                            else if (!string.IsNullOrEmpty(unprocessableEntityError.Reason))
-                            {
-                                message = unprocessableEntityError.Reason;
-                            }
-                            else if (unprocessableEntityError.ErrorMessages.Count > 0)
-                            {
-                                message = unprocessableEntityError.ErrorMessages[0];
-                            }
-                        }
-
-                        break;
-                    case >= HttpStatusCode.BadRequest:
-                        var clientError = JsonConvert.DeserializeObject<ClientError>(response.RawContent, settings);
-                        content = clientError;
-                        if (clientError != null && clientError.Message.Count > 0)
-                        {
-                            message = clientError.Message[0];
-                        }
-
-                        break;
-                    default:
-                        return null;
-                }
-
-                return new ApiException((int) response.StatusCode, $"Error calling {methodName}: {message}", content, response.Headers);
-            };
+            api.FixExceptions();
             api.Debug();
             api.RateLimit(10, TimeSpan.FromMinutes(1));
 
