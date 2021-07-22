@@ -62,6 +62,8 @@ generate/python: clean/python $(OPENAPICLI)
 
 generate/javascript: clean/javascript $(OPENAPICLI)
 	$(call generate,javascript,enlighten,usePromises=true)
+	cd ./javascript/enlighten; npm update; npm run build
+	cd ./javascript/enlighten/selftest; npm update
 
 generate/bash: clean/bash $(OPENAPICLI)
 	$(call generate,bash,enlighten)
