@@ -53,13 +53,6 @@ export default class DefaultApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the consumptionLifetime operation.
-     * @callback module:api/DefaultApi~consumptionLifetimeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ConsumptionLifetimeResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Returns a time series of energy consumption as measured by the consumption meter installed on the specified system. All measurements are in Watt-hours. If the system does not have a meter, returns `204` - No Content. If you don't have permission to view consumption data, the response code is `401`.  The time series includes one entry for each day from the `start_date` to the `end_date`. There are no gaps in the time series. If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no data has been reported for the last days in the series. You can check the system's status in the `meta` attribute of the response to determine when the system last reported and whether it has communication or metering problems.
@@ -68,10 +61,9 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate The date on which to start the time series. Defaults to the system's operational date.
      * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
-     * @param {module:api/DefaultApi~consumptionLifetimeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ConsumptionLifetimeResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ConsumptionLifetimeResponse} and HTTP response
      */
-    consumptionLifetime(userId, systemId, opts, callback) {
+    consumptionLifetimeWithHttpInfo(userId, systemId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -103,17 +95,26 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/consumption_lifetime', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the consumptionStats operation.
-     * @callback module:api/DefaultApi~consumptionStatsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ConsumptionStatsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns a time series of energy consumption as measured by the consumption meter installed on the specified system. All measurements are in Watt-hours. If the system does not have a meter, returns `204` - No Content. If you don't have permission to view consumption data, the response code is `401`.  The time series includes one entry for each day from the `start_date` to the `end_date`. There are no gaps in the time series. If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no data has been reported for the last days in the series. You can check the system's status in the `meta` attribute of the response to determine when the system last reported and whether it has communication or metering problems.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Object} opts Optional parameters
+     * @param {Date} opts.startDate The date on which to start the time series. Defaults to the system's operational date.
+     * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConsumptionLifetimeResponse}
      */
+    consumptionLifetime(userId, systemId, opts) {
+      return this.consumptionLifetimeWithHttpInfo(userId, systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns consumption as measured by the consumption meter installed on the specified system. If the total duration requested is more than one month, returns one month of intervals. Intervals are 15 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.  If the system doesn't have any consumption meters installed, the response includes an empty intervals array.  If you don't have permission to view consumption data, the response code is `401`.  Under some conditions, data for a given period may be temporarily unavailable.
@@ -122,10 +123,9 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
      * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
-     * @param {module:api/DefaultApi~consumptionStatsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ConsumptionStatsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ConsumptionStatsResponse} and HTTP response
      */
-    consumptionStats(userId, systemId, opts, callback) {
+    consumptionStatsWithHttpInfo(userId, systemId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -157,17 +157,26 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/consumption_stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the energyLifetime operation.
-     * @callback module:api/DefaultApi~energyLifetimeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/EnergyLifetimeResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns consumption as measured by the consumption meter installed on the specified system. If the total duration requested is more than one month, returns one month of intervals. Intervals are 15 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.  If the system doesn't have any consumption meters installed, the response includes an empty intervals array.  If you don't have permission to view consumption data, the response code is `401`.  Under some conditions, data for a given period may be temporarily unavailable.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
+     * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConsumptionStatsResponse}
      */
+    consumptionStats(userId, systemId, opts) {
+      return this.consumptionStatsWithHttpInfo(userId, systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns a time series of energy produced on the system over its lifetime. All measurements are in Watt-hours.  The time series includes one entry for each day from the `start_date` to the `end_date`. There are no gaps in the time series. If the response includes trailing zeroes, such as `[909, 4970, 0, 0, 0]`, then no energy has been reported for the last days in the series. You can check the system's status in the `meta` attribute of the response to determine when the system last reported and whether it has communication or production problems.  If the system has a meter, the time series includes data as measured by the microinverters until the first full day after the meter has been installed, when it switches to using the data as measured by the meter. This is called the \"merged time series\". In addition, the response includes the attribute `meter_start_date`, to indicate where in the time series the meter measurements begin to be used. You can retrieve the complete time series from the meter and from the microinverters by adding the parameter `production=all` to the request.
@@ -177,10 +186,9 @@ export default class DefaultApi {
      * @param {Date} opts.startDate The date on which to start the time series. Defaults to the system's operational date.
      * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
      * @param {module:model/String} opts.production When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
-     * @param {module:api/DefaultApi~energyLifetimeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/EnergyLifetimeResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EnergyLifetimeResponse} and HTTP response
      */
-    energyLifetime(userId, systemId, opts, callback) {
+    energyLifetimeWithHttpInfo(userId, systemId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -213,26 +221,35 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/energy_lifetime', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the envoys operation.
-     * @callback module:api/DefaultApi~envoysCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/EnvoysResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns a time series of energy produced on the system over its lifetime. All measurements are in Watt-hours.  The time series includes one entry for each day from the `start_date` to the `end_date`. There are no gaps in the time series. If the response includes trailing zeroes, such as `[909, 4970, 0, 0, 0]`, then no energy has been reported for the last days in the series. You can check the system's status in the `meta` attribute of the response to determine when the system last reported and whether it has communication or production problems.  If the system has a meter, the time series includes data as measured by the microinverters until the first full day after the meter has been installed, when it switches to using the data as measured by the meter. This is called the \"merged time series\". In addition, the response includes the attribute `meter_start_date`, to indicate where in the time series the meter measurements begin to be used. You can retrieve the complete time series from the meter and from the microinverters by adding the parameter `production=all` to the request.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Object} opts Optional parameters
+     * @param {Date} opts.startDate The date on which to start the time series. Defaults to the system's operational date.
+     * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
+     * @param {module:model/String} opts.production When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EnergyLifetimeResponse}
      */
+    energyLifetime(userId, systemId, opts) {
+      return this.energyLifetimeWithHttpInfo(userId, systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns a listing of all active Envoys currently deployed on the system.
      * @param {String} userId 
      * @param {Number} systemId 
-     * @param {module:api/DefaultApi~envoysCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/EnvoysResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EnvoysResponse} and HTTP response
      */
-    envoys(userId, systemId, callback) {
+    envoysWithHttpInfo(userId, systemId) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -261,26 +278,31 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/envoys', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the inventory operation.
-     * @callback module:api/DefaultApi~inventoryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/InventoryResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns a listing of all active Envoys currently deployed on the system.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EnvoysResponse}
      */
+    envoys(userId, systemId) {
+      return this.envoysWithHttpInfo(userId, systemId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns a listing of active devices on the given system. A device is considered active if it has not been retired in Enlighten. \"Active\" does not imply that the device is currently reporting, producing, or measuring energy.
      * @param {String} userId 
      * @param {Number} systemId 
-     * @param {module:api/DefaultApi~inventoryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InventoryResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InventoryResponse} and HTTP response
      */
-    inventory(userId, systemId, callback) {
+    inventoryWithHttpInfo(userId, systemId) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -309,26 +331,31 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/inventory', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the invertersSummaryByEnvoyOrSite operation.
-     * @callback module:api/DefaultApi~invertersSummaryByEnvoyOrSiteCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/InvertersSummaryByEnvoyOrSiteResponse>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns a listing of active devices on the given system. A device is considered active if it has not been retired in Enlighten. \"Active\" does not imply that the device is currently reporting, producing, or measuring energy.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InventoryResponse}
      */
+    inventory(userId, systemId) {
+      return this.inventoryWithHttpInfo(userId, systemId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns the summary along with the energy produced on the system over its lifetime.
      * @param {String} userId 
      * @param {Number} siteId The identifier of the system.
-     * @param {module:api/DefaultApi~invertersSummaryByEnvoyOrSiteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/InvertersSummaryByEnvoyOrSiteResponse>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/InvertersSummaryByEnvoyOrSiteResponse>} and HTTP response
      */
-    invertersSummaryByEnvoyOrSite(userId, siteId, callback) {
+    invertersSummaryByEnvoyOrSiteWithHttpInfo(userId, siteId) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -357,27 +384,32 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/inverters_summary_by_envoy_or_site', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the monthlyProduction operation.
-     * @callback module:api/DefaultApi~monthlyProductionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/MonthlyProductionResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns the summary along with the energy produced on the system over its lifetime.
+     * @param {String} userId 
+     * @param {Number} siteId The identifier of the system.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/InvertersSummaryByEnvoyOrSiteResponse>}
      */
+    invertersSummaryByEnvoyOrSite(userId, siteId) {
+      return this.invertersSummaryByEnvoyOrSiteWithHttpInfo(userId, siteId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * This endpoint is deprecated and will be removed in a future release. Use `production_meter_readings` or `energy_lifetime` instead.  Returns the energy production of the system for the month starting on the given date. The start date must be at least one month ago. If a meter or meters are installed on the system, measurements come from the meter; otherwise, measurements come from the microinverters.  This endpoint can return a response of Data Temporarily Unavailable.
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Date} startDate Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
-     * @param {module:api/DefaultApi~monthlyProductionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MonthlyProductionResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MonthlyProductionResponse} and HTTP response
      */
-    monthlyProduction(userId, systemId, startDate, callback) {
+    monthlyProductionWithHttpInfo(userId, systemId, startDate) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -411,17 +443,24 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/monthly_production', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the productionMeterReadings operation.
-     * @callback module:api/DefaultApi~productionMeterReadingsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ProductionMeterReadingsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * This endpoint is deprecated and will be removed in a future release. Use `production_meter_readings` or `energy_lifetime` instead.  Returns the energy production of the system for the month starting on the given date. The start date must be at least one month ago. If a meter or meters are installed on the system, measurements come from the meter; otherwise, measurements come from the microinverters.  This endpoint can return a response of Data Temporarily Unavailable.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Date} startDate Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MonthlyProductionResponse}
      */
+    monthlyProduction(userId, systemId, startDate) {
+      return this.monthlyProductionWithHttpInfo(userId, systemId, startDate)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns the last known \"odometer\" reading of each revenue-grade production meter on the system as of the requested time.  This endpoint includes entries for every production meter on the requested system, regardless of whether the meter is currently in service or retired. `read_at` is the time at which the reading was taken, and is always less than or equal to the requested `end_at`. Commonly, the reading will be within 30 minutes of the requested `end_at`; however, larger deltas can occur and do not necessarily mean there is a problem with the meter or the system it is on. Systems that are configured to report infrequently can show large deltas on all meters, especially when `end_at` is close to the current time. Meters that have been retired from a system will show an `end_at` that doesn't change, and that eventually is far away from the current time.
@@ -429,10 +468,9 @@ export default class DefaultApi {
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.endAt 
-     * @param {module:api/DefaultApi~productionMeterReadingsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ProductionMeterReadingsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ProductionMeterReadingsResponse} and HTTP response
      */
-    productionMeterReadings(userId, systemId, opts, callback) {
+    productionMeterReadingsWithHttpInfo(userId, systemId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -463,17 +501,25 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/production_meter_readings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the rgmStats operation.
-     * @callback module:api/DefaultApi~rgmStatsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/RgmStatsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns the last known \"odometer\" reading of each revenue-grade production meter on the system as of the requested time.  This endpoint includes entries for every production meter on the requested system, regardless of whether the meter is currently in service or retired. `read_at` is the time at which the reading was taken, and is always less than or equal to the requested `end_at`. Commonly, the reading will be within 30 minutes of the requested `end_at`; however, larger deltas can occur and do not necessarily mean there is a problem with the meter or the system it is on. Systems that are configured to report infrequently can show large deltas on all meters, especially when `end_at` is close to the current time. Meters that have been retired from a system will show an `end_at` that doesn't change, and that eventually is far away from the current time.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.endAt 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ProductionMeterReadingsResponse}
      */
+    productionMeterReadings(userId, systemId, opts) {
+      return this.productionMeterReadingsWithHttpInfo(userId, systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns performance statistics as measured by the revenue-grade meters installed on the specified system. If the total duration requested is more than one month, returns one month of intervals. Intervals are 15 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.  If the system doesn't have any revenue-grade meters installed, the response includes an empty intervals array.  Under some conditions, data for a given period may be temporarily unavailable.
@@ -482,10 +528,9 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
      * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
-     * @param {module:api/DefaultApi~rgmStatsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/RgmStatsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RgmStatsResponse} and HTTP response
      */
-    rgmStats(userId, systemId, opts, callback) {
+    rgmStatsWithHttpInfo(userId, systemId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -517,26 +562,34 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/rgm_stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the searchSystemId operation.
-     * @callback module:api/DefaultApi~searchSystemIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SearchSystemIdResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns performance statistics as measured by the revenue-grade meters installed on the specified system. If the total duration requested is more than one month, returns one month of intervals. Intervals are 15 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 15 minutes after the requested start date.  If the system doesn't have any revenue-grade meters installed, the response includes an empty intervals array.  Under some conditions, data for a given period may be temporarily unavailable.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
+     * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RgmStatsResponse}
      */
+    rgmStats(userId, systemId, opts) {
+      return this.rgmStatsWithHttpInfo(userId, systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get system ID by envoy serial number.
      * @param {String} userId 
      * @param {String} serialNum Serial number of the envoy.
-     * @param {module:api/DefaultApi~searchSystemIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SearchSystemIdResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchSystemIdResponse} and HTTP response
      */
-    searchSystemId(userId, serialNum, callback) {
+    searchSystemIdWithHttpInfo(userId, serialNum) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -565,17 +618,23 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/search_system_id', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the stats operation.
-     * @callback module:api/DefaultApi~statsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/StatsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get system ID by envoy serial number.
+     * @param {String} userId 
+     * @param {String} serialNum Serial number of the envoy.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SearchSystemIdResponse}
      */
+    searchSystemId(userId, serialNum) {
+      return this.searchSystemIdWithHttpInfo(userId, serialNum)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns performance statistics for the specified system as reported by microinverters installed on the system. If the total duration requested is more than one day, returns one day of intervals. Intervals are 5 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 5-minute marks are rounded down. For example, a request for 08:01, 08:02, 08:03, or 08:04 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 5 minutes after the requested start date.  The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a gap, because the microinverters do not produce at night.  Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the system's last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is `422` and the response body includes an error reason as well as the parameters used to process the request.  If the system doesn't have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.
@@ -584,10 +643,9 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.startAt Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`.
      * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval.
-     * @param {module:api/DefaultApi~statsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StatsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StatsResponse} and HTTP response
      */
-    stats(userId, systemId, opts, callback) {
+    statsWithHttpInfo(userId, systemId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -619,17 +677,26 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the summary operation.
-     * @callback module:api/DefaultApi~summaryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SummaryResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns performance statistics for the specified system as reported by microinverters installed on the system. If the total duration requested is more than one day, returns one day of intervals. Intervals are 5 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 5-minute marks are rounded down. For example, a request for 08:01, 08:02, 08:03, or 08:04 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 5 minutes after the requested start date.  The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a gap, because the microinverters do not produce at night.  Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the system's last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is `422` and the response body includes an error reason as well as the parameters used to process the request.  If the system doesn't have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.startAt Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`.
+     * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StatsResponse}
      */
+    stats(userId, systemId, opts) {
+      return this.statsWithHttpInfo(userId, systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns summary information for the specified system.
@@ -637,10 +704,9 @@ export default class DefaultApi {
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.summaryDate Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status.
-     * @param {module:api/DefaultApi~summaryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SummaryResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SummaryResponse} and HTTP response
      */
-    summary(userId, systemId, opts, callback) {
+    summaryWithHttpInfo(userId, systemId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -671,17 +737,25 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems/{system_id}/summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the systems operation.
-     * @callback module:api/DefaultApi~systemsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SystemsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Returns summary information for the specified system.
+     * @param {String} userId 
+     * @param {Number} systemId 
+     * @param {Object} opts Optional parameters
+     * @param {Date} opts.summaryDate Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SummaryResponse}
      */
+    summary(userId, systemId, opts) {
+      return this.summaryWithHttpInfo(userId, systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Returns a list of systems for which the user can make API requests. There is a limit to the number of systems that can be returned at one time. If the first request does not return a full list, use the `next` attribute in the response body to request the next page of systems. By default, systems are returned in batches of 100. The maximum page size is 1000.
@@ -701,10 +775,9 @@ export default class DefaultApi {
      * @param {Array.<String>} opts.installer2 
      * @param {module:model/ConnectionType} opts.connectionType 
      * @param {Array.<module:model/ConnectionType>} opts.connectionType2 
-     * @param {module:api/DefaultApi~systemsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SystemsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SystemsResponse} and HTTP response
      */
-    systems(userId, opts, callback) {
+    systemsWithHttpInfo(userId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
@@ -743,8 +816,35 @@ export default class DefaultApi {
       return this.apiClient.callApi(
         '/systems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Returns a list of systems for which the user can make API requests. There is a limit to the number of systems that can be returned at one time. If the first request does not return a full list, use the `next` attribute in the response body to request the next page of systems. By default, systems are returned in batches of 100. The maximum page size is 1000.
+     * @param {String} userId 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.next 
+     * @param {Number} opts.limit  (default to 100)
+     * @param {Number} opts.systemId 
+     * @param {Array.<Number>} opts.systemId2 
+     * @param {String} opts.systemName 
+     * @param {Array.<String>} opts.systemName2 
+     * @param {module:model/Status} opts.status 
+     * @param {Array.<module:model/Status>} opts.status2 
+     * @param {String} opts.reference 
+     * @param {Array.<String>} opts.reference2 
+     * @param {String} opts.installer 
+     * @param {Array.<String>} opts.installer2 
+     * @param {module:model/ConnectionType} opts.connectionType 
+     * @param {Array.<module:model/ConnectionType>} opts.connectionType2 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SystemsResponse}
+     */
+    systems(userId, opts) {
+      return this.systemsWithHttpInfo(userId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

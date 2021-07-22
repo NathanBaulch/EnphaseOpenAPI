@@ -116,14 +116,12 @@ var opts = {
   'startDate': Fri Jul 01 10:00:00 AEST 2016, // {Date} The date on which to start the time series. Defaults to the system's operational date.
   'endDate': Sun Jul 31 10:00:00 AEST 2016 // {Date} The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
 };
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.consumptionLifetime(userId, systemId, opts, callback);
+api.consumptionLifetime(userId, systemId, opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
 
 ```
 

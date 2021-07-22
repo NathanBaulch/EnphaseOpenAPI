@@ -46,13 +46,12 @@ let opts = {
   'startDate': Fri Jul 01 10:00:00 AEST 2016, // Date | The date on which to start the time series. Defaults to the system's operational date.
   'endDate': Sun Jul 31 10:00:00 AEST 2016 // Date | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
 };
-apiInstance.consumptionLifetime(userId, systemId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.consumptionLifetime(userId, systemId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -105,13 +104,12 @@ let opts = {
   'startAt': 1448946000, // Number | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
   'endAt': 1449011615 // Number | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
 };
-apiInstance.consumptionStats(userId, systemId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.consumptionStats(userId, systemId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -165,13 +163,12 @@ let opts = {
   'endDate': Sun Jan 06 11:00:00 AEDT 2013, // Date | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
   'production': all // String | When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
 };
-apiInstance.energyLifetime(userId, systemId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.energyLifetime(userId, systemId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -221,13 +218,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new TheEnlightenSystemsApi.DefaultApi();
 let userId = 4d6a51330a; // String | 
 let systemId = 66; // Number | 
-apiInstance.envoys(userId, systemId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.envoys(userId, systemId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -274,13 +270,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new TheEnlightenSystemsApi.DefaultApi();
 let userId = 4d6a51330a; // String | 
 let systemId = 66; // Number | 
-apiInstance.inventory(userId, systemId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.inventory(userId, systemId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -327,13 +322,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new TheEnlightenSystemsApi.DefaultApi();
 let userId = 4d6a51330a; // String | 
 let siteId = 66; // Number | The identifier of the system.
-apiInstance.invertersSummaryByEnvoyOrSite(userId, siteId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.invertersSummaryByEnvoyOrSite(userId, siteId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -381,13 +375,12 @@ let apiInstance = new TheEnlightenSystemsApi.DefaultApi();
 let userId = 4d6a51330a; // String | 
 let systemId = 66; // Number | 
 let startDate = Fri Jul 01 10:00:00 AEST 2011; // Date | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
-apiInstance.monthlyProduction(userId, systemId, startDate, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.monthlyProduction(userId, systemId, startDate).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -438,13 +431,12 @@ let systemId = 66; // Number |
 let opts = {
   'endAt': 1473901755 // Number | 
 };
-apiInstance.productionMeterReadings(userId, systemId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.productionMeterReadings(userId, systemId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -496,13 +488,12 @@ let opts = {
   'startAt': 1381474800, // Number | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
   'endAt': 1381561200 // Number | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
 };
-apiInstance.rgmStats(userId, systemId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.rgmStats(userId, systemId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -551,13 +542,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new TheEnlightenSystemsApi.DefaultApi();
 let userId = 4d6a51330a; // String | 
 let serialNum = 23435345345; // String | Serial number of the envoy.
-apiInstance.searchSystemId(userId, serialNum, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.searchSystemId(userId, serialNum).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -608,13 +598,12 @@ let opts = {
   'startAt': 1381496100, // Number | Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`.
   'endAt': 1381497600 // Number | End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval.
 };
-apiInstance.stats(userId, systemId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.stats(userId, systemId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -666,13 +655,12 @@ let systemId = 66; // Number |
 let opts = {
   'summaryDate': Fri Sep 17 10:00:00 AEST 2010 // Date | Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status.
 };
-apiInstance.summary(userId, systemId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.summary(userId, systemId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -735,13 +723,12 @@ let opts = {
   'connectionType': new TheEnlightenSystemsApi.ConnectionType(), // ConnectionType | 
   'connectionType2': ["ethernet"] // [ConnectionType] | 
 };
-apiInstance.systems(userId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.systems(userId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
