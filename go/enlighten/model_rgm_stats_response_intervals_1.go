@@ -21,16 +21,16 @@ type RgmStatsResponseIntervals1 struct {
 	// End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
 	EndAt int64 `json:"end_at"`
 	// Energy delivered during this interval, in Watt-hours.
-	WhDel float32 `json:"wh_del"`
+	WhDel NullableFloat32 `json:"wh_del"`
 	// Energy delivered during this interval, in Watts.
-	CurrW int32 `json:"curr_w"`
+	CurrW NullableInt32 `json:"curr_w"`
 }
 
 // NewRgmStatsResponseIntervals1 instantiates a new RgmStatsResponseIntervals1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRgmStatsResponseIntervals1(channel int32, endAt int64, whDel float32, currW int32) *RgmStatsResponseIntervals1 {
+func NewRgmStatsResponseIntervals1(channel int32, endAt int64, whDel NullableFloat32, currW NullableInt32) *RgmStatsResponseIntervals1 {
 	this := RgmStatsResponseIntervals1{}
 	this.Channel = channel
 	this.EndAt = endAt
@@ -96,51 +96,55 @@ func (o *RgmStatsResponseIntervals1) SetEndAt(v int64) {
 }
 
 // GetWhDel returns the WhDel field value
+// If the value is explicit nil, the zero value for float32 will be returned
 func (o *RgmStatsResponseIntervals1) GetWhDel() float32 {
-	if o == nil {
+	if o == nil || o.WhDel.Get() == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.WhDel
+	return *o.WhDel.Get()
 }
 
 // GetWhDelOk returns a tuple with the WhDel field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RgmStatsResponseIntervals1) GetWhDelOk() (*float32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.WhDel, true
+	return o.WhDel.Get(), o.WhDel.IsSet()
 }
 
 // SetWhDel sets field value
 func (o *RgmStatsResponseIntervals1) SetWhDel(v float32) {
-	o.WhDel = v
+	o.WhDel.Set(&v)
 }
 
 // GetCurrW returns the CurrW field value
+// If the value is explicit nil, the zero value for int32 will be returned
 func (o *RgmStatsResponseIntervals1) GetCurrW() int32 {
-	if o == nil {
+	if o == nil || o.CurrW.Get() == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.CurrW
+	return *o.CurrW.Get()
 }
 
 // GetCurrWOk returns a tuple with the CurrW field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RgmStatsResponseIntervals1) GetCurrWOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.CurrW, true
+	return o.CurrW.Get(), o.CurrW.IsSet()
 }
 
 // SetCurrW sets field value
 func (o *RgmStatsResponseIntervals1) SetCurrW(v int32) {
-	o.CurrW = v
+	o.CurrW.Set(&v)
 }
 
 func (o RgmStatsResponseIntervals1) MarshalJSON() ([]byte, error) {
@@ -152,10 +156,10 @@ func (o RgmStatsResponseIntervals1) MarshalJSON() ([]byte, error) {
 		toSerialize["end_at"] = o.EndAt
 	}
 	if true {
-		toSerialize["wh_del"] = o.WhDel
+		toSerialize["wh_del"] = o.WhDel.Get()
 	}
 	if true {
-		toSerialize["curr_w"] = o.CurrW
+		toSerialize["curr_w"] = o.CurrW.Get()
 	}
 	return json.Marshal(toSerialize)
 }

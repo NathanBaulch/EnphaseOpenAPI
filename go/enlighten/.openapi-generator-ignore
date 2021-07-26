@@ -9,4 +9,3 @@
 client.go
 git_push.sh
 response.go
-utils.go

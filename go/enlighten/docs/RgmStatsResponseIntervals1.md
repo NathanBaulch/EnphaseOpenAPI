@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Channel** | **int32** | The reporting channel identifier. | 
 **EndAt** | **int64** | End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
-**WhDel** | **float32** | Energy delivered during this interval, in Watt-hours. | 
-**CurrW** | **int32** | Energy delivered during this interval, in Watts. | 
+**WhDel** | **NullableFloat32** | Energy delivered during this interval, in Watt-hours. | 
+**CurrW** | **NullableInt32** | Energy delivered during this interval, in Watts. | 
 
 ## Methods
 
 ### NewRgmStatsResponseIntervals1
 
-`func NewRgmStatsResponseIntervals1(channel int32, endAt int64, whDel float32, currW int32, ) *RgmStatsResponseIntervals1`
+`func NewRgmStatsResponseIntervals1(channel int32, endAt int64, whDel NullableFloat32, currW NullableInt32, ) *RgmStatsResponseIntervals1`
 
 NewRgmStatsResponseIntervals1 instantiates a new RgmStatsResponseIntervals1 object
 This constructor will assign default values to properties that have it defined,
@@ -88,6 +88,16 @@ and a boolean to check if the value has been set.
 SetWhDel sets WhDel field to given value.
 
 
+### SetWhDelNil
+
+`func (o *RgmStatsResponseIntervals1) SetWhDelNil(b bool)`
+
+ SetWhDelNil sets the value for WhDel to be an explicit nil
+
+### UnsetWhDel
+`func (o *RgmStatsResponseIntervals1) UnsetWhDel()`
+
+UnsetWhDel ensures that no value is present for WhDel, not even an explicit nil
 ### GetCurrW
 
 `func (o *RgmStatsResponseIntervals1) GetCurrW() int32`
@@ -108,6 +118,16 @@ and a boolean to check if the value has been set.
 SetCurrW sets CurrW field to given value.
 
 
+### SetCurrWNil
+
+`func (o *RgmStatsResponseIntervals1) SetCurrWNil(b bool)`
+
+ SetCurrWNil sets the value for CurrW to be an explicit nil
+
+### UnsetCurrW
+`func (o *RgmStatsResponseIntervals1) UnsetCurrW()`
+
+UnsetCurrW ensures that no value is present for CurrW, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

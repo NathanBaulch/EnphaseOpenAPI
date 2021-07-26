@@ -83,8 +83,8 @@ class RgmStatsResponseIntervals1(ModelNormal):
         return {
             'channel': (int,),  # noqa: E501
             'end_at': (int,),  # noqa: E501
-            'wh_del': (float,),  # noqa: E501
-            'curr_w': (int,),  # noqa: E501
+            'wh_del': (float, none_type,),  # noqa: E501
+            'curr_w': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -112,8 +112,8 @@ class RgmStatsResponseIntervals1(ModelNormal):
         Args:
             channel (int): The reporting channel identifier.
             end_at (int): End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-            wh_del (float): Energy delivered during this interval, in Watt-hours.
-            curr_w (int): Energy delivered during this interval, in Watts.
+            wh_del (float, none_type): Energy delivered during this interval, in Watt-hours.
+            curr_w (int, none_type): Energy delivered during this interval, in Watts.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,8 +203,8 @@ class RgmStatsResponseIntervals1(ModelNormal):
         Args:
             channel (int): The reporting channel identifier.
             end_at (int): End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
-            wh_del (float): Energy delivered during this interval, in Watt-hours.
-            curr_w (int): Energy delivered during this interval, in Watts.
+            wh_del (float, none_type): Energy delivered during this interval, in Watt-hours.
+            curr_w (int, none_type): Energy delivered during this interval, in Watts.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

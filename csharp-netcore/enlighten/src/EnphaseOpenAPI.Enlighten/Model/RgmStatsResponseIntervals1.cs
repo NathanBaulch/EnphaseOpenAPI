@@ -43,12 +43,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="endAt">End of interval. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). (required).</param>
         /// <param name="whDel">Energy delivered during this interval, in Watt-hours. (required).</param>
         /// <param name="currW">Energy delivered during this interval, in Watts. (required).</param>
-        public RgmStatsResponseIntervals1(int channel = default(int), long endAt = default(long), float whDel = default(float), int currW = default(int))
+        public RgmStatsResponseIntervals1(int channel = default(int), long endAt = default(long), float? whDel = default(float?), int? currW = default(int?))
         {
             this.Channel = channel;
             this.EndAt = endAt;
-            this.WhDel = whDel;
-            this.CurrW = currW;
+            // to ensure "whDel" is required (not null)
+            this.WhDel = whDel ?? throw new ArgumentNullException("whDel is a required property for RgmStatsResponseIntervals1 and cannot be null");
+            // to ensure "currW" is required (not null)
+            this.CurrW = currW ?? throw new ArgumentNullException("currW is a required property for RgmStatsResponseIntervals1 and cannot be null");
         }
 
         /// <summary>
@@ -69,15 +71,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Energy delivered during this interval, in Watt-hours.
         /// </summary>
         /// <value>Energy delivered during this interval, in Watt-hours.</value>
-        [DataMember(Name = "wh_del", IsRequired = true, EmitDefaultValue = false)]
-        public float WhDel { get; set; }
+        [DataMember(Name = "wh_del", IsRequired = true, EmitDefaultValue = true)]
+        public float? WhDel { get; set; }
 
         /// <summary>
         /// Energy delivered during this interval, in Watts.
         /// </summary>
         /// <value>Energy delivered during this interval, in Watts.</value>
-        [DataMember(Name = "curr_w", IsRequired = true, EmitDefaultValue = false)]
-        public int CurrW { get; set; }
+        [DataMember(Name = "curr_w", IsRequired = true, EmitDefaultValue = true)]
+        public int? CurrW { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,11 +137,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 ) && 
                 (
                     this.WhDel == input.WhDel ||
-                    this.WhDel.Equals(input.WhDel)
+                    (this.WhDel != null &&
+                    this.WhDel.Equals(input.WhDel))
                 ) && 
                 (
                     this.CurrW == input.CurrW ||
-                    this.CurrW.Equals(input.CurrW)
+                    (this.CurrW != null &&
+                    this.CurrW.Equals(input.CurrW))
                 );
         }
 
@@ -154,8 +158,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Channel.GetHashCode();
                 hashCode = hashCode * 59 + this.EndAt.GetHashCode();
-                hashCode = hashCode * 59 + this.WhDel.GetHashCode();
-                hashCode = hashCode * 59 + this.CurrW.GetHashCode();
+                if (this.WhDel != null)
+                    hashCode = hashCode * 59 + this.WhDel.GetHashCode();
+                if (this.CurrW != null)
+                    hashCode = hashCode * 59 + this.CurrW.GetHashCode();
                 return hashCode;
             }
         }

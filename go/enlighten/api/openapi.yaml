@@ -2243,9 +2243,11 @@ components:
         wh_del:
           description: Energy delivered during this interval, in Watt-hours.
           format: float
+          nullable: true
           type: number
         curr_w:
           description: Energy delivered during this interval, in Watts.
+          nullable: true
           type: integer
       required:
       - channel
