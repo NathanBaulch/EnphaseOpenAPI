@@ -86,6 +86,10 @@ class UnprocessableEntityError(ModelNormal):
             'error_messages': ([str],),  # noqa: E501
             'start': (date,),  # noqa: E501
             'end': (date,),  # noqa: E501
+            'start_at': (int,),  # noqa: E501
+            'end_at': (int,),  # noqa: E501
+            'first_interval': (int,),  # noqa: E501
+            'last_interval': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +103,10 @@ class UnprocessableEntityError(ModelNormal):
         'error_messages': 'errorMessages',  # noqa: E501
         'start': 'start',  # noqa: E501
         'end': 'end',  # noqa: E501
+        'start_at': 'start_at',  # noqa: E501
+        'end_at': 'end_at',  # noqa: E501
+        'first_interval': 'first_interval',  # noqa: E501
+        'last_interval': 'last_interval',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,6 +155,10 @@ class UnprocessableEntityError(ModelNormal):
             error_messages ([str]): [optional]  # noqa: E501
             start (date): [optional]  # noqa: E501
             end (date): [optional]  # noqa: E501
+            start_at (int): [optional]  # noqa: E501
+            end_at (int): [optional]  # noqa: E501
+            first_interval (int): [optional]  # noqa: E501
+            last_interval (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,6 +245,10 @@ class UnprocessableEntityError(ModelNormal):
             error_messages ([str]): [optional]  # noqa: E501
             start (date): [optional]  # noqa: E501
             end (date): [optional]  # noqa: E501
+            start_at (int): [optional]  # noqa: E501
+            end_at (int): [optional]  # noqa: E501
+            first_interval (int): [optional]  # noqa: E501
+            last_interval (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

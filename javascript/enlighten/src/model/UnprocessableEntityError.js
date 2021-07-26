@@ -62,6 +62,18 @@ class UnprocessableEntityError {
             if (data.hasOwnProperty('end')) {
                 obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
+            if (data.hasOwnProperty('start_at')) {
+                obj['start_at'] = ApiClient.convertToType(data['start_at'], 'Number');
+            }
+            if (data.hasOwnProperty('end_at')) {
+                obj['end_at'] = ApiClient.convertToType(data['end_at'], 'Number');
+            }
+            if (data.hasOwnProperty('first_interval')) {
+                obj['first_interval'] = ApiClient.convertToType(data['first_interval'], 'Number');
+            }
+            if (data.hasOwnProperty('last_interval')) {
+                obj['last_interval'] = ApiClient.convertToType(data['last_interval'], 'Number');
+            }
         }
         return obj;
     }
@@ -93,6 +105,26 @@ UnprocessableEntityError.prototype['start'] = undefined;
  * @member {Date} end
  */
 UnprocessableEntityError.prototype['end'] = undefined;
+
+/**
+ * @member {Number} start_at
+ */
+UnprocessableEntityError.prototype['start_at'] = undefined;
+
+/**
+ * @member {Number} end_at
+ */
+UnprocessableEntityError.prototype['end_at'] = undefined;
+
+/**
+ * @member {Number} first_interval
+ */
+UnprocessableEntityError.prototype['first_interval'] = undefined;
+
+/**
+ * @member {Number} last_interval
+ */
+UnprocessableEntityError.prototype['last_interval'] = undefined;
 
 
 

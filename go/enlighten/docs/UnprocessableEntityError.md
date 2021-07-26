@@ -9,6 +9,10 @@ Name | Type | Description | Notes
 **ErrorMessages** | Pointer to **[]string** |  | [optional] 
 **Start** | Pointer to **string** |  | [optional] 
 **End** | Pointer to **string** |  | [optional] 
+**StartAt** | Pointer to **int32** |  | [optional] 
+**EndAt** | Pointer to **int32** |  | [optional] 
+**FirstInterval** | Pointer to **int32** |  | [optional] 
+**LastInterval** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -153,6 +157,106 @@ SetEnd sets End field to given value.
 `func (o *UnprocessableEntityError) HasEnd() bool`
 
 HasEnd returns a boolean if a field has been set.
+
+### GetStartAt
+
+`func (o *UnprocessableEntityError) GetStartAt() int32`
+
+GetStartAt returns the StartAt field if non-nil, zero value otherwise.
+
+### GetStartAtOk
+
+`func (o *UnprocessableEntityError) GetStartAtOk() (*int32, bool)`
+
+GetStartAtOk returns a tuple with the StartAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartAt
+
+`func (o *UnprocessableEntityError) SetStartAt(v int32)`
+
+SetStartAt sets StartAt field to given value.
+
+### HasStartAt
+
+`func (o *UnprocessableEntityError) HasStartAt() bool`
+
+HasStartAt returns a boolean if a field has been set.
+
+### GetEndAt
+
+`func (o *UnprocessableEntityError) GetEndAt() int32`
+
+GetEndAt returns the EndAt field if non-nil, zero value otherwise.
+
+### GetEndAtOk
+
+`func (o *UnprocessableEntityError) GetEndAtOk() (*int32, bool)`
+
+GetEndAtOk returns a tuple with the EndAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndAt
+
+`func (o *UnprocessableEntityError) SetEndAt(v int32)`
+
+SetEndAt sets EndAt field to given value.
+
+### HasEndAt
+
+`func (o *UnprocessableEntityError) HasEndAt() bool`
+
+HasEndAt returns a boolean if a field has been set.
+
+### GetFirstInterval
+
+`func (o *UnprocessableEntityError) GetFirstInterval() int32`
+
+GetFirstInterval returns the FirstInterval field if non-nil, zero value otherwise.
+
+### GetFirstIntervalOk
+
+`func (o *UnprocessableEntityError) GetFirstIntervalOk() (*int32, bool)`
+
+GetFirstIntervalOk returns a tuple with the FirstInterval field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFirstInterval
+
+`func (o *UnprocessableEntityError) SetFirstInterval(v int32)`
+
+SetFirstInterval sets FirstInterval field to given value.
+
+### HasFirstInterval
+
+`func (o *UnprocessableEntityError) HasFirstInterval() bool`
+
+HasFirstInterval returns a boolean if a field has been set.
+
+### GetLastInterval
+
+`func (o *UnprocessableEntityError) GetLastInterval() int32`
+
+GetLastInterval returns the LastInterval field if non-nil, zero value otherwise.
+
+### GetLastIntervalOk
+
+`func (o *UnprocessableEntityError) GetLastIntervalOk() (*int32, bool)`
+
+GetLastIntervalOk returns a tuple with the LastInterval field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastInterval
+
+`func (o *UnprocessableEntityError) SetLastInterval(v int32)`
+
+SetLastInterval sets LastInterval field to given value.
+
+### HasLastInterval
+
+`func (o *UnprocessableEntityError) HasLastInterval() bool`
+
+HasLastInterval returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

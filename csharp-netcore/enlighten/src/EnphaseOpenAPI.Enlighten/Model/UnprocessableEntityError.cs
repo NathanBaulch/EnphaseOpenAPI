@@ -39,13 +39,21 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="errorMessages">errorMessages.</param>
         /// <param name="start">start.</param>
         /// <param name="end">end.</param>
-        public UnprocessableEntityError(string reason = default(string), string message = default(string), List<string> errorMessages = default(List<string>), DateTimeOffset start = default(DateTimeOffset), DateTimeOffset end = default(DateTimeOffset))
+        /// <param name="startAt">startAt.</param>
+        /// <param name="endAt">endAt.</param>
+        /// <param name="firstInterval">firstInterval.</param>
+        /// <param name="lastInterval">lastInterval.</param>
+        public UnprocessableEntityError(string reason = default(string), string message = default(string), List<string> errorMessages = default(List<string>), DateTimeOffset start = default(DateTimeOffset), DateTimeOffset end = default(DateTimeOffset), int startAt = default(int), int endAt = default(int), int firstInterval = default(int), int lastInterval = default(int))
         {
             this.Reason = reason;
             this.Message = message;
             this.ErrorMessages = errorMessages;
             this.Start = start;
             this.End = end;
+            this.StartAt = startAt;
+            this.EndAt = endAt;
+            this.FirstInterval = firstInterval;
+            this.LastInterval = lastInterval;
         }
 
         /// <summary>
@@ -81,6 +89,30 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public DateTimeOffset End { get; set; }
 
         /// <summary>
+        /// Gets or Sets StartAt
+        /// </summary>
+        [DataMember(Name = "start_at", EmitDefaultValue = false)]
+        public int StartAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EndAt
+        /// </summary>
+        [DataMember(Name = "end_at", EmitDefaultValue = false)]
+        public int EndAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FirstInterval
+        /// </summary>
+        [DataMember(Name = "first_interval", EmitDefaultValue = false)]
+        public int FirstInterval { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastInterval
+        /// </summary>
+        [DataMember(Name = "last_interval", EmitDefaultValue = false)]
+        public int LastInterval { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +125,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
             sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  End: ").Append(End).Append("\n");
+            sb.Append("  StartAt: ").Append(StartAt).Append("\n");
+            sb.Append("  EndAt: ").Append(EndAt).Append("\n");
+            sb.Append("  FirstInterval: ").Append(FirstInterval).Append("\n");
+            sb.Append("  LastInterval: ").Append(LastInterval).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +188,22 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     this.End == input.End ||
                     (this.End != null &&
                     this.End.Equals(input.End))
+                ) && 
+                (
+                    this.StartAt == input.StartAt ||
+                    this.StartAt.Equals(input.StartAt)
+                ) && 
+                (
+                    this.EndAt == input.EndAt ||
+                    this.EndAt.Equals(input.EndAt)
+                ) && 
+                (
+                    this.FirstInterval == input.FirstInterval ||
+                    this.FirstInterval.Equals(input.FirstInterval)
+                ) && 
+                (
+                    this.LastInterval == input.LastInterval ||
+                    this.LastInterval.Equals(input.LastInterval)
                 );
         }
 
@@ -174,6 +226,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     hashCode = hashCode * 59 + this.Start.GetHashCode();
                 if (this.End != null)
                     hashCode = hashCode * 59 + this.End.GetHashCode();
+                hashCode = hashCode * 59 + this.StartAt.GetHashCode();
+                hashCode = hashCode * 59 + this.EndAt.GetHashCode();
+                hashCode = hashCode * 59 + this.FirstInterval.GetHashCode();
+                hashCode = hashCode * 59 + this.LastInterval.GetHashCode();
                 return hashCode;
             }
         }

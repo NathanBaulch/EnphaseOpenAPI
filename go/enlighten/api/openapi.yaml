@@ -1943,6 +1943,14 @@ components:
         end:
           format: date
           type: string
+        start_at:
+          type: integer
+        end_at:
+          type: integer
+        first_interval:
+          type: integer
+        last_interval:
+          type: integer
       type: object
     ServerError:
       example:

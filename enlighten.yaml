@@ -1680,6 +1680,14 @@ components:
         end:
           type: string
           format: date
+        start_at:
+          type: integer
+        end_at:
+          type: integer
+        first_interval:
+          type: integer
+        last_interval:
+          type: integer
     ServerError:
       type: object
       properties:

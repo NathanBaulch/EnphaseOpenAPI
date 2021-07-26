@@ -9,5 +9,9 @@ Name | Type | Description | Notes
 **errorMessages** | **[String]** |  | [optional] 
 **start** | **Date** |  | [optional] 
 **end** | **Date** |  | [optional] 
+**startAt** | **Number** |  | [optional] 
+**endAt** | **Number** |  | [optional] 
+**firstInterval** | **Number** |  | [optional] 
+**lastInterval** | **Number** |  | [optional] 
 
 

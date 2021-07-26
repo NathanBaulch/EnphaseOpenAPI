@@ -84,6 +84,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property startAt (base name: "start_at")', function() {
+      // uncomment below and update the code to test the property startAt
+      //var instance = new TheEnlightenSystemsApi.UnprocessableEntityError();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property endAt (base name: "end_at")', function() {
+      // uncomment below and update the code to test the property endAt
+      //var instance = new TheEnlightenSystemsApi.UnprocessableEntityError();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property firstInterval (base name: "first_interval")', function() {
+      // uncomment below and update the code to test the property firstInterval
+      //var instance = new TheEnlightenSystemsApi.UnprocessableEntityError();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastInterval (base name: "last_interval")', function() {
+      // uncomment below and update the code to test the property lastInterval
+      //var instance = new TheEnlightenSystemsApi.UnprocessableEntityError();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

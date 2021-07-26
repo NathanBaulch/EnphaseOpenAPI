@@ -21,6 +21,10 @@ type UnprocessableEntityError struct {
 	ErrorMessages *[]string `json:"errorMessages,omitempty"`
 	Start *string `json:"start,omitempty"`
 	End *string `json:"end,omitempty"`
+	StartAt *int32 `json:"start_at,omitempty"`
+	EndAt *int32 `json:"end_at,omitempty"`
+	FirstInterval *int32 `json:"first_interval,omitempty"`
+	LastInterval *int32 `json:"last_interval,omitempty"`
 }
 
 // NewUnprocessableEntityError instantiates a new UnprocessableEntityError object
@@ -200,6 +204,134 @@ func (o *UnprocessableEntityError) SetEnd(v string) {
 	o.End = &v
 }
 
+// GetStartAt returns the StartAt field value if set, zero value otherwise.
+func (o *UnprocessableEntityError) GetStartAt() int32 {
+	if o == nil || o.StartAt == nil {
+		var ret int32
+		return ret
+	}
+	return *o.StartAt
+}
+
+// GetStartAtOk returns a tuple with the StartAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UnprocessableEntityError) GetStartAtOk() (*int32, bool) {
+	if o == nil || o.StartAt == nil {
+		return nil, false
+	}
+	return o.StartAt, true
+}
+
+// HasStartAt returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasStartAt() bool {
+	if o != nil && o.StartAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStartAt gets a reference to the given int32 and assigns it to the StartAt field.
+func (o *UnprocessableEntityError) SetStartAt(v int32) {
+	o.StartAt = &v
+}
+
+// GetEndAt returns the EndAt field value if set, zero value otherwise.
+func (o *UnprocessableEntityError) GetEndAt() int32 {
+	if o == nil || o.EndAt == nil {
+		var ret int32
+		return ret
+	}
+	return *o.EndAt
+}
+
+// GetEndAtOk returns a tuple with the EndAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UnprocessableEntityError) GetEndAtOk() (*int32, bool) {
+	if o == nil || o.EndAt == nil {
+		return nil, false
+	}
+	return o.EndAt, true
+}
+
+// HasEndAt returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasEndAt() bool {
+	if o != nil && o.EndAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEndAt gets a reference to the given int32 and assigns it to the EndAt field.
+func (o *UnprocessableEntityError) SetEndAt(v int32) {
+	o.EndAt = &v
+}
+
+// GetFirstInterval returns the FirstInterval field value if set, zero value otherwise.
+func (o *UnprocessableEntityError) GetFirstInterval() int32 {
+	if o == nil || o.FirstInterval == nil {
+		var ret int32
+		return ret
+	}
+	return *o.FirstInterval
+}
+
+// GetFirstIntervalOk returns a tuple with the FirstInterval field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UnprocessableEntityError) GetFirstIntervalOk() (*int32, bool) {
+	if o == nil || o.FirstInterval == nil {
+		return nil, false
+	}
+	return o.FirstInterval, true
+}
+
+// HasFirstInterval returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasFirstInterval() bool {
+	if o != nil && o.FirstInterval != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFirstInterval gets a reference to the given int32 and assigns it to the FirstInterval field.
+func (o *UnprocessableEntityError) SetFirstInterval(v int32) {
+	o.FirstInterval = &v
+}
+
+// GetLastInterval returns the LastInterval field value if set, zero value otherwise.
+func (o *UnprocessableEntityError) GetLastInterval() int32 {
+	if o == nil || o.LastInterval == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LastInterval
+}
+
+// GetLastIntervalOk returns a tuple with the LastInterval field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UnprocessableEntityError) GetLastIntervalOk() (*int32, bool) {
+	if o == nil || o.LastInterval == nil {
+		return nil, false
+	}
+	return o.LastInterval, true
+}
+
+// HasLastInterval returns a boolean if a field has been set.
+func (o *UnprocessableEntityError) HasLastInterval() bool {
+	if o != nil && o.LastInterval != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastInterval gets a reference to the given int32 and assigns it to the LastInterval field.
+func (o *UnprocessableEntityError) SetLastInterval(v int32) {
+	o.LastInterval = &v
+}
+
 func (o UnprocessableEntityError) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Reason != nil {
@@ -216,6 +348,18 @@ func (o UnprocessableEntityError) MarshalJSON() ([]byte, error) {
 	}
 	if o.End != nil {
 		toSerialize["end"] = o.End
+	}
+	if o.StartAt != nil {
+		toSerialize["start_at"] = o.StartAt
+	}
+	if o.EndAt != nil {
+		toSerialize["end_at"] = o.EndAt
+	}
+	if o.FirstInterval != nil {
+		toSerialize["first_interval"] = o.FirstInterval
+	}
+	if o.LastInterval != nil {
+		toSerialize["last_interval"] = o.LastInterval
 	}
 	return json.Marshal(toSerialize)
 }

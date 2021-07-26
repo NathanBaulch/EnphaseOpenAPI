@@ -63,7 +63,11 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
         'message' => 'string',
         'error_messages' => 'string[]',
         'start' => '\DateTime',
-        'end' => '\DateTime'
+        'end' => '\DateTime',
+        'start_at' => 'int',
+        'end_at' => 'int',
+        'first_interval' => 'int',
+        'last_interval' => 'int'
     ];
 
     /**
@@ -78,7 +82,11 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
         'message' => null,
         'error_messages' => null,
         'start' => 'date',
-        'end' => 'date'
+        'end' => 'date',
+        'start_at' => null,
+        'end_at' => null,
+        'first_interval' => null,
+        'last_interval' => null
     ];
 
     /**
@@ -112,7 +120,11 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
         'message' => 'message',
         'error_messages' => 'errorMessages',
         'start' => 'start',
-        'end' => 'end'
+        'end' => 'end',
+        'start_at' => 'start_at',
+        'end_at' => 'end_at',
+        'first_interval' => 'first_interval',
+        'last_interval' => 'last_interval'
     ];
 
     /**
@@ -125,7 +137,11 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
         'message' => 'setMessage',
         'error_messages' => 'setErrorMessages',
         'start' => 'setStart',
-        'end' => 'setEnd'
+        'end' => 'setEnd',
+        'start_at' => 'setStartAt',
+        'end_at' => 'setEndAt',
+        'first_interval' => 'setFirstInterval',
+        'last_interval' => 'setLastInterval'
     ];
 
     /**
@@ -138,7 +154,11 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
         'message' => 'getMessage',
         'error_messages' => 'getErrorMessages',
         'start' => 'getStart',
-        'end' => 'getEnd'
+        'end' => 'getEnd',
+        'start_at' => 'getStartAt',
+        'end_at' => 'getEndAt',
+        'first_interval' => 'getFirstInterval',
+        'last_interval' => 'getLastInterval'
     ];
 
     /**
@@ -203,6 +223,10 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['error_messages'] = $data['error_messages'] ?? null;
         $this->container['start'] = $data['start'] ?? null;
         $this->container['end'] = $data['end'] ?? null;
+        $this->container['start_at'] = $data['start_at'] ?? null;
+        $this->container['end_at'] = $data['end_at'] ?? null;
+        $this->container['first_interval'] = $data['first_interval'] ?? null;
+        $this->container['last_interval'] = $data['last_interval'] ?? null;
     }
 
     /**
@@ -345,6 +369,102 @@ class UnprocessableEntityError implements ModelInterface, ArrayAccess, \JsonSeri
     public function setEnd($end)
     {
         $this->container['end'] = $end;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_at
+     *
+     * @return int|null
+     */
+    public function getStartAt()
+    {
+        return $this->container['start_at'];
+    }
+
+    /**
+     * Sets start_at
+     *
+     * @param int|null $start_at start_at
+     *
+     * @return self
+     */
+    public function setStartAt($start_at)
+    {
+        $this->container['start_at'] = $start_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_at
+     *
+     * @return int|null
+     */
+    public function getEndAt()
+    {
+        return $this->container['end_at'];
+    }
+
+    /**
+     * Sets end_at
+     *
+     * @param int|null $end_at end_at
+     *
+     * @return self
+     */
+    public function setEndAt($end_at)
+    {
+        $this->container['end_at'] = $end_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_interval
+     *
+     * @return int|null
+     */
+    public function getFirstInterval()
+    {
+        return $this->container['first_interval'];
+    }
+
+    /**
+     * Sets first_interval
+     *
+     * @param int|null $first_interval first_interval
+     *
+     * @return self
+     */
+    public function setFirstInterval($first_interval)
+    {
+        $this->container['first_interval'] = $first_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_interval
+     *
+     * @return int|null
+     */
+    public function getLastInterval()
+    {
+        return $this->container['last_interval'];
+    }
+
+    /**
+     * Sets last_interval
+     *
+     * @param int|null $last_interval last_interval
+     *
+     * @return self
+     */
+    public function setLastInterval($last_interval)
+    {
+        $this->container['last_interval'] = $last_interval;
 
         return $this;
     }

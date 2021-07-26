@@ -9,6 +9,10 @@ Name | Type | Description | Notes
 **ErrorMessages** | **List&lt;string&gt;** |  | [optional] 
 **Start** | **DateTimeOffset** |  | [optional] 
 **End** | **DateTimeOffset** |  | [optional] 
+**StartAt** | **int** |  | [optional] 
+**EndAt** | **int** |  | [optional] 
+**FirstInterval** | **int** |  | [optional] 
+**LastInterval** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
