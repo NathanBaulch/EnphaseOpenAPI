@@ -12,11 +12,17 @@ namespace EnphaseOpenAPI.Enlighten.Client
         private long _rateLimitPeriod;
         private Queue<long> _rateLimitSlots;
 
+        /// <summary>
+        /// Enable simple debug output.
+        /// </summary>
         public void Debug()
         {
             _debug = true;
         }
 
+        /// <summary>
+        /// Apply a simple sliding window rate limit.
+        /// </summary>
         public void RateLimit(int quantity, TimeSpan period)
         {
             _rateLimitQuantity = quantity;
@@ -28,7 +34,7 @@ namespace EnphaseOpenAPI.Enlighten.Client
         {
             if (_debug)
             {
-                Console.WriteLine($"{request.Method} {request.Resource}");
+                Console.WriteLine($"{request.Method} {new RestClient(_baseUrl).BuildUri(request)}");
             }
 
             if (_rateLimitQuantity == 0)

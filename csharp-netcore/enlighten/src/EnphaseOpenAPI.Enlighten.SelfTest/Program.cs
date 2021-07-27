@@ -31,10 +31,11 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
 
                 uid = opts.UserId;
             });
-            var api = new DefaultApi(cfg);
+            var cli = new ApiClient();
+            cli.Debug();
+            cli.RateLimit(10, TimeSpan.FromMinutes(1));
+            var api = new DefaultApi(cli, cli, cfg);
             api.FixExceptions();
-            api.Debug();
-            api.RateLimit(10, TimeSpan.FromMinutes(1));
 
             var startAt = DateTimeOffset.Now.AddDays(-7).ToUnixTimeSeconds();
             var endAt = DateTimeOffset.Now.AddDays(-1).ToUnixTimeSeconds();

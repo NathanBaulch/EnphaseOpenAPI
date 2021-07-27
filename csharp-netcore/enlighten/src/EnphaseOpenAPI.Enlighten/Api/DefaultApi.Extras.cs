@@ -1,20 +1,27 @@
-using System;
 using System.Net;
 using EnphaseOpenAPI.Enlighten.Client;
 using EnphaseOpenAPI.Enlighten.Model;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace EnphaseOpenAPI.Enlighten.Api
 {
     public partial class DefaultApi
     {
+        /// <summary>
+        /// Attach an exception factory that deserializes error models.
+        /// </summary>
         public void FixExceptions()
         {
             _exceptionFactory = (methodName, response) =>
             {
                 object content;
                 var message = "unknown";
-                var settings = ((ApiClient) Client).SerializerSettings;
+                var settings = new JsonSerializerSettings
+                {
+                    ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                    ContractResolver = new DefaultContractResolver {NamingStrategy = new CamelCaseNamingStrategy()}
+                };
                 if (response.StatusCode >= HttpStatusCode.InternalServerError)
                 {
                     var serverError = JsonConvert.DeserializeObject<ServerError>(response.RawContent, settings);
@@ -77,6 +84,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
                             break;
                     }
                 }
+                else if (!string.IsNullOrEmpty(response.ErrorText))
+                {
+                    throw new ApiException(0, response.ErrorText);
+                }
                 else
                 {
                     return null;
@@ -84,18 +95,6 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
                 return new ApiException((int) response.StatusCode, $"Error calling {methodName}: {message}", content, response.Headers);
             };
-        }
-
-        public void Debug()
-        {
-            ((ApiClient) Client).Debug();
-            ((ApiClient) AsynchronousClient).Debug();
-        }
-
-        public void RateLimit(int quantity, TimeSpan period)
-        {
-            ((ApiClient) Client).RateLimit(quantity, period);
-            ((ApiClient) AsynchronousClient).RateLimit(quantity, period);
         }
     }
 }
