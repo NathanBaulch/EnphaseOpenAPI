@@ -12,8 +12,8 @@ validate:
 
 define clean
 	echo Removing previously generated $(1) files
-	sed -e 's|^|./$(1)/enlighten/|' ./$(1)/enlighten/.openapi-generator/FILES | xargs -r rm
-	rm -r ./$(1)/enlighten/.openapi-generator | true
+	sed -e 's|^|./$(1)/enlighten/|' ./$(1)/enlighten/.openapi-generator/FILES | xargs rm -rf
+	rm -rf ./$(1)/enlighten/.openapi-generator | true
 	find ./$(1)/enlighten -type d -empty -delete | true
 endef
 
