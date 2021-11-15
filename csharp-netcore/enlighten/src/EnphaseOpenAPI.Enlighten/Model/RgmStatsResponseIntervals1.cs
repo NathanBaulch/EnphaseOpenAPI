@@ -48,9 +48,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.Channel = channel;
             this.EndAt = endAt;
             // to ensure "whDel" is required (not null)
-            this.WhDel = whDel ?? throw new ArgumentNullException("whDel is a required property for RgmStatsResponseIntervals1 and cannot be null");
+            if (whDel == null) {
+                throw new ArgumentNullException("whDel is a required property for RgmStatsResponseIntervals1 and cannot be null");
+            }
+            this.WhDel = whDel;
             // to ensure "currW" is required (not null)
-            this.CurrW = currW ?? throw new ArgumentNullException("currW is a required property for RgmStatsResponseIntervals1 and cannot be null");
+            if (currW == null) {
+                throw new ArgumentNullException("currW is a required property for RgmStatsResponseIntervals1 and cannot be null");
+            }
+            this.CurrW = currW;
         }
 
         /// <summary>
@@ -171,7 +177,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

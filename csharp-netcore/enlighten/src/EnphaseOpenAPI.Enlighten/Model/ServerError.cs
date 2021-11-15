@@ -45,7 +45,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.ErrorCode = errorCode;
             // to ensure "errorMessages" is required (not null)
-            this.ErrorMessages = errorMessages ?? throw new ArgumentNullException("errorMessages is a required property for ServerError and cannot be null");
+            if (errorMessages == null) {
+                throw new ArgumentNullException("errorMessages is a required property for ServerError and cannot be null");
+            }
+            this.ErrorMessages = errorMessages;
         }
 
         /// <summary>
@@ -137,7 +140,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

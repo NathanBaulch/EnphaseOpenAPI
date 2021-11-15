@@ -45,7 +45,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.SystemId = systemId;
             // to ensure "envoys" is required (not null)
-            this.Envoys = envoys ?? throw new ArgumentNullException("envoys is a required property for EnvoysResponse and cannot be null");
+            if (envoys == null) {
+                throw new ArgumentNullException("envoys is a required property for EnvoysResponse and cannot be null");
+            }
+            this.Envoys = envoys;
         }
 
         /// <summary>
@@ -139,7 +142,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

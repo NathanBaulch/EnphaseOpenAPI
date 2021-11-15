@@ -1,5 +1,4 @@
 {
-    "name": "NathanBaulch/EnphaseOpenAPI",
     "description": "The Enlighten Systems API is a JSON-based API that provides access to performance data for a PV system. By using the Enlighten Systems API, you agree to the Enphase Energy API License Agreement.  Please note that the Enlighten Systems API does not provide performance data at a panel or microinverter level.",
     "keywords": [
         "openapitools",
@@ -19,11 +18,12 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": "^7.3 || ^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^2.0",
         "spatie/guzzle-rate-limiter-middleware": "^2.0"
     },
     "require-dev": {

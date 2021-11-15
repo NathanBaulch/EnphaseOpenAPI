@@ -48,11 +48,20 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.SystemId = systemId;
             // to ensure "inverters" is required (not null)
-            this.Inverters = inverters ?? throw new ArgumentNullException("inverters is a required property for InventoryResponse and cannot be null");
+            if (inverters == null) {
+                throw new ArgumentNullException("inverters is a required property for InventoryResponse and cannot be null");
+            }
+            this.Inverters = inverters;
             // to ensure "meters" is required (not null)
-            this.Meters = meters ?? throw new ArgumentNullException("meters is a required property for InventoryResponse and cannot be null");
+            if (meters == null) {
+                throw new ArgumentNullException("meters is a required property for InventoryResponse and cannot be null");
+            }
+            this.Meters = meters;
             // to ensure "meta" is required (not null)
-            this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for InventoryResponse and cannot be null");
+            if (meta == null) {
+                throw new ArgumentNullException("meta is a required property for InventoryResponse and cannot be null");
+            }
+            this.Meta = meta;
             this.Envoys = envoys;
         }
 
@@ -193,7 +202,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

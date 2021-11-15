@@ -45,11 +45,20 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public RgmStatsResponseMeterIntervals(string meterSerialNumber = default(string), string envoySerialNumber = default(string), List<RgmStatsResponseIntervals1> intervals = default(List<RgmStatsResponseIntervals1>))
         {
             // to ensure "meterSerialNumber" is required (not null)
-            this.MeterSerialNumber = meterSerialNumber ?? throw new ArgumentNullException("meterSerialNumber is a required property for RgmStatsResponseMeterIntervals and cannot be null");
+            if (meterSerialNumber == null) {
+                throw new ArgumentNullException("meterSerialNumber is a required property for RgmStatsResponseMeterIntervals and cannot be null");
+            }
+            this.MeterSerialNumber = meterSerialNumber;
             // to ensure "envoySerialNumber" is required (not null)
-            this.EnvoySerialNumber = envoySerialNumber ?? throw new ArgumentNullException("envoySerialNumber is a required property for RgmStatsResponseMeterIntervals and cannot be null");
+            if (envoySerialNumber == null) {
+                throw new ArgumentNullException("envoySerialNumber is a required property for RgmStatsResponseMeterIntervals and cannot be null");
+            }
+            this.EnvoySerialNumber = envoySerialNumber;
             // to ensure "intervals" is required (not null)
-            this.Intervals = intervals ?? throw new ArgumentNullException("intervals is a required property for RgmStatsResponseMeterIntervals and cannot be null");
+            if (intervals == null) {
+                throw new ArgumentNullException("intervals is a required property for RgmStatsResponseMeterIntervals and cannot be null");
+            }
+            this.Intervals = intervals;
         }
 
         /// <summary>
@@ -160,7 +169,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

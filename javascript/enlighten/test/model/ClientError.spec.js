@@ -50,7 +50,7 @@
   describe('ClientError', function() {
     it('should create an instance of ClientError', function() {
       // uncomment below and update the code to test ClientError
-      //var instane = new TheEnlightenSystemsApi.ClientError();
+      //var instance = new TheEnlightenSystemsApi.ClientError();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.ClientError);
     });
 

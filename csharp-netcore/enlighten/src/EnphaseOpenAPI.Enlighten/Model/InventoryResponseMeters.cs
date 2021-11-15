@@ -45,11 +45,20 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public InventoryResponseMeters(string sn = default(string), string manufacturer = default(string), string model = default(string))
         {
             // to ensure "sn" is required (not null)
-            this.Sn = sn ?? throw new ArgumentNullException("sn is a required property for InventoryResponseMeters and cannot be null");
+            if (sn == null) {
+                throw new ArgumentNullException("sn is a required property for InventoryResponseMeters and cannot be null");
+            }
+            this.Sn = sn;
             // to ensure "manufacturer" is required (not null)
-            this.Manufacturer = manufacturer ?? throw new ArgumentNullException("manufacturer is a required property for InventoryResponseMeters and cannot be null");
+            if (manufacturer == null) {
+                throw new ArgumentNullException("manufacturer is a required property for InventoryResponseMeters and cannot be null");
+            }
+            this.Manufacturer = manufacturer;
             // to ensure "model" is required (not null)
-            this.Model = model ?? throw new ArgumentNullException("model is a required property for InventoryResponseMeters and cannot be null");
+            if (model == null) {
+                throw new ArgumentNullException("model is a required property for InventoryResponseMeters and cannot be null");
+            }
+            this.Model = model;
         }
 
         /// <summary>
@@ -156,7 +165,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

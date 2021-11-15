@@ -50,7 +50,7 @@
   describe('InventoryResponseMeters', function() {
     it('should create an instance of InventoryResponseMeters', function() {
       // uncomment below and update the code to test InventoryResponseMeters
-      //var instane = new TheEnlightenSystemsApi.InventoryResponseMeters();
+      //var instance = new TheEnlightenSystemsApi.InventoryResponseMeters();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.InventoryResponseMeters);
     });
 

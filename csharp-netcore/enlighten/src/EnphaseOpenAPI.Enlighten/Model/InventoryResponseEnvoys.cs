@@ -45,11 +45,20 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public InventoryResponseEnvoys(string sn = default(string), string model = default(string), string sku = default(string))
         {
             // to ensure "sn" is required (not null)
-            this.Sn = sn ?? throw new ArgumentNullException("sn is a required property for InventoryResponseEnvoys and cannot be null");
+            if (sn == null) {
+                throw new ArgumentNullException("sn is a required property for InventoryResponseEnvoys and cannot be null");
+            }
+            this.Sn = sn;
             // to ensure "model" is required (not null)
-            this.Model = model ?? throw new ArgumentNullException("model is a required property for InventoryResponseEnvoys and cannot be null");
+            if (model == null) {
+                throw new ArgumentNullException("model is a required property for InventoryResponseEnvoys and cannot be null");
+            }
+            this.Model = model;
             // to ensure "sku" is required (not null)
-            this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for InventoryResponseEnvoys and cannot be null");
+            if (sku == null) {
+                throw new ArgumentNullException("sku is a required property for InventoryResponseEnvoys and cannot be null");
+            }
+            this.Sku = sku;
         }
 
         /// <summary>
@@ -156,7 +165,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

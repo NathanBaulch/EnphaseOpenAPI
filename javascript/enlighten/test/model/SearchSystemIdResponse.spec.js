@@ -50,7 +50,7 @@
   describe('SearchSystemIdResponse', function() {
     it('should create an instance of SearchSystemIdResponse', function() {
       // uncomment below and update the code to test SearchSystemIdResponse
-      //var instane = new TheEnlightenSystemsApi.SearchSystemIdResponse();
+      //var instance = new TheEnlightenSystemsApi.SearchSystemIdResponse();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.SearchSystemIdResponse);
     });
 

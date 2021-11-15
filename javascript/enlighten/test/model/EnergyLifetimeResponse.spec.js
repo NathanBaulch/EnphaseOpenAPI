@@ -50,7 +50,7 @@
   describe('EnergyLifetimeResponse', function() {
     it('should create an instance of EnergyLifetimeResponse', function() {
       // uncomment below and update the code to test EnergyLifetimeResponse
-      //var instane = new TheEnlightenSystemsApi.EnergyLifetimeResponse();
+      //var instance = new TheEnlightenSystemsApi.EnergyLifetimeResponse();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.EnergyLifetimeResponse);
     });
 

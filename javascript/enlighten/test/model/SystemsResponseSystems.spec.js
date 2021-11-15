@@ -50,7 +50,7 @@
   describe('SystemsResponseSystems', function() {
     it('should create an instance of SystemsResponseSystems', function() {
       // uncomment below and update the code to test SystemsResponseSystems
-      //var instane = new TheEnlightenSystemsApi.SystemsResponseSystems();
+      //var instance = new TheEnlightenSystemsApi.SystemsResponseSystems();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.SystemsResponseSystems);
     });
 

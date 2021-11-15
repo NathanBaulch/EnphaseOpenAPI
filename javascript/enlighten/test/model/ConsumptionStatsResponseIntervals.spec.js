@@ -50,7 +50,7 @@
   describe('ConsumptionStatsResponseIntervals', function() {
     it('should create an instance of ConsumptionStatsResponseIntervals', function() {
       // uncomment below and update the code to test ConsumptionStatsResponseIntervals
-      //var instane = new TheEnlightenSystemsApi.ConsumptionStatsResponseIntervals();
+      //var instance = new TheEnlightenSystemsApi.ConsumptionStatsResponseIntervals();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.ConsumptionStatsResponseIntervals);
     });
 

@@ -49,7 +49,7 @@
   describe('Status', function() {
     it('should create an instance of Status', function() {
       // uncomment below and update the code to test Status
-      //var instane = new TheEnlightenSystemsApi.Status();
+      //var instance = new TheEnlightenSystemsApi.Status();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.Status);
     });
 

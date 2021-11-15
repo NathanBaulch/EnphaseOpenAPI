@@ -50,7 +50,7 @@
   describe('Meta', function() {
     it('should create an instance of Meta', function() {
       // uncomment below and update the code to test Meta
-      //var instane = new TheEnlightenSystemsApi.Meta();
+      //var instance = new TheEnlightenSystemsApi.Meta();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.Meta);
     });
 

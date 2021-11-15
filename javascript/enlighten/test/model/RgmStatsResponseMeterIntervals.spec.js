@@ -50,7 +50,7 @@
   describe('RgmStatsResponseMeterIntervals', function() {
     it('should create an instance of RgmStatsResponseMeterIntervals', function() {
       // uncomment below and update the code to test RgmStatsResponseMeterIntervals
-      //var instane = new TheEnlightenSystemsApi.RgmStatsResponseMeterIntervals();
+      //var instance = new TheEnlightenSystemsApi.RgmStatsResponseMeterIntervals();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.RgmStatsResponseMeterIntervals);
     });
 

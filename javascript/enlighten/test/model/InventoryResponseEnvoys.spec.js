@@ -50,7 +50,7 @@
   describe('InventoryResponseEnvoys', function() {
     it('should create an instance of InventoryResponseEnvoys', function() {
       // uncomment below and update the code to test InventoryResponseEnvoys
-      //var instane = new TheEnlightenSystemsApi.InventoryResponseEnvoys();
+      //var instance = new TheEnlightenSystemsApi.InventoryResponseEnvoys();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.InventoryResponseEnvoys);
     });
 

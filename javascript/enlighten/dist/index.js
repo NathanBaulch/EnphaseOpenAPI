@@ -45,6 +45,12 @@ Object.defineProperty(exports, "ConsumptionStatsResponseIntervals", {
     return _ConsumptionStatsResponseIntervals["default"];
   }
 });
+Object.defineProperty(exports, "DefaultApi", {
+  enumerable: true,
+  get: function get() {
+    return _DefaultApi["default"];
+  }
+});
 Object.defineProperty(exports, "EnergyLifetimeResponse", {
   enumerable: true,
   get: function get() {
@@ -211,12 +217,6 @@ Object.defineProperty(exports, "UnprocessableEntityError", {
   enumerable: true,
   get: function get() {
     return _UnprocessableEntityError["default"];
-  }
-});
-Object.defineProperty(exports, "DefaultApi", {
-  enumerable: true,
-  get: function get() {
-    return _DefaultApi["default"];
   }
 });
 

@@ -50,7 +50,7 @@
   describe('InvertersSummaryByEnvoyOrSiteResponse', function() {
     it('should create an instance of InvertersSummaryByEnvoyOrSiteResponse', function() {
       // uncomment below and update the code to test InvertersSummaryByEnvoyOrSiteResponse
-      //var instane = new TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponse();
+      //var instance = new TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponse();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponse);
     });
 

@@ -50,7 +50,7 @@
   describe('ServerError', function() {
     it('should create an instance of ServerError', function() {
       // uncomment below and update the code to test ServerError
-      //var instane = new TheEnlightenSystemsApi.ServerError();
+      //var instance = new TheEnlightenSystemsApi.ServerError();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.ServerError);
     });
 

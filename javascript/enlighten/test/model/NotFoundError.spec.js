@@ -50,7 +50,7 @@
   describe('NotFoundError', function() {
     it('should create an instance of NotFoundError', function() {
       // uncomment below and update the code to test NotFoundError
-      //var instane = new TheEnlightenSystemsApi.NotFoundError();
+      //var instance = new TheEnlightenSystemsApi.NotFoundError();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.NotFoundError);
     });
 

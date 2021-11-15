@@ -100,6 +100,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <value>The current status of the system. You can find this and more in the &#x60;meta&#x60; property.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [Obsolete]
         public StatusEnum Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemsResponseSystems" /> class.
@@ -126,23 +127,47 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.SystemId = systemId;
             // to ensure "systemName" is required (not null)
-            this.SystemName = systemName ?? throw new ArgumentNullException("systemName is a required property for SystemsResponseSystems and cannot be null");
+            if (systemName == null) {
+                throw new ArgumentNullException("systemName is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.SystemName = systemName;
             // to ensure "systemPublicName" is required (not null)
-            this.SystemPublicName = systemPublicName ?? throw new ArgumentNullException("systemPublicName is a required property for SystemsResponseSystems and cannot be null");
+            if (systemPublicName == null) {
+                throw new ArgumentNullException("systemPublicName is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.SystemPublicName = systemPublicName;
             // to ensure "country" is required (not null)
-            this.Country = country ?? throw new ArgumentNullException("country is a required property for SystemsResponseSystems and cannot be null");
+            if (country == null) {
+                throw new ArgumentNullException("country is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.Country = country;
             // to ensure "state" is required (not null)
-            this.State = state ?? throw new ArgumentNullException("state is a required property for SystemsResponseSystems and cannot be null");
+            if (state == null) {
+                throw new ArgumentNullException("state is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.State = state;
             // to ensure "city" is required (not null)
-            this.City = city ?? throw new ArgumentNullException("city is a required property for SystemsResponseSystems and cannot be null");
+            if (city == null) {
+                throw new ArgumentNullException("city is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.City = city;
             // to ensure "postalCode" is required (not null)
-            this.PostalCode = postalCode ?? throw new ArgumentNullException("postalCode is a required property for SystemsResponseSystems and cannot be null");
+            if (postalCode == null) {
+                throw new ArgumentNullException("postalCode is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.PostalCode = postalCode;
             // to ensure "timezone" is required (not null)
-            this.Timezone = timezone ?? throw new ArgumentNullException("timezone is a required property for SystemsResponseSystems and cannot be null");
+            if (timezone == null) {
+                throw new ArgumentNullException("timezone is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.Timezone = timezone;
             this.ConnectionType = connectionType;
             this.Status = status;
             // to ensure "meta" is required (not null)
-            this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for SystemsResponseSystems and cannot be null");
+            if (meta == null) {
+                throw new ArgumentNullException("meta is a required property for SystemsResponseSystems and cannot be null");
+            }
+            this.Meta = meta;
             this.Reference = reference;
             this.OtherReferences = otherReferences;
         }
@@ -384,7 +409,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Country (string) maxLength
             if(this.Country != null && this.Country.Length > 2)

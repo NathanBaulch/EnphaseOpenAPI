@@ -50,7 +50,7 @@
   describe('InvertersSummaryByEnvoyOrSiteResponseMicroInverters', function() {
     it('should create an instance of InvertersSummaryByEnvoyOrSiteResponseMicroInverters', function() {
       // uncomment below and update the code to test InvertersSummaryByEnvoyOrSiteResponseMicroInverters
-      //var instane = new TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponseMicroInverters();
+      //var instance = new TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponseMicroInverters();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponseMicroInverters);
     });
 

@@ -51,9 +51,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.StartDate = startDate;
             this.SystemId = systemId;
             // to ensure "production" is required (not null)
-            this.Production = production ?? throw new ArgumentNullException("production is a required property for EnergyLifetimeResponse and cannot be null");
+            if (production == null) {
+                throw new ArgumentNullException("production is a required property for EnergyLifetimeResponse and cannot be null");
+            }
+            this.Production = production;
             // to ensure "meta" is required (not null)
-            this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for EnergyLifetimeResponse and cannot be null");
+            if (meta == null) {
+                throw new ArgumentNullException("meta is a required property for EnergyLifetimeResponse and cannot be null");
+            }
+            this.Meta = meta;
             this.MicroProduction = microProduction;
             this.MeterProduction = meterProduction;
             this.MeterStartDate = meterStartDate;
@@ -226,7 +232,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

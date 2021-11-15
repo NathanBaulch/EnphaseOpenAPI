@@ -44,9 +44,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public NotFoundError(string reason = default(string), List<string> errorMessages = default(List<string>))
         {
             // to ensure "reason" is required (not null)
-            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for NotFoundError and cannot be null");
+            if (reason == null) {
+                throw new ArgumentNullException("reason is a required property for NotFoundError and cannot be null");
+            }
+            this.Reason = reason;
             // to ensure "errorMessages" is required (not null)
-            this.ErrorMessages = errorMessages ?? throw new ArgumentNullException("errorMessages is a required property for NotFoundError and cannot be null");
+            if (errorMessages == null) {
+                throw new ArgumentNullException("errorMessages is a required property for NotFoundError and cannot be null");
+            }
+            this.ErrorMessages = errorMessages;
         }
 
         /// <summary>
@@ -140,7 +146,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

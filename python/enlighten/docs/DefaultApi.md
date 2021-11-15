@@ -29,6 +29,7 @@ Returns a time series of energy consumption as measured by the consumption meter
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -106,6 +107,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -127,6 +129,7 @@ Returns consumption as measured by the consumption meter installed on the specif
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -204,6 +207,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -225,6 +229,7 @@ Returns a time series of energy produced on the system over its lifetime. All me
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -304,6 +309,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -326,6 +332,7 @@ Returns a listing of all active Envoys currently deployed on the system.
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -391,6 +398,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -412,6 +420,7 @@ Returns a listing of active devices on the given system. A device is considered 
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -477,6 +486,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -498,6 +508,7 @@ Returns the summary along with the energy produced on the system over its lifeti
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -563,6 +574,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -584,6 +596,7 @@ This endpoint is deprecated and will be removed in a future release. Use `produc
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -651,6 +664,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -672,6 +686,7 @@ Returns the last known \"odometer\" reading of each revenue-grade production met
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -747,6 +762,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -768,6 +784,7 @@ Returns performance statistics as measured by the revenue-grade meters installed
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -845,6 +862,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -866,6 +884,7 @@ Get system ID by envoy serial number.
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -932,6 +951,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -954,6 +974,7 @@ Returns performance statistics for the specified system as reported by microinve
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -1031,6 +1052,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1052,6 +1074,7 @@ Returns summary information for the specified system.
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -1127,6 +1150,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1148,6 +1172,7 @@ Returns a list of systems for which the user can make API requests. There is a l
 ### Example
 
 * Api Key Authentication (ApiKey):
+
 ```python
 import time
 import enlighten
@@ -1257,6 +1282,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

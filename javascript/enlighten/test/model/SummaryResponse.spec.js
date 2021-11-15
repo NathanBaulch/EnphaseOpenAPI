@@ -50,7 +50,7 @@
   describe('SummaryResponse', function() {
     it('should create an instance of SummaryResponse', function() {
       // uncomment below and update the code to test SummaryResponse
-      //var instane = new TheEnlightenSystemsApi.SummaryResponse();
+      //var instance = new TheEnlightenSystemsApi.SummaryResponse();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.SummaryResponse);
     });
 

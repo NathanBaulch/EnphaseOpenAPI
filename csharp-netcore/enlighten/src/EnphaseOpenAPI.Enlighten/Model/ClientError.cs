@@ -44,9 +44,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public ClientError(string reason = default(string), List<string> message = default(List<string>))
         {
             // to ensure "reason" is required (not null)
-            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for ClientError and cannot be null");
+            if (reason == null) {
+                throw new ArgumentNullException("reason is a required property for ClientError and cannot be null");
+            }
+            this.Reason = reason;
             // to ensure "message" is required (not null)
-            this.Message = message ?? throw new ArgumentNullException("message is a required property for ClientError and cannot be null");
+            if (message == null) {
+                throw new ArgumentNullException("message is a required property for ClientError and cannot be null");
+            }
+            this.Message = message;
         }
 
         /// <summary>
@@ -140,7 +146,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

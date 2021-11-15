@@ -50,7 +50,7 @@
   describe('ConflictError', function() {
     it('should create an instance of ConflictError', function() {
       // uncomment below and update the code to test ConflictError
-      //var instane = new TheEnlightenSystemsApi.ConflictError();
+      //var instance = new TheEnlightenSystemsApi.ConflictError();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.ConflictError);
     });
 

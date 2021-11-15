@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **envoy_serial_number** | **string** |  |
 **energy** | [**\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseEnergy**](InvertersSummaryByEnvoyOrSiteResponseEnergy.md) |  |
 **grid_profile** | **string** |  |
-**last_report_date** | [**\DateTime**](\DateTime.md) | The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null. |
+**last_report_date** | **\DateTime** | The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -50,7 +50,7 @@
   describe('UnprocessableEntityError', function() {
     it('should create an instance of UnprocessableEntityError', function() {
       // uncomment below and update the code to test UnprocessableEntityError
-      //var instane = new TheEnlightenSystemsApi.UnprocessableEntityError();
+      //var instance = new TheEnlightenSystemsApi.UnprocessableEntityError();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.UnprocessableEntityError);
     });
 

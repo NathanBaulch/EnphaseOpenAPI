@@ -50,7 +50,7 @@
   describe('StatsResponse', function() {
     it('should create an instance of StatsResponse', function() {
       // uncomment below and update the code to test StatsResponse
-      //var instane = new TheEnlightenSystemsApi.StatsResponse();
+      //var instance = new TheEnlightenSystemsApi.StatsResponse();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.StatsResponse);
     });
 

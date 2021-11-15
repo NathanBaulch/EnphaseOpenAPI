@@ -44,7 +44,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public SystemsResponse(List<SystemsResponseSystems> systems = default(List<SystemsResponseSystems>), string next = default(string))
         {
             // to ensure "systems" is required (not null)
-            this.Systems = systems ?? throw new ArgumentNullException("systems is a required property for SystemsResponse and cannot be null");
+            if (systems == null) {
+                throw new ArgumentNullException("systems is a required property for SystemsResponse and cannot be null");
+            }
+            this.Systems = systems;
             this.Next = next;
         }
 
@@ -139,7 +142,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

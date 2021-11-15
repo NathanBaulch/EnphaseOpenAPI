@@ -96,25 +96,52 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.Id = id;
             // to ensure "model" is required (not null)
-            this.Model = model ?? throw new ArgumentNullException("model is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (model == null) {
+                throw new ArgumentNullException("model is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.Model = model;
             // to ensure "partNumber" is required (not null)
-            this.PartNumber = partNumber ?? throw new ArgumentNullException("partNumber is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (partNumber == null) {
+                throw new ArgumentNullException("partNumber is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.PartNumber = partNumber;
             // to ensure "serialNumber" is required (not null)
-            this.SerialNumber = serialNumber ?? throw new ArgumentNullException("serialNumber is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (serialNumber == null) {
+                throw new ArgumentNullException("serialNumber is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.SerialNumber = serialNumber;
             // to ensure "sku" is required (not null)
-            this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (sku == null) {
+                throw new ArgumentNullException("sku is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.Sku = sku;
             this.Status = status;
             this.PowerProduced = powerProduced;
             // to ensure "procLoad" is required (not null)
-            this.ProcLoad = procLoad ?? throw new ArgumentNullException("procLoad is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (procLoad == null) {
+                throw new ArgumentNullException("procLoad is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.ProcLoad = procLoad;
             // to ensure "paramTable" is required (not null)
-            this.ParamTable = paramTable ?? throw new ArgumentNullException("paramTable is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (paramTable == null) {
+                throw new ArgumentNullException("paramTable is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.ParamTable = paramTable;
             // to ensure "envoySerialNumber" is required (not null)
-            this.EnvoySerialNumber = envoySerialNumber ?? throw new ArgumentNullException("envoySerialNumber is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (envoySerialNumber == null) {
+                throw new ArgumentNullException("envoySerialNumber is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.EnvoySerialNumber = envoySerialNumber;
             // to ensure "energy" is required (not null)
-            this.Energy = energy ?? throw new ArgumentNullException("energy is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (energy == null) {
+                throw new ArgumentNullException("energy is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.Energy = energy;
             // to ensure "gridProfile" is required (not null)
-            this.GridProfile = gridProfile ?? throw new ArgumentNullException("gridProfile is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            if (gridProfile == null) {
+                throw new ArgumentNullException("gridProfile is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
+            this.GridProfile = gridProfile;
             this.LastReportDate = lastReportDate;
         }
 
@@ -355,7 +382,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

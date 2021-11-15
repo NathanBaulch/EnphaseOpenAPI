@@ -47,9 +47,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.StartDate = startDate;
             // to ensure "consumption" is required (not null)
-            this.Consumption = consumption ?? throw new ArgumentNullException("consumption is a required property for ConsumptionLifetimeResponse and cannot be null");
+            if (consumption == null) {
+                throw new ArgumentNullException("consumption is a required property for ConsumptionLifetimeResponse and cannot be null");
+            }
+            this.Consumption = consumption;
             // to ensure "meta" is required (not null)
-            this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for ConsumptionLifetimeResponse and cannot be null");
+            if (meta == null) {
+                throw new ArgumentNullException("meta is a required property for ConsumptionLifetimeResponse and cannot be null");
+            }
+            this.Meta = meta;
             this.SystemId = systemId;
         }
 
@@ -174,7 +180,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

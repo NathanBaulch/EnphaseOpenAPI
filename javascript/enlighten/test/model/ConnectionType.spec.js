@@ -49,7 +49,7 @@
   describe('ConnectionType', function() {
     it('should create an instance of ConnectionType', function() {
       // uncomment below and update the code to test ConnectionType
-      //var instane = new TheEnlightenSystemsApi.ConnectionType();
+      //var instance = new TheEnlightenSystemsApi.ConnectionType();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.ConnectionType);
     });
 

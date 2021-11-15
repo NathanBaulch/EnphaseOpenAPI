@@ -50,7 +50,7 @@
   describe('RgmStatsResponseIntervals1', function() {
     it('should create an instance of RgmStatsResponseIntervals1', function() {
       // uncomment below and update the code to test RgmStatsResponseIntervals1
-      //var instane = new TheEnlightenSystemsApi.RgmStatsResponseIntervals1();
+      //var instance = new TheEnlightenSystemsApi.RgmStatsResponseIntervals1();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.RgmStatsResponseIntervals1);
     });
 

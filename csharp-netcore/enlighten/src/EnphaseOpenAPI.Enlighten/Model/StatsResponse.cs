@@ -48,9 +48,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.SystemId = systemId;
             this.TotalDevices = totalDevices;
             // to ensure "meta" is required (not null)
-            this.Meta = meta ?? throw new ArgumentNullException("meta is a required property for StatsResponse and cannot be null");
+            if (meta == null) {
+                throw new ArgumentNullException("meta is a required property for StatsResponse and cannot be null");
+            }
+            this.Meta = meta;
             // to ensure "intervals" is required (not null)
-            this.Intervals = intervals ?? throw new ArgumentNullException("intervals is a required property for StatsResponse and cannot be null");
+            if (intervals == null) {
+                throw new ArgumentNullException("intervals is a required property for StatsResponse and cannot be null");
+            }
+            this.Intervals = intervals;
         }
 
         /// <summary>
@@ -171,7 +177,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

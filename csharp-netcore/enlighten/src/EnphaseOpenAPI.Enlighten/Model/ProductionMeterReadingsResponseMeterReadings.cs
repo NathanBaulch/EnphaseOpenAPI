@@ -45,7 +45,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public ProductionMeterReadingsResponseMeterReadings(string serialNumber = default(string), int value = default(int), long readAt = default(long))
         {
             // to ensure "serialNumber" is required (not null)
-            this.SerialNumber = serialNumber ?? throw new ArgumentNullException("serialNumber is a required property for ProductionMeterReadingsResponseMeterReadings and cannot be null");
+            if (serialNumber == null) {
+                throw new ArgumentNullException("serialNumber is a required property for ProductionMeterReadingsResponseMeterReadings and cannot be null");
+            }
+            this.SerialNumber = serialNumber;
             this.Value = value;
             this.ReadAt = readAt;
         }
@@ -153,7 +156,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

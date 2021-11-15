@@ -78,11 +78,20 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.EnvoyId = envoyId;
             this.LastReportAt = lastReportAt;
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for EnvoysResponseEnvoys and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for EnvoysResponseEnvoys and cannot be null");
+            }
+            this.Name = name;
             // to ensure "partNumber" is required (not null)
-            this.PartNumber = partNumber ?? throw new ArgumentNullException("partNumber is a required property for EnvoysResponseEnvoys and cannot be null");
+            if (partNumber == null) {
+                throw new ArgumentNullException("partNumber is a required property for EnvoysResponseEnvoys and cannot be null");
+            }
+            this.PartNumber = partNumber;
             // to ensure "serialNumber" is required (not null)
-            this.SerialNumber = serialNumber ?? throw new ArgumentNullException("serialNumber is a required property for EnvoysResponseEnvoys and cannot be null");
+            if (serialNumber == null) {
+                throw new ArgumentNullException("serialNumber is a required property for EnvoysResponseEnvoys and cannot be null");
+            }
+            this.SerialNumber = serialNumber;
             this.Status = status;
         }
 
@@ -225,7 +234,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

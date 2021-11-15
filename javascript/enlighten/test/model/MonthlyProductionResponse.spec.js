@@ -50,7 +50,7 @@
   describe('MonthlyProductionResponse', function() {
     it('should create an instance of MonthlyProductionResponse', function() {
       // uncomment below and update the code to test MonthlyProductionResponse
-      //var instane = new TheEnlightenSystemsApi.MonthlyProductionResponse();
+      //var instance = new TheEnlightenSystemsApi.MonthlyProductionResponse();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.MonthlyProductionResponse);
     });
 

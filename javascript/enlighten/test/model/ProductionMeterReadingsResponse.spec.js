@@ -50,7 +50,7 @@
   describe('ProductionMeterReadingsResponse', function() {
     it('should create an instance of ProductionMeterReadingsResponse', function() {
       // uncomment below and update the code to test ProductionMeterReadingsResponse
-      //var instane = new TheEnlightenSystemsApi.ProductionMeterReadingsResponse();
+      //var instance = new TheEnlightenSystemsApi.ProductionMeterReadingsResponse();
       //expect(instance).to.be.a(TheEnlightenSystemsApi.ProductionMeterReadingsResponse);
     });
 
