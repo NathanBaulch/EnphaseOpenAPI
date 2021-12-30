@@ -93,7 +93,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConsumptionLifetimeResponse {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  SystemId: ").Append(SystemId).Append("\n");
@@ -130,8 +130,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(ConsumptionLifetimeResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.StartDate == input.StartDate ||
@@ -165,12 +166,18 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
-                hashCode = hashCode * 59 + this.SystemId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SystemId.GetHashCode();
                 if (this.Consumption != null)
-                    hashCode = hashCode * 59 + this.Consumption.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Consumption.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

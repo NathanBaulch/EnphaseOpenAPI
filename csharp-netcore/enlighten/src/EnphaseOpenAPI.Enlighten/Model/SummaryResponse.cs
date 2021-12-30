@@ -178,7 +178,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SummaryResponse {\n");
             sb.Append("  CurrentPower: ").Append(CurrentPower).Append("\n");
             sb.Append("  EnergyLifetime: ").Append(EnergyLifetime).Append("\n");
@@ -223,8 +223,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(SummaryResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CurrentPower == input.CurrentPower ||
@@ -286,19 +287,21 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.CurrentPower.GetHashCode();
-                hashCode = hashCode * 59 + this.EnergyLifetime.GetHashCode();
-                hashCode = hashCode * 59 + this.EnergyToday.GetHashCode();
-                hashCode = hashCode * 59 + this.LastIntervalEndAt.GetHashCode();
-                hashCode = hashCode * 59 + this.LastReportAt.GetHashCode();
-                hashCode = hashCode * 59 + this.Modules.GetHashCode();
-                hashCode = hashCode * 59 + this.OperationalAt.GetHashCode();
-                hashCode = hashCode * 59 + this.SizeW.GetHashCode();
-                hashCode = hashCode * 59 + this.Source.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.CurrentPower.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnergyLifetime.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnergyToday.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastIntervalEndAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastReportAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.Modules.GetHashCode();
+                hashCode = (hashCode * 59) + this.OperationalAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.SizeW.GetHashCode();
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.SummaryDate != null)
-                    hashCode = hashCode * 59 + this.SummaryDate.GetHashCode();
-                hashCode = hashCode * 59 + this.SystemId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SummaryDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SystemId.GetHashCode();
                 return hashCode;
             }
         }

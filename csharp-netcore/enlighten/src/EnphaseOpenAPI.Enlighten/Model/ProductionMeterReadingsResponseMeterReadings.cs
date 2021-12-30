@@ -80,7 +80,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ProductionMeterReadingsResponseMeterReadings {\n");
             sb.Append("  SerialNumber: ").Append(SerialNumber).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -116,8 +116,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(ProductionMeterReadingsResponseMeterReadings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SerialNumber == input.SerialNumber ||
@@ -144,9 +145,11 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.SerialNumber != null)
-                    hashCode = hashCode * 59 + this.SerialNumber.GetHashCode();
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
-                hashCode = hashCode * 59 + this.ReadAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SerialNumber.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReadAt.GetHashCode();
                 return hashCode;
             }
         }

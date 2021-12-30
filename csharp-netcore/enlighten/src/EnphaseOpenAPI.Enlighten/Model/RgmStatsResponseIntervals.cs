@@ -76,7 +76,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RgmStatsResponseIntervals {\n");
             sb.Append("  EndAt: ").Append(EndAt).Append("\n");
             sb.Append("  WhDel: ").Append(WhDel).Append("\n");
@@ -112,8 +112,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(RgmStatsResponseIntervals input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.EndAt == input.EndAt ||
@@ -138,9 +139,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.EndAt.GetHashCode();
-                hashCode = hashCode * 59 + this.WhDel.GetHashCode();
-                hashCode = hashCode * 59 + this.DevicesReporting.GetHashCode();
+                hashCode = (hashCode * 59) + this.EndAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.WhDel.GetHashCode();
+                hashCode = (hashCode * 59) + this.DevicesReporting.GetHashCode();
                 return hashCode;
             }
         }

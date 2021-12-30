@@ -131,7 +131,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConflictError {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -170,8 +170,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(ConflictError input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Reason == input.Reason ||
@@ -212,13 +213,17 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                hashCode = hashCode * 59 + this.Period.GetHashCode();
-                hashCode = hashCode * 59 + this.PeriodStart.GetHashCode();
-                hashCode = hashCode * 59 + this.PeriodEnd.GetHashCode();
-                hashCode = hashCode * 59 + this.Limit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                hashCode = (hashCode * 59) + this.PeriodStart.GetHashCode();
+                hashCode = (hashCode * 59) + this.PeriodEnd.GetHashCode();
+                hashCode = (hashCode * 59) + this.Limit.GetHashCode();
                 return hashCode;
             }
         }

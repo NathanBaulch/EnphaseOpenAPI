@@ -73,7 +73,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ClientError {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -108,8 +108,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(ClientError input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Reason == input.Reason ||
@@ -134,9 +135,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 return hashCode;
             }
         }

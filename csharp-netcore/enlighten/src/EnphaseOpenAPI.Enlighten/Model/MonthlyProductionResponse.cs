@@ -112,7 +112,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MonthlyProductionResponse {\n");
             sb.Append("  SystemId: ").Append(SystemId).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
@@ -151,8 +151,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(MonthlyProductionResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SystemId == input.SystemId ||
@@ -194,16 +195,24 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.SystemId.GetHashCode();
+                hashCode = (hashCode * 59) + this.SystemId.GetHashCode();
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
-                hashCode = hashCode * 59 + this.ProductionWh.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ProductionWh.GetHashCode();
                 if (this.MeterReadings != null)
-                    hashCode = hashCode * 59 + this.MeterReadings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MeterReadings.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

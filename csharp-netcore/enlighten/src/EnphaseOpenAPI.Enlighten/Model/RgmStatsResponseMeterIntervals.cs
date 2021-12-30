@@ -88,7 +88,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RgmStatsResponseMeterIntervals {\n");
             sb.Append("  MeterSerialNumber: ").Append(MeterSerialNumber).Append("\n");
             sb.Append("  EnvoySerialNumber: ").Append(EnvoySerialNumber).Append("\n");
@@ -124,8 +124,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(RgmStatsResponseMeterIntervals input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.MeterSerialNumber == input.MeterSerialNumber ||
@@ -155,11 +156,17 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.MeterSerialNumber != null)
-                    hashCode = hashCode * 59 + this.MeterSerialNumber.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MeterSerialNumber.GetHashCode();
+                }
                 if (this.EnvoySerialNumber != null)
-                    hashCode = hashCode * 59 + this.EnvoySerialNumber.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EnvoySerialNumber.GetHashCode();
+                }
                 if (this.Intervals != null)
-                    hashCode = hashCode * 59 + this.Intervals.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Intervals.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -69,7 +69,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ServerError {\n");
             sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
             sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
@@ -104,8 +104,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(ServerError input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ErrorCode == input.ErrorCode ||
@@ -128,9 +129,11 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
+                hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
                 if (this.ErrorMessages != null)
-                    hashCode = hashCode * 59 + this.ErrorMessages.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorMessages.GetHashCode();
+                }
                 return hashCode;
             }
         }

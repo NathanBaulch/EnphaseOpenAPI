@@ -84,9 +84,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ConsumptionLifetimeResponse
 	)
 
@@ -143,7 +141,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -290,9 +288,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ConsumptionStatsResponse
 	)
 
@@ -349,7 +345,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -500,9 +496,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (E
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  EnergyLifetimeResponse
 	)
 
@@ -562,7 +556,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (E
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -687,9 +681,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (EnvoysResponse, *
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  EnvoysResponse
 	)
 
@@ -740,7 +732,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (EnvoysResponse, *
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -866,9 +858,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InventoryRe
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  InventoryResponse
 	)
 
@@ -919,7 +909,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InventoryRe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1047,9 +1037,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  []InvertersSummaryByEnvoyOrSiteResponse
 	)
 
@@ -1103,7 +1091,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1242,9 +1230,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  MonthlyProductionResponse
 	)
 
@@ -1299,7 +1285,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1434,9 +1420,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ProductionMeterReadingsResponse
 	)
 
@@ -1490,7 +1474,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1635,9 +1619,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStatsRespo
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  RgmStatsResponse
 	)
 
@@ -1694,7 +1676,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStatsRespo
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1822,9 +1804,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (S
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  SearchSystemIdResponse
 	)
 
@@ -1878,7 +1858,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (S
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2038,9 +2018,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (StatsResponse, *_ne
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  StatsResponse
 	)
 
@@ -2097,7 +2075,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (StatsResponse, *_ne
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2228,9 +2206,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (SummaryResponse
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  SummaryResponse
 	)
 
@@ -2284,7 +2260,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (SummaryResponse
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2477,9 +2453,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (SystemsResponse
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  SystemsResponse
 	)
 
@@ -2619,7 +2593,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (SystemsResponse
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

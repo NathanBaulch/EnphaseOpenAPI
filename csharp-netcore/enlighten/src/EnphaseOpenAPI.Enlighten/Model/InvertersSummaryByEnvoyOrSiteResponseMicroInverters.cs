@@ -228,7 +228,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InvertersSummaryByEnvoyOrSiteResponseMicroInverters {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
@@ -274,8 +274,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(InvertersSummaryByEnvoyOrSiteResponseMicroInverters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -350,29 +351,49 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 if (this.Model != null)
-                    hashCode = hashCode * 59 + this.Model.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Model.GetHashCode();
+                }
                 if (this.PartNumber != null)
-                    hashCode = hashCode * 59 + this.PartNumber.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PartNumber.GetHashCode();
+                }
                 if (this.SerialNumber != null)
-                    hashCode = hashCode * 59 + this.SerialNumber.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SerialNumber.GetHashCode();
+                }
                 if (this.Sku != null)
-                    hashCode = hashCode * 59 + this.Sku.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.PowerProduced.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sku.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.PowerProduced.GetHashCode();
                 if (this.ProcLoad != null)
-                    hashCode = hashCode * 59 + this.ProcLoad.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ProcLoad.GetHashCode();
+                }
                 if (this.ParamTable != null)
-                    hashCode = hashCode * 59 + this.ParamTable.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParamTable.GetHashCode();
+                }
                 if (this.EnvoySerialNumber != null)
-                    hashCode = hashCode * 59 + this.EnvoySerialNumber.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EnvoySerialNumber.GetHashCode();
+                }
                 if (this.Energy != null)
-                    hashCode = hashCode * 59 + this.Energy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Energy.GetHashCode();
+                }
                 if (this.GridProfile != null)
-                    hashCode = hashCode * 59 + this.GridProfile.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.GridProfile.GetHashCode();
+                }
                 if (this.LastReportDate != null)
-                    hashCode = hashCode * 59 + this.LastReportDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastReportDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

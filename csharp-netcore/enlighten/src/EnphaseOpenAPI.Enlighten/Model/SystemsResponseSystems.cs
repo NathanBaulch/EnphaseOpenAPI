@@ -254,7 +254,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SystemsResponseSystems {\n");
             sb.Append("  SystemId: ").Append(SystemId).Append("\n");
             sb.Append("  SystemName: ").Append(SystemName).Append("\n");
@@ -300,8 +300,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(SystemsResponseSystems input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SystemId == input.SystemId ||
@@ -377,29 +378,49 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.SystemId.GetHashCode();
+                hashCode = (hashCode * 59) + this.SystemId.GetHashCode();
                 if (this.SystemName != null)
-                    hashCode = hashCode * 59 + this.SystemName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SystemName.GetHashCode();
+                }
                 if (this.SystemPublicName != null)
-                    hashCode = hashCode * 59 + this.SystemPublicName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SystemPublicName.GetHashCode();
+                }
                 if (this.Reference != null)
-                    hashCode = hashCode * 59 + this.Reference.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Reference.GetHashCode();
+                }
                 if (this.OtherReferences != null)
-                    hashCode = hashCode * 59 + this.OtherReferences.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OtherReferences.GetHashCode();
+                }
                 if (this.Country != null)
-                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                }
                 if (this.State != null)
-                    hashCode = hashCode * 59 + this.State.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.State.GetHashCode();
+                }
                 if (this.City != null)
-                    hashCode = hashCode * 59 + this.City.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.City.GetHashCode();
+                }
                 if (this.PostalCode != null)
-                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PostalCode.GetHashCode();
+                }
                 if (this.Timezone != null)
-                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
-                hashCode = hashCode * 59 + this.ConnectionType.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Timezone.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ConnectionType.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -412,19 +433,19 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Country (string) maxLength
-            if(this.Country != null && this.Country.Length > 2)
+            if (this.Country != null && this.Country.Length > 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 2.", new [] { "Country" });
             }
 
             // Country (string) minLength
-            if(this.Country != null && this.Country.Length < 2)
+            if (this.Country != null && this.Country.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be greater than 2.", new [] { "Country" });
             }
 
             // State (string) minLength
-            if(this.State != null && this.State.Length < 2)
+            if (this.State != null && this.State.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be greater than 2.", new [] { "State" });
             }

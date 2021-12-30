@@ -426,6 +426,29 @@ body_parameters_to_json() {
 
 ##############################################################################
 #
+# Converts an associative array into form urlencoded string
+#
+##############################################################################
+body_parameters_to_form_urlencoded() {
+    local body_form_urlencoded="-d '"
+    local count=0
+    for key in "${!body_parameters[@]}"; do
+        if [[ $((count++)) -gt 0 ]]; then
+            body_form_urlencoded+="&"
+        fi
+        body_form_urlencoded+="${key}=${body_parameters[${key}]}"
+    done
+    body_form_urlencoded+="'"
+
+    if [[ "${#body_parameters[@]}" -eq 0 ]]; then
+        echo ""
+    else
+        echo "${body_form_urlencoded}"
+    fi
+}
+
+##############################################################################
+#
 # Helper method for showing error because for example echo in
 # build_request_path() is evaluated as part of command line not printed on
 # output. Anyway better idea for resource clean up ;-).

@@ -119,7 +119,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EnergyLifetimeResponse {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  SystemId: ").Append(SystemId).Append("\n");
@@ -159,8 +159,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(EnergyLifetimeResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.StartDate == input.StartDate ||
@@ -211,18 +212,30 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
-                hashCode = hashCode * 59 + this.SystemId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SystemId.GetHashCode();
                 if (this.Production != null)
-                    hashCode = hashCode * 59 + this.Production.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Production.GetHashCode();
+                }
                 if (this.MicroProduction != null)
-                    hashCode = hashCode * 59 + this.MicroProduction.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MicroProduction.GetHashCode();
+                }
                 if (this.MeterProduction != null)
-                    hashCode = hashCode * 59 + this.MeterProduction.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MeterProduction.GetHashCode();
+                }
                 if (this.MeterStartDate != null)
-                    hashCode = hashCode * 59 + this.MeterStartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MeterStartDate.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

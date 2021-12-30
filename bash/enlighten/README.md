@@ -38,6 +38,9 @@ $ echo '<body_content>' |  --host <hostname> --content-type json <operationId> -
 # }
 $ echo '<body_content>' |  --host <hostname> --content-type json <operationId> key1==value1 key2=value2 key3:=23 -
 
+# Make POST request with form data
+$  --host <hostname> <operationId> key1:=value1 key2:=value2 key3:=23
+
 # Preview the cURL command without actually executing it
 $  --host http://<hostname>:<port> --dry-run <operationid>
 

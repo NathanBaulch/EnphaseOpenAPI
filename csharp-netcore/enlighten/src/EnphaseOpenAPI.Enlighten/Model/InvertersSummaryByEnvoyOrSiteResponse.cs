@@ -70,7 +70,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InvertersSummaryByEnvoyOrSiteResponse {\n");
             sb.Append("  SignalStrength: ").Append(SignalStrength).Append("\n");
             sb.Append("  MicroInverters: ").Append(MicroInverters).Append("\n");
@@ -105,8 +105,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(InvertersSummaryByEnvoyOrSiteResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SignalStrength == input.SignalStrength ||
@@ -129,9 +130,11 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.SignalStrength.GetHashCode();
+                hashCode = (hashCode * 59) + this.SignalStrength.GetHashCode();
                 if (this.MicroInverters != null)
-                    hashCode = hashCode * 59 + this.MicroInverters.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MicroInverters.GetHashCode();
+                }
                 return hashCode;
             }
         }

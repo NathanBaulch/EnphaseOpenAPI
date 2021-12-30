@@ -1,6 +1,6 @@
 OPENAPICLI := ./bin/openapi-generator-cli
 
-export OPENAPI_GENERATOR_VERSION = 5.3.0
+export OPENAPI_GENERATOR_VERSION = 5.3.1
 export JAVA_OPTS = -Dlog.level=warn
 
 .SILENT:

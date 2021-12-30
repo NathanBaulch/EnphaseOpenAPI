@@ -69,7 +69,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SystemsResponse {\n");
             sb.Append("  Systems: ").Append(Systems).Append("\n");
             sb.Append("  Next: ").Append(Next).Append("\n");
@@ -104,8 +104,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(SystemsResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Systems == input.Systems ||
@@ -130,9 +131,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.Systems != null)
-                    hashCode = hashCode * 59 + this.Systems.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Systems.GetHashCode();
+                }
                 if (this.Next != null)
-                    hashCode = hashCode * 59 + this.Next.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Next.GetHashCode();
+                }
                 return hashCode;
             }
         }

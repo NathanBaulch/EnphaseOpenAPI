@@ -118,7 +118,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UnprocessableEntityError {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -160,8 +160,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(UnprocessableEntityError input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Reason == input.Reason ||
@@ -217,19 +218,29 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 if (this.ErrorMessages != null)
-                    hashCode = hashCode * 59 + this.ErrorMessages.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorMessages.GetHashCode();
+                }
                 if (this.Start != null)
-                    hashCode = hashCode * 59 + this.Start.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
+                }
                 if (this.End != null)
-                    hashCode = hashCode * 59 + this.End.GetHashCode();
-                hashCode = hashCode * 59 + this.StartAt.GetHashCode();
-                hashCode = hashCode * 59 + this.EndAt.GetHashCode();
-                hashCode = hashCode * 59 + this.FirstInterval.GetHashCode();
-                hashCode = hashCode * 59 + this.LastInterval.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.End.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StartAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.EndAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.FirstInterval.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastInterval.GetHashCode();
                 return hashCode;
             }
         }

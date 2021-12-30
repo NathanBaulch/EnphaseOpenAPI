@@ -73,7 +73,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotFoundError {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
@@ -108,8 +108,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(NotFoundError input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Reason == input.Reason ||
@@ -134,9 +135,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
                 if (this.ErrorMessages != null)
-                    hashCode = hashCode * 59 + this.ErrorMessages.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorMessages.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -136,7 +136,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EnvoysResponseEnvoys {\n");
             sb.Append("  EnvoyId: ").Append(EnvoyId).Append("\n");
             sb.Append("  LastReportAt: ").Append(LastReportAt).Append("\n");
@@ -175,8 +175,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(EnvoysResponseEnvoys input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.EnvoyId == input.EnvoyId ||
@@ -216,15 +217,21 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.EnvoyId.GetHashCode();
-                hashCode = hashCode * 59 + this.LastReportAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnvoyId.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastReportAt.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.PartNumber != null)
-                    hashCode = hashCode * 59 + this.PartNumber.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PartNumber.GetHashCode();
+                }
                 if (this.SerialNumber != null)
-                    hashCode = hashCode * 59 + this.SerialNumber.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SerialNumber.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 return hashCode;
             }
         }

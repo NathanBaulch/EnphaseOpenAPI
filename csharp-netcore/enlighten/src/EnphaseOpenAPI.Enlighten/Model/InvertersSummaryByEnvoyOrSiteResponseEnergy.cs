@@ -93,7 +93,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InvertersSummaryByEnvoyOrSiteResponseEnergy {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
@@ -129,8 +129,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(InvertersSummaryByEnvoyOrSiteResponseEnergy input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Value == input.Value ||
@@ -155,9 +156,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
-                hashCode = hashCode * 59 + this.Units.GetHashCode();
-                hashCode = hashCode * 59 + this.Precision.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.Units.GetHashCode();
+                hashCode = (hashCode * 59) + this.Precision.GetHashCode();
                 return hashCode;
             }
         }

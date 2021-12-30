@@ -85,7 +85,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InventoryResponseMeters {\n");
             sb.Append("  Sn: ").Append(Sn).Append("\n");
             sb.Append("  Manufacturer: ").Append(Manufacturer).Append("\n");
@@ -121,8 +121,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(InventoryResponseMeters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sn == input.Sn ||
@@ -151,11 +152,17 @@ namespace EnphaseOpenAPI.Enlighten.Model
             {
                 int hashCode = 41;
                 if (this.Sn != null)
-                    hashCode = hashCode * 59 + this.Sn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sn.GetHashCode();
+                }
                 if (this.Manufacturer != null)
-                    hashCode = hashCode * 59 + this.Manufacturer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Manufacturer.GetHashCode();
+                }
                 if (this.Model != null)
-                    hashCode = hashCode * 59 + this.Model.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Model.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -919,7 +919,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->ConsumptionLifetime");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -932,10 +934,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -956,11 +964,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ConsumptionLifetimeResponse>("/systems/{system_id}/consumption_lifetime", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConsumptionLifetime", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -996,7 +1006,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->ConsumptionLifetime");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -1009,12 +1021,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1034,13 +1051,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ConsumptionLifetimeResponse>("/systems/{system_id}/consumption_lifetime", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConsumptionLifetime", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1074,7 +1093,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->ConsumptionStats");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -1087,10 +1108,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1111,11 +1138,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ConsumptionStatsResponse>("/systems/{system_id}/consumption_stats", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConsumptionStats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1151,7 +1180,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->ConsumptionStats");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -1164,12 +1195,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1189,13 +1225,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ConsumptionStatsResponse>("/systems/{system_id}/consumption_stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConsumptionStats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1231,7 +1269,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->EnergyLifetime");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -1244,10 +1284,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1272,11 +1318,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<EnergyLifetimeResponse>("/systems/{system_id}/energy_lifetime", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EnergyLifetime", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1314,7 +1362,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->EnergyLifetime");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -1327,12 +1377,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1356,13 +1411,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<EnergyLifetimeResponse>("/systems/{system_id}/energy_lifetime", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EnergyLifetime", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1392,7 +1449,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Envoys");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -1405,10 +1464,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1421,11 +1486,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<EnvoysResponse>("/systems/{system_id}/envoys", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Envoys", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1457,7 +1524,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Envoys");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -1470,12 +1539,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1487,13 +1561,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<EnvoysResponse>("/systems/{system_id}/envoys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Envoys", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1523,7 +1599,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Inventory");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -1536,10 +1614,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1552,11 +1636,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InventoryResponse>("/systems/{system_id}/inventory", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Inventory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1588,7 +1674,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Inventory");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -1601,12 +1689,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1618,13 +1711,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<InventoryResponse>("/systems/{system_id}/inventory", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Inventory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1654,7 +1749,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->InvertersSummaryByEnvoyOrSite");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -1667,10 +1764,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "site_id", siteId));
@@ -1683,11 +1786,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InvertersSummaryByEnvoyOrSiteResponse>>("/systems/inverters_summary_by_envoy_or_site", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InvertersSummaryByEnvoyOrSite", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1719,7 +1824,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->InvertersSummaryByEnvoyOrSite");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -1732,12 +1839,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "site_id", siteId));
@@ -1749,13 +1861,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<InvertersSummaryByEnvoyOrSiteResponse>>("/systems/inverters_summary_by_envoy_or_site", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InvertersSummaryByEnvoyOrSite", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1789,7 +1903,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->MonthlyProduction");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -1802,10 +1918,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1819,11 +1941,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<MonthlyProductionResponse>("/systems/{system_id}/monthly_production", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("MonthlyProduction", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1859,7 +1983,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->MonthlyProduction");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -1872,12 +1998,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1890,13 +2021,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<MonthlyProductionResponse>("/systems/{system_id}/monthly_production", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("MonthlyProduction", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1928,7 +2061,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->ProductionMeterReadings");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -1941,10 +2076,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -1961,11 +2102,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ProductionMeterReadingsResponse>("/systems/{system_id}/production_meter_readings", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ProductionMeterReadings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1999,7 +2142,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->ProductionMeterReadings");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -2012,12 +2157,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -2033,13 +2183,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ProductionMeterReadingsResponse>("/systems/{system_id}/production_meter_readings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ProductionMeterReadings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2073,7 +2225,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->RgmStats");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -2086,10 +2240,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -2110,11 +2270,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RgmStatsResponse>("/systems/{system_id}/rgm_stats", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RgmStats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2150,7 +2312,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->RgmStats");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -2163,12 +2327,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -2188,13 +2357,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<RgmStatsResponse>("/systems/{system_id}/rgm_stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RgmStats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2224,11 +2395,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->SearchSystemId");
+            }
 
             // verify the required parameter 'serialNum' is set
             if (serialNum == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'serialNum' when calling DefaultApi->SearchSystemId");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -2241,10 +2416,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "serial_num", serialNum));
@@ -2257,11 +2438,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SearchSystemIdResponse>("/systems/search_system_id", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchSystemId", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2293,11 +2476,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->SearchSystemId");
+            }
 
             // verify the required parameter 'serialNum' is set
             if (serialNum == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'serialNum' when calling DefaultApi->SearchSystemId");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -2310,12 +2497,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "serial_num", serialNum));
@@ -2327,13 +2519,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<SearchSystemIdResponse>("/systems/search_system_id", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchSystemId", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2367,7 +2561,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Stats");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -2380,10 +2576,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -2404,11 +2606,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<StatsResponse>("/systems/{system_id}/stats", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Stats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2444,7 +2648,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Stats");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -2457,12 +2663,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -2482,13 +2693,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<StatsResponse>("/systems/{system_id}/stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Stats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2520,7 +2733,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Summary");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -2533,10 +2748,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -2553,11 +2774,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SummaryResponse>("/systems/{system_id}/summary", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Summary", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2591,7 +2814,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Summary");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -2604,12 +2829,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
@@ -2625,13 +2855,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<SummaryResponse>("/systems/{system_id}/summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Summary", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2687,7 +2919,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Systems");
+            }
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
 
@@ -2700,10 +2934,16 @@ namespace EnphaseOpenAPI.Enlighten.Api
             };
 
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             if (next != null)
@@ -2771,11 +3011,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SystemsResponse>("/systems", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Systems", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2833,7 +3075,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
+            {
                 throw new EnphaseOpenAPI.Enlighten.Client.ApiException(400, "Missing required parameter 'userId' when calling DefaultApi->Systems");
+            }
 
 
             EnphaseOpenAPI.Enlighten.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Enlighten.Client.RequestOptions();
@@ -2846,12 +3090,17 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 "application/json"
             };
 
-
             var localVarContentType = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = EnphaseOpenAPI.Enlighten.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             if (next != null)
@@ -2918,13 +3167,15 @@ namespace EnphaseOpenAPI.Enlighten.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<SystemsResponse>("/systems", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Systems", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

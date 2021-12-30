@@ -92,7 +92,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConsumptionStatsResponse {\n");
             sb.Append("  SystemId: ").Append(SystemId).Append("\n");
             sb.Append("  TotalDevices: ").Append(TotalDevices).Append("\n");
@@ -129,8 +129,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public bool Equals(ConsumptionStatsResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SystemId == input.SystemId ||
@@ -162,12 +163,16 @@ namespace EnphaseOpenAPI.Enlighten.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.SystemId.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalDevices.GetHashCode();
+                hashCode = (hashCode * 59) + this.SystemId.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalDevices.GetHashCode();
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 if (this.Intervals != null)
-                    hashCode = hashCode * 59 + this.Intervals.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Intervals.GetHashCode();
+                }
                 return hashCode;
             }
         }
