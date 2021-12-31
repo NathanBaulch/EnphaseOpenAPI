@@ -72,6 +72,14 @@ var InventoryResponseMeters = /*#__PURE__*/function () {
         if (data.hasOwnProperty('model')) {
           obj['model'] = _ApiClient["default"].convertToType(data['model'], 'String');
         }
+
+        if (data.hasOwnProperty('status')) {
+          obj['status'] = _ApiClient["default"].convertToType(data['status'], 'String');
+        }
+
+        if (data.hasOwnProperty('state')) {
+          obj['state'] = _ApiClient["default"].convertToType(data['state'], 'String');
+        }
       }
 
       return obj;
@@ -96,5 +104,15 @@ InventoryResponseMeters.prototype['manufacturer'] = undefined;
  */
 
 InventoryResponseMeters.prototype['model'] = undefined;
+/**
+ * @member {String} status
+ */
+
+InventoryResponseMeters.prototype['status'] = undefined;
+/**
+ * @member {String} state
+ */
+
+InventoryResponseMeters.prototype['state'] = undefined;
 var _default = InventoryResponseMeters;
 exports["default"] = _default;

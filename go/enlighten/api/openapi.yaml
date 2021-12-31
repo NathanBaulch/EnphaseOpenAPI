@@ -2104,6 +2104,10 @@ components:
           type: string
         model:
           type: string
+        status:
+          type: string
+        state:
+          type: string
       required:
       - manufacturer
       - model

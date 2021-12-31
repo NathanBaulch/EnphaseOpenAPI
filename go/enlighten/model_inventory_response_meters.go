@@ -19,6 +19,8 @@ type InventoryResponseMeters struct {
 	Sn string `json:"sn"`
 	Manufacturer string `json:"manufacturer"`
 	Model string `json:"model"`
+	Status *string `json:"status,omitempty"`
+	State *string `json:"state,omitempty"`
 }
 
 // NewInventoryResponseMeters instantiates a new InventoryResponseMeters object
@@ -113,6 +115,70 @@ func (o *InventoryResponseMeters) SetModel(v string) {
 	o.Model = v
 }
 
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *InventoryResponseMeters) GetStatus() string {
+	if o == nil || o.Status == nil {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InventoryResponseMeters) GetStatusOk() (*string, bool) {
+	if o == nil || o.Status == nil {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *InventoryResponseMeters) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *InventoryResponseMeters) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetState returns the State field value if set, zero value otherwise.
+func (o *InventoryResponseMeters) GetState() string {
+	if o == nil || o.State == nil {
+		var ret string
+		return ret
+	}
+	return *o.State
+}
+
+// GetStateOk returns a tuple with the State field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InventoryResponseMeters) GetStateOk() (*string, bool) {
+	if o == nil || o.State == nil {
+		return nil, false
+	}
+	return o.State, true
+}
+
+// HasState returns a boolean if a field has been set.
+func (o *InventoryResponseMeters) HasState() bool {
+	if o != nil && o.State != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetState gets a reference to the given string and assigns it to the State field.
+func (o *InventoryResponseMeters) SetState(v string) {
+	o.State = &v
+}
+
 func (o InventoryResponseMeters) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -123,6 +189,12 @@ func (o InventoryResponseMeters) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["model"] = o.Model
+	}
+	if o.Status != nil {
+		toSerialize["status"] = o.Status
+	}
+	if o.State != nil {
+		toSerialize["state"] = o.State
 	}
 	return json.Marshal(toSerialize)
 }

@@ -72,6 +72,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instance = new TheEnlightenSystemsApi.InventoryResponseMeters();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property state (base name: "state")', function() {
+      // uncomment below and update the code to test the property state
+      //var instance = new TheEnlightenSystemsApi.InventoryResponseMeters();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -84,6 +84,8 @@ class InventoryResponseMeters(ModelNormal):
             'sn': (str,),  # noqa: E501
             'manufacturer': (str,),  # noqa: E501
             'model': (str,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'state': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +97,8 @@ class InventoryResponseMeters(ModelNormal):
         'sn': 'sn',  # noqa: E501
         'manufacturer': 'manufacturer',  # noqa: E501
         'model': 'model',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'state': 'state',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,6 +147,8 @@ class InventoryResponseMeters(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (str): [optional]  # noqa: E501
+            state (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +238,8 @@ class InventoryResponseMeters(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (str): [optional]  # noqa: E501
+            state (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

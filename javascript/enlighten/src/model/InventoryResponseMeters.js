@@ -62,6 +62,12 @@ class InventoryResponseMeters {
             if (data.hasOwnProperty('model')) {
                 obj['model'] = ApiClient.convertToType(data['model'], 'String');
             }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+            }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
         }
         return obj;
     }
@@ -83,6 +89,16 @@ InventoryResponseMeters.prototype['manufacturer'] = undefined;
  * @member {String} model
  */
 InventoryResponseMeters.prototype['model'] = undefined;
+
+/**
+ * @member {String} status
+ */
+InventoryResponseMeters.prototype['status'] = undefined;
+
+/**
+ * @member {String} state
+ */
+InventoryResponseMeters.prototype['state'] = undefined;
 
 
 

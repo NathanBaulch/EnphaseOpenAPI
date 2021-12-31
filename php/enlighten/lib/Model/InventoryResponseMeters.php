@@ -61,7 +61,9 @@ class InventoryResponseMeters implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'sn' => 'string',
         'manufacturer' => 'string',
-        'model' => 'string'
+        'model' => 'string',
+        'status' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -74,7 +76,9 @@ class InventoryResponseMeters implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'sn' => null,
         'manufacturer' => null,
-        'model' => null
+        'model' => null,
+        'status' => null,
+        'state' => null
     ];
 
     /**
@@ -106,7 +110,9 @@ class InventoryResponseMeters implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'sn' => 'sn',
         'manufacturer' => 'manufacturer',
-        'model' => 'model'
+        'model' => 'model',
+        'status' => 'status',
+        'state' => 'state'
     ];
 
     /**
@@ -117,7 +123,9 @@ class InventoryResponseMeters implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'sn' => 'setSn',
         'manufacturer' => 'setManufacturer',
-        'model' => 'setModel'
+        'model' => 'setModel',
+        'status' => 'setStatus',
+        'state' => 'setState'
     ];
 
     /**
@@ -128,7 +136,9 @@ class InventoryResponseMeters implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'sn' => 'getSn',
         'manufacturer' => 'getManufacturer',
-        'model' => 'getModel'
+        'model' => 'getModel',
+        'status' => 'getStatus',
+        'state' => 'getState'
     ];
 
     /**
@@ -191,6 +201,8 @@ class InventoryResponseMeters implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['sn'] = $data['sn'] ?? null;
         $this->container['manufacturer'] = $data['manufacturer'] ?? null;
         $this->container['model'] = $data['model'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['state'] = $data['state'] ?? null;
     }
 
     /**
@@ -294,6 +306,54 @@ class InventoryResponseMeters implements ModelInterface, ArrayAccess, \JsonSeria
     public function setModel($model)
     {
         $this->container['model'] = $model;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
 
         return $this;
     }

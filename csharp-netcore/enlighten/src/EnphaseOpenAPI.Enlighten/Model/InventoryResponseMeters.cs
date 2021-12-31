@@ -42,7 +42,9 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="sn">sn (required).</param>
         /// <param name="manufacturer">manufacturer (required).</param>
         /// <param name="model">model (required).</param>
-        public InventoryResponseMeters(string sn = default(string), string manufacturer = default(string), string model = default(string))
+        /// <param name="status">status.</param>
+        /// <param name="state">state.</param>
+        public InventoryResponseMeters(string sn = default(string), string manufacturer = default(string), string model = default(string), string status = default(string), string state = default(string))
         {
             // to ensure "sn" is required (not null)
             if (sn == null) {
@@ -59,6 +61,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 throw new ArgumentNullException("model is a required property for InventoryResponseMeters and cannot be null");
             }
             this.Model = model;
+            this.Status = status;
+            this.State = state;
         }
 
         /// <summary>
@@ -80,6 +84,18 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public string Model { get; set; }
 
         /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name = "state", EmitDefaultValue = false)]
+        public string State { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +106,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
             sb.Append("  Sn: ").Append(Sn).Append("\n");
             sb.Append("  Manufacturer: ").Append(Manufacturer).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +157,16 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 );
         }
 
@@ -162,6 +190,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 if (this.Model != null)
                 {
                     hashCode = (hashCode * 59) + this.Model.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.State != null)
+                {
+                    hashCode = (hashCode * 59) + this.State.GetHashCode();
                 }
                 return hashCode;
             }

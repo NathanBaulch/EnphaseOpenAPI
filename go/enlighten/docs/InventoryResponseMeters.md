@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Sn** | **string** |  | 
 **Manufacturer** | **string** |  | 
 **Model** | **string** |  | 
+**Status** | Pointer to **string** |  | [optional] 
+**State** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -86,6 +88,56 @@ and a boolean to check if the value has been set.
 
 SetModel sets Model field to given value.
 
+
+### GetStatus
+
+`func (o *InventoryResponseMeters) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *InventoryResponseMeters) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *InventoryResponseMeters) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *InventoryResponseMeters) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### GetState
+
+`func (o *InventoryResponseMeters) GetState() string`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *InventoryResponseMeters) GetStateOk() (*string, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *InventoryResponseMeters) SetState(v string)`
+
+SetState sets State field to given value.
+
+### HasState
+
+`func (o *InventoryResponseMeters) HasState() bool`
+
+HasState returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
