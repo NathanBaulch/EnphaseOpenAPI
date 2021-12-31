@@ -40,18 +40,16 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Initializes a new instance of the <see cref="NotFoundError" /> class.
         /// </summary>
         /// <param name="reason">reason (required).</param>
-        /// <param name="errorMessages">errorMessages (required).</param>
-        public NotFoundError(string reason = default(string), List<string> errorMessages = default(List<string>))
+        /// <param name="message">message.</param>
+        /// <param name="errorMessages">errorMessages.</param>
+        public NotFoundError(string reason = default(string), List<string> message = default(List<string>), List<string> errorMessages = default(List<string>))
         {
             // to ensure "reason" is required (not null)
             if (reason == null) {
                 throw new ArgumentNullException("reason is a required property for NotFoundError and cannot be null");
             }
             this.Reason = reason;
-            // to ensure "errorMessages" is required (not null)
-            if (errorMessages == null) {
-                throw new ArgumentNullException("errorMessages is a required property for NotFoundError and cannot be null");
-            }
+            this.Message = message;
             this.ErrorMessages = errorMessages;
         }
 
@@ -62,9 +60,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public string Reason { get; set; }
 
         /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
+        [DataMember(Name = "message", EmitDefaultValue = false)]
+        public List<string> Message { get; set; }
+
+        /// <summary>
         /// Gets or Sets ErrorMessages
         /// </summary>
-        [DataMember(Name = "errorMessages", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "errorMessages", EmitDefaultValue = false)]
         public List<string> ErrorMessages { get; set; }
 
         /// <summary>
@@ -76,6 +80,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class NotFoundError {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  ErrorMessages: ").Append(ErrorMessages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,6 +123,12 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     this.Reason.Equals(input.Reason))
                 ) && 
                 (
+                    this.Message == input.Message ||
+                    this.Message != null &&
+                    input.Message != null &&
+                    this.Message.SequenceEqual(input.Message)
+                ) && 
+                (
                     this.ErrorMessages == input.ErrorMessages ||
                     this.ErrorMessages != null &&
                     input.ErrorMessages != null &&
@@ -137,6 +148,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 if (this.Reason != null)
                 {
                     hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
                 if (this.ErrorMessages != null)
                 {

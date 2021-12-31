@@ -1621,13 +1621,16 @@ components:
       properties:
         reason:
           type: string
+        message:
+          type: array
+          items:
+            type: string
         errorMessages:
           type: array
           items:
             type: string
       required:
         - reason
-        - errorMessages
       example:
         reason: 404
         errorMessages:

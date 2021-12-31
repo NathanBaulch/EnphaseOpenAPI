@@ -82,6 +82,7 @@ class NotFoundError(ModelNormal):
         """
         return {
             'reason': (str,),  # noqa: E501
+            'message': ([str],),  # noqa: E501
             'error_messages': ([str],),  # noqa: E501
         }
 
@@ -92,6 +93,7 @@ class NotFoundError(ModelNormal):
 
     attribute_map = {
         'reason': 'reason',  # noqa: E501
+        'message': 'message',  # noqa: E501
         'error_messages': 'errorMessages',  # noqa: E501
     }
 
@@ -102,12 +104,11 @@ class NotFoundError(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, reason, error_messages, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, reason, *args, **kwargs):  # noqa: E501
         """NotFoundError - a model defined in OpenAPI
 
         Args:
             reason (str):
-            error_messages ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,6 +141,8 @@ class NotFoundError(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            message ([str]): [optional]  # noqa: E501
+            error_messages ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,7 +171,6 @@ class NotFoundError(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.reason = reason
-        self.error_messages = error_messages
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,12 +191,11 @@ class NotFoundError(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, reason, error_messages, *args, **kwargs):  # noqa: E501
+    def __init__(self, reason, *args, **kwargs):  # noqa: E501
         """NotFoundError - a model defined in OpenAPI
 
         Args:
             reason (str):
-            error_messages ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,6 +228,8 @@ class NotFoundError(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            message ([str]): [optional]  # noqa: E501
+            error_messages ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,7 +256,6 @@ class NotFoundError(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.reason = reason
-        self.error_messages = error_messages
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

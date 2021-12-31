@@ -1883,12 +1883,15 @@ components:
       properties:
         reason:
           type: string
+        message:
+          items:
+            type: string
+          type: array
         errorMessages:
           items:
             type: string
           type: array
       required:
-      - errorMessages
       - reason
       type: object
     ConflictError:

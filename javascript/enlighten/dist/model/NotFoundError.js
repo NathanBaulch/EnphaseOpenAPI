@@ -25,12 +25,11 @@ var NotFoundError = /*#__PURE__*/function () {
    * Constructs a new <code>NotFoundError</code>.
    * @alias module:model/NotFoundError
    * @param reason {String} 
-   * @param errorMessages {Array.<String>} 
    */
-  function NotFoundError(reason, errorMessages) {
+  function NotFoundError(reason) {
     _classCallCheck(this, NotFoundError);
 
-    NotFoundError.initialize(this, reason, errorMessages);
+    NotFoundError.initialize(this, reason);
   }
   /**
    * Initializes the fields of this object.
@@ -41,9 +40,8 @@ var NotFoundError = /*#__PURE__*/function () {
 
   _createClass(NotFoundError, null, [{
     key: "initialize",
-    value: function initialize(obj, reason, errorMessages) {
+    value: function initialize(obj, reason) {
       obj['reason'] = reason;
-      obj['errorMessages'] = errorMessages;
     }
     /**
      * Constructs a <code>NotFoundError</code> from a plain JavaScript object, optionally creating a new instance.
@@ -63,6 +61,10 @@ var NotFoundError = /*#__PURE__*/function () {
           obj['reason'] = _ApiClient["default"].convertToType(data['reason'], 'String');
         }
 
+        if (data.hasOwnProperty('message')) {
+          obj['message'] = _ApiClient["default"].convertToType(data['message'], ['String']);
+        }
+
         if (data.hasOwnProperty('errorMessages')) {
           obj['errorMessages'] = _ApiClient["default"].convertToType(data['errorMessages'], ['String']);
         }
@@ -80,6 +82,11 @@ var NotFoundError = /*#__PURE__*/function () {
 
 
 NotFoundError.prototype['reason'] = undefined;
+/**
+ * @member {Array.<String>} message
+ */
+
+NotFoundError.prototype['message'] = undefined;
 /**
  * @member {Array.<String>} errorMessages
  */

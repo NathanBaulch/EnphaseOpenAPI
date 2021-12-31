@@ -26,7 +26,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 {
                     var serverError = JsonConvert.DeserializeObject<ServerError>(response.RawContent, settings);
                     content = serverError;
-                    if (serverError != null && serverError.ErrorMessages.Count > 0)
+                    if (serverError?.ErrorMessages?.Count > 0)
                     {
                         message = serverError.ErrorMessages[0];
                     }
@@ -38,16 +38,24 @@ namespace EnphaseOpenAPI.Enlighten.Api
                         case HttpStatusCode.NotFound:
                             var notFoundError = JsonConvert.DeserializeObject<NotFoundError>(response.RawContent, settings);
                             content = notFoundError;
-                            if (notFoundError != null && notFoundError.ErrorMessages.Count > 0)
+                            if (notFoundError != null)
                             {
-                                message = notFoundError.ErrorMessages[0];
+                                if (notFoundError.ErrorMessages?.Count > 0)
+                                {
+                                    message = notFoundError.ErrorMessages[0];
+                                }
+
+                                if (notFoundError.Message?.Count > 0)
+                                {
+                                    message = notFoundError.Message[0];
+                                }
                             }
 
                             break;
                         case HttpStatusCode.Conflict:
                             var conflictError = JsonConvert.DeserializeObject<ConflictError>(response.RawContent, settings);
                             content = conflictError;
-                            if (conflictError != null && conflictError.Message.Count > 0)
+                            if (conflictError?.Message?.Count > 0)
                             {
                                 message = conflictError.Message[0];
                             }
@@ -76,7 +84,7 @@ namespace EnphaseOpenAPI.Enlighten.Api
                         default:
                             var clientError = JsonConvert.DeserializeObject<ClientError>(response.RawContent, settings);
                             content = clientError;
-                            if (clientError != null && clientError.Message.Count > 0)
+                            if (clientError?.Message?.Count > 0)
                             {
                                 message = clientError.Message[0];
                             }

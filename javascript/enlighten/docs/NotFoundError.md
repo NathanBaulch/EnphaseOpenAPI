@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reason** | **String** |  | 
-**errorMessages** | **[String]** |  | 
+**message** | **[String]** |  | [optional] 
+**errorMessages** | **[String]** |  | [optional] 
 
 

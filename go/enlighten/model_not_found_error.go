@@ -17,17 +17,17 @@ import (
 // NotFoundError struct for NotFoundError
 type NotFoundError struct {
 	Reason string `json:"reason"`
-	ErrorMessages []string `json:"errorMessages"`
+	Message *[]string `json:"message,omitempty"`
+	ErrorMessages *[]string `json:"errorMessages,omitempty"`
 }
 
 // NewNotFoundError instantiates a new NotFoundError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNotFoundError(reason string, errorMessages []string) *NotFoundError {
+func NewNotFoundError(reason string) *NotFoundError {
 	this := NotFoundError{}
 	this.Reason = reason
-	this.ErrorMessages = errorMessages
 	return &this
 }
 
@@ -63,28 +63,68 @@ func (o *NotFoundError) SetReason(v string) {
 	o.Reason = v
 }
 
-// GetErrorMessages returns the ErrorMessages field value
-func (o *NotFoundError) GetErrorMessages() []string {
-	if o == nil {
+// GetMessage returns the Message field value if set, zero value otherwise.
+func (o *NotFoundError) GetMessage() []string {
+	if o == nil || o.Message == nil {
 		var ret []string
 		return ret
 	}
-
-	return o.ErrorMessages
+	return *o.Message
 }
 
-// GetErrorMessagesOk returns a tuple with the ErrorMessages field value
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotFoundError) GetErrorMessagesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *NotFoundError) GetMessageOk() (*[]string, bool) {
+	if o == nil || o.Message == nil {
 		return nil, false
 	}
-	return &o.ErrorMessages, true
+	return o.Message, true
 }
 
-// SetErrorMessages sets field value
+// HasMessage returns a boolean if a field has been set.
+func (o *NotFoundError) HasMessage() bool {
+	if o != nil && o.Message != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given []string and assigns it to the Message field.
+func (o *NotFoundError) SetMessage(v []string) {
+	o.Message = &v
+}
+
+// GetErrorMessages returns the ErrorMessages field value if set, zero value otherwise.
+func (o *NotFoundError) GetErrorMessages() []string {
+	if o == nil || o.ErrorMessages == nil {
+		var ret []string
+		return ret
+	}
+	return *o.ErrorMessages
+}
+
+// GetErrorMessagesOk returns a tuple with the ErrorMessages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NotFoundError) GetErrorMessagesOk() (*[]string, bool) {
+	if o == nil || o.ErrorMessages == nil {
+		return nil, false
+	}
+	return o.ErrorMessages, true
+}
+
+// HasErrorMessages returns a boolean if a field has been set.
+func (o *NotFoundError) HasErrorMessages() bool {
+	if o != nil && o.ErrorMessages != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorMessages gets a reference to the given []string and assigns it to the ErrorMessages field.
 func (o *NotFoundError) SetErrorMessages(v []string) {
-	o.ErrorMessages = v
+	o.ErrorMessages = &v
 }
 
 func (o NotFoundError) MarshalJSON() ([]byte, error) {
@@ -92,7 +132,10 @@ func (o NotFoundError) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["reason"] = o.Reason
 	}
-	if true {
+	if o.Message != nil {
+		toSerialize["message"] = o.Message
+	}
+	if o.ErrorMessages != nil {
 		toSerialize["errorMessages"] = o.ErrorMessages
 	}
 	return json.Marshal(toSerialize)

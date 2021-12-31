@@ -60,6 +60,7 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'reason' => 'string',
+        'message' => 'string[]',
         'error_messages' => 'string[]'
     ];
 
@@ -72,6 +73,7 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'reason' => null,
+        'message' => null,
         'error_messages' => null
     ];
 
@@ -103,6 +105,7 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'reason' => 'reason',
+        'message' => 'message',
         'error_messages' => 'errorMessages'
     ];
 
@@ -113,6 +116,7 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'reason' => 'setReason',
+        'message' => 'setMessage',
         'error_messages' => 'setErrorMessages'
     ];
 
@@ -123,6 +127,7 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'reason' => 'getReason',
+        'message' => 'getMessage',
         'error_messages' => 'getErrorMessages'
     ];
 
@@ -184,6 +189,7 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['reason'] = $data['reason'] ?? null;
+        $this->container['message'] = $data['message'] ?? null;
         $this->container['error_messages'] = $data['error_messages'] ?? null;
     }
 
@@ -198,9 +204,6 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
-        }
-        if ($this->container['error_messages'] === null) {
-            $invalidProperties[] = "'error_messages' can't be null";
         }
         return $invalidProperties;
     }
@@ -242,9 +245,33 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets message
+     *
+     * @return string[]|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string[]|null $message message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
      * Gets error_messages
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getErrorMessages()
     {
@@ -254,7 +281,7 @@ class NotFoundError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_messages
      *
-     * @param string[] $error_messages error_messages
+     * @param string[]|null $error_messages error_messages
      *
      * @return self
      */

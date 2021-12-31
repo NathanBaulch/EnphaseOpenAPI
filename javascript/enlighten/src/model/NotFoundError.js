@@ -23,11 +23,10 @@ class NotFoundError {
      * Constructs a new <code>NotFoundError</code>.
      * @alias module:model/NotFoundError
      * @param reason {String} 
-     * @param errorMessages {Array.<String>} 
      */
-    constructor(reason, errorMessages) { 
+    constructor(reason) { 
         
-        NotFoundError.initialize(this, reason, errorMessages);
+        NotFoundError.initialize(this, reason);
     }
 
     /**
@@ -35,9 +34,8 @@ class NotFoundError {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, reason, errorMessages) { 
+    static initialize(obj, reason) { 
         obj['reason'] = reason;
-        obj['errorMessages'] = errorMessages;
     }
 
     /**
@@ -54,6 +52,9 @@ class NotFoundError {
             if (data.hasOwnProperty('reason')) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
             }
+            if (data.hasOwnProperty('message')) {
+                obj['message'] = ApiClient.convertToType(data['message'], ['String']);
+            }
             if (data.hasOwnProperty('errorMessages')) {
                 obj['errorMessages'] = ApiClient.convertToType(data['errorMessages'], ['String']);
             }
@@ -68,6 +69,11 @@ class NotFoundError {
  * @member {String} reason
  */
 NotFoundError.prototype['reason'] = undefined;
+
+/**
+ * @member {Array.<String>} message
+ */
+NotFoundError.prototype['message'] = undefined;
 
 /**
  * @member {Array.<String>} errorMessages

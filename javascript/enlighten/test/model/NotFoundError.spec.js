@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
+      //var instance = new TheEnlightenSystemsApi.NotFoundError();
+      //expect(instance).to.be();
+    });
+
     it('should have the property errorMessages (base name: "errorMessages")', function() {
       // uncomment below and update the code to test the property errorMessages
       //var instance = new TheEnlightenSystemsApi.NotFoundError();

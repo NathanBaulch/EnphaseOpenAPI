@@ -43,9 +43,10 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
             try
             {
                 api.Systems("dummy");
-                throw new Exception("systems: expected error");
+                throw new Exception("systems: expected client error");
             }
-            catch (ApiException e) when ((e.ErrorContent as ClientError)?.Reason == "401")
+            catch (ApiException e) when (e.ErrorContent is ClientError { Reason: "401", Message: { Count: 1 } } notFound &&
+                                         notFound.Message[0] == "Not authorized to access requested resource")
             {
             }
 
@@ -69,7 +70,7 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                     try
                     {
                         api.InvertersSummaryByEnvoyOrSite(uid, -1);
-                        throw new Exception("inverters_summary_by_envoy_or_site: expected error");
+                        throw new Exception("inverters_summary_by_envoy_or_site: expected unprocessable entity error");
                     }
                     catch (ApiException e) when ((e.ErrorContent as UnprocessableEntityError)?.Message == "Couldn't find Site with 'id'=-1")
                     {
@@ -80,7 +81,7 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                     try
                     {
                         api.EnergyLifetime(uid, sys.SystemId, DateTimeOffset.Now);
-                        throw new Exception("energy_lifetime: expected error");
+                        throw new Exception("energy_lifetime: expected unprocessable entity error");
                     }
                     catch (ApiException e) when ((e.ErrorContent as UnprocessableEntityError)?.Reason == "Requested date range is invalid for this system")
                     {
@@ -95,9 +96,10 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                         try
                         {
                             api.SearchSystemId(uid, "dummy");
-                            throw new Exception("search_system_id: expected error");
+                            throw new Exception("search_system_id: expected not found error");
                         }
-                        catch (ApiException e) when ((e.ErrorContent as NotFoundError)?.Reason == "404")
+                        catch (ApiException e) when (e.ErrorContent is NotFoundError { Reason: "404", ErrorMessages: { Count: 1 } } notFound &&
+                                                     notFound.ErrorMessages[0] == "Envoy not found with this serial number")
                         {
                         }
                     }
@@ -116,6 +118,15 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                     CheckUnknownFields(api.ConsumptionStatsWithHttpInfo(uid, sys.SystemId, startAt, endAt));
                     CheckUnknownFields(api.SummaryWithHttpInfo(uid, sys.SystemId));
                     CheckUnknownFields(api.SummaryWithHttpInfo(uid, sys.SystemId, DateTimeOffset.Now.AddMonths(-1)));
+                    try
+                    {
+                        api.Summary(uid, 0);
+                        throw new Exception("summary: expected not found error");
+                    }
+                    catch (ApiException e) when (e.ErrorContent is NotFoundError { Reason: "404", Message: { Count: 1 } } notFound &&
+                                                 notFound.Message[0] == "Couldn't find Site with 'id'=0")
+                    {
+                    }
                 }
 
                 if ((next = res.Data.Next) == null)
