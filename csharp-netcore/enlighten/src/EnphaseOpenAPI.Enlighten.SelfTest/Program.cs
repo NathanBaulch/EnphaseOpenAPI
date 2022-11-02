@@ -46,7 +46,7 @@ namespace EnphaseOpenAPI.Enlighten.SelfTest
                 throw new Exception("systems: expected client error");
             }
             catch (ApiException e) when (e.ErrorContent is ClientError { Reason: "401", Message: { Count: 1 } } notFound &&
-                                         notFound.Message[0] == "Not authorized to access requested resource")
+                                         notFound.Message[0] == "Not authorized to access requested resource.")
             {
             }
 

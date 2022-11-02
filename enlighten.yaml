@@ -1615,7 +1615,7 @@ components:
       example:
         reason: 401
         message:
-          - Not authorized to access requested resource
+          - Not authorized to access requested resource.
     NotFoundError:
       type: object
       properties:
