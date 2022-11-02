@@ -163,6 +163,7 @@ Class | Method | HTTP request | Description
  - [TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponse](docs/InvertersSummaryByEnvoyOrSiteResponse.md)
  - [TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponseEnergy](docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md)
  - [TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponseMicroInverters](docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md)
+ - [TheEnlightenSystemsApi.InvertersSummaryByEnvoyOrSiteResponsePowerProduced](docs/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md)
  - [TheEnlightenSystemsApi.Meta](docs/Meta.md)
  - [TheEnlightenSystemsApi.MonthlyProductionResponse](docs/MonthlyProductionResponse.md)
  - [TheEnlightenSystemsApi.MonthlyProductionResponseMeterReadings](docs/MonthlyProductionResponseMeterReadings.md)

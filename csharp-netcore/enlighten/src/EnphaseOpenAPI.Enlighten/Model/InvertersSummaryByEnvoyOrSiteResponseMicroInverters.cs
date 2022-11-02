@@ -92,7 +92,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="energy">energy (required).</param>
         /// <param name="gridProfile">gridProfile (required).</param>
         /// <param name="lastReportDate">The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null. (required).</param>
-        public InvertersSummaryByEnvoyOrSiteResponseMicroInverters(int id = default(int), string model = default(string), string partNumber = default(string), string serialNumber = default(string), string sku = default(string), StatusEnum status = default(StatusEnum), int powerProduced = default(int), string procLoad = default(string), string paramTable = default(string), string envoySerialNumber = default(string), InvertersSummaryByEnvoyOrSiteResponseEnergy energy = default(InvertersSummaryByEnvoyOrSiteResponseEnergy), string gridProfile = default(string), DateTimeOffset lastReportDate = default(DateTimeOffset))
+        public InvertersSummaryByEnvoyOrSiteResponseMicroInverters(int id = default(int), string model = default(string), string partNumber = default(string), string serialNumber = default(string), string sku = default(string), StatusEnum status = default(StatusEnum), InvertersSummaryByEnvoyOrSiteResponsePowerProduced powerProduced = default(InvertersSummaryByEnvoyOrSiteResponsePowerProduced), string procLoad = default(string), string paramTable = default(string), string envoySerialNumber = default(string), InvertersSummaryByEnvoyOrSiteResponseEnergy energy = default(InvertersSummaryByEnvoyOrSiteResponseEnergy), string gridProfile = default(string), DateTimeOffset lastReportDate = default(DateTimeOffset))
         {
             this.Id = id;
             // to ensure "model" is required (not null)
@@ -116,6 +116,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
             }
             this.Sku = sku;
             this.Status = status;
+            // to ensure "powerProduced" is required (not null)
+            if (powerProduced == null) {
+                throw new ArgumentNullException("powerProduced is a required property for InvertersSummaryByEnvoyOrSiteResponseMicroInverters and cannot be null");
+            }
             this.PowerProduced = powerProduced;
             // to ensure "procLoad" is required (not null)
             if (procLoad == null) {
@@ -182,7 +186,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Gets or Sets PowerProduced
         /// </summary>
         [DataMember(Name = "power_produced", IsRequired = true, EmitDefaultValue = false)]
-        public int PowerProduced { get; set; }
+        public InvertersSummaryByEnvoyOrSiteResponsePowerProduced PowerProduced { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcLoad
@@ -308,7 +312,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
                 ) && 
                 (
                     this.PowerProduced == input.PowerProduced ||
-                    this.PowerProduced.Equals(input.PowerProduced)
+                    (this.PowerProduced != null &&
+                    this.PowerProduced.Equals(input.PowerProduced))
                 ) && 
                 (
                     this.ProcLoad == input.ProcLoad ||
@@ -369,7 +374,10 @@ namespace EnphaseOpenAPI.Enlighten.Model
                     hashCode = (hashCode * 59) + this.Sku.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                hashCode = (hashCode * 59) + this.PowerProduced.GetHashCode();
+                if (this.PowerProduced != null)
+                {
+                    hashCode = (hashCode * 59) + this.PowerProduced.GetHashCode();
+                }
                 if (this.ProcLoad != null)
                 {
                     hashCode = (hashCode * 59) + this.ProcLoad.GetHashCode();

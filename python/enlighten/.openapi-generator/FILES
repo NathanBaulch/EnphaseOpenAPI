@@ -16,6 +16,7 @@ docs/InventoryResponseMeters.md
 docs/InvertersSummaryByEnvoyOrSiteResponse.md
 docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md
 docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
+docs/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md
@@ -57,6 +58,7 @@ enlighten/model/inventory_response_meters.py
 enlighten/model/inverters_summary_by_envoy_or_site_response.py
 enlighten/model/inverters_summary_by_envoy_or_site_response_energy.py
 enlighten/model/inverters_summary_by_envoy_or_site_response_micro_inverters.py
+enlighten/model/inverters_summary_by_envoy_or_site_response_power_produced.py
 enlighten/model/meta.py
 enlighten/model/monthly_production_response.py
 enlighten/model/monthly_production_response_meter_readings.py

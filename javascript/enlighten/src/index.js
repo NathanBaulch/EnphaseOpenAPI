@@ -28,6 +28,7 @@ import InventoryResponseMeters from './model/InventoryResponseMeters';
 import InvertersSummaryByEnvoyOrSiteResponse from './model/InvertersSummaryByEnvoyOrSiteResponse';
 import InvertersSummaryByEnvoyOrSiteResponseEnergy from './model/InvertersSummaryByEnvoyOrSiteResponseEnergy';
 import InvertersSummaryByEnvoyOrSiteResponseMicroInverters from './model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters';
+import InvertersSummaryByEnvoyOrSiteResponsePowerProduced from './model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced';
 import Meta from './model/Meta';
 import MonthlyProductionResponse from './model/MonthlyProductionResponse';
 import MonthlyProductionResponseMeterReadings from './model/MonthlyProductionResponseMeterReadings';
@@ -177,6 +178,12 @@ export {
      * @property {module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters}
      */
     InvertersSummaryByEnvoyOrSiteResponseMicroInverters,
+
+    /**
+     * The InvertersSummaryByEnvoyOrSiteResponsePowerProduced model constructor.
+     * @property {module:model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced}
+     */
+    InvertersSummaryByEnvoyOrSiteResponsePowerProduced,
 
     /**
      * The Meta model constructor.

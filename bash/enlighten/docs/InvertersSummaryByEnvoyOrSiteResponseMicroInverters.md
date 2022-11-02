@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **serialUnderscorenumber** | **string** |  | [default to null]
 **sku** | **string** |  | [default to null]
 **status** | **string** |  | [default to null]
-**powerUnderscoreproduced** | **integer** |  | [default to null]
+**powerUnderscoreproduced** | [**InvertersSummaryByEnvoyOrSiteResponsePowerProduced**](InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md) |  | [default to null]
 **procUnderscoreload** | **string** |  | [default to null]
 **paramUnderscoretable** | **string** |  | [default to null]
 **envoyUnderscoreserialUnderscorenumber** | **string** |  | [default to null]

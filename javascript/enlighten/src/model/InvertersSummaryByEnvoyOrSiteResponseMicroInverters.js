@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import InvertersSummaryByEnvoyOrSiteResponseEnergy from './InvertersSummaryByEnvoyOrSiteResponseEnergy';
+import InvertersSummaryByEnvoyOrSiteResponsePowerProduced from './InvertersSummaryByEnvoyOrSiteResponsePowerProduced';
 
 /**
  * The InvertersSummaryByEnvoyOrSiteResponseMicroInverters model module.
@@ -29,7 +30,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInverters {
      * @param serialNumber {String} The serial number of this Microinverter.
      * @param sku {String} 
      * @param status {module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.StatusEnum} The current status of this Microinverter. * `normal` - The microinverter is operating normally. * `power` - There is a production issue. * `micro` - The microinverter is not reporting. * `retired` - The microinverter is retired.
-     * @param powerProduced {Number} 
+     * @param powerProduced {module:model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced} 
      * @param procLoad {String} 
      * @param paramTable {String} 
      * @param envoySerialNumber {String} 
@@ -93,7 +94,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInverters {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
             if (data.hasOwnProperty('power_produced')) {
-                obj['power_produced'] = ApiClient.convertToType(data['power_produced'], 'Number');
+                obj['power_produced'] = InvertersSummaryByEnvoyOrSiteResponsePowerProduced.constructFromObject(data['power_produced']);
             }
             if (data.hasOwnProperty('proc_load')) {
                 obj['proc_load'] = ApiClient.convertToType(data['proc_load'], 'String');
@@ -155,7 +156,7 @@ InvertersSummaryByEnvoyOrSiteResponseMicroInverters.prototype['sku'] = undefined
 InvertersSummaryByEnvoyOrSiteResponseMicroInverters.prototype['status'] = undefined;
 
 /**
- * @member {Number} power_produced
+ * @member {module:model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced} power_produced
  */
 InvertersSummaryByEnvoyOrSiteResponseMicroInverters.prototype['power_produced'] = undefined;
 

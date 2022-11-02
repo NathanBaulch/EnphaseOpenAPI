@@ -16,6 +16,7 @@ docs/InventoryResponseMeters.md
 docs/InvertersSummaryByEnvoyOrSiteResponse.md
 docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md
 docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
+docs/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md
@@ -66,6 +67,7 @@ src/EnphaseOpenAPI.Enlighten/Model/InventoryResponseMeters.cs
 src/EnphaseOpenAPI.Enlighten/Model/InvertersSummaryByEnvoyOrSiteResponse.cs
 src/EnphaseOpenAPI.Enlighten/Model/InvertersSummaryByEnvoyOrSiteResponseEnergy.cs
 src/EnphaseOpenAPI.Enlighten/Model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.cs
+src/EnphaseOpenAPI.Enlighten/Model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.cs
 src/EnphaseOpenAPI.Enlighten/Model/Meta.cs
 src/EnphaseOpenAPI.Enlighten/Model/MonthlyProductionResponse.cs
 src/EnphaseOpenAPI.Enlighten/Model/MonthlyProductionResponseMeterReadings.cs

@@ -703,7 +703,11 @@ reporting, producing, or measuring energy.</div>
     "part_number" : "800-00107-r01",
     "sku" : "M215-60-2LL-S22-NA",
     "status" : "normal",
-    "power_produced" : 34,
+    "power_produced" : {
+      "value" : 34,
+      "units" : "W",
+      "precision" : 0
+    },
     "proc_load" : "undetermined-v",
     "param_table" : "undetermined-v",
     "envoy_serial_number" : "121842012242",
@@ -721,7 +725,11 @@ reporting, producing, or measuring energy.</div>
     "part_number" : "800-00107-r01",
     "sku" : "M215-60-2LL-S22-NA",
     "status" : "normal",
-    "power_produced" : 20,
+    "power_produced" : {
+      "value" : 20,
+      "units" : "W",
+      "precision" : 0
+    },
     "proc_load" : "undetermined-v",
     "param_table" : "undetermined-v",
     "envoy_serial_number" : "121842012242",
@@ -1511,6 +1519,7 @@ list, use the <code>next</code> attribute in the response body to request the ne
     <li><a href="#InvertersSummaryByEnvoyOrSiteResponse"><code>InvertersSummaryByEnvoyOrSiteResponse</code> - </a></li>
     <li><a href="#InvertersSummaryByEnvoyOrSiteResponse_energy"><code>InvertersSummaryByEnvoyOrSiteResponse_energy</code> - </a></li>
     <li><a href="#InvertersSummaryByEnvoyOrSiteResponse_micro_inverters"><code>InvertersSummaryByEnvoyOrSiteResponse_micro_inverters</code> - </a></li>
+    <li><a href="#InvertersSummaryByEnvoyOrSiteResponse_power_produced"><code>InvertersSummaryByEnvoyOrSiteResponse_power_produced</code> - </a></li>
     <li><a href="#Meta"><code>Meta</code> - </a></li>
     <li><a href="#MonthlyProductionResponse"><code>MonthlyProductionResponse</code> - </a></li>
     <li><a href="#MonthlyProductionResponse_meter_readings"><code>MonthlyProductionResponse_meter_readings</code> - </a></li>
@@ -1702,13 +1711,24 @@ ISO 8601 format. If Enlighten has no record of a report from this Envoy, returns
  </div>
         <div class="param-enum-header">Enum:</div>
         <div class="param-enum">normal</div><div class="param-enum">power</div><div class="param-enum">micro</div><div class="param-enum">retired</div>
-<div class="param">power_produced </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">power_produced </div><div class="param-desc"><span class="param-type"><a href="#InvertersSummaryByEnvoyOrSiteResponse_power_produced">InvertersSummaryByEnvoyOrSiteResponse_power_produced</a></span>  </div>
 <div class="param">proc_load </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">param_table </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">envoy_serial_number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">energy </div><div class="param-desc"><span class="param-type"><a href="#InvertersSummaryByEnvoyOrSiteResponse_energy">InvertersSummaryByEnvoyOrSiteResponse_energy</a></span>  </div>
 <div class="param">grid_profile </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">last_report_date </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The last time this device submitted a report, by default expressed in Unix epoch time. If Enlighten has no record of a report from this Envoy, returns null. format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InvertersSummaryByEnvoyOrSiteResponse_power_produced"><code>InvertersSummaryByEnvoyOrSiteResponse_power_produced</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">units </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">W</div>
+<div class="param">precision </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

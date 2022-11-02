@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **serial_number** | **string** | The serial number of this Microinverter. |
 **sku** | **string** |  |
 **status** | **string** | The current status of this Microinverter. * &#x60;normal&#x60; - The microinverter is operating normally. * &#x60;power&#x60; - There is a production issue. * &#x60;micro&#x60; - The microinverter is not reporting. * &#x60;retired&#x60; - The microinverter is retired. |
-**power_produced** | **int** |  |
+**power_produced** | [**\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponsePowerProduced**](InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md) |  |
 **proc_load** | **string** |  |
 **param_table** | **string** |  |
 **envoy_serial_number** | **string** |  |

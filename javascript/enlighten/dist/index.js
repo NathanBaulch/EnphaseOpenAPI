@@ -105,6 +105,12 @@ Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponseMicroInvert
     return _InvertersSummaryByEnvoyOrSiteResponseMicroInverters["default"];
   }
 });
+Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponsePowerProduced", {
+  enumerable: true,
+  get: function get() {
+    return _InvertersSummaryByEnvoyOrSiteResponsePowerProduced["default"];
+  }
+});
 Object.defineProperty(exports, "Meta", {
   enumerable: true,
   get: function get() {
@@ -235,6 +241,7 @@ var _InventoryResponseMeters = _interopRequireDefault(require("./model/Inventory
 var _InvertersSummaryByEnvoyOrSiteResponse = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponse"));
 var _InvertersSummaryByEnvoyOrSiteResponseEnergy = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponseEnergy"));
 var _InvertersSummaryByEnvoyOrSiteResponseMicroInverters = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters"));
+var _InvertersSummaryByEnvoyOrSiteResponsePowerProduced = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced"));
 var _Meta = _interopRequireDefault(require("./model/Meta"));
 var _MonthlyProductionResponse = _interopRequireDefault(require("./model/MonthlyProductionResponse"));
 var _MonthlyProductionResponseMeterReadings = _interopRequireDefault(require("./model/MonthlyProductionResponseMeterReadings"));

@@ -1361,7 +1361,10 @@ components:
           part_number: 800-00107-r01
           sku: M215-60-2LL-S22-NA
           status: normal
-          power_produced: 34
+          power_produced:
+            value: 34
+            units: W
+            precision: 0
           proc_load: undetermined-v
           param_table: undetermined-v
           envoy_serial_number: "121842012242"
@@ -1377,7 +1380,10 @@ components:
           part_number: 800-00107-r01
           sku: M215-60-2LL-S22-NA
           status: normal
-          power_produced: 20
+          power_produced:
+            value: 20
+            units: W
+            precision: 0
           proc_load: undetermined-v
           param_table: undetermined-v
           envoy_serial_number: "121842012242"
@@ -2116,6 +2122,21 @@ components:
       - model
       - sn
       type: object
+    InvertersSummaryByEnvoyOrSiteResponse_power_produced:
+      properties:
+        value:
+          type: integer
+        units:
+          enum:
+          - W
+          type: string
+        precision:
+          type: integer
+      required:
+      - precision
+      - units
+      - value
+      type: object
     InvertersSummaryByEnvoyOrSiteResponse_energy:
       description: Returns the lifetime energy of the Microinverter. If the system
         has never produced energy, the energy value would be 0.
@@ -2163,7 +2184,7 @@ components:
           - retired
           type: string
         power_produced:
-          type: integer
+          $ref: '#/components/schemas/InvertersSummaryByEnvoyOrSiteResponse_power_produced'
         proc_load:
           type: string
         param_table:

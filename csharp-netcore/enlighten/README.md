@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
  - [Model.InvertersSummaryByEnvoyOrSiteResponse](docs/InvertersSummaryByEnvoyOrSiteResponse.md)
  - [Model.InvertersSummaryByEnvoyOrSiteResponseEnergy](docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md)
  - [Model.InvertersSummaryByEnvoyOrSiteResponseMicroInverters](docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md)
+ - [Model.InvertersSummaryByEnvoyOrSiteResponsePowerProduced](docs/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md)
  - [Model.Meta](docs/Meta.md)
  - [Model.MonthlyProductionResponse](docs/MonthlyProductionResponse.md)
  - [Model.MonthlyProductionResponseMeterReadings](docs/MonthlyProductionResponseMeterReadings.md)

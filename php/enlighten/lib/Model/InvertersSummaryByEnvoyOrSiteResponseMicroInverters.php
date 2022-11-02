@@ -65,7 +65,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInverters implements ModelInterf
         'serial_number' => 'string',
         'sku' => 'string',
         'status' => 'string',
-        'power_produced' => 'int',
+        'power_produced' => '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponsePowerProduced',
         'proc_load' => 'string',
         'param_table' => 'string',
         'envoy_serial_number' => 'string',
@@ -501,7 +501,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInverters implements ModelInterf
     /**
      * Gets power_produced
      *
-     * @return int
+     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponsePowerProduced
      */
     public function getPowerProduced()
     {
@@ -511,7 +511,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInverters implements ModelInterf
     /**
      * Sets power_produced
      *
-     * @param int $power_produced power_produced
+     * @param \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponsePowerProduced $power_produced power_produced
      *
      * @return self
      */

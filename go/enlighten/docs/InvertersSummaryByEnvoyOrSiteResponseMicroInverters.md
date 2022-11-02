@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **SerialNumber** | **string** | The serial number of this Microinverter. | 
 **Sku** | **string** |  | 
 **Status** | **string** | The current status of this Microinverter. * &#x60;normal&#x60; - The microinverter is operating normally. * &#x60;power&#x60; - There is a production issue. * &#x60;micro&#x60; - The microinverter is not reporting. * &#x60;retired&#x60; - The microinverter is retired. | 
-**PowerProduced** | **int32** |  | 
+**PowerProduced** | [**InvertersSummaryByEnvoyOrSiteResponsePowerProduced**](InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md) |  | 
 **ProcLoad** | **string** |  | 
 **ParamTable** | **string** |  | 
 **EnvoySerialNumber** | **string** |  | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewInvertersSummaryByEnvoyOrSiteResponseMicroInverters
 
-`func NewInvertersSummaryByEnvoyOrSiteResponseMicroInverters(id int32, model string, partNumber string, serialNumber string, sku string, status string, powerProduced int32, procLoad string, paramTable string, envoySerialNumber string, energy InvertersSummaryByEnvoyOrSiteResponseEnergy, gridProfile string, lastReportDate string, ) *InvertersSummaryByEnvoyOrSiteResponseMicroInverters`
+`func NewInvertersSummaryByEnvoyOrSiteResponseMicroInverters(id int32, model string, partNumber string, serialNumber string, sku string, status string, powerProduced InvertersSummaryByEnvoyOrSiteResponsePowerProduced, procLoad string, paramTable string, envoySerialNumber string, energy InvertersSummaryByEnvoyOrSiteResponseEnergy, gridProfile string, lastReportDate string, ) *InvertersSummaryByEnvoyOrSiteResponseMicroInverters`
 
 NewInvertersSummaryByEnvoyOrSiteResponseMicroInverters instantiates a new InvertersSummaryByEnvoyOrSiteResponseMicroInverters object
 This constructor will assign default values to properties that have it defined,
@@ -159,20 +159,20 @@ SetStatus sets Status field to given value.
 
 ### GetPowerProduced
 
-`func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProduced() int32`
+`func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProduced() InvertersSummaryByEnvoyOrSiteResponsePowerProduced`
 
 GetPowerProduced returns the PowerProduced field if non-nil, zero value otherwise.
 
 ### GetPowerProducedOk
 
-`func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProducedOk() (*int32, bool)`
+`func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProducedOk() (*InvertersSummaryByEnvoyOrSiteResponsePowerProduced, bool)`
 
 GetPowerProducedOk returns a tuple with the PowerProduced field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPowerProduced
 
-`func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) SetPowerProduced(v int32)`
+`func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) SetPowerProduced(v InvertersSummaryByEnvoyOrSiteResponsePowerProduced)`
 
 SetPowerProduced sets PowerProduced field to given value.
 

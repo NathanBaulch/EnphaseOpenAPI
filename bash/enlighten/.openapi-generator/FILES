@@ -19,6 +19,7 @@ docs/InventoryResponseMeters.md
 docs/InvertersSummaryByEnvoyOrSiteResponse.md
 docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md
 docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
+docs/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md

@@ -17,6 +17,7 @@ docs/InventoryResponseMeters.md
 docs/InvertersSummaryByEnvoyOrSiteResponse.md
 docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md
 docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md
+docs/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md
 docs/Meta.md
 docs/MonthlyProductionResponse.md
 docs/MonthlyProductionResponseMeterReadings.md
@@ -56,6 +57,7 @@ src/model/InventoryResponseMeters.js
 src/model/InvertersSummaryByEnvoyOrSiteResponse.js
 src/model/InvertersSummaryByEnvoyOrSiteResponseEnergy.js
 src/model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.js
+src/model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.js
 src/model/Meta.js
 src/model/MonthlyProductionResponse.js
 src/model/MonthlyProductionResponseMeterReadings.js
@@ -91,6 +93,7 @@ test/model/InventoryResponseMeters.spec.js
 test/model/InvertersSummaryByEnvoyOrSiteResponse.spec.js
 test/model/InvertersSummaryByEnvoyOrSiteResponseEnergy.spec.js
 test/model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.spec.js
+test/model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.spec.js
 test/model/Meta.spec.js
 test/model/MonthlyProductionResponse.spec.js
 test/model/MonthlyProductionResponseMeterReadings.spec.js

@@ -954,7 +954,20 @@ components:
                   - micro
                   - retired
               power_produced:
-                type: integer
+                type: object
+                properties:
+                  value:
+                    type: integer
+                  units:
+                    type: string
+                    enum:
+                      - W
+                  precision:
+                    type: integer
+                required:
+                  - value
+                  - units
+                  - precision
               proc_load:
                 type: string
               param_table:
@@ -1010,7 +1023,10 @@ components:
             part_number: 800-00107-r01
             sku: M215-60-2LL-S22-NA
             status: normal
-            power_produced: 34
+            power_produced:
+              value: 34
+              units: W
+              precision: 0
             proc_load: undetermined-v
             param_table: undetermined-v
             envoy_serial_number: '121842012242'
@@ -1026,7 +1042,10 @@ components:
             part_number: 800-00107-r01
             sku: M215-60-2LL-S22-NA
             status: normal
-            power_produced: 20
+            power_produced:
+              value: 20
+              units: W
+              precision: 0
             proc_load: undetermined-v
             param_table: undetermined-v
             envoy_serial_number: '121842012242'

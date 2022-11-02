@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 var _InvertersSummaryByEnvoyOrSiteResponseEnergy = _interopRequireDefault(require("./InvertersSummaryByEnvoyOrSiteResponseEnergy"));
+var _InvertersSummaryByEnvoyOrSiteResponsePowerProduced = _interopRequireDefault(require("./InvertersSummaryByEnvoyOrSiteResponsePowerProduced"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -25,7 +26,7 @@ var InvertersSummaryByEnvoyOrSiteResponseMicroInverters = /*#__PURE__*/function 
    * @param serialNumber {String} The serial number of this Microinverter.
    * @param sku {String} 
    * @param status {module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.StatusEnum} The current status of this Microinverter. * `normal` - The microinverter is operating normally. * `power` - There is a production issue. * `micro` - The microinverter is not reporting. * `retired` - The microinverter is retired.
-   * @param powerProduced {Number} 
+   * @param powerProduced {module:model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced} 
    * @param procLoad {String} 
    * @param paramTable {String} 
    * @param envoySerialNumber {String} 
@@ -92,7 +93,7 @@ var InvertersSummaryByEnvoyOrSiteResponseMicroInverters = /*#__PURE__*/function 
           obj['status'] = _ApiClient["default"].convertToType(data['status'], 'String');
         }
         if (data.hasOwnProperty('power_produced')) {
-          obj['power_produced'] = _ApiClient["default"].convertToType(data['power_produced'], 'Number');
+          obj['power_produced'] = _InvertersSummaryByEnvoyOrSiteResponsePowerProduced["default"].constructFromObject(data['power_produced']);
         }
         if (data.hasOwnProperty('proc_load')) {
           obj['proc_load'] = _ApiClient["default"].convertToType(data['proc_load'], 'String');
@@ -153,7 +154,7 @@ InvertersSummaryByEnvoyOrSiteResponseMicroInverters.prototype['sku'] = undefined
 InvertersSummaryByEnvoyOrSiteResponseMicroInverters.prototype['status'] = undefined;
 
 /**
- * @member {Number} power_produced
+ * @member {module:model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced} power_produced
  */
 InvertersSummaryByEnvoyOrSiteResponseMicroInverters.prototype['power_produced'] = undefined;
 

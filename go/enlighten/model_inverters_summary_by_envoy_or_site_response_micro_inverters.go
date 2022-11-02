@@ -26,7 +26,7 @@ type InvertersSummaryByEnvoyOrSiteResponseMicroInverters struct {
 	Sku string `json:"sku"`
 	// The current status of this Microinverter. * `normal` - The microinverter is operating normally. * `power` - There is a production issue. * `micro` - The microinverter is not reporting. * `retired` - The microinverter is retired.
 	Status string `json:"status"`
-	PowerProduced int32 `json:"power_produced"`
+	PowerProduced InvertersSummaryByEnvoyOrSiteResponsePowerProduced `json:"power_produced"`
 	ProcLoad string `json:"proc_load"`
 	ParamTable string `json:"param_table"`
 	EnvoySerialNumber string `json:"envoy_serial_number"`
@@ -40,7 +40,7 @@ type InvertersSummaryByEnvoyOrSiteResponseMicroInverters struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInvertersSummaryByEnvoyOrSiteResponseMicroInverters(id int32, model string, partNumber string, serialNumber string, sku string, status string, powerProduced int32, procLoad string, paramTable string, envoySerialNumber string, energy InvertersSummaryByEnvoyOrSiteResponseEnergy, gridProfile string, lastReportDate string) *InvertersSummaryByEnvoyOrSiteResponseMicroInverters {
+func NewInvertersSummaryByEnvoyOrSiteResponseMicroInverters(id int32, model string, partNumber string, serialNumber string, sku string, status string, powerProduced InvertersSummaryByEnvoyOrSiteResponsePowerProduced, procLoad string, paramTable string, envoySerialNumber string, energy InvertersSummaryByEnvoyOrSiteResponseEnergy, gridProfile string, lastReportDate string) *InvertersSummaryByEnvoyOrSiteResponseMicroInverters {
 	this := InvertersSummaryByEnvoyOrSiteResponseMicroInverters{}
 	this.Id = id
 	this.Model = model
@@ -211,9 +211,9 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) SetStatus(v string
 }
 
 // GetPowerProduced returns the PowerProduced field value
-func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProduced() int32 {
+func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProduced() InvertersSummaryByEnvoyOrSiteResponsePowerProduced {
 	if o == nil {
-		var ret int32
+		var ret InvertersSummaryByEnvoyOrSiteResponsePowerProduced
 		return ret
 	}
 
@@ -222,7 +222,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProduced()
 
 // GetPowerProducedOk returns a tuple with the PowerProduced field value
 // and a boolean to check if the value has been set.
-func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProducedOk() (*int32, bool) {
+func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProducedOk() (*InvertersSummaryByEnvoyOrSiteResponsePowerProduced, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -230,7 +230,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) GetPowerProducedOk
 }
 
 // SetPowerProduced sets field value
-func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) SetPowerProduced(v int32) {
+func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInverters) SetPowerProduced(v InvertersSummaryByEnvoyOrSiteResponsePowerProduced) {
 	o.PowerProduced = v
 }
 
