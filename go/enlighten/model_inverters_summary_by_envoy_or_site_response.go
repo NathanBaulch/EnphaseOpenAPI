@@ -76,11 +76,11 @@ func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInverters() []InvertersS
 
 // GetMicroInvertersOk returns a tuple with the MicroInverters field value
 // and a boolean to check if the value has been set.
-func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInvertersOk() (*[]InvertersSummaryByEnvoyOrSiteResponseMicroInverters, bool) {
+func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInvertersOk() ([]InvertersSummaryByEnvoyOrSiteResponseMicroInverters, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.MicroInverters, true
+	return o.MicroInverters, true
 }
 
 // SetMicroInverters sets field value

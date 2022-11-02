@@ -75,11 +75,11 @@ func (o *ServerError) GetErrorMessages() []string {
 
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value
 // and a boolean to check if the value has been set.
-func (o *ServerError) GetErrorMessagesOk() (*[]string, bool) {
+func (o *ServerError) GetErrorMessagesOk() ([]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ErrorMessages, true
+	return o.ErrorMessages, true
 }
 
 // SetErrorMessages sets field value

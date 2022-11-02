@@ -77,11 +77,11 @@ func (o *EnvoysResponse) GetEnvoys() []EnvoysResponseEnvoys {
 
 // GetEnvoysOk returns a tuple with the Envoys field value
 // and a boolean to check if the value has been set.
-func (o *EnvoysResponse) GetEnvoysOk() (*[]EnvoysResponseEnvoys, bool) {
+func (o *EnvoysResponse) GetEnvoysOk() ([]EnvoysResponseEnvoys, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Envoys, true
+	return o.Envoys, true
 }
 
 // SetEnvoys sets field value

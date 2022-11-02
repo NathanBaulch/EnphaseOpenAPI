@@ -113,11 +113,11 @@ func (o *ConsumptionLifetimeResponse) GetConsumption() []int32 {
 
 // GetConsumptionOk returns a tuple with the Consumption field value
 // and a boolean to check if the value has been set.
-func (o *ConsumptionLifetimeResponse) GetConsumptionOk() (*[]int32, bool) {
+func (o *ConsumptionLifetimeResponse) GetConsumptionOk() ([]int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Consumption, true
+	return o.Consumption, true
 }
 
 // SetConsumption sets field value

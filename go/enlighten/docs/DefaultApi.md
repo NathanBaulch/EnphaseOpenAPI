@@ -48,8 +48,8 @@ func main() {
     endDate := time.Now() // string | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ConsumptionLifetime(context.Background(), systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ConsumptionLifetime(context.Background(), systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ConsumptionLifetime``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,8 +124,8 @@ func main() {
     endAt := int64(1449011615) // int64 | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ConsumptionStats(context.Background(), systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ConsumptionStats(context.Background(), systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ConsumptionStats``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -202,8 +202,8 @@ func main() {
     production := "all" // string | When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.EnergyLifetime(context.Background(), systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Production(production).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.EnergyLifetime(context.Background(), systemId).UserId(userId).StartDate(startDate).EndDate(endDate).Production(production).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.EnergyLifetime``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -277,8 +277,8 @@ func main() {
     systemId := int32(66) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.Envoys(context.Background(), systemId).UserId(userId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.Envoys(context.Background(), systemId).UserId(userId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Envoys``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -349,8 +349,8 @@ func main() {
     systemId := int32(66) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.Inventory(context.Background(), systemId).UserId(userId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.Inventory(context.Background(), systemId).UserId(userId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Inventory``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -421,8 +421,8 @@ func main() {
     siteId := int32(66) // int32 | The identifier of the system.
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.InvertersSummaryByEnvoyOrSite(context.Background()).UserId(userId).SiteId(siteId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.InvertersSummaryByEnvoyOrSite(context.Background()).UserId(userId).SiteId(siteId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.InvertersSummaryByEnvoyOrSite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -491,8 +491,8 @@ func main() {
     startDate := time.Now() // string | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.MonthlyProduction(context.Background(), systemId).UserId(userId).StartDate(startDate).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.MonthlyProduction(context.Background(), systemId).UserId(userId).StartDate(startDate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.MonthlyProduction``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -565,8 +565,8 @@ func main() {
     endAt := int64(1473901755) // int64 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ProductionMeterReadings(context.Background(), systemId).UserId(userId).EndAt(endAt).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ProductionMeterReadings(context.Background(), systemId).UserId(userId).EndAt(endAt).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ProductionMeterReadings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -640,8 +640,8 @@ func main() {
     endAt := int64(1381561200) // int64 | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.RgmStats(context.Background(), systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.RgmStats(context.Background(), systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RgmStats``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -714,8 +714,8 @@ func main() {
     serialNum := "23435345345" // string | Serial number of the envoy.
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.SearchSystemId(context.Background()).UserId(userId).SerialNum(serialNum).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.SearchSystemId(context.Background()).UserId(userId).SerialNum(serialNum).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.SearchSystemId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -784,8 +784,8 @@ func main() {
     endAt := int64(1381497600) // int64 | End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.Stats(context.Background(), systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.Stats(context.Background(), systemId).UserId(userId).StartAt(startAt).EndAt(endAt).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Stats``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -860,8 +860,8 @@ func main() {
     summaryDate := time.Now() // string | Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.Summary(context.Background(), systemId).UserId(userId).SummaryDate(summaryDate).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.Summary(context.Background(), systemId).UserId(userId).SummaryDate(summaryDate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Summary``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -946,8 +946,8 @@ func main() {
     connectionType2 := []openapiclient.ConnectionType{openapiclient.ConnectionType("ethernet")} // []ConnectionType |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.Systems(context.Background()).UserId(userId).Next(next).Limit(limit).SystemId(systemId).SystemId2(systemId2).SystemName(systemName).SystemName2(systemName2).Status(status).Status2(status2).Reference(reference).Reference2(reference2).Installer(installer).Installer2(installer2).ConnectionType(connectionType).ConnectionType2(connectionType2).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.Systems(context.Background()).UserId(userId).Next(next).Limit(limit).SystemId(systemId).SystemId2(systemId2).SystemName(systemName).SystemName2(systemName2).Status(status).Status2(status2).Reference(reference).Reference2(reference2).Installer(installer).Installer2(installer2).ConnectionType(connectionType).ConnectionType2(connectionType2).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Systems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

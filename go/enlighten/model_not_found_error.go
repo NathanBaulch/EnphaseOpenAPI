@@ -17,8 +17,8 @@ import (
 // NotFoundError struct for NotFoundError
 type NotFoundError struct {
 	Reason string `json:"reason"`
-	Message *[]string `json:"message,omitempty"`
-	ErrorMessages *[]string `json:"errorMessages,omitempty"`
+	Message []string `json:"message,omitempty"`
+	ErrorMessages []string `json:"errorMessages,omitempty"`
 }
 
 // NewNotFoundError instantiates a new NotFoundError object
@@ -69,12 +69,12 @@ func (o *NotFoundError) GetMessage() []string {
 		var ret []string
 		return ret
 	}
-	return *o.Message
+	return o.Message
 }
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotFoundError) GetMessageOk() (*[]string, bool) {
+func (o *NotFoundError) GetMessageOk() ([]string, bool) {
 	if o == nil || o.Message == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *NotFoundError) HasMessage() bool {
 
 // SetMessage gets a reference to the given []string and assigns it to the Message field.
 func (o *NotFoundError) SetMessage(v []string) {
-	o.Message = &v
+	o.Message = v
 }
 
 // GetErrorMessages returns the ErrorMessages field value if set, zero value otherwise.
@@ -101,12 +101,12 @@ func (o *NotFoundError) GetErrorMessages() []string {
 		var ret []string
 		return ret
 	}
-	return *o.ErrorMessages
+	return o.ErrorMessages
 }
 
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotFoundError) GetErrorMessagesOk() (*[]string, bool) {
+func (o *NotFoundError) GetErrorMessagesOk() ([]string, bool) {
 	if o == nil || o.ErrorMessages == nil {
 		return nil, false
 	}
@@ -124,7 +124,7 @@ func (o *NotFoundError) HasErrorMessages() bool {
 
 // SetErrorMessages gets a reference to the given []string and assigns it to the ErrorMessages field.
 func (o *NotFoundError) SetErrorMessages(v []string) {
-	o.ErrorMessages = &v
+	o.ErrorMessages = v
 }
 
 func (o NotFoundError) MarshalJSON() ([]byte, error) {

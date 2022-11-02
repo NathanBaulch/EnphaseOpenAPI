@@ -25,7 +25,7 @@ type SystemsResponseSystems struct {
 	// If the calling user belongs to a company and that company has provided its own identifiers for a system, that ID is included here. Otherwise, this attribute is not returned.
 	Reference *string `json:"reference,omitempty"`
 	// If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
-	OtherReferences *[]string `json:"other_references,omitempty"`
+	OtherReferences []string `json:"other_references,omitempty"`
 	// The two-letter code for the country where the system is located. See [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for reference.
 	Country string `json:"country"`
 	// The two-letter code for the state where the system is located. See [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) for reference.
@@ -181,12 +181,12 @@ func (o *SystemsResponseSystems) GetOtherReferences() []string {
 		var ret []string
 		return ret
 	}
-	return *o.OtherReferences
+	return o.OtherReferences
 }
 
 // GetOtherReferencesOk returns a tuple with the OtherReferences field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SystemsResponseSystems) GetOtherReferencesOk() (*[]string, bool) {
+func (o *SystemsResponseSystems) GetOtherReferencesOk() ([]string, bool) {
 	if o == nil || o.OtherReferences == nil {
 		return nil, false
 	}
@@ -204,7 +204,7 @@ func (o *SystemsResponseSystems) HasOtherReferences() bool {
 
 // SetOtherReferences gets a reference to the given []string and assigns it to the OtherReferences field.
 func (o *SystemsResponseSystems) SetOtherReferences(v []string) {
-	o.OtherReferences = &v
+	o.OtherReferences = v
 }
 
 // GetCountry returns the Country field value

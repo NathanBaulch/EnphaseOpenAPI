@@ -59,9 +59,7 @@ namespace EnphaseOpenAPI.Enlighten.Client
         /// <returns>A JSON string.</returns>
         public string Serialize(object obj)
         {
-            {
-                return JsonConvert.SerializeObject(obj, _serializerSettings);
-            }
+            return JsonConvert.SerializeObject(obj, _serializerSettings);
         }
 
         public T Deserialize<T>(IRestResponse response)
@@ -99,7 +97,7 @@ namespace EnphaseOpenAPI.Enlighten.Client
         }
     }
     /// <summary>
-    /// Provides a default implementation of an Api client (both synchronous and asynchronous implementatios),
+    /// Provides a default implementation of an Api client (both synchronous and asynchronous implementations),
     /// encapsulating general REST accessor use cases.
     /// </summary>
     public partial class ApiClient : ISynchronousClient, IAsynchronousClient
@@ -108,7 +106,7 @@ namespace EnphaseOpenAPI.Enlighten.Client
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
-        /// These settings can be adjusted to accomodate custom serialization rules.
+        /// These settings can be adjusted to accommodate custom serialization rules.
         /// </summary>
         public JsonSerializerSettings SerializerSettings { get; set; } = new JsonSerializerSettings
         {

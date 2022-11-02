@@ -50,11 +50,11 @@ func (o *SystemsResponse) GetSystems() []SystemsResponseSystems {
 
 // GetSystemsOk returns a tuple with the Systems field value
 // and a boolean to check if the value has been set.
-func (o *SystemsResponse) GetSystemsOk() (*[]SystemsResponseSystems, bool) {
+func (o *SystemsResponse) GetSystemsOk() ([]SystemsResponseSystems, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Systems, true
+	return o.Systems, true
 }
 
 // SetSystems sets field value

@@ -133,11 +133,11 @@ func (o *RgmStatsResponse) GetIntervals() []RgmStatsResponseIntervals {
 
 // GetIntervalsOk returns a tuple with the Intervals field value
 // and a boolean to check if the value has been set.
-func (o *RgmStatsResponse) GetIntervalsOk() (*[]RgmStatsResponseIntervals, bool) {
+func (o *RgmStatsResponse) GetIntervalsOk() ([]RgmStatsResponseIntervals, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Intervals, true
+	return o.Intervals, true
 }
 
 // SetIntervals sets field value
@@ -157,11 +157,11 @@ func (o *RgmStatsResponse) GetMeterIntervals() []RgmStatsResponseMeterIntervals 
 
 // GetMeterIntervalsOk returns a tuple with the MeterIntervals field value
 // and a boolean to check if the value has been set.
-func (o *RgmStatsResponse) GetMeterIntervalsOk() (*[]RgmStatsResponseMeterIntervals, bool) {
+func (o *RgmStatsResponse) GetMeterIntervalsOk() ([]RgmStatsResponseMeterIntervals, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.MeterIntervals, true
+	return o.MeterIntervals, true
 }
 
 // SetMeterIntervals sets field value

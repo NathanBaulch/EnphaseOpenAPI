@@ -104,11 +104,11 @@ func (o *RgmStatsResponseMeterIntervals) GetIntervals() []RgmStatsResponseInterv
 
 // GetIntervalsOk returns a tuple with the Intervals field value
 // and a boolean to check if the value has been set.
-func (o *RgmStatsResponseMeterIntervals) GetIntervalsOk() (*[]RgmStatsResponseIntervals1, bool) {
+func (o *RgmStatsResponseMeterIntervals) GetIntervalsOk() ([]RgmStatsResponseIntervals1, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Intervals, true
+	return o.Intervals, true
 }
 
 // SetIntervals sets field value

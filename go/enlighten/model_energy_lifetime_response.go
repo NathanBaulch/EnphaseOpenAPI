@@ -22,8 +22,8 @@ type EnergyLifetimeResponse struct {
 	SystemId int32 `json:"system_id"`
 	// An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty.
 	Production []int32 `json:"production"`
-	MicroProduction *[]int32 `json:"micro_production,omitempty"`
-	MeterProduction *[]int32 `json:"meter_production,omitempty"`
+	MicroProduction []int32 `json:"micro_production,omitempty"`
+	MeterProduction []int32 `json:"meter_production,omitempty"`
 	// The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.
 	MeterStartDate *string `json:"meter_start_date,omitempty"`
 	Meta Meta `json:"meta"`
@@ -110,11 +110,11 @@ func (o *EnergyLifetimeResponse) GetProduction() []int32 {
 
 // GetProductionOk returns a tuple with the Production field value
 // and a boolean to check if the value has been set.
-func (o *EnergyLifetimeResponse) GetProductionOk() (*[]int32, bool) {
+func (o *EnergyLifetimeResponse) GetProductionOk() ([]int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Production, true
+	return o.Production, true
 }
 
 // SetProduction sets field value
@@ -128,12 +128,12 @@ func (o *EnergyLifetimeResponse) GetMicroProduction() []int32 {
 		var ret []int32
 		return ret
 	}
-	return *o.MicroProduction
+	return o.MicroProduction
 }
 
 // GetMicroProductionOk returns a tuple with the MicroProduction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnergyLifetimeResponse) GetMicroProductionOk() (*[]int32, bool) {
+func (o *EnergyLifetimeResponse) GetMicroProductionOk() ([]int32, bool) {
 	if o == nil || o.MicroProduction == nil {
 		return nil, false
 	}
@@ -151,7 +151,7 @@ func (o *EnergyLifetimeResponse) HasMicroProduction() bool {
 
 // SetMicroProduction gets a reference to the given []int32 and assigns it to the MicroProduction field.
 func (o *EnergyLifetimeResponse) SetMicroProduction(v []int32) {
-	o.MicroProduction = &v
+	o.MicroProduction = v
 }
 
 // GetMeterProduction returns the MeterProduction field value if set, zero value otherwise.
@@ -160,12 +160,12 @@ func (o *EnergyLifetimeResponse) GetMeterProduction() []int32 {
 		var ret []int32
 		return ret
 	}
-	return *o.MeterProduction
+	return o.MeterProduction
 }
 
 // GetMeterProductionOk returns a tuple with the MeterProduction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnergyLifetimeResponse) GetMeterProductionOk() (*[]int32, bool) {
+func (o *EnergyLifetimeResponse) GetMeterProductionOk() ([]int32, bool) {
 	if o == nil || o.MeterProduction == nil {
 		return nil, false
 	}
@@ -183,7 +183,7 @@ func (o *EnergyLifetimeResponse) HasMeterProduction() bool {
 
 // SetMeterProduction gets a reference to the given []int32 and assigns it to the MeterProduction field.
 func (o *EnergyLifetimeResponse) SetMeterProduction(v []int32) {
-	o.MeterProduction = &v
+	o.MeterProduction = v
 }
 
 // GetMeterStartDate returns the MeterStartDate field value if set, zero value otherwise.

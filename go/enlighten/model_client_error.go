@@ -75,11 +75,11 @@ func (o *ClientError) GetMessage() []string {
 
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
-func (o *ClientError) GetMessageOk() (*[]string, bool) {
+func (o *ClientError) GetMessageOk() ([]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Message, true
+	return o.Message, true
 }
 
 // SetMessage sets field value

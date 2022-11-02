@@ -1072,11 +1072,11 @@ namespace Example
             var systemName2 = new List<string>(); // List<string> |  (optional) 
             var status = power;  // Status? |  (optional) 
             var status2 = new List<Status>(); // List<Status> |  (optional) 
-            var reference = reference_example;  // string |  (optional) 
+            var reference = "reference_example";  // string |  (optional) 
             var reference2 = new List<string>(); // List<string> |  (optional) 
-            var installer = installer_example;  // string |  (optional) 
+            var installer = "installer_example";  // string |  (optional) 
             var installer2 = new List<string>(); // List<string> |  (optional) 
-            var connectionType = ;  // ConnectionType? |  (optional) 
+            var connectionType = (ConnectionType) "ethernet";  // ConnectionType? |  (optional) 
             var connectionType2 = new List<ConnectionType>(); // List<ConnectionType> |  (optional) 
 
             try

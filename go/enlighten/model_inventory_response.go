@@ -19,7 +19,7 @@ type InventoryResponse struct {
 	// Enlighten ID for this system.
 	SystemId int32 `json:"system_id"`
 	// A list of Envoys on this system, including serial number.
-	Envoys *[]InventoryResponseEnvoys `json:"envoys,omitempty"`
+	Envoys []InventoryResponseEnvoys `json:"envoys,omitempty"`
 	// A list of inverters on this system, including serial and model numbers.
 	Inverters []InventoryResponseEnvoys `json:"inverters"`
 	// A list of meters on this system, including serial number, manufacturer, and model number.
@@ -78,12 +78,12 @@ func (o *InventoryResponse) GetEnvoys() []InventoryResponseEnvoys {
 		var ret []InventoryResponseEnvoys
 		return ret
 	}
-	return *o.Envoys
+	return o.Envoys
 }
 
 // GetEnvoysOk returns a tuple with the Envoys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryResponse) GetEnvoysOk() (*[]InventoryResponseEnvoys, bool) {
+func (o *InventoryResponse) GetEnvoysOk() ([]InventoryResponseEnvoys, bool) {
 	if o == nil || o.Envoys == nil {
 		return nil, false
 	}
@@ -101,7 +101,7 @@ func (o *InventoryResponse) HasEnvoys() bool {
 
 // SetEnvoys gets a reference to the given []InventoryResponseEnvoys and assigns it to the Envoys field.
 func (o *InventoryResponse) SetEnvoys(v []InventoryResponseEnvoys) {
-	o.Envoys = &v
+	o.Envoys = v
 }
 
 // GetInverters returns the Inverters field value
@@ -116,11 +116,11 @@ func (o *InventoryResponse) GetInverters() []InventoryResponseEnvoys {
 
 // GetInvertersOk returns a tuple with the Inverters field value
 // and a boolean to check if the value has been set.
-func (o *InventoryResponse) GetInvertersOk() (*[]InventoryResponseEnvoys, bool) {
+func (o *InventoryResponse) GetInvertersOk() ([]InventoryResponseEnvoys, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Inverters, true
+	return o.Inverters, true
 }
 
 // SetInverters sets field value
@@ -140,11 +140,11 @@ func (o *InventoryResponse) GetMeters() []InventoryResponseMeters {
 
 // GetMetersOk returns a tuple with the Meters field value
 // and a boolean to check if the value has been set.
-func (o *InventoryResponse) GetMetersOk() (*[]InventoryResponseMeters, bool) {
+func (o *InventoryResponse) GetMetersOk() ([]InventoryResponseMeters, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Meters, true
+	return o.Meters, true
 }
 
 // SetMeters sets field value

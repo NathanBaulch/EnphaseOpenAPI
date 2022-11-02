@@ -130,11 +130,11 @@ func (o *StatsResponse) GetIntervals() []StatsResponseIntervals {
 
 // GetIntervalsOk returns a tuple with the Intervals field value
 // and a boolean to check if the value has been set.
-func (o *StatsResponse) GetIntervalsOk() (*[]StatsResponseIntervals, bool) {
+func (o *StatsResponse) GetIntervalsOk() ([]StatsResponseIntervals, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Intervals, true
+	return o.Intervals, true
 }
 
 // SetIntervals sets field value

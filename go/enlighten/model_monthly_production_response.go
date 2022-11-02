@@ -160,11 +160,11 @@ func (o *MonthlyProductionResponse) GetMeterReadings() []MonthlyProductionRespon
 
 // GetMeterReadingsOk returns a tuple with the MeterReadings field value
 // and a boolean to check if the value has been set.
-func (o *MonthlyProductionResponse) GetMeterReadingsOk() (*[]MonthlyProductionResponseMeterReadings, bool) {
+func (o *MonthlyProductionResponse) GetMeterReadingsOk() ([]MonthlyProductionResponseMeterReadings, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.MeterReadings, true
+	return o.MeterReadings, true
 }
 
 // SetMeterReadings sets field value

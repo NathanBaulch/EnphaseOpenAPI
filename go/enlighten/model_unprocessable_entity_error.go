@@ -18,7 +18,7 @@ import (
 type UnprocessableEntityError struct {
 	Reason *string `json:"reason,omitempty"`
 	Message *string `json:"message,omitempty"`
-	ErrorMessages *[]string `json:"errorMessages,omitempty"`
+	ErrorMessages []string `json:"errorMessages,omitempty"`
 	Start *string `json:"start,omitempty"`
 	End *string `json:"end,omitempty"`
 	StartAt *int32 `json:"start_at,omitempty"`
@@ -114,12 +114,12 @@ func (o *UnprocessableEntityError) GetErrorMessages() []string {
 		var ret []string
 		return ret
 	}
-	return *o.ErrorMessages
+	return o.ErrorMessages
 }
 
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UnprocessableEntityError) GetErrorMessagesOk() (*[]string, bool) {
+func (o *UnprocessableEntityError) GetErrorMessagesOk() ([]string, bool) {
 	if o == nil || o.ErrorMessages == nil {
 		return nil, false
 	}
@@ -137,7 +137,7 @@ func (o *UnprocessableEntityError) HasErrorMessages() bool {
 
 // SetErrorMessages gets a reference to the given []string and assigns it to the ErrorMessages field.
 func (o *UnprocessableEntityError) SetErrorMessages(v []string) {
-	o.ErrorMessages = &v
+	o.ErrorMessages = v
 }
 
 // GetStart returns the Start field value if set, zero value otherwise.

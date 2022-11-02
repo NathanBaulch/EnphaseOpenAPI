@@ -12,24 +12,24 @@ package enlighten
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 	"reflect"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
 type ApiConsumptionLifetimeRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -52,7 +52,7 @@ func (r ApiConsumptionLifetimeRequest) EndDate(endDate string) ApiConsumptionLif
 	return r
 }
 
-func (r ApiConsumptionLifetimeRequest) Execute() (ConsumptionLifetimeResponse, *_nethttp.Response, error) {
+func (r ApiConsumptionLifetimeRequest) Execute() (*ConsumptionLifetimeResponse, *http.Response, error) {
 	return r.ApiService.ConsumptionLifetimeExecute(r)
 }
 
@@ -66,11 +66,11 @@ The time series includes one entry for each day from the `start_date` to the `en
 [909, 4970, 0, 0, 0], then no data has been reported for the last days in the series. You can check the system's status in the `meta` attribute of the response to determine when the system
 last reported and whether it has communication or metering problems.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiConsumptionLifetimeRequest
 */
-func (a *DefaultApiService) ConsumptionLifetime(ctx _context.Context, systemId int32) ApiConsumptionLifetimeRequest {
+func (a *DefaultApiService) ConsumptionLifetime(ctx context.Context, systemId int32) ApiConsumptionLifetimeRequest {
 	return ApiConsumptionLifetimeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -80,25 +80,25 @@ func (a *DefaultApiService) ConsumptionLifetime(ctx _context.Context, systemId i
 
 // Execute executes the request
 //  @return ConsumptionLifetimeResponse
-func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeRequest) (ConsumptionLifetimeResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeRequest) (*ConsumptionLifetimeResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ConsumptionLifetimeResponse
+		localVarReturnValue  *ConsumptionLifetimeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ConsumptionLifetime")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/consumption_lifetime"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -151,15 +151,15 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -217,7 +217,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -228,7 +228,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 }
 
 type ApiConsumptionStatsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -251,7 +251,7 @@ func (r ApiConsumptionStatsRequest) EndAt(endAt int64) ApiConsumptionStatsReques
 	return r
 }
 
-func (r ApiConsumptionStatsRequest) Execute() (ConsumptionStatsResponse, *_nethttp.Response, error) {
+func (r ApiConsumptionStatsRequest) Execute() (*ConsumptionStatsResponse, *http.Response, error) {
 	return r.ApiService.ConsumptionStatsExecute(r)
 }
 
@@ -270,11 +270,11 @@ If you don't have permission to view consumption data, the response code is `401
 
 Under some conditions, data for a given period may be temporarily unavailable.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiConsumptionStatsRequest
 */
-func (a *DefaultApiService) ConsumptionStats(ctx _context.Context, systemId int32) ApiConsumptionStatsRequest {
+func (a *DefaultApiService) ConsumptionStats(ctx context.Context, systemId int32) ApiConsumptionStatsRequest {
 	return ApiConsumptionStatsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -284,25 +284,25 @@ func (a *DefaultApiService) ConsumptionStats(ctx _context.Context, systemId int3
 
 // Execute executes the request
 //  @return ConsumptionStatsResponse
-func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest) (ConsumptionStatsResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest) (*ConsumptionStatsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ConsumptionStatsResponse
+		localVarReturnValue  *ConsumptionStatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ConsumptionStats")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/consumption_stats"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -355,15 +355,15 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -421,7 +421,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -432,7 +432,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 }
 
 type ApiEnergyLifetimeRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -461,7 +461,7 @@ func (r ApiEnergyLifetimeRequest) Production(production string) ApiEnergyLifetim
 	return r
 }
 
-func (r ApiEnergyLifetimeRequest) Execute() (EnergyLifetimeResponse, *_nethttp.Response, error) {
+func (r ApiEnergyLifetimeRequest) Execute() (*EnergyLifetimeResponse, *http.Response, error) {
 	return r.ApiService.EnergyLifetimeExecute(r)
 }
 
@@ -478,11 +478,11 @@ If the system has a meter, the time series includes data as measured by the micr
 measured by the meter. This is called the "merged time series". In addition, the response includes the attribute `meter_start_date`, to indicate where in the time series the meter
 measurements begin to be used. You can retrieve the complete time series from the meter and from the microinverters by adding the parameter `production=all` to the request.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiEnergyLifetimeRequest
 */
-func (a *DefaultApiService) EnergyLifetime(ctx _context.Context, systemId int32) ApiEnergyLifetimeRequest {
+func (a *DefaultApiService) EnergyLifetime(ctx context.Context, systemId int32) ApiEnergyLifetimeRequest {
 	return ApiEnergyLifetimeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -492,25 +492,25 @@ func (a *DefaultApiService) EnergyLifetime(ctx _context.Context, systemId int32)
 
 // Execute executes the request
 //  @return EnergyLifetimeResponse
-func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (EnergyLifetimeResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*EnergyLifetimeResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EnergyLifetimeResponse
+		localVarReturnValue  *EnergyLifetimeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.EnergyLifetime")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/energy_lifetime"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -566,15 +566,15 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (E
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -632,7 +632,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (E
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -643,7 +643,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (E
 }
 
 type ApiEnvoysRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -654,7 +654,7 @@ func (r ApiEnvoysRequest) UserId(userId string) ApiEnvoysRequest {
 	return r
 }
 
-func (r ApiEnvoysRequest) Execute() (EnvoysResponse, *_nethttp.Response, error) {
+func (r ApiEnvoysRequest) Execute() (*EnvoysResponse, *http.Response, error) {
 	return r.ApiService.EnvoysExecute(r)
 }
 
@@ -663,11 +663,11 @@ Envoys Method for Envoys
 
 Returns a listing of all active Envoys currently deployed on the system.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiEnvoysRequest
 */
-func (a *DefaultApiService) Envoys(ctx _context.Context, systemId int32) ApiEnvoysRequest {
+func (a *DefaultApiService) Envoys(ctx context.Context, systemId int32) ApiEnvoysRequest {
 	return ApiEnvoysRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -677,25 +677,25 @@ func (a *DefaultApiService) Envoys(ctx _context.Context, systemId int32) ApiEnvo
 
 // Execute executes the request
 //  @return EnvoysResponse
-func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (EnvoysResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EnvoysResponse
+		localVarReturnValue  *EnvoysResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Envoys")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/envoys"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -742,15 +742,15 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (EnvoysResponse, *
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -808,7 +808,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (EnvoysResponse, *
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -819,7 +819,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (EnvoysResponse, *
 }
 
 type ApiInventoryRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -830,7 +830,7 @@ func (r ApiInventoryRequest) UserId(userId string) ApiInventoryRequest {
 	return r
 }
 
-func (r ApiInventoryRequest) Execute() (InventoryResponse, *_nethttp.Response, error) {
+func (r ApiInventoryRequest) Execute() (*InventoryResponse, *http.Response, error) {
 	return r.ApiService.InventoryExecute(r)
 }
 
@@ -840,11 +840,11 @@ Inventory Method for Inventory
 Returns a listing of active devices on the given system. A device is considered active if it has not been retired in Enlighten. "Active" does not imply that the device is currently
 reporting, producing, or measuring energy.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiInventoryRequest
 */
-func (a *DefaultApiService) Inventory(ctx _context.Context, systemId int32) ApiInventoryRequest {
+func (a *DefaultApiService) Inventory(ctx context.Context, systemId int32) ApiInventoryRequest {
 	return ApiInventoryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -854,25 +854,25 @@ func (a *DefaultApiService) Inventory(ctx _context.Context, systemId int32) ApiI
 
 // Execute executes the request
 //  @return InventoryResponse
-func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InventoryResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  InventoryResponse
+		localVarReturnValue  *InventoryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Inventory")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/inventory"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -919,15 +919,15 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InventoryRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -985,7 +985,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InventoryRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -996,7 +996,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (InventoryRe
 }
 
 type ApiInvertersSummaryByEnvoyOrSiteRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	siteId *int32
@@ -1012,7 +1012,7 @@ func (r ApiInvertersSummaryByEnvoyOrSiteRequest) SiteId(siteId int32) ApiInverte
 	return r
 }
 
-func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() ([]InvertersSummaryByEnvoyOrSiteResponse, *_nethttp.Response, error) {
+func (r ApiInvertersSummaryByEnvoyOrSiteRequest) Execute() ([]InvertersSummaryByEnvoyOrSiteResponse, *http.Response, error) {
 	return r.ApiService.InvertersSummaryByEnvoyOrSiteExecute(r)
 }
 
@@ -1021,10 +1021,10 @@ InvertersSummaryByEnvoyOrSite Method for InvertersSummaryByEnvoyOrSite
 
 Returns the summary along with the energy produced on the system over its lifetime.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiInvertersSummaryByEnvoyOrSiteRequest
 */
-func (a *DefaultApiService) InvertersSummaryByEnvoyOrSite(ctx _context.Context) ApiInvertersSummaryByEnvoyOrSiteRequest {
+func (a *DefaultApiService) InvertersSummaryByEnvoyOrSite(ctx context.Context) ApiInvertersSummaryByEnvoyOrSiteRequest {
 	return ApiInvertersSummaryByEnvoyOrSiteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1033,9 +1033,9 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSite(ctx _context.Context) 
 
 // Execute executes the request
 //  @return []InvertersSummaryByEnvoyOrSiteResponse
-func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) ([]InvertersSummaryByEnvoyOrSiteResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersSummaryByEnvoyOrSiteRequest) ([]InvertersSummaryByEnvoyOrSiteResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []InvertersSummaryByEnvoyOrSiteResponse
@@ -1043,14 +1043,14 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.InvertersSummaryByEnvoyOrSite")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/inverters_summary_by_envoy_or_site"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -1101,15 +1101,15 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1167,7 +1167,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1178,7 +1178,7 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 }
 
 type ApiMonthlyProductionRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -1195,7 +1195,7 @@ func (r ApiMonthlyProductionRequest) StartDate(startDate string) ApiMonthlyProdu
 	return r
 }
 
-func (r ApiMonthlyProductionRequest) Execute() (MonthlyProductionResponse, *_nethttp.Response, error) {
+func (r ApiMonthlyProductionRequest) Execute() (*MonthlyProductionResponse, *http.Response, error) {
 	return r.ApiService.MonthlyProductionExecute(r)
 }
 
@@ -1209,13 +1209,13 @@ measurements come from the meter; otherwise, measurements come from the microinv
 
 This endpoint can return a response of Data Temporarily Unavailable.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiMonthlyProductionRequest
 
 Deprecated
 */
-func (a *DefaultApiService) MonthlyProduction(ctx _context.Context, systemId int32) ApiMonthlyProductionRequest {
+func (a *DefaultApiService) MonthlyProduction(ctx context.Context, systemId int32) ApiMonthlyProductionRequest {
 	return ApiMonthlyProductionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1226,25 +1226,25 @@ func (a *DefaultApiService) MonthlyProduction(ctx _context.Context, systemId int
 // Execute executes the request
 //  @return MonthlyProductionResponse
 // Deprecated
-func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionRequest) (MonthlyProductionResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionRequest) (*MonthlyProductionResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  MonthlyProductionResponse
+		localVarReturnValue  *MonthlyProductionResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.MonthlyProduction")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/monthly_production"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -1295,15 +1295,15 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1361,7 +1361,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1372,7 +1372,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 }
 
 type ApiProductionMeterReadingsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -1388,7 +1388,7 @@ func (r ApiProductionMeterReadingsRequest) EndAt(endAt int64) ApiProductionMeter
 	return r
 }
 
-func (r ApiProductionMeterReadingsRequest) Execute() (ProductionMeterReadingsResponse, *_nethttp.Response, error) {
+func (r ApiProductionMeterReadingsRequest) Execute() (*ProductionMeterReadingsResponse, *http.Response, error) {
 	return r.ApiService.ProductionMeterReadingsExecute(r)
 }
 
@@ -1402,11 +1402,11 @@ reading was taken, and is always less than or equal to the requested `end_at`. C
 do not necessarily mean there is a problem with the meter or the system it is on. Systems that are configured to report infrequently can show large deltas on all meters, especially when
 `end_at` is close to the current time. Meters that have been retired from a system will show an `end_at` that doesn't change, and that eventually is far away from the current time.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiProductionMeterReadingsRequest
 */
-func (a *DefaultApiService) ProductionMeterReadings(ctx _context.Context, systemId int32) ApiProductionMeterReadingsRequest {
+func (a *DefaultApiService) ProductionMeterReadings(ctx context.Context, systemId int32) ApiProductionMeterReadingsRequest {
 	return ApiProductionMeterReadingsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1416,25 +1416,25 @@ func (a *DefaultApiService) ProductionMeterReadings(ctx _context.Context, system
 
 // Execute executes the request
 //  @return ProductionMeterReadingsResponse
-func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterReadingsRequest) (ProductionMeterReadingsResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterReadingsRequest) (*ProductionMeterReadingsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ProductionMeterReadingsResponse
+		localVarReturnValue  *ProductionMeterReadingsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ProductionMeterReadings")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/production_meter_readings"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -1484,15 +1484,15 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1550,7 +1550,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1561,7 +1561,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 }
 
 type ApiRgmStatsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -1584,7 +1584,7 @@ func (r ApiRgmStatsRequest) EndAt(endAt int64) ApiRgmStatsRequest {
 	return r
 }
 
-func (r ApiRgmStatsRequest) Execute() (RgmStatsResponse, *_nethttp.Response, error) {
+func (r ApiRgmStatsRequest) Execute() (*RgmStatsResponse, *http.Response, error) {
 	return r.ApiService.RgmStatsExecute(r)
 }
 
@@ -1601,11 +1601,11 @@ If the system doesn't have any revenue-grade meters installed, the response incl
 
 Under some conditions, data for a given period may be temporarily unavailable.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiRgmStatsRequest
 */
-func (a *DefaultApiService) RgmStats(ctx _context.Context, systemId int32) ApiRgmStatsRequest {
+func (a *DefaultApiService) RgmStats(ctx context.Context, systemId int32) ApiRgmStatsRequest {
 	return ApiRgmStatsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1615,25 +1615,25 @@ func (a *DefaultApiService) RgmStats(ctx _context.Context, systemId int32) ApiRg
 
 // Execute executes the request
 //  @return RgmStatsResponse
-func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStatsResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  RgmStatsResponse
+		localVarReturnValue  *RgmStatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.RgmStats")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/rgm_stats"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -1686,15 +1686,15 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStatsRespo
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1752,7 +1752,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStatsRespo
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1763,7 +1763,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (RgmStatsRespo
 }
 
 type ApiSearchSystemIdRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	serialNum *string
@@ -1779,7 +1779,7 @@ func (r ApiSearchSystemIdRequest) SerialNum(serialNum string) ApiSearchSystemIdR
 	return r
 }
 
-func (r ApiSearchSystemIdRequest) Execute() (SearchSystemIdResponse, *_nethttp.Response, error) {
+func (r ApiSearchSystemIdRequest) Execute() (*SearchSystemIdResponse, *http.Response, error) {
 	return r.ApiService.SearchSystemIdExecute(r)
 }
 
@@ -1788,10 +1788,10 @@ SearchSystemId Method for SearchSystemId
 
 Get system ID by envoy serial number.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchSystemIdRequest
 */
-func (a *DefaultApiService) SearchSystemId(ctx _context.Context) ApiSearchSystemIdRequest {
+func (a *DefaultApiService) SearchSystemId(ctx context.Context) ApiSearchSystemIdRequest {
 	return ApiSearchSystemIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1800,24 +1800,24 @@ func (a *DefaultApiService) SearchSystemId(ctx _context.Context) ApiSearchSystem
 
 // Execute executes the request
 //  @return SearchSystemIdResponse
-func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (SearchSystemIdResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*SearchSystemIdResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  SearchSystemIdResponse
+		localVarReturnValue  *SearchSystemIdResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SearchSystemId")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/search_system_id"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -1868,15 +1868,15 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (S
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1944,7 +1944,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (S
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1955,7 +1955,7 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (S
 }
 
 type ApiStatsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -1978,7 +1978,7 @@ func (r ApiStatsRequest) EndAt(endAt int64) ApiStatsRequest {
 	return r
 }
 
-func (r ApiStatsRequest) Execute() (StatsResponse, *_nethttp.Response, error) {
+func (r ApiStatsRequest) Execute() (*StatsResponse, *http.Response, error) {
 	return r.ApiService.StatsExecute(r)
 }
 
@@ -2000,11 +2000,11 @@ as well as the parameters used to process the request.
 
 If the system doesn't have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiStatsRequest
 */
-func (a *DefaultApiService) Stats(ctx _context.Context, systemId int32) ApiStatsRequest {
+func (a *DefaultApiService) Stats(ctx context.Context, systemId int32) ApiStatsRequest {
 	return ApiStatsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2014,25 +2014,25 @@ func (a *DefaultApiService) Stats(ctx _context.Context, systemId int32) ApiStats
 
 // Execute executes the request
 //  @return StatsResponse
-func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (StatsResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  StatsResponse
+		localVarReturnValue  *StatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Stats")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/stats"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -2085,15 +2085,15 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (StatsResponse, *_ne
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -2151,7 +2151,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (StatsResponse, *_ne
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -2162,7 +2162,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (StatsResponse, *_ne
 }
 
 type ApiSummaryRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	systemId int32
@@ -2179,7 +2179,7 @@ func (r ApiSummaryRequest) SummaryDate(summaryDate string) ApiSummaryRequest {
 	return r
 }
 
-func (r ApiSummaryRequest) Execute() (SummaryResponse, *_nethttp.Response, error) {
+func (r ApiSummaryRequest) Execute() (*SummaryResponse, *http.Response, error) {
 	return r.ApiService.SummaryExecute(r)
 }
 
@@ -2188,11 +2188,11 @@ Summary Method for Summary
 
 Returns summary information for the specified system.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId
  @return ApiSummaryRequest
 */
-func (a *DefaultApiService) Summary(ctx _context.Context, systemId int32) ApiSummaryRequest {
+func (a *DefaultApiService) Summary(ctx context.Context, systemId int32) ApiSummaryRequest {
 	return ApiSummaryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2202,25 +2202,25 @@ func (a *DefaultApiService) Summary(ctx _context.Context, systemId int32) ApiSum
 
 // Execute executes the request
 //  @return SummaryResponse
-func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (SummaryResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  SummaryResponse
+		localVarReturnValue  *SummaryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Summary")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/summary"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", _neturl.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -2270,15 +2270,15 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (SummaryResponse
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -2336,7 +2336,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (SummaryResponse
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -2347,7 +2347,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (SummaryResponse
 }
 
 type ApiSystemsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *DefaultApiService
 	userId *string
 	next *string
@@ -2427,7 +2427,7 @@ func (r ApiSystemsRequest) ConnectionType2(connectionType2 []ConnectionType) Api
 	return r
 }
 
-func (r ApiSystemsRequest) Execute() (SystemsResponse, *_nethttp.Response, error) {
+func (r ApiSystemsRequest) Execute() (*SystemsResponse, *http.Response, error) {
 	return r.ApiService.SystemsExecute(r)
 }
 
@@ -2437,10 +2437,10 @@ Systems Method for Systems
 Returns a list of systems for which the user can make API requests. There is a limit to the number of systems that can be returned at one time. If the first request does not return a full
 list, use the `next` attribute in the response body to request the next page of systems. By default, systems are returned in batches of 100. The maximum page size is 1000.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSystemsRequest
 */
-func (a *DefaultApiService) Systems(ctx _context.Context) ApiSystemsRequest {
+func (a *DefaultApiService) Systems(ctx context.Context) ApiSystemsRequest {
 	return ApiSystemsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2449,24 +2449,24 @@ func (a *DefaultApiService) Systems(ctx _context.Context) ApiSystemsRequest {
 
 // Execute executes the request
 //  @return SystemsResponse
-func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (SystemsResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  SystemsResponse
+		localVarReturnValue  *SystemsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.Systems")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/systems"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userId == nil {
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
@@ -2603,15 +2603,15 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (SystemsResponse
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -2669,7 +2669,7 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (SystemsResponse
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

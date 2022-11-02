@@ -83,11 +83,11 @@ func (o *ConflictError) GetMessage() []string {
 
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
-func (o *ConflictError) GetMessageOk() (*[]string, bool) {
+func (o *ConflictError) GetMessageOk() ([]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Message, true
+	return o.Message, true
 }
 
 // SetMessage sets field value
