@@ -46,7 +46,7 @@ endef
 generate/go: clean/go $(OPENAPICLI)
 	$(call generate,go,enlighten)
 	echo Updating go dependencies
-	cd ./go/enlighten; go get -u -v ./...; go mod tidy
+	cd ./go/enlighten; go get -u -v ./...; go mod tidy; go build
 
 generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
 	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten,useDateTimeOffset=true)
