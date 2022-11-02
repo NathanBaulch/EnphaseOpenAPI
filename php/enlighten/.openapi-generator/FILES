@@ -37,8 +37,8 @@ docs/Model/SummaryResponse.md
 docs/Model/SystemsResponse.md
 docs/Model/SystemsResponseSystems.md
 docs/Model/UnprocessableEntityError.md
-lib/ApiException.php
 lib/Api/DefaultApi.php
+lib/ApiException.php
 lib/HeaderSelector.php
 lib/Model/ClientError.php
 lib/Model/ConflictError.php
