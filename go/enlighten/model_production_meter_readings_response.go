@@ -17,7 +17,7 @@ import (
 // ProductionMeterReadingsResponse struct for ProductionMeterReadingsResponse
 type ProductionMeterReadingsResponse struct {
 	SystemId int32 `json:"system_id"`
-	MeterReadings []ProductionMeterReadingsResponseMeterReadings `json:"meter_readings"`
+	MeterReadings []ProductionMeterReadingsResponseMeterReadingsInner `json:"meter_readings"`
 	Meta Meta `json:"meta"`
 }
 
@@ -25,7 +25,7 @@ type ProductionMeterReadingsResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProductionMeterReadingsResponse(systemId int32, meterReadings []ProductionMeterReadingsResponseMeterReadings, meta Meta) *ProductionMeterReadingsResponse {
+func NewProductionMeterReadingsResponse(systemId int32, meterReadings []ProductionMeterReadingsResponseMeterReadingsInner, meta Meta) *ProductionMeterReadingsResponse {
 	this := ProductionMeterReadingsResponse{}
 	this.SystemId = systemId
 	this.MeterReadings = meterReadings
@@ -54,8 +54,8 @@ func (o *ProductionMeterReadingsResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -66,9 +66,9 @@ func (o *ProductionMeterReadingsResponse) SetSystemId(v int32) {
 }
 
 // GetMeterReadings returns the MeterReadings field value
-func (o *ProductionMeterReadingsResponse) GetMeterReadings() []ProductionMeterReadingsResponseMeterReadings {
+func (o *ProductionMeterReadingsResponse) GetMeterReadings() []ProductionMeterReadingsResponseMeterReadingsInner {
 	if o == nil {
-		var ret []ProductionMeterReadingsResponseMeterReadings
+		var ret []ProductionMeterReadingsResponseMeterReadingsInner
 		return ret
 	}
 
@@ -77,15 +77,15 @@ func (o *ProductionMeterReadingsResponse) GetMeterReadings() []ProductionMeterRe
 
 // GetMeterReadingsOk returns a tuple with the MeterReadings field value
 // and a boolean to check if the value has been set.
-func (o *ProductionMeterReadingsResponse) GetMeterReadingsOk() ([]ProductionMeterReadingsResponseMeterReadings, bool) {
-	if o == nil  {
-		return nil, false
+func (o *ProductionMeterReadingsResponse) GetMeterReadingsOk() ([]ProductionMeterReadingsResponseMeterReadingsInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.MeterReadings, true
 }
 
 // SetMeterReadings sets field value
-func (o *ProductionMeterReadingsResponse) SetMeterReadings(v []ProductionMeterReadingsResponseMeterReadings) {
+func (o *ProductionMeterReadingsResponse) SetMeterReadings(v []ProductionMeterReadingsResponseMeterReadingsInner) {
 	o.MeterReadings = v
 }
 
@@ -102,8 +102,8 @@ func (o *ProductionMeterReadingsResponse) GetMeta() Meta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponse) GetMetaOk() (*Meta, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Meta, true
 }

@@ -37,8 +37,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ConsumptionLifetimeResponse</returns>
-        ConsumptionLifetimeResponse ConsumptionLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?));
+        ConsumptionLifetimeResponse ConsumptionLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -51,8 +52,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ConsumptionLifetimeResponse</returns>
-        ApiResponse<ConsumptionLifetimeResponse> ConsumptionLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?));
+        ApiResponse<ConsumptionLifetimeResponse> ConsumptionLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -64,8 +66,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ConsumptionStatsResponse</returns>
-        ConsumptionStatsResponse ConsumptionStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
+        ConsumptionStatsResponse ConsumptionStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -78,8 +81,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ConsumptionStatsResponse</returns>
-        ApiResponse<ConsumptionStatsResponse> ConsumptionStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
+        ApiResponse<ConsumptionStatsResponse> ConsumptionStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -92,8 +96,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EnergyLifetimeResponse</returns>
-        EnergyLifetimeResponse EnergyLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string));
+        EnergyLifetimeResponse EnergyLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -107,8 +112,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EnergyLifetimeResponse</returns>
-        ApiResponse<EnergyLifetimeResponse> EnergyLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string));
+        ApiResponse<EnergyLifetimeResponse> EnergyLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +124,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EnvoysResponse</returns>
-        EnvoysResponse Envoys(string userId, int systemId);
+        EnvoysResponse Envoys(string userId, int systemId, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -130,8 +137,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EnvoysResponse</returns>
-        ApiResponse<EnvoysResponse> EnvoysWithHttpInfo(string userId, int systemId);
+        ApiResponse<EnvoysResponse> EnvoysWithHttpInfo(string userId, int systemId, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -141,8 +149,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InventoryResponse</returns>
-        InventoryResponse Inventory(string userId, int systemId);
+        InventoryResponse Inventory(string userId, int systemId, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -153,8 +162,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InventoryResponse</returns>
-        ApiResponse<InventoryResponse> InventoryWithHttpInfo(string userId, int systemId);
+        ApiResponse<InventoryResponse> InventoryWithHttpInfo(string userId, int systemId, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -164,8 +174,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;</returns>
-        List<InvertersSummaryByEnvoyOrSiteResponse> InvertersSummaryByEnvoyOrSite(string userId, int siteId);
+        List<InvertersSummaryByEnvoyOrSiteResponse> InvertersSummaryByEnvoyOrSite(string userId, int siteId, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -176,8 +187,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;</returns>
-        ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId);
+        ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -188,9 +200,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>MonthlyProductionResponse</returns>
         [Obsolete]
-        MonthlyProductionResponse MonthlyProduction(string userId, int systemId, DateTimeOffset startDate);
+        MonthlyProductionResponse MonthlyProduction(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -202,9 +215,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MonthlyProductionResponse</returns>
         [Obsolete]
-        ApiResponse<MonthlyProductionResponse> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTimeOffset startDate);
+        ApiResponse<MonthlyProductionResponse> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -215,8 +229,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductionMeterReadingsResponse</returns>
-        ProductionMeterReadingsResponse ProductionMeterReadings(string userId, int systemId, long? endAt = default(long?));
+        ProductionMeterReadingsResponse ProductionMeterReadings(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -228,8 +243,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductionMeterReadingsResponse</returns>
-        ApiResponse<ProductionMeterReadingsResponse> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, long? endAt = default(long?));
+        ApiResponse<ProductionMeterReadingsResponse> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -241,8 +257,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RgmStatsResponse</returns>
-        RgmStatsResponse RgmStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
+        RgmStatsResponse RgmStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -255,8 +272,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RgmStatsResponse</returns>
-        ApiResponse<RgmStatsResponse> RgmStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
+        ApiResponse<RgmStatsResponse> RgmStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -266,8 +284,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchSystemIdResponse</returns>
-        SearchSystemIdResponse SearchSystemId(string userId, string serialNum);
+        SearchSystemIdResponse SearchSystemId(string userId, string serialNum, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -278,8 +297,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchSystemIdResponse</returns>
-        ApiResponse<SearchSystemIdResponse> SearchSystemIdWithHttpInfo(string userId, string serialNum);
+        ApiResponse<SearchSystemIdResponse> SearchSystemIdWithHttpInfo(string userId, string serialNum, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -291,8 +311,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatsResponse</returns>
-        StatsResponse Stats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
+        StatsResponse Stats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -305,8 +326,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatsResponse</returns>
-        ApiResponse<StatsResponse> StatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?));
+        ApiResponse<StatsResponse> StatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -317,8 +339,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SummaryResponse</returns>
-        SummaryResponse Summary(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?));
+        SummaryResponse Summary(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -330,8 +353,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SummaryResponse</returns>
-        ApiResponse<SummaryResponse> SummaryWithHttpInfo(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?));
+        ApiResponse<SummaryResponse> SummaryWithHttpInfo(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -354,8 +378,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemsResponse</returns>
-        SystemsResponse Systems(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>));
+        SystemsResponse Systems(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -379,8 +404,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemsResponse</returns>
-        ApiResponse<SystemsResponse> SystemsWithHttpInfo(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>));
+        ApiResponse<SystemsResponse> SystemsWithHttpInfo(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -401,9 +427,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsumptionLifetimeResponse</returns>
-        System.Threading.Tasks.Task<ConsumptionLifetimeResponse> ConsumptionLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConsumptionLifetimeResponse> ConsumptionLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -416,9 +443,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsumptionLifetimeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConsumptionLifetimeResponse>> ConsumptionLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConsumptionLifetimeResponse>> ConsumptionLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -430,9 +458,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsumptionStatsResponse</returns>
-        System.Threading.Tasks.Task<ConsumptionStatsResponse> ConsumptionStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConsumptionStatsResponse> ConsumptionStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -445,9 +474,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsumptionStatsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConsumptionStatsResponse>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConsumptionStatsResponse>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -460,9 +490,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EnergyLifetimeResponse</returns>
-        System.Threading.Tasks.Task<EnergyLifetimeResponse> EnergyLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EnergyLifetimeResponse> EnergyLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -476,9 +507,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EnergyLifetimeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EnergyLifetimeResponse>> EnergyLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EnergyLifetimeResponse>> EnergyLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -488,9 +520,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EnvoysResponse</returns>
-        System.Threading.Tasks.Task<EnvoysResponse> EnvoysAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EnvoysResponse> EnvoysAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -501,9 +534,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EnvoysResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EnvoysResponse>> EnvoysWithHttpInfoAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EnvoysResponse>> EnvoysWithHttpInfoAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -513,9 +547,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InventoryResponse</returns>
-        System.Threading.Tasks.Task<InventoryResponse> InventoryAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InventoryResponse> InventoryAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -526,9 +561,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InventoryResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InventoryResponse>> InventoryWithHttpInfoAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InventoryResponse>> InventoryWithHttpInfoAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -538,9 +574,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;</returns>
-        System.Threading.Tasks.Task<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -551,9 +588,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -564,10 +602,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MonthlyProductionResponse</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<MonthlyProductionResponse> MonthlyProductionAsync(string userId, int systemId, DateTimeOffset startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MonthlyProductionResponse> MonthlyProductionAsync(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -579,10 +618,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MonthlyProductionResponse)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<MonthlyProductionResponse>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTimeOffset startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MonthlyProductionResponse>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -593,9 +633,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductionMeterReadingsResponse</returns>
-        System.Threading.Tasks.Task<ProductionMeterReadingsResponse> ProductionMeterReadingsAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductionMeterReadingsResponse> ProductionMeterReadingsAsync(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -607,9 +648,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductionMeterReadingsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductionMeterReadingsResponse>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductionMeterReadingsResponse>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -621,9 +663,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RgmStatsResponse</returns>
-        System.Threading.Tasks.Task<RgmStatsResponse> RgmStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RgmStatsResponse> RgmStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -636,9 +679,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RgmStatsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RgmStatsResponse>> RgmStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RgmStatsResponse>> RgmStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -648,9 +692,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchSystemIdResponse</returns>
-        System.Threading.Tasks.Task<SearchSystemIdResponse> SearchSystemIdAsync(string userId, string serialNum, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchSystemIdResponse> SearchSystemIdAsync(string userId, string serialNum, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -661,9 +706,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchSystemIdResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchSystemIdResponse>> SearchSystemIdWithHttpInfoAsync(string userId, string serialNum, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SearchSystemIdResponse>> SearchSystemIdWithHttpInfoAsync(string userId, string serialNum, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -675,9 +721,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatsResponse</returns>
-        System.Threading.Tasks.Task<StatsResponse> StatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StatsResponse> StatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -690,9 +737,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StatsResponse>> StatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StatsResponse>> StatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -703,9 +751,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SummaryResponse</returns>
-        System.Threading.Tasks.Task<SummaryResponse> SummaryAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SummaryResponse> SummaryAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -717,9 +766,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummaryResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SummaryResponse>> SummaryWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SummaryResponse>> SummaryWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -742,9 +792,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemsResponse</returns>
-        System.Threading.Tasks.Task<SystemsResponse> SystemsAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SystemsResponse> SystemsAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -768,9 +819,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SystemsResponse>> SystemsWithHttpInfoAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SystemsResponse>> SystemsWithHttpInfoAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -899,8 +951,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ConsumptionLifetimeResponse</returns>
-        public ConsumptionLifetimeResponse ConsumptionLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?))
+        public ConsumptionLifetimeResponse ConsumptionLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionLifetimeResponse> localVarResponse = ConsumptionLifetimeWithHttpInfo(userId, systemId, startDate, endDate);
             return localVarResponse.Data;
@@ -914,8 +967,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ConsumptionLifetimeResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionLifetimeResponse> ConsumptionLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionLifetimeResponse> ConsumptionLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -955,6 +1009,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_date", endDate));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.ConsumptionLifetime";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -984,11 +1041,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsumptionLifetimeResponse</returns>
-        public async System.Threading.Tasks.Task<ConsumptionLifetimeResponse> ConsumptionLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConsumptionLifetimeResponse> ConsumptionLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionLifetimeResponse> localVarResponse = await ConsumptionLifetimeWithHttpInfoAsync(userId, systemId, startDate, endDate, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionLifetimeResponse> localVarResponse = await ConsumptionLifetimeWithHttpInfoAsync(userId, systemId, startDate, endDate, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1000,9 +1058,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsumptionLifetimeResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionLifetimeResponse>> ConsumptionLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionLifetimeResponse>> ConsumptionLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1043,6 +1102,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_date", endDate));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.ConsumptionLifetime";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1073,8 +1135,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ConsumptionStatsResponse</returns>
-        public ConsumptionStatsResponse ConsumptionStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
+        public ConsumptionStatsResponse ConsumptionStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStatsResponse> localVarResponse = ConsumptionStatsWithHttpInfo(userId, systemId, startAt, endAt);
             return localVarResponse.Data;
@@ -1088,8 +1151,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ConsumptionStatsResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStatsResponse> ConsumptionStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStatsResponse> ConsumptionStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1129,6 +1193,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.ConsumptionStats";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1158,11 +1225,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsumptionStatsResponse</returns>
-        public async System.Threading.Tasks.Task<ConsumptionStatsResponse> ConsumptionStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConsumptionStatsResponse> ConsumptionStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStatsResponse> localVarResponse = await ConsumptionStatsWithHttpInfoAsync(userId, systemId, startAt, endAt, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStatsResponse> localVarResponse = await ConsumptionStatsWithHttpInfoAsync(userId, systemId, startAt, endAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1174,9 +1242,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsumptionStatsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStatsResponse>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ConsumptionStatsResponse>> ConsumptionStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1217,6 +1286,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.ConsumptionStats";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1248,8 +1320,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EnergyLifetimeResponse</returns>
-        public EnergyLifetimeResponse EnergyLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string))
+        public EnergyLifetimeResponse EnergyLifetime(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnergyLifetimeResponse> localVarResponse = EnergyLifetimeWithHttpInfo(userId, systemId, startDate, endDate, production);
             return localVarResponse.Data;
@@ -1264,8 +1337,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EnergyLifetimeResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnergyLifetimeResponse> EnergyLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnergyLifetimeResponse> EnergyLifetimeWithHttpInfo(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1309,6 +1383,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "production", production));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.EnergyLifetime";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1339,11 +1416,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EnergyLifetimeResponse</returns>
-        public async System.Threading.Tasks.Task<EnergyLifetimeResponse> EnergyLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnergyLifetimeResponse> EnergyLifetimeAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnergyLifetimeResponse> localVarResponse = await EnergyLifetimeWithHttpInfoAsync(userId, systemId, startDate, endDate, production, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnergyLifetimeResponse> localVarResponse = await EnergyLifetimeWithHttpInfoAsync(userId, systemId, startDate, endDate, production, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1356,9 +1434,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="startDate">The date on which to start the time series. Defaults to the system&#39;s operational date. (optional)</param>
         /// <param name="endDate">The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. (optional)</param>
         /// <param name="production">When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EnergyLifetimeResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnergyLifetimeResponse>> EnergyLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnergyLifetimeResponse>> EnergyLifetimeWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? endDate = default(DateTimeOffset?), string production = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1404,6 +1483,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "production", production));
             }
 
+            localVarRequestOptions.Operation = "DefaultApi.EnergyLifetime";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
@@ -1431,8 +1513,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EnvoysResponse</returns>
-        public EnvoysResponse Envoys(string userId, int systemId)
+        public EnvoysResponse Envoys(string userId, int systemId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnvoysResponse> localVarResponse = EnvoysWithHttpInfo(userId, systemId);
             return localVarResponse.Data;
@@ -1444,8 +1527,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EnvoysResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnvoysResponse> EnvoysWithHttpInfo(string userId, int systemId)
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnvoysResponse> EnvoysWithHttpInfo(string userId, int systemId, int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1477,6 +1561,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
+
+            localVarRequestOptions.Operation = "DefaultApi.Envoys";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1504,11 +1591,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EnvoysResponse</returns>
-        public async System.Threading.Tasks.Task<EnvoysResponse> EnvoysAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnvoysResponse> EnvoysAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnvoysResponse> localVarResponse = await EnvoysWithHttpInfoAsync(userId, systemId, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnvoysResponse> localVarResponse = await EnvoysWithHttpInfoAsync(userId, systemId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1518,9 +1606,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EnvoysResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnvoysResponse>> EnvoysWithHttpInfoAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<EnvoysResponse>> EnvoysWithHttpInfoAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1553,6 +1642,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
+
+            localVarRequestOptions.Operation = "DefaultApi.Envoys";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1581,8 +1673,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InventoryResponse</returns>
-        public InventoryResponse Inventory(string userId, int systemId)
+        public InventoryResponse Inventory(string userId, int systemId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<InventoryResponse> localVarResponse = InventoryWithHttpInfo(userId, systemId);
             return localVarResponse.Data;
@@ -1594,8 +1687,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InventoryResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<InventoryResponse> InventoryWithHttpInfo(string userId, int systemId)
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<InventoryResponse> InventoryWithHttpInfo(string userId, int systemId, int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1627,6 +1721,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
+
+            localVarRequestOptions.Operation = "DefaultApi.Inventory";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1654,11 +1751,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InventoryResponse</returns>
-        public async System.Threading.Tasks.Task<InventoryResponse> InventoryAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InventoryResponse> InventoryAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<InventoryResponse> localVarResponse = await InventoryWithHttpInfoAsync(userId, systemId, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<InventoryResponse> localVarResponse = await InventoryWithHttpInfoAsync(userId, systemId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1668,9 +1766,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InventoryResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<InventoryResponse>> InventoryWithHttpInfoAsync(string userId, int systemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<InventoryResponse>> InventoryWithHttpInfoAsync(string userId, int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1703,6 +1802,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
+
+            localVarRequestOptions.Operation = "DefaultApi.Inventory";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1731,8 +1833,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;</returns>
-        public List<InvertersSummaryByEnvoyOrSiteResponse> InvertersSummaryByEnvoyOrSite(string userId, int siteId)
+        public List<InvertersSummaryByEnvoyOrSiteResponse> InvertersSummaryByEnvoyOrSite(string userId, int siteId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> localVarResponse = InvertersSummaryByEnvoyOrSiteWithHttpInfo(userId, siteId);
             return localVarResponse.Data;
@@ -1744,8 +1847,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId)
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteWithHttpInfo(string userId, int siteId, int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1777,6 +1881,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "site_id", siteId));
+
+            localVarRequestOptions.Operation = "DefaultApi.InvertersSummaryByEnvoyOrSite";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1804,11 +1911,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InvertersSummaryByEnvoyOrSiteResponse>> InvertersSummaryByEnvoyOrSiteAsync(string userId, int siteId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> localVarResponse = await InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(userId, siteId, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> localVarResponse = await InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(userId, siteId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1818,9 +1926,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="siteId">The identifier of the system.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt;)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>>> InvertersSummaryByEnvoyOrSiteWithHttpInfoAsync(string userId, int siteId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1853,6 +1962,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "site_id", siteId));
+
+            localVarRequestOptions.Operation = "DefaultApi.InvertersSummaryByEnvoyOrSite";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1882,9 +1994,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>MonthlyProductionResponse</returns>
         [Obsolete]
-        public MonthlyProductionResponse MonthlyProduction(string userId, int systemId, DateTimeOffset startDate)
+        public MonthlyProductionResponse MonthlyProduction(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProductionResponse> localVarResponse = MonthlyProductionWithHttpInfo(userId, systemId, startDate);
             return localVarResponse.Data;
@@ -1897,9 +2010,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MonthlyProductionResponse</returns>
         [Obsolete]
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProductionResponse> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTimeOffset startDate)
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProductionResponse> MonthlyProductionWithHttpInfo(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1932,6 +2046,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
+
+            localVarRequestOptions.Operation = "DefaultApi.MonthlyProduction";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -1960,12 +2077,13 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MonthlyProductionResponse</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<MonthlyProductionResponse> MonthlyProductionAsync(string userId, int systemId, DateTimeOffset startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MonthlyProductionResponse> MonthlyProductionAsync(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProductionResponse> localVarResponse = await MonthlyProductionWithHttpInfoAsync(userId, systemId, startDate, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProductionResponse> localVarResponse = await MonthlyProductionWithHttpInfoAsync(userId, systemId, startDate, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1976,10 +2094,11 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="startDate">Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MonthlyProductionResponse)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProductionResponse>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTimeOffset startDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<MonthlyProductionResponse>> MonthlyProductionWithHttpInfoAsync(string userId, int systemId, DateTimeOffset startDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2013,6 +2132,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToString(systemId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "start_date", startDate));
+
+            localVarRequestOptions.Operation = "DefaultApi.MonthlyProduction";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2042,8 +2164,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductionMeterReadingsResponse</returns>
-        public ProductionMeterReadingsResponse ProductionMeterReadings(string userId, int systemId, long? endAt = default(long?))
+        public ProductionMeterReadingsResponse ProductionMeterReadings(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadingsResponse> localVarResponse = ProductionMeterReadingsWithHttpInfo(userId, systemId, endAt);
             return localVarResponse.Data;
@@ -2056,8 +2179,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductionMeterReadingsResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadingsResponse> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, long? endAt = default(long?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadingsResponse> ProductionMeterReadingsWithHttpInfo(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2093,6 +2217,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.ProductionMeterReadings";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2121,11 +2248,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductionMeterReadingsResponse</returns>
-        public async System.Threading.Tasks.Task<ProductionMeterReadingsResponse> ProductionMeterReadingsAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductionMeterReadingsResponse> ProductionMeterReadingsAsync(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadingsResponse> localVarResponse = await ProductionMeterReadingsWithHttpInfoAsync(userId, systemId, endAt, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadingsResponse> localVarResponse = await ProductionMeterReadingsWithHttpInfoAsync(userId, systemId, endAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2136,9 +2264,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="endAt"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductionMeterReadingsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadingsResponse>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<ProductionMeterReadingsResponse>> ProductionMeterReadingsWithHttpInfoAsync(string userId, int systemId, long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2175,6 +2304,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.ProductionMeterReadings";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2205,8 +2337,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RgmStatsResponse</returns>
-        public RgmStatsResponse RgmStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
+        public RgmStatsResponse RgmStats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStatsResponse> localVarResponse = RgmStatsWithHttpInfo(userId, systemId, startAt, endAt);
             return localVarResponse.Data;
@@ -2220,8 +2353,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RgmStatsResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStatsResponse> RgmStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStatsResponse> RgmStatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2261,6 +2395,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.RgmStats";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2290,11 +2427,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RgmStatsResponse</returns>
-        public async System.Threading.Tasks.Task<RgmStatsResponse> RgmStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RgmStatsResponse> RgmStatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStatsResponse> localVarResponse = await RgmStatsWithHttpInfoAsync(userId, systemId, startAt, endAt, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStatsResponse> localVarResponse = await RgmStatsWithHttpInfoAsync(userId, systemId, startAt, endAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2306,9 +2444,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RgmStatsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStatsResponse>> RgmStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<RgmStatsResponse>> RgmStatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2350,6 +2489,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
 
+            localVarRequestOptions.Operation = "DefaultApi.RgmStats";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
@@ -2377,8 +2519,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchSystemIdResponse</returns>
-        public SearchSystemIdResponse SearchSystemId(string userId, string serialNum)
+        public SearchSystemIdResponse SearchSystemId(string userId, string serialNum, int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<SearchSystemIdResponse> localVarResponse = SearchSystemIdWithHttpInfo(userId, serialNum);
             return localVarResponse.Data;
@@ -2390,8 +2533,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchSystemIdResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<SearchSystemIdResponse> SearchSystemIdWithHttpInfo(string userId, string serialNum)
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<SearchSystemIdResponse> SearchSystemIdWithHttpInfo(string userId, string serialNum, int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2429,6 +2573,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "serial_num", serialNum));
+
+            localVarRequestOptions.Operation = "DefaultApi.SearchSystemId";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2456,11 +2603,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchSystemIdResponse</returns>
-        public async System.Threading.Tasks.Task<SearchSystemIdResponse> SearchSystemIdAsync(string userId, string serialNum, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchSystemIdResponse> SearchSystemIdAsync(string userId, string serialNum, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<SearchSystemIdResponse> localVarResponse = await SearchSystemIdWithHttpInfoAsync(userId, serialNum, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<SearchSystemIdResponse> localVarResponse = await SearchSystemIdWithHttpInfoAsync(userId, serialNum, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2470,9 +2618,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <exception cref="EnphaseOpenAPI.Enlighten.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="serialNum">Serial number of the envoy.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchSystemIdResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<SearchSystemIdResponse>> SearchSystemIdWithHttpInfoAsync(string userId, string serialNum, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<SearchSystemIdResponse>> SearchSystemIdWithHttpInfoAsync(string userId, string serialNum, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2511,6 +2660,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
 
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "user_id", userId));
             localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "serial_num", serialNum));
+
+            localVarRequestOptions.Operation = "DefaultApi.SearchSystemId";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2541,8 +2693,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatsResponse</returns>
-        public StatsResponse Stats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
+        public StatsResponse Stats(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<StatsResponse> localVarResponse = StatsWithHttpInfo(userId, systemId, startAt, endAt);
             return localVarResponse.Data;
@@ -2556,8 +2709,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatsResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<StatsResponse> StatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<StatsResponse> StatsWithHttpInfo(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2597,6 +2751,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.Stats";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2626,11 +2783,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatsResponse</returns>
-        public async System.Threading.Tasks.Task<StatsResponse> StatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StatsResponse> StatsAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<StatsResponse> localVarResponse = await StatsWithHttpInfoAsync(userId, systemId, startAt, endAt, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<StatsResponse> localVarResponse = await StatsWithHttpInfoAsync(userId, systemId, startAt, endAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2642,9 +2800,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="systemId"></param>
         /// <param name="startAt">Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. (optional)</param>
         /// <param name="endAt">End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<StatsResponse>> StatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<StatsResponse>> StatsWithHttpInfoAsync(string userId, int systemId, long? startAt = default(long?), long? endAt = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2686,6 +2845,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "end_at", endAt));
             }
 
+            localVarRequestOptions.Operation = "DefaultApi.Stats";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
             {
@@ -2714,8 +2876,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SummaryResponse</returns>
-        public SummaryResponse Summary(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?))
+        public SummaryResponse Summary(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<SummaryResponse> localVarResponse = SummaryWithHttpInfo(userId, systemId, summaryDate);
             return localVarResponse.Data;
@@ -2728,8 +2891,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SummaryResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<SummaryResponse> SummaryWithHttpInfo(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<SummaryResponse> SummaryWithHttpInfo(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2765,6 +2929,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "summary_date", summaryDate));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.Summary";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2793,11 +2960,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SummaryResponse</returns>
-        public async System.Threading.Tasks.Task<SummaryResponse> SummaryAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SummaryResponse> SummaryAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<SummaryResponse> localVarResponse = await SummaryWithHttpInfoAsync(userId, systemId, summaryDate, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<SummaryResponse> localVarResponse = await SummaryWithHttpInfoAsync(userId, systemId, summaryDate, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2808,9 +2976,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="userId"></param>
         /// <param name="systemId"></param>
         /// <param name="summaryDate">Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummaryResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<SummaryResponse>> SummaryWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<SummaryResponse>> SummaryWithHttpInfoAsync(string userId, int systemId, DateTimeOffset? summaryDate = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2847,6 +3016,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("", "summary_date", summaryDate));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.Summary";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -2888,8 +3060,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemsResponse</returns>
-        public SystemsResponse Systems(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>))
+        public SystemsResponse Systems(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0)
         {
             EnphaseOpenAPI.Enlighten.Client.ApiResponse<SystemsResponse> localVarResponse = SystemsWithHttpInfo(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2);
             return localVarResponse.Data;
@@ -2914,8 +3087,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemsResponse</returns>
-        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<SystemsResponse> SystemsWithHttpInfo(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>))
+        public EnphaseOpenAPI.Enlighten.Client.ApiResponse<SystemsResponse> SystemsWithHttpInfo(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3002,6 +3176,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("multi", "connection_type[]", connectionType2));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.Systems";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
@@ -3042,11 +3219,12 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemsResponse</returns>
-        public async System.Threading.Tasks.Task<SystemsResponse> SystemsAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SystemsResponse> SystemsAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Enlighten.Client.ApiResponse<SystemsResponse> localVarResponse = await SystemsWithHttpInfoAsync(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Enlighten.Client.ApiResponse<SystemsResponse> localVarResponse = await SystemsWithHttpInfoAsync(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3069,9 +3247,10 @@ namespace EnphaseOpenAPI.Enlighten.Api
         /// <param name="installer2"> (optional)</param>
         /// <param name="connectionType"> (optional)</param>
         /// <param name="connectionType2"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<SystemsResponse>> SystemsWithHttpInfoAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Enlighten.Client.ApiResponse<SystemsResponse>> SystemsWithHttpInfoAsync(string userId, string next = default(string), int? limit = default(int?), int? systemId = default(int?), List<int> systemId2 = default(List<int>), string systemName = default(string), List<string> systemName2 = default(List<string>), Status? status = default(Status?), List<Status> status2 = default(List<Status>), string reference = default(string), List<string> reference2 = default(List<string>), string installer = default(string), List<string> installer2 = default(List<string>), ConnectionType? connectionType = default(ConnectionType?), List<ConnectionType> connectionType2 = default(List<ConnectionType>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3159,6 +3338,9 @@ namespace EnphaseOpenAPI.Enlighten.Api
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Enlighten.Client.ClientUtils.ParameterToMultiMap("multi", "connection_type[]", connectionType2));
             }
+
+            localVarRequestOptions.Operation = "DefaultApi.Systems";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (ApiKey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))

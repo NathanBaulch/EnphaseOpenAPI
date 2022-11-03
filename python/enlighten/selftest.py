@@ -6,8 +6,7 @@ import ratelimit
 from dateutil.relativedelta import relativedelta
 
 import enlighten
-from enlighten import errors
-from enlighten.api import default_api
+from enlighten import api_client, errors
 from enlighten.exceptions import ApiException
 from enlighten.model.client_error import ClientError
 from enlighten.model.not_found_error import NotFoundError
@@ -24,7 +23,7 @@ cfg.debug = True
 with enlighten.ApiClient(cfg) as cli:
     cli.call_api = ratelimit.sleep_and_retry(ratelimit.limits(calls=10, period=60)(cli.call_api))
     errors.fix(cli)
-    api = default_api.DefaultApi(cli)
+    api = api_client.ApiClient(cli)
 
     start_date = date.today() - relativedelta(months=1)
     end_date = date.today() - relativedelta(weeks=3)

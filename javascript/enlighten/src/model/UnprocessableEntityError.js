@@ -78,8 +78,32 @@ class UnprocessableEntityError {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>UnprocessableEntityError</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>UnprocessableEntityError</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['reason'] && !(typeof data['reason'] === 'string' || data['reason'] instanceof String)) {
+            throw new Error("Expected the field `reason` to be a primitive type in the JSON string but got " + data['reason']);
+        }
+        // ensure the json data is a string
+        if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
+            throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['errorMessages'])) {
+            throw new Error("Expected the field `errorMessages` to be an array in the JSON data but got " + data['errorMessages']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} reason

@@ -57,13 +57,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Indicates whether the production of this system is measured by its microinverters (&#x60;microinverters&#x60;) or by revenue-grade meters (&#x60;meter&#x60;) installed on the system.
         /// </summary>
         /// <value>Indicates whether the production of this system is measured by its microinverters (&#x60;microinverters&#x60;) or by revenue-grade meters (&#x60;meter&#x60;) installed on the system.</value>
-        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
         public SourceEnum Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public Status Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SummaryResponse" /> class.
@@ -105,63 +105,63 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Current power production, in Watts. For historical requests, returns 0.
         /// </summary>
         /// <value>Current power production, in Watts. For historical requests, returns 0.</value>
-        [DataMember(Name = "current_power", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "current_power", IsRequired = true, EmitDefaultValue = true)]
         public int CurrentPower { get; set; }
 
         /// <summary>
         /// Energy produced in the lifetime of the system, excluding the requested day, in Watt-hours.
         /// </summary>
         /// <value>Energy produced in the lifetime of the system, excluding the requested day, in Watt-hours.</value>
-        [DataMember(Name = "energy_lifetime", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "energy_lifetime", IsRequired = true, EmitDefaultValue = true)]
         public int EnergyLifetime { get; set; }
 
         /// <summary>
         /// Energy produced on the requested day, in Watt-hours.
         /// </summary>
         /// <value>Energy produced on the requested day, in Watt-hours.</value>
-        [DataMember(Name = "energy_today", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "energy_today", IsRequired = true, EmitDefaultValue = true)]
         public int EnergyToday { get; set; }
 
         /// <summary>
         /// The last known time that the system produced energy. When a system has not been communicating for a length of time, the &#x60;last_report_at&#x60; can be recent, whereas the &#x60;last_interval_end_at&#x60; may be further back.
         /// </summary>
         /// <value>The last known time that the system produced energy. When a system has not been communicating for a length of time, the &#x60;last_report_at&#x60; can be recent, whereas the &#x60;last_interval_end_at&#x60; may be further back.</value>
-        [DataMember(Name = "last_interval_end_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "last_interval_end_at", IsRequired = true, EmitDefaultValue = true)]
         public long LastIntervalEndAt { get; set; }
 
         /// <summary>
         /// The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).
         /// </summary>
         /// <value>The last time an Envoy on this system reported. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
-        [DataMember(Name = "last_report_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "last_report_at", IsRequired = true, EmitDefaultValue = true)]
         public long LastReportAt { get; set; }
 
         /// <summary>
         /// Number of active (not retired) modules. For historical requests, returns 0.
         /// </summary>
         /// <value>Number of active (not retired) modules. For historical requests, returns 0.</value>
-        [DataMember(Name = "modules", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "modules", IsRequired = true, EmitDefaultValue = true)]
         public int Modules { get; set; }
 
         /// <summary>
         /// The time at which this system became operational. Corresponds to the system&#39;s interconnect time, if one is specified. Otherwise, it is the system&#39;s first interval end time. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).
         /// </summary>
         /// <value>The time at which this system became operational. Corresponds to the system&#39;s interconnect time, if one is specified. Otherwise, it is the system&#39;s first interval end time. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
-        [DataMember(Name = "operational_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "operational_at", IsRequired = true, EmitDefaultValue = true)]
         public long OperationalAt { get; set; }
 
         /// <summary>
         /// The size of the system, in Watts. For historical requests, returns 0.
         /// </summary>
         /// <value>The size of the system, in Watts. For historical requests, returns 0.</value>
-        [DataMember(Name = "size_w", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "size_w", IsRequired = true, EmitDefaultValue = true)]
         public int SizeW { get; set; }
 
         /// <summary>
         /// Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).
         /// </summary>
         /// <value>Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
-        [DataMember(Name = "summary_date", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "summary_date", IsRequired = true, EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTimeOffset SummaryDate { get; set; }
 
@@ -169,7 +169,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// The Enlighten ID of the system.
         /// </summary>
         /// <value>The Enlighten ID of the system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>

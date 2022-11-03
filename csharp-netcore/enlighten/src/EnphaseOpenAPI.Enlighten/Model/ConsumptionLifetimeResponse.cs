@@ -47,12 +47,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.StartDate = startDate;
             // to ensure "consumption" is required (not null)
-            if (consumption == null) {
+            if (consumption == null)
+            {
                 throw new ArgumentNullException("consumption is a required property for ConsumptionLifetimeResponse and cannot be null");
             }
             this.Consumption = consumption;
             // to ensure "meta" is required (not null)
-            if (meta == null) {
+            if (meta == null)
+            {
                 throw new ArgumentNullException("meta is a required property for ConsumptionLifetimeResponse and cannot be null");
             }
             this.Meta = meta;
@@ -63,7 +65,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response.
         /// </summary>
         /// <value>When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response.</value>
-        [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTimeOffset StartDate { get; set; }
 
@@ -78,13 +80,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period.
         /// </summary>
         /// <value>An array of consumption measurements, one for each day since consumption metering began, or one for each day of the requested period.</value>
-        [DataMember(Name = "consumption", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "consumption", IsRequired = true, EmitDefaultValue = true)]
         public List<int> Consumption { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = true)]
         public Meta Meta { get; set; }
 
         /// <summary>

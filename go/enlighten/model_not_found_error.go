@@ -52,8 +52,8 @@ func (o *NotFoundError) GetReason() string {
 // GetReasonOk returns a tuple with the Reason field value
 // and a boolean to check if the value has been set.
 func (o *NotFoundError) GetReasonOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Reason, true
 }
@@ -65,7 +65,7 @@ func (o *NotFoundError) SetReason(v string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *NotFoundError) GetMessage() []string {
-	if o == nil || o.Message == nil {
+	if o == nil || isNil(o.Message) {
 		var ret []string
 		return ret
 	}
@@ -75,15 +75,15 @@ func (o *NotFoundError) GetMessage() []string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotFoundError) GetMessageOk() ([]string, bool) {
-	if o == nil || o.Message == nil {
-		return nil, false
+	if o == nil || isNil(o.Message) {
+    return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *NotFoundError) HasMessage() bool {
-	if o != nil && o.Message != nil {
+	if o != nil && !isNil(o.Message) {
 		return true
 	}
 
@@ -97,7 +97,7 @@ func (o *NotFoundError) SetMessage(v []string) {
 
 // GetErrorMessages returns the ErrorMessages field value if set, zero value otherwise.
 func (o *NotFoundError) GetErrorMessages() []string {
-	if o == nil || o.ErrorMessages == nil {
+	if o == nil || isNil(o.ErrorMessages) {
 		var ret []string
 		return ret
 	}
@@ -107,15 +107,15 @@ func (o *NotFoundError) GetErrorMessages() []string {
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotFoundError) GetErrorMessagesOk() ([]string, bool) {
-	if o == nil || o.ErrorMessages == nil {
-		return nil, false
+	if o == nil || isNil(o.ErrorMessages) {
+    return nil, false
 	}
 	return o.ErrorMessages, true
 }
 
 // HasErrorMessages returns a boolean if a field has been set.
 func (o *NotFoundError) HasErrorMessages() bool {
-	if o != nil && o.ErrorMessages != nil {
+	if o != nil && !isNil(o.ErrorMessages) {
 		return true
 	}
 
@@ -132,10 +132,10 @@ func (o NotFoundError) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["reason"] = o.Reason
 	}
-	if o.Message != nil {
+	if !isNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if o.ErrorMessages != nil {
+	if !isNil(o.ErrorMessages) {
 		toSerialize["errorMessages"] = o.ErrorMessages
 	}
 	return json.Marshal(toSerialize)

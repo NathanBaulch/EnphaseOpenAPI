@@ -9,8 +9,8 @@ Please note that the Enlighten Systems API does not provide performance data at 
 
 ### Requirements
 
-PHP 7.3 and later.
-Should also work with PHP 8.0 but has not been tested.
+PHP 7.4 and later.
+Should also work with PHP 8.0.
 
 ### Composer
 
@@ -104,35 +104,35 @@ Class | Method | HTTP request | Description
 - [ConnectionType](docs/Model/ConnectionType.md)
 - [ConsumptionLifetimeResponse](docs/Model/ConsumptionLifetimeResponse.md)
 - [ConsumptionStatsResponse](docs/Model/ConsumptionStatsResponse.md)
-- [ConsumptionStatsResponseIntervals](docs/Model/ConsumptionStatsResponseIntervals.md)
+- [ConsumptionStatsResponseIntervalsInner](docs/Model/ConsumptionStatsResponseIntervalsInner.md)
 - [EnergyLifetimeResponse](docs/Model/EnergyLifetimeResponse.md)
 - [EnvoysResponse](docs/Model/EnvoysResponse.md)
-- [EnvoysResponseEnvoys](docs/Model/EnvoysResponseEnvoys.md)
+- [EnvoysResponseEnvoysInner](docs/Model/EnvoysResponseEnvoysInner.md)
 - [InventoryResponse](docs/Model/InventoryResponse.md)
-- [InventoryResponseEnvoys](docs/Model/InventoryResponseEnvoys.md)
-- [InventoryResponseMeters](docs/Model/InventoryResponseMeters.md)
+- [InventoryResponseEnvoysInner](docs/Model/InventoryResponseEnvoysInner.md)
+- [InventoryResponseMetersInner](docs/Model/InventoryResponseMetersInner.md)
 - [InvertersSummaryByEnvoyOrSiteResponse](docs/Model/InvertersSummaryByEnvoyOrSiteResponse.md)
-- [InvertersSummaryByEnvoyOrSiteResponseEnergy](docs/Model/InvertersSummaryByEnvoyOrSiteResponseEnergy.md)
-- [InvertersSummaryByEnvoyOrSiteResponseMicroInverters](docs/Model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md)
-- [InvertersSummaryByEnvoyOrSiteResponsePowerProduced](docs/Model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md)
+- [InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner](docs/Model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner.md)
+- [InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy](docs/Model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy.md)
+- [InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced](docs/Model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced.md)
 - [Meta](docs/Model/Meta.md)
 - [MonthlyProductionResponse](docs/Model/MonthlyProductionResponse.md)
-- [MonthlyProductionResponseMeterReadings](docs/Model/MonthlyProductionResponseMeterReadings.md)
+- [MonthlyProductionResponseMeterReadingsInner](docs/Model/MonthlyProductionResponseMeterReadingsInner.md)
 - [NotFoundError](docs/Model/NotFoundError.md)
 - [ProductionMeterReadingsResponse](docs/Model/ProductionMeterReadingsResponse.md)
-- [ProductionMeterReadingsResponseMeterReadings](docs/Model/ProductionMeterReadingsResponseMeterReadings.md)
+- [ProductionMeterReadingsResponseMeterReadingsInner](docs/Model/ProductionMeterReadingsResponseMeterReadingsInner.md)
 - [RgmStatsResponse](docs/Model/RgmStatsResponse.md)
-- [RgmStatsResponseIntervals](docs/Model/RgmStatsResponseIntervals.md)
-- [RgmStatsResponseIntervals1](docs/Model/RgmStatsResponseIntervals1.md)
-- [RgmStatsResponseMeterIntervals](docs/Model/RgmStatsResponseMeterIntervals.md)
+- [RgmStatsResponseIntervalsInner](docs/Model/RgmStatsResponseIntervalsInner.md)
+- [RgmStatsResponseMeterIntervalsInner](docs/Model/RgmStatsResponseMeterIntervalsInner.md)
+- [RgmStatsResponseMeterIntervalsInnerIntervalsInner](docs/Model/RgmStatsResponseMeterIntervalsInnerIntervalsInner.md)
 - [SearchSystemIdResponse](docs/Model/SearchSystemIdResponse.md)
 - [ServerError](docs/Model/ServerError.md)
 - [StatsResponse](docs/Model/StatsResponse.md)
-- [StatsResponseIntervals](docs/Model/StatsResponseIntervals.md)
+- [StatsResponseIntervalsInner](docs/Model/StatsResponseIntervalsInner.md)
 - [Status](docs/Model/Status.md)
 - [SummaryResponse](docs/Model/SummaryResponse.md)
 - [SystemsResponse](docs/Model/SystemsResponse.md)
-- [SystemsResponseSystems](docs/Model/SystemsResponseSystems.md)
+- [SystemsResponseSystemsInner](docs/Model/SystemsResponseSystemsInner.md)
 - [UnprocessableEntityError](docs/Model/UnprocessableEntityError.md)
 
 ## Authorization

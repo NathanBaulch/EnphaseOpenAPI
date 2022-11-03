@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**systems** | [**[SystemsResponseSystems]**](SystemsResponseSystems.md) |  | 
+**systems** | [**[SystemsResponseSystemsInner]**](SystemsResponseSystemsInner.md) |  | 
 **next** | **String** |  | [optional] 
 
 

@@ -63,8 +63,8 @@ func (o *EnergyLifetimeResponse) GetStartDate() string {
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetStartDateOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.StartDate, true
 }
@@ -87,8 +87,8 @@ func (o *EnergyLifetimeResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -111,8 +111,8 @@ func (o *EnergyLifetimeResponse) GetProduction() []int32 {
 // GetProductionOk returns a tuple with the Production field value
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetProductionOk() ([]int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return o.Production, true
 }
@@ -124,7 +124,7 @@ func (o *EnergyLifetimeResponse) SetProduction(v []int32) {
 
 // GetMicroProduction returns the MicroProduction field value if set, zero value otherwise.
 func (o *EnergyLifetimeResponse) GetMicroProduction() []int32 {
-	if o == nil || o.MicroProduction == nil {
+	if o == nil || isNil(o.MicroProduction) {
 		var ret []int32
 		return ret
 	}
@@ -134,15 +134,15 @@ func (o *EnergyLifetimeResponse) GetMicroProduction() []int32 {
 // GetMicroProductionOk returns a tuple with the MicroProduction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMicroProductionOk() ([]int32, bool) {
-	if o == nil || o.MicroProduction == nil {
-		return nil, false
+	if o == nil || isNil(o.MicroProduction) {
+    return nil, false
 	}
 	return o.MicroProduction, true
 }
 
 // HasMicroProduction returns a boolean if a field has been set.
 func (o *EnergyLifetimeResponse) HasMicroProduction() bool {
-	if o != nil && o.MicroProduction != nil {
+	if o != nil && !isNil(o.MicroProduction) {
 		return true
 	}
 
@@ -156,7 +156,7 @@ func (o *EnergyLifetimeResponse) SetMicroProduction(v []int32) {
 
 // GetMeterProduction returns the MeterProduction field value if set, zero value otherwise.
 func (o *EnergyLifetimeResponse) GetMeterProduction() []int32 {
-	if o == nil || o.MeterProduction == nil {
+	if o == nil || isNil(o.MeterProduction) {
 		var ret []int32
 		return ret
 	}
@@ -166,15 +166,15 @@ func (o *EnergyLifetimeResponse) GetMeterProduction() []int32 {
 // GetMeterProductionOk returns a tuple with the MeterProduction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMeterProductionOk() ([]int32, bool) {
-	if o == nil || o.MeterProduction == nil {
-		return nil, false
+	if o == nil || isNil(o.MeterProduction) {
+    return nil, false
 	}
 	return o.MeterProduction, true
 }
 
 // HasMeterProduction returns a boolean if a field has been set.
 func (o *EnergyLifetimeResponse) HasMeterProduction() bool {
-	if o != nil && o.MeterProduction != nil {
+	if o != nil && !isNil(o.MeterProduction) {
 		return true
 	}
 
@@ -188,7 +188,7 @@ func (o *EnergyLifetimeResponse) SetMeterProduction(v []int32) {
 
 // GetMeterStartDate returns the MeterStartDate field value if set, zero value otherwise.
 func (o *EnergyLifetimeResponse) GetMeterStartDate() string {
-	if o == nil || o.MeterStartDate == nil {
+	if o == nil || isNil(o.MeterStartDate) {
 		var ret string
 		return ret
 	}
@@ -198,15 +198,15 @@ func (o *EnergyLifetimeResponse) GetMeterStartDate() string {
 // GetMeterStartDateOk returns a tuple with the MeterStartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMeterStartDateOk() (*string, bool) {
-	if o == nil || o.MeterStartDate == nil {
-		return nil, false
+	if o == nil || isNil(o.MeterStartDate) {
+    return nil, false
 	}
 	return o.MeterStartDate, true
 }
 
 // HasMeterStartDate returns a boolean if a field has been set.
 func (o *EnergyLifetimeResponse) HasMeterStartDate() bool {
-	if o != nil && o.MeterStartDate != nil {
+	if o != nil && !isNil(o.MeterStartDate) {
 		return true
 	}
 
@@ -231,8 +231,8 @@ func (o *EnergyLifetimeResponse) GetMeta() Meta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMetaOk() (*Meta, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Meta, true
 }
@@ -253,13 +253,13 @@ func (o EnergyLifetimeResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["production"] = o.Production
 	}
-	if o.MicroProduction != nil {
+	if !isNil(o.MicroProduction) {
 		toSerialize["micro_production"] = o.MicroProduction
 	}
-	if o.MeterProduction != nil {
+	if !isNil(o.MeterProduction) {
 		toSerialize["meter_production"] = o.MeterProduction
 	}
-	if o.MeterStartDate != nil {
+	if !isNil(o.MeterStartDate) {
 		toSerialize["meter_start_date"] = o.MeterStartDate
 	}
 	if true {

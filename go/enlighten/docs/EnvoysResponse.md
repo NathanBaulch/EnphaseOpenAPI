@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SystemId** | **int32** | The identifier of the system. | 
-**Envoys** | [**[]EnvoysResponseEnvoys**](EnvoysResponseEnvoys.md) | A list of active Envoys on this system. | 
+**Envoys** | [**[]EnvoysResponseEnvoysInner**](EnvoysResponseEnvoysInner.md) | A list of active Envoys on this system. | 
 
 ## Methods
 
 ### NewEnvoysResponse
 
-`func NewEnvoysResponse(systemId int32, envoys []EnvoysResponseEnvoys, ) *EnvoysResponse`
+`func NewEnvoysResponse(systemId int32, envoys []EnvoysResponseEnvoysInner, ) *EnvoysResponse`
 
 NewEnvoysResponse instantiates a new EnvoysResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetSystemId sets SystemId field to given value.
 
 ### GetEnvoys
 
-`func (o *EnvoysResponse) GetEnvoys() []EnvoysResponseEnvoys`
+`func (o *EnvoysResponse) GetEnvoys() []EnvoysResponseEnvoysInner`
 
 GetEnvoys returns the Envoys field if non-nil, zero value otherwise.
 
 ### GetEnvoysOk
 
-`func (o *EnvoysResponse) GetEnvoysOk() (*[]EnvoysResponseEnvoys, bool)`
+`func (o *EnvoysResponse) GetEnvoysOk() (*[]EnvoysResponseEnvoysInner, bool)`
 
 GetEnvoysOk returns a tuple with the Envoys field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnvoys
 
-`func (o *EnvoysResponse) SetEnvoys(v []EnvoysResponseEnvoys)`
+`func (o *EnvoysResponse) SetEnvoys(v []EnvoysResponseEnvoysInner)`
 
 SetEnvoys sets Envoys field to given value.
 

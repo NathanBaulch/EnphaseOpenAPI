@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **StartDate** | **string** | First day included in the reporting period. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). | 
 **EndDate** | **string** | Last day included in the reporting period. | 
 **ProductionWh** | **int32** | Total production for the requested period in Watt-hours. | 
-**MeterReadings** | [**[]MonthlyProductionResponseMeterReadings**](MonthlyProductionResponseMeterReadings.md) | If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. | 
+**MeterReadings** | [**[]MonthlyProductionResponseMeterReadingsInner**](MonthlyProductionResponseMeterReadingsInner.md) | If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. | 
 **Meta** | [**Meta**](Meta.md) |  | 
 
 ## Methods
 
 ### NewMonthlyProductionResponse
 
-`func NewMonthlyProductionResponse(systemId int32, startDate string, endDate string, productionWh int32, meterReadings []MonthlyProductionResponseMeterReadings, meta Meta, ) *MonthlyProductionResponse`
+`func NewMonthlyProductionResponse(systemId int32, startDate string, endDate string, productionWh int32, meterReadings []MonthlyProductionResponseMeterReadingsInner, meta Meta, ) *MonthlyProductionResponse`
 
 NewMonthlyProductionResponse instantiates a new MonthlyProductionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -112,20 +112,20 @@ SetProductionWh sets ProductionWh field to given value.
 
 ### GetMeterReadings
 
-`func (o *MonthlyProductionResponse) GetMeterReadings() []MonthlyProductionResponseMeterReadings`
+`func (o *MonthlyProductionResponse) GetMeterReadings() []MonthlyProductionResponseMeterReadingsInner`
 
 GetMeterReadings returns the MeterReadings field if non-nil, zero value otherwise.
 
 ### GetMeterReadingsOk
 
-`func (o *MonthlyProductionResponse) GetMeterReadingsOk() (*[]MonthlyProductionResponseMeterReadings, bool)`
+`func (o *MonthlyProductionResponse) GetMeterReadingsOk() (*[]MonthlyProductionResponseMeterReadingsInner, bool)`
 
 GetMeterReadingsOk returns a tuple with the MeterReadings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeterReadings
 
-`func (o *MonthlyProductionResponse) SetMeterReadings(v []MonthlyProductionResponseMeterReadings)`
+`func (o *MonthlyProductionResponse) SetMeterReadings(v []MonthlyProductionResponseMeterReadingsInner)`
 
 SetMeterReadings sets MeterReadings field to given value.
 

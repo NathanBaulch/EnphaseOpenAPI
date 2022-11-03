@@ -1,6 +1,6 @@
 OPENAPICLI := ./bin/openapi-generator-cli
 
-export OPENAPI_GENERATOR_VERSION = 5.4.0
+export OPENAPI_GENERATOR_VERSION = 6.2.1
 export JAVA_OPTS = -Dlog.level=warn
 
 .SILENT:
@@ -50,7 +50,7 @@ generate/go: clean/go $(OPENAPICLI)
 
 generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
 	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten,useDateTimeOffset=true)
-	cd ./csharp-netcore/enlighten; dotnet outdated -u -exc RestSharp; dotnet outdated -u -inc RestSharp -vl Major; dotnet build
+	cd ./csharp-netcore/enlighten; dotnet outdated -u; dotnet build
 
 generate/php: clean/php $(OPENAPICLI)
 	$(call generate,php,enlighten)

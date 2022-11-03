@@ -18,14 +18,14 @@ import (
 type InvertersSummaryByEnvoyOrSiteResponse struct {
 	SignalStrength int32 `json:"signal_strength"`
 	// A list of active inverters on this system, including serial and model numbers.
-	MicroInverters []InvertersSummaryByEnvoyOrSiteResponseMicroInverters `json:"micro_inverters"`
+	MicroInverters []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner `json:"micro_inverters"`
 }
 
 // NewInvertersSummaryByEnvoyOrSiteResponse instantiates a new InvertersSummaryByEnvoyOrSiteResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInvertersSummaryByEnvoyOrSiteResponse(signalStrength int32, microInverters []InvertersSummaryByEnvoyOrSiteResponseMicroInverters) *InvertersSummaryByEnvoyOrSiteResponse {
+func NewInvertersSummaryByEnvoyOrSiteResponse(signalStrength int32, microInverters []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) *InvertersSummaryByEnvoyOrSiteResponse {
 	this := InvertersSummaryByEnvoyOrSiteResponse{}
 	this.SignalStrength = signalStrength
 	this.MicroInverters = microInverters
@@ -53,8 +53,8 @@ func (o *InvertersSummaryByEnvoyOrSiteResponse) GetSignalStrength() int32 {
 // GetSignalStrengthOk returns a tuple with the SignalStrength field value
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponse) GetSignalStrengthOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SignalStrength, true
 }
@@ -65,9 +65,9 @@ func (o *InvertersSummaryByEnvoyOrSiteResponse) SetSignalStrength(v int32) {
 }
 
 // GetMicroInverters returns the MicroInverters field value
-func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInverters() []InvertersSummaryByEnvoyOrSiteResponseMicroInverters {
+func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInverters() []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner {
 	if o == nil {
-		var ret []InvertersSummaryByEnvoyOrSiteResponseMicroInverters
+		var ret []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner
 		return ret
 	}
 
@@ -76,15 +76,15 @@ func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInverters() []InvertersS
 
 // GetMicroInvertersOk returns a tuple with the MicroInverters field value
 // and a boolean to check if the value has been set.
-func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInvertersOk() ([]InvertersSummaryByEnvoyOrSiteResponseMicroInverters, bool) {
-	if o == nil  {
-		return nil, false
+func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInvertersOk() ([]InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.MicroInverters, true
 }
 
 // SetMicroInverters sets field value
-func (o *InvertersSummaryByEnvoyOrSiteResponse) SetMicroInverters(v []InvertersSummaryByEnvoyOrSiteResponseMicroInverters) {
+func (o *InvertersSummaryByEnvoyOrSiteResponse) SetMicroInverters(v []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) {
 	o.MicroInverters = v
 }
 

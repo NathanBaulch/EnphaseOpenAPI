@@ -70,8 +70,34 @@ class ConsumptionLifetimeResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ConsumptionLifetimeResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ConsumptionLifetimeResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ConsumptionLifetimeResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['consumption'])) {
+            throw new Error("Expected the field `consumption` to be an array in the JSON data but got " + data['consumption']);
+        }
+        // validate the optional field `meta`
+        if (data['meta']) { // data not null
+          Meta.validateJSON(data['meta']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ConsumptionLifetimeResponse.RequiredProperties = ["start_date", "consumption", "meta"];
 
 /**
  * When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date` parameter is included in the request, it is included here in the response.

@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Meta from './Meta';
-import MonthlyProductionResponseMeterReadings from './MonthlyProductionResponseMeterReadings';
+import MonthlyProductionResponseMeterReadingsInner from './MonthlyProductionResponseMeterReadingsInner';
 
 /**
  * The MonthlyProductionResponse model module.
@@ -28,7 +28,7 @@ class MonthlyProductionResponse {
      * @param startDate {Date} First day included in the reporting period. The format is `YYYY-mm-dd` unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
      * @param endDate {Date} Last day included in the reporting period.
      * @param productionWh {Number} Total production for the requested period in Watt-hours.
-     * @param meterReadings {Array.<module:model/MonthlyProductionResponseMeterReadings>} If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
+     * @param meterReadings {Array.<module:model/MonthlyProductionResponseMeterReadingsInner>} If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
      * @param meta {module:model/Meta} 
      */
     constructor(systemId, startDate, endDate, productionWh, meterReadings, meta) { 
@@ -74,7 +74,7 @@ class MonthlyProductionResponse {
                 obj['production_wh'] = ApiClient.convertToType(data['production_wh'], 'Number');
             }
             if (data.hasOwnProperty('meter_readings')) {
-                obj['meter_readings'] = ApiClient.convertToType(data['meter_readings'], [MonthlyProductionResponseMeterReadings]);
+                obj['meter_readings'] = ApiClient.convertToType(data['meter_readings'], [MonthlyProductionResponseMeterReadingsInner]);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
@@ -83,8 +83,40 @@ class MonthlyProductionResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>MonthlyProductionResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>MonthlyProductionResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of MonthlyProductionResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['meter_readings']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['meter_readings'])) {
+                throw new Error("Expected the field `meter_readings` to be an array in the JSON data but got " + data['meter_readings']);
+            }
+            // validate the optional field `meter_readings` (array)
+            for (const item of data['meter_readings']) {
+                MonthlyProductionResponseMeterReadingsInner.validateJsonObject(item);
+            };
+        }
+        // validate the optional field `meta`
+        if (data['meta']) { // data not null
+          Meta.validateJSON(data['meta']);
+        }
+
+        return true;
+    }
+
 
 }
+
+MonthlyProductionResponse.RequiredProperties = ["system_id", "start_date", "end_date", "production_wh", "meter_readings", "meta"];
 
 /**
  * Enlighten ID for this system.
@@ -112,7 +144,7 @@ MonthlyProductionResponse.prototype['production_wh'] = undefined;
 
 /**
  * If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
- * @member {Array.<module:model/MonthlyProductionResponseMeterReadings>} meter_readings
+ * @member {Array.<module:model/MonthlyProductionResponseMeterReadingsInner>} meter_readings
  */
 MonthlyProductionResponse.prototype['meter_readings'] = undefined;
 

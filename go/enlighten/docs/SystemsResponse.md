@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Systems** | [**[]SystemsResponseSystems**](SystemsResponseSystems.md) |  | 
+**Systems** | [**[]SystemsResponseSystemsInner**](SystemsResponseSystemsInner.md) |  | 
 **Next** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewSystemsResponse
 
-`func NewSystemsResponse(systems []SystemsResponseSystems, ) *SystemsResponse`
+`func NewSystemsResponse(systems []SystemsResponseSystemsInner, ) *SystemsResponse`
 
 NewSystemsResponse instantiates a new SystemsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSystems
 
-`func (o *SystemsResponse) GetSystems() []SystemsResponseSystems`
+`func (o *SystemsResponse) GetSystems() []SystemsResponseSystemsInner`
 
 GetSystems returns the Systems field if non-nil, zero value otherwise.
 
 ### GetSystemsOk
 
-`func (o *SystemsResponse) GetSystemsOk() (*[]SystemsResponseSystems, bool)`
+`func (o *SystemsResponse) GetSystemsOk() (*[]SystemsResponseSystemsInner, bool)`
 
 GetSystemsOk returns a tuple with the Systems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSystems
 
-`func (o *SystemsResponse) SetSystems(v []SystemsResponseSystems)`
+`func (o *SystemsResponse) SetSystems(v []SystemsResponseSystemsInner)`
 
 SetSystems sets Systems field to given value.
 

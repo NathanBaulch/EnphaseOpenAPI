@@ -112,8 +112,30 @@ class SummaryResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>SummaryResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SummaryResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of SummaryResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['source'] && !(typeof data['source'] === 'string' || data['source'] instanceof String)) {
+            throw new Error("Expected the field `source` to be a primitive type in the JSON string but got " + data['source']);
+        }
+
+        return true;
+    }
+
 
 }
+
+SummaryResponse.RequiredProperties = ["current_power", "energy_lifetime", "energy_today", "last_interval_end_at", "last_report_at", "modules", "operational_at", "size_w", "source", "status", "summary_date", "system_id"];
 
 /**
  * Current power production, in Watts. For historical requests, returns 0.

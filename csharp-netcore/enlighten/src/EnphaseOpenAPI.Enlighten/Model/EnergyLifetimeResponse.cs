@@ -51,12 +51,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
             this.StartDate = startDate;
             this.SystemId = systemId;
             // to ensure "production" is required (not null)
-            if (production == null) {
+            if (production == null)
+            {
                 throw new ArgumentNullException("production is a required property for EnergyLifetimeResponse and cannot be null");
             }
             this.Production = production;
             // to ensure "meta" is required (not null)
-            if (meta == null) {
+            if (meta == null)
+            {
                 throw new ArgumentNullException("meta is a required property for EnergyLifetimeResponse and cannot be null");
             }
             this.Meta = meta;
@@ -69,7 +71,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response.
         /// </summary>
         /// <value>When no &#x60;start_date&#x60; parameter is specified on the request, this is the &#x60;operational_date&#x60; of the system. May be null if system has never produced. When a &#x60;start_date&#x60; parameter is included in the request, it is included here in the response.</value>
-        [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTimeOffset StartDate { get; set; }
 
@@ -77,14 +79,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// The identifier of the system.
         /// </summary>
         /// <value>The identifier of the system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>
         /// An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty.
         /// </summary>
         /// <value>An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty.</value>
-        [DataMember(Name = "production", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "production", IsRequired = true, EmitDefaultValue = true)]
         public List<int> Production { get; set; }
 
         /// <summary>
@@ -110,7 +112,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = true)]
         public Meta Meta { get; set; }
 
         /// <summary>

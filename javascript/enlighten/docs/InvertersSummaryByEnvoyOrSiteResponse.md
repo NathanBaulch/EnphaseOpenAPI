@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **signalStrength** | **Number** |  | 
-**microInverters** | [**[InvertersSummaryByEnvoyOrSiteResponseMicroInverters]**](InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md) | A list of active inverters on this system, including serial and model numbers. | 
+**microInverters** | [**[InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner]**](InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner.md) | A list of active inverters on this system, including serial and model numbers. | 
 
 

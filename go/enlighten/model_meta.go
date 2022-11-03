@@ -56,8 +56,8 @@ func (o *Meta) GetStatus() Status {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *Meta) GetStatusOk() (*Status, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Status, true
 }
@@ -80,8 +80,8 @@ func (o *Meta) GetLastReportAt() int64 {
 // GetLastReportAtOk returns a tuple with the LastReportAt field value
 // and a boolean to check if the value has been set.
 func (o *Meta) GetLastReportAtOk() (*int64, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.LastReportAt, true
 }
@@ -104,8 +104,8 @@ func (o *Meta) GetLastEnergyAt() int64 {
 // GetLastEnergyAtOk returns a tuple with the LastEnergyAt field value
 // and a boolean to check if the value has been set.
 func (o *Meta) GetLastEnergyAtOk() (*int64, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.LastEnergyAt, true
 }
@@ -128,8 +128,8 @@ func (o *Meta) GetOperationalAt() int64 {
 // GetOperationalAtOk returns a tuple with the OperationalAt field value
 // and a boolean to check if the value has been set.
 func (o *Meta) GetOperationalAtOk() (*int64, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.OperationalAt, true
 }

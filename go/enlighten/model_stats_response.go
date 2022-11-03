@@ -22,14 +22,14 @@ type StatsResponse struct {
 	TotalDevices int32 `json:"total_devices"`
 	Meta Meta `json:"meta"`
 	// A list of intervals between the requested start and end times.
-	Intervals []StatsResponseIntervals `json:"intervals"`
+	Intervals []StatsResponseIntervalsInner `json:"intervals"`
 }
 
 // NewStatsResponse instantiates a new StatsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []StatsResponseIntervals) *StatsResponse {
+func NewStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []StatsResponseIntervalsInner) *StatsResponse {
 	this := StatsResponse{}
 	this.SystemId = systemId
 	this.TotalDevices = totalDevices
@@ -59,8 +59,8 @@ func (o *StatsResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *StatsResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -83,8 +83,8 @@ func (o *StatsResponse) GetTotalDevices() int32 {
 // GetTotalDevicesOk returns a tuple with the TotalDevices field value
 // and a boolean to check if the value has been set.
 func (o *StatsResponse) GetTotalDevicesOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.TotalDevices, true
 }
@@ -107,8 +107,8 @@ func (o *StatsResponse) GetMeta() Meta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *StatsResponse) GetMetaOk() (*Meta, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Meta, true
 }
@@ -119,9 +119,9 @@ func (o *StatsResponse) SetMeta(v Meta) {
 }
 
 // GetIntervals returns the Intervals field value
-func (o *StatsResponse) GetIntervals() []StatsResponseIntervals {
+func (o *StatsResponse) GetIntervals() []StatsResponseIntervalsInner {
 	if o == nil {
-		var ret []StatsResponseIntervals
+		var ret []StatsResponseIntervalsInner
 		return ret
 	}
 
@@ -130,15 +130,15 @@ func (o *StatsResponse) GetIntervals() []StatsResponseIntervals {
 
 // GetIntervalsOk returns a tuple with the Intervals field value
 // and a boolean to check if the value has been set.
-func (o *StatsResponse) GetIntervalsOk() ([]StatsResponseIntervals, bool) {
-	if o == nil  {
-		return nil, false
+func (o *StatsResponse) GetIntervalsOk() ([]StatsResponseIntervalsInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.Intervals, true
 }
 
 // SetIntervals sets field value
-func (o *StatsResponse) SetIntervals(v []StatsResponseIntervals) {
+func (o *StatsResponse) SetIntervals(v []StatsResponseIntervalsInner) {
 	o.Intervals = v
 }
 

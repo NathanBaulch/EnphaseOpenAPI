@@ -60,8 +60,8 @@ func (o *ConflictError) GetReason() string {
 // GetReasonOk returns a tuple with the Reason field value
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetReasonOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Reason, true
 }
@@ -84,8 +84,8 @@ func (o *ConflictError) GetMessage() []string {
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetMessageOk() ([]string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return o.Message, true
 }
@@ -108,8 +108,8 @@ func (o *ConflictError) GetPeriod() string {
 // GetPeriodOk returns a tuple with the Period field value
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetPeriodOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Period, true
 }
@@ -132,8 +132,8 @@ func (o *ConflictError) GetPeriodStart() int32 {
 // GetPeriodStartOk returns a tuple with the PeriodStart field value
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetPeriodStartOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.PeriodStart, true
 }
@@ -156,8 +156,8 @@ func (o *ConflictError) GetPeriodEnd() int32 {
 // GetPeriodEndOk returns a tuple with the PeriodEnd field value
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetPeriodEndOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.PeriodEnd, true
 }
@@ -180,8 +180,8 @@ func (o *ConflictError) GetLimit() int32 {
 // GetLimitOk returns a tuple with the Limit field value
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetLimitOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Limit, true
 }

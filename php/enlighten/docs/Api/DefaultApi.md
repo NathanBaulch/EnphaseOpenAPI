@@ -1,22 +1,22 @@
 # OpenAPI\Client\DefaultApi
 
-All URIs are relative to https://api.enphaseenergy.com/api/v2.
+All URIs are relative to https://api.enphaseenergy.com/api/v2, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**consumptionLifetime()**](DefaultApi.md#consumptionLifetime) | **GET** /systems/{system_id}/consumption_lifetime | 
-[**consumptionStats()**](DefaultApi.md#consumptionStats) | **GET** /systems/{system_id}/consumption_stats | 
-[**energyLifetime()**](DefaultApi.md#energyLifetime) | **GET** /systems/{system_id}/energy_lifetime | 
-[**envoys()**](DefaultApi.md#envoys) | **GET** /systems/{system_id}/envoys | 
-[**inventory()**](DefaultApi.md#inventory) | **GET** /systems/{system_id}/inventory | 
-[**invertersSummaryByEnvoyOrSite()**](DefaultApi.md#invertersSummaryByEnvoyOrSite) | **GET** /systems/inverters_summary_by_envoy_or_site | 
-[**monthlyProduction()**](DefaultApi.md#monthlyProduction) | **GET** /systems/{system_id}/monthly_production | 
-[**productionMeterReadings()**](DefaultApi.md#productionMeterReadings) | **GET** /systems/{system_id}/production_meter_readings | 
-[**rgmStats()**](DefaultApi.md#rgmStats) | **GET** /systems/{system_id}/rgm_stats | 
-[**searchSystemId()**](DefaultApi.md#searchSystemId) | **GET** /systems/search_system_id | 
-[**stats()**](DefaultApi.md#stats) | **GET** /systems/{system_id}/stats | 
-[**summary()**](DefaultApi.md#summary) | **GET** /systems/{system_id}/summary | 
-[**systems()**](DefaultApi.md#systems) | **GET** /systems | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**consumptionLifetime()**](DefaultApi.md#consumptionLifetime) | **GET** /systems/{system_id}/consumption_lifetime |  |
+| [**consumptionStats()**](DefaultApi.md#consumptionStats) | **GET** /systems/{system_id}/consumption_stats |  |
+| [**energyLifetime()**](DefaultApi.md#energyLifetime) | **GET** /systems/{system_id}/energy_lifetime |  |
+| [**envoys()**](DefaultApi.md#envoys) | **GET** /systems/{system_id}/envoys |  |
+| [**inventory()**](DefaultApi.md#inventory) | **GET** /systems/{system_id}/inventory |  |
+| [**invertersSummaryByEnvoyOrSite()**](DefaultApi.md#invertersSummaryByEnvoyOrSite) | **GET** /systems/inverters_summary_by_envoy_or_site |  |
+| [**monthlyProduction()**](DefaultApi.md#monthlyProduction) | **GET** /systems/{system_id}/monthly_production |  |
+| [**productionMeterReadings()**](DefaultApi.md#productionMeterReadings) | **GET** /systems/{system_id}/production_meter_readings |  |
+| [**rgmStats()**](DefaultApi.md#rgmStats) | **GET** /systems/{system_id}/rgm_stats |  |
+| [**searchSystemId()**](DefaultApi.md#searchSystemId) | **GET** /systems/search_system_id |  |
+| [**stats()**](DefaultApi.md#stats) | **GET** /systems/{system_id}/stats |  |
+| [**summary()**](DefaultApi.md#summary) | **GET** /systems/{system_id}/summary |  |
+| [**systems()**](DefaultApi.md#systems) | **GET** /systems |  |
 
 
 ## `consumptionLifetime()`
@@ -63,12 +63,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **start_date** | **\DateTime**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional]
- **end_date** | **\DateTime**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **start_date** | **\DateTime**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] |
+| **end_date** | **\DateTime**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] |
 
 ### Return type
 
@@ -131,12 +131,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **start_at** | **int**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional]
- **end_at** | **int**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **start_at** | **int**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] |
+| **end_at** | **int**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] |
 
 ### Return type
 
@@ -200,13 +200,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **start_date** | **\DateTime**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional]
- **end_date** | **\DateTime**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional]
- **production** | **string**| When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **start_date** | **\DateTime**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] |
+| **end_date** | **\DateTime**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] |
+| **production** | **string**| When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. | [optional] |
 
 ### Return type
 
@@ -267,10 +267,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
 
 ### Return type
 
@@ -331,10 +331,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
 
 ### Return type
 
@@ -395,10 +395,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **site_id** | **int**| The identifier of the system. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **site_id** | **int**| The identifier of the system. | |
 
 ### Return type
 
@@ -460,11 +460,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **start_date** | **\DateTime**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **start_date** | **\DateTime**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. | |
 
 ### Return type
 
@@ -526,11 +526,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **end_at** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **end_at** | **int**|  | [optional] |
 
 ### Return type
 
@@ -593,12 +593,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **start_at** | **int**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional]
- **end_at** | **int**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **start_at** | **int**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] |
+| **end_at** | **int**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] |
 
 ### Return type
 
@@ -659,10 +659,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **serial_num** | **string**| Serial number of the envoy. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **serial_num** | **string**| Serial number of the envoy. | |
 
 ### Return type
 
@@ -725,12 +725,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **start_at** | **int**| Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. | [optional]
- **end_at** | **int**| End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **start_at** | **int**| Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. | [optional] |
+| **end_at** | **int**| End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. | [optional] |
 
 ### Return type
 
@@ -792,11 +792,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **system_id** | **int**|  |
- **summary_date** | **\DateTime**| Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **system_id** | **int**|  | |
+| **summary_date** | **\DateTime**| Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. | [optional] |
 
 ### Return type
 
@@ -851,13 +851,13 @@ $system_id = 67; // int
 $system_id2 = [67]; // int[]
 $system_name = Green; // string
 $system_name2 = ["Green"]; // string[]
-$status = power; // \OpenAPI\Client\Model\Status
+$status = power; // Status
 $status2 = ["comm","micro"]; // \OpenAPI\Client\Model\Status[]
 $reference = 'reference_example'; // string
 $reference2 = array('reference_example'); // string[]
 $installer = 'installer_example'; // string
 $installer2 = array('installer_example'); // string[]
-$connection_type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ConnectionType(); // \OpenAPI\Client\Model\ConnectionType
+$connection_type = new \OpenAPI\Client\Model\ConnectionType(); // ConnectionType
 $connection_type2 = ["ethernet"]; // \OpenAPI\Client\Model\ConnectionType[]
 
 try {
@@ -870,23 +870,23 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**|  |
- **next** | **string**|  | [optional]
- **limit** | **int**|  | [optional] [default to 100]
- **system_id** | **int**|  | [optional]
- **system_id2** | [**int[]**](../Model/int.md)|  | [optional]
- **system_name** | **string**|  | [optional]
- **system_name2** | [**string[]**](../Model/string.md)|  | [optional]
- **status** | [**\OpenAPI\Client\Model\Status**](../Model/.md)|  | [optional]
- **status2** | [**\OpenAPI\Client\Model\Status[]**](../Model/\OpenAPI\Client\Model\Status.md)|  | [optional]
- **reference** | **string**|  | [optional]
- **reference2** | [**string[]**](../Model/string.md)|  | [optional]
- **installer** | **string**|  | [optional]
- **installer2** | [**string[]**](../Model/string.md)|  | [optional]
- **connection_type** | [**\OpenAPI\Client\Model\ConnectionType**](../Model/.md)|  | [optional]
- **connection_type2** | [**\OpenAPI\Client\Model\ConnectionType[]**](../Model/\OpenAPI\Client\Model\ConnectionType.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **next** | **string**|  | [optional] |
+| **limit** | **int**|  | [optional] [default to 100] |
+| **system_id** | **int**|  | [optional] |
+| **system_id2** | [**int[]**](../Model/int.md)|  | [optional] |
+| **system_name** | **string**|  | [optional] |
+| **system_name2** | [**string[]**](../Model/string.md)|  | [optional] |
+| **status** | [**Status**](../Model/.md)|  | [optional] |
+| **status2** | [**\OpenAPI\Client\Model\Status[]**](../Model/\OpenAPI\Client\Model\Status.md)|  | [optional] |
+| **reference** | **string**|  | [optional] |
+| **reference2** | [**string[]**](../Model/string.md)|  | [optional] |
+| **installer** | **string**|  | [optional] |
+| **installer2** | [**string[]**](../Model/string.md)|  | [optional] |
+| **connection_type** | [**ConnectionType**](../Model/.md)|  | [optional] |
+| **connection_type2** | [**\OpenAPI\Client\Model\ConnectionType[]**](../Model/\OpenAPI\Client\Model\ConnectionType.md)|  | [optional] |
 
 ### Return type
 

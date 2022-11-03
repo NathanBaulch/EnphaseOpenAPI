@@ -58,8 +58,8 @@ func (o *ConsumptionLifetimeResponse) GetStartDate() string {
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetStartDateOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.StartDate, true
 }
@@ -71,7 +71,7 @@ func (o *ConsumptionLifetimeResponse) SetStartDate(v string) {
 
 // GetSystemId returns the SystemId field value if set, zero value otherwise.
 func (o *ConsumptionLifetimeResponse) GetSystemId() int32 {
-	if o == nil || o.SystemId == nil {
+	if o == nil || isNil(o.SystemId) {
 		var ret int32
 		return ret
 	}
@@ -81,15 +81,15 @@ func (o *ConsumptionLifetimeResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil || o.SystemId == nil {
-		return nil, false
+	if o == nil || isNil(o.SystemId) {
+    return nil, false
 	}
 	return o.SystemId, true
 }
 
 // HasSystemId returns a boolean if a field has been set.
 func (o *ConsumptionLifetimeResponse) HasSystemId() bool {
-	if o != nil && o.SystemId != nil {
+	if o != nil && !isNil(o.SystemId) {
 		return true
 	}
 
@@ -114,8 +114,8 @@ func (o *ConsumptionLifetimeResponse) GetConsumption() []int32 {
 // GetConsumptionOk returns a tuple with the Consumption field value
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetConsumptionOk() ([]int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return o.Consumption, true
 }
@@ -138,8 +138,8 @@ func (o *ConsumptionLifetimeResponse) GetMeta() Meta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetMetaOk() (*Meta, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Meta, true
 }
@@ -154,7 +154,7 @@ func (o ConsumptionLifetimeResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["start_date"] = o.StartDate
 	}
-	if o.SystemId != nil {
+	if !isNil(o.SystemId) {
 		toSerialize["system_id"] = o.SystemId
 	}
 	if true {

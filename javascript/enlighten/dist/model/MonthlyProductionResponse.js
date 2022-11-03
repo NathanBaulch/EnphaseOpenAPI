@@ -6,8 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 var _Meta = _interopRequireDefault(require("./Meta"));
-var _MonthlyProductionResponseMeterReadings = _interopRequireDefault(require("./MonthlyProductionResponseMeterReadings"));
+var _MonthlyProductionResponseMeterReadingsInner = _interopRequireDefault(require("./MonthlyProductionResponseMeterReadingsInner"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -24,7 +27,7 @@ var MonthlyProductionResponse = /*#__PURE__*/function () {
    * @param startDate {Date} First day included in the reporting period. The format is `YYYY-mm-dd` unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
    * @param endDate {Date} Last day included in the reporting period.
    * @param productionWh {Number} Total production for the requested period in Watt-hours.
-   * @param meterReadings {Array.<module:model/MonthlyProductionResponseMeterReadings>} If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
+   * @param meterReadings {Array.<module:model/MonthlyProductionResponseMeterReadingsInner>} If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
    * @param meta {module:model/Meta} 
    */
   function MonthlyProductionResponse(systemId, startDate, endDate, productionWh, meterReadings, meta) {
@@ -73,7 +76,7 @@ var MonthlyProductionResponse = /*#__PURE__*/function () {
           obj['production_wh'] = _ApiClient["default"].convertToType(data['production_wh'], 'Number');
         }
         if (data.hasOwnProperty('meter_readings')) {
-          obj['meter_readings'] = _ApiClient["default"].convertToType(data['meter_readings'], [_MonthlyProductionResponseMeterReadings["default"]]);
+          obj['meter_readings'] = _ApiClient["default"].convertToType(data['meter_readings'], [_MonthlyProductionResponseMeterReadingsInner["default"]]);
         }
         if (data.hasOwnProperty('meta')) {
           obj['meta'] = _Meta["default"].constructFromObject(data['meta']);
@@ -81,9 +84,63 @@ var MonthlyProductionResponse = /*#__PURE__*/function () {
       }
       return obj;
     }
+
+    /**
+     * Validates the JSON data with respect to <code>MonthlyProductionResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>MonthlyProductionResponse</code>.
+     */
+  }, {
+    key: "validateJSON",
+    value: function validateJSON(data) {
+      // check to make sure all required properties are present in the JSON string
+      var _iterator = _createForOfIteratorHelper(MonthlyProductionResponse.RequiredProperties),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var property = _step.value;
+          if (!data[property]) {
+            throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+          }
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+      if (data['meter_readings']) {
+        // data not null
+        // ensure the json data is an array
+        if (!Array.isArray(data['meter_readings'])) {
+          throw new Error("Expected the field `meter_readings` to be an array in the JSON data but got " + data['meter_readings']);
+        }
+        // validate the optional field `meter_readings` (array)
+        var _iterator2 = _createForOfIteratorHelper(data['meter_readings']),
+          _step2;
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var item = _step2.value;
+            _MonthlyProductionResponseMeterReadingsInner["default"].validateJsonObject(item);
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+        ;
+      }
+      // validate the optional field `meta`
+      if (data['meta']) {
+        // data not null
+        _Meta["default"].validateJSON(data['meta']);
+      }
+      return true;
+    }
   }]);
   return MonthlyProductionResponse;
 }();
+MonthlyProductionResponse.RequiredProperties = ["system_id", "start_date", "end_date", "production_wh", "meter_readings", "meta"];
+
 /**
  * Enlighten ID for this system.
  * @member {Number} system_id
@@ -110,7 +167,7 @@ MonthlyProductionResponse.prototype['production_wh'] = undefined;
 
 /**
  * If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
- * @member {Array.<module:model/MonthlyProductionResponseMeterReadings>} meter_readings
+ * @member {Array.<module:model/MonthlyProductionResponseMeterReadingsInner>} meter_readings
  */
 MonthlyProductionResponse.prototype['meter_readings'] = undefined;
 

@@ -44,21 +44,24 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="inverters">A list of inverters on this system, including serial and model numbers. (required).</param>
         /// <param name="meters">A list of meters on this system, including serial number, manufacturer, and model number. (required).</param>
         /// <param name="meta">meta (required).</param>
-        public InventoryResponse(int systemId = default(int), List<InventoryResponseEnvoys> envoys = default(List<InventoryResponseEnvoys>), List<InventoryResponseEnvoys> inverters = default(List<InventoryResponseEnvoys>), List<InventoryResponseMeters> meters = default(List<InventoryResponseMeters>), Meta meta = default(Meta))
+        public InventoryResponse(int systemId = default(int), List<InventoryResponseEnvoysInner> envoys = default(List<InventoryResponseEnvoysInner>), List<InventoryResponseEnvoysInner> inverters = default(List<InventoryResponseEnvoysInner>), List<InventoryResponseMetersInner> meters = default(List<InventoryResponseMetersInner>), Meta meta = default(Meta))
         {
             this.SystemId = systemId;
             // to ensure "inverters" is required (not null)
-            if (inverters == null) {
+            if (inverters == null)
+            {
                 throw new ArgumentNullException("inverters is a required property for InventoryResponse and cannot be null");
             }
             this.Inverters = inverters;
             // to ensure "meters" is required (not null)
-            if (meters == null) {
+            if (meters == null)
+            {
                 throw new ArgumentNullException("meters is a required property for InventoryResponse and cannot be null");
             }
             this.Meters = meters;
             // to ensure "meta" is required (not null)
-            if (meta == null) {
+            if (meta == null)
+            {
                 throw new ArgumentNullException("meta is a required property for InventoryResponse and cannot be null");
             }
             this.Meta = meta;
@@ -69,7 +72,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Enlighten ID for this system.
         /// </summary>
         /// <value>Enlighten ID for this system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>
@@ -77,26 +80,26 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <value>A list of Envoys on this system, including serial number.</value>
         [DataMember(Name = "envoys", EmitDefaultValue = false)]
-        public List<InventoryResponseEnvoys> Envoys { get; set; }
+        public List<InventoryResponseEnvoysInner> Envoys { get; set; }
 
         /// <summary>
         /// A list of inverters on this system, including serial and model numbers.
         /// </summary>
         /// <value>A list of inverters on this system, including serial and model numbers.</value>
-        [DataMember(Name = "inverters", IsRequired = true, EmitDefaultValue = false)]
-        public List<InventoryResponseEnvoys> Inverters { get; set; }
+        [DataMember(Name = "inverters", IsRequired = true, EmitDefaultValue = true)]
+        public List<InventoryResponseEnvoysInner> Inverters { get; set; }
 
         /// <summary>
         /// A list of meters on this system, including serial number, manufacturer, and model number.
         /// </summary>
         /// <value>A list of meters on this system, including serial number, manufacturer, and model number.</value>
-        [DataMember(Name = "meters", IsRequired = true, EmitDefaultValue = false)]
-        public List<InventoryResponseMeters> Meters { get; set; }
+        [DataMember(Name = "meters", IsRequired = true, EmitDefaultValue = true)]
+        public List<InventoryResponseMetersInner> Meters { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = true)]
         public Meta Meta { get; set; }
 
         /// <summary>

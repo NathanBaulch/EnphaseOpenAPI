@@ -52,8 +52,8 @@ func (o *ClientError) GetReason() string {
 // GetReasonOk returns a tuple with the Reason field value
 // and a boolean to check if the value has been set.
 func (o *ClientError) GetReasonOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Reason, true
 }
@@ -76,8 +76,8 @@ func (o *ClientError) GetMessage() []string {
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
 func (o *ClientError) GetMessageOk() ([]string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return o.Message, true
 }

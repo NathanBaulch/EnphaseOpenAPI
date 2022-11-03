@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SystemId** | **int32** |  | 
-**MeterReadings** | [**[]ProductionMeterReadingsResponseMeterReadings**](ProductionMeterReadingsResponseMeterReadings.md) |  | 
+**MeterReadings** | [**[]ProductionMeterReadingsResponseMeterReadingsInner**](ProductionMeterReadingsResponseMeterReadingsInner.md) |  | 
 **Meta** | [**Meta**](Meta.md) |  | 
 
 ## Methods
 
 ### NewProductionMeterReadingsResponse
 
-`func NewProductionMeterReadingsResponse(systemId int32, meterReadings []ProductionMeterReadingsResponseMeterReadings, meta Meta, ) *ProductionMeterReadingsResponse`
+`func NewProductionMeterReadingsResponse(systemId int32, meterReadings []ProductionMeterReadingsResponseMeterReadingsInner, meta Meta, ) *ProductionMeterReadingsResponse`
 
 NewProductionMeterReadingsResponse instantiates a new ProductionMeterReadingsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetSystemId sets SystemId field to given value.
 
 ### GetMeterReadings
 
-`func (o *ProductionMeterReadingsResponse) GetMeterReadings() []ProductionMeterReadingsResponseMeterReadings`
+`func (o *ProductionMeterReadingsResponse) GetMeterReadings() []ProductionMeterReadingsResponseMeterReadingsInner`
 
 GetMeterReadings returns the MeterReadings field if non-nil, zero value otherwise.
 
 ### GetMeterReadingsOk
 
-`func (o *ProductionMeterReadingsResponse) GetMeterReadingsOk() (*[]ProductionMeterReadingsResponseMeterReadings, bool)`
+`func (o *ProductionMeterReadingsResponse) GetMeterReadingsOk() (*[]ProductionMeterReadingsResponseMeterReadingsInner, bool)`
 
 GetMeterReadingsOk returns a tuple with the MeterReadings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeterReadings
 
-`func (o *ProductionMeterReadingsResponse) SetMeterReadings(v []ProductionMeterReadingsResponseMeterReadings)`
+`func (o *ProductionMeterReadingsResponse) SetMeterReadings(v []ProductionMeterReadingsResponseMeterReadingsInner)`
 
 SetMeterReadings sets MeterReadings field to given value.
 

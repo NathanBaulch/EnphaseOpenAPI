@@ -9,7 +9,7 @@
 .travis.yml
 enlighten/apis/
 enlighten/models/
-enlighten/model_utils.py
+enlighten/paths/
 enlighten/rest.py
 git_push.sh
 test-requirements.txt

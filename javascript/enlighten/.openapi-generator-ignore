@@ -7,3 +7,4 @@
 .openapi-generator-ignore
 .travis.yml
 git_push.sh
+test/

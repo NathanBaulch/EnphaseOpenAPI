@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InventoryResponseEnvoys from './InventoryResponseEnvoys';
-import InventoryResponseMeters from './InventoryResponseMeters';
+import InventoryResponseEnvoysInner from './InventoryResponseEnvoysInner';
+import InventoryResponseMetersInner from './InventoryResponseMetersInner';
 import Meta from './Meta';
 
 /**
@@ -26,8 +26,8 @@ class InventoryResponse {
      * Constructs a new <code>InventoryResponse</code>.
      * @alias module:model/InventoryResponse
      * @param systemId {Number} Enlighten ID for this system.
-     * @param inverters {Array.<module:model/InventoryResponseEnvoys>} A list of inverters on this system, including serial and model numbers.
-     * @param meters {Array.<module:model/InventoryResponseMeters>} A list of meters on this system, including serial number, manufacturer, and model number.
+     * @param inverters {Array.<module:model/InventoryResponseEnvoysInner>} A list of inverters on this system, including serial and model numbers.
+     * @param meters {Array.<module:model/InventoryResponseMetersInner>} A list of meters on this system, including serial number, manufacturer, and model number.
      * @param meta {module:model/Meta} 
      */
     constructor(systemId, inverters, meters, meta) { 
@@ -62,13 +62,13 @@ class InventoryResponse {
                 obj['system_id'] = ApiClient.convertToType(data['system_id'], 'Number');
             }
             if (data.hasOwnProperty('envoys')) {
-                obj['envoys'] = ApiClient.convertToType(data['envoys'], [InventoryResponseEnvoys]);
+                obj['envoys'] = ApiClient.convertToType(data['envoys'], [InventoryResponseEnvoysInner]);
             }
             if (data.hasOwnProperty('inverters')) {
-                obj['inverters'] = ApiClient.convertToType(data['inverters'], [InventoryResponseEnvoys]);
+                obj['inverters'] = ApiClient.convertToType(data['inverters'], [InventoryResponseEnvoysInner]);
             }
             if (data.hasOwnProperty('meters')) {
-                obj['meters'] = ApiClient.convertToType(data['meters'], [InventoryResponseMeters]);
+                obj['meters'] = ApiClient.convertToType(data['meters'], [InventoryResponseMetersInner]);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
@@ -77,8 +77,60 @@ class InventoryResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InventoryResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InventoryResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of InventoryResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['envoys']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['envoys'])) {
+                throw new Error("Expected the field `envoys` to be an array in the JSON data but got " + data['envoys']);
+            }
+            // validate the optional field `envoys` (array)
+            for (const item of data['envoys']) {
+                InventoryResponseEnvoysInner.validateJsonObject(item);
+            };
+        }
+        if (data['inverters']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['inverters'])) {
+                throw new Error("Expected the field `inverters` to be an array in the JSON data but got " + data['inverters']);
+            }
+            // validate the optional field `inverters` (array)
+            for (const item of data['inverters']) {
+                InventoryResponseEnvoysInner.validateJsonObject(item);
+            };
+        }
+        if (data['meters']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['meters'])) {
+                throw new Error("Expected the field `meters` to be an array in the JSON data but got " + data['meters']);
+            }
+            // validate the optional field `meters` (array)
+            for (const item of data['meters']) {
+                InventoryResponseMetersInner.validateJsonObject(item);
+            };
+        }
+        // validate the optional field `meta`
+        if (data['meta']) { // data not null
+          Meta.validateJSON(data['meta']);
+        }
+
+        return true;
+    }
+
 
 }
+
+InventoryResponse.RequiredProperties = ["system_id", "inverters", "meters", "meta"];
 
 /**
  * Enlighten ID for this system.
@@ -88,19 +140,19 @@ InventoryResponse.prototype['system_id'] = undefined;
 
 /**
  * A list of Envoys on this system, including serial number.
- * @member {Array.<module:model/InventoryResponseEnvoys>} envoys
+ * @member {Array.<module:model/InventoryResponseEnvoysInner>} envoys
  */
 InventoryResponse.prototype['envoys'] = undefined;
 
 /**
  * A list of inverters on this system, including serial and model numbers.
- * @member {Array.<module:model/InventoryResponseEnvoys>} inverters
+ * @member {Array.<module:model/InventoryResponseEnvoysInner>} inverters
  */
 InventoryResponse.prototype['inverters'] = undefined;
 
 /**
  * A list of meters on this system, including serial number, manufacturer, and model number.
- * @member {Array.<module:model/InventoryResponseMeters>} meters
+ * @member {Array.<module:model/InventoryResponseMetersInner>} meters
  */
 InventoryResponse.prototype['meters'] = undefined;
 

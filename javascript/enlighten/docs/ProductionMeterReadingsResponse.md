@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **systemId** | **Number** |  | 
-**meterReadings** | [**[ProductionMeterReadingsResponseMeterReadings]**](ProductionMeterReadingsResponseMeterReadings.md) |  | 
+**meterReadings** | [**[ProductionMeterReadingsResponseMeterReadingsInner]**](ProductionMeterReadingsResponseMeterReadingsInner.md) |  | 
 **meta** | [**Meta**](Meta.md) |  | 
 
 

@@ -45,19 +45,21 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="productionWh">Total production for the requested period in Watt-hours. (required).</param>
         /// <param name="meterReadings">If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty. (required).</param>
         /// <param name="meta">meta (required).</param>
-        public MonthlyProductionResponse(int systemId = default(int), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), int productionWh = default(int), List<MonthlyProductionResponseMeterReadings> meterReadings = default(List<MonthlyProductionResponseMeterReadings>), Meta meta = default(Meta))
+        public MonthlyProductionResponse(int systemId = default(int), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), int productionWh = default(int), List<MonthlyProductionResponseMeterReadingsInner> meterReadings = default(List<MonthlyProductionResponseMeterReadingsInner>), Meta meta = default(Meta))
         {
             this.SystemId = systemId;
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.ProductionWh = productionWh;
             // to ensure "meterReadings" is required (not null)
-            if (meterReadings == null) {
+            if (meterReadings == null)
+            {
                 throw new ArgumentNullException("meterReadings is a required property for MonthlyProductionResponse and cannot be null");
             }
             this.MeterReadings = meterReadings;
             // to ensure "meta" is required (not null)
-            if (meta == null) {
+            if (meta == null)
+            {
                 throw new ArgumentNullException("meta is a required property for MonthlyProductionResponse and cannot be null");
             }
             this.Meta = meta;
@@ -67,14 +69,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Enlighten ID for this system.
         /// </summary>
         /// <value>Enlighten ID for this system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>
         /// First day included in the reporting period. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).
         /// </summary>
         /// <value>First day included in the reporting period. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes).</value>
-        [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTimeOffset StartDate { get; set; }
 
@@ -82,7 +84,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Last day included in the reporting period.
         /// </summary>
         /// <value>Last day included in the reporting period.</value>
-        [DataMember(Name = "end_date", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "end_date", IsRequired = true, EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTimeOffset EndDate { get; set; }
 
@@ -90,20 +92,20 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Total production for the requested period in Watt-hours.
         /// </summary>
         /// <value>Total production for the requested period in Watt-hours.</value>
-        [DataMember(Name = "production_wh", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "production_wh", IsRequired = true, EmitDefaultValue = true)]
         public int ProductionWh { get; set; }
 
         /// <summary>
         /// If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
         /// </summary>
         /// <value>If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.</value>
-        [DataMember(Name = "meter_readings", IsRequired = true, EmitDefaultValue = false)]
-        public List<MonthlyProductionResponseMeterReadings> MeterReadings { get; set; }
+        [DataMember(Name = "meter_readings", IsRequired = true, EmitDefaultValue = true)]
+        public List<MonthlyProductionResponseMeterReadingsInner> MeterReadings { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = true)]
         public Meta Meta { get; set; }
 
         /// <summary>

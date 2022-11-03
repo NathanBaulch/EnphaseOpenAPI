@@ -45,7 +45,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public NotFoundError(string reason = default(string), List<string> message = default(List<string>), List<string> errorMessages = default(List<string>))
         {
             // to ensure "reason" is required (not null)
-            if (reason == null) {
+            if (reason == null)
+            {
                 throw new ArgumentNullException("reason is a required property for NotFoundError and cannot be null");
             }
             this.Reason = reason;
@@ -56,7 +57,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
         public string Reason { get; set; }
 
         /// <summary>

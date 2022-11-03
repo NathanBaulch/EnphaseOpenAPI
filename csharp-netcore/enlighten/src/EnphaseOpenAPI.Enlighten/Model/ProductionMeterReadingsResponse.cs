@@ -42,16 +42,18 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="systemId">systemId (required).</param>
         /// <param name="meterReadings">meterReadings (required).</param>
         /// <param name="meta">meta (required).</param>
-        public ProductionMeterReadingsResponse(int systemId = default(int), List<ProductionMeterReadingsResponseMeterReadings> meterReadings = default(List<ProductionMeterReadingsResponseMeterReadings>), Meta meta = default(Meta))
+        public ProductionMeterReadingsResponse(int systemId = default(int), List<ProductionMeterReadingsResponseMeterReadingsInner> meterReadings = default(List<ProductionMeterReadingsResponseMeterReadingsInner>), Meta meta = default(Meta))
         {
             this.SystemId = systemId;
             // to ensure "meterReadings" is required (not null)
-            if (meterReadings == null) {
+            if (meterReadings == null)
+            {
                 throw new ArgumentNullException("meterReadings is a required property for ProductionMeterReadingsResponse and cannot be null");
             }
             this.MeterReadings = meterReadings;
             // to ensure "meta" is required (not null)
-            if (meta == null) {
+            if (meta == null)
+            {
                 throw new ArgumentNullException("meta is a required property for ProductionMeterReadingsResponse and cannot be null");
             }
             this.Meta = meta;
@@ -60,19 +62,19 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets SystemId
         /// </summary>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>
         /// Gets or Sets MeterReadings
         /// </summary>
-        [DataMember(Name = "meter_readings", IsRequired = true, EmitDefaultValue = false)]
-        public List<ProductionMeterReadingsResponseMeterReadings> MeterReadings { get; set; }
+        [DataMember(Name = "meter_readings", IsRequired = true, EmitDefaultValue = true)]
+        public List<ProductionMeterReadingsResponseMeterReadingsInner> MeterReadings { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = true)]
         public Meta Meta { get; set; }
 
         /// <summary>

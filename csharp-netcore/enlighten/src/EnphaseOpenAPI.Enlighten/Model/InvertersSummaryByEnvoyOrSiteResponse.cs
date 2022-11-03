@@ -41,11 +41,12 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="signalStrength">signalStrength (required).</param>
         /// <param name="microInverters">A list of active inverters on this system, including serial and model numbers. (required).</param>
-        public InvertersSummaryByEnvoyOrSiteResponse(int signalStrength = default(int), List<InvertersSummaryByEnvoyOrSiteResponseMicroInverters> microInverters = default(List<InvertersSummaryByEnvoyOrSiteResponseMicroInverters>))
+        public InvertersSummaryByEnvoyOrSiteResponse(int signalStrength = default(int), List<InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner> microInverters = default(List<InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner>))
         {
             this.SignalStrength = signalStrength;
             // to ensure "microInverters" is required (not null)
-            if (microInverters == null) {
+            if (microInverters == null)
+            {
                 throw new ArgumentNullException("microInverters is a required property for InvertersSummaryByEnvoyOrSiteResponse and cannot be null");
             }
             this.MicroInverters = microInverters;
@@ -54,15 +55,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets SignalStrength
         /// </summary>
-        [DataMember(Name = "signal_strength", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "signal_strength", IsRequired = true, EmitDefaultValue = true)]
         public int SignalStrength { get; set; }
 
         /// <summary>
         /// A list of active inverters on this system, including serial and model numbers.
         /// </summary>
         /// <value>A list of active inverters on this system, including serial and model numbers.</value>
-        [DataMember(Name = "micro_inverters", IsRequired = true, EmitDefaultValue = false)]
-        public List<InvertersSummaryByEnvoyOrSiteResponseMicroInverters> MicroInverters { get; set; }
+        [DataMember(Name = "micro_inverters", IsRequired = true, EmitDefaultValue = true)]
+        public List<InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner> MicroInverters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

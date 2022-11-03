@@ -44,12 +44,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public ClientError(string reason = default(string), List<string> message = default(List<string>))
         {
             // to ensure "reason" is required (not null)
-            if (reason == null) {
+            if (reason == null)
+            {
                 throw new ArgumentNullException("reason is a required property for ClientError and cannot be null");
             }
             this.Reason = reason;
             // to ensure "message" is required (not null)
-            if (message == null) {
+            if (message == null)
+            {
                 throw new ArgumentNullException("message is a required property for ClientError and cannot be null");
             }
             this.Message = message;
@@ -58,13 +60,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
         public string Reason { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Message { get; set; }
 
         /// <summary>

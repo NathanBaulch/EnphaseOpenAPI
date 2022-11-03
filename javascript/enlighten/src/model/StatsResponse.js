@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Meta from './Meta';
-import StatsResponseIntervals from './StatsResponseIntervals';
+import StatsResponseIntervalsInner from './StatsResponseIntervalsInner';
 
 /**
  * The StatsResponse model module.
@@ -27,7 +27,7 @@ class StatsResponse {
      * @param systemId {Number} Enlighten ID for this system.
      * @param totalDevices {Number} Number of active microinverters for this system.
      * @param meta {module:model/Meta} 
-     * @param intervals {Array.<module:model/StatsResponseIntervals>} A list of intervals between the requested start and end times.
+     * @param intervals {Array.<module:model/StatsResponseIntervalsInner>} A list of intervals between the requested start and end times.
      */
     constructor(systemId, totalDevices, meta, intervals) { 
         
@@ -67,14 +67,46 @@ class StatsResponse {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
             }
             if (data.hasOwnProperty('intervals')) {
-                obj['intervals'] = ApiClient.convertToType(data['intervals'], [StatsResponseIntervals]);
+                obj['intervals'] = ApiClient.convertToType(data['intervals'], [StatsResponseIntervalsInner]);
             }
         }
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>StatsResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>StatsResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of StatsResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // validate the optional field `meta`
+        if (data['meta']) { // data not null
+          Meta.validateJSON(data['meta']);
+        }
+        if (data['intervals']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['intervals'])) {
+                throw new Error("Expected the field `intervals` to be an array in the JSON data but got " + data['intervals']);
+            }
+            // validate the optional field `intervals` (array)
+            for (const item of data['intervals']) {
+                StatsResponseIntervalsInner.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+StatsResponse.RequiredProperties = ["system_id", "total_devices", "meta", "intervals"];
 
 /**
  * Enlighten ID for this system.
@@ -95,7 +127,7 @@ StatsResponse.prototype['meta'] = undefined;
 
 /**
  * A list of intervals between the requested start and end times.
- * @member {Array.<module:model/StatsResponseIntervals>} intervals
+ * @member {Array.<module:model/StatsResponseIntervalsInner>} intervals
  */
 StatsResponse.prototype['intervals'] = undefined;
 

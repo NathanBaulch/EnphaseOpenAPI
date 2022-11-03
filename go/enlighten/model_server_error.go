@@ -52,8 +52,8 @@ func (o *ServerError) GetErrorCode() int32 {
 // GetErrorCodeOk returns a tuple with the ErrorCode field value
 // and a boolean to check if the value has been set.
 func (o *ServerError) GetErrorCodeOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.ErrorCode, true
 }
@@ -76,8 +76,8 @@ func (o *ServerError) GetErrorMessages() []string {
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value
 // and a boolean to check if the value has been set.
 func (o *ServerError) GetErrorMessagesOk() ([]string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return o.ErrorMessages, true
 }

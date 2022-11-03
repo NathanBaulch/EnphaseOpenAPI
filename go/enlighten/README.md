@@ -63,7 +63,7 @@ Each operation can use different server URL defined using `OperationServers` map
 An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
-```
+```golang
 ctx := context.WithValue(context.Background(), enlighten.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
@@ -102,35 +102,35 @@ Class | Method | HTTP request | Description
  - [ConnectionType](docs/ConnectionType.md)
  - [ConsumptionLifetimeResponse](docs/ConsumptionLifetimeResponse.md)
  - [ConsumptionStatsResponse](docs/ConsumptionStatsResponse.md)
- - [ConsumptionStatsResponseIntervals](docs/ConsumptionStatsResponseIntervals.md)
+ - [ConsumptionStatsResponseIntervalsInner](docs/ConsumptionStatsResponseIntervalsInner.md)
  - [EnergyLifetimeResponse](docs/EnergyLifetimeResponse.md)
  - [EnvoysResponse](docs/EnvoysResponse.md)
- - [EnvoysResponseEnvoys](docs/EnvoysResponseEnvoys.md)
+ - [EnvoysResponseEnvoysInner](docs/EnvoysResponseEnvoysInner.md)
  - [InventoryResponse](docs/InventoryResponse.md)
- - [InventoryResponseEnvoys](docs/InventoryResponseEnvoys.md)
- - [InventoryResponseMeters](docs/InventoryResponseMeters.md)
+ - [InventoryResponseEnvoysInner](docs/InventoryResponseEnvoysInner.md)
+ - [InventoryResponseMetersInner](docs/InventoryResponseMetersInner.md)
  - [InvertersSummaryByEnvoyOrSiteResponse](docs/InvertersSummaryByEnvoyOrSiteResponse.md)
- - [InvertersSummaryByEnvoyOrSiteResponseEnergy](docs/InvertersSummaryByEnvoyOrSiteResponseEnergy.md)
- - [InvertersSummaryByEnvoyOrSiteResponseMicroInverters](docs/InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md)
- - [InvertersSummaryByEnvoyOrSiteResponsePowerProduced](docs/InvertersSummaryByEnvoyOrSiteResponsePowerProduced.md)
+ - [InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner](docs/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner.md)
+ - [InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy](docs/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy.md)
+ - [InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced](docs/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced.md)
  - [Meta](docs/Meta.md)
  - [MonthlyProductionResponse](docs/MonthlyProductionResponse.md)
- - [MonthlyProductionResponseMeterReadings](docs/MonthlyProductionResponseMeterReadings.md)
+ - [MonthlyProductionResponseMeterReadingsInner](docs/MonthlyProductionResponseMeterReadingsInner.md)
  - [NotFoundError](docs/NotFoundError.md)
  - [ProductionMeterReadingsResponse](docs/ProductionMeterReadingsResponse.md)
- - [ProductionMeterReadingsResponseMeterReadings](docs/ProductionMeterReadingsResponseMeterReadings.md)
+ - [ProductionMeterReadingsResponseMeterReadingsInner](docs/ProductionMeterReadingsResponseMeterReadingsInner.md)
  - [RgmStatsResponse](docs/RgmStatsResponse.md)
- - [RgmStatsResponseIntervals](docs/RgmStatsResponseIntervals.md)
- - [RgmStatsResponseIntervals1](docs/RgmStatsResponseIntervals1.md)
- - [RgmStatsResponseMeterIntervals](docs/RgmStatsResponseMeterIntervals.md)
+ - [RgmStatsResponseIntervalsInner](docs/RgmStatsResponseIntervalsInner.md)
+ - [RgmStatsResponseMeterIntervalsInner](docs/RgmStatsResponseMeterIntervalsInner.md)
+ - [RgmStatsResponseMeterIntervalsInnerIntervalsInner](docs/RgmStatsResponseMeterIntervalsInnerIntervalsInner.md)
  - [SearchSystemIdResponse](docs/SearchSystemIdResponse.md)
  - [ServerError](docs/ServerError.md)
  - [StatsResponse](docs/StatsResponse.md)
- - [StatsResponseIntervals](docs/StatsResponseIntervals.md)
+ - [StatsResponseIntervalsInner](docs/StatsResponseIntervalsInner.md)
  - [Status](docs/Status.md)
  - [SummaryResponse](docs/SummaryResponse.md)
  - [SystemsResponse](docs/SystemsResponse.md)
- - [SystemsResponseSystems](docs/SystemsResponseSystems.md)
+ - [SystemsResponseSystemsInner](docs/SystemsResponseSystemsInner.md)
  - [UnprocessableEntityError](docs/UnprocessableEntityError.md)
 
 

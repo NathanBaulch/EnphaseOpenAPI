@@ -22,14 +22,14 @@ type ConsumptionStatsResponse struct {
 	TotalDevices int32 `json:"total_devices"`
 	Meta Meta `json:"meta"`
 	// A list of intervals between the requested start and end times.
-	Intervals []ConsumptionStatsResponseIntervals `json:"intervals"`
+	Intervals []ConsumptionStatsResponseIntervalsInner `json:"intervals"`
 }
 
 // NewConsumptionStatsResponse instantiates a new ConsumptionStatsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsumptionStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []ConsumptionStatsResponseIntervals) *ConsumptionStatsResponse {
+func NewConsumptionStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []ConsumptionStatsResponseIntervalsInner) *ConsumptionStatsResponse {
 	this := ConsumptionStatsResponse{}
 	this.SystemId = systemId
 	this.TotalDevices = totalDevices
@@ -59,8 +59,8 @@ func (o *ConsumptionStatsResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *ConsumptionStatsResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -83,8 +83,8 @@ func (o *ConsumptionStatsResponse) GetTotalDevices() int32 {
 // GetTotalDevicesOk returns a tuple with the TotalDevices field value
 // and a boolean to check if the value has been set.
 func (o *ConsumptionStatsResponse) GetTotalDevicesOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.TotalDevices, true
 }
@@ -107,8 +107,8 @@ func (o *ConsumptionStatsResponse) GetMeta() Meta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *ConsumptionStatsResponse) GetMetaOk() (*Meta, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Meta, true
 }
@@ -119,9 +119,9 @@ func (o *ConsumptionStatsResponse) SetMeta(v Meta) {
 }
 
 // GetIntervals returns the Intervals field value
-func (o *ConsumptionStatsResponse) GetIntervals() []ConsumptionStatsResponseIntervals {
+func (o *ConsumptionStatsResponse) GetIntervals() []ConsumptionStatsResponseIntervalsInner {
 	if o == nil {
-		var ret []ConsumptionStatsResponseIntervals
+		var ret []ConsumptionStatsResponseIntervalsInner
 		return ret
 	}
 
@@ -130,15 +130,15 @@ func (o *ConsumptionStatsResponse) GetIntervals() []ConsumptionStatsResponseInte
 
 // GetIntervalsOk returns a tuple with the Intervals field value
 // and a boolean to check if the value has been set.
-func (o *ConsumptionStatsResponse) GetIntervalsOk() ([]ConsumptionStatsResponseIntervals, bool) {
-	if o == nil  {
-		return nil, false
+func (o *ConsumptionStatsResponse) GetIntervalsOk() ([]ConsumptionStatsResponseIntervalsInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.Intervals, true
 }
 
 // SetIntervals sets field value
-func (o *ConsumptionStatsResponse) SetIntervals(v []ConsumptionStatsResponseIntervals) {
+func (o *ConsumptionStatsResponse) SetIntervals(v []ConsumptionStatsResponseIntervalsInner) {
 	o.Intervals = v
 }
 

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InvertersSummaryByEnvoyOrSiteResponseMicroInverters from './InvertersSummaryByEnvoyOrSiteResponseMicroInverters';
+import InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner from './InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner';
 
 /**
  * The InvertersSummaryByEnvoyOrSiteResponse model module.
@@ -24,7 +24,7 @@ class InvertersSummaryByEnvoyOrSiteResponse {
      * Constructs a new <code>InvertersSummaryByEnvoyOrSiteResponse</code>.
      * @alias module:model/InvertersSummaryByEnvoyOrSiteResponse
      * @param signalStrength {Number} 
-     * @param microInverters {Array.<module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters>} A list of active inverters on this system, including serial and model numbers.
+     * @param microInverters {Array.<module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner>} A list of active inverters on this system, including serial and model numbers.
      */
     constructor(signalStrength, microInverters) { 
         
@@ -56,14 +56,42 @@ class InvertersSummaryByEnvoyOrSiteResponse {
                 obj['signal_strength'] = ApiClient.convertToType(data['signal_strength'], 'Number');
             }
             if (data.hasOwnProperty('micro_inverters')) {
-                obj['micro_inverters'] = ApiClient.convertToType(data['micro_inverters'], [InvertersSummaryByEnvoyOrSiteResponseMicroInverters]);
+                obj['micro_inverters'] = ApiClient.convertToType(data['micro_inverters'], [InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner]);
             }
         }
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InvertersSummaryByEnvoyOrSiteResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InvertersSummaryByEnvoyOrSiteResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of InvertersSummaryByEnvoyOrSiteResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['micro_inverters']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['micro_inverters'])) {
+                throw new Error("Expected the field `micro_inverters` to be an array in the JSON data but got " + data['micro_inverters']);
+            }
+            // validate the optional field `micro_inverters` (array)
+            for (const item of data['micro_inverters']) {
+                InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+InvertersSummaryByEnvoyOrSiteResponse.RequiredProperties = ["signal_strength", "micro_inverters"];
 
 /**
  * @member {Number} signal_strength
@@ -72,7 +100,7 @@ InvertersSummaryByEnvoyOrSiteResponse.prototype['signal_strength'] = undefined;
 
 /**
  * A list of active inverters on this system, including serial and model numbers.
- * @member {Array.<module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters>} micro_inverters
+ * @member {Array.<module:model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner>} micro_inverters
  */
 InvertersSummaryByEnvoyOrSiteResponse.prototype['micro_inverters'] = undefined;
 

@@ -22,16 +22,16 @@ type RgmStatsResponse struct {
 	TotalDevices int32 `json:"total_devices"`
 	Meta Meta `json:"meta"`
 	// A list of intervals between the requested start and end times.
-	Intervals []RgmStatsResponseIntervals `json:"intervals"`
+	Intervals []RgmStatsResponseIntervalsInner `json:"intervals"`
 	// A list of intervals of a meter between the requested start and end times.
-	MeterIntervals []RgmStatsResponseMeterIntervals `json:"meter_intervals"`
+	MeterIntervals []RgmStatsResponseMeterIntervalsInner `json:"meter_intervals"`
 }
 
 // NewRgmStatsResponse instantiates a new RgmStatsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRgmStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []RgmStatsResponseIntervals, meterIntervals []RgmStatsResponseMeterIntervals) *RgmStatsResponse {
+func NewRgmStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []RgmStatsResponseIntervalsInner, meterIntervals []RgmStatsResponseMeterIntervalsInner) *RgmStatsResponse {
 	this := RgmStatsResponse{}
 	this.SystemId = systemId
 	this.TotalDevices = totalDevices
@@ -62,8 +62,8 @@ func (o *RgmStatsResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -86,8 +86,8 @@ func (o *RgmStatsResponse) GetTotalDevices() int32 {
 // GetTotalDevicesOk returns a tuple with the TotalDevices field value
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetTotalDevicesOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.TotalDevices, true
 }
@@ -110,8 +110,8 @@ func (o *RgmStatsResponse) GetMeta() Meta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetMetaOk() (*Meta, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Meta, true
 }
@@ -122,9 +122,9 @@ func (o *RgmStatsResponse) SetMeta(v Meta) {
 }
 
 // GetIntervals returns the Intervals field value
-func (o *RgmStatsResponse) GetIntervals() []RgmStatsResponseIntervals {
+func (o *RgmStatsResponse) GetIntervals() []RgmStatsResponseIntervalsInner {
 	if o == nil {
-		var ret []RgmStatsResponseIntervals
+		var ret []RgmStatsResponseIntervalsInner
 		return ret
 	}
 
@@ -133,22 +133,22 @@ func (o *RgmStatsResponse) GetIntervals() []RgmStatsResponseIntervals {
 
 // GetIntervalsOk returns a tuple with the Intervals field value
 // and a boolean to check if the value has been set.
-func (o *RgmStatsResponse) GetIntervalsOk() ([]RgmStatsResponseIntervals, bool) {
-	if o == nil  {
-		return nil, false
+func (o *RgmStatsResponse) GetIntervalsOk() ([]RgmStatsResponseIntervalsInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.Intervals, true
 }
 
 // SetIntervals sets field value
-func (o *RgmStatsResponse) SetIntervals(v []RgmStatsResponseIntervals) {
+func (o *RgmStatsResponse) SetIntervals(v []RgmStatsResponseIntervalsInner) {
 	o.Intervals = v
 }
 
 // GetMeterIntervals returns the MeterIntervals field value
-func (o *RgmStatsResponse) GetMeterIntervals() []RgmStatsResponseMeterIntervals {
+func (o *RgmStatsResponse) GetMeterIntervals() []RgmStatsResponseMeterIntervalsInner {
 	if o == nil {
-		var ret []RgmStatsResponseMeterIntervals
+		var ret []RgmStatsResponseMeterIntervalsInner
 		return ret
 	}
 
@@ -157,15 +157,15 @@ func (o *RgmStatsResponse) GetMeterIntervals() []RgmStatsResponseMeterIntervals 
 
 // GetMeterIntervalsOk returns a tuple with the MeterIntervals field value
 // and a boolean to check if the value has been set.
-func (o *RgmStatsResponse) GetMeterIntervalsOk() ([]RgmStatsResponseMeterIntervals, bool) {
-	if o == nil  {
-		return nil, false
+func (o *RgmStatsResponse) GetMeterIntervalsOk() ([]RgmStatsResponseMeterIntervalsInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.MeterIntervals, true
 }
 
 // SetMeterIntervals sets field value
-func (o *RgmStatsResponse) SetMeterIntervals(v []RgmStatsResponseMeterIntervals) {
+func (o *RgmStatsResponse) SetMeterIntervals(v []RgmStatsResponseMeterIntervalsInner) {
 	o.MeterIntervals = v
 }
 

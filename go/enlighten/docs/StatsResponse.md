@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **SystemId** | **int32** | Enlighten ID for this system. | 
 **TotalDevices** | **int32** | Number of active microinverters for this system. | 
 **Meta** | [**Meta**](Meta.md) |  | 
-**Intervals** | [**[]StatsResponseIntervals**](StatsResponseIntervals.md) | A list of intervals between the requested start and end times. | 
+**Intervals** | [**[]StatsResponseIntervalsInner**](StatsResponseIntervalsInner.md) | A list of intervals between the requested start and end times. | 
 
 ## Methods
 
 ### NewStatsResponse
 
-`func NewStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []StatsResponseIntervals, ) *StatsResponse`
+`func NewStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []StatsResponseIntervalsInner, ) *StatsResponse`
 
 NewStatsResponse instantiates a new StatsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetMeta sets Meta field to given value.
 
 ### GetIntervals
 
-`func (o *StatsResponse) GetIntervals() []StatsResponseIntervals`
+`func (o *StatsResponse) GetIntervals() []StatsResponseIntervalsInner`
 
 GetIntervals returns the Intervals field if non-nil, zero value otherwise.
 
 ### GetIntervalsOk
 
-`func (o *StatsResponse) GetIntervalsOk() (*[]StatsResponseIntervals, bool)`
+`func (o *StatsResponse) GetIntervalsOk() (*[]StatsResponseIntervalsInner, bool)`
 
 GetIntervalsOk returns a tuple with the Intervals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIntervals
 
-`func (o *StatsResponse) SetIntervals(v []StatsResponseIntervals)`
+`func (o *StatsResponse) SetIntervals(v []StatsResponseIntervalsInner)`
 
 SetIntervals sets Intervals field to given value.
 

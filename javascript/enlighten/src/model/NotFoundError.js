@@ -62,8 +62,38 @@ class NotFoundError {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>NotFoundError</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>NotFoundError</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of NotFoundError.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['reason'] && !(typeof data['reason'] === 'string' || data['reason'] instanceof String)) {
+            throw new Error("Expected the field `reason` to be a primitive type in the JSON string but got " + data['reason']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['message'])) {
+            throw new Error("Expected the field `message` to be an array in the JSON data but got " + data['message']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['errorMessages'])) {
+            throw new Error("Expected the field `errorMessages` to be an array in the JSON data but got " + data['errorMessages']);
+        }
+
+        return true;
+    }
+
 
 }
+
+NotFoundError.RequiredProperties = ["reason"];
 
 /**
  * @member {String} reason

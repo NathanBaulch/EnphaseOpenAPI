@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SystemsResponseSystems from './SystemsResponseSystems';
+import SystemsResponseSystemsInner from './SystemsResponseSystemsInner';
 
 /**
  * The SystemsResponse model module.
@@ -23,7 +23,7 @@ class SystemsResponse {
     /**
      * Constructs a new <code>SystemsResponse</code>.
      * @alias module:model/SystemsResponse
-     * @param systems {Array.<module:model/SystemsResponseSystems>} 
+     * @param systems {Array.<module:model/SystemsResponseSystemsInner>} 
      */
     constructor(systems) { 
         
@@ -51,7 +51,7 @@ class SystemsResponse {
             obj = obj || new SystemsResponse();
 
             if (data.hasOwnProperty('systems')) {
-                obj['systems'] = ApiClient.convertToType(data['systems'], [SystemsResponseSystems]);
+                obj['systems'] = ApiClient.convertToType(data['systems'], [SystemsResponseSystemsInner]);
             }
             if (data.hasOwnProperty('next')) {
                 obj['next'] = ApiClient.convertToType(data['next'], 'String');
@@ -60,11 +60,43 @@ class SystemsResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>SystemsResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SystemsResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of SystemsResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['systems']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['systems'])) {
+                throw new Error("Expected the field `systems` to be an array in the JSON data but got " + data['systems']);
+            }
+            // validate the optional field `systems` (array)
+            for (const item of data['systems']) {
+                SystemsResponseSystemsInner.validateJsonObject(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['next'] && !(typeof data['next'] === 'string' || data['next'] instanceof String)) {
+            throw new Error("Expected the field `next` to be a primitive type in the JSON string but got " + data['next']);
+        }
+
+        return true;
+    }
+
 
 }
 
+SystemsResponse.RequiredProperties = ["systems"];
+
 /**
- * @member {Array.<module:model/SystemsResponseSystems>} systems
+ * @member {Array.<module:model/SystemsResponseSystemsInner>} systems
  */
 SystemsResponse.prototype['systems'] = undefined;
 

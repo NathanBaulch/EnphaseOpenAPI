@@ -41,11 +41,12 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="systemId">The identifier of the system. (required).</param>
         /// <param name="envoys">A list of active Envoys on this system. (required).</param>
-        public EnvoysResponse(int systemId = default(int), List<EnvoysResponseEnvoys> envoys = default(List<EnvoysResponseEnvoys>))
+        public EnvoysResponse(int systemId = default(int), List<EnvoysResponseEnvoysInner> envoys = default(List<EnvoysResponseEnvoysInner>))
         {
             this.SystemId = systemId;
             // to ensure "envoys" is required (not null)
-            if (envoys == null) {
+            if (envoys == null)
+            {
                 throw new ArgumentNullException("envoys is a required property for EnvoysResponse and cannot be null");
             }
             this.Envoys = envoys;
@@ -55,15 +56,15 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// The identifier of the system.
         /// </summary>
         /// <value>The identifier of the system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>
         /// A list of active Envoys on this system.
         /// </summary>
         /// <value>A list of active Envoys on this system.</value>
-        [DataMember(Name = "envoys", IsRequired = true, EmitDefaultValue = false)]
-        public List<EnvoysResponseEnvoys> Envoys { get; set; }
+        [DataMember(Name = "envoys", IsRequired = true, EmitDefaultValue = true)]
+        public List<EnvoysResponseEnvoysInner> Envoys { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

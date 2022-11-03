@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SignalStrength** | **int32** |  | 
-**MicroInverters** | [**[]InvertersSummaryByEnvoyOrSiteResponseMicroInverters**](InvertersSummaryByEnvoyOrSiteResponseMicroInverters.md) | A list of active inverters on this system, including serial and model numbers. | 
+**MicroInverters** | [**[]InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner**](InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner.md) | A list of active inverters on this system, including serial and model numbers. | 
 
 ## Methods
 
 ### NewInvertersSummaryByEnvoyOrSiteResponse
 
-`func NewInvertersSummaryByEnvoyOrSiteResponse(signalStrength int32, microInverters []InvertersSummaryByEnvoyOrSiteResponseMicroInverters, ) *InvertersSummaryByEnvoyOrSiteResponse`
+`func NewInvertersSummaryByEnvoyOrSiteResponse(signalStrength int32, microInverters []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner, ) *InvertersSummaryByEnvoyOrSiteResponse`
 
 NewInvertersSummaryByEnvoyOrSiteResponse instantiates a new InvertersSummaryByEnvoyOrSiteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetSignalStrength sets SignalStrength field to given value.
 
 ### GetMicroInverters
 
-`func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInverters() []InvertersSummaryByEnvoyOrSiteResponseMicroInverters`
+`func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInverters() []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner`
 
 GetMicroInverters returns the MicroInverters field if non-nil, zero value otherwise.
 
 ### GetMicroInvertersOk
 
-`func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInvertersOk() (*[]InvertersSummaryByEnvoyOrSiteResponseMicroInverters, bool)`
+`func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInvertersOk() (*[]InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner, bool)`
 
 GetMicroInvertersOk returns a tuple with the MicroInverters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMicroInverters
 
-`func (o *InvertersSummaryByEnvoyOrSiteResponse) SetMicroInverters(v []InvertersSummaryByEnvoyOrSiteResponseMicroInverters)`
+`func (o *InvertersSummaryByEnvoyOrSiteResponse) SetMicroInverters(v []InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner)`
 
 SetMicroInverters sets MicroInverters field to given value.
 

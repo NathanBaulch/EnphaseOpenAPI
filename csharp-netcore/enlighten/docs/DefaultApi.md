@@ -2,22 +2,21 @@
 
 All URIs are relative to *https://api.enphaseenergy.com/api/v2*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**ConsumptionLifetime**](DefaultApi.md#consumptionlifetime) | **GET** /systems/{system_id}/consumption_lifetime | 
-[**ConsumptionStats**](DefaultApi.md#consumptionstats) | **GET** /systems/{system_id}/consumption_stats | 
-[**EnergyLifetime**](DefaultApi.md#energylifetime) | **GET** /systems/{system_id}/energy_lifetime | 
-[**Envoys**](DefaultApi.md#envoys) | **GET** /systems/{system_id}/envoys | 
-[**Inventory**](DefaultApi.md#inventory) | **GET** /systems/{system_id}/inventory | 
-[**InvertersSummaryByEnvoyOrSite**](DefaultApi.md#inverterssummarybyenvoyorsite) | **GET** /systems/inverters_summary_by_envoy_or_site | 
-[**MonthlyProduction**](DefaultApi.md#monthlyproduction) | **GET** /systems/{system_id}/monthly_production | 
-[**ProductionMeterReadings**](DefaultApi.md#productionmeterreadings) | **GET** /systems/{system_id}/production_meter_readings | 
-[**RgmStats**](DefaultApi.md#rgmstats) | **GET** /systems/{system_id}/rgm_stats | 
-[**SearchSystemId**](DefaultApi.md#searchsystemid) | **GET** /systems/search_system_id | 
-[**Stats**](DefaultApi.md#stats) | **GET** /systems/{system_id}/stats | 
-[**Summary**](DefaultApi.md#summary) | **GET** /systems/{system_id}/summary | 
-[**Systems**](DefaultApi.md#systems) | **GET** /systems | 
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**ConsumptionLifetime**](DefaultApi.md#consumptionlifetime) | **GET** /systems/{system_id}/consumption_lifetime |  |
+| [**ConsumptionStats**](DefaultApi.md#consumptionstats) | **GET** /systems/{system_id}/consumption_stats |  |
+| [**EnergyLifetime**](DefaultApi.md#energylifetime) | **GET** /systems/{system_id}/energy_lifetime |  |
+| [**Envoys**](DefaultApi.md#envoys) | **GET** /systems/{system_id}/envoys |  |
+| [**Inventory**](DefaultApi.md#inventory) | **GET** /systems/{system_id}/inventory |  |
+| [**InvertersSummaryByEnvoyOrSite**](DefaultApi.md#inverterssummarybyenvoyorsite) | **GET** /systems/inverters_summary_by_envoy_or_site |  |
+| [**MonthlyProduction**](DefaultApi.md#monthlyproduction) | **GET** /systems/{system_id}/monthly_production |  |
+| [**ProductionMeterReadings**](DefaultApi.md#productionmeterreadings) | **GET** /systems/{system_id}/production_meter_readings |  |
+| [**RgmStats**](DefaultApi.md#rgmstats) | **GET** /systems/{system_id}/rgm_stats |  |
+| [**SearchSystemId**](DefaultApi.md#searchsystemid) | **GET** /systems/search_system_id |  |
+| [**Stats**](DefaultApi.md#stats) | **GET** /systems/{system_id}/stats |  |
+| [**Summary**](DefaultApi.md#summary) | **GET** /systems/{system_id}/summary |  |
+| [**Systems**](DefaultApi.md#systems) | **GET** /systems |  |
 
 <a name="consumptionlifetime"></a>
 # **ConsumptionLifetime**
@@ -61,8 +60,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.ConsumptionLifetime: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.ConsumptionLifetime: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -70,14 +69,33 @@ namespace Example
 }
 ```
 
+#### Using the ConsumptionLifetimeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<ConsumptionLifetimeResponse> response = apiInstance.ConsumptionLifetimeWithHttpInfo(userId, systemId, startDate, endDate);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.ConsumptionLifetimeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **startDate** | **DateTimeOffset?**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] 
- **endDate** | **DateTimeOffset?**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **startDate** | **DateTimeOffset?** | The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional]  |
+| **endDate** | **DateTimeOffset?** | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional]  |
 
 ### Return type
 
@@ -147,8 +165,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.ConsumptionStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.ConsumptionStats: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -156,14 +174,33 @@ namespace Example
 }
 ```
 
+#### Using the ConsumptionStatsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<ConsumptionStatsResponse> response = apiInstance.ConsumptionStatsWithHttpInfo(userId, systemId, startAt, endAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.ConsumptionStatsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **startAt** | **long?**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] 
- **endAt** | **long?**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **startAt** | **long?** | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional]  |
+| **endAt** | **long?** | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional]  |
 
 ### Return type
 
@@ -234,8 +271,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.EnergyLifetime: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.EnergyLifetime: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -243,15 +280,34 @@ namespace Example
 }
 ```
 
+#### Using the EnergyLifetimeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<EnergyLifetimeResponse> response = apiInstance.EnergyLifetimeWithHttpInfo(userId, systemId, startDate, endDate, production);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.EnergyLifetimeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **startDate** | **DateTimeOffset?**| The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional] 
- **endDate** | **DateTimeOffset?**| The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional] 
- **production** | **string**| When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **startDate** | **DateTimeOffset?** | The date on which to start the time series. Defaults to the system&#39;s operational date. | [optional]  |
+| **endDate** | **DateTimeOffset?** | The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier. | [optional]  |
+| **production** | **string** | When &#x60;all&#x60;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. | [optional]  |
 
 ### Return type
 
@@ -320,8 +376,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.Envoys: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.Envoys: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -329,12 +385,31 @@ namespace Example
 }
 ```
 
+#### Using the EnvoysWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<EnvoysResponse> response = apiInstance.EnvoysWithHttpInfo(userId, systemId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.EnvoysWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
 
 ### Return type
 
@@ -402,8 +477,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.Inventory: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.Inventory: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -411,12 +486,31 @@ namespace Example
 }
 ```
 
+#### Using the InventoryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<InventoryResponse> response = apiInstance.InventoryWithHttpInfo(userId, systemId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.InventoryWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
 
 ### Return type
 
@@ -484,8 +578,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.InvertersSummaryByEnvoyOrSite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.InvertersSummaryByEnvoyOrSite: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -493,12 +587,31 @@ namespace Example
 }
 ```
 
+#### Using the InvertersSummaryByEnvoyOrSiteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<List<InvertersSummaryByEnvoyOrSiteResponse>> response = apiInstance.InvertersSummaryByEnvoyOrSiteWithHttpInfo(userId, siteId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.InvertersSummaryByEnvoyOrSiteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **siteId** | **int**| The identifier of the system. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **siteId** | **int** | The identifier of the system. |  |
 
 ### Return type
 
@@ -567,8 +680,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.MonthlyProduction: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.MonthlyProduction: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -576,13 +689,32 @@ namespace Example
 }
 ```
 
+#### Using the MonthlyProductionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<MonthlyProductionResponse> response = apiInstance.MonthlyProductionWithHttpInfo(userId, systemId, startDate);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.MonthlyProductionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **startDate** | **DateTimeOffset**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **startDate** | **DateTimeOffset** | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. |  |
 
 ### Return type
 
@@ -651,8 +783,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.ProductionMeterReadings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.ProductionMeterReadings: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -660,13 +792,32 @@ namespace Example
 }
 ```
 
+#### Using the ProductionMeterReadingsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<ProductionMeterReadingsResponse> response = apiInstance.ProductionMeterReadingsWithHttpInfo(userId, systemId, endAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.ProductionMeterReadingsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **endAt** | **long?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **endAt** | **long?** |  | [optional]  |
 
 ### Return type
 
@@ -736,8 +887,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.RgmStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.RgmStats: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -745,14 +896,33 @@ namespace Example
 }
 ```
 
+#### Using the RgmStatsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<RgmStatsResponse> response = apiInstance.RgmStatsWithHttpInfo(userId, systemId, startAt, endAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.RgmStatsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **startAt** | **long?**| Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional] 
- **endAt** | **long?**| End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **startAt** | **long?** | Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the first interval of the &#x60;operational_date&#x60;. | [optional]  |
+| **endAt** | **long?** | End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. | [optional]  |
 
 ### Return type
 
@@ -820,8 +990,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.SearchSystemId: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.SearchSystemId: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -829,12 +999,31 @@ namespace Example
 }
 ```
 
+#### Using the SearchSystemIdWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<SearchSystemIdResponse> response = apiInstance.SearchSystemIdWithHttpInfo(userId, serialNum);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.SearchSystemIdWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **serialNum** | **string**| Serial number of the envoy. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **serialNum** | **string** | Serial number of the envoy. |  |
 
 ### Return type
 
@@ -905,8 +1094,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.Stats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.Stats: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -914,14 +1103,33 @@ namespace Example
 }
 ```
 
+#### Using the StatsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<StatsResponse> response = apiInstance.StatsWithHttpInfo(userId, systemId, startAt, endAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.StatsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **startAt** | **long?**| Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. | [optional] 
- **endAt** | **long?**| End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **startAt** | **long?** | Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system&#39;s &#x60;operational_date&#x60;, the response data begins with the &#x60;operational_date&#x60;. | [optional]  |
+| **endAt** | **long?** | End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval. | [optional]  |
 
 ### Return type
 
@@ -990,8 +1198,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.Summary: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.Summary: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -999,13 +1207,32 @@ namespace Example
 }
 ```
 
+#### Using the SummaryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<SummaryResponse> response = apiInstance.SummaryWithHttpInfo(userId, systemId, summaryDate);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.SummaryWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **systemId** | **int**|  | 
- **summaryDate** | **DateTimeOffset?**| Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **systemId** | **int** |  |  |
+| **summaryDate** | **DateTimeOffset?** | Start of reporting period. If no &#x60;summary_date&#x60; is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and &#x60;422&#x60; status. | [optional]  |
 
 ### Return type
 
@@ -1086,8 +1313,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DefaultApi.Systems: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.Systems: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1095,25 +1322,44 @@ namespace Example
 }
 ```
 
+#### Using the SystemsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<SystemsResponse> response = apiInstance.SystemsWithHttpInfo(userId, next, limit, systemId, systemId2, systemName, systemName2, status, status2, reference, reference2, installer, installer2, connectionType, connectionType2);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DefaultApi.SystemsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **next** | **string**|  | [optional] 
- **limit** | **int?**|  | [optional] [default to 100]
- **systemId** | **int?**|  | [optional] 
- **systemId2** | [**List&lt;int&gt;**](int.md)|  | [optional] 
- **systemName** | **string**|  | [optional] 
- **systemName2** | [**List&lt;string&gt;**](string.md)|  | [optional] 
- **status** | **Status?**|  | [optional] 
- **status2** | [**List&lt;Status&gt;**](Status.md)|  | [optional] 
- **reference** | **string**|  | [optional] 
- **reference2** | [**List&lt;string&gt;**](string.md)|  | [optional] 
- **installer** | **string**|  | [optional] 
- **installer2** | [**List&lt;string&gt;**](string.md)|  | [optional] 
- **connectionType** | **ConnectionType?**|  | [optional] 
- **connectionType2** | [**List&lt;ConnectionType&gt;**](ConnectionType.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** |  |  |
+| **next** | **string** |  | [optional]  |
+| **limit** | **int?** |  | [optional] [default to 100] |
+| **systemId** | **int?** |  | [optional]  |
+| **systemId2** | [**List&lt;int&gt;**](int.md) |  | [optional]  |
+| **systemName** | **string** |  | [optional]  |
+| **systemName2** | [**List&lt;string&gt;**](string.md) |  | [optional]  |
+| **status** | **Status?** |  | [optional]  |
+| **status2** | [**List&lt;Status&gt;**](Status.md) |  | [optional]  |
+| **reference** | **string** |  | [optional]  |
+| **reference2** | [**List&lt;string&gt;**](string.md) |  | [optional]  |
+| **installer** | **string** |  | [optional]  |
+| **installer2** | [**List&lt;string&gt;**](string.md) |  | [optional]  |
+| **connectionType** | **ConnectionType?** |  | [optional]  |
+| **connectionType2** | [**List&lt;ConnectionType&gt;**](ConnectionType.md) |  | [optional]  |
 
 ### Return type
 

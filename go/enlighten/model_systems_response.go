@@ -16,7 +16,7 @@ import (
 
 // SystemsResponse struct for SystemsResponse
 type SystemsResponse struct {
-	Systems []SystemsResponseSystems `json:"systems"`
+	Systems []SystemsResponseSystemsInner `json:"systems"`
 	Next *string `json:"next,omitempty"`
 }
 
@@ -24,7 +24,7 @@ type SystemsResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSystemsResponse(systems []SystemsResponseSystems) *SystemsResponse {
+func NewSystemsResponse(systems []SystemsResponseSystemsInner) *SystemsResponse {
 	this := SystemsResponse{}
 	this.Systems = systems
 	return &this
@@ -39,9 +39,9 @@ func NewSystemsResponseWithDefaults() *SystemsResponse {
 }
 
 // GetSystems returns the Systems field value
-func (o *SystemsResponse) GetSystems() []SystemsResponseSystems {
+func (o *SystemsResponse) GetSystems() []SystemsResponseSystemsInner {
 	if o == nil {
-		var ret []SystemsResponseSystems
+		var ret []SystemsResponseSystemsInner
 		return ret
 	}
 
@@ -50,21 +50,21 @@ func (o *SystemsResponse) GetSystems() []SystemsResponseSystems {
 
 // GetSystemsOk returns a tuple with the Systems field value
 // and a boolean to check if the value has been set.
-func (o *SystemsResponse) GetSystemsOk() ([]SystemsResponseSystems, bool) {
-	if o == nil  {
-		return nil, false
+func (o *SystemsResponse) GetSystemsOk() ([]SystemsResponseSystemsInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.Systems, true
 }
 
 // SetSystems sets field value
-func (o *SystemsResponse) SetSystems(v []SystemsResponseSystems) {
+func (o *SystemsResponse) SetSystems(v []SystemsResponseSystemsInner) {
 	o.Systems = v
 }
 
 // GetNext returns the Next field value if set, zero value otherwise.
 func (o *SystemsResponse) GetNext() string {
-	if o == nil || o.Next == nil {
+	if o == nil || isNil(o.Next) {
 		var ret string
 		return ret
 	}
@@ -74,15 +74,15 @@ func (o *SystemsResponse) GetNext() string {
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SystemsResponse) GetNextOk() (*string, bool) {
-	if o == nil || o.Next == nil {
-		return nil, false
+	if o == nil || isNil(o.Next) {
+    return nil, false
 	}
 	return o.Next, true
 }
 
 // HasNext returns a boolean if a field has been set.
 func (o *SystemsResponse) HasNext() bool {
-	if o != nil && o.Next != nil {
+	if o != nil && !isNil(o.Next) {
 		return true
 	}
 
@@ -99,7 +99,7 @@ func (o SystemsResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["systems"] = o.Systems
 	}
-	if o.Next != nil {
+	if !isNil(o.Next) {
 		toSerialize["next"] = o.Next
 	}
 	return json.Marshal(toSerialize)

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import EnvoysResponseEnvoys from './EnvoysResponseEnvoys';
+import EnvoysResponseEnvoysInner from './EnvoysResponseEnvoysInner';
 
 /**
  * The EnvoysResponse model module.
@@ -24,7 +24,7 @@ class EnvoysResponse {
      * Constructs a new <code>EnvoysResponse</code>.
      * @alias module:model/EnvoysResponse
      * @param systemId {Number} The identifier of the system.
-     * @param envoys {Array.<module:model/EnvoysResponseEnvoys>} A list of active Envoys on this system.
+     * @param envoys {Array.<module:model/EnvoysResponseEnvoysInner>} A list of active Envoys on this system.
      */
     constructor(systemId, envoys) { 
         
@@ -56,14 +56,42 @@ class EnvoysResponse {
                 obj['system_id'] = ApiClient.convertToType(data['system_id'], 'Number');
             }
             if (data.hasOwnProperty('envoys')) {
-                obj['envoys'] = ApiClient.convertToType(data['envoys'], [EnvoysResponseEnvoys]);
+                obj['envoys'] = ApiClient.convertToType(data['envoys'], [EnvoysResponseEnvoysInner]);
             }
         }
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>EnvoysResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EnvoysResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of EnvoysResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['envoys']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['envoys'])) {
+                throw new Error("Expected the field `envoys` to be an array in the JSON data but got " + data['envoys']);
+            }
+            // validate the optional field `envoys` (array)
+            for (const item of data['envoys']) {
+                EnvoysResponseEnvoysInner.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+EnvoysResponse.RequiredProperties = ["system_id", "envoys"];
 
 /**
  * The identifier of the system.
@@ -73,7 +101,7 @@ EnvoysResponse.prototype['system_id'] = undefined;
 
 /**
  * A list of active Envoys on this system.
- * @member {Array.<module:model/EnvoysResponseEnvoys>} envoys
+ * @member {Array.<module:model/EnvoysResponseEnvoysInner>} envoys
  */
 EnvoysResponse.prototype['envoys'] = undefined;
 

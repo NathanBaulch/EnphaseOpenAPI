@@ -83,8 +83,8 @@ func (o *SummaryResponse) GetCurrentPower() int32 {
 // GetCurrentPowerOk returns a tuple with the CurrentPower field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetCurrentPowerOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.CurrentPower, true
 }
@@ -107,8 +107,8 @@ func (o *SummaryResponse) GetEnergyLifetime() int32 {
 // GetEnergyLifetimeOk returns a tuple with the EnergyLifetime field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetEnergyLifetimeOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.EnergyLifetime, true
 }
@@ -131,8 +131,8 @@ func (o *SummaryResponse) GetEnergyToday() int32 {
 // GetEnergyTodayOk returns a tuple with the EnergyToday field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetEnergyTodayOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.EnergyToday, true
 }
@@ -155,8 +155,8 @@ func (o *SummaryResponse) GetLastIntervalEndAt() int64 {
 // GetLastIntervalEndAtOk returns a tuple with the LastIntervalEndAt field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetLastIntervalEndAtOk() (*int64, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.LastIntervalEndAt, true
 }
@@ -179,8 +179,8 @@ func (o *SummaryResponse) GetLastReportAt() int64 {
 // GetLastReportAtOk returns a tuple with the LastReportAt field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetLastReportAtOk() (*int64, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.LastReportAt, true
 }
@@ -203,8 +203,8 @@ func (o *SummaryResponse) GetModules() int32 {
 // GetModulesOk returns a tuple with the Modules field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetModulesOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Modules, true
 }
@@ -227,8 +227,8 @@ func (o *SummaryResponse) GetOperationalAt() int64 {
 // GetOperationalAtOk returns a tuple with the OperationalAt field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetOperationalAtOk() (*int64, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.OperationalAt, true
 }
@@ -251,8 +251,8 @@ func (o *SummaryResponse) GetSizeW() int32 {
 // GetSizeWOk returns a tuple with the SizeW field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSizeWOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SizeW, true
 }
@@ -275,8 +275,8 @@ func (o *SummaryResponse) GetSource() string {
 // GetSourceOk returns a tuple with the Source field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSourceOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Source, true
 }
@@ -299,8 +299,8 @@ func (o *SummaryResponse) GetStatus() Status {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetStatusOk() (*Status, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Status, true
 }
@@ -323,8 +323,8 @@ func (o *SummaryResponse) GetSummaryDate() string {
 // GetSummaryDateOk returns a tuple with the SummaryDate field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSummaryDateOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SummaryDate, true
 }
@@ -347,8 +347,8 @@ func (o *SummaryResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }

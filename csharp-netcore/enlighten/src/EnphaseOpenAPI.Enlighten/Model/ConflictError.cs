@@ -61,7 +61,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
         public PeriodEnum Period { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ConflictError" /> class.
@@ -80,12 +80,14 @@ namespace EnphaseOpenAPI.Enlighten.Model
         public ConflictError(string reason = default(string), List<string> message = default(List<string>), PeriodEnum period = default(PeriodEnum), int periodStart = default(int), int periodEnd = default(int), int limit = default(int))
         {
             // to ensure "reason" is required (not null)
-            if (reason == null) {
+            if (reason == null)
+            {
                 throw new ArgumentNullException("reason is a required property for ConflictError and cannot be null");
             }
             this.Reason = reason;
             // to ensure "message" is required (not null)
-            if (message == null) {
+            if (message == null)
+            {
                 throw new ArgumentNullException("message is a required property for ConflictError and cannot be null");
             }
             this.Message = message;
@@ -98,31 +100,31 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
         public string Reason { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Message { get; set; }
 
         /// <summary>
         /// Gets or Sets PeriodStart
         /// </summary>
-        [DataMember(Name = "period_start", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "period_start", IsRequired = true, EmitDefaultValue = true)]
         public int PeriodStart { get; set; }
 
         /// <summary>
         /// Gets or Sets PeriodEnd
         /// </summary>
-        [DataMember(Name = "period_end", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "period_end", IsRequired = true, EmitDefaultValue = true)]
         public int PeriodEnd { get; set; }
 
         /// <summary>
         /// Gets or Sets Limit
         /// </summary>
-        [DataMember(Name = "limit", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "limit", IsRequired = true, EmitDefaultValue = true)]
         public int Limit { get; set; }
 
         /// <summary>

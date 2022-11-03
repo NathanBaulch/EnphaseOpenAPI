@@ -19,14 +19,14 @@ type EnvoysResponse struct {
 	// The identifier of the system.
 	SystemId int32 `json:"system_id"`
 	// A list of active Envoys on this system.
-	Envoys []EnvoysResponseEnvoys `json:"envoys"`
+	Envoys []EnvoysResponseEnvoysInner `json:"envoys"`
 }
 
 // NewEnvoysResponse instantiates a new EnvoysResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvoysResponse(systemId int32, envoys []EnvoysResponseEnvoys) *EnvoysResponse {
+func NewEnvoysResponse(systemId int32, envoys []EnvoysResponseEnvoysInner) *EnvoysResponse {
 	this := EnvoysResponse{}
 	this.SystemId = systemId
 	this.Envoys = envoys
@@ -54,8 +54,8 @@ func (o *EnvoysResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -66,9 +66,9 @@ func (o *EnvoysResponse) SetSystemId(v int32) {
 }
 
 // GetEnvoys returns the Envoys field value
-func (o *EnvoysResponse) GetEnvoys() []EnvoysResponseEnvoys {
+func (o *EnvoysResponse) GetEnvoys() []EnvoysResponseEnvoysInner {
 	if o == nil {
-		var ret []EnvoysResponseEnvoys
+		var ret []EnvoysResponseEnvoysInner
 		return ret
 	}
 
@@ -77,15 +77,15 @@ func (o *EnvoysResponse) GetEnvoys() []EnvoysResponseEnvoys {
 
 // GetEnvoysOk returns a tuple with the Envoys field value
 // and a boolean to check if the value has been set.
-func (o *EnvoysResponse) GetEnvoysOk() ([]EnvoysResponseEnvoys, bool) {
-	if o == nil  {
-		return nil, false
+func (o *EnvoysResponse) GetEnvoysOk() ([]EnvoysResponseEnvoysInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.Envoys, true
 }
 
 // SetEnvoys sets field value
-func (o *EnvoysResponse) SetEnvoys(v []EnvoysResponseEnvoys) {
+func (o *EnvoysResponse) SetEnvoys(v []EnvoysResponseEnvoysInner) {
 	o.Envoys = v
 }
 

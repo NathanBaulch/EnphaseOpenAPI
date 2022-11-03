@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **SystemId** | **int32** | Enlighten ID for this system. | 
 **TotalDevices** | **int32** | Number of active revenue-grade meters for this system. | 
 **Meta** | [**Meta**](Meta.md) |  | 
-**Intervals** | [**[]RgmStatsResponseIntervals**](RgmStatsResponseIntervals.md) | A list of intervals between the requested start and end times. | 
-**MeterIntervals** | [**[]RgmStatsResponseMeterIntervals**](RgmStatsResponseMeterIntervals.md) | A list of intervals of a meter between the requested start and end times. | 
+**Intervals** | [**[]RgmStatsResponseIntervalsInner**](RgmStatsResponseIntervalsInner.md) | A list of intervals between the requested start and end times. | 
+**MeterIntervals** | [**[]RgmStatsResponseMeterIntervalsInner**](RgmStatsResponseMeterIntervalsInner.md) | A list of intervals of a meter between the requested start and end times. | 
 
 ## Methods
 
 ### NewRgmStatsResponse
 
-`func NewRgmStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []RgmStatsResponseIntervals, meterIntervals []RgmStatsResponseMeterIntervals, ) *RgmStatsResponse`
+`func NewRgmStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []RgmStatsResponseIntervalsInner, meterIntervals []RgmStatsResponseMeterIntervalsInner, ) *RgmStatsResponse`
 
 NewRgmStatsResponse instantiates a new RgmStatsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetMeta sets Meta field to given value.
 
 ### GetIntervals
 
-`func (o *RgmStatsResponse) GetIntervals() []RgmStatsResponseIntervals`
+`func (o *RgmStatsResponse) GetIntervals() []RgmStatsResponseIntervalsInner`
 
 GetIntervals returns the Intervals field if non-nil, zero value otherwise.
 
 ### GetIntervalsOk
 
-`func (o *RgmStatsResponse) GetIntervalsOk() (*[]RgmStatsResponseIntervals, bool)`
+`func (o *RgmStatsResponse) GetIntervalsOk() (*[]RgmStatsResponseIntervalsInner, bool)`
 
 GetIntervalsOk returns a tuple with the Intervals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIntervals
 
-`func (o *RgmStatsResponse) SetIntervals(v []RgmStatsResponseIntervals)`
+`func (o *RgmStatsResponse) SetIntervals(v []RgmStatsResponseIntervalsInner)`
 
 SetIntervals sets Intervals field to given value.
 
 
 ### GetMeterIntervals
 
-`func (o *RgmStatsResponse) GetMeterIntervals() []RgmStatsResponseMeterIntervals`
+`func (o *RgmStatsResponse) GetMeterIntervals() []RgmStatsResponseMeterIntervalsInner`
 
 GetMeterIntervals returns the MeterIntervals field if non-nil, zero value otherwise.
 
 ### GetMeterIntervalsOk
 
-`func (o *RgmStatsResponse) GetMeterIntervalsOk() (*[]RgmStatsResponseMeterIntervals, bool)`
+`func (o *RgmStatsResponse) GetMeterIntervalsOk() (*[]RgmStatsResponseMeterIntervalsInner, bool)`
 
 GetMeterIntervalsOk returns a tuple with the MeterIntervals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeterIntervals
 
-`func (o *RgmStatsResponse) SetMeterIntervals(v []RgmStatsResponseMeterIntervals)`
+`func (o *RgmStatsResponse) SetMeterIntervals(v []RgmStatsResponseMeterIntervalsInner)`
 
 SetMeterIntervals sets MeterIntervals field to given value.
 

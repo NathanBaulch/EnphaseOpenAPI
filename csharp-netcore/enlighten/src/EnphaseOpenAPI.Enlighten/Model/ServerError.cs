@@ -45,7 +45,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
         {
             this.ErrorCode = errorCode;
             // to ensure "errorMessages" is required (not null)
-            if (errorMessages == null) {
+            if (errorMessages == null)
+            {
                 throw new ArgumentNullException("errorMessages is a required property for ServerError and cannot be null");
             }
             this.ErrorMessages = errorMessages;
@@ -54,13 +55,13 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets ErrorCode
         /// </summary>
-        [DataMember(Name = "errorCode", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "errorCode", IsRequired = true, EmitDefaultValue = true)]
         public int ErrorCode { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorMessages
         /// </summary>
-        [DataMember(Name = "errorMessages", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "errorMessages", IsRequired = true, EmitDefaultValue = true)]
         public List<string> ErrorMessages { get; set; }
 
         /// <summary>

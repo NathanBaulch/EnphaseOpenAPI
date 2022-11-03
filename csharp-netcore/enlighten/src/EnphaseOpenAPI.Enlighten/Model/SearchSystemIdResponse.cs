@@ -49,7 +49,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// The Enlighten ID of the system.
         /// </summary>
         /// <value>The Enlighten ID of the system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>

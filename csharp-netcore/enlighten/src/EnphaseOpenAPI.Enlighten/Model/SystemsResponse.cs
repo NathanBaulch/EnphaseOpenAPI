@@ -41,10 +41,11 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// </summary>
         /// <param name="systems">systems (required).</param>
         /// <param name="next">next.</param>
-        public SystemsResponse(List<SystemsResponseSystems> systems = default(List<SystemsResponseSystems>), string next = default(string))
+        public SystemsResponse(List<SystemsResponseSystemsInner> systems = default(List<SystemsResponseSystemsInner>), string next = default(string))
         {
             // to ensure "systems" is required (not null)
-            if (systems == null) {
+            if (systems == null)
+            {
                 throw new ArgumentNullException("systems is a required property for SystemsResponse and cannot be null");
             }
             this.Systems = systems;
@@ -54,8 +55,8 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets Systems
         /// </summary>
-        [DataMember(Name = "systems", IsRequired = true, EmitDefaultValue = false)]
-        public List<SystemsResponseSystems> Systems { get; set; }
+        [DataMember(Name = "systems", IsRequired = true, EmitDefaultValue = true)]
+        public List<SystemsResponseSystemsInner> Systems { get; set; }
 
         /// <summary>
         /// Gets or Sets Next

@@ -43,17 +43,19 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="totalDevices">Number of active microinverters for this system. (required).</param>
         /// <param name="meta">meta (required).</param>
         /// <param name="intervals">A list of intervals between the requested start and end times. (required).</param>
-        public StatsResponse(int systemId = default(int), int totalDevices = default(int), Meta meta = default(Meta), List<StatsResponseIntervals> intervals = default(List<StatsResponseIntervals>))
+        public StatsResponse(int systemId = default(int), int totalDevices = default(int), Meta meta = default(Meta), List<StatsResponseIntervalsInner> intervals = default(List<StatsResponseIntervalsInner>))
         {
             this.SystemId = systemId;
             this.TotalDevices = totalDevices;
             // to ensure "meta" is required (not null)
-            if (meta == null) {
+            if (meta == null)
+            {
                 throw new ArgumentNullException("meta is a required property for StatsResponse and cannot be null");
             }
             this.Meta = meta;
             // to ensure "intervals" is required (not null)
-            if (intervals == null) {
+            if (intervals == null)
+            {
                 throw new ArgumentNullException("intervals is a required property for StatsResponse and cannot be null");
             }
             this.Intervals = intervals;
@@ -63,28 +65,28 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Enlighten ID for this system.
         /// </summary>
         /// <value>Enlighten ID for this system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>
         /// Number of active microinverters for this system.
         /// </summary>
         /// <value>Number of active microinverters for this system.</value>
-        [DataMember(Name = "total_devices", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "total_devices", IsRequired = true, EmitDefaultValue = true)]
         public int TotalDevices { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = true)]
         public Meta Meta { get; set; }
 
         /// <summary>
         /// A list of intervals between the requested start and end times.
         /// </summary>
         /// <value>A list of intervals between the requested start and end times.</value>
-        [DataMember(Name = "intervals", IsRequired = true, EmitDefaultValue = false)]
-        public List<StatsResponseIntervals> Intervals { get; set; }
+        [DataMember(Name = "intervals", IsRequired = true, EmitDefaultValue = true)]
+        public List<StatsResponseIntervalsInner> Intervals { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

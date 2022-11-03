@@ -1,7 +1,7 @@
 {
   "name": "the_enlighten_systems_api",
   "version": "2.0",
-  "description": "The_Enlighten_Systems_API_is_a_JSON_based_API_that_provides_access_to_performance_data_for_a_PV_system__By_using_the_Enlighten_Systems_API_you_agree_to_the_Enphase_Energy_API_License_Agreement_Please_note_that_the_Enlighten_Systems_API_does_not_provide_performance_data_at_a_panel_or_microinverter_level_",
+  "description": "The Enlighten Systems API is a JSON-based API that provides access to performance data for a PV system. By using the Enlighten Systems API, you agree to the Enphase Energy API License Agreement.  Please note that the Enlighten Systems API does not provide performance data at a panel or microinverter level.",
   "license": "Enphase API License Agreement",
   "main": "dist/index.js",
   "scripts": {

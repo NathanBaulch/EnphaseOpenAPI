@@ -44,22 +44,25 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <param name="meta">meta (required).</param>
         /// <param name="intervals">A list of intervals between the requested start and end times. (required).</param>
         /// <param name="meterIntervals">A list of intervals of a meter between the requested start and end times. (required).</param>
-        public RgmStatsResponse(int systemId = default(int), int totalDevices = default(int), Meta meta = default(Meta), List<RgmStatsResponseIntervals> intervals = default(List<RgmStatsResponseIntervals>), List<RgmStatsResponseMeterIntervals> meterIntervals = default(List<RgmStatsResponseMeterIntervals>))
+        public RgmStatsResponse(int systemId = default(int), int totalDevices = default(int), Meta meta = default(Meta), List<RgmStatsResponseIntervalsInner> intervals = default(List<RgmStatsResponseIntervalsInner>), List<RgmStatsResponseMeterIntervalsInner> meterIntervals = default(List<RgmStatsResponseMeterIntervalsInner>))
         {
             this.SystemId = systemId;
             this.TotalDevices = totalDevices;
             // to ensure "meta" is required (not null)
-            if (meta == null) {
+            if (meta == null)
+            {
                 throw new ArgumentNullException("meta is a required property for RgmStatsResponse and cannot be null");
             }
             this.Meta = meta;
             // to ensure "intervals" is required (not null)
-            if (intervals == null) {
+            if (intervals == null)
+            {
                 throw new ArgumentNullException("intervals is a required property for RgmStatsResponse and cannot be null");
             }
             this.Intervals = intervals;
             // to ensure "meterIntervals" is required (not null)
-            if (meterIntervals == null) {
+            if (meterIntervals == null)
+            {
                 throw new ArgumentNullException("meterIntervals is a required property for RgmStatsResponse and cannot be null");
             }
             this.MeterIntervals = meterIntervals;
@@ -69,35 +72,35 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// Enlighten ID for this system.
         /// </summary>
         /// <value>Enlighten ID for this system.</value>
-        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>
         /// Number of active revenue-grade meters for this system.
         /// </summary>
         /// <value>Number of active revenue-grade meters for this system.</value>
-        [DataMember(Name = "total_devices", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "total_devices", IsRequired = true, EmitDefaultValue = true)]
         public int TotalDevices { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = true)]
         public Meta Meta { get; set; }
 
         /// <summary>
         /// A list of intervals between the requested start and end times.
         /// </summary>
         /// <value>A list of intervals between the requested start and end times.</value>
-        [DataMember(Name = "intervals", IsRequired = true, EmitDefaultValue = false)]
-        public List<RgmStatsResponseIntervals> Intervals { get; set; }
+        [DataMember(Name = "intervals", IsRequired = true, EmitDefaultValue = true)]
+        public List<RgmStatsResponseIntervalsInner> Intervals { get; set; }
 
         /// <summary>
         /// A list of intervals of a meter between the requested start and end times.
         /// </summary>
         /// <value>A list of intervals of a meter between the requested start and end times.</value>
-        [DataMember(Name = "meter_intervals", IsRequired = true, EmitDefaultValue = false)]
-        public List<RgmStatsResponseMeterIntervals> MeterIntervals { get; set; }
+        [DataMember(Name = "meter_intervals", IsRequired = true, EmitDefaultValue = true)]
+        public List<RgmStatsResponseMeterIntervalsInner> MeterIntervals { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

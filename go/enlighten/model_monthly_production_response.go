@@ -25,7 +25,7 @@ type MonthlyProductionResponse struct {
 	// Total production for the requested period in Watt-hours.
 	ProductionWh int32 `json:"production_wh"`
 	// If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
-	MeterReadings []MonthlyProductionResponseMeterReadings `json:"meter_readings"`
+	MeterReadings []MonthlyProductionResponseMeterReadingsInner `json:"meter_readings"`
 	Meta Meta `json:"meta"`
 }
 
@@ -33,7 +33,7 @@ type MonthlyProductionResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMonthlyProductionResponse(systemId int32, startDate string, endDate string, productionWh int32, meterReadings []MonthlyProductionResponseMeterReadings, meta Meta) *MonthlyProductionResponse {
+func NewMonthlyProductionResponse(systemId int32, startDate string, endDate string, productionWh int32, meterReadings []MonthlyProductionResponseMeterReadingsInner, meta Meta) *MonthlyProductionResponse {
 	this := MonthlyProductionResponse{}
 	this.SystemId = systemId
 	this.StartDate = startDate
@@ -65,8 +65,8 @@ func (o *MonthlyProductionResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -89,8 +89,8 @@ func (o *MonthlyProductionResponse) GetStartDate() string {
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetStartDateOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.StartDate, true
 }
@@ -113,8 +113,8 @@ func (o *MonthlyProductionResponse) GetEndDate() string {
 // GetEndDateOk returns a tuple with the EndDate field value
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetEndDateOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.EndDate, true
 }
@@ -137,8 +137,8 @@ func (o *MonthlyProductionResponse) GetProductionWh() int32 {
 // GetProductionWhOk returns a tuple with the ProductionWh field value
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetProductionWhOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.ProductionWh, true
 }
@@ -149,9 +149,9 @@ func (o *MonthlyProductionResponse) SetProductionWh(v int32) {
 }
 
 // GetMeterReadings returns the MeterReadings field value
-func (o *MonthlyProductionResponse) GetMeterReadings() []MonthlyProductionResponseMeterReadings {
+func (o *MonthlyProductionResponse) GetMeterReadings() []MonthlyProductionResponseMeterReadingsInner {
 	if o == nil {
-		var ret []MonthlyProductionResponseMeterReadings
+		var ret []MonthlyProductionResponseMeterReadingsInner
 		return ret
 	}
 
@@ -160,15 +160,15 @@ func (o *MonthlyProductionResponse) GetMeterReadings() []MonthlyProductionRespon
 
 // GetMeterReadingsOk returns a tuple with the MeterReadings field value
 // and a boolean to check if the value has been set.
-func (o *MonthlyProductionResponse) GetMeterReadingsOk() ([]MonthlyProductionResponseMeterReadings, bool) {
-	if o == nil  {
-		return nil, false
+func (o *MonthlyProductionResponse) GetMeterReadingsOk() ([]MonthlyProductionResponseMeterReadingsInner, bool) {
+	if o == nil {
+    return nil, false
 	}
 	return o.MeterReadings, true
 }
 
 // SetMeterReadings sets field value
-func (o *MonthlyProductionResponse) SetMeterReadings(v []MonthlyProductionResponseMeterReadings) {
+func (o *MonthlyProductionResponse) SetMeterReadings(v []MonthlyProductionResponseMeterReadingsInner) {
 	o.MeterReadings = v
 }
 
@@ -185,8 +185,8 @@ func (o *MonthlyProductionResponse) GetMeta() Meta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetMetaOk() (*Meta, bool) {
-	if o == nil  {
-		return nil, false
+	if o == nil {
+    return nil, false
 	}
 	return &o.Meta, true
 }

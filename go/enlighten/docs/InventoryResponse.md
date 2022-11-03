@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SystemId** | **int32** | Enlighten ID for this system. | 
-**Envoys** | Pointer to [**[]InventoryResponseEnvoys**](InventoryResponseEnvoys.md) | A list of Envoys on this system, including serial number. | [optional] 
-**Inverters** | [**[]InventoryResponseEnvoys**](InventoryResponseEnvoys.md) | A list of inverters on this system, including serial and model numbers. | 
-**Meters** | [**[]InventoryResponseMeters**](InventoryResponseMeters.md) | A list of meters on this system, including serial number, manufacturer, and model number. | 
+**Envoys** | Pointer to [**[]InventoryResponseEnvoysInner**](InventoryResponseEnvoysInner.md) | A list of Envoys on this system, including serial number. | [optional] 
+**Inverters** | [**[]InventoryResponseEnvoysInner**](InventoryResponseEnvoysInner.md) | A list of inverters on this system, including serial and model numbers. | 
+**Meters** | [**[]InventoryResponseMetersInner**](InventoryResponseMetersInner.md) | A list of meters on this system, including serial number, manufacturer, and model number. | 
 **Meta** | [**Meta**](Meta.md) |  | 
 
 ## Methods
 
 ### NewInventoryResponse
 
-`func NewInventoryResponse(systemId int32, inverters []InventoryResponseEnvoys, meters []InventoryResponseMeters, meta Meta, ) *InventoryResponse`
+`func NewInventoryResponse(systemId int32, inverters []InventoryResponseEnvoysInner, meters []InventoryResponseMetersInner, meta Meta, ) *InventoryResponse`
 
 NewInventoryResponse instantiates a new InventoryResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,20 +51,20 @@ SetSystemId sets SystemId field to given value.
 
 ### GetEnvoys
 
-`func (o *InventoryResponse) GetEnvoys() []InventoryResponseEnvoys`
+`func (o *InventoryResponse) GetEnvoys() []InventoryResponseEnvoysInner`
 
 GetEnvoys returns the Envoys field if non-nil, zero value otherwise.
 
 ### GetEnvoysOk
 
-`func (o *InventoryResponse) GetEnvoysOk() (*[]InventoryResponseEnvoys, bool)`
+`func (o *InventoryResponse) GetEnvoysOk() (*[]InventoryResponseEnvoysInner, bool)`
 
 GetEnvoysOk returns a tuple with the Envoys field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnvoys
 
-`func (o *InventoryResponse) SetEnvoys(v []InventoryResponseEnvoys)`
+`func (o *InventoryResponse) SetEnvoys(v []InventoryResponseEnvoysInner)`
 
 SetEnvoys sets Envoys field to given value.
 
@@ -76,40 +76,40 @@ HasEnvoys returns a boolean if a field has been set.
 
 ### GetInverters
 
-`func (o *InventoryResponse) GetInverters() []InventoryResponseEnvoys`
+`func (o *InventoryResponse) GetInverters() []InventoryResponseEnvoysInner`
 
 GetInverters returns the Inverters field if non-nil, zero value otherwise.
 
 ### GetInvertersOk
 
-`func (o *InventoryResponse) GetInvertersOk() (*[]InventoryResponseEnvoys, bool)`
+`func (o *InventoryResponse) GetInvertersOk() (*[]InventoryResponseEnvoysInner, bool)`
 
 GetInvertersOk returns a tuple with the Inverters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInverters
 
-`func (o *InventoryResponse) SetInverters(v []InventoryResponseEnvoys)`
+`func (o *InventoryResponse) SetInverters(v []InventoryResponseEnvoysInner)`
 
 SetInverters sets Inverters field to given value.
 
 
 ### GetMeters
 
-`func (o *InventoryResponse) GetMeters() []InventoryResponseMeters`
+`func (o *InventoryResponse) GetMeters() []InventoryResponseMetersInner`
 
 GetMeters returns the Meters field if non-nil, zero value otherwise.
 
 ### GetMetersOk
 
-`func (o *InventoryResponse) GetMetersOk() (*[]InventoryResponseMeters, bool)`
+`func (o *InventoryResponse) GetMetersOk() (*[]InventoryResponseMetersInner, bool)`
 
 GetMetersOk returns a tuple with the Meters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeters
 
-`func (o *InventoryResponse) SetMeters(v []InventoryResponseMeters)`
+`func (o *InventoryResponse) SetMeters(v []InventoryResponseMetersInner)`
 
 SetMeters sets Meters field to given value.
 

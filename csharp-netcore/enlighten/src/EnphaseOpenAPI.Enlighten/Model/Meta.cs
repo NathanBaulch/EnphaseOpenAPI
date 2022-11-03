@@ -35,7 +35,7 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public Status Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Meta" /> class.
@@ -60,19 +60,19 @@ namespace EnphaseOpenAPI.Enlighten.Model
         /// <summary>
         /// Gets or Sets LastReportAt
         /// </summary>
-        [DataMember(Name = "last_report_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "last_report_at", IsRequired = true, EmitDefaultValue = true)]
         public long LastReportAt { get; set; }
 
         /// <summary>
         /// Gets or Sets LastEnergyAt
         /// </summary>
-        [DataMember(Name = "last_energy_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "last_energy_at", IsRequired = true, EmitDefaultValue = true)]
         public long LastEnergyAt { get; set; }
 
         /// <summary>
         /// Gets or Sets OperationalAt
         /// </summary>
-        [DataMember(Name = "operational_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "operational_at", IsRequired = true, EmitDefaultValue = true)]
         public long OperationalAt { get; set; }
 
         /// <summary>

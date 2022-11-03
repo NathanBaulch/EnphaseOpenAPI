@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Meta from './Meta';
-import ProductionMeterReadingsResponseMeterReadings from './ProductionMeterReadingsResponseMeterReadings';
+import ProductionMeterReadingsResponseMeterReadingsInner from './ProductionMeterReadingsResponseMeterReadingsInner';
 
 /**
  * The ProductionMeterReadingsResponse model module.
@@ -25,7 +25,7 @@ class ProductionMeterReadingsResponse {
      * Constructs a new <code>ProductionMeterReadingsResponse</code>.
      * @alias module:model/ProductionMeterReadingsResponse
      * @param systemId {Number} 
-     * @param meterReadings {Array.<module:model/ProductionMeterReadingsResponseMeterReadings>} 
+     * @param meterReadings {Array.<module:model/ProductionMeterReadingsResponseMeterReadingsInner>} 
      * @param meta {module:model/Meta} 
      */
     constructor(systemId, meterReadings, meta) { 
@@ -59,7 +59,7 @@ class ProductionMeterReadingsResponse {
                 obj['system_id'] = ApiClient.convertToType(data['system_id'], 'Number');
             }
             if (data.hasOwnProperty('meter_readings')) {
-                obj['meter_readings'] = ApiClient.convertToType(data['meter_readings'], [ProductionMeterReadingsResponseMeterReadings]);
+                obj['meter_readings'] = ApiClient.convertToType(data['meter_readings'], [ProductionMeterReadingsResponseMeterReadingsInner]);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
@@ -68,8 +68,40 @@ class ProductionMeterReadingsResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ProductionMeterReadingsResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ProductionMeterReadingsResponse</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of ProductionMeterReadingsResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        if (data['meter_readings']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['meter_readings'])) {
+                throw new Error("Expected the field `meter_readings` to be an array in the JSON data but got " + data['meter_readings']);
+            }
+            // validate the optional field `meter_readings` (array)
+            for (const item of data['meter_readings']) {
+                ProductionMeterReadingsResponseMeterReadingsInner.validateJsonObject(item);
+            };
+        }
+        // validate the optional field `meta`
+        if (data['meta']) { // data not null
+          Meta.validateJSON(data['meta']);
+        }
+
+        return true;
+    }
+
 
 }
+
+ProductionMeterReadingsResponse.RequiredProperties = ["system_id", "meter_readings", "meta"];
 
 /**
  * @member {Number} system_id
@@ -77,7 +109,7 @@ class ProductionMeterReadingsResponse {
 ProductionMeterReadingsResponse.prototype['system_id'] = undefined;
 
 /**
- * @member {Array.<module:model/ProductionMeterReadingsResponseMeterReadings>} meter_readings
+ * @member {Array.<module:model/ProductionMeterReadingsResponseMeterReadingsInner>} meter_readings
  */
 ProductionMeterReadingsResponse.prototype['meter_readings'] = undefined;
 

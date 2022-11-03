@@ -39,10 +39,10 @@ Object.defineProperty(exports, "ConsumptionStatsResponse", {
     return _ConsumptionStatsResponse["default"];
   }
 });
-Object.defineProperty(exports, "ConsumptionStatsResponseIntervals", {
+Object.defineProperty(exports, "ConsumptionStatsResponseIntervalsInner", {
   enumerable: true,
   get: function get() {
-    return _ConsumptionStatsResponseIntervals["default"];
+    return _ConsumptionStatsResponseIntervalsInner["default"];
   }
 });
 Object.defineProperty(exports, "DefaultApi", {
@@ -63,10 +63,10 @@ Object.defineProperty(exports, "EnvoysResponse", {
     return _EnvoysResponse["default"];
   }
 });
-Object.defineProperty(exports, "EnvoysResponseEnvoys", {
+Object.defineProperty(exports, "EnvoysResponseEnvoysInner", {
   enumerable: true,
   get: function get() {
-    return _EnvoysResponseEnvoys["default"];
+    return _EnvoysResponseEnvoysInner["default"];
   }
 });
 Object.defineProperty(exports, "InventoryResponse", {
@@ -75,16 +75,16 @@ Object.defineProperty(exports, "InventoryResponse", {
     return _InventoryResponse["default"];
   }
 });
-Object.defineProperty(exports, "InventoryResponseEnvoys", {
+Object.defineProperty(exports, "InventoryResponseEnvoysInner", {
   enumerable: true,
   get: function get() {
-    return _InventoryResponseEnvoys["default"];
+    return _InventoryResponseEnvoysInner["default"];
   }
 });
-Object.defineProperty(exports, "InventoryResponseMeters", {
+Object.defineProperty(exports, "InventoryResponseMetersInner", {
   enumerable: true,
   get: function get() {
-    return _InventoryResponseMeters["default"];
+    return _InventoryResponseMetersInner["default"];
   }
 });
 Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponse", {
@@ -93,22 +93,22 @@ Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponse", {
     return _InvertersSummaryByEnvoyOrSiteResponse["default"];
   }
 });
-Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponseEnergy", {
+Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner", {
   enumerable: true,
   get: function get() {
-    return _InvertersSummaryByEnvoyOrSiteResponseEnergy["default"];
+    return _InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner["default"];
   }
 });
-Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponseMicroInverters", {
+Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy", {
   enumerable: true,
   get: function get() {
-    return _InvertersSummaryByEnvoyOrSiteResponseMicroInverters["default"];
+    return _InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy["default"];
   }
 });
-Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponsePowerProduced", {
+Object.defineProperty(exports, "InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced", {
   enumerable: true,
   get: function get() {
-    return _InvertersSummaryByEnvoyOrSiteResponsePowerProduced["default"];
+    return _InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced["default"];
   }
 });
 Object.defineProperty(exports, "Meta", {
@@ -123,10 +123,10 @@ Object.defineProperty(exports, "MonthlyProductionResponse", {
     return _MonthlyProductionResponse["default"];
   }
 });
-Object.defineProperty(exports, "MonthlyProductionResponseMeterReadings", {
+Object.defineProperty(exports, "MonthlyProductionResponseMeterReadingsInner", {
   enumerable: true,
   get: function get() {
-    return _MonthlyProductionResponseMeterReadings["default"];
+    return _MonthlyProductionResponseMeterReadingsInner["default"];
   }
 });
 Object.defineProperty(exports, "NotFoundError", {
@@ -141,10 +141,10 @@ Object.defineProperty(exports, "ProductionMeterReadingsResponse", {
     return _ProductionMeterReadingsResponse["default"];
   }
 });
-Object.defineProperty(exports, "ProductionMeterReadingsResponseMeterReadings", {
+Object.defineProperty(exports, "ProductionMeterReadingsResponseMeterReadingsInner", {
   enumerable: true,
   get: function get() {
-    return _ProductionMeterReadingsResponseMeterReadings["default"];
+    return _ProductionMeterReadingsResponseMeterReadingsInner["default"];
   }
 });
 Object.defineProperty(exports, "RgmStatsResponse", {
@@ -153,22 +153,22 @@ Object.defineProperty(exports, "RgmStatsResponse", {
     return _RgmStatsResponse["default"];
   }
 });
-Object.defineProperty(exports, "RgmStatsResponseIntervals", {
+Object.defineProperty(exports, "RgmStatsResponseIntervalsInner", {
   enumerable: true,
   get: function get() {
-    return _RgmStatsResponseIntervals["default"];
+    return _RgmStatsResponseIntervalsInner["default"];
   }
 });
-Object.defineProperty(exports, "RgmStatsResponseIntervals1", {
+Object.defineProperty(exports, "RgmStatsResponseMeterIntervalsInner", {
   enumerable: true,
   get: function get() {
-    return _RgmStatsResponseIntervals2["default"];
+    return _RgmStatsResponseMeterIntervalsInner["default"];
   }
 });
-Object.defineProperty(exports, "RgmStatsResponseMeterIntervals", {
+Object.defineProperty(exports, "RgmStatsResponseMeterIntervalsInnerIntervalsInner", {
   enumerable: true,
   get: function get() {
-    return _RgmStatsResponseMeterIntervals["default"];
+    return _RgmStatsResponseMeterIntervalsInnerIntervalsInner["default"];
   }
 });
 Object.defineProperty(exports, "SearchSystemIdResponse", {
@@ -189,10 +189,10 @@ Object.defineProperty(exports, "StatsResponse", {
     return _StatsResponse["default"];
   }
 });
-Object.defineProperty(exports, "StatsResponseIntervals", {
+Object.defineProperty(exports, "StatsResponseIntervalsInner", {
   enumerable: true,
   get: function get() {
-    return _StatsResponseIntervals["default"];
+    return _StatsResponseIntervalsInner["default"];
   }
 });
 Object.defineProperty(exports, "Status", {
@@ -213,10 +213,10 @@ Object.defineProperty(exports, "SystemsResponse", {
     return _SystemsResponse["default"];
   }
 });
-Object.defineProperty(exports, "SystemsResponseSystems", {
+Object.defineProperty(exports, "SystemsResponseSystemsInner", {
   enumerable: true,
   get: function get() {
-    return _SystemsResponseSystems["default"];
+    return _SystemsResponseSystemsInner["default"];
   }
 });
 Object.defineProperty(exports, "UnprocessableEntityError", {
@@ -231,35 +231,35 @@ var _ConflictError = _interopRequireDefault(require("./model/ConflictError"));
 var _ConnectionType = _interopRequireDefault(require("./model/ConnectionType"));
 var _ConsumptionLifetimeResponse = _interopRequireDefault(require("./model/ConsumptionLifetimeResponse"));
 var _ConsumptionStatsResponse = _interopRequireDefault(require("./model/ConsumptionStatsResponse"));
-var _ConsumptionStatsResponseIntervals = _interopRequireDefault(require("./model/ConsumptionStatsResponseIntervals"));
+var _ConsumptionStatsResponseIntervalsInner = _interopRequireDefault(require("./model/ConsumptionStatsResponseIntervalsInner"));
 var _EnergyLifetimeResponse = _interopRequireDefault(require("./model/EnergyLifetimeResponse"));
 var _EnvoysResponse = _interopRequireDefault(require("./model/EnvoysResponse"));
-var _EnvoysResponseEnvoys = _interopRequireDefault(require("./model/EnvoysResponseEnvoys"));
+var _EnvoysResponseEnvoysInner = _interopRequireDefault(require("./model/EnvoysResponseEnvoysInner"));
 var _InventoryResponse = _interopRequireDefault(require("./model/InventoryResponse"));
-var _InventoryResponseEnvoys = _interopRequireDefault(require("./model/InventoryResponseEnvoys"));
-var _InventoryResponseMeters = _interopRequireDefault(require("./model/InventoryResponseMeters"));
+var _InventoryResponseEnvoysInner = _interopRequireDefault(require("./model/InventoryResponseEnvoysInner"));
+var _InventoryResponseMetersInner = _interopRequireDefault(require("./model/InventoryResponseMetersInner"));
 var _InvertersSummaryByEnvoyOrSiteResponse = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponse"));
-var _InvertersSummaryByEnvoyOrSiteResponseEnergy = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponseEnergy"));
-var _InvertersSummaryByEnvoyOrSiteResponseMicroInverters = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponseMicroInverters"));
-var _InvertersSummaryByEnvoyOrSiteResponsePowerProduced = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponsePowerProduced"));
+var _InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner"));
+var _InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy"));
+var _InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced = _interopRequireDefault(require("./model/InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced"));
 var _Meta = _interopRequireDefault(require("./model/Meta"));
 var _MonthlyProductionResponse = _interopRequireDefault(require("./model/MonthlyProductionResponse"));
-var _MonthlyProductionResponseMeterReadings = _interopRequireDefault(require("./model/MonthlyProductionResponseMeterReadings"));
+var _MonthlyProductionResponseMeterReadingsInner = _interopRequireDefault(require("./model/MonthlyProductionResponseMeterReadingsInner"));
 var _NotFoundError = _interopRequireDefault(require("./model/NotFoundError"));
 var _ProductionMeterReadingsResponse = _interopRequireDefault(require("./model/ProductionMeterReadingsResponse"));
-var _ProductionMeterReadingsResponseMeterReadings = _interopRequireDefault(require("./model/ProductionMeterReadingsResponseMeterReadings"));
+var _ProductionMeterReadingsResponseMeterReadingsInner = _interopRequireDefault(require("./model/ProductionMeterReadingsResponseMeterReadingsInner"));
 var _RgmStatsResponse = _interopRequireDefault(require("./model/RgmStatsResponse"));
-var _RgmStatsResponseIntervals = _interopRequireDefault(require("./model/RgmStatsResponseIntervals"));
-var _RgmStatsResponseIntervals2 = _interopRequireDefault(require("./model/RgmStatsResponseIntervals1"));
-var _RgmStatsResponseMeterIntervals = _interopRequireDefault(require("./model/RgmStatsResponseMeterIntervals"));
+var _RgmStatsResponseIntervalsInner = _interopRequireDefault(require("./model/RgmStatsResponseIntervalsInner"));
+var _RgmStatsResponseMeterIntervalsInner = _interopRequireDefault(require("./model/RgmStatsResponseMeterIntervalsInner"));
+var _RgmStatsResponseMeterIntervalsInnerIntervalsInner = _interopRequireDefault(require("./model/RgmStatsResponseMeterIntervalsInnerIntervalsInner"));
 var _SearchSystemIdResponse = _interopRequireDefault(require("./model/SearchSystemIdResponse"));
 var _ServerError = _interopRequireDefault(require("./model/ServerError"));
 var _StatsResponse = _interopRequireDefault(require("./model/StatsResponse"));
-var _StatsResponseIntervals = _interopRequireDefault(require("./model/StatsResponseIntervals"));
+var _StatsResponseIntervalsInner = _interopRequireDefault(require("./model/StatsResponseIntervalsInner"));
 var _Status = _interopRequireDefault(require("./model/Status"));
 var _SummaryResponse = _interopRequireDefault(require("./model/SummaryResponse"));
 var _SystemsResponse = _interopRequireDefault(require("./model/SystemsResponse"));
-var _SystemsResponseSystems = _interopRequireDefault(require("./model/SystemsResponseSystems"));
+var _SystemsResponseSystemsInner = _interopRequireDefault(require("./model/SystemsResponseSystemsInner"));
 var _UnprocessableEntityError = _interopRequireDefault(require("./model/UnprocessableEntityError"));
 var _DefaultApi = _interopRequireDefault(require("./api/DefaultApi"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **SystemId** | **int32** | Enlighten ID for this system. | 
 **TotalDevices** | **int32** | Number of active consumption meters for this system. | 
 **Meta** | [**Meta**](Meta.md) |  | 
-**Intervals** | [**[]ConsumptionStatsResponseIntervals**](ConsumptionStatsResponseIntervals.md) | A list of intervals between the requested start and end times. | 
+**Intervals** | [**[]ConsumptionStatsResponseIntervalsInner**](ConsumptionStatsResponseIntervalsInner.md) | A list of intervals between the requested start and end times. | 
 
 ## Methods
 
 ### NewConsumptionStatsResponse
 
-`func NewConsumptionStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []ConsumptionStatsResponseIntervals, ) *ConsumptionStatsResponse`
+`func NewConsumptionStatsResponse(systemId int32, totalDevices int32, meta Meta, intervals []ConsumptionStatsResponseIntervalsInner, ) *ConsumptionStatsResponse`
 
 NewConsumptionStatsResponse instantiates a new ConsumptionStatsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetMeta sets Meta field to given value.
 
 ### GetIntervals
 
-`func (o *ConsumptionStatsResponse) GetIntervals() []ConsumptionStatsResponseIntervals`
+`func (o *ConsumptionStatsResponse) GetIntervals() []ConsumptionStatsResponseIntervalsInner`
 
 GetIntervals returns the Intervals field if non-nil, zero value otherwise.
 
 ### GetIntervalsOk
 
-`func (o *ConsumptionStatsResponse) GetIntervalsOk() (*[]ConsumptionStatsResponseIntervals, bool)`
+`func (o *ConsumptionStatsResponse) GetIntervalsOk() (*[]ConsumptionStatsResponseIntervalsInner, bool)`
 
 GetIntervalsOk returns a tuple with the Intervals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIntervals
 
-`func (o *ConsumptionStatsResponse) SetIntervals(v []ConsumptionStatsResponseIntervals)`
+`func (o *ConsumptionStatsResponse) SetIntervals(v []ConsumptionStatsResponseIntervalsInner)`
 
 SetIntervals sets Intervals field to given value.
 

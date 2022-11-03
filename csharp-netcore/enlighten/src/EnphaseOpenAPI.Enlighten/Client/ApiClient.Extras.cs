@@ -30,7 +30,7 @@ namespace EnphaseOpenAPI.Enlighten.Client
             _rateLimitSlots = new Queue<long>();
         }
 
-        partial void InterceptRequest(IRestRequest request)
+        partial void InterceptRequest(RestRequest request)
         {
             if (_debug)
             {
