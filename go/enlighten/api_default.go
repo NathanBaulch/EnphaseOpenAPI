@@ -1224,7 +1224,7 @@ func (r ApiMonthlyProductionRequest) UserId(userId string) ApiMonthlyProductionR
 	return r
 }
 
-// Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
+// Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end date is the last day of that month.
 func (r ApiMonthlyProductionRequest) StartDate(startDate string) ApiMonthlyProductionRequest {
 	r.startDate = &startDate
 	return r
@@ -2056,7 +2056,7 @@ by their end dates; therefore, the first interval returned is 5 minutes after th
 The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a
 gap, because the microinverters do not produce at night.
 
-Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the
+Sometimes a request cannot be processed because the requested dates are invalid for the system in question. Examples include asking for stats starting at a time that is later than the
 system's last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is `422` and the response body includes an error reason
 as well as the parameters used to process the request.
 

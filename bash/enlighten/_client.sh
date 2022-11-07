@@ -379,7 +379,7 @@ the last reported interval."
           "system_id=:[PATH] "
           "user_id=:[QUERY] "
 "start_date=:[QUERY] Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#39;start_date&#39; of 2011-07-20 returns data through 2011-06-19. When the
-start date is the first of a calendar month, the end end date is the last day of that month."
+start date is the first of a calendar month, the end date is the last day of that month."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

@@ -799,7 +799,7 @@ measurements come from the meter; otherwise, measurements come from the microinv
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">start_date (required)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a <code>start_date</code> of 2011-07-20 returns data through 2011-06-19. When the
-start date is the first of a calendar month, the end end date is the last day of that month. default: null format: date</div>
+start date is the first of a calendar month, the end date is the last day of that month. default: null format: date</div>
     </div>  <!-- field-items -->
 
 
@@ -1187,7 +1187,7 @@ intervals. Intervals are 5 minutes in length and start at the top of the hour.</
 by their end dates; therefore, the first interval returned is 5 minutes after the requested start date.</p>
 <p>The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a
 gap, because the microinverters do not produce at night.</p>
-<p>Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the
+<p>Sometimes a request cannot be processed because the requested dates are invalid for the system in question. Examples include asking for stats starting at a time that is later than the
 system's last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is <code>422</code> and the response body includes an error reason
 as well as the parameters used to process the request.</p>
 <p>If the system doesn't have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.</p>

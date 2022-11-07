@@ -374,7 +374,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new TheEnlightenSystemsApi.DefaultApi();
 let userId = 4d6a51330a; // String | 
 let systemId = 66; // Number | 
-let startDate = Fri Jul 01 10:00:00 AEST 2011; // Date | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month.
+let startDate = Fri Jul 01 10:00:00 AEST 2011; // Date | Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a `start_date` of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end date is the last day of that month.
 apiInstance.monthlyProduction(userId, systemId, startDate).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**|  | 
  **systemId** | **Number**|  | 
- **startDate** | **Date**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end end date is the last day of that month. | 
+ **startDate** | **Date**| Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a &#x60;start_date&#x60; of 2011-07-20 returns data through 2011-06-19. When the start date is the first of a calendar month, the end date is the last day of that month. | 
 
 ### Return type
 
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 
 
 
-Returns performance statistics for the specified system as reported by microinverters installed on the system. If the total duration requested is more than one day, returns one day of intervals. Intervals are 5 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 5-minute marks are rounded down. For example, a request for 08:01, 08:02, 08:03, or 08:04 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 5 minutes after the requested start date.  The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a gap, because the microinverters do not produce at night.  Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the system&#39;s last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is &#x60;422&#x60; and the response body includes an error reason as well as the parameters used to process the request.  If the system doesn&#39;t have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.
+Returns performance statistics for the specified system as reported by microinverters installed on the system. If the total duration requested is more than one day, returns one day of intervals. Intervals are 5 minutes in length and start at the top of the hour.  Requests for times that do not fall on the 5-minute marks are rounded down. For example, a request for 08:01, 08:02, 08:03, or 08:04 is treated as a request for 08:00. Intervals are listed by their end dates; therefore, the first interval returned is 5 minutes after the requested start date.  The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a gap, because the microinverters do not produce at night.  Sometimes a request cannot be processed because the requested dates are invalid for the system in question. Examples include asking for stats starting at a time that is later than the system&#39;s last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is &#x60;422&#x60; and the response body includes an error reason as well as the parameters used to process the request.  If the system doesn&#39;t have any microinverters installed, the response includes an empty intervals array. Under some conditions, data for a given period may be temporarily unavailable.
 
 ### Example
 

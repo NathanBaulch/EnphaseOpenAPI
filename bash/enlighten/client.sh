@@ -977,7 +977,7 @@ This endpoint can return a response of Data Temporarily Unavailable." | paste -s
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}start_date${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Start date for reporting period. The reporting period ends on the previous day of the next month; for example, a 'start_date' of 2011-07-20 returns data through 2011-06-19. When the
-start date is the first of a calendar month, the end end date is the last day of that month.${YELLOW} Specify as: start_date=value${OFF}" \
+start date is the first of a calendar month, the end date is the last day of that month.${YELLOW} Specify as: start_date=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1126,7 +1126,7 @@ by their end dates; therefore, the first interval returned is 5 minutes after th
 The response includes intervals that have been reported for the requested period. Gaps in reporting are not filled with 0-value intervals. The dark hours on a system are an example of such a
 gap, because the microinverters do not produce at night.
 
-Sometimes a request cannot be processed because the requested dates are invalid for the the system in question. Examples include asking for stats starting at a time that is later than the
+Sometimes a request cannot be processed because the requested dates are invalid for the system in question. Examples include asking for stats starting at a time that is later than the
 system's last reported interval, or asking for stats before a system has started production. In cases such as these, the response code is '422' and the response body includes an error reason
 as well as the parameters used to process the request.
 
