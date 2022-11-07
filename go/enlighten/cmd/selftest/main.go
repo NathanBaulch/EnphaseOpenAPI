@@ -30,7 +30,7 @@ func main() {
 
 	if _, _, err := api.Systems(ctx).UserId("dummy").Execute(); err == nil {
 		panic("systems: expected error")
-	} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+	} else if oerr, ok := err.(*enlighten.GenericOpenAPIError); !ok {
 		handleError(err)
 	} else if mdl, ok := oerr.Model().(enlighten.ClientError); !ok || mdl.Reason != "401" {
 		handleError(err)
@@ -71,7 +71,7 @@ func main() {
 				}
 				if _, _, err := api.InvertersSummaryByEnvoyOrSite(ctx).UserId(*userID).SiteId(-1).Execute(); err == nil {
 					panic("inverters_summary_by_envoy_or_site: expected error")
-				} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+				} else if oerr, ok := err.(*enlighten.GenericOpenAPIError); !ok {
 					handleError(err)
 				} else if mdl, ok := oerr.Model().(enlighten.UnprocessableEntityError); !ok || mdl.Message == nil || *mdl.Message != "Couldn't find Site with 'id'=-1" {
 					handleError(err)
@@ -90,7 +90,7 @@ func main() {
 				}
 				if _, _, err := api.EnergyLifetime(ctx, sys.SystemId).UserId(*userID).StartDate(time.Now().Format("2006-01-02")).Execute(); err == nil {
 					panic("energy_lifetime: expected error")
-				} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+				} else if oerr, ok := err.(*enlighten.GenericOpenAPIError); !ok {
 					handleError(err)
 				} else if mdl, ok := oerr.Model().(enlighten.UnprocessableEntityError); !ok || mdl.Reason == nil || *mdl.Reason != "Requested date range is invalid for this system" {
 					handleError(err)
@@ -108,7 +108,7 @@ func main() {
 						}
 						if _, _, err := api.SearchSystemId(ctx).UserId(*userID).SerialNum("dummy").Execute(); err == nil {
 							panic("search_system_id: expected error")
-						} else if oerr, ok := err.(enlighten.GenericOpenAPIError); !ok {
+						} else if oerr, ok := err.(*enlighten.GenericOpenAPIError); !ok {
 							handleError(err)
 						} else if mdl, ok := oerr.Model().(enlighten.NotFoundError); !ok || mdl.Reason != "404" {
 							handleError(err)
@@ -209,7 +209,7 @@ func main() {
 }
 
 func handleError(err error) {
-	if err, ok := err.(enlighten.GenericOpenAPIError); ok && err.Model() != nil {
+	if err, ok := err.(*enlighten.GenericOpenAPIError); ok && err.Model() != nil {
 		x, _ := json.Marshal(err.Model())
 		panic(string(x))
 	}
