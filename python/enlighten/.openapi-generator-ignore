@@ -10,8 +10,7 @@
 enlighten/apis/
 enlighten/models/
 enlighten/paths/
-enlighten/rest.py
 git_push.sh
 test-requirements.txt
 test/
-requirements.txt
+tox.ini
