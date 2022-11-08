@@ -28,6 +28,7 @@
 
 namespace OpenAPI\Client;
 
+use GuzzleHttp\Psr7\Utils;
 use OpenAPI\Client\Model\ModelInterface;
 
 /**
@@ -42,16 +43,6 @@ class ObjectSerializer
 {
     /** @var string */
     private static $dateTimeFormat = \DateTime::ATOM;
-
-    /**
-     * Change the date format
-     *
-     * @param string $format   the new date format to use
-     */
-    public static function setDateTimeFormat($format)
-    {
-        self::$dateTimeFormat = $format;
-    }
 
     /**
      * Serialize data
@@ -113,6 +104,23 @@ class ObjectSerializer
     }
 
     /**
+     * Sanitize filename by removing path.
+     * e.g. ../../sun.gif becomes sun.gif
+     *
+     * @param string $filename filename to be sanitized
+     *
+     * @return string the sanitized filename
+     */
+    public static function sanitizeFilename($filename)
+    {
+        if (preg_match("/.*[\/\\\\](.*)$/", $filename, $match)) {
+            return $match[1];
+        } else {
+            return $filename;
+        }
+    }
+
+    /**
      * Shorter timestamp microseconds to 6 digits length.
      *
      * @param string $timestamp Original timestamp
@@ -137,6 +145,99 @@ class ObjectSerializer
     public static function toPathValue($value)
     {
         return rawurlencode(self::toString($value));
+    }
+
+    /**
+     * Take query parameter properties and turn it into an array suitable for
+     * native http_build_query or GuzzleHttp\Psr7\Query::build.
+     *
+     * @param mixed  $value       Parameter value
+     * @param string $paramName   Parameter name
+     * @param string $openApiType OpenAPIType eg. array or object
+     * @param string $style       Parameter serialization style
+     * @param bool   $explode     Parameter explode option
+     * @param bool   $required    Whether query param is required or not
+     *
+     * @return array
+     */
+    public static function toQueryValue(
+        $value,
+        string $paramName,
+        string $openApiType = 'string',
+        string $style = 'form',
+        bool $explode = true,
+        bool $required = true
+    ): array {
+        if (
+            empty($value)
+            && ($value !== false || $openApiType !== 'boolean') // if $value === false and $openApiType ==='boolean' it isn't empty
+        ) {
+            if ($required) {
+                return ["{$paramName}" => ''];
+            } else {
+                return [];
+            }
+        }
+
+        # Handle DateTime objects in query
+        if($openApiType === "\\DateTime" && $value instanceof \DateTime) {
+            return ["{$paramName}" => $value->format(self::$dateTimeFormat)];
+        }
+
+        $query = [];
+        $value = (in_array($openApiType, ['object', 'array'], true)) ? (array)$value : $value;
+
+        // since \GuzzleHttp\Psr7\Query::build fails with nested arrays
+        // need to flatten array first
+        $flattenArray = function ($arr, $name, &$result = []) use (&$flattenArray, $style, $explode) {
+            if (!is_array($arr)) return $arr;
+
+            foreach ($arr as $k => $v) {
+                $prop = ($style === 'deepObject') ? $prop = "{$name}[{$k}]" : $k;
+
+                if (is_array($v)) {
+                    $flattenArray($v, $prop, $result);
+                } else {
+                    if ($style !== 'deepObject' && !$explode) {
+                        // push key itself
+                        $result[] = $prop;
+                    }
+                    $result[$prop] = $v;
+                }
+            }
+            return $result;
+        };
+
+        $value = $flattenArray($value, $paramName);
+
+        if ($openApiType === 'object' && ($style === 'deepObject' || $explode)) {
+            return $value;
+        }
+
+        if ('boolean' === $openApiType && is_bool($value)) {
+            $value = self::convertBoolToQueryStringFormat($value);
+        }
+
+        // handle style in serializeCollection
+        $query[$paramName] = ($explode) ? $value : self::serializeCollection((array)$value, $style);
+
+        return $query;
+    }
+
+    /**
+     * Convert boolean value to format for query string.
+     *
+     * @param bool $value Boolean value
+     *
+     * @return int|string Boolean value in format
+     */
+    public static function convertBoolToQueryStringFormat(bool $value)
+    {
+        if (Configuration::BOOLEAN_FORMAT_STRING == Configuration::getDefaultConfiguration()->getBooleanFormatForQueryString()) {
+            return $value ? 'true' : 'false';
+        }
+
+        return (int) $value;
     }
 
     /**
@@ -176,6 +277,43 @@ class ObjectSerializer
             return $value ? 'true' : 'false';
         } else {
             return (string) $value;
+        }
+    }
+
+    /**
+     * Serialize an array to a string.
+     *
+     * @param array  $collection                 collection to serialize to a string
+     * @param string $style                      the format use for serialization (csv,
+     * ssv, tsv, pipes, multi)
+     * @param bool   $allowCollectionFormatMulti allow collection format to be a multidimensional array
+     *
+     * @return string
+     */
+    public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false)
+    {
+        if ($allowCollectionFormatMulti && ('multi' === $style)) {
+            // http_build_query() almost does the job for us. We just
+            // need to fix the result of multidimensional arrays.
+            return preg_replace('/%5B[0-9]+%5D=/', '=', http_build_query($collection, '', '&'));
+        }
+        switch ($style) {
+            case 'pipeDelimited':
+            case 'pipes':
+                return implode('|', $collection);
+
+            case 'tsv':
+                return implode("\t", $collection);
+
+            case 'spaceDelimited':
+            case 'ssv':
+                return implode(' ', $collection);
+
+            case 'simple':
+            case 'csv':
+                // Deliberate fall through. CSV is default format.
+            default:
+                return implode(',', $collection);
         }
     }
 
@@ -252,6 +390,31 @@ class ObjectSerializer
             } else {
                 return null;
             }
+        }
+
+        if ($class === '\SplFileObject') {
+            $data = Utils::streamFor($data);
+
+            /** @var \Psr\Http\Message\StreamInterface $data */
+
+            // determine file name
+            if (
+                is_array($httpHeaders)
+                && array_key_exists('Content-Disposition', $httpHeaders) 
+                && preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)
+            ) {
+                $filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
+            } else {
+                $filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');
+            }
+
+            $file = fopen($filename, 'w');
+            while ($chunk = $data->read(200)) {
+                fwrite($file, $chunk);
+            }
+            fclose($file);
+
+            return new \SplFileObject($filename, 'r');
         }
 
         /** @psalm-suppress ParadoxicalCondition */
