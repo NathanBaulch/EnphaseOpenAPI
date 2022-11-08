@@ -46,24 +46,24 @@ endef
 generate/go: clean/go $(OPENAPICLI)
 	$(call generate,go,enlighten)
 	echo Updating go dependencies
-	cd ./go/enlighten; go get -u -v ./...; go mod tidy; go build
+	cd ./go/enlighten && go get -u -v ./... && go mod tidy && go build
 
 generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
 	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten,useDateTimeOffset=true)
-	cd ./csharp-netcore/enlighten; dotnet outdated -u; dotnet build
+	cd ./csharp-netcore/enlighten && dotnet outdated -u && dotnet build
 
 generate/php: clean/php $(OPENAPICLI)
 	$(call generate,php,enlighten)
-	cd ./php/enlighten; composer require spatie/guzzle-rate-limiter-middleware; composer update
+	cd ./php/enlighten && composer require spatie/guzzle-rate-limiter-middleware && composer update
 
 generate/python: clean/python $(OPENAPICLI)
 	$(call generate,python,enlighten)
-	cd ./python/enlighten; source ./.venv/scripts/activate; pip install --upgrade -r requirements.txt; pip install ratelimit; pip freeze > requirements.txt; dos2unix -o requirements.txt
+	cd ./python/enlighten && source ./.venv/scripts/activate && pip install --upgrade -r requirements.txt && pip install ratelimit && pip freeze > requirements.txt && dos2unix -o requirements.txt
 
 generate/javascript: clean/javascript $(OPENAPICLI)
 	$(call generate,javascript,enlighten,usePromises=true)
-	cd ./javascript/enlighten; npm update; npm run build
-	cd ./javascript/enlighten/selftest; npm update
+	cd ./javascript/enlighten && npm update && npm run build
+	cd ./javascript/enlighten/selftest && npm update
 
 generate/bash: clean/bash $(OPENAPICLI)
 	$(call generate,bash,enlighten)
