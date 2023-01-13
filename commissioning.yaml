@@ -37,7 +37,7 @@ paths:
           in: query
           description: Filter activations by stage. Passing in_progress alone will consider
             as you have passed all the 1,2,3,4 stages. Passing multiple stage values
-            using comma to filter. E.g. stage=1,2,3. Paasing in_progress with any other
+            using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other
             combination will give you empty systems
           schema:
             type: string
@@ -431,7 +431,7 @@ paths:
                   description: The identifier of this system as provided by the calling
                     user's company. This attribute is not present if the calling user's
                     company does not have a reference for this system. This value
-                    should be alphanumberic
+                    should be alphanumeric
                 encharge:
                   type: array
                   description: Encharge detail
@@ -1597,7 +1597,7 @@ paths:
                   description: The identifier of this system as provided by the calling
                     user's company. This attribute is not present if the calling user's
                     company does not have a reference for this system. This value
-                    should be alphanumberic
+                    should be alphanumeric
                 encharge:
                   type: array
                   description: Encharge detail
@@ -5075,7 +5075,7 @@ paths:
                         angle:
                           type: integer
                           description: Angle of the layer
-                        opaciy:
+                        opacity:
                           type: integer
                           description: Opacity of the layer
                         width:
@@ -5124,7 +5124,7 @@ paths:
                   - file: ""
                     scale: 34
                     angle: 45
-                    opaciy: 56
+                    opacity: 56
                     width: 80
                     height: 50
                     left: 40
@@ -5349,7 +5349,7 @@ paths:
                         angle:
                           type: integer
                           description: Angle of the layer
-                        opaciy:
+                        opacity:
                           type: integer
                           description: Opacity of the layer
                         width:
@@ -5394,7 +5394,7 @@ paths:
                   - file: ""
                     scale: 34
                     angle: 45
-                    opaciy: 56
+                    opacity: 56
                     width: 80
                     height: 50
         401:

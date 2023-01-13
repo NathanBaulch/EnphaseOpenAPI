@@ -129,7 +129,7 @@ paths:
                             Envoy last submitted a report
                         last_energy_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which the systems's
+                          description: Timestamp (in epoch format) at which the system's
                             produced energy was last reported. Even if the last produced
                             energy is 0, its timestamp will be returned.
                         operational_at:
@@ -380,7 +380,7 @@ paths:
                             Envoy last submitted a report
                         last_energy_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which the systems's
+                          description: Timestamp (in epoch format) at which the system's
                             produced energy was last reported. Even if the last produced
                             energy is 0, its timestamp will be returned.
                         operational_at:
@@ -499,7 +499,7 @@ paths:
                       Envoy last submitted a report
                   last_energy_at:
                     type: integer
-                    description: Timestamp (in epoch format) at which the systems's
+                    description: Timestamp (in epoch format) at which the system's
                       produced energy was last reported. Even if the last produced
                       energy is 0, its timestamp will be returned.
                   operational_at:
@@ -1069,7 +1069,7 @@ paths:
                           description: Meter serial number
                         envoy_serial_number:
                           type: string
-                          description: Enovy serial number of the system that the
+                          description: Envoy serial number of the system that the
                             micro reports to
                         intervals:
                           type: array
@@ -1471,7 +1471,7 @@ paths:
                       type: integer
                   discharge:
                     type: array
-                    description: An array of dicharge measurements, one for each day
+                    description: An array of discharge measurements, one for each day
                       since the system started producing, or one for each day of the
                       requested period. If the system has never produced energy, the
                       array may be empty
@@ -1806,7 +1806,7 @@ paths:
                           description: Parameter table
                         envoy_serial_number:
                           type: string
-                          description: Enovy serial number of the system that the
+                          description: Envoy serial number of the system that the
                             micro reports to
                         energy:
                           type: object
@@ -2734,7 +2734,7 @@ paths:
         - $ref: '#/components/parameters/SystemId'
         - name: serial_no
           in: path
-          description: Serial Number of the encharge
+          description: Serial Number of the Encharge
           required: true
           schema:
             type: string
@@ -2885,7 +2885,7 @@ paths:
                   storm_guard_status:
                     type: string
                     description: Overrides your battery profile to full backup mode
-                      when a severe weather condition alert is issued in the localitym
+                      when a severe weather condition alert is issued in the locality
                   storm_alert:
                     type: string
                     description: True if severe weather condition alert is issued
@@ -3025,7 +3025,7 @@ paths:
                         soc_high:
                           type: integer
                           description: Applicable for advanced mode. Load powers off
-                            when battery reacheds soc_low. The load will be powered
+                            when battery reaches soc_low. The load will be powered
                             on when the battery soc reaches soc_high
                         essential_start_time:
                           type: integer
@@ -3464,7 +3464,7 @@ components:
             Envoy last submitted a report
         last_energy_at:
           type: integer
-          description: Timestamp (in epoch format) at which the systems's
+          description: Timestamp (in epoch format) at which the system's
             produced energy was last reported. Even if the last produced
             energy is 0, its timestamp will be returned.
         operational_at:
