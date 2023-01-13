@@ -10,30 +10,25 @@ paths:
       tags:
         - System Details
       summary: Fetch systems
-      description: Returns a list of systems for which the user can make API requests.
-        By default, systems are returned in batches of 10. The maximum size is 100.
+      description: Returns a list of systems for which the user can make API requests. By default, systems are returned in batches of 10. The maximum size is 100.
       parameters:
         - name: page
           in: query
-          description: The page to be returned. Default=1, Min=1. For example, if page
-            is set to 2, 2nd page is returned
+          description: Page to be returned. Default=1, Min=1. For example, if page is set to 2, 2nd page is returned.
           schema:
             type: integer
             minimum: 1
         - name: size
           in: query
-          description: Maximum number of records shown per page. Default=10, Min=1,
-            Max=100.  For example, if max is set to 5, 5 records are shown per page
+          description: Maximum number of records shown per page. Default=10, Min=1, Max=100.  For example, if set to 5, 5 records are shown per page.
           schema:
             type: integer
             minimum: 1
             maximum: 100
         - name: sort_by
           in: query
-          description: Returns list of systems sorted by <sort_by> field. To get ASC
-            order sorted list, user sort_by = <key>. To get DESC order sorted list,
-            use sort_by = (-)<key>. Current sort keys supported are id, name, and last_report_date.
-            By default the list is sorted by decreasing system ID.
+          description: Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>.
+            Current sort keys supported are id, name, and last_report_date. By default the list is sorted by decreasing system ID.
           schema:
             type: string
             enum:
@@ -45,7 +40,7 @@ paths:
               - -last_report_date
       responses:
         200:
-          description: List of Systems
+          description: List of systems.
           content:
             application/json:
               schema:
@@ -53,115 +48,92 @@ paths:
                 properties:
                   total:
                     type: integer
-                    description: Total number of systems
+                    description: Total number of systems.
                   current_page:
                     type: integer
-                    description: 'Number of the current page fetched '
+                    description: Number of the current page fetched.
                   size:
                     type: integer
-                    description: Maximum number of records shown per page. Default=10,
-                      Min=1, Max=100.
+                    description: Maximum number of records shown per page. Default=10, Min=1, Max=100.
                     minimum: 1
                     maximum: 100
                   count:
                     type: integer
-                    description: Total number of systems actually returned for the
-                      current page
+                    description: Total number of systems actually returned for the current page.
                   items:
                     type: string
-                    description: Named key of the list data. In this endpoint, it
-                      is systems
+                    description: Named key of the list data. In this endpoint, it is systems.
                   systems:
                     type: array
-                    description: 'List of systems. It contains the following:'
+                    description: List of systems.
                     items:
                       type: object
                       properties:
                         system_id:
                           type: integer
-                          description: The unique numeric ID of the system
+                          description: Unique numeric ID of the system.
                         name:
                           type: string
-                          description: Name of the system
+                          description: Name of the system.
                         public_name:
                           type: string
-                          description: Name displayed on the public system page. Available
-                            values are All, Residential System, Commercial etc. Default='Residential
-                            System'. Only for systems that allow public access.
+                          description: Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default='Residential System'.
+                            Only for systems that allow public access.
                         timezone:
                           type: string
-                          description: Timezone to which the system belongs
+                          description: Timezone to which the system belongs.
                         address:
                           type: object
+                          description: Address object for the system.
                           properties:
                             state:
                               type: string
-                              description: State in which the system is located
+                              description: State in which the system is located.
                             country:
                               type: string
-                              description: Country in which the system is located
+                              description: Country in which the system is located.
                             postal_code:
                               type: string
-                              description: Postal Code of the system's location
-                          description: Address object for the system. It can contain
-                            the following items
+                              description: Postal code of the system's location.
                         connection_type:
                           type: string
-                          description: Connection Type of the system. Available values
-                            are ethernet, Wi-Fi, Cellular
+                          description: Connection type of the system. Available values are ethernet, Wi-Fi, Cellular.
                         energy_lifetime:
                           type: integer
-                          description: Energy generated by the system during its lifetime
-                            in Wh. It is returned only if the count is less than or
-                            equal to 100.
+                          description: Energy generated by the system during its lifetime in Wh. It is returned only if the count is less than or equal to 100.
                         energy_today:
                           type: integer
-                          description: Energy generated by the system today in Wh.
-                            It is returned only if the count is less than or equal
-                            to 100.
+                          description: Energy generated by the system today in Wh. It is returned only if the count is less than or equal to 100.
                         system_size:
                           type: number
-                          description: Size of the system. It is returned only if
-                            the count is less than or equal to 100.
+                          description: Size of the system. It is returned only if the count is less than or equal to 100.
                           format: float
                         status:
                           type: string
-                          description: System's status. Corresponding Enlighten values
-                            can be found in table added at the end of page.
+                          description: System's status. Corresponding Enlighten values can be found in table added at the end of page.
                         last_report_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which the system's
-                            Envoy last submitted a report
+                          description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
                         last_energy_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which the system's
-                            produced energy was last reported. Even if the last produced
-                            energy is 0, its timestamp will be returned.
+                          description: Timestamp (in epoch format) at which the system's produced energy was last reported. Even if the last produced energy is 0, its timestamp will be returned.
                         operational_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which this system
-                            became operational. Corresponds to the system’s interconnect
-                            time, if one is specified. Otherwise, it is the system’s
-                            first reported interval end time.
+                          description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
+                            Otherwise, it is the system's first reported interval end time.
                         attachment_type:
                           type: string
-                          description: Micro inverter attachment type. Available values
-                            are rack_mount, zep, acm, bipv, frame_mount, railless_mount
+                          description: Micro inverter attachment type. Available values are rack_mount, zep, acm, bipv, frame_mount, railless_mount.
                         interconnect_date:
                           type: string
-                          description: Date on which the system was approved to connect
-                            to the grid
+                          description: Date on which the system was approved to connect to the grid.
                         reference:
                           type: string
-                          description: If the calling user belongs to a company and
-                            that company has provided its own identifier for a system,
-                            that ID is included here. Otherwise, this attribute is
-                            not returned.
+                          description: If the calling user belongs to a company and that company has provided its own identifier for a system, that ID is included here.
+                            Otherwise, this attribute is not returned.
                         other_references:
                           type: array
-                          description: If any other companies have provided their
-                            own identifiers for a system, those identifiers are included
-                            here. Otherwise, this attribute is not returned.
+                          description: If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
                           items:
                             type: string
               example:
@@ -226,20 +198,17 @@ paths:
       tags:
         - System Details
       summary: Search and filter systems
-      description: Search and filter systems. Provide only valid values in request
-        parameters. Empty and invalid values will be ignored. Invalid keys will be
-        rejected.
+      description: Search and filter systems. Provide only valid values in request parameters. Empty and invalid values will be ignored. Invalid keys will be rejected.
       parameters:
         - name: page
           in: query
-          description: The page to be returned. Default=1, Min=1, e.g=2
+          description: Page to be returned. Default=1, Min=1, e.g=2.
           schema:
             type: integer
             minimum: 1
         - name: size
           in: query
-          description: Maximum number of records shown per page. Default=10, Min=1,
-            Max=1000, e.g=5
+          description: Maximum number of records shown per page. Default=10, Min=1, Max=1000, e.g=5.
           schema:
             type: integer
             minimum: 1
@@ -254,11 +223,8 @@ paths:
               properties:
                 sort_by:
                   type: string
-                  description: Returns list of systems sorted by <sort_by> field.
-                    To get ASC order sorted list, user sort_by = <key>. To get DESC
-                    order sorted list, use sort_by = (-)<key>. Current sort keys supported
-                    are id, name, and last_report_date. By default the list is sorted
-                    by decreasing system ID.
+                  description: Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>.
+                    Current sort keys supported are id, name, and last_report_date. By default the list is sorted by decreasing system ID.
                   enum:
                     - id
                     - name
@@ -271,15 +237,15 @@ paths:
                   properties:
                     ids:
                       type: array
-                      description: Filter system by particular Ids
+                      description: Filter system by particular Ids.
                       items:
                         type: integer
                     name:
                       type: string
-                      description: Search by name of the System
+                      description: Search by name of the system.
                     public_name:
                       type: string
-                      description: Search by public name of the System
+                      description: Search by public name of the system.
                       enum:
                         - residential
                         - all
@@ -287,7 +253,7 @@ paths:
                         - other
                     statuses:
                       type: array
-                      description: Search by System status
+                      description: Search by System status.
                       items:
                         type: string
                         enum:
@@ -307,7 +273,7 @@ paths:
                           - span_issue
                     connection_type:
                       type: string
-                      description: Search by connection type
+                      description: Search by connection type.
                       enum:
                         - wifi
                         - cellular
@@ -315,7 +281,7 @@ paths:
         required: false
       responses:
         200:
-          description: List of Systems
+          description: List of systems.
           content:
             application/json:
               schema:
@@ -323,89 +289,74 @@ paths:
                 properties:
                   total:
                     type: integer
-                    description: Total number of systems available
+                    description: Total number of systems available.
                   current_page:
                     type: integer
-                    description: Current page of the systems result. Default is 1
+                    description: Current page of the systems result. Default is 1.
                   size:
                     type: integer
-                    description: Max number of records from API per page is 100. Default
-                      is 10.
+                    description: Max number of records from API per page is 100. Default is 10.
                     maximum: 100
                   count:
                     type: integer
-                    description: Total number of systems actually returned for the
-                      current page
+                    description: Total number of systems actually returned for the current page.
                   items:
                     type: string
-                    description: Named key of the list data. In this endpoint, it
-                      is systems
+                    description: Named key of the list data. In this endpoint, it is systems.
                   systems:
                     type: array
-                    description: List of filtered systems. It contains the following
-                      items
+                    description: List of filtered systems.
                     items:
                       type: object
                       properties:
                         system_id:
                           type: integer
-                          description: The unique numeric ID of the system
+                          description: Unique numeric ID of the system.
                         name:
                           type: string
-                          description: Name of the system
+                          description: Name of the system.
                         public_name:
                           type: string
-                          description: Name displayed on the public system page. Available
-                            values are All, Residential System, Commercial etc. Default='Residential
-                            System'. Only for systems that allow public access.
+                          description: Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default='Residential System'.
+                            Only for systems that allow public access.
                         timezone:
                           type: string
-                          description: Timezone to which the system belongs
+                          description: Timezone to which the system belongs.
                         address:
                           type: object
+                          description: Address object for the system.
                           properties:
                             state:
                               type: string
-                              description: State in which the system is located
+                              description: State in which the system is located.
                             country:
                               type: string
-                              description: Country in which the system is located
+                              description: Country in which the system is located.
                             postal_code:
                               type: string
-                              description: Postal Code of the system's location
-                          description: Address object for the system. It can contain
-                            the following items
+                              description: Postal code of the system's location.
                         connection_type:
                           type: string
-                          description: Connection Type of the system. Available values
-                            are ethernet, Wi-Fi, Cellular
+                          description: Connection type of the system. Available values are ethernet, Wi-Fi, Cellular.
                         status:
                           type: string
-                          description: System's status. Corresponding Enlighten values
-                            can be found in table added at the end of page.
+                          description: System's status. Corresponding Enlighten values can be found in table added at the end of page.
                         last_report_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which the system's
-                            Envoy last submitted a report
+                          description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
                         last_energy_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which the system's
-                            produced energy was last reported. Even if the last produced
-                            energy is 0, its timestamp will be returned.
+                          description: Timestamp (in epoch format) at which the system's produced energy was last reported. Even if the last produced energy is 0, its timestamp will be returned.
                         operational_at:
                           type: integer
-                          description: Timestamp (in epoch format) at which this system
-                            became operational. Corresponds to the system’s interconnect
-                            time, if one is specified. Otherwise, it is the system’s
-                            first reported interval end time.
+                          description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
+                            Otherwise, it is the system's first reported interval end time.
                         attachment_type:
                           type: string
-                          description: Micro inverter attachment type. Available values
-                            are rack_mount, zep, acm, bipv, frame_mount, railless_mount
+                          description: Micro inverter attachment type. Available values are rack_mount, zep, acm, bipv, frame_mount, railless_mount.
                         interconnect_date:
                           type: string
-                          description: Date on which the system was approved to connect
-                            to the grid
+                          description: Date on which the system was approved to connect to the grid.
               example:
                 total: 28
                 current_page: 1
@@ -454,13 +405,13 @@ paths:
     get:
       tags:
         - System Details
-      summary: Retrieves a System by id
-      description: Retrieves a System by ID
+      summary: Retrieves a System by ID
+      description: Retrieves a system by ID.
       parameters:
         - $ref: '#/components/parameters/SystemId'
       responses:
         200:
-          description: System fetched
+          description: System fetched.
           content:
             application/json:
               schema:
@@ -468,63 +419,52 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   name:
                     type: string
-                    description: Name of the system
+                    description: Name of the system.
                   public_name:
                     type: string
-                    description: Name displayed on the public system page. Available
-                      values are All, Residential System, Commercial etc. Default='Residential
-                      System'. Only for systems that allow public access.
+                    description: Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default='Residential System'.
+                      Only for systems that allow public access.
                   timezone:
                     type: string
-                    description: Timezone to which the system belongs
+                    description: Timezone to which the system belongs.
                   address:
                     type: object
+                    description: Address object for the system.
                     properties:
                       state:
                         type: string
-                        description: State in which the system is located
+                        description: State in which the system is located.
                       country:
                         type: string
-                        description: Country in which the system is located
+                        description: Country in which the system is located.
                       postal_code:
                         type: string
-                        description: Postal Code of the system's location
-                    description: Address object for the system. It can contain the
-                      following items
+                        description: Postal code of the system's location.
                   connection_type:
                     type: string
-                    description: Connection Type of the system. Available values are
-                      ethernet, Wi-Fi, Cellular
+                    description: Connection type of the system. Available values are ethernet, Wi-Fi, Cellular.
                   status:
                     type: string
-                    description: System's status. Corresponding Enlighten values can
-                      be found in table added at the end of page.
+                    description: System's status. Corresponding Enlighten values can be found in table added at the end of page.
                   last_report_at:
                     type: integer
-                    description: Timestamp (in epoch format) at which the system's
-                      Envoy last submitted a report
+                    description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
                   last_energy_at:
                     type: integer
-                    description: Timestamp (in epoch format) at which the system's
-                      produced energy was last reported. Even if the last produced
-                      energy is 0, its timestamp will be returned.
+                    description: Timestamp (in epoch format) at which the system's produced energy was last reported. Even if the last produced energy is 0, its timestamp will be returned.
                   operational_at:
                     type: integer
-                    description: Timestamp (in epoch format) at which this system
-                      became operational. Corresponds to the system’s interconnect
-                      time, if one is specified. Otherwise, it is the system’s first
-                      reported interval end time.
+                    description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
+                      Otherwise, it is the system's first reported interval end time.
                   attachment_type:
                     type: string
-                    description: Micro inverter attachment type. Available values
-                      are rack_mount, zep, acm, bipv, frame_mount, railless_mount
+                    description: Micro inverter attachment type. Available values are rack_mount, zep, acm, bipv, frame_mount, railless_mount.
                   interconnect_date:
                     type: string
-                    description: Date on which the system was approved to connect
-                      to the grid
+                    description: Date on which the system was approved to connect to the grid.
               example:
                 system_id: 72
                 name: Enphase System
@@ -571,7 +511,7 @@ paths:
         - $ref: '#/components/parameters/SystemId'
       responses:
         200:
-          description: System summary fetched
+          description: System summary fetched.
           content:
             application/json:
               schema:
@@ -579,48 +519,42 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   current_power:
                     type: integer
-                    description: Current power production of the system in Watts
+                    description: Current power production of the system in Watts.
                   energy_lifetime:
                     type: integer
-                    description: Energy generated by the system during its lifetime
-                      in Wh
+                    description: Energy generated by the system during its lifetime in Wh.
                   energy_today:
                     type: integer
-                    description: Energy generated by the system today in Wh
+                    description: Energy generated by the system today in Wh.
                   last_interval_end_at:
                     type: string
-                    description: The last known time that the system produced energy.
-                      When a system has not been communicating for a length of time,
-                      the last_report_at can be recent, whereas the last_interval_end_at
-                      may be further back.
+                    description: Last known time that the system produced energy.
+                      When a system has not been communicating for a length of time, the last_report_at can be recent, whereas the last_interval_end_at may be further back.
                   last_report_at:
                     type: integer
-                    description: Timestamp (in epoch format) at which the system's
-                      Envoy last submitted a report
+                    description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
                   modules:
                     type: integer
-                    description: Total number of modules in the system
+                    description: Total number of modules in the system.
                   operational_at:
                     type: integer
-                    description: Timestamp (in epoch format) at which this system
-                      became operational. Corresponds to the system’s interconnect
-                      time, if one is specified. Otherwise, it is the system’s first
-                      reported interval end time.
+                    description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
+                      Otherwise, it is the system's first reported interval end time.
                   size_w:
                     type: integer
-                    description: System size in watts
+                    description: System size in watts.
                   source:
                     type: string
-                    description: Source of energy measurement
+                    description: Source of energy measurement.
                   status:
                     type: string
-                    description: Current status of the system
+                    description: Current status of the system.
                   summary_date:
                     type: string
-                    description: Summary date
+                    description: Summary date.
               example:
                 system_id: 698910067
                 current_power: 0
@@ -657,13 +591,12 @@ paths:
       tags:
         - System Details
       summary: Retrieves devices for a given system
-      description: Retrieves devices for a given system. Only devices that are active
-        will be returned in the response.
+      description: Retrieves devices for a given system. Only devices that are active will be returned in the response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
       responses:
         200:
-          description: List of devices
+          description: List of devices.
           content:
             application/json:
               schema:
@@ -671,15 +604,17 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: System id
+                    description: System ID.
                   total_devices:
                     type: integer
-                    description: Total active devices associated with the System
+                    description: Total active devices associated with the system.
                   items:
                     type: string
-                    description: The list key
+                    description: List key.
                   devices:
                     type: object
+                    description: Hash keys include all the possible device types micros, meters, gateways, mids, q_relays, ACBs, Encharges, Enpowers (if the devices of this type are present).
+                      For all the device types, the object will contain the serial_number and model with some additional information pertaining to the device type.
                     additionalProperties:
                       type: array
                       items:
@@ -709,11 +644,6 @@ paths:
                             type: string
                           config_type:
                             type: string
-                    description: 'Hash keys include all the possible device types:
-                      micros, meters, gateways, mids, q_relays, ACBs, Encharges, Enpowers
-                      (if the devices of this type are present). For all the device
-                      types, the object will contain the serial_number and model with
-                      some additional information pertaining to the device type.'
               example:
                 system_id: 698910067
                 total_devices: 11
@@ -859,19 +789,17 @@ paths:
       tags:
         - System Details
       summary: Retrieve system for a given envoy serial number
-      description: Get system ID by passing envoy serial number. If the serial number
-        of a retired envoy is passed in the request param, a 404 Not Found response
-        will be returned.
+      description: Get system ID by passing envoy serial number. If the serial number of a retired envoy is passed in the request param, a 404 Not Found response will be returned.
       parameters:
         - name: serial_num
           in: query
-          description: Envoy Serial Number
+          description: Envoy serial number.
           required: true
           schema:
             type: string
       responses:
         200:
-          description: search_system_id
+          description: retrieve_system_id
           content:
             application/json:
               schema:
@@ -879,7 +807,7 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
               example:
                 system_id: 123
         401:
@@ -915,24 +843,18 @@ paths:
       tags:
         - Site Level Production Monitoring
       summary: production_meter_readings
-      description: "Returns the last known reading of each production meter on the\
-        \ system as of the requested time, regardless of whether the meter is currently\
-        \ in service or retired. \n Read_at is the time at which the reading was taken,\
-        \ and is always less than or equal to the requested end_at. Commonly, the\
-        \ reading will be within 30 minutes of the requested end_at. However, larger\
-        \ deltas can occur and do not necessarily mean there is a problem with the\
-        \ meter or the system. Systems that are configured to report infrequently\
-        \ can show large deltas on all meters, especially when end_at is close to\
-        \ the current time. Meters that have been retired from a system will show\
-        \ an end_at that doesn’t change, and that eventually is far away from the\
-        \ current time."
+      description: |-
+        Returns the last known reading of each production meter on the system as of the requested time, regardless of whether the meter is currently in service or retired.
+        Read_at is the time at which the reading was taken, and is always less than or equal to the requested end_at. Commonly, the reading will be within 30 minutes of the requested end_at.
+        However, larger deltas can occur and do not necessarily mean there is a problem with the meter or the system.
+        Systems that are configured to report infrequently can show large deltas on all meters, especially when end_at is close to the current time.
+        Meters that have been retired from a system will show an end_at that doesn't change, and that eventually is far away from the current time.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: end_at
           in: query
-          description: End of reporting period in Unix epoch time. If no end is specified,
-            defaults to the time of the request. If the end is later than the last reported
-            interval the response data ends with the last reported interval
+          description: End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request.
+            If the end is later than the last reported interval the response data ends with the last reported interval.
           schema:
             type: integer
       responses:
@@ -945,23 +867,22 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: System id
+                    description: System ID.
                   meter_readings:
                     type: array
-                    description: Production Meter Readings
+                    description: Production meter readings.
                     items:
                       type: object
                       properties:
                         serial_number:
                           type: string
-                          description: the serial number of the meter
+                          description: Serial number of the meter.
                         value:
                           type: integer
-                          description: the meter reading, in Wh
+                          description: Meter reading, in Wh.
                         read_at:
                           type: integer
-                          description: the time when the reading was taken, always
-                            prior or equal to the requested 'end_at'
+                          description: Time when the reading was taken, always prior or equal to the requested 'end_at'.
                   meta:
                     $ref: '#/components/schemas/Meta'
               example:
@@ -1011,26 +932,25 @@ paths:
         - Site Level Production Monitoring
       summary: rgm_stats
       description: |-
-        Returns performance statistics as measured by the revenue-grade meters installed on the specified system. If the total duration requested is more than one week, returns one week of intervals. Intervals are 15 minutes in length and start at the top of the hour.
-         Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 (in epoch format) is treated as a request for 08:00 (in epoch format). Intervals are listed by their end times in epoch format.
-         The requested date range in one API hit cannot be more than 7 days and the requested start at must be within 2 years from current time. If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+        Returns performance statistics as measured by the revenue-grade meters installed on the specified system. If the total duration requested is more than one week, returns one week of intervals.
+        Intervals are 15 minutes in length and start at the top of the hour.
+        Requests for times that do not fall on the 15-minute marks are rounded down.
+        For example, a request for 08:01, 08:08, 08:11, or 08:14 (in epoch format) is treated as a request for 08:00 (in epoch format). Intervals are listed by their end times in epoch format.
+        The requested date range in one API hit cannot be more than 7 days and the requested start at must be within 2 years from current time.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
-          description: Start of period to report on in Unix epoch time. If no start
-            is specified, the assumed start is midnight today, in the timezone of the
-            system. If the start is earlier than one year ago, the response includes
-            an empty intervals list. If the start is earlier than the system’s operational_date,
-            the response data begins at midnight of the first reported interval date.
+          description: Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system.
+            If the start is earlier than one year ago, the response includes an empty intervals list.
+            If the start is earlier than the system's operational_date, the response data begins at midnight of the first reported interval date.
           schema:
             type: integer
         - name: end_at
           in: query
-          description: End of reporting period in Unix epoch time. If no end is specified,
-            default to the time of the request or (start time + 1 week), whichever is
-            earlier. If the end is later than the last reported interval the response
-            data ends with the last reported interval.
+          description: End of reporting period in Unix epoch time. If no end is specified, default to the time of the request or (start time + 1 week), whichever is earlier.
+            If the end is later than the last reported interval the response data ends with the last reported interval.
           schema:
             type: integer
       responses:
@@ -1043,7 +963,7 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: System id
+                    description: System ID.
                   total_devices:
                     type: integer
                     description: Number of active revenue-grade meters for this system.
@@ -1051,8 +971,7 @@ paths:
                     $ref: '#/components/schemas/Meta'
                   intervals:
                     type: array
-                    description: A list of intervals between the requested start and
-                      end times.
+                    description: A list of intervals between the requested start and end times.
                     items:
                       type: object
                       properties:
@@ -1061,25 +980,22 @@ paths:
                           description: End time of the telemetry interval.
                         devices_reporting:
                           type: integer
-                          description: Number of revenue-grade meters that reported
-                            data for this interval at the time of the request.
+                          description: Number of revenue-grade meters that reported data for this interval at the time of the request.
                         wh_del:
                           type: integer
                           description: Energy delivered during this interval, in Wh.
                   meter_intervals:
                     type: array
-                    description: A list of intervals of a meter between the requested
-                      start and end times.
+                    description: A list of intervals of a meter between the requested start and end times.
                     items:
                       type: object
                       properties:
                         meter_serial_number:
                           type: string
-                          description: Meter serial number
+                          description: Meter serial number.
                         envoy_serial_number:
                           type: string
-                          description: Envoy serial number of the system that the
-                            micro reports to
+                          description: Envoy serial number of the system that the micro reports to.
                         intervals:
                           type: array
                           description: Individual meter level interval.
@@ -1088,18 +1004,16 @@ paths:
                             properties:
                               channel:
                                 type: integer
-                                description: The reporting channel id
+                                description: Reporting channel ID.
                               end_at:
                                 type: integer
                                 description: End time of the telemetry interval.
                               wh_del:
                                 type: integer
-                                description: Energy delivered during this interval,
-                                  in Wh (Watt-Hour).
+                                description: Energy delivered during this interval, in Wh (Watt-Hour).
                               curr_w:
                                 type: integer
-                                description: Energy delivered during this interval,
-                                  in W (Watts).
+                                description: Energy delivered during this interval, in W (Watts).
               example:
                 system_id: 66
                 total_devices: 2
@@ -1210,22 +1124,20 @@ paths:
       summary: consumption_lifetime
       description: |-
         Returns a daily time series of energy consumption as measured by the consumption meter installed on the specified system. All measurements are in Watt hours.
-         The time series includes one entry for each day from the start_date to the end_date. There are no gaps in the time series. If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no data has been reported for the last three days.
+        The time series includes one entry for each day from the start_date to the end_date. There are no gaps in the time series.
+        If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no data has been reported for the last three days.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
-          description: Requested start date of the time series data. Defaults to the
-            system’s operational date. If the start_date is earlier than the system’s
-            operational_date, then the response data begins with the system operational_date
-            as start_date. Pass as String date format YYYY-MM-DD.
+          description: Requested start date of the time series data. Defaults to the system's operational date.
+            If the start_date is earlier than the system's operational_date, then the response data begins with the system operational_date as start_date. Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
         - name: end_date
           in: query
-          description: End date of the time series data. Defaults to yesterday. If the
-            end_date is later than yesterday, then the response data ends with yesterday
-            as end_date. Pass as String date format YYYY-MM-DD.
+          description: End date of the time series data. Defaults to yesterday. If the end_date is later than yesterday, then the response data ends with yesterday as end_date.
+            Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
       responses:
@@ -1238,18 +1150,14 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   start_date:
                     type: integer
-                    description: When no start_date parameter is specified on the
-                      request, defaults to the operational_date of the system. May
-                      be null if system has never produced. When a start_date parameter
-                      is included in the request, the same is included in the response
+                    description: When no start_date parameter is specified on the request, defaults to the operational_date of the system. May be null if system has never produced.
+                      When a start_date parameter is included in the request, the same is included in the response.
                   consumption:
                     type: array
-                    description: An array of consumption measurements in Wh, one for
-                      each day since consumption metering began, or one for each day
-                      of the requested period
+                    description: An array of consumption measurements in Wh, one for each day since consumption metering began, or one for each day of the requested period.
                     items:
                       type: integer
                   meta:
@@ -1306,36 +1214,34 @@ paths:
       summary: energy_lifetime
       description: |-
         Returns a daily time series of energy produced by the system over its lifetime. All measurements are in Watt hours.
-         The time series includes one entry for each day from the start_date to the end_date with no gaps in the time series. If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no energy has been reported for the last days in the series.
-         If the system has a meter, the time series includes data as measured by the microinverters until the first full day after the meter has been installed. Later, it switches to using the data as measured by the meter. This is called the “merged time series.”  The attribute “meter_start_date” indicates the time when the meter measurements begin to be used. You can retrieve the complete time series from the meter and from the microinverters by adding the parameter production=all to the request.
+        The time series includes one entry for each day from the start_date to the end_date with no gaps in the time series.
+        If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no energy has been reported for the last days in the series.
+        If the system has a meter, the time series includes data as measured by the microinverters until the first full day after the meter has been installed.
+        Later, it switches to using the data as measured by the meter. This is called the "merged time series".
+        The attribute 'meter_start_date' indicates the time when the meter measurements begin to be used.
+        You can retrieve the complete time series from the meter and from the microinverters by adding the parameter production=all to the request.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
-          description: Start date of the time series data. Defaults to the system’s
-            operational date. If the start_date is earlier than the system’s operational_date,
-            then the response data begins with the system operational_date as start_date.
-            Pass as String date format YYYY-MM-DD.
+          description: Start date of the time series data. Defaults to the system's operational date.
+            If the start_date is earlier than the system's operational_date, then the response data begins with the system operational_date as start_date. Pass as string in YYYY-MM-DD format.
           schema:
             type: string
         - name: end_date
           in: query
-          description: End date of the time series data. Defaults to yesterday. If the
-            end_date is later than yesterday, then the response data ends with yesterday
-            as end_date. Pass as String date format YYYY-MM-DD.
+          description: End date of the time series data. Defaults to yesterday. If the end_date is later than yesterday, then the response data ends with yesterday as end_date.
+            Pass as string in YYYY-MM-DD format.
           schema:
             type: string
         - name: production
           in: query
-          description: When “all”, returns the merged time series plus the time series
-            as reported by the microinverters and the meter on the system. Other values
-            are ignored.
+          description: When 'all', returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
           schema:
             type: string
       responses:
         200:
-          description: 'When the query parameters include “production=all”, returns
-            meter and microinverter-measured time series:'
+          description: When the query parameters include "production=all", returns meter and microinverter-measured time series.
           content:
             application/json:
               schema:
@@ -1343,24 +1249,18 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: System id
+                    description: System ID.
                   start_date:
                     type: integer
-                    description: When no start_date parameter is specified on the
-                      request, this is the operational_date of the system. May be
-                      null if system has never produced. When a start_date parameter
-                      is included in the request, it is included here in the response.
+                    description: When no start_date parameter is specified on the request, this is the operational_date of the system. May be null if system has never produced.
+                      When a start_date parameter is included in the request, it is included here in the response.
                   meter_start_date:
                     type: integer
-                    description: The first day in the time series when measurements
-                      are taken from a meter instead of from microinverters. This
-                      field is not present unless the system has a meter.
+                    description: First day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter.
                   production:
                     type: array
-                    description: An array of production measurements, one for each
-                      day since the system started producing, or one for each day
-                      of the requested period. If the system has never produced energy,
-                      the array may be empty.
+                    description: An array of production measurements, one for each day since the system started producing, or one for each day of the requested period.
+                      If the system has never produced energy, the array may be empty.
                     items:
                       type: integer
                   meta:
@@ -1430,27 +1330,21 @@ paths:
       tags:
         - Site Level Consumption Monitoring
       summary: battery_lifetime
-      description: Returns a daily time series of energy charged into the batteries
-        and energy discharged from the batteries for a system over its lifetime. All
-        measurements are in Watt hours. The time series includes one entry for each
-        day from the start_date to the end_date with no gaps in the time series. If
-        the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then
-        no energy has been charged/discharged for the last days in the series.
+      description: Returns a daily time series of energy charged into the batteries and energy discharged from the batteries for a system over its lifetime.
+        All measurements are in Watt hours. The time series includes one entry for each day from the start_date to the end_date with no gaps in the time series.
+        If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no energy has been charged/discharged for the last days in the series.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
-          description: Requested start date of the time series data. Defaults to the
-            system’s operational date. If the start_date is earlier than the system’s
-            operational_date, then the response data begins with the system operational_date
-            as start_date. Pass as String date format YYYY-MM-DD.
+          description: Requested start date of the time series data. Defaults to the system's operational date.
+            If the start_date is earlier than the system's operational_date, then the response data begins with the system operational_date as start_date. Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
         - name: end_date
           in: query
-          description: End date of the time series data. Defaults to yesterday. If the
-            end_date is later than yesterday, then the response data ends with yesterday
-            as end_date. Pass as String date format YYYY-MM-DD.
+          description: End date of the time series data. Defaults to yesterday. If the end_date is later than yesterday, then the response data ends with yesterday as end_date.
+            Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
       responses:
@@ -1463,27 +1357,21 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   start_date:
                     type: integer
-                    description: When no start_date parameter is specified on the
-                      request, defaults to the operational_date of the system. May
-                      be null if system has never produced. When a start_date parameter
-                      is included in the request, the same is included in the response
+                    description: When no start_date parameter is specified on the request, defaults to the operational_date of the system. May be null if system has never produced.
+                      When a start_date parameter is included in the request, the same is included in the response.
                   charge:
                     type: array
-                    description: An array of charge measurements, one for each day
-                      since the system started producing, or one for each day of the
-                      requested period. If the system has never produced energy, the
-                      array may be empty
+                    description: An array of charge measurements, one for each day since the system started producing, or one for each day of the requested period.
+                      If the system has never produced energy, the array may be empty.
                     items:
                       type: integer
                   discharge:
                     type: array
-                    description: An array of discharge measurements, one for each day
-                      since the system started producing, or one for each day of the
-                      requested period. If the system has never produced energy, the
-                      array may be empty
+                    description: An array of discharge measurements, one for each day since the system started producing, or one for each day of the requested period.
+                      If the system has never produced energy, the array may be empty.
                     items:
                       type: integer
                   meta:
@@ -1545,27 +1433,21 @@ paths:
       tags:
         - Site Level Consumption Monitoring
       summary: import_lifetime
-      description: Returns a daily time series of energy imported to the grid by the
-        system over its lifetime. All measurements are in Watt hours. The time series
-        includes one entry for each day from the start_date to the end_date with no
-        gaps in the time series. If the response contains trailing zeroes, such as
-        [909, 4970, 0, 0, 0], then no energy has been imported for the last days in
-        the series.
+      description: Returns a daily time series of energy imported to the grid by the system over its lifetime. All measurements are in Watt hours.
+        The time series includes one entry for each day from the start_date to the end_date with no gaps in the time series.
+        If the response contains trailing zeroes, such as [909, 4970, 0, 0, 0], then no energy has been imported for the last days in the series.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
-          description: Requested start date of the time series data. Defaults to the
-            system’s operational date. If the start_date is earlier than the system’s
-            operational_date, then the response data begins with the system operational_date
-            as start_date. Pass as String date format YYYY-MM-DD.
+          description: Requested start date of the time series data. Defaults to the system's operational date.
+            If the start_date is earlier than the system's operational_date, then the response data begins with the system operational_date as start_date. Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
         - name: end_date
           in: query
-          description: End date of the time series data. Defaults to yesterday. If the
-            end_date is later than yesterday, then the response data ends with yesterday
-            as end_date. Pass as String date format YYYY-MM-DD.
+          description: End date of the time series data. Defaults to yesterday. If the end_date is later than yesterday, then the response data ends with yesterday as end_date.
+            Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
       responses:
@@ -1578,19 +1460,15 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   start_date:
                     type: integer
-                    description: When no start_date parameter is specified on the
-                      request, defaults to the operational_date of the system. May
-                      be null if system has never produced. When a start_date parameter
-                      is included in the request, the same is included in the response
+                    description: When no start_date parameter is specified on the request, defaults to the operational_date of the system. May be null if system has never produced.
+                      When a start_date parameter is included in the request, the same is included in the response.
                   import:
                     type: array
-                    description: An array of import measurements, one for each day
-                      since the system started producing, or one for each day of the
-                      requested period. If the system has never produced energy, the
-                      array may be empty
+                    description: An array of import measurements, one for each day since the system started producing, or one for each day of the requested period.
+                      If the system has never produced energy, the array may be empty.
                     items:
                       type: integer
                   meta:
@@ -1645,27 +1523,21 @@ paths:
       tags:
         - Site Level Consumption Monitoring
       summary: export_lifetime
-      description: Returns a daily time series of energy exported to the grid by the
-        system over its lifetime. All measurements are in Watt-hours. The time series
-        includes one entry for each day from the start_date to the end_date with no
-        gaps in the time series. If the response contains trailing zeroes, such as
-        [909, 4970, 0, 0, 0], then no energy has been exported for the last days in
-        the series.
+      description: Returns a daily time series of energy exported to the grid by the system over its lifetime. All measurements are in Watt-hours.
+        The time series includes one entry for each day from the start_date to the end_date with no gaps in the time series.
+        If the response contains trailing zeroes, such as [909, 4970, 0, 0, 0], then no energy has been exported for the last days in the series.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
-          description: Requested start date of the time series data. Defaults to the
-            system’s operational date. If the start_date is earlier than the system’s
-            operational_date, then the response data begins with the system operational_date
-            as start_date. Pass as String date format YYYY-MM-DD.
+          description: Requested start date of the time series data. Defaults to the system's operational date.
+            If the start_date is earlier than the system's operational_date, then the response data begins with the system operational_date as start_date. Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
         - name: end_date
           in: query
-          description: End date of the time series data. Defaults to yesterday. If the
-            end_date is later than yesterday, then the response data ends with yesterday
-            as end_date. Pass as String date format YYYY-MM-DD.
+          description: End date of the time series data. Defaults to yesterday. If the end_date is later than yesterday, then the response data ends with yesterday as end_date.
+            Pass as string in YYYY-MM-DD format.
           schema:
             type: integer
       responses:
@@ -1678,19 +1550,15 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   start_date:
                     type: integer
-                    description: When no start_date parameter is specified on the
-                      request, defaults to the operational_date of the system. May
-                      be null if system has never produced. When a start_date parameter
-                      is included in the request, the same is included in the response
+                    description: When no start_date parameter is specified on the request, defaults to the operational_date of the system. May be null if system has never produced.
+                      When a start_date parameter is included in the request, the same is included in the response.
                   export:
                     type: array
-                    description: An array of export measurements, one for each day
-                      since the system started producing, or one for each day of the
-                      requested period. If the system has never produced energy, the
-                      array may be empty
+                    description: An array of export measurements, one for each day since the system started producing, or one for each day of the requested period.
+                      If the system has never produced energy, the array may be empty.
                     items:
                       type: integer
                   meta:
@@ -1745,19 +1613,16 @@ paths:
       tags:
         - System Details
       summary: inverters_summary_by_envoy_or_site
-      description: Returns the microinverters summary based on the specified active
-        envoy serial number or system.
+      description: Returns the microinverters summary based on the specified active envoy serial number or system.
       parameters:
         - name: site_id
           in: query
-          description: Site id. The response will contain only those microinverters
-            reporting to one of the active envoys of the given site.
+          description: Site ID. The response will contain only those microinverters reporting to one of the active envoys of the given site.
           schema:
             type: integer
         - name: envoy_serial_number
           in: query
-          description: Active envoy Serial Number. Only microinverters reporting to
-            the given active envoy will be present in the response.
+          description: Active envoy serial number. Only microinverters reporting to the given active envoy will be present in the response.
           schema:
             type: string
       responses:
@@ -1770,71 +1635,68 @@ paths:
                 properties:
                   signal_strength:
                     type: integer
-                    description: Signal Strength
+                    description: Signal strength.
                   micro_inverters:
                     type: array
-                    description: Microinverters
+                    description: Microinverters.
                     items:
                       type: object
                       properties:
                         id:
                           type: integer
-                          description: Numeric id of the microinverter
+                          description: Numeric ID of the microinverter.
                         serial_number:
                           type: string
-                          description: Serial number of the microinverter
+                          description: Serial number of the microinverter.
                         model:
                           type: string
-                          description: Microinverter model type
+                          description: Microinverter model type.
                         part_number:
                           type: string
-                          description: Microinverter part number
+                          description: Microinverter part number.
                         sku:
                           type: string
-                          description: SKU of the microinverter
+                          description: SKU of the microinverter.
                         status:
                           type: string
-                          description: Current status of the micro inverter
+                          description: Current status of the micro inverter.
                         power_produced:
                           type: object
                           properties:
                             value:
                               type: integer
-                              description: Current power produced by the microinverter
+                              description: Current power produced by the microinverter.
                             units:
                               type: string
-                              description: Power units
+                              description: Power units.
                             precision:
                               type: integer
-                              description: ""
                         proc_load:
                           type: string
-                          description: Processor load
+                          description: Processor load.
                         param_table:
                           type: string
-                          description: Parameter table
+                          description: Parameter table.
                         envoy_serial_number:
                           type: string
-                          description: Envoy serial number of the system that the
-                            micro reports to
+                          description: Envoy serial number of the system that the micro reports to.
                         energy:
                           type: object
                           properties:
                             value:
                               type: integer
-                              description: Lifetime energy produced by the microinverter
+                              description: Lifetime energy produced by the microinverter.
                             units:
                               type: string
-                              description: Energy units
+                              description: Energy units.
                             precision:
                               type: integer
-                              description: ""
                         grid_profile:
                           type: string
-                          description: Grid profile ID
+                          description: Grid profile ID.
                         last_report_date:
                           type: integer
-                          description: Date on which the microinverter last reported
+                          description: Date on which the microinverter last reported.
               example:
                 signal_strength: 5
                 micro_inverters:
@@ -1885,7 +1747,7 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Envoy serial number or Site id mandatory
+                details: Envoy serial number or Site ID mandatory
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -1896,35 +1758,30 @@ paths:
       tags:
         - Site Level Production Monitoring
       summary: Retrieves telemetry for all production micros for a system
-      description: "Retrieves telemetry for all the production micros of a system.\
-        \ \nIf no start_at is specified, defaults to midnight today, in the timezone\
-        \ of the system. If the start_at specified is earlier than the system’s first\
-        \ reported date, then midnight of the system’s first reported date is considered\
-        \ as start_at. \nThe end_at is calculated as the minimum of the time of the\
-        \ request and (start time + granularity). \nThe meaning of granularity is\
-        \ as follow:\n  \nIf granularity is 15mins, maximum 3 intervals will appear\
-        \ in response. If granularity is day, maximum 288 intervals will appear in\
-        \ response where each interval is of 5 mins duration.\n \n The requested start\
-        \ date must be within 2 years from current date.\n By default start_at will\
-        \ appear in response. If start_date parameter is passed in the url, then start_date\
-        \ field will appear in response. \nBy default end_at will appear in response.\
-        \ If end_date parameter is passed in the url then end_date field will appear\
-        \ in response."
+      description: |-
+        Retrieves telemetry for all the production micros of a system.
+        If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+
+        If granularity is 15mins, maximum 3 intervals will appear in response. If granularity is day, maximum 288 intervals will appear in response where each interval is of 5 mins duration.
+
+        The requested start date must be within 2 years from current date.
+        By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
+        By default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String in YYYY-MM-DD format. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -1933,7 +1790,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for all production micros
+          description: Telemetry for all production micros.
           content:
             application/json:
               schema:
@@ -1941,49 +1798,42 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   granularity:
                     type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'week', 'day', '15mins'. Default is 'day'
+                    description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
                   total_devices:
                     type: integer
-                    description: Number of micro inverters in the site
+                    description: Number of micro inverters in the site.
                   start_at:
                     type: integer
-                    description: Start Time of the data series. Either start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter is passed in the url, then
-                      start_date field will appear in response.
+                    description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+                      If start_date parameter is passed in the url then start_date field will appear in response.
                   end_at:
                     type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter is passed in the url then end_date field
-                      will appear in response.
+                    description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+                      If end_date parameter is passed in the url then end_date field will appear in response.
                   items:
                     type: string
-                    description: The list key 'intervals'
+                    description: List key 'intervals'.
                   intervals:
                     type: array
-                    description: An array of telemetry objects. Each object contains
+                    description: An array of telemetry objects.
                     items:
                       type: object
                       properties:
                         end_at:
                           type: integer
-                          description: End time of the telemetry interval
+                          description: End time of the telemetry interval.
                         devices_reporting:
                           type: integer
-                          description: Number of devices reporting
+                          description: Number of devices reporting.
                         powr:
                           type: integer
-                          description: Average power (in Watt) produced by all the
-                            microinverters during this interval, measured in Watts.
+                          description: Average power (in Watt) produced by all the microinverters during this interval, measured in Watts.
                         enwh:
                           type: integer
-                          description: Energy produced (in Watt-Hours) from all the
-                            microinverters combined during that period
+                          description: Energy produced (in Watt-Hours) from all the microinverters combined during that period.
                   meta:
                     $ref: '#/components/schemas/Meta'
               example:
@@ -2031,9 +1881,8 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Invalid request because of 'Requested date range is invalid
-                  for this system. {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100,
-                  :last_interval=>1565333700}'
+                details: Invalid request because of 'Requested date range is invalid for this system'.
+                  {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -2046,35 +1895,31 @@ paths:
       tags:
         - Site Level Production Monitoring
       summary: Retrieves telemetry for all production meters for a system
-      description: "Retrieves telemetry for all the production meters of a system.\
-        \ \nIf no start_at is specified, defaults to midnight today, in the timezone\
-        \ of the system. If the start_at specified is earlier than the system’s first\
-        \ reported date, then midnight of the system’s first reported date is considered\
-        \ as start_at. \nThe end_at is calculated as the minimum of the time of the\
-        \ request and (start time + granularity). \nThe meaning of granularity is\
-        \ as follow:\n  \nIf granularity is 15mins, maximum 1 intervals will appear\
-        \ in response. If granularity is day, maximum 96 intervals, and if granularity\
-        \ is week, maximum 672 intervals, will appear in response where each interval\
-        \ is of 15 mins duration.\n \n The requested start date must be within 2 years\
-        \ from current date. \n By default start_at will appear in response. If start_date\
-        \ parameter is passed in the url, then start_date field will appear in response.\
-        \ \nBy default end_at will appear in response. If end_date parameter is passed\
-        \ in the url then end_date field will appear in response."
+      description: |-
+        Retrieves telemetry for all the production meters of a system.
+        If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+
+        If granularity is 15mins, maximum 1 interval will appear in response.
+        If granularity is day, maximum 96 intervals, and if granularity is week, maximum 672 intervals, will appear in response where each interval is of 15 mins duration.
+
+        The requested start date must be within 2 years from current date.
+        By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
+        By default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String date format YYYY-MM-DD. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -2083,7 +1928,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for all production meters
+          description: Telemetry for all production meters.
           content:
             application/json:
               schema:
@@ -2091,29 +1936,24 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   granularity:
                     type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'week', 'day', '15mins'. Default is 'day'
+                    description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
                   total_devices:
                     type: integer
-                    description: Number of Production meters in the site
+                    description: Number of production meters in the site.
                   start_at:
                     type: integer
-                    description: Start Time of the data series. Either Start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter is passed in the url, then
-                      start_date field will appear in response.
+                    description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+                      If start_date parameter is passed in the url then start_date field will appear in response.
                   end_at:
                     type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter is passed in the url, then end_date field
-                      will appear in response.
+                    description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+                      If end_date parameter is passed in the url then end_date field will appear in response.
                   items:
                     type: string
-                    description: The list key 'intervals'
+                    description: List key 'intervals'.
                   intervals:
                     type: array
                     items:
@@ -2124,10 +1964,10 @@ paths:
                           description: End time of the telemetry interval.
                         devices_reporting:
                           type: integer
-                          description: Number of device reporting
+                          description: Number of devices reporting.
                         wh_del:
                           type: integer
-                          description: Units produced per interval
+                          description: Units produced per interval.
               example:
                 system_id: 698905955
                 granularity: day
@@ -2166,9 +2006,8 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Invalid request because of 'Requested date range is invalid
-                  for this system. {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100,
-                  :last_interval=>1565333700}'
+                details: Invalid request because of 'Requested date range is invalid for this system'.
+                  {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -2181,35 +2020,31 @@ paths:
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves telemetry for all batteries for a system
-      description: "Retrieves telemetry for all the batteries of a system. \nIf no\
-        \ start_at is specified, defaults to midnight today, in the timezone of the\
-        \ system. If the start_at specified is earlier than the system’s first reported\
-        \ date, then midnight of the system’s first reported date is considered as\
-        \ start_at. \nThe end_at is calculated as the minimum of the time of the request\
-        \ and (start time + granularity). \nThe meaning of granularity is as follow:\n\
-        \  \nIf granularity is 15mins, maximum 1 interval will appear in response.\
-        \ If granularity is day, maximum 96 intervals, and if granularity is week,\
-        \ maximum 672 intervals,  will appear in response where each interval is of\
-        \ 15 mins duration.\n \n The requested start date must be within 2 years from\
-        \ current date. \n By default start_at will appear in response. If start_date\
-        \ parameter is passed in the url, then start_date field will appear in response.\
-        \ \nBy default end_at will appear in response. If end_date parameter is passed\
-        \ in the url then end_date field will appear in response."
+      description: |-
+        Retrieves telemetry for all the batteries of a system.
+        If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+
+        If granularity is 15mins, maximum 1 interval will appear in response.
+        If granularity is day, maximum 96 intervals, and if granularity is week, maximum 672 intervals, will appear in response where each interval is of 15 mins duration.
+
+        The requested start date must be within 2 years from current date.
+        By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
+        By default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String date format YYYY-MM-DD. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -2218,7 +2053,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for batteries
+          description: Telemetry for batteries.
           content:
             application/json:
               schema:
@@ -2226,29 +2061,24 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   granularity:
                     type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'week', 'day', '15mins'. Default is 'day'
+                    description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
                   total_devices:
                     type: integer
-                    description: Number of Batteries in the site
+                    description: Number of batteries in the site.
                   start_at:
                     type: integer
-                    description: Start Time of the data series. Either Start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter is passed in the url, then
-                      start_date field will appear in response.
+                    description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+                      If start_date parameter is passed in the url then start_date field will appear in response.
                   end_at:
                     type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter is passed in the url, then end_date field
-                      will appear in response.
+                    description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+                      If end_date parameter is passed in the url then end_date field will appear in response.
                   items:
                     type: string
-                    description: The list key 'intervals'
+                    description: List key 'intervals'.
                   intervals:
                     type: array
                     items:
@@ -2262,32 +2092,31 @@ paths:
                           properties:
                             enwh:
                               type: integer
-                              description: Energy into the battery during the interval
+                              description: Energy into the battery during the interval.
                             devices_reporting:
                               type: integer
-                              description: Number of devices reporting
+                              description: Number of devices reporting.
                         discharge:
                           type: object
                           properties:
                             enwh:
                               type: integer
-                              description: Energy discharged from the battery during
-                                the interval
+                              description: Energy discharged from the battery during the interval.
                             devices_reporting:
                               type: integer
-                              description: Number of devices reporting
+                              description: Number of devices reporting.
                         soc:
                           type: object
                           properties:
                             percent:
                               type: integer
-                              description: Battery soc percentage
+                              description: Battery soc percentage.
                             devices_reporting:
                               type: integer
-                              description: Number of devices reporting
+                              description: Number of devices reporting.
                   last_reported_aggregate_soc:
                     type: string
-                    description: Last reported aggregate soc percentage
+                    description: Last reported aggregate soc percentage.
               example:
                 system_id: 698905955
                 granularity: day
@@ -2331,9 +2160,8 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Invalid request because of 'Requested date range is invalid
-                  for this system. {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100,
-                  :last_interval=>1565333700}'
+                details: Invalid request because of 'Requested date range is invalid for this system'.
+                  {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -2346,37 +2174,32 @@ paths:
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves telemetry for all consumption meters for a system
-      description: "Retrieves telemetry for all the consumption meters of a system.\
-        \ \nIf the start_at specified is earlier than the system’s first reported\
-        \ date, then midnight of the system’s first reported date is considered as\
-        \ start_at. \nThe end_at is calculated as the minimum of the time of the request\
-        \ and (start time + granularity). \nThe meaning of granularity is as follow:\n\
-        \ If granularity is 15mins, maximum 1 interval will appear in response. If\
-        \ granularity is day, maximum 96 intervals, and if granularity is week, maximum\
-        \ 672 intervals,  will appear in response where each interval is of 15 mins\
-        \ duration.\n \n The requested start date must be within 2 years from current\
-        \ date. \n By default start_at will appear in response. If start_date parameter\
-        \ is passed in the url, then start_date field will appear in response. \n\
-        By default end_at will appear in response. If end_date parameter is passed\
-        \ in the url then end_date field will appear in response."
+      description: |-
+        Retrieves telemetry for all the consumption meters of a system.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+        
+        If granularity is 15mins, maximum 1 interval will appear in response.
+        If granularity is day, maximum 96 intervals, and if granularity is week, maximum 672 intervals, will appear in response where each interval is of 15 mins duration.
+
+        The requested start date must be within 2 years from current date.
+        By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
+        By default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Requested start time for telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String in YYYY-MM-DD format. If no start_at is specified,
-            defaults to midnight today, in the timezone of the system. If the start_at
-            specified is earlier than the system’s first reported date, then the system
-            first reported date is considered as start_at. By default start_at will
-            appear in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format.
+            If no start_at is specified, defaults to midnight today, in the timezone of the system.
+            If the start_at specified is earlier than the system's first reported date, then the system first reported date is considered as start_at. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -2385,7 +2208,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for all consumption meters
+          description: Telemetry for all consumption meters.
           content:
             application/json:
               schema:
@@ -2393,29 +2216,24 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   granularity:
                     type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'week', 'day', '15mins'. Default is 'day'
+                    description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
                   total_devices:
                     type: integer
-                    description: Number of non-retired consumption meters in the site
+                    description: Number of non-retired consumption meters in the site.
                   start_at:
                     type: integer
-                    description: Start Time of the data series. Either Start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter is passed in the url, then
-                      start_date field will appear in response.
+                    description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+                      If start_date parameter is passed in the url then start_date field will appear in response.
                   end_at:
                     type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter is passed in the url, then end_date field
-                      will appear in response.
+                    description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+                      If end_date parameter is passed in the url then end_date field will appear in response.
                   items:
                     type: string
-                    description: The list key 'intervals'
+                    description: List key 'intervals'.
                   intervals:
                     type: array
                     items:
@@ -2423,13 +2241,13 @@ paths:
                       properties:
                         end_at:
                           type: integer
-                          description: End time of the telemetry interval
+                          description: End time of the telemetry interval.
                         devices_reporting:
                           type: integer
-                          description: Number of devices reporting
+                          description: Number of devices reporting.
                         enwh:
                           type: integer
-                          description: Units produced per interval
+                          description: Units produced per interval.
                   meta:
                     $ref: '#/components/schemas/Meta'
               example:
@@ -2475,9 +2293,8 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Invalid request because of 'Requested date range is invalid
-                  for this system. {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100,
-                  :last_interval=>1565333700}'
+                details: Invalid request because of 'Requested date range is invalid for this system'.
+                  {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -2489,42 +2306,37 @@ paths:
     get:
       tags:
         - Device Level Production Monitoring
-      summary: Retrieves telemetry for single micro/pcu.
-      description: "Retrieves telemetry for single micro/pcu. \nIf no start_at is\
-        \ specified, defaults to midnight today, in the timezone of the system. If\
-        \ the start_at specified is earlier than the system’s first reported date,\
-        \ then midnight of the system’s first reported date is considered as start_at.\
-        \ \nThe end_at is calculated as the minimum of the time of the request and\
-        \ (start time + granularity). \nThe meaning of granularity is as follow:\n\
-        \  \nIf granularity is 15mins, maximum 3 intervals will appear in response.\
-        \ If granularity is day, maximum 288 intervals will appear in response where\
-        \ each interval is of 5 mins duration.\n \n The requested start date must\
-        \ be within 2 years from current date. \n By default start_at will appear\
-        \ in response. If start_date parameter is passed in the url, then start_date\
-        \ field will appear in response. \nBy default end_at will appear in response.\
-        \ If end_date parameter is passed in the url then end_date field will appear\
-        \ in response."
+      summary: Retrieves telemetry for single micro/pcu
+      description: |-
+        Retrieves telemetry for single micro/pcu.
+        If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+
+        If granularity is 15mins, maximum 3 intervals will appear in response. If granularity is day, maximum 288 intervals will appear in response where each interval is of 5 mins duration.
+
+        The requested start date must be within 2 years from current date.
+        By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
+        By default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: serial_no
           in: path
-          description: Serial Number of the individual solar Microinverter
+          description: Serial number of the individual solar Microinverter.
           required: true
           schema:
             type: string
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String in YYYY-MM-DD format. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -2533,7 +2345,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for micro
+          description: Telemetry for micro.
           content:
             application/json:
               schema:
@@ -2541,33 +2353,27 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   serial_number:
                     type: string
-                    description: The device serial number
+                    description: Device serial number.
                   granularity:
                     type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'day'. Default is 'day'
+                    description: Granularity of the telemetry data. Possible values are 'day'. Default is 'day'.
                   total_devices:
                     type: integer
-                    description: Shall always be 1 since this is telemetry from individual
-                      micros
+                    description: Shall always be 1 since this is telemetry from individual micros.
                   start_at:
                     type: integer
-                    description: Start Time of the data series. Either Start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter passed in the url then
-                      start_date field will appear in response.
+                    description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+                      If start_date parameter passed in the url then start_date field will appear in response.
                   end_at:
                     type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter passed in the url then end_date field
-                      will appear in response.
+                    description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+                      If end_date parameter passed in the url then end_date field will appear in response.
                   items:
                     type: string
-                    description: The list key 'intervals'
+                    description: List key 'intervals'.
                   intervals:
                     type: array
                     items:
@@ -2575,15 +2381,13 @@ paths:
                       properties:
                         end_at:
                           type: integer
-                          description: End time of the telemetry interval
+                          description: End time of the telemetry interval.
                         powr:
                           type: integer
-                          description: Average power (in Watt) produced by all the
-                            microinverters during this interval, measured in Watts.
+                          description: Average power (in Watt) produced by all the microinverters during this interval, measured in Watts.
                         enwh:
                           type: integer
-                          description: Energy produced (in Watt-Hours) from all the
-                            microinverters combined during that period
+                          description: Energy produced (in Watt-Hours) from all the microinverters combined during that period.
               example:
                 system_id: 1765
                 serial_number: "12345"
@@ -2623,9 +2427,8 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Invalid request because of 'Requested date range is invalid
-                  for this system. {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100,
-                  :last_interval=>1565333700}'
+                details: Invalid request because of 'Requested date range is invalid for this system'.
+                  {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -2638,41 +2441,37 @@ paths:
       tags:
         - Device Level Production Monitoring
       summary: Retrieves telemetry for single ACB
-      description: "Retrieves telemetry for single ACB. \nIf no start_at is specified,\
-        \ defaults to midnight today, in the timezone of the system. If the start_at\
-        \ specified is earlier than the system’s first reported date, then midnight\
-        \ of the system’s first reported date is considered as start_at. \nThe end_at\
-        \ is calculated as the minimum of the time of the request and (start time\
-        \ + granularity). \nThe meaning of granularity is as follow:\n  \nIf granularity\
-        \ is 15mins, maximum 1 interval will appear in response. If granularity is\
-        \ day, maximum 96 intervals, and if granularity is week, maximum 672 intervals,\
-        \  will appear in response where each interval is of 15 mins duration.\n \n\
-        \ The requested start date must be within 2 years from current date. \n By\
-        \ default start_at will appear in response. If start_date parameter is passed\
-        \ in the url, then start_date field will appear in response. \nBy default\
-        \ end_at will appear in response. If end_date parameter is passed in the url\
-        \ then end_date field will appear in response."
+      description: |-
+        Retrieves telemetry for single ACB.
+        If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+
+        If granularity is 15mins, maximum 1 interval will appear in response.
+        If granularity is day, maximum 96 intervals, and if granularity is week, maximum 672 intervals, will appear in response where each interval is of 15 mins duration.
+
+        The requested start date must be within 2 years from current date.
+        By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
+        By default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: serial_no
           in: path
-          description: Serial Number of the acb
+          description: Serial number of the acb.
           required: true
           schema:
             type: string
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String in YYYY-MM-DD format. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -2681,7 +2480,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for the ACB
+          description: Telemetry for the ACB.
           content:
             application/json:
               schema:
@@ -2710,9 +2509,8 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Invalid request because of 'Requested date range is invalid
-                  for this system. {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100,
-                  :last_interval=>1565333700}'
+                details: Invalid request because of 'Requested date range is invalid for this system'.
+                  {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -2725,41 +2523,37 @@ paths:
       tags:
         - Device Level Production Monitoring
       summary: Retrieves telemetry for single Encharge
-      description: "Retrieves telemetry for single Encharge. \nIf no start_at is specified,\
-        \ defaults to midnight today, in the timezone of the system. If the start_at\
-        \ specified is earlier than the system’s first reported date, then midnight\
-        \ of the system’s first reported date is considered as start_at. \nThe end_at\
-        \ is calculated as the minimum of the time of the request and (start time\
-        \ + granularity). \nThe meaning of granularity is as follow:\n  \nIf granularity\
-        \ is 15mins, maximum 1 interval will appear in response. If granularity is\
-        \ day, maximum 96 intervals, and if granularity is week, maximum 672 intervals,\
-        \  will appear in response where each interval is of 15 mins duration.\n \n\
-        \ The requested start date must be within 2 years from current date. \n By\
-        \ default start_at will appear in response. If start_date parameter is passed\
-        \ in the url, then start_date field will appear in response. \nBy default\
-        \ end_at will appear in response. If end_date parameter is passed in the url\
-        \ then end_date field will appear in response."
+      description: |-
+        Retrieves telemetry for single Encharge.
+        If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+
+        If granularity is 15mins, maximum 1 interval will appear in response.
+        If granularity is day, maximum 96 intervals, and if granularity is week, maximum 672 intervals, will appear in response where each interval is of 15 mins duration.
+
+        The requested start date must be within 2 years from current date.
+        By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
+        By default end_at will appear in response. If end_date parameter is passed in the url then end_date field will appear in response.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: serial_no
           in: path
-          description: Serial Number of the Encharge
+          description: Serial number of the Encharge.
           required: true
           schema:
             type: string
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String in YYYY-MM-DD format. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -2768,7 +2562,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for the Encharge
+          description: Telemetry for the Encharge.
           content:
             application/json:
               schema:
@@ -2797,9 +2591,8 @@ paths:
                 $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
-                details: Invalid request because of 'Requested date range is invalid
-                  for this system. {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100,
-                  :last_interval=>1565333700}'
+                details: Invalid request because of 'Requested date range is invalid for this system'.
+                  {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
@@ -2812,12 +2605,12 @@ paths:
       tags:
         - System Configurations
       summary: Returns the current battery settings of a system
-      description: Returns the current battery settings of a system
+      description: Returns the current battery settings of a system.
       parameters:
         - $ref: '#/components/parameters/SystemId'
       responses:
         200:
-          description: OK
+          description: battery_settings
           content:
             application/json:
               schema:
@@ -2827,15 +2620,14 @@ paths:
                     type: integer
                   battery_mode:
                     type: string
-                    description: Current battery mode of the system
+                    description: Current battery mode of the system.
                   reserve_soc:
                     type: integer
-                    description: Reserve soc for the current mode
+                    description: Reserve soc for the current mode.
                   battery_shutdown_level:
                     type: integer
                     description: Level at which battery shutdowns to conserve energy.
-                      Battery restarts by using the conserved energy when the utility
-                      grid restores power or solar panels start producing energy
+                      Battery restarts by using the conserved energy when the utility grid restores power or solar panels start producing energy.
               example:
                 system_id: 1765
                 battery_mode: self-consumption
@@ -2878,12 +2670,12 @@ paths:
       tags:
         - System Configurations
       summary: Returns the current storm guard settings of a system
-      description: Returns the current storm guard settings of a system
+      description: Returns the current storm guard settings of a system.
       parameters:
         - $ref: '#/components/parameters/SystemId'
       responses:
         200:
-          description: OK
+          description: storm_guard
           content:
             application/json:
               schema:
@@ -2893,12 +2685,10 @@ paths:
                     type: integer
                   storm_guard_status:
                     type: string
-                    description: Overrides your battery profile to full backup mode
-                      when a severe weather condition alert is issued in the locality
+                    description: Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality.
                   storm_alert:
                     type: string
-                    description: True if severe weather condition alert is issued
-                      in the locality
+                    description: True if severe weather condition alert is issued in the locality.
               example:
                 system_id: 1765
                 storm_guard_status: enabled
@@ -2937,13 +2727,13 @@ paths:
     get:
       tags:
         - System Configurations
-      summary: Returns the current storm guard settings of a system
-      description: Returns the current storm guard settings of a system
+      summary: Returns the current grid status settings of a system
+      description: Returns the current grid status settings of a system.
       parameters:
         - $ref: '#/components/parameters/SystemId'
       responses:
         200:
-          description: OK
+          description: grid_status
           content:
             application/json:
               schema:
@@ -2953,10 +2743,10 @@ paths:
                     type: integer
                   grid_state:
                     type: string
-                    description: Indicates whether the site is connected to the grid
+                    description: Indicates whether the site is connected to the grid.
                   last_report_date:
                     type: string
-                    description: Timestamp of the last report
+                    description: Timestamp of the last report.
               example:
                 system_id: 1765
                 grid_state: Connected
@@ -2996,12 +2786,12 @@ paths:
       tags:
         - System Configurations
       summary: Returns the current load control settings of a system
-      description: Returns the current load control settings of a system
+      description: Returns the current load control settings of a system.
       parameters:
         - $ref: '#/components/parameters/SystemId'
       responses:
         200:
-          description: OK
+          description: load_control
           content:
             application/json:
               schema:
@@ -3011,41 +2801,34 @@ paths:
                     type: integer
                   load_control_data:
                     type: array
-                    description: load control data for all the configured loads
+                    description: Load control data for all the configured loads.
                     items:
                       type: object
                       properties:
                         name:
                           type: string
-                          description: Name of the dry contact
+                          description: Name of the dry contact.
                         load_name:
                           type: string
-                          description: Name of the load
+                          description: Name of the load.
                         owner_can_override:
                           type: string
-                          description: HOs ability to override the load control settings
+                          description: HOs ability to override the load control settings.
                         config:
                           type: string
-                          description: Enabled/Disabled
+                          description: Enabled/disabled.
                         soc_low:
                           type: integer
-                          description: Applicable for advanced mode. Load will be
-                            powered off when the battery soc reaches this level
+                          description: Applicable for advanced mode. Load will be powered off when the battery soc reaches this level.
                         soc_high:
                           type: integer
-                          description: Applicable for advanced mode. Load powers off
-                            when battery reaches soc_low. The load will be powered
-                            on when the battery soc reaches soc_high
+                          description: Applicable for advanced mode. Load powers off when battery reaches soc_low. The load will be powered on when the battery soc reaches soc_high.
                         essential_start_time:
                           type: integer
-                          description: Applicable for scheduled mode. Time in seconds.
-                            Load will powered on between essential_start_time and
-                            essential_end_time
+                          description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
                         essential_end_time:
                           type: integer
-                          description: Applicable for scheduled mode. Time in seconds.
-                            Load will powered on between essential_start_time and
-                            essential_end_time
+                          description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
               example:
                 system_id: 1932237
                 load_control_data:
@@ -3102,31 +2885,28 @@ paths:
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves energy imported from grid in regular intervals
-      description: 'Retrieves energy imported from grid in regular intervals. If no
-        start_at is specified, defaults to midnight today, in the timezone of the
-        system. If the start_at specified is earlier than the system’s first reported
-        date, then midnight of the system’s first reported date is considered as start_at.
-        The end_at is calculated as the minimum of the time of the request and (start
-        time + granularity). The meaning of granularity is as follow: If granularity
-        is 15mins, maximum 1 intervals will appear in response. If granularity is
-        day, maximum 96 intervals will appear in response where each interval is of
-        15 mins duration. The requested start date must be within 2 years from current
-        date.'
+      description: |-
+        Retrieves energy imported from grid in regular intervals.
+        If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+        
+        If granularity is 15mins, maximum 1 intervals will appear in response. If granularity is day, maximum 96 intervals will appear in response where each interval is of 15 mins duration.
+        
+        The requested start date must be within 2 years from current date.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String in YYYY-MM-DD format. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -3135,7 +2915,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for all production micros
+          description: Telemetry for all production micros.
           content:
             application/json:
               schema:
@@ -3143,42 +2923,36 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   granularity:
                     type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'week', 'day', '15mins'. Default is 'day'
+                    description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
                   total_devices:
                     type: integer
-                    description: Number of Consumption meters in the site
+                    description: Number of consumption meters in the site.
                   start_at:
                     type: integer
-                    description: Start Time of the data series. Either start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter is passed in the url, then
-                      start_date field will appear in response.
+                    description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+                      If start_date parameter is passed in the url then start_date field will appear in response.
                   end_at:
                     type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter is passed in the url then end_date field
-                      will appear in response.
+                    description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+                      If end_date parameter is passed in the url then end_date field will appear in response.
                   items:
                     type: string
-                    description: The list key 'intervals'
+                    description: List key 'intervals'.
                   intervals:
                     type: array
-                    description: An array of telemetry objects. Each object contains
+                    description: An array of telemetry objects.
                     items:
                       type: object
                       properties:
                         end_at:
                           type: integer
-                          description: End time of the telemetry interval
+                          description: End time of the telemetry interval.
                         wh_imported:
                           type: integer
-                          description: Energy imported (in Watt-Hours) during that
-                            period
+                          description: Energy imported (in Watt-Hours) during that period.
                   meta:
                     $ref: '#/components/schemas/Meta'
               example:
@@ -3237,31 +3011,27 @@ paths:
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves energy exported to grid in regular intervals
-      description: 'Retrieves energy exported to grid in regular intervals. If no
-        start_at is specified, defaults to midnight today, in the timezone of the
-        system. If the start_at specified is earlier than the system’s first reported
-        date, then midnight of the system’s first reported date is considered as start_at.
-        The end_at is calculated as the minimum of the time of the request and (start
-        time + granularity). The meaning of granularity is as follow: If granularity
-        is 15mins, maximum 1 intervals will appear in response. If granularity is
-        day, maximum 96 intervals will appear in response where each interval is of
-        15 mins duration. The requested start date must be within 2 years from current
-        date.'
+      description: |-
+        Retrieves energy exported to grid in regular intervals. If no start_at is specified, defaults to midnight today, in the timezone of the system.
+        If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+        The end_at is calculated as the minimum of the time of the request and (start time + granularity).
+        The meaning of granularity is as follows:
+        
+        If granularity is 15mins, maximum 1 intervals will appear in response. If granularity is day, maximum 96 intervals will appear in response where each interval is of 15 mins duration.
+        
+        The requested start date must be within 2 years from current date.
       parameters:
         - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
-            Alternatively one can use start_date in place of start_at for passing the
-            start date as String in YYYY-MM-DD format. By default start_at will appear
-            in response. If start_date parameter is passed in the url, then start_date
-            field will appear in response.
+            Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response.
+            If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
         - name: granularity
           in: query
-          description: The granularity of the telemetry data. Possible values are 'week',
-            'day', '15mins'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
           schema:
             type: string
             enum:
@@ -3270,7 +3040,7 @@ paths:
               - week
       responses:
         200:
-          description: Telemetry for all production micros
+          description: Telemetry for all production micros.
           content:
             application/json:
               schema:
@@ -3278,42 +3048,36 @@ paths:
                 properties:
                   system_id:
                     type: integer
-                    description: The unique numeric ID of the system
+                    description: Unique numeric ID of the system.
                   granularity:
                     type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'week', 'day', '15mins'. Default is 'day'
+                    description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
                   total_devices:
                     type: integer
-                    description: Number of Production meters in the site
+                    description: Number of production meters in the site.
                   start_at:
                     type: integer
-                    description: Start Time of the data series. Either start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter is passed in the url, then
-                      start_date field will appear in response.
+                    description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+                      If start_date parameter is passed in the url then start_date field will appear in response.
                   end_at:
                     type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter is passed in the url then end_date field
-                      will appear in response.
+                    description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+                      If end_date parameter is passed in the url then end_date field will appear in response.
                   items:
                     type: string
-                    description: The list key 'intervals'
+                    description: List key 'intervals'.
                   intervals:
                     type: array
-                    description: An array of telemetry objects. Each object contains
+                    description: An array of telemetry objects.
                     items:
                       type: object
                       properties:
                         end_at:
                           type: integer
-                          description: End time of the telemetry interval
+                          description: End time of the telemetry interval.
                         wh_exported:
                           type: integer
-                          description: Energy exported (in Watt-Hours) during that
-                            period
+                          description: Energy exported (in Watt-Hours) during that period.
                   meta:
                     $ref: '#/components/schemas/Meta'
               example:
@@ -3372,7 +3136,7 @@ components:
     SystemId:
       name: system_id
       in: path
-      description: The unique numeric ID of the system
+      description: Unique numeric ID of the system.
       required: true
       schema:
         type: integer
@@ -3382,33 +3146,27 @@ components:
       properties:
         system_id:
           type: integer
-          description: System id
+          description: System ID.
         serial_number:
           type: string
-          description: The device serial number
+          description: Device serial number.
         granularity:
           type: string
-          description: The granularity of the telemetry data. Possible values
-            are 'day'. Default is 'day'
+          description: Granularity of the telemetry data. Possible values are 'day'. Default is 'day'.
         total_devices:
           type: integer
-          description: Shall always be 1 since this is telemetry from individual
-            micros
+          description: Shall always be 1 since this is telemetry from individual micros.
         start_at:
           type: integer
-          description: Start Time of the data series. Either Start_date
-            or start_at will be present. By default start_at will appear
-            in response. If start_date parameter passed in the url then
-            start_date field will appear in response.
+          description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
+            If start_date parameter passed in the url then start_date field will appear in response.
         end_at:
           type: integer
-          description: End Time of the data series. Either end_date or end_at
-            will be present. By default end_at will appear in response.
-            If end_date parameter passed in the url then end_date field
-            will appear in response.
+          description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
+            If end_date parameter passed in the url then end_date field will appear in response.
         items:
           type: string
-          description: The list key 'intervals'
+          description: List key 'intervals'.
         intervals:
           type: array
           items:
@@ -3422,26 +3180,25 @@ components:
                 properties:
                   enwh:
                     type: integer
-                    description: Energy into the battery during the interval
+                    description: Energy into the battery during the interval.
               discharge:
                 type: object
                 properties:
                   enwh:
                     type: integer
-                    description: Energy discharged from the battery during
-                      the interval
+                    description: Energy discharged from the battery during the interval.
               soc:
                 type: object
                 properties:
                   percent:
                     type: integer
-                    description: Battery soc percentage
+                    description: Battery soc percentage.
         last_reported_time:
           type: integer
-          description: Last reported timestamp
+          description: Last reported timestamp.
         last_reported_soc:
           type: string
-          description: Last reported soc percentage
+          description: Last reported soc percentage.
       example:
         system_id: 1765
         serial_number: "12345"
@@ -3462,40 +3219,33 @@ components:
         last_reported_soc: 99%
     Meta:
       type: object
+      description: Information about the system such as its status, when it became operational and last reported to Envoy.
       properties:
         status:
           type: string
-          description: System's status. Corresponding Enlighten values
-            can be found in table added at the end of page.
+          description: System's status. Corresponding Enlighten values can be found in table added at the end of page.
         last_report_at:
           type: integer
-          description: Timestamp (in epoch format) at which the system's
-            Envoy last submitted a report
+          description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
         last_energy_at:
           type: integer
-          description: Timestamp (in epoch format) at which the system's
-            produced energy was last reported. Even if the last produced
-            energy is 0, its timestamp will be returned.
+          description: Timestamp (in epoch format) at which the system's produced energy was last reported. Even if the last produced energy is 0, its timestamp will be returned.
         operational_at:
           type: integer
-          description: Timestamp (in epoch format) at which this system
-            became operational. Corresponds to the system’s interconnect
-            time, if one is specified. Otherwise, it is the system’s
-            first reported interval end time.
-      description: Information about the system such as its status,
-        when it became operational and last reported to Envoy.
+          description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
+            Otherwise, it is the system's first reported interval end time.
     AuthenticationError:
       type: object
       properties:
         message:
           type: string
-          description: Error Type
+          description: Error type.
         details:
           type: string
-          description: Error Details
+          description: Error details.
         code:
           type: integer
-          description: Error Code
+          description: Error code.
       example:
         message: Not Authorized
         details: User is not authorized
@@ -3505,13 +3255,13 @@ components:
       properties:
         message:
           type: string
-          description: Error Type
+          description: Error type.
         details:
           type: string
-          description: Error Details
+          description: Error details.
         code:
           type: integer
-          description: Error Code
+          description: Error code.
       example:
         message: Forbidden
         details: Not authorized to access this resource
@@ -3521,13 +3271,13 @@ components:
       properties:
         message:
           type: string
-          description: Error Type
+          description: Error type.
         details:
           type: string
-          description: Error Details
+          description: Error details.
         code:
           type: integer
-          description: Error Code
+          description: Error code.
     MethodNotAllowed:
       type: object
       properties:
@@ -3546,37 +3296,37 @@ components:
       properties:
         message:
           type: string
-          description: Error Type
+          description: Error type.
         details:
           type: string
-          description: Error Details
+          description: Error details.
         code:
           type: integer
-          description: Error Code
+          description: Error code.
     TooManyRequests:
       type: object
       properties:
         message:
           type: string
-          description: Error Type
+          description: Error type.
         details:
           type: string
-          description: Error Details
+          description: Error details.
         code:
           type: integer
-          description: Error Code
+          description: Error code.
         period:
           type: string
-          description: Quota exceeded for minute/month
+          description: Quota exceeded for minute/month.
         period_start:
           type: integer
-          description: Starting period timestamp
+          description: Starting period timestamp.
         period_end:
           type: integer
-          description: Ending period timestamp
+          description: Ending period timestamp.
         limit:
           type: integer
-          description: Limit count for the period
+          description: Limit count for the period.
       example:
         message: Too Many Requests
         details: Usage limit exceeded for plan Kilowatt
@@ -3590,27 +3340,26 @@ components:
       properties:
         message:
           type: string
-          description: Error Type
+          description: Error type.
         details:
           type: string
-          description: Error Details
+          description: Error details.
         code:
           type: integer
-          description: Error Code
+          description: Error code.
       example:
         message: Internal Server Error
-        details: Problem parsing time. Is time passed correctly in the following
-          fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
+        details: Problem parsing time. Is time passed correctly in the following fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
         code: 500
     DataTemporarilyUnavailable:
       type: object
       properties:
         errorCode:
           type: integer
-          description: Error Code
+          description: Error code.
         errorMessages:
           type: array
-          description: Error Messages
+          description: Error messages.
           items:
             type: string
       example:
@@ -3662,9 +3411,7 @@ components:
           schema:
             $ref: '#/components/schemas/InternalServerError'
     DataTemporarilyUnavailable:
-      description: 'Under some conditions, data for a given period may be temporarily
-            unavailable. When this condition is detected, the response code is 500
-            and the response body is:'
+      description: Under some conditions, data for a given period may be temporarily unavailable. When this condition is detected, the response code is 500.
       content:
         application/json:
           schema:
