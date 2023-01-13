@@ -448,13 +448,7 @@ paths:
       summary: Retrieves a System by id
       description: Retrieves a System by ID
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system. If an empty value is passed
-            in the ID, this endpoint behaves as Fetch systems endpoint.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
       responses:
         200:
           description: System fetched
@@ -565,12 +559,7 @@ paths:
       summary: Retrieves a system summary
       description: Returns system summary based on the specified system ID.
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
       responses:
         200:
           description: System summary fetched
@@ -662,12 +651,7 @@ paths:
       description: Retrieves devices for a given system. Only devices that are active
         will be returned in the response.
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
       responses:
         200:
           description: List of devices
@@ -934,12 +918,7 @@ paths:
         \ an end_at that doesn’t change, and that eventually is far away from the\
         \ current time."
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: end_at
           in: query
           description: End of reporting period in Unix epoch time. If no end is specified,
@@ -975,29 +954,7 @@ paths:
                           description: the time when the reading was taken, always
                             prior or equal to the requested 'end_at'
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 66
                 meter_readings:
@@ -1049,12 +1006,7 @@ paths:
          Requests for times that do not fall on the 15-minute marks are rounded down. For example, a request for 08:01, 08:08, 08:11, or 08:14 (in epoch format) is treated as a request for 08:00 (in epoch format). Intervals are listed by their end times in epoch format.
          The requested date range in one API hit cannot be more than 7 days and the requested start at must be within 2 years from current time. If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
       parameters:
-        - name: system_id
-          in: path
-          description: The numeric id of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start of period to report on in Unix epoch time. If no start
@@ -1087,29 +1039,7 @@ paths:
                     type: integer
                     description: Number of active revenue-grade meters for this system.
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
                   intervals:
                     type: array
                     description: A list of intervals between the requested start and
@@ -1273,12 +1203,7 @@ paths:
         Returns a daily time series of energy consumption as measured by the consumption meter installed on the specified system. All measurements are in Watt hours.
          The time series includes one entry for each day from the start_date to the end_date. There are no gaps in the time series. If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no data has been reported for the last three days.
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
           description: Requested start date of the time series data. Defaults to the
@@ -1319,29 +1244,7 @@ paths:
                     items:
                       type: integer
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 66
                 start_date: 2016-08-01
@@ -1397,12 +1300,7 @@ paths:
          The time series includes one entry for each day from the start_date to the end_date with no gaps in the time series. If the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then no energy has been reported for the last days in the series.
          If the system has a meter, the time series includes data as measured by the microinverters until the first full day after the meter has been installed. Later, it switches to using the data as measured by the meter. This is called the “merged time series.”  The attribute “meter_start_date” indicates the time when the meter measurements begin to be used. You can retrieve the complete time series from the meter and from the microinverters by adding the parameter production=all to the request.
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
           description: Start date of the time series data. Defaults to the system’s
@@ -1457,29 +1355,7 @@ paths:
                     items:
                       type: integer
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 66
                 start_date: 2013-01-01
@@ -1552,12 +1428,7 @@ paths:
         the response includes trailing zeroes, such as [909, 4970, 0, 0, 0], then
         no energy has been charged/discharged for the last days in the series.
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
           description: Requested start date of the time series data. Defaults to the
@@ -1607,29 +1478,7 @@ paths:
                     items:
                       type: integer
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 66
                 start_date: 2016-08-01
@@ -1694,12 +1543,7 @@ paths:
         [909, 4970, 0, 0, 0], then no energy has been imported for the last days in
         the series.
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
           description: Requested start date of the time series data. Defaults to the
@@ -1741,29 +1585,7 @@ paths:
                     items:
                       type: integer
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 66
                 start_date: 2016-08-01
@@ -1821,12 +1643,7 @@ paths:
         [909, 4970, 0, 0, 0], then no energy has been exported for the last days in
         the series.
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_date
           in: query
           description: Requested start date of the time series data. Defaults to the
@@ -1868,29 +1685,7 @@ paths:
                     items:
                       type: integer
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 66
                 start_date: 2016-08-01
@@ -2107,12 +1902,7 @@ paths:
         \ If end_date parameter is passed in the url then end_date field will appear\
         \ in response."
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
@@ -2186,29 +1976,7 @@ paths:
                           description: Energy produced (in Watt-Hours) from all the
                             microinverters combined during that period
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 698905955
                 granularity: day
@@ -2284,12 +2052,7 @@ paths:
         \ \nBy default end_at will appear in response. If end_date parameter is passed\
         \ in the url then end_date field will appear in response."
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
@@ -2424,12 +2187,7 @@ paths:
         \ \nBy default end_at will appear in response. If end_date parameter is passed\
         \ in the url then end_date field will appear in response."
       parameters:
-        - name: system_id
-          in: path
-          description: System id
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
@@ -2593,12 +2351,7 @@ paths:
         By default end_at will appear in response. If end_date parameter is passed\
         \ in the url then end_date field will appear in response."
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Requested start time for telemetry data in Epoch time format.
@@ -2669,29 +2422,7 @@ paths:
                           type: integer
                           description: Units produced per interval
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 698905955
                 granularity: day
@@ -2765,12 +2496,7 @@ paths:
         \ If end_date parameter is passed in the url then end_date field will appear\
         \ in response."
       parameters:
-        - name: system_id
-          in: path
-          description: System id
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: serial_no
           in: path
           description: Serial Number of the individual solar Microinverter
@@ -2918,12 +2644,7 @@ paths:
         \ end_at will appear in response. If end_date parameter is passed in the url\
         \ then end_date field will appear in response."
       parameters:
-        - name: system_id
-          in: path
-          description: System id
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: serial_no
           in: path
           description: Serial Number of the acb
@@ -2955,88 +2676,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  system_id:
-                    type: integer
-                    description: System id
-                  serial_number:
-                    type: string
-                    description: The device serial number
-                  granularity:
-                    type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'day'. Default is 'day'
-                  total_devices:
-                    type: integer
-                    description: Shall always be 1 since this is telemetry from individual
-                      micros
-                  start_at:
-                    type: integer
-                    description: Start Time of the data series. Either Start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter passed in the url then
-                      start_date field will appear in response.
-                  end_at:
-                    type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter passed in the url then end_date field
-                      will appear in response.
-                  items:
-                    type: string
-                    description: The list key 'intervals'
-                  intervals:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        end_at:
-                          type: integer
-                          description: End time of the telemetry interval.
-                        charge:
-                          type: object
-                          properties:
-                            enwh:
-                              type: integer
-                              description: Energy into the battery during the interval
-                        discharge:
-                          type: object
-                          properties:
-                            enwh:
-                              type: integer
-                              description: Energy discharged from the battery during
-                                the interval
-                        soc:
-                          type: object
-                          properties:
-                            percent:
-                              type: integer
-                              description: Battery soc percentage
-                  last_reported_time:
-                    type: integer
-                    description: Last reported timestamp
-                  last_reported_soc:
-                    type: string
-                    description: Last reported soc percentage
-              example:
-                system_id: 1765
-                serial_number: "12345"
-                granularity: day
-                total_devices: 1
-                start_at: 1496526300
-                end_at: 1496529300
-                items: intervals
-                intervals:
-                  - end_at: 1384122700
-                    charge:
-                      enwh: 40
-                    discharge:
-                      enwh: 0
-                    soc:
-                      percent: 25
-                last_reported_time: 1650349170
-                last_reported_soc: 99%
+                $ref: '#/components/schemas/BatteryTelemetry'
         401:
           $ref: '#/components/responses/AuthenticationError'
         403:
@@ -3091,12 +2731,7 @@ paths:
         \ end_at will appear in response. If end_date parameter is passed in the url\
         \ then end_date field will appear in response."
       parameters:
-        - name: system_id
-          in: path
-          description: System id
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: serial_no
           in: path
           description: Serial Number of the encharge
@@ -3128,88 +2763,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  system_id:
-                    type: integer
-                    description: System id
-                  serial_number:
-                    type: string
-                    description: The device serial number
-                  granularity:
-                    type: string
-                    description: The granularity of the telemetry data. Possible values
-                      are 'day'. Default is 'day'
-                  total_devices:
-                    type: integer
-                    description: Shall always be 1 since this is telemetry from individual
-                      micros
-                  start_at:
-                    type: integer
-                    description: Start Time of the data series. Either Start_date
-                      or start_at will be present. By default start_at will appear
-                      in response. If start_date parameter passed in the url then
-                      start_date field will appear in response.
-                  end_at:
-                    type: integer
-                    description: End Time of the data series. Either end_date or end_at
-                      will be present. By default end_at will appear in response.
-                      If end_date parameter passed in the url then end_date field
-                      will appear in response.
-                  items:
-                    type: string
-                    description: The list key 'intervals'
-                  intervals:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        end_at:
-                          type: integer
-                          description: End time of the telemetry interval.
-                        charge:
-                          type: object
-                          properties:
-                            enwh:
-                              type: integer
-                              description: Energy into the battery during the interval
-                        discharge:
-                          type: object
-                          properties:
-                            enwh:
-                              type: integer
-                              description: Energy discharged from the battery during
-                                the interval
-                        soc:
-                          type: object
-                          properties:
-                            percent:
-                              type: integer
-                              description: Battery soc percentage
-                  last_reported_time:
-                    type: integer
-                    description: Last reported timestamp
-                  last_reported_soc:
-                    type: string
-                    description: Last reported soc percentage
-              example:
-                system_id: 1765
-                serial_number: "12345"
-                granularity: day
-                total_devices: 1
-                start_at: 1496526300
-                end_at: 1496529300
-                items: intervals
-                intervals:
-                  - end_at: 1384122700
-                    charge:
-                      enwh: 40
-                    discharge:
-                      enwh: 0
-                    soc:
-                      percent: 25
-                last_reported_time: 1650349170
-                last_reported_soc: 99%
+                $ref: '#/components/schemas/BatteryTelemetry'
         401:
           $ref: '#/components/responses/AuthenticationError'
         403:
@@ -3251,12 +2805,7 @@ paths:
       summary: Returns the current battery settings of a system
       description: Returns the current battery settings of a system
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric id of the system
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/SystemId'
       responses:
         200:
           description: OK
@@ -3322,12 +2871,7 @@ paths:
       summary: Returns the current storm guard settings of a system
       description: Returns the current storm guard settings of a system
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric id of the system
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/SystemId'
       responses:
         200:
           description: OK
@@ -3387,12 +2931,7 @@ paths:
       summary: Returns the current storm guard settings of a system
       description: Returns the current storm guard settings of a system
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric id of the system
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/SystemId'
       responses:
         200:
           description: OK
@@ -3450,12 +2989,7 @@ paths:
       summary: Returns the current load control settings of a system
       description: Returns the current load control settings of a system
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric id of the system
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/SystemId'
       responses:
         200:
           description: OK
@@ -3570,12 +3104,7 @@ paths:
         15 mins duration. The requested start date must be within 2 years from current
         date.'
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
@@ -3642,29 +3171,7 @@ paths:
                           description: Energy imported (in Watt-Hours) during that
                             period
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 698905955
                 granularity: day
@@ -3732,12 +3239,7 @@ paths:
         15 mins duration. The requested start date must be within 2 years from current
         date.'
       parameters:
-        - name: system_id
-          in: path
-          description: The unique numeric ID of the system
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/SystemId'
         - name: start_at
           in: query
           description: Start time for fetching the telemetry data in Epoch time format.
@@ -3804,29 +3306,7 @@ paths:
                           description: Energy exported (in Watt-Hours) during that
                             period
                   meta:
-                    type: object
-                    properties:
-                      status:
-                        type: string
-                        description: System's status. Corresponding Enlighten values
-                          can be found in table added at the end of page.
-                      last_report_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the system's
-                          Envoy last submitted a report
-                      last_energy_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which the systems's
-                          produced energy was last reported. Even if the last produced
-                          energy is 0, its timestamp will be returned.
-                      operational_at:
-                        type: integer
-                        description: Timestamp (in epoch format) at which this system
-                          became operational. Corresponds to the system’s interconnect
-                          time, if one is specified. Otherwise, it is the system’s
-                          first reported interval end time.
-                    description: Information about the system such as its status,
-                      when it became operational and last reported to Envoy.
+                    $ref: '#/components/schemas/Meta'
               example:
                 system_id: 698905955
                 granularity: day
@@ -3879,7 +3359,122 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
 components:
+  parameters:
+    SystemId:
+      name: system_id
+      in: path
+      description: The unique numeric ID of the system
+      required: true
+      schema:
+        type: integer
   schemas:
+    BatteryTelemetry:
+      type: object
+      properties:
+        system_id:
+          type: integer
+          description: System id
+        serial_number:
+          type: string
+          description: The device serial number
+        granularity:
+          type: string
+          description: The granularity of the telemetry data. Possible values
+            are 'day'. Default is 'day'
+        total_devices:
+          type: integer
+          description: Shall always be 1 since this is telemetry from individual
+            micros
+        start_at:
+          type: integer
+          description: Start Time of the data series. Either Start_date
+            or start_at will be present. By default start_at will appear
+            in response. If start_date parameter passed in the url then
+            start_date field will appear in response.
+        end_at:
+          type: integer
+          description: End Time of the data series. Either end_date or end_at
+            will be present. By default end_at will appear in response.
+            If end_date parameter passed in the url then end_date field
+            will appear in response.
+        items:
+          type: string
+          description: The list key 'intervals'
+        intervals:
+          type: array
+          items:
+            type: object
+            properties:
+              end_at:
+                type: integer
+                description: End time of the telemetry interval.
+              charge:
+                type: object
+                properties:
+                  enwh:
+                    type: integer
+                    description: Energy into the battery during the interval
+              discharge:
+                type: object
+                properties:
+                  enwh:
+                    type: integer
+                    description: Energy discharged from the battery during
+                      the interval
+              soc:
+                type: object
+                properties:
+                  percent:
+                    type: integer
+                    description: Battery soc percentage
+        last_reported_time:
+          type: integer
+          description: Last reported timestamp
+        last_reported_soc:
+          type: string
+          description: Last reported soc percentage
+      example:
+        system_id: 1765
+        serial_number: "12345"
+        granularity: day
+        total_devices: 1
+        start_at: 1496526300
+        end_at: 1496529300
+        items: intervals
+        intervals:
+          - end_at: 1384122700
+            charge:
+              enwh: 40
+            discharge:
+              enwh: 0
+            soc:
+              percent: 25
+        last_reported_time: 1650349170
+        last_reported_soc: 99%
+    Meta:
+      type: object
+      properties:
+        status:
+          type: string
+          description: System's status. Corresponding Enlighten values
+            can be found in table added at the end of page.
+        last_report_at:
+          type: integer
+          description: Timestamp (in epoch format) at which the system's
+            Envoy last submitted a report
+        last_energy_at:
+          type: integer
+          description: Timestamp (in epoch format) at which the systems's
+            produced energy was last reported. Even if the last produced
+            energy is 0, its timestamp will be returned.
+        operational_at:
+          type: integer
+          description: Timestamp (in epoch format) at which this system
+            became operational. Corresponds to the system’s interconnect
+            time, if one is specified. Otherwise, it is the system’s
+            first reported interval end time.
+      description: Information about the system such as its status,
+        when it became operational and last reported to Envoy.
     AuthenticationError:
       type: object
       properties:
