@@ -19,12 +19,15 @@ paths:
             is set to 2, 2nd page is returned
           schema:
             type: integer
+            minimum: 1
         - name: size
           in: query
           description: Maximum number of records shown per page. Default=10, Min=1,
             Max=100.  For example, if max is set to 5, 5 records are shown per page
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
         - name: sort_by
           in: query
           description: Returns list of systems sorted by <sort_by> field. To get ASC
@@ -58,6 +61,8 @@ paths:
                     type: integer
                     description: Maximum number of records shown per page. Default=10,
                       Min=1, Max=100.
+                    minimum: 1
+                    maximum: 100
                   count:
                     type: integer
                     description: Total number of systems actually returned for the
@@ -230,12 +235,15 @@ paths:
           description: The page to be returned. Default=1, Min=1, e.g=2
           schema:
             type: integer
+            minimum: 1
         - name: size
           in: query
           description: Maximum number of records shown per page. Default=10, Min=1,
             Max=1000, e.g=5
           schema:
             type: integer
+            minimum: 1
+            maximum: 1000
       requestBody:
         content:
           application/json:
@@ -323,6 +331,7 @@ paths:
                     type: integer
                     description: Max number of records from API per page is 100. Default
                       is 10.
+                    maximum: 100
                   count:
                     type: integer
                     description: Total number of systems actually returned for the
