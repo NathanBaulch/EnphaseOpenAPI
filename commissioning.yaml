@@ -241,109 +241,23 @@ paths:
                       street2: 2nd Street
                 next: 4e6a6b344f5445774d446b350a
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Invalid stage option 11
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     post:
       tags:
         - Activations
@@ -972,110 +886,24 @@ paths:
                   latitude: 32.912785
                   longitude: -117.153778
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorCode: 11
                 errorMessages:
                   - The system type must be residential, commercial, or other.
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: system
   /api/v4/partner/activations/{id}:
     get:
@@ -1572,109 +1400,23 @@ paths:
                   latitude: 32.912785
                   longitude: -117.153778
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Couldn't find Site with an out of range value for 'id'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Activations
@@ -2309,110 +2051,24 @@ paths:
                   latitude: 32.912785
                   longitude: -117.153778
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorCode: 11
                 errorMessages:
                   - The system type must be residential, commercial, or other.
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: system
   /api/v4/activations/{id}:
     delete:
@@ -2441,128 +2097,35 @@ paths:
               example:
                 message: Activation deleted successfully
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Couldn't find Site with an out of range value for 'id'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorCode: 5
                 errorMessages:
                   - Devices are present on this system. Please retry after removing
                     devices
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/users/{user_id}:
     get:
       tags:
@@ -2686,36 +2249,13 @@ paths:
                     - installer
                   uri: /api/v4/companies/5.json
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
@@ -2726,52 +2266,12 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Invalid expand option
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
     put:
       tags:
         - Users
@@ -2894,126 +2394,33 @@ paths:
                 user_id: 123456
                 updated_at: 1565775103
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - User not found.
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - User param are missing at body location
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
     post:
       tags:
@@ -3050,126 +2457,33 @@ paths:
               example:
                 message: User access granted successfully
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Some error messages
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     delete:
       tags:
         - Activations
@@ -3205,126 +2519,33 @@ paths:
               example:
                 message: User access revoked successfully
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Some error messages
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/ops/production_mode:
     get:
       tags:
@@ -3362,126 +2583,33 @@ paths:
                 total_micros: 21
                 energy_producing_micros: 18
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - System not yet communicated
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     post:
       tags:
         - Activations
@@ -3523,126 +2651,33 @@ paths:
               example:
                 message: Production mode Task sent to envoy Successfully
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - No active Envoys present in the site
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: production_mode
   /api/v4/companies/{company_id}/users:
     get:
@@ -3669,6 +2704,12 @@ paths:
                   description: Zero or more users. Each user is an array. In that
                     first value of the array is Enlighten ID of the user. System-generated.
                     Second value of the array is the email address of the user.
+                  items:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                  minItems: 2
+                  maxItems: 2
                 description: Key is users
               example:
                 users:
@@ -3677,109 +2718,23 @@ paths:
                   - - 7
                     - test2@gmail.com
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Company not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     post:
       tags:
         - Companies
@@ -3884,126 +2839,33 @@ paths:
                 user_id: 2020
                 updated_at: 1565928605
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Company not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - User param are missing at body location
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
   /api/v4/users:
     post:
@@ -4113,109 +2975,23 @@ paths:
                 user_id: 2020
                 updated_at: 1565928605
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - User param are missing at body location
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
   /api/v4/users/search:
     get:
@@ -4249,126 +3025,33 @@ paths:
                 user_id: 123
                 company_id: 1
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - User not found.
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Email should not be blank
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/companies/{company_id}/users/{user_id}:
     get:
       tags:
@@ -4492,126 +3175,33 @@ paths:
                     - installer
                   uri: /api/v4/companies/5.json
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - User not found.
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Invalid expand option
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Companies
@@ -4726,126 +3316,33 @@ paths:
                 user_id: 210071
                 updated_at: 1565928605
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - User not found.
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Email has already been registered
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
   /api/v4/users/{user_id}:
     get:
@@ -4963,126 +3460,33 @@ paths:
                     - installer
                   uri: /api/v4/companies/5.json
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - User not found.
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Invalid expand option
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Users
@@ -5195,126 +3599,33 @@ paths:
                 user_id: 123456
                 updated_at: 1565775103
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - User not found.
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Email has already been registered
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
   /api/v4/users/self:
     get:
@@ -5425,126 +3736,33 @@ paths:
                     - installer
                   uri: /api/v4/companies/5.json
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - User not found.
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Invalid expand option
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/companies/self/branches:
     get:
       tags:
@@ -5603,92 +3821,13 @@ paths:
                       - installer
                     uri: /api/v4/companies/81.json
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/estimate:
     get:
       tags:
@@ -5746,109 +3885,23 @@ paths:
                   - "2926.0"
                   - "2872.0"
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Estimate
@@ -5920,128 +3973,34 @@ paths:
                   - "2926.0"
                   - "2872.0"
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                    description: Optional field
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorCode: 11
                 errorMessages:
                   - Estimate parameter missing in body
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: estimate
   /api/v4/grid_profiles:
     get:
@@ -6122,109 +4081,23 @@ paths:
                       - Hawaii
                     ensemble_1_compatible: false
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Partner company missing
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/meters/{serial_number}:
     get:
       tags:
@@ -6299,109 +4172,23 @@ paths:
                 status: normal
                 state: enabled
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Meter not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Meters
@@ -6456,126 +4243,33 @@ paths:
                 type: production
                 operational_date: 2017-06-13
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - operational date parameter missing in url
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/meters/{serial_number}/meter_control:
     post:
       tags:
@@ -6615,139 +4309,39 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "200"
                 message:
                   - Enable task sent to meter. Please wait until meter is enabled
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Meter not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Invalid status, expected status is 'enabled' or 'disabled'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
   /api/v4/pv_manufacturers:
     get:
@@ -6786,92 +4380,13 @@ paths:
                   - - 109
                     - Alps Technology Inc
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/pv_manufacturers/{pv_manufacturer_id}/pv_models:
     get:
       tags:
@@ -6926,109 +4441,23 @@ paths:
                   - - 1049
                     - ATI 1650-175
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - Manufacturer not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/tariff:
     get:
       tags:
@@ -7328,109 +4757,23 @@ paths:
                   status: pending
                   created_at: 2021-06-24T13:29:16Z
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Tariff
@@ -7593,109 +4936,23 @@ paths:
                   status: pending
                   created_at: 2021-06-24T13:29:16Z
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
   /api/v4/systems/{system_id}/arrays:
     get:
@@ -7873,109 +5130,23 @@ paths:
                     left: 40
                     top: 50
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Arrays
@@ -8227,126 +5398,33 @@ paths:
                     width: 80
                     height: 50
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - some error messages
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
   /api/v4/systems/{system_id}/arrays/{id}:
     get:
@@ -8443,126 +5521,33 @@ paths:
                     angle: 0
                     serial_num: "121501065212"
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - some error messages
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
     put:
       tags:
         - Arrays
@@ -8738,126 +5723,33 @@ paths:
                     angle: 0
                     serial_num: "121501065212"
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - some error messages
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
     delete:
       tags:
@@ -8890,124 +5782,146 @@ paths:
               example:
                 message: Array deleted successfully
         401:
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "401"
-                message:
-                  - Not authorized to access requested resource.
-                  - API Key missing in url/headers!
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: Not found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/NotFound'
               example:
                 reason: "404"
                 message:
                   - System not found
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable entity. The body contains error information in
             a hash of errorMessages and an optional errorCode
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                  errorMessages:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 errorMessages:
                   - Array not found
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                    description: Response code
-                  message:
-                    type: array
-                    items:
-                      type: string
-                      description: Error Messages
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                reason: "429"
-                message:
-                  - Usage limit exceeded for plan Partner (custom)
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
-components: { }
+          $ref: '#/components/responses/NotImplemented'
+components:
+  schemas:
+    Unauthorized:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
+      example:
+        reason: "401"
+        message:
+          - Not authorized to access requested resource.
+          - API Key missing in url/headers!
+    NotFound:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
+    MethodNotAllowed:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
+      example:
+        reason: "405"
+        message:
+          - Method not allowed
+    UnprocessableEntity:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+        errorMessages:
+          type: array
+          items:
+            type: string
+    TooManyRequests:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: Response code
+        message:
+          type: array
+          items:
+            type: string
+            description: Error Messages
+        period:
+          type: string
+          description: Quota exceeded for minute/month
+        period_start:
+          type: integer
+          description: Starting period timestamp
+        period_end:
+          type: integer
+          description: Ending period timestamp
+        limit:
+          type: integer
+          description: Limit count for the period
+      example:
+        reason: "429"
+        message:
+          - Usage limit exceeded for plan Partner (custom)
+        period: minute
+        period_start: 1623825660
+        period_end: 1623825720
+        limit: 5
+    NotImplemented:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
+      example:
+        reason: "501"
+        message:
+          - Not Implemented
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    MethodNotAllowed:
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MethodNotAllowed'
+    TooManyRequests:
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TooManyRequests'
+    NotImplemented:
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotImplemented'

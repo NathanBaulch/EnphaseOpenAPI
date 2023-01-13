@@ -199,115 +199,23 @@ paths:
                     last_energy_at: 1508174172
                     operational_at: 1497445200
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: system is missing at Json body location
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/search:
     post:
       tags:
@@ -517,98 +425,21 @@ paths:
                     last_energy_at: 1508174172
                     operational_at: 1497445200
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
   /api/v4/systems/{system_id}:
     get:
@@ -708,135 +539,25 @@ paths:
                 attachment_type: acm
                 interconnect_date: 2012-10-13
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/summary:
     get:
       tags:
@@ -914,135 +635,25 @@ paths:
                 status: normal
                 summary_date: 2019-05-12
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices:
     get:
       tags:
@@ -1231,135 +842,25 @@ paths:
                       status: normal
                       active: true
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/retrieve_system_id:
     get:
       tags:
@@ -1389,135 +890,33 @@ paths:
               example:
                 system_id: 123
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: Envoy not found with this serial number
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Provide envoy serial number
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/production_meter_readings:
     get:
       tags:
@@ -1611,155 +1010,35 @@ paths:
                   last_energy_at: 1473901200
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Authorized
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Failed to parse date 1613543106
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/rgm_stats:
     get:
       tags:
@@ -1954,176 +1233,37 @@ paths:
                         wh_del: 14
                         curr_w: 56
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Requested date range is invalid for this system
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: 'Under some conditions, data for a given period may be temporarily
-            unavailable. When this condition is detected, the response code is 500
-            and the response body is:'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  errorCode:
-                    type: integer
-                    description: Error Code
-                  errorMessages:
-                    type: array
-                    description: Error Messages
-                    items:
-                      type: string
-              example:
-                errorCode: 7
-                errorMessages:
-                  - Data is temporarily unavailable
+          $ref: '#/components/responses/DataTemporarilyUnavailable'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/consumption_lifetime:
     get:
       tags:
@@ -2218,155 +1358,35 @@ paths:
                   last_energy_at: 1470086106
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_lifetime:
     get:
       tags:
@@ -2491,155 +1511,35 @@ paths:
                   last_energy_at: 1445619033
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Requested date range is invalid for this system
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/battery_lifetime:
     get:
       tags:
@@ -2753,155 +1653,35 @@ paths:
                   last_energy_at: 1470086106
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_import_lifetime:
     get:
       tags:
@@ -3000,155 +1780,35 @@ paths:
                   last_energy_at: 1470086106
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_export_lifetime:
     get:
       tags:
@@ -3247,155 +1907,35 @@ paths:
                   last_energy_at: 1470086106
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/inverters_summary_by_envoy_or_site:
     get:
       tags:
@@ -3530,115 +2070,23 @@ paths:
                     grid_profile: 57227c50e4d7973ae602c4e6
                     last_report_date: 1600427843
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Envoy serial number or Site id mandatory
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/production_micro:
     get:
       tags:
@@ -3783,98 +2231,27 @@ paths:
                   last_energy_at: 1445619033
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -3882,79 +2259,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/production_meter:
     get:
       tags:
@@ -4062,98 +2371,27 @@ paths:
                     devices_reporting: 1
                     wh_del: 40
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -4161,79 +2399,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/battery:
     get:
       tags:
@@ -4371,98 +2541,27 @@ paths:
                       devices_reporting: 4
                 last_reported_aggregate_soc: 97%
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -4470,79 +2569,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/consumption_meter:
     get:
       tags:
@@ -4681,98 +2712,27 @@ paths:
                   last_energy_at: 1445619033
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -4780,79 +2740,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices/micros/{serial_no}/telemetry:
     get:
       tags:
@@ -4973,98 +2865,27 @@ paths:
                     powr: 20
                     enwh: 40
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: Micro not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -5072,79 +2893,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices/acbs/{serial_no}/telemetry:
     get:
       tags:
@@ -5285,98 +3038,27 @@ paths:
                 last_reported_time: 1650349170
                 last_reported_soc: 99%
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: ACB not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -5384,79 +3066,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices/encharges/{serial_no}/telemetry:
     get:
       tags:
@@ -5597,98 +3211,27 @@ paths:
                 last_reported_time: 1650349170
                 last_reported_soc: 99%
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: Encharge not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -5696,79 +3239,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/battery_settings:
     get:
       tags:
@@ -5811,155 +3286,35 @@ paths:
                 charge_from_grid: disabled
                 battery_shutdown_level: 13
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/storm_guard:
     get:
       tags:
@@ -5996,155 +3351,35 @@ paths:
                 storm_guard_status: enabled
                 storm_alert: "false"
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/grid_status:
     get:
       tags:
@@ -6179,155 +3414,35 @@ paths:
                 grid_state: Connected
                 last_report_date: 2018-04-04 02:27:06 -0400
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/load_control:
     get:
       tags:
@@ -6410,155 +3525,35 @@ paths:
                     essential_start_time: 32400
                     essential_end_time: 57600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_import_telemetry:
     get:
       tags:
@@ -6688,98 +3683,27 @@ paths:
                   last_energy_at: 1445619033
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -6787,79 +3711,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
+          $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_export_telemetry:
     get:
       tags:
@@ -6989,98 +3845,27 @@ paths:
                   last_energy_at: 1445619033
                   operational_at: 1357023600
         401:
-          description: Authentication Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Not Authorized
-                details: User is not authorized
-                code: 401
+          $ref: '#/components/responses/AuthenticationError'
         403:
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Forbidden
-                details: Not authorized to access this resource
-                code: 403
+          $ref: '#/components/responses/Forbidden'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/NotFound'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
         405:
-          description: Method Not Allowed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "405"
-                message:
-                  - Method not allowed
+          $ref: '#/components/responses/MethodNotAllowed'
         422:
           description: Unprocessable Entity
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
+                $ref: '#/components/schemas/UnprocessableEntity'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -7088,77 +3873,201 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          description: Too Many Requests
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-                  period:
-                    type: string
-                    description: Quota exceeded for minute/month
-                  period_start:
-                    type: integer
-                    description: Starting period timestamp
-                  period_end:
-                    type: integer
-                    description: Ending period timestamp
-                  limit:
-                    type: integer
-                    description: Limit count for the period
-              example:
-                message: Too Many Requests
-                details: Usage limit exceeded for plan Kilowatt
-                code: 429
-                period: minute
-                period_start: 1623825660
-                period_end: 1623825720
-                limit: 5
+          $ref: '#/components/responses/TooManyRequests'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error Type
-                  details:
-                    type: string
-                    description: Error Details
-                  code:
-                    type: integer
-                    description: Error Code
-              example:
-                message: Internal Server Error
-                details: Problem parsing time. Is time passed correctly in the following
-                  fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-                code: 500
+          $ref: '#/components/responses/InternalServerError'
         501:
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  reason:
-                    type: string
-                  message:
-                    type: array
-                    items:
-                      type: string
-              example:
-                reason: "501"
-                message:
-                  - Not Implemented
-components: { }
+          $ref: '#/components/responses/NotImplemented'
+components:
+  schemas:
+    AuthenticationError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error Type
+        details:
+          type: string
+          description: Error Details
+        code:
+          type: integer
+          description: Error Code
+      example:
+        message: Not Authorized
+        details: User is not authorized
+        code: 401
+    Forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error Type
+        details:
+          type: string
+          description: Error Details
+        code:
+          type: integer
+          description: Error Code
+      example:
+        message: Forbidden
+        details: Not authorized to access this resource
+        code: 403
+    NotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error Type
+        details:
+          type: string
+          description: Error Details
+        code:
+          type: integer
+          description: Error Code
+    MethodNotAllowed:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
+      example:
+        reason: "405"
+        message:
+          - Method not allowed
+    UnprocessableEntity:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error Type
+        details:
+          type: string
+          description: Error Details
+        code:
+          type: integer
+          description: Error Code
+    TooManyRequests:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error Type
+        details:
+          type: string
+          description: Error Details
+        code:
+          type: integer
+          description: Error Code
+        period:
+          type: string
+          description: Quota exceeded for minute/month
+        period_start:
+          type: integer
+          description: Starting period timestamp
+        period_end:
+          type: integer
+          description: Ending period timestamp
+        limit:
+          type: integer
+          description: Limit count for the period
+      example:
+        message: Too Many Requests
+        details: Usage limit exceeded for plan Kilowatt
+        code: 429
+        period: minute
+        period_start: 1623825660
+        period_end: 1623825720
+        limit: 5
+    InternalServerError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error Type
+        details:
+          type: string
+          description: Error Details
+        code:
+          type: integer
+          description: Error Code
+      example:
+        message: Internal Server Error
+        details: Problem parsing time. Is time passed correctly in the following
+          fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
+        code: 500
+    DataTemporarilyUnavailable:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: Error Code
+        errorMessages:
+          type: array
+          description: Error Messages
+          items:
+            type: string
+      example:
+        errorCode: 7
+        errorMessages:
+          - Data is temporarily unavailable
+    NotImplemented:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
+      example:
+        reason: "501"
+        message:
+          - Not Implemented
+  responses:
+    AuthenticationError:
+      description: Authentication Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AuthenticationError'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Forbidden'
+    MethodNotAllowed:
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MethodNotAllowed'
+    TooManyRequests:
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TooManyRequests'
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalServerError'
+    DataTemporarilyUnavailable:
+      description: 'Under some conditions, data for a given period may be temporarily
+            unavailable. When this condition is detected, the response code is 500
+            and the response body is:'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataTemporarilyUnavailable'
+    NotImplemented:
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotImplemented'
