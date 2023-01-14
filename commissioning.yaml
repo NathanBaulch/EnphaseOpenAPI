@@ -3,9 +3,9 @@ info:
   title: Commissioning API
   version: v4
 servers:
-  - url: https://api.enphaseenergy.com/
+  - url: https://api.enphaseenergy.com/api/v4
 paths:
-  /api/v4/partner/activations:
+  /partner/activations:
     get:
       operationId: GetPartnerActivations
       tags:
@@ -134,7 +134,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: system
-  /api/v4/partner/activations/{id}:
+  /partner/activations/{id}:
     get:
       operationId: GetPartnerActivation
       tags:
@@ -232,7 +232,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: system
-  /api/v4/activations/{id}:
+  /activations/{id}:
     delete:
       operationId: DeleteActivation
       tags:
@@ -282,7 +282,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/activations/{activation_id}/users/{user_id}:
+  /activations/{activation_id}/users/{user_id}:
     get:
       operationId: GetActivationUser
       tags:
@@ -513,7 +513,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/activations/{activation_id}/ops/production_mode:
+  /activations/{activation_id}/ops/production_mode:
     get:
       operationId: GetActivationOpsProductionMode
       tags:
@@ -615,7 +615,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: production_mode
-  /api/v4/companies/{company_id}/users:
+  /companies/{company_id}/users:
     get:
       operationId: GetCompanyUsers
       tags:
@@ -711,7 +711,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
-  /api/v4/users:
+  /users:
     post:
       operationId: CreateUser
       tags:
@@ -752,7 +752,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
-  /api/v4/users/search:
+  /users/search:
     get:
       operationId: SearchUsers
       tags:
@@ -799,7 +799,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/companies/{company_id}/users/{user_id}:
+  /companies/{company_id}/users/{user_id}:
     get:
       operationId: GetCompanyUser
       tags:
@@ -927,7 +927,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
-  /api/v4/users/{user_id}:
+  /users/{user_id}:
     get:
       operationId: GetUser
       tags:
@@ -1039,7 +1039,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
-  /api/v4/users/self:
+  /users/self:
     get:
       operationId: GetSelfUser
       tags:
@@ -1089,7 +1089,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/companies/self/branches:
+  /companies/self/branches:
     get:
       operationId: GetSelfCompanyBranches
       tags:
@@ -1111,7 +1111,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/activations/{activation_id}/estimate:
+  /activations/{activation_id}/estimate:
     get:
       operationId: GetActivationEstimate
       tags:
@@ -1206,7 +1206,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: estimate
-  /api/v4/grid_profiles:
+  /grid_profiles:
     get:
       operationId: GetGridProfiles
       tags:
@@ -1238,7 +1238,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/meters/{serial_number}:
+  /systems/{system_id}/meters/{serial_number}:
     get:
       operationId: GetSystemMeter
       tags:
@@ -1341,7 +1341,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/activations/{activation_id}/meters/{serial_number}/meter_control:
+  /activations/{activation_id}/meters/{serial_number}/meter_control:
     post:
       operationId: SetActivationMeterStatus
       tags:
@@ -1402,7 +1402,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
-  /api/v4/pv_manufacturers:
+  /pv_manufacturers:
     get:
       operationId: GetPvManufacturers
       tags:
@@ -1424,7 +1424,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/pv_manufacturers/{pv_manufacturer_id}/pv_models:
+  /pv_manufacturers/{pv_manufacturer_id}/pv_models:
     get:
       operationId: GetPvManufacturerModels
       tags:
@@ -1463,7 +1463,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/config/{system_id}/tariff:
+  /systems/config/{system_id}/tariff:
     get:
       operationId: GetSystemTariffSettings
       tags:
@@ -1546,7 +1546,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
-  /api/v4/systems/{system_id}/arrays:
+  /systems/{system_id}/arrays:
     get:
       operationId: GetSystemArrays
       tags:
@@ -1644,7 +1644,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
-  /api/v4/systems/{system_id}/arrays/{id}:
+  /systems/{system_id}/arrays/{id}:
     get:
       operationId: GetSystemArray
       tags:

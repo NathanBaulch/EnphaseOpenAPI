@@ -3,9 +3,9 @@ info:
   title: Monitoring API
   version: v4
 servers:
-  - url: https://api.enphaseenergy.com/
+  - url: https://api.enphaseenergy.com/api/v4
 paths:
-  /api/v4/systems:
+  /systems:
     get:
       operationId: GetSystems
       tags:
@@ -64,7 +64,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/search:
+  /systems/search:
     post:
       operationId: SearchSystems
       tags:
@@ -115,7 +115,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
-  /api/v4/systems/{system_id}:
+  /systems/{system_id}:
     get:
       operationId: GetSystem
       tags:
@@ -151,7 +151,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/summary:
+  /systems/{system_id}/summary:
     get:
       operationId: GetSystemSummary
       tags:
@@ -187,7 +187,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/devices:
+  /systems/{system_id}/devices:
     get:
       operationId: GetSystemDevices
       tags:
@@ -223,7 +223,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/retrieve_system_id:
+  /systems/retrieve_system_id:
     get:
       operationId: RetrieveSystemId
       tags:
@@ -272,7 +272,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/production_meter_readings:
+  /systems/{system_id}/production_meter_readings:
     get:
       operationId: GetSystemProductionMeterReadings
       tags:
@@ -329,7 +329,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/rgm_stats:
+  /systems/{system_id}/rgm_stats:
     get:
       operationId: GetSystemRgmStats
       tags:
@@ -396,7 +396,7 @@ paths:
           $ref: '#/components/responses/DataTemporarilyUnavailable'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/consumption_lifetime:
+  /systems/{system_id}/consumption_lifetime:
     get:
       operationId: GetSystemConsumptionLifetime
       tags:
@@ -457,7 +457,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/energy_lifetime:
+  /systems/{system_id}/energy_lifetime:
     get:
       operationId: GetSystemEnergyLifetime
       tags:
@@ -527,7 +527,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/battery_lifetime:
+  /systems/{system_id}/battery_lifetime:
     get:
       operationId: GetSystemBatteryLifetime
       tags:
@@ -587,7 +587,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/energy_import_lifetime:
+  /systems/{system_id}/energy_import_lifetime:
     get:
       operationId: GetSystemEnergyImportLifetime
       tags:
@@ -647,7 +647,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/energy_export_lifetime:
+  /systems/{system_id}/energy_export_lifetime:
     get:
       operationId: GetSystemEnergyExportLifetime
       tags:
@@ -707,7 +707,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/inverters_summary_by_envoy_or_site:
+  /systems/inverters_summary_by_envoy_or_site:
     get:
       operationId: GetInvertersSummaryByEnvoyOrSite
       tags:
@@ -750,7 +750,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/telemetry/production_micro:
+  /systems/{system_id}/telemetry/production_micro:
     get:
       operationId: GetSystemProductionMicroTelemetry
       tags:
@@ -826,7 +826,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/telemetry/production_meter:
+  /systems/{system_id}/telemetry/production_meter:
     get:
       operationId: GetSystemProductionMeterTelemetry
       tags:
@@ -903,7 +903,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/telemetry/battery:
+  /systems/{system_id}/telemetry/battery:
     get:
       operationId: GetSystemBatteryTelemetry
       tags:
@@ -980,7 +980,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/telemetry/consumption_meter:
+  /systems/{system_id}/telemetry/consumption_meter:
     get:
       operationId: GetSystemConsumptionMeterTelemetry
       tags:
@@ -1058,7 +1058,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/devices/micros/{serial_no}/telemetry:
+  /systems/{system_id}/devices/micros/{serial_no}/telemetry:
     get:
       operationId: GetSystemMicroDeviceTelemetry
       tags:
@@ -1140,7 +1140,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/devices/acbs/{serial_no}/telemetry:
+  /systems/{system_id}/devices/acbs/{serial_no}/telemetry:
     get:
       operationId: GetSystemAcbDeviceTelemetry
       tags:
@@ -1223,7 +1223,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/devices/encharges/{serial_no}/telemetry:
+  /systems/{system_id}/devices/encharges/{serial_no}/telemetry:
     get:
       operationId: GetSystemEnchargeDeviceTelemetry
       tags:
@@ -1306,7 +1306,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/config/{system_id}/battery_settings:
+  /systems/config/{system_id}/battery_settings:
     get:
       operationId: GetSystemBatterySettings
       tags:
@@ -1352,7 +1352,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/config/{system_id}/storm_guard:
+  /systems/config/{system_id}/storm_guard:
     get:
       operationId: GetSystemStormGuardSettings
       tags:
@@ -1398,7 +1398,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/config/{system_id}/grid_status:
+  /systems/config/{system_id}/grid_status:
     get:
       operationId: GetSystemGridStatusSettings
       tags:
@@ -1444,7 +1444,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/config/{system_id}/load_control:
+  /systems/config/{system_id}/load_control:
     get:
       operationId: GetSystemLoadControlSettings
       tags:
@@ -1490,7 +1490,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/energy_import_telemetry:
+  /systems/{system_id}/energy_import_telemetry:
     get:
       operationId: GetSystemEnergyImportTelemetry
       tags:
@@ -1565,7 +1565,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplemented'
-  /api/v4/systems/{system_id}/energy_export_telemetry:
+  /systems/{system_id}/energy_export_telemetry:
     get:
       operationId: GetSystemEnergyExportTelemetry
       tags:
