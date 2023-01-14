@@ -1,7 +1,12 @@
 openapi: 3.0.1
 info:
-  title: Commissioning API
-  version: v4
+  title: The Enphase Commissioning API
+  description: Commissioning API can be used to create and update activations on a site, manage companies and users, update Tariff, etc.
+  version: "4.0"
+  termsOfService: https://enphase.com/legal/terms-of-service
+  license:
+    name: Enphase Energy API License Agreement.
+    url: https://enphase.com/api-license-agreement-v4
 servers:
   - url: https://api.enphaseenergy.com/api/v4
 paths:

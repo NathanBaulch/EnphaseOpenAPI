@@ -1,7 +1,12 @@
 openapi: 3.0.1
 info:
-  title: Monitoring API
-  version: v4
+  title: The Enphase Monitoring API
+  description: Monitoring API can be used to fetch system details on a site, system-level production and consumption data, and device-level production data.
+  version: "4.0"
+  termsOfService: https://enphase.com/legal/terms-of-service
+  license:
+    name: Enphase Energy API License Agreement.
+    url: https://enphase.com/api-license-agreement-v4
 servers:
   - url: https://api.enphaseenergy.com/api/v4
 paths:
