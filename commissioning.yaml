@@ -7,6 +7,7 @@ servers:
 paths:
   /api/v4/partner/activations:
     get:
+      operationId: GetPartnerActivations
       tags:
         - Activations
       summary: List of Activations
@@ -226,6 +227,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     post:
+      operationId: CreatePartnerActivation
       tags:
         - Activations
       summary: Create new activation
@@ -785,6 +787,7 @@ paths:
       x-codegen-request-body-name: system
   /api/v4/partner/activations/{id}:
     get:
+      operationId: GetPartnerActivation
       tags:
         - Activations
       summary: Retrieves an Activation by ID
@@ -1233,6 +1236,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdatePartnerActivation
       tags:
         - Activations
       summary: Update an activation.
@@ -1798,6 +1802,7 @@ paths:
       x-codegen-request-body-name: system
   /api/v4/activations/{id}:
     delete:
+      operationId: DeleteActivation
       tags:
         - Activations
       summary: Delete an activation by ID
@@ -1852,6 +1857,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/users/{user_id}:
     get:
+      operationId: GetActivationUser
       tags:
         - Users
       summary: Returns the requested user
@@ -1986,6 +1992,7 @@ paths:
         429:
           $ref: '#/components/responses/TooManyRequests'
     put:
+      operationId: UpdateActivationUser
       tags:
         - Users
       summary: Update user
@@ -2122,6 +2129,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: user
     post:
+      operationId: GrantActivationUserAccess
       tags:
         - Activations
       summary: Grant Access
@@ -2181,6 +2189,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     delete:
+      operationId: RevokeActivationUserAccess
       tags:
         - Activations
       summary: Revoke Access
@@ -2241,6 +2250,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/ops/production_mode:
     get:
+      operationId: GetActivationOpsProductionMode
       tags:
         - Activations
       summary: Get production mode
@@ -2300,6 +2310,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     post:
+      operationId: SetActivationOpsProductionMode
       tags:
         - Activations
       summary: Set production mode
@@ -2367,6 +2378,7 @@ paths:
       x-codegen-request-body-name: production_mode
   /api/v4/companies/{company_id}/users:
     get:
+      operationId: GetCompanyUsers
       tags:
         - Companies
       summary: Get all users with in a company
@@ -2421,6 +2433,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     post:
+      operationId: CreateCompanyUser
       tags:
         - Companies
       summary: Create company user
@@ -2548,6 +2561,7 @@ paths:
       x-codegen-request-body-name: user
   /api/v4/users:
     post:
+      operationId: CreateUser
       tags:
         - Home Owner
       summary: Create Home owner
@@ -2666,6 +2680,7 @@ paths:
       x-codegen-request-body-name: user
   /api/v4/users/search:
     get:
+      operationId: SearchUsers
       tags:
         - Users
       summary: Search user
@@ -2722,6 +2737,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/companies/{company_id}/users/{user_id}:
     get:
+      operationId: GetCompanyUser
       tags:
         - Companies
       summary: Returns the requested user
@@ -2861,6 +2877,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdateCompanyUser
       tags:
         - Companies
       summary: Update company user
@@ -2995,6 +3012,7 @@ paths:
       x-codegen-request-body-name: user
   /api/v4/users/{user_id}:
     get:
+      operationId: GetUser
       tags:
         - Users
       summary: Returns the requested user
@@ -3126,6 +3144,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdateUser
       tags:
         - Users
       summary: Update user
@@ -3255,6 +3274,7 @@ paths:
       x-codegen-request-body-name: user
   /api/v4/users/self:
     get:
+      operationId: GetSelfUser
       tags:
         - Users
       summary: Return the current logged in user detail
@@ -3382,6 +3402,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/companies/self/branches:
     get:
+      operationId: GetSelfCompanyBranches
       tags:
         - Companies
       summary: User's company and its branches
@@ -3444,6 +3465,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/estimate:
     get:
+      operationId: GetActivationEstimate
       tags:
         - Estimate
       summary: Returns the estimate for this system.
@@ -3511,6 +3533,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdateActivationEstimate
       tags:
         - Estimate
       summary: Update the estimate for this system.
@@ -3607,6 +3630,7 @@ paths:
       x-codegen-request-body-name: estimate
   /api/v4/grid_profiles:
     get:
+      operationId: GetGridProfiles
       tags:
         - Grid Profiles
       summary: Lists the available profiles
@@ -3701,6 +3725,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/meters/{serial_number}:
     get:
+      operationId: GetSystemMeter
       tags:
         - Meters
       summary: Returns the requested meter detail.
@@ -3790,6 +3815,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdateSystemMeter
       tags:
         - Meters
       summary: Update the operational date of a meter by serial number.
@@ -3870,6 +3896,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/activations/{activation_id}/meters/{serial_number}/meter_control:
     post:
+      operationId: SetActivationMeterStatus
       tags:
         - Meters
       summary: Enable or Disable the meters.
@@ -3940,6 +3967,7 @@ paths:
       x-codegen-request-body-name: params
   /api/v4/pv_manufacturers:
     get:
+      operationId: GetPvManufacturers
       tags:
         - PvManufacturers
       summary: Returns PV module manufacturers
@@ -3981,6 +4009,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/pv_manufacturers/{pv_manufacturer_id}/pv_models:
     get:
+      operationId: GetPvManufacturerModels
       tags:
         - PvModels
       summary: Returns PV module manufacturers
@@ -4049,6 +4078,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/tariff:
     get:
+      operationId: GetSystemTariffSettings
       tags:
         - Tariff
       summary: Get tariff for a system
@@ -4364,6 +4394,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdateSystemConfigTariff
       tags:
         - Tariff
       summary: Update tariff for a system
@@ -4545,6 +4576,7 @@ paths:
       x-codegen-request-body-name: params
   /api/v4/systems/{system_id}/arrays:
     get:
+      operationId: GetSystemArrays
       tags:
         - Arrays
       summary: Fetch particular system Array details
@@ -4736,6 +4768,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdateSystemArrays
       tags:
         - Arrays
       summary: Update all arrays for system
@@ -4995,6 +5028,7 @@ paths:
       x-codegen-request-body-name: params
   /api/v4/systems/{system_id}/arrays/{id}:
     get:
+      operationId: GetSystemArray
       tags:
         - Arrays
       summary: Fetch array details by ID
@@ -5114,6 +5148,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplemented'
     put:
+      operationId: UpdateSystemArray
       tags:
         - Arrays
       summary: Update particular system array details
@@ -5300,6 +5335,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       x-codegen-request-body-name: params
     delete:
+      operationId: DeleteSystemArray
       tags:
         - Arrays
       summary: Delete an array by ID

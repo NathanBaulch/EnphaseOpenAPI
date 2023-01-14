@@ -7,6 +7,7 @@ servers:
 paths:
   /api/v4/systems:
     get:
+      operationId: GetSystems
       tags:
         - System Details
       summary: Fetch systems
@@ -195,6 +196,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/search:
     post:
+      operationId: SearchSystems
       tags:
         - System Details
       summary: Search and filter systems
@@ -403,6 +405,7 @@ paths:
       x-codegen-request-body-name: params
   /api/v4/systems/{system_id}:
     get:
+      operationId: GetSystem
       tags:
         - System Details
       summary: Retrieves a System by ID
@@ -503,6 +506,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/summary:
     get:
+      operationId: GetSystemSummary
       tags:
         - System Details
       summary: Retrieves a system summary
@@ -588,6 +592,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices:
     get:
+      operationId: GetSystemDevices
       tags:
         - System Details
       summary: Retrieves devices for a given system
@@ -786,6 +791,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/retrieve_system_id:
     get:
+      operationId: RetrieveSystemId
       tags:
         - System Details
       summary: Retrieve system for a given envoy serial number
@@ -840,6 +846,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/production_meter_readings:
     get:
+      operationId: GetSystemProductionMeterReadings
       tags:
         - Site Level Production Monitoring
       summary: production_meter_readings
@@ -928,6 +935,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/rgm_stats:
     get:
+      operationId: GetSystemRgmStats
       tags:
         - Site Level Production Monitoring
       summary: rgm_stats
@@ -1119,6 +1127,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/consumption_lifetime:
     get:
+      operationId: GetSystemConsumptionLifetime
       tags:
         - Site Level Consumption Monitoring
       summary: consumption_lifetime
@@ -1209,6 +1218,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_lifetime:
     get:
+      operationId: GetSystemEnergyLifetime
       tags:
         - Site Level Production Monitoring
       summary: energy_lifetime
@@ -1327,6 +1337,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/battery_lifetime:
     get:
+      operationId: GetSystemBatteryLifetime
       tags:
         - Site Level Consumption Monitoring
       summary: battery_lifetime
@@ -1430,6 +1441,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_import_lifetime:
     get:
+      operationId: GetSystemEnergyImportLifetime
       tags:
         - Site Level Consumption Monitoring
       summary: import_lifetime
@@ -1520,6 +1532,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_export_lifetime:
     get:
+      operationId: GetSystemEnergyExportLifetime
       tags:
         - Site Level Consumption Monitoring
       summary: export_lifetime
@@ -1610,6 +1623,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/inverters_summary_by_envoy_or_site:
     get:
+      operationId: GetInvertersSummaryByEnvoyOrSite
       tags:
         - System Details
       summary: inverters_summary_by_envoy_or_site
@@ -1755,6 +1769,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/production_micro:
     get:
+      operationId: GetSystemProductionMicroTelemetry
       tags:
         - Site Level Production Monitoring
       summary: Retrieves telemetry for all production micros for a system
@@ -1892,6 +1907,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/production_meter:
     get:
+      operationId: GetSystemProductionMeterTelemetry
       tags:
         - Site Level Production Monitoring
       summary: Retrieves telemetry for all production meters for a system
@@ -2017,6 +2033,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/battery:
     get:
+      operationId: GetSystemBatteryTelemetry
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves telemetry for all batteries for a system
@@ -2171,6 +2188,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/telemetry/consumption_meter:
     get:
+      operationId: GetSystemConsumptionMeterTelemetry
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves telemetry for all consumption meters for a system
@@ -2304,6 +2322,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices/micros/{serial_no}/telemetry:
     get:
+      operationId: GetSystemMicroDeviceTelemetry
       tags:
         - Device Level Production Monitoring
       summary: Retrieves telemetry for single micro/pcu
@@ -2438,6 +2457,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices/acbs/{serial_no}/telemetry:
     get:
+      operationId: GetSystemAcbDeviceTelemetry
       tags:
         - Device Level Production Monitoring
       summary: Retrieves telemetry for single ACB
@@ -2520,6 +2540,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/devices/encharges/{serial_no}/telemetry:
     get:
+      operationId: GetSystemEnchargeDeviceTelemetry
       tags:
         - Device Level Production Monitoring
       summary: Retrieves telemetry for single Encharge
@@ -2602,6 +2623,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/battery_settings:
     get:
+      operationId: GetSystemBatterySettings
       tags:
         - System Configurations
       summary: Returns the current battery settings of a system
@@ -2667,6 +2689,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/storm_guard:
     get:
+      operationId: GetSystemStormGuardSettings
       tags:
         - System Configurations
       summary: Returns the current storm guard settings of a system
@@ -2725,6 +2748,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/grid_status:
     get:
+      operationId: GetSystemGridStatusSettings
       tags:
         - System Configurations
       summary: Returns the current grid status settings of a system
@@ -2783,6 +2807,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/config/{system_id}/load_control:
     get:
+      operationId: GetSystemLoadControlSettings
       tags:
         - System Configurations
       summary: Returns the current load control settings of a system
@@ -2882,6 +2907,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_import_telemetry:
     get:
+      operationId: GetSystemEnergyImportTelemetry
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves energy imported from grid in regular intervals
@@ -3008,6 +3034,7 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   /api/v4/systems/{system_id}/energy_export_telemetry:
     get:
+      operationId: GetSystemEnergyExportTelemetry
       tags:
         - Site Level Consumption Monitoring
       summary: Retrieves energy exported to grid in regular intervals
