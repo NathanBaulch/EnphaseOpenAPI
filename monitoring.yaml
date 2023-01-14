@@ -47,7 +47,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
           $ref: '#/components/responses/MethodNotAllowed'
         422:
@@ -55,7 +55,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: system is missing at Json body location
@@ -99,13 +99,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SearchSystemsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -132,7 +132,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -140,7 +140,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -168,7 +168,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemSummaryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -176,7 +176,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -204,7 +204,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemDevicesResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -212,7 +212,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -245,13 +245,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/RetrieveSystemIdResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
           description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: Envoy not found with this serial number
@@ -263,7 +263,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Provide envoy serial number
@@ -300,7 +300,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemProductionMeterReadingsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -308,7 +308,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Authorized
                 details: System not found for {:id=>"1"}
@@ -320,7 +320,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Failed to parse date 1613543106
@@ -365,7 +365,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemRgmStatsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -373,7 +373,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -385,7 +385,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Requested date range is invalid for this system
@@ -428,7 +428,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemConsumptionLifetimeResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -436,7 +436,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -448,7 +448,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
@@ -498,7 +498,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemEnergyLifetimeResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -506,7 +506,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -518,7 +518,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Requested date range is invalid for this system
@@ -558,7 +558,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemBatteryLifetimeResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -566,7 +566,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -578,7 +578,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
@@ -618,7 +618,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemEnergyImportLifetimeResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -626,7 +626,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -638,7 +638,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
@@ -678,7 +678,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemEnergyExportLifetimeResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -686,7 +686,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -698,7 +698,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Requested date is in the future
@@ -733,7 +733,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetInvertersSummaryByEnvoyOrSiteResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
           $ref: '#/components/responses/MethodNotAllowed'
         422:
@@ -741,7 +741,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Envoy serial number or Site ID mandatory
@@ -794,7 +794,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemProductionMicroTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -802,7 +802,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -814,7 +814,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid for this system'.
@@ -871,7 +871,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemProductionMeterTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -879,7 +879,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -891,7 +891,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid for this system'.
@@ -948,7 +948,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemBatteryTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -956,7 +956,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -968,7 +968,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid for this system'.
@@ -1026,7 +1026,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemConsumptionMeterTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1034,7 +1034,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -1046,7 +1046,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid for this system'.
@@ -1108,7 +1108,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemMicroDeviceTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1116,7 +1116,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: Micro not found for {:id=>"1"}
@@ -1128,7 +1128,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid for this system'.
@@ -1191,7 +1191,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemAcbDeviceTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1199,7 +1199,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: ACB not found for {:id=>"1"}
@@ -1211,7 +1211,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid for this system'.
@@ -1274,7 +1274,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemEnchargeDeviceTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1282,7 +1282,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: Encharge not found for {:id=>"1"}
@@ -1294,7 +1294,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid for this system'.
@@ -1323,7 +1323,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemBatterySettingsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1331,7 +1331,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -1343,7 +1343,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
@@ -1369,7 +1369,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemStormGuardSettingsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1377,7 +1377,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -1389,7 +1389,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
@@ -1415,7 +1415,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemGridStatusSettingsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1423,7 +1423,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -1435,7 +1435,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
@@ -1461,7 +1461,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemLoadControlSettingsResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1469,7 +1469,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -1481,7 +1481,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: System doesn't have encharges
@@ -1532,7 +1532,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemEnergyImportTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1540,7 +1540,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -1552,7 +1552,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -1606,7 +1606,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemEnergyExportTelemetryResponse'
         401:
-          $ref: '#/components/responses/AuthenticationError'
+          $ref: '#/components/responses/UnauthorizedError'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -1614,7 +1614,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Not Found
                 details: System not found for {:id=>"1"}
@@ -1626,7 +1626,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
                 details: Invalid request because of 'Requested date range is invalid
@@ -3317,76 +3317,7 @@ components:
           type: integer
           description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
             Otherwise, it is the system's first reported interval end time.
-    AuthenticationError:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Error type.
-        details:
-          type: string
-          description: Error details.
-        code:
-          type: integer
-          description: Error code.
-      example:
-        message: Not Authorized
-        details: User is not authorized
-        code: 401
-    Forbidden:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Error type.
-        details:
-          type: string
-          description: Error details.
-        code:
-          type: integer
-          description: Error code.
-      example:
-        message: Forbidden
-        details: Not authorized to access this resource
-        code: 403
-    NotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Error type.
-        details:
-          type: string
-          description: Error details.
-        code:
-          type: integer
-          description: Error code.
-    MethodNotAllowed:
-      type: object
-      properties:
-        reason:
-          type: string
-        message:
-          type: array
-          items:
-            type: string
-      example:
-        reason: "405"
-        message:
-          - Method not allowed
-    UnprocessableEntity:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Error type.
-        details:
-          type: string
-          description: Error details.
-        code:
-          type: integer
-          description: Error code.
-    TooManyRequests:
+    TooManyRequestsError:
       type: object
       properties:
         message:
@@ -3410,15 +3341,18 @@ components:
         limit:
           type: integer
           description: Limit count for the period.
-      example:
-        message: Too Many Requests
-        details: Usage limit exceeded for plan Kilowatt
-        code: 429
-        period: minute
-        period_start: 1623825660
-        period_end: 1623825720
-        limit: 5
-    InternalServerError:
+    DataTemporarilyUnavailableError:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: Error code.
+        errorMessages:
+          type: array
+          description: Error messages.
+          items:
+            type: string
+    ClientError:
       type: object
       properties:
         message:
@@ -3430,26 +3364,7 @@ components:
         code:
           type: integer
           description: Error code.
-      example:
-        message: Internal Server Error
-        details: Problem parsing time. Is time passed correctly in the following fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-        code: 500
-    DataTemporarilyUnavailable:
-      type: object
-      properties:
-        errorCode:
-          type: integer
-          description: Error code.
-        errorMessages:
-          type: array
-          description: Error messages.
-          items:
-            type: string
-      example:
-        errorCode: 7
-        errorMessages:
-          - Data is temporarily unavailable
-    NotImplemented:
+    ServerError:
       type: object
       properties:
         reason:
@@ -3458,50 +3373,78 @@ components:
           type: array
           items:
             type: string
-      example:
-        reason: "501"
-        message:
-          - Not Implemented
   responses:
-    AuthenticationError:
-      description: Authentication Error
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/AuthenticationError'
+            $ref: '#/components/schemas/ClientError'
+          example:
+            message: Not Authorized
+            details: User is not authorized
+            code: 401
     Forbidden:
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Forbidden'
+            $ref: '#/components/schemas/ClientError'
+          example:
+            message: Forbidden
+            details: Not authorized to access this resource
+            code: 403
     MethodNotAllowed:
       description: Method Not Allowed
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/MethodNotAllowed'
+            $ref: '#/components/schemas/ServerError'
+          example:
+            reason: "405"
+            message:
+              - Method not allowed
     TooManyRequests:
       description: Too Many Requests
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/TooManyRequests'
+            $ref: '#/components/schemas/TooManyRequestsError'
+          example:
+            message: Too Many Requests
+            details: Usage limit exceeded for plan Kilowatt
+            code: 429
+            period: minute
+            period_start: 1623825660
+            period_end: 1623825720
+            limit: 5
     InternalServerError:
       description: Internal Server Error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/InternalServerError'
+            $ref: '#/components/schemas/ClientError'
+          example:
+            message: Internal Server Error
+            details: Problem parsing time. Is time passed correctly in the following fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
+            code: 500
     DataTemporarilyUnavailable:
       description: Under some conditions, data for a given period may be temporarily unavailable. When this condition is detected, the response code is 500.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/DataTemporarilyUnavailable'
+            $ref: '#/components/schemas/DataTemporarilyUnavailableError'
+          example:
+            errorCode: 7
+            errorMessages:
+              - Data is temporarily unavailable
     NotImplemented:
       description: Not Implemented
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/NotImplemented'
+            $ref: '#/components/schemas/ServerError'
+          example:
+            reason: "501"
+            message:
+              - Not Implemented

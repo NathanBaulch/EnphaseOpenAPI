@@ -88,7 +88,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Invalid stage option 11
@@ -124,7 +124,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorCode: 11
                 errorMessages:
@@ -176,7 +176,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -222,7 +222,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorCode: 11
                 errorMessages:
@@ -260,7 +260,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -272,7 +272,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorCode: 5
                 errorMessages:
@@ -324,7 +324,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -334,7 +334,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Invalid expand option
@@ -382,7 +382,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -394,7 +394,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - User param are missing at body location
@@ -438,7 +438,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -450,7 +450,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Some error messages
@@ -493,7 +493,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -505,7 +505,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Some error messages
@@ -541,7 +541,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -553,7 +553,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - System not yet communicated
@@ -594,7 +594,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -606,7 +606,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - No active Envoys present in the site
@@ -643,7 +643,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -690,7 +690,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -702,7 +702,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - User param are missing at body location
@@ -743,7 +743,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - User param are missing at body location
@@ -779,7 +779,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -791,7 +791,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Email should not be blank
@@ -843,7 +843,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -855,7 +855,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Invalid expand option
@@ -906,7 +906,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -918,7 +918,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Email has already been registered
@@ -963,7 +963,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -975,7 +975,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Invalid expand option
@@ -1018,7 +1018,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1030,7 +1030,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Email has already been registered
@@ -1069,7 +1069,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1081,7 +1081,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Invalid expand option
@@ -1140,7 +1140,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1184,7 +1184,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1196,7 +1196,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorCode: 11
                 errorMessages:
@@ -1227,7 +1227,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1272,7 +1272,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1321,7 +1321,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1333,7 +1333,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - operational date parameter missing in url
@@ -1381,7 +1381,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1393,7 +1393,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Invalid status, expected status is 'enabled' or 'disabled'
@@ -1452,7 +1452,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1491,7 +1491,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1534,7 +1534,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1574,7 +1574,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1623,7 +1623,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1635,7 +1635,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - some error messages
@@ -1678,7 +1678,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1690,7 +1690,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - some error messages
@@ -1742,7 +1742,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1754,7 +1754,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - some error messages
@@ -1796,7 +1796,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFound'
+                $ref: '#/components/schemas/ServerError'
               example:
                 reason: "404"
                 message:
@@ -1808,7 +1808,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnprocessableEntity'
+                $ref: '#/components/schemas/UnprocessableEntityError'
               example:
                 errorMessages:
                   - Array not found
@@ -5499,43 +5499,7 @@ components:
           type: string
       example:
         message: Array deleted successfully
-    Unauthorized:
-      type: object
-      properties:
-        reason:
-          type: string
-        message:
-          type: array
-          items:
-            type: string
-      example:
-        reason: "401"
-        message:
-          - Not authorized to access requested resource.
-          - API Key missing in url/headers!
-    NotFound:
-      type: object
-      properties:
-        reason:
-          type: string
-        message:
-          type: array
-          items:
-            type: string
-    MethodNotAllowed:
-      type: object
-      properties:
-        reason:
-          type: string
-        message:
-          type: array
-          items:
-            type: string
-      example:
-        reason: "405"
-        message:
-          - Method not allowed
-    UnprocessableEntity:
+    UnprocessableEntityError:
       type: object
       properties:
         errorCode:
@@ -5544,7 +5508,7 @@ components:
           type: array
           items:
             type: string
-    TooManyRequests:
+    TooManyRequestsError:
       type: object
       properties:
         reason:
@@ -5575,7 +5539,7 @@ components:
         period_start: 1623825660
         period_end: 1623825720
         limit: 5
-    NotImplemented:
+    ServerError:
       type: object
       properties:
         reason:
@@ -5584,32 +5548,41 @@ components:
           type: array
           items:
             type: string
-      example:
-        reason: "501"
-        message:
-          - Not Implemented
   responses:
     Unauthorized:
       description: Unauthorized
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Unauthorized'
+            $ref: '#/components/schemas/ServerError'
+          example:
+            reason: "401"
+            message:
+              - Not authorized to access requested resource.
+              - API Key missing in url/headers!
     MethodNotAllowed:
       description: Method Not Allowed
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/MethodNotAllowed'
+            $ref: '#/components/schemas/ServerError'
+          example:
+            reason: "405"
+            message:
+              - Method not allowed
     TooManyRequests:
       description: Too Many Requests
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/TooManyRequests'
+            $ref: '#/components/schemas/TooManyRequestsError'
     NotImplemented:
       description: Not Implemented
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/NotImplemented'
+            $ref: '#/components/schemas/ServerError'
+          example:
+            reason: "501"
+            message:
+              - Not Implemented
