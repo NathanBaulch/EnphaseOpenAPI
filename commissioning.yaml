@@ -37,14 +37,7 @@ paths:
           description: Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter.
             E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems.
           schema:
-            type: string
-            enum:
-              - "1"
-              - "2"
-              - "3"
-              - "4"
-              - "5"
-              - in_progress
+            $ref: '#/components/schemas/SystemStageEnum'
         - name: reference
           in: query
           description: Filter activations by company reference.
@@ -160,12 +153,7 @@ paths:
           in: query
           description: Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
           schema:
-            type: string
-            enum:
-              - owner
-              - owner.company
-              - host
-              - host.company
+            $ref: '#/components/schemas/SystemExpandEnum'
       responses:
         200:
           description: OK
@@ -310,9 +298,7 @@ paths:
           in: query
           description: Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information not include in the response.
           schema:
-            type: string
-            enum:
-              - company
+            $ref: '#/components/schemas/UserExpandEnum'
       responses:
         200:
           description: OK
@@ -825,9 +811,7 @@ paths:
           in: query
           description: Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response.
           schema:
-            type: string
-            enum:
-              - company
+            $ref: '#/components/schemas/UserExpandEnum'
       responses:
         200:
           description: OK
@@ -944,9 +928,7 @@ paths:
           in: query
           description: Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response.
           schema:
-            type: string
-            enum:
-              - company
+            $ref: '#/components/schemas/UserExpandEnum'
       responses:
         200:
           description: OK
@@ -1049,9 +1031,7 @@ paths:
           in: query
           description: Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response.
           schema:
-            type: string
-            enum:
-              - company
+            $ref: '#/components/schemas/UserExpandEnum'
       responses:
         200:
           description: OK
@@ -1826,8 +1806,7 @@ components:
                 type: string
                 description: Name of the system.
               system_type:
-                type: string
-                description: Type of the system. One of 'residential', 'commercial', or 'other'. Default 'residential'. Cannot be null.
+                $ref: '#/components/schemas/SystemTypeEnum'
               status:
                 type: string
                 description: System's status.
@@ -1835,9 +1814,7 @@ components:
                 type: integer
                 description: What stage of the activation process this activation is in. System-generated.
               internet_connection:
-                type: string
-                description: How the system's Envoys connect to the Internet.
-                  Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
+                $ref: '#/components/schemas/SystemInternetConnectionEnum'
               lease:
                 type: boolean
                 description: Whether the system is leased. Default false.
@@ -1973,10 +1950,7 @@ components:
       type: object
       properties:
         mode:
-          type: string
-          enum:
-            - on
-            - off
+          $ref: '#/components/schemas/SystemProductionModeEnum'
     SetActivationOpsProductionModeResponse:
       type: object
       properties:
@@ -2131,10 +2105,9 @@ components:
                 description: Company location.
               roles:
                 type: array
-                description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer'].
-                  For other role roles will be empty.
+                description: What type of company this is in Enphase. For installer company roles will be ['installer']. For other role roles will be empty.
                 items:
-                  type: string
+                  $ref: '#/components/schemas/CompanyRoleEnum'
               uri:
                 type: string
                 description: URI to the show() method for the company. System-generated.
@@ -2308,10 +2281,7 @@ components:
       type: object
       properties:
         status:
-          type: string
-          enum:
-            - enabled
-            - disabled
+          $ref: '#/components/schemas/SystemMeterStatusEnum'
     SetActivationMeterStatusResponse:
       type: object
       properties:
@@ -2467,8 +2437,7 @@ components:
           type: string
           description: Name of the system.
         system_type:
-          type: string
-          description: Type of the system. One of 'residential', 'commercial', or 'other'. Default 'residential'. Cannot be null.
+          $ref: '#/components/schemas/SystemTypeEnum'
         status:
           type: string
           description: System's status.
@@ -2476,9 +2445,7 @@ components:
           type: integer
           description: What stage of the activation process this activation is in. System-generated.
         internet_connection:
-          type: string
-          description: How the system's Envoys connect to the Internet.
-            Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
+          $ref: '#/components/schemas/SystemInternetConnectionEnum'
         lease:
           type: boolean
           description: Whether the system is leased. Default false.
@@ -2505,11 +2472,9 @@ components:
               type: integer
             user_roles:
               type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
+              description: What type of user this is in Enlighten. For self installer user user_roles will be ['self_installer']. For other users user_roles will be empty.
               items:
-                type: string
-                description: Role.
+                $ref: '#/components/schemas/UserRoleEnum'
             enlighten_emails:
               type: boolean
             enlighten_view:
@@ -2530,11 +2495,9 @@ components:
                   type: string
                 roles:
                   type: array
-                  description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer'].
-                    For other role roles will be empty.
+                  description: What type of company this is in Enphase. For installer company roles will be ['installer']. For other role roles will be empty.
                   items:
-                    type: string
-                    description: Role.
+                    $ref: '#/components/schemas/CompanyRoleEnum'
                 uri:
                   type: string
         owner_id:
@@ -2560,11 +2523,9 @@ components:
               type: integer
             user_roles:
               type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
+              description: What type of user this is in Enlighten. For self installer user user_roles will be ['self_installer']. For other users user_roles will be empty.
               items:
-                type: string
-                description: Role.
+                $ref: '#/components/schemas/UserRoleEnum'
             enlighten_emails:
               type: boolean
             enlighten_view:
@@ -2585,11 +2546,9 @@ components:
                   type: string
                 roles:
                   type: array
-                  description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer'].
-                    For other role roles will be empty.
+                  description: What type of company this is in Enphase. For installer company roles will be ['installer']. For other role roles will be empty.
                   items:
-                    type: string
-                    description: Role.
+                    $ref: '#/components/schemas/CompanyRoleEnum'
                 uri:
                   type: string
         host_id:
@@ -2627,23 +2586,16 @@ components:
           type: string
           description: Installer support email.
         source:
-          type: string
-          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
-            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
+          $ref: '#/components/schemas/SystemSourceEnum'
         array_type:
-          type: string
-          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
-            All other values will be ignored. To unset array_type, pass null.
+          $ref: '#/components/schemas/SystemArrayTypeEnum'
         attachment_type:
-          type: string
-          description: How the microinverters are attached to the panels.
-            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
+          $ref: '#/components/schemas/SystemAttachmentTypeEnum'
         ensemble_envoy:
           type: string
           description: Specifies serial number of ensemble envoy in multi envoy system.
         production_mode:
-          type: string
-          description: Possible value is 'on' and 'off'.
+          $ref: '#/components/schemas/SystemProductionModeEnum'
         grid_profile:
           type: string
           description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
@@ -2839,11 +2791,9 @@ components:
           type: string
           description: Name of the system. Limit 255 characters.
         system_type:
-          type: string
-          description: Type of the system. Possible values are 'residential', 'commercial', 'other'. Default 'residential'.
+          $ref: '#/components/schemas/SystemTypeEnum'
         internet_connection:
-          type: string
-          description: How the system's Envoys connect to the Internet. Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
+          $ref: '#/components/schemas/SystemInternetConnectionEnum'
         lease:
           type: boolean
           description: Whether the system is leased. Default false.
@@ -2870,30 +2820,11 @@ components:
           type: string
           description: When the system was approved to connect to the grid. Date format.
         source:
-          type: string
-          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
-            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
+          $ref: '#/components/schemas/SystemSourceEnum'
         array_type:
-          type: string
-          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
-            All other values will be ignored. To unset array_type, pass null.
-          enum:
-            - fixed_open_rack
-            - fixed_roof_mount
-            - single_axis_tracking
-            - single_axis_backtracking
-            - dual_axis_tracking
+          $ref: '#/components/schemas/SystemArrayTypeEnum'
         attachment_type:
-          type: string
-          description: How the microinverters are attached to the panels.
-            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
-          enum:
-            - rack_mount
-            - zep
-            - acm
-            - bipv
-            - frame_mount
-            - railless_mount
+          $ref: '#/components/schemas/SystemAttachmentTypeEnum'
         ensemble_envoy:
           type: string
           description: Specifies serial number of ensemble envoy in multi envoy system.
@@ -3016,11 +2947,9 @@ components:
           description: Whether the user is allowed to log in to Enlighten.
         user_roles:
           type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
+          description: What type of user this is in Enlighten. For self installer user user_roles will be ['self_installer']. For other users user_roles will be empty.
           items:
-            type: string
-            description: Role.
+            $ref: '#/components/schemas/UserRoleEnum'
         email:
           type: string
           description: Email address of the user.
@@ -3558,10 +3487,9 @@ components:
           description: Company location.
         roles:
           type: array
-          description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer']. For other role roles will be empty.
+          description: What type of company this is in Enphase. For installer company roles will be ['installer']. For other role roles will be empty.
           items:
-            type: string
-            description: Role.
+            $ref: '#/components/schemas/CompanyRoleEnum'
         uri:
           type: string
           description: URI to the show() method for the company. System-generated.
@@ -3618,6 +3546,86 @@ components:
             type: boolean
           enable_discharge_to_grid:
             type: boolean
+    SystemStageEnum:
+      type: string
+      enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - in_progress
+    SystemExpandEnum:
+      type: string
+      enum:
+        - owner
+        - owner.company
+        - host
+        - host.company
+    UserExpandEnum:
+      type: string
+      enum:
+        - company
+    SystemTypeEnum:
+      type: string
+      description: Type of the system. Default 'residential'.
+      enum:
+        - residential
+        - commercial
+        - other
+    SystemInternetConnectionEnum:
+      type: string
+      description: How the system's Envoys connect to the Internet. Use 'dialup' if the Internet connection is satellite or dial-up.
+      enum:
+        - none
+        - cellular
+        - broadband
+        - dialup
+    SystemProductionModeEnum:
+      type: string
+      enum:
+        - on
+        - off
+    CompanyRoleEnum:
+      type: string
+      enum:
+        - installer
+    SystemMeterStatusEnum:
+      type: string
+      enum:
+        - enabled
+        - disabled
+    UserRoleEnum:
+      type: string
+      enum:
+        - self_installer
+    SystemSourceEnum:
+      type: string
+      description: Source of production measurements taken on the system. When 'meter', production values come from a revenue-grade meter on the system.
+        When 'microinverters', production values come from the microinverters on the system.
+      enum:
+        - meter
+        - microinverters
+    SystemArrayTypeEnum:
+      type: string
+      description: Type of array installed. All other values will be ignored. To unset array_type, pass null.
+      enum:
+        - fixed_open_rack
+        - fixed_roof_mount
+        - single_axis_tracking
+        - single_axis_backtracking
+        - dual_axis_tracking
+    SystemAttachmentTypeEnum:
+      type: string
+      description: How the microinverters are attached to the panels.
+        Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
+      enum:
+        - rack_mount
+        - zep
+        - acm
+        - bipv
+        - frame_mount
+        - railless_mount
     UnprocessableEntityError:
       type: object
       properties:

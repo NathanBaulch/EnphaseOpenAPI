@@ -36,14 +36,7 @@ paths:
           description: Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>.
             Current sort keys supported are id, name, and last_report_date. By default the list is sorted by decreasing system ID.
           schema:
-            type: string
-            enum:
-              - id
-              - name
-              - last_report_date
-              - -id
-              - -name
-              - -last_report_date
+            $ref: '#/components/schemas/SystemSortByEnum'
       responses:
         200:
           description: List of systems.
@@ -503,7 +496,7 @@ paths:
           in: query
           description: When 'all', returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
           schema:
-            type: string
+            $ref: '#/components/schemas/SystemEnergyLifetimeProductionEnum'
       responses:
         200:
           description: When the query parameters include "production=all", returns meter and microinverter-measured time series.
@@ -793,13 +786,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for all production micros.
@@ -870,13 +859,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for all production meters.
@@ -947,13 +932,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for batteries.
@@ -1025,13 +1006,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for all consumption meters.
@@ -1107,13 +1084,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for micro.
@@ -1190,13 +1163,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for the ACB.
@@ -1273,13 +1242,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for the Encharge.
@@ -1531,13 +1496,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for all production micros.
@@ -1605,13 +1566,9 @@ paths:
             type: integer
         - name: granularity
           in: query
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
           schema:
-            type: string
-            enum:
-              - 15mins
-              - day
-              - week
+            $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
           description: Telemetry for all production micros.
@@ -1742,51 +1699,16 @@ components:
               type: string
               description: Search by name of the system.
             public_name:
-              type: string
-              description: Search by public name of the system.
-              enum:
-                - residential
-                - all
-                - commercial
-                - other
+              $ref: '#/components/schemas/SystemPublicNameEnum'
             statuses:
               type: array
               description: Search by System status.
               items:
-                type: string
-                enum:
-                  - deactivated
-                  - normal
-                  - comm
-                  - micro
-                  - power
-                  - meter
-                  - battery
-                  - storage_idle
-                  - meter_issue
-                  - enpower
-                  - encharge
-                  - enpower_issue
-                  - encharge_issue
-                  - span_issue
+                $ref: '#/components/schemas/SystemStatusEnum'
             connection_type:
-              type: string
-              description: Search by connection type.
-              enum:
-                - wifi
-                - cellular
-                - ethernet
+              $ref: '#/components/schemas/SystemConnectionTypeEnum'
         sort_by:
-          type: string
-          description: Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>.
-            Current sort keys supported are id, name, and last_report_date. By default the list is sorted by decreasing system ID.
-          enum:
-            - id
-            - name
-            - last_report_date
-            - -id
-            - -name
-            - -last_report_date
+          $ref: '#/components/schemas/SystemSortByEnum'
       required:
         - system
     SearchSystemsResponse:
@@ -1878,8 +1800,7 @@ components:
           type: string
           description: Source of energy measurement.
         status:
-          type: string
-          description: Current status of the system.
+          $ref: '#/components/schemas/SystemStatusEnum'
         summary_date:
           type: string
           description: Summary date.
@@ -2535,8 +2456,7 @@ components:
           type: integer
           description: Unique numeric ID of the system.
         granularity:
-          type: string
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          $ref: '#/components/schemas/TelemetryGranularityEnum'
         total_devices:
           type: integer
           description: Number of micro inverters in the site.
@@ -2599,8 +2519,7 @@ components:
           type: integer
           description: Unique numeric ID of the system.
         granularity:
-          type: string
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          $ref: '#/components/schemas/TelemetryGranularityEnum'
         total_devices:
           type: integer
           description: Number of production meters in the site.
@@ -2650,8 +2569,7 @@ components:
           type: integer
           description: Unique numeric ID of the system.
         granularity:
-          type: string
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          $ref: '#/components/schemas/TelemetryGranularityEnum'
         total_devices:
           type: integer
           description: Number of batteries in the site.
@@ -2730,8 +2648,7 @@ components:
           type: integer
           description: Unique numeric ID of the system.
         granularity:
-          type: string
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          $ref: '#/components/schemas/TelemetryGranularityEnum'
         total_devices:
           type: integer
           description: Number of non-retired consumption meters in the site.
@@ -2791,8 +2708,7 @@ components:
           type: string
           description: Device serial number.
         granularity:
-          type: string
-          description: Granularity of the telemetry data. Possible values are 'day'. Default is 'day'.
+          $ref: '#/components/schemas/TelemetryGranularityEnum'
         total_devices:
           type: integer
           description: Shall always be 1 since this is telemetry from individual micros.
@@ -2956,7 +2872,7 @@ components:
           description: Unique numeric ID of the system.
         granularity:
           type: string
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
         total_devices:
           type: integer
           description: Number of consumption meters in the site.
@@ -3010,7 +2926,7 @@ components:
           description: Unique numeric ID of the system.
         granularity:
           type: string
-          description: Granularity of the telemetry data. Possible values are 'week', 'day', '15mins'. Default is 'day'.
+          description: Granularity of the telemetry data. Default is 'day'.
         total_devices:
           type: integer
           description: Number of production meters in the site.
@@ -3086,8 +3002,7 @@ components:
               type: string
               description: Postal code of the system's location.
         connection_type:
-          type: string
-          description: Connection type of the system. Available values are ethernet, Wi-Fi, Cellular.
+          $ref: '#/components/schemas/SystemConnectionTypeEnum'
         energy_lifetime:
           type: integer
           description: Energy generated by the system during its lifetime in Wh. It is returned only if the count is less than or equal to 100.
@@ -3099,8 +3014,7 @@ components:
           description: Size of the system. It is returned only if the count is less than or equal to 100.
           format: float
         status:
-          type: string
-          description: System's status. Corresponding Enlighten values can be found in table added at the end of page.
+          $ref: '#/components/schemas/SystemStatusEnum'
         last_report_at:
           type: integer
           description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
@@ -3112,8 +3026,7 @@ components:
           description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
             Otherwise, it is the system's first reported interval end time.
         attachment_type:
-          type: string
-          description: Micro inverter attachment type. Available values are rack_mount, zep, acm, bipv, frame_mount, railless_mount.
+          $ref: '#/components/schemas/SystemAttachmentTypeEnum'
         interconnect_date:
           type: string
           description: Date on which the system was approved to connect to the grid.
@@ -3153,8 +3066,7 @@ components:
       description: Information about the system such as its status, when it became operational and last reported to Envoy.
       properties:
         status:
-          type: string
-          description: System's status. Corresponding Enlighten values can be found in table added at the end of page.
+          $ref: '#/components/schemas/SystemStatusEnum'
         last_report_at:
           type: integer
           description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
@@ -3175,8 +3087,7 @@ components:
           type: string
           description: Device serial number.
         granularity:
-          type: string
-          description: Granularity of the telemetry data. Possible values are 'day'. Default is 'day'.
+          $ref: '#/components/schemas/TelemetryGranularityEnum'
         total_devices:
           type: integer
           description: Shall always be 1 since this is telemetry from individual micros.
@@ -3241,6 +3152,88 @@ components:
               percent: 25
         last_reported_time: 1650349170
         last_reported_soc: 99%
+    SystemSortByEnum:
+      type: string
+      description: Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>.
+        Current sort keys supported are id, name, and last_report_date. By default the list is sorted by decreasing system ID.
+      enum:
+        - id
+        - name
+        - last_report_date
+        - -id
+        - -name
+        - -last_report_date
+    TelemetryGranularityEnum:
+      type: string
+      description: Granularity of the telemetry data. Default is 'day'.
+      enum:
+        - 15mins
+        - day
+        - week
+    SystemPublicNameEnum:
+      type: string
+      description: Name displayed on the public system page. Default=residential. Only for systems that allow public access.
+      enum:
+        - residential
+        - all
+        - commercial
+        - other
+    SystemStatusEnum:
+      type: string
+      enum:
+        - deactivated
+        - normal
+        - comm
+        - micro
+        - power
+        - meter
+        - meter_issue
+        - battery
+        - storage_idle
+        - encharge
+        - encharge_issue
+        - enpower
+        - enpower_issue
+        - retired
+        - not_monitored
+        - unused
+        - disabled
+        - debug
+        - info
+        - monitored
+        - muted
+        - warning
+        - error
+        - no_data
+        - rma
+        - unknown
+        - nsr
+        - any
+        - data_upload
+        - on_grid
+        - off_grid
+        - grid_unknown
+    SystemConnectionTypeEnum:
+      type: string
+      description: Connection type of the system.
+      enum:
+        - wifi
+        - cellular
+        - ethernet
+    SystemAttachmentTypeEnum:
+      type: string
+      description: Micro inverter attachment type.
+      enum:
+        - rack_mount
+        - zep
+        - acm
+        - bipv
+        - frame_mount
+        - railless_mount
+    SystemEnergyLifetimeProductionEnum:
+      type: string
+      enum:
+        - all
     TooManyRequestsError:
       type: object
       properties:
