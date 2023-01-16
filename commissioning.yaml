@@ -5591,3 +5591,18 @@ components:
             reason: "501"
             message:
               - Not Implemented
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.enphaseenergy.com/oauth/authorize
+          tokenUrl: https://api.enphaseenergy.com/oauth/token
+          scopes: { }
+    ApiKey:
+      type: apiKey
+      name: key
+      in: query
+security:
+  - OAuth2: [ ]
+  - ApiKey: [ ]
