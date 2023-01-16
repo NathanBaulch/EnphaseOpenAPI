@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/NathanBaulch/EnphaseOpenAPI"
+	"github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 var (

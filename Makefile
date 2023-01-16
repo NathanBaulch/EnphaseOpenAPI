@@ -44,7 +44,7 @@ define generate
 endef
 
 generate/go: clean/go $(OPENAPICLI)
-	$(call generate,go,enlighten)
+	$(call generate,go,enlighten,isGoSubmodule=true)
 	echo Updating go dependencies
 	cd ./go/enlighten && go get -u -v ./... && go mod tidy && go build
 

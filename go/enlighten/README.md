@@ -24,7 +24,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import enlighten "github.com/NathanBaulch/EnphaseOpenAPI"
+import enlighten "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
