@@ -2219,6 +2219,14 @@ components:
             If the system has never produced energy, the array may be empty.
           items:
             type: integer
+        micro_production:
+          type: array
+          items:
+            type: integer
+        meter_production:
+          type: array
+          items:
+            type: integer
         meta:
           $ref: '#/components/schemas/Meta'
       example:
