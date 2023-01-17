@@ -2092,7 +2092,8 @@ components:
                       format: int64
                       description: End time of the telemetry interval.
                     wh_del:
-                      type: integer
+                      type: number
+                      format: float
                       description: Energy delivered during this interval, in Wh (Watt-Hour).
                     curr_w:
                       type: integer
@@ -2127,46 +2128,46 @@ components:
             intervals:
               - channel: 1
                 end_at: 1384122700
-                wh_del: 30
+                wh_del: 30.0
                 curr_w: 120
               - channel: 1
                 end_at: 1384123600
-                wh_del: 50
+                wh_del: 50.0
                 curr_w: 200
               - channel: 1
                 end_at: 1384124500
-                wh_del: 10
+                wh_del: 10.0
                 curr_w: 40
               - channel: 1
                 end_at: 1384125400
-                wh_del: 10
+                wh_del: 10.0
                 curr_w: 40
               - channel: 1
                 end_at: 1384126300
-                wh_del: 20
+                wh_del: 20.0
                 curr_w: 80
           - meter_serial_number: "1218676791"
             envoy_serial_number: "1218347675"
             intervals:
               - channel: 1
                 end_at: 1384122700
-                wh_del: 20
+                wh_del: 20.0
                 curr_w: 80
               - channel: 1
                 end_at: 1384123600
-                wh_del: 50
+                wh_del: 50.0
                 curr_w: 200
               - channel: 1
                 end_at: 1384124500
-                wh_del: 5
+                wh_del: 5.0
                 curr_w: 20
               - channel: 1
                 end_at: 1384125400
-                wh_del: 11
+                wh_del: 11.0
                 curr_w: 44
               - channel: 1
                 end_at: 1384126300
-                wh_del: 14
+                wh_del: 14.0
                 curr_w: 56
     GetSystemConsumptionLifetimeResponse:
       type: object
