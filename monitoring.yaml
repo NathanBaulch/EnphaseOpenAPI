@@ -2938,15 +2938,17 @@ components:
           type: array
           description: An array of telemetry objects.
           items:
-            type: object
-            properties:
-              end_at:
-                type: integer
-                format: int64
-                description: End time of the telemetry interval.
-              wh_imported:
-                type: integer
-                description: Energy imported (in Watt-Hours) during that period.
+            type: array
+            items:
+              type: object
+              properties:
+                end_at:
+                  type: integer
+                  format: int64
+                  description: End time of the telemetry interval.
+                wh_imported:
+                  type: integer
+                  description: Energy imported (in Watt-Hours) during that period.
         meta:
           $ref: '#/components/schemas/Meta'
       example:
@@ -2995,15 +2997,17 @@ components:
           type: array
           description: An array of telemetry objects.
           items:
-            type: object
-            properties:
-              end_at:
-                type: integer
-                format: int64
-                description: End time of the telemetry interval.
-              wh_exported:
-                type: integer
-                description: Energy exported (in Watt-Hours) during that period.
+            type: array
+            items:
+              type: object
+              properties:
+                end_at:
+                  type: integer
+                  format: int64
+                  description: End time of the telemetry interval.
+                wh_exported:
+                  type: integer
+                  description: Energy exported (in Watt-Hours) during that period.
         meta:
           $ref: '#/components/schemas/Meta'
       example:
