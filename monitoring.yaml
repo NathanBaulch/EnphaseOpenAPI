@@ -299,6 +299,7 @@ paths:
             If the end is later than the last reported interval the response data ends with the last reported interval.
           schema:
             type: integer
+            format: int64
       responses:
         200:
           description: production_meter_readings
@@ -358,12 +359,14 @@ paths:
             If the start is earlier than the system's operational_date, the response data begins at midnight of the first reported interval date.
           schema:
             type: integer
+            format: int64
         - name: end_at
           in: query
           description: End of reporting period in Unix epoch time. If no end is specified, default to the time of the request or (start time + 1 week), whichever is earlier.
             If the end is later than the last reported interval the response data ends with the last reported interval.
           schema:
             type: integer
+            format: int64
       responses:
         200:
           description: rgm_stats
@@ -784,6 +787,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -857,6 +861,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -930,6 +935,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -1004,6 +1010,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -1082,6 +1089,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -1161,6 +1169,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -1240,6 +1249,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -1494,6 +1504,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -1564,6 +1575,7 @@ paths:
             If start_date parameter is passed in the url then start_date field will appear in response.
           schema:
             type: integer
+            format: int64
         - name: granularity
           in: query
           description: Granularity of the telemetry data. Default is 'day'.
@@ -1785,12 +1797,14 @@ components:
             When a system has not been communicating for a length of time, the last_report_at can be recent, whereas the last_interval_end_at may be further back.
         last_report_at:
           type: integer
+          format: int64
           description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
         modules:
           type: integer
           description: Total number of modules in the system.
         operational_at:
           type: integer
+          format: int64
           description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
             Otherwise, it is the system's first reported interval end time.
         size_w:
@@ -1840,6 +1854,7 @@ components:
                   type: integer
                 last_report_at:
                   type: integer
+                  format: int64
                 name:
                   type: string
                 serial_number:
@@ -2008,6 +2023,7 @@ components:
                 description: Meter reading, in Wh.
               read_at:
                 type: integer
+                format: int64
                 description: Time when the reading was taken, always prior or equal to the requested 'end_at'.
         meta:
           $ref: '#/components/schemas/Meta'
@@ -2041,6 +2057,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               devices_reporting:
                 type: integer
@@ -2071,6 +2088,7 @@ components:
                       description: Reporting channel ID.
                     end_at:
                       type: integer
+                      format: int64
                       description: End time of the telemetry interval.
                     wh_del:
                       type: integer
@@ -2462,10 +2480,12 @@ components:
           description: Number of micro inverters in the site.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter is passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter is passed in the url then end_date field will appear in response.
         items:
@@ -2479,6 +2499,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               devices_reporting:
                 type: integer
@@ -2525,10 +2546,12 @@ components:
           description: Number of production meters in the site.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter is passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter is passed in the url then end_date field will appear in response.
         items:
@@ -2541,6 +2564,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               devices_reporting:
                 type: integer
@@ -2575,10 +2599,12 @@ components:
           description: Number of batteries in the site.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter is passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter is passed in the url then end_date field will appear in response.
         items:
@@ -2591,6 +2617,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               charge:
                 type: object
@@ -2654,10 +2681,12 @@ components:
           description: Number of non-retired consumption meters in the site.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter is passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter is passed in the url then end_date field will appear in response.
         items:
@@ -2670,6 +2699,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               devices_reporting:
                 type: integer
@@ -2714,10 +2744,12 @@ components:
           description: Shall always be 1 since this is telemetry from individual micros.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter passed in the url then end_date field will appear in response.
         items:
@@ -2730,6 +2762,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               powr:
                 type: integer
@@ -2878,10 +2911,12 @@ components:
           description: Number of consumption meters in the site.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter is passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter is passed in the url then end_date field will appear in response.
         items:
@@ -2895,6 +2930,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               wh_imported:
                 type: integer
@@ -2932,10 +2968,12 @@ components:
           description: Number of production meters in the site.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter is passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter is passed in the url then end_date field will appear in response.
         items:
@@ -2949,6 +2987,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               wh_exported:
                 type: integer
@@ -3017,12 +3056,15 @@ components:
           $ref: '#/components/schemas/SystemStatusEnum'
         last_report_at:
           type: integer
+          format: int64
           description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
         last_energy_at:
           type: integer
+          format: int64
           description: Timestamp (in epoch format) at which the system's produced energy was last reported. Even if the last produced energy is 0, its timestamp will be returned.
         operational_at:
           type: integer
+          format: int64
           description: Timestamp (in epoch format) at which this system became operational. Corresponds to the system's interconnect time, if one is specified.
             Otherwise, it is the system's first reported interval end time.
         attachment_type:
@@ -3093,10 +3135,12 @@ components:
           description: Shall always be 1 since this is telemetry from individual micros.
         start_at:
           type: integer
+          format: int64
           description: Start time of the data series. Either start_date or start_at will be present. By default start_at will appear in response.
             If start_date parameter passed in the url then start_date field will appear in response.
         end_at:
           type: integer
+          format: int64
           description: End time of the data series. Either end_date or end_at will be present. By default end_at will appear in response.
             If end_date parameter passed in the url then end_date field will appear in response.
         items:
@@ -3109,6 +3153,7 @@ components:
             properties:
               end_at:
                 type: integer
+                format: int64
                 description: End time of the telemetry interval.
               charge:
                 type: object

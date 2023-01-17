@@ -1844,6 +1844,7 @@ components:
                 description: URI for this activation.
               updated_at:
                 type: integer
+                format: int64
                 description: Activation last updated timestamp.
               reference:
                 type: string
@@ -2483,6 +2484,7 @@ components:
               type: string
             updated_at:
               type: integer
+              format: int64
             company:
               type: object
               description: A hash of information about the owner's company. Use the query parameter 'expand=owner.company' to get owner company detail.
@@ -2534,6 +2536,7 @@ components:
               type: string
             updated_at:
               type: integer
+              format: int64
             company:
               type: object
               description: A hash of information about the system host's company. Use the query parameter 'expand=host.company' to get system host company detail.
@@ -2565,6 +2568,7 @@ components:
           description: URI for this activation.
         updated_at:
           type: integer
+          format: int64
           description: Activation last updated timestamp.
         reference:
           type: string
@@ -2976,6 +2980,7 @@ components:
           description: Enlighten ID of the user. System-generated.
         updated_at:
           type: integer
+          format: int64
           description: Last updated date and time in Epoch format.
         company:
           $ref: '#/components/schemas/Company'
@@ -3245,9 +3250,11 @@ components:
           description: System ID.
         created_at:
           type: integer
+          format: int64
           description: System created Epoch time.
         updated_at:
           type: integer
+          format: int64
           description: System updated Epoch time.
         angle:
           type: integer
@@ -3370,6 +3377,7 @@ components:
           description: Provisioned envoy.
         updated_at:
           type: integer
+          format: int64
           description: Last updated Epoch time.
         left:
           type: integer
