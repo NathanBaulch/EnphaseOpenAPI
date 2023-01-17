@@ -2363,110 +2363,112 @@ components:
           last_energy_at: 1470086106
           operational_at: 1357023600
     GetInvertersSummaryByEnvoyOrSiteResponse:
-      type: object
-      properties:
-        signal_strength:
-          type: integer
-          description: Signal strength.
-        micro_inverters:
-          type: array
-          description: Microinverters.
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-                description: Numeric ID of the microinverter.
-              serial_number:
-                type: string
-                description: Serial number of the microinverter.
-              model:
-                type: string
-                description: Microinverter model type.
-              part_number:
-                type: string
-                description: Microinverter part number.
-              sku:
-                type: string
-                description: SKU of the microinverter.
-              status:
-                type: string
-                description: Current status of the micro inverter.
-              power_produced:
-                type: object
-                properties:
-                  value:
-                    type: integer
-                    description: Current power produced by the microinverter.
-                  units:
-                    type: string
-                    description: Power units.
-                  precision:
-                    type: integer
-              proc_load:
-                type: string
-                description: Processor load.
-              param_table:
-                type: string
-                description: Parameter table.
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number of the system that the micro reports to.
-              energy:
-                type: object
-                properties:
-                  value:
-                    type: integer
-                    description: Lifetime energy produced by the microinverter.
-                  units:
-                    type: string
-                    description: Energy units.
-                  precision:
-                    type: integer
-              grid_profile:
-                type: string
-                description: Grid profile ID.
-              last_report_date:
-                type: integer
-                description: Date on which the microinverter last reported.
+      type: array
+      items:
+        type: object
+        properties:
+          signal_strength:
+            type: integer
+            description: Signal strength.
+          micro_inverters:
+            type: array
+            description: Microinverters.
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: Numeric ID of the microinverter.
+                serial_number:
+                  type: string
+                  description: Serial number of the microinverter.
+                model:
+                  type: string
+                  description: Microinverter model type.
+                part_number:
+                  type: string
+                  description: Microinverter part number.
+                sku:
+                  type: string
+                  description: SKU of the microinverter.
+                status:
+                  type: string
+                  description: Current status of the micro inverter.
+                power_produced:
+                  type: object
+                  properties:
+                    value:
+                      type: integer
+                      description: Current power produced by the microinverter.
+                    units:
+                      type: string
+                      description: Power units.
+                    precision:
+                      type: integer
+                proc_load:
+                  type: string
+                  description: Processor load.
+                param_table:
+                  type: string
+                  description: Parameter table.
+                envoy_serial_number:
+                  type: string
+                  description: Envoy serial number of the system that the micro reports to.
+                energy:
+                  type: object
+                  properties:
+                    value:
+                      type: integer
+                      description: Lifetime energy produced by the microinverter.
+                    units:
+                      type: string
+                      description: Energy units.
+                    precision:
+                      type: integer
+                grid_profile:
+                  type: string
+                  description: Grid profile ID.
+                last_report_date:
+                  type: integer
+                  description: Date on which the microinverter last reported.
       example:
-        signal_strength: 5
-        micro_inverters:
-          - id: 1059689835
-            serial_number: "688346865858"
-            model: M215
-            part_number: 800-00107-r01
-            sku: M215-60-2LL-S22-NA
-            status: normal
-            power_produced:
-              value: 96
-              units: W
-              precision: 0
-            proc_load: 521-00005-r00-v02.32.01
-            param_table: 549-00018-r00-v02.32.01
-            envoy_serial_number: "121842012242"
-            energy:
-              value: 232
-              units: Wh
-              precision: 0
-            grid_profile: 57227c50e4d7973ae602c4e6
-            last_report_date: 1600427843
-          - id: 1059689836
-            serial_number: "686868727227"
-            model: M215
-            part_number: 800-00107-r01
-            sku: M215-60-2LL-S22-NA
-            status: normal
-            power_produced: 20
-            proc_load: 521-00005-r00-v02.32.01
-            param_table: 549-00018-r00-v02.32.01
-            envoy_serial_number: "121842012242"
-            energy:
-              value: 120
-              units: Wh
-              precision: 0
-            grid_profile: 57227c50e4d7973ae602c4e6
-            last_report_date: 1600427843
+        - signal_strength: 5
+          micro_inverters:
+            - id: 1059689835
+              serial_number: "688346865858"
+              model: M215
+              part_number: 800-00107-r01
+              sku: M215-60-2LL-S22-NA
+              status: normal
+              power_produced:
+                value: 96
+                units: W
+                precision: 0
+              proc_load: 521-00005-r00-v02.32.01
+              param_table: 549-00018-r00-v02.32.01
+              envoy_serial_number: "121842012242"
+              energy:
+                value: 232
+                units: Wh
+                precision: 0
+              grid_profile: 57227c50e4d7973ae602c4e6
+              last_report_date: 1600427843
+            - id: 1059689836
+              serial_number: "686868727227"
+              model: M215
+              part_number: 800-00107-r01
+              sku: M215-60-2LL-S22-NA
+              status: normal
+              power_produced: 20
+              proc_load: 521-00005-r00-v02.32.01
+              param_table: 549-00018-r00-v02.32.01
+              envoy_serial_number: "121842012242"
+              energy:
+                value: 120
+                units: Wh
+                precision: 0
+              grid_profile: 57227c50e4d7973ae602c4e6
+              last_report_date: 1600427843
     GetSystemProductionMicroTelemetryResponse:
       type: object
       properties:
