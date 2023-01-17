@@ -1871,7 +1871,7 @@ components:
                 status:
                   type: string
                 active:
-                  type: string
+                  type: boolean
                 state:
                   type: string
                 config_type:
@@ -2832,12 +2832,12 @@ components:
           type: string
           description: Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality.
         storm_alert:
-          type: string
+          type: boolean
           description: True if severe weather condition alert is issued in the locality.
       example:
         system_id: 1765
         storm_guard_status: enabled
-        storm_alert: "false"
+        storm_alert: false
     GetSystemGridStatusSettingsResponse:
       type: object
       properties:
