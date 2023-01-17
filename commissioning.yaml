@@ -1283,6 +1283,7 @@ paths:
           description: Operational date in the following format YYYY-MM-DD.
           schema:
             type: string
+            format: date
       responses:
         200:
           description: OK
@@ -2156,9 +2157,11 @@ components:
                 type: string
               created:
                 type: string
+                format: date-time
                 description: Profile created date and time.
               updated:
                 type: string
+                format: date-time
                 description: Profile last updated date and time.
               name:
                 type: string
@@ -2223,12 +2226,15 @@ components:
           description: Meter type.
         operational_date:
           type: string
+          format: date
           description: Operational date.
         first_report_date:
           type: string
+          format: date-time
           description: First report date.
         last_report_date:
           type: string
+          format: date-time
           description: Last report date.
         phase:
           type: string
@@ -2271,6 +2277,7 @@ components:
           description: Meter type.
         operational_date:
           type: string
+          format: date
           description: Operational date.
       example:
         serial_number: "123456789012"
@@ -2585,6 +2592,7 @@ components:
           description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
         interconnect_date:
           type: string
+          format: date
           description: When the system was approved to connect to the grid.
         installer_support_email:
           type: string
@@ -2822,7 +2830,8 @@ components:
           description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
         interconnect_date:
           type: string
-          description: When the system was approved to connect to the grid. Date format.
+          format: date
+          description: When the system was approved to connect to the grid.
         source:
           $ref: '#/components/schemas/SystemSourceEnum'
         array_type:
