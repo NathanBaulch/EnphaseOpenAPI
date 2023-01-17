@@ -1876,6 +1876,21 @@ components:
                   type: string
                 config_type:
                   type: string
+                cellular_modem:
+                  type: object
+                  properties:
+                    imei:
+                      type: string
+                    part_num:
+                      type: string
+                    sku:
+                      type: string
+                    plan_start_date:
+                      type: integer
+                      format: int64
+                    plan_end_date:
+                      type: integer
+                      format: int64
       example:
         system_id: 698910067
         total_devices: 11
