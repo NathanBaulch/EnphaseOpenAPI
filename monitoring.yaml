@@ -114,6 +114,16 @@ paths:
                 message: Not Found
                 details: System not found for {:id=>"1"}
                 code: 404
+        422:
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+              example:
+                message: Unprocessable Entity
+                details: System are missing at JSON body location
+                code: 422
         429:
           $ref: '#/components/responses/TooManyRequests'
         501:
