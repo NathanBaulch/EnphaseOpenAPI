@@ -138,7 +138,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: system
+      x-codegen-request-body-name: params
   /partner/activations/{id}:
     get:
       operationId: GetPartnerActivation
@@ -236,7 +236,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: system
+      x-codegen-request-body-name: params
   /activations/{id}:
     delete:
       operationId: DeleteActivation
@@ -407,7 +407,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: user
+      x-codegen-request-body-name: params
     post:
       operationId: GrantActivationUserAccess
       tags:
@@ -619,7 +619,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: production_mode
+      x-codegen-request-body-name: params
   /companies/{company_id}/users:
     get:
       operationId: GetCompanyUsers
@@ -715,7 +715,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: user
+      x-codegen-request-body-name: params
   /users:
     post:
       operationId: CreateUser
@@ -756,7 +756,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: user
+      x-codegen-request-body-name: params
   /users/search:
     get:
       operationId: SearchUsers
@@ -931,7 +931,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: user
+      x-codegen-request-body-name: params
   /users/{user_id}:
     get:
       operationId: GetUser
@@ -1043,7 +1043,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: user
+      x-codegen-request-body-name: params
   /users/self:
     get:
       operationId: GetSelfUser
@@ -1210,7 +1210,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         501:
           $ref: '#/components/responses/NotImplemented'
-      x-codegen-request-body-name: estimate
+      x-codegen-request-body-name: params
   /grid_profiles:
     get:
       operationId: GetGridProfiles
@@ -1887,39 +1887,12 @@ components:
                   This attribute is not present if the calling user's company does not have a reference for this system.
               other_references:
                 type: array
-                description: Identifiers assigned to this activation by other companies which have access to it.
-                  This attribute is not present if there are no other references for this system.
+                description: Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system.
                 items:
                   type: string
                   description: Name of the reference.
               address:
-                type: object
-                description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
-                properties:
-                  street1:
-                    type: string
-                    description: Street line 1.
-                  city:
-                    type: string
-                    description: City.
-                  state:
-                    type: string
-                    description: State.
-                  postal_code:
-                    type: string
-                    description: Postal code.
-                  country:
-                    type: string
-                    description: Country.
-                  latitude:
-                    type: integer
-                    description: Latitude.
-                  longitude:
-                    type: integer
-                    description: Longitude.
-                  street2:
-                    type: string
-                    description: Street line 2. This field is optional.
+                $ref: '#/components/schemas/Address'
         next:
           type: string
           description: If the first request does not return a full list, use the 'next' attribute in the response body to request the next page.
@@ -1956,1453 +1929,15 @@ components:
               street2: 2nd Street
         next: 4e6a6b344f5445774d446b350a
     CreatePartnerActivationRequest:
-      required:
-        - system_name
-      type: object
-      properties:
-        system_name:
-          type: string
-          description: Name of the system. Limit 255 characters.
-        system_type:
-          type: string
-          description: Type of the system. Possible values are 'residential', 'commercial', 'other'. Default 'residential'.
-        internet_connection:
-          type: string
-          description: How the system's Envoys connect to the Internet. Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
-        lease:
-          type: boolean
-          description: Whether the system is leased. Default false.
-        operational:
-          type: boolean
-          description: Whether this system is permitted to operate. Default true.
-        owner_id:
-          type: integer
-          description: Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself.
-            If the user of the API is an installer then use the Search user API to get the owner user ID.
-            If the owner not exist in the enlighten then use Create home owner API to create it newly.
-        host_id:
-          type: integer
-          description: Enlighten ID of the system host. System host must be an Enlighten user. Optional.
-            If the user of the API is an installer then use the Search user API to get the host user ID.
-            If the host not exist in the enlighten then use Create home owner API to create it newly.
-        installer_id:
-          type: integer
-          description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
-        allow_public_access:
-          type: boolean
-          description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
-        interconnect_date:
-          type: string
-          description: When the system was approved to connect to the grid. Date format.
-        source:
-          type: string
-          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
-            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
-        array_type:
-          type: string
-          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
-            All other values will be ignored. To unset array_type, pass null.
-          enum:
-            - fixed_open_rack
-            - fixed_roof_mount
-            - single_axis_tracking
-            - single_axis_backtracking
-            - dual_axis_tracking
-        attachment_type:
-          type: string
-          description: How the microinverters are attached to the panels.
-            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
-          enum:
-            - rack_mount
-            - zep
-            - acm
-            - bipv
-            - frame_mount
-            - railless_mount
-        ensemble_envoy:
-          type: string
-          description: Specifies serial number of ensemble envoy in multi envoy system.
-        grid_profile:
-          type: string
-          description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
-        requested_profile:
-          type: string
-        requested_report_freq:
-          type: string
-        voltage:
-          type: string
-          description: Supported voltage/phase associated with a commercial system inside North America.
-            If system type is not commercial, or if the installer exists & installer's country is not inside North America, or if the system's country is not inside North America, then the voltage value would be null.
-        envoy_serial_numbers:
-          type: array
-          description: A list of Envoys installed on this system.
-          items:
-            type: string
-        pv_manufacturer:
-          type: integer
-          description: Enlighten ID of the PV manufacturer associated with the PV model installed on the system. See PvManufacturers for how to retrieve PV manufacturer IDs.
-        pv_manufacturer_name:
-          type: string
-          description: Name of the Custom PV module manufacturer associated with the system.
-        pv_model:
-          type: integer
-          description: Enlighten ID of the PV model installed on the system. See PvManufacturers and PvModels for how to retrieve PV model IDs.
-        pv_model_name:
-          type: string
-          description: Name of the Custom PV module model associated with the system.
-        pv_module_power_rating:
-          minimum: 0
-          type: number
-          description: Power rating (in W) of the PV module installed on the system.
-          format: float
-        pv_module_type:
-          type: integer
-          description: Type ID of the PV module installed on the system. 1 -> 'Mono-facial', 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'.
-        expected_envoy_count:
-          type: integer
-          description: Total envoys the system is supposed to have.
-        expected_pcu_count:
-          type: integer
-          description: Total PCUs the system is supposed to have.
-        expected_acb_count:
-          type: integer
-          description: Total acbs the system is supposed to have.
-        expected_nsr_count:
-          type: integer
-          description: Total nsrs the system is supposed to have.
-        expected_meter_count:
-          type: integer
-          description: Total meters the system is supposed to have.
-        expected_encharge_count:
-          type: integer
-          description: Total encharges the system is supposed to have.
-        expected_enpower_count:
-          type: integer
-          description: Total enpowers the system is supposed to have.
-        reference:
-          type: string
-          description: Identifier of this system as provided by the calling user's company.
-            This attribute is not present if the calling user's company does not have a reference for this system. This value should be alphanumeric.
-        encharge:
-          type: array
-          description: Encharge detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              encharge_serial_numbers:
-                type: array
-                description: Encharge serial numbers.
-                items:
-                  type: string
-        enpower:
-          type: array
-          description: Enpower detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              enpower_serial_numbers:
-                type: array
-                description: Enpower serial numbers.
-                items:
-                  type: string
-        address:
-          required:
-            - city
-            - country
-            - postal_code
-            - state
-            - street1
-          type: object
-          description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
-          properties:
-            street1:
-              type: string
-            street2:
-              type: string
-            city:
-              type: string
-            state:
-              type: string
-            country:
-              type: string
-            postal_code:
-              type: string
+      $ref: '#/components/schemas/SystemParams'
     CreatePartnerActivationResponse:
-      type: object
-      properties:
-        system_id:
-          type: integer
-          description: Enlighten ID of this system. System-generated.
-        system_name:
-          type: string
-          description: Name of the system.
-        system_type:
-          type: string
-          description: Type of the system. One of 'residential', 'commercial', or 'other'. Default 'residential'. Cannot be null.
-        status:
-          type: string
-          description: System's status.
-        stage:
-          type: integer
-          description: What stage of the activation process this activation is in. System-generated.
-        internet_connection:
-          type: string
-          description: How the system's Envoys connect to the Internet.
-            Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
-        lease:
-          type: boolean
-          description: Whether the system is leased. Default false.
-        operational:
-          type: boolean
-          description: Whether this system is permitted to operate. Default true.
-        owner:
-          type: object
-          description: Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself.
-            If the query parameter 'expand=owner' passed in the request owner detail will appear in the response.
-          properties:
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-            phone:
-              type: string
-            active:
-              type: boolean
-              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
-            user_id:
-              type: integer
-            user_roles:
-              type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
-              items:
-                type: string
-                description: Role.
-            enlighten_emails:
-              type: boolean
-            enlighten_view:
-              type: string
-            uri:
-              type: string
-            updated_at:
-              type: integer
-        owner_id:
-          type: integer
-          description: Enlighten ID of this system owner. System-generated. This field is optional.
-        host:
-          type: object
-          description: Name of the system host. Please see "Specifying an Owner and Lease Arrangement", above, for more information.
-            If the query parameter 'expand=host' passed in the request host detail will appear in the response.
-          properties:
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-            phone:
-              type: string
-            active:
-              type: boolean
-              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
-            user_id:
-              type: integer
-            user_roles:
-              type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
-              items:
-                type: string
-                description: Role.
-            enlighten_emails:
-              type: boolean
-            enlighten_view:
-              type: string
-            uri:
-              type: string
-            updated_at:
-              type: integer
-        host_id:
-          type: integer
-          description: Enlighten ID of this system host. System-generated. This field is optional.
-        installer_name:
-          type: string
-          description: Name of the installer.
-        installer_id:
-          type: integer
-          description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
-        uri:
-          type: string
-          description: URI for this activation.
-        updated_at:
-          type: integer
-          description: Activation last updated timestamp.
-        reference:
-          type: string
-          description: Identifier of this system as provided by the calling user's company.
-            This attribute is not present if the calling user's company does not have a reference for this system.
-        other_references:
-          type: array
-          description: Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system.
-          items:
-            type: string
-            description: Name of the reference.
-        allow_public_access:
-          type: boolean
-          description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
-        interconnect_date:
-          type: string
-          description: When the system was approved to connect to the grid.
-        installer_support_email:
-          type: string
-          description: Installer support email.
-        source:
-          type: string
-          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
-            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
-        array_type:
-          type: string
-          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
-            All other values will be ignored. To unset array_type, pass null.
-        attachment_type:
-          type: string
-          description: How the microinverters are attached to the panels.
-            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
-        ensemble_envoy:
-          type: string
-          description: Specifies serial number of ensemble envoy in multi envoy system.
-        production_mode:
-          type: string
-          description: Possible value is 'on' and 'off'.
-        grid_profile:
-          type: string
-          description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
-        requested_profile:
-          type: string
-        requested_report_freq:
-          type: string
-        voltage:
-          type: string
-          description: Supported voltage/phase associated with a commercial system inside North America.
-            If system type is not commercial, or if the installer exists & installer's country is not inside North America, or if the system's country is not inside North America, then the voltage value would be null.
-        envoy_serial_numbers:
-          type: array
-          description: A list of Envoys installed on this system.
-          items:
-            type: string
-            description: Envoy serial number.
-        expected_envoy_count:
-          type: integer
-          description: Total envoys the system is supposed to have.
-        expected_pcu_count:
-          type: integer
-          description: Total PCUs the system is supposed to have.
-        expected_nsr_count:
-          type: integer
-          description: Total nsrs the system is supposed to have.
-        expected_meter_count:
-          type: integer
-          description: Total meters the system is supposed to have.
-        expected_encharge_count:
-          type: integer
-          description: Total encharges the system is supposed to have.
-        expected_enpower_count:
-          type: integer
-          description: Total enpowers the system is supposed to have.
-        pv_manufacturer:
-          type: integer
-          description: Enlighten ID of the PV manufacturer associated with the PV model installed on the system. See PvManufacturers for how to retrieve PV manufacturer IDs.
-        pv_manufacturer_name:
-          type: string
-          description: Name of the Custom PV module manufacturer associated with the system.
-        pv_model:
-          type: integer
-          description: Enlighten ID of the PV model installed on the system. See PvManufacturers and PvModels for how to retrieve PV model IDs.
-        pv_model_name:
-          type: string
-          description: Name of the Custom PV module model associated with the system.
-        pv_module_power_rating:
-          minimum: 0
-          type: number
-          description: Power rating (in W) of the PV module installed on the system.
-          format: float
-        pv_module_type:
-          type: integer
-          description: Type ID of the PV module installed on the system. 1 -> 'Mono-facial', 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'.
-        encharge:
-          type: array
-          description: Encharge detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              encharge_serial_numbers:
-                type: array
-                description: Encharge serial numbers.
-                items:
-                  type: string
-                  description: Encharge serial number.
-        enpower:
-          type: array
-          description: Enpower detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              enpower_serial_numbers:
-                type: array
-                description: Enpower serial numbers.
-                items:
-                  type: string
-                  description: Enpower serial number.
-        address:
-          type: object
-          description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
-          properties:
-            street1:
-              type: string
-              description: Street line 1.
-            city:
-              type: string
-              description: City.
-            state:
-              type: string
-              description: State.
-            postal_code:
-              type: string
-              description: Postal code.
-            country:
-              type: string
-              description: Country.
-            latitude:
-              type: integer
-              description: Latitude.
-            longitude:
-              type: integer
-              description: Longitude.
-            street2:
-              type: string
-              description: Street line 2. This field is optional.
-      example:
-        system_id: 12345
-        system_name: Enphase system
-        system_type: residential
-        status: Microinverters Not Reporting
-        stage: 5
-        internet_connection: dialup
-        lease: false
-        operational: true
-        owner:
-          first_name: Test
-          last_name: Owner
-          email: testowner@domain.com
-          phone: "9876543210"
-          active: true
-          user_id: 246
-          user_roles: [ ]
-          enlighten_emails: false
-          enlighten_view: manager
-          uri: /api/v4/activations/12345/users/246.json
-          updated_at: 1444834807
-        owner_id: 246
-        host:
-          first_name: Test
-          last_name: User
-          email: testhost@domain.com
-          phone: "9876543210"
-          active: true
-          user_id: 248
-          user_roles: [ ]
-          enlighten_emails: false
-          enlighten_view: manager
-          uri: /api/v4/activations/12345/users/248.json
-          updated_at: 1444834807
-        host_id: 248
-        installer_name: Enphase & Energy
-        installer_id: 5
-        uri: /api/v4/partner/activations/12345.json
-        updated_at: 1628156578
-        allow_public_access: true
-        interconnect_date: ""
-        installer_support_email: ""
-        source: microinverters
-        array_type: ""
-        attachment_type: ""
-        ensemble_envoy: ""
-        production_mode: on
-        grid_profile: ""
-        requested_profile: ""
-        requested_report_freq: ""
-        voltage: ""
-        envoy_serial_numbers:
-          - "202040004942"
-        expected_envoy_count: 1
-        expected_pcu_count: 4
-        expected_acb_count: 0
-        expected_nsr_count: 0
-        expected_meter_count: 0
-        expected_encharge_count: 4
-        expected_enpower_count: 1
-        pv_manufacturer: ""
-        pv_manufacturer_name: ""
-        pv_model: ""
-        pv_model_name: ""
-        pv_module_power_rating: ""
-        pv_module_type: ""
-        encharge:
-          - envoy_serial_number: "202040004942"
-            encharge_serial_numbers:
-              - "122038023664"
-              - "122038023672"
-              - "122050050473"
-              - "122050050474"
-        enpower:
-          - envoy_serial_number: "202040004942"
-            enpower_serial_numbers:
-              - "122051103228"
-        address:
-          street1: Bangalore Lane
-          city: San Diego
-          state: CA
-          postal_code: "92126"
-          country: US
-          latitude: 32.912785
-          longitude: -117.153778
+      $ref: '#/components/schemas/System'
     GetPartnerActivationResponse:
-      type: object
-      properties:
-        system_id:
-          type: integer
-          description: Enlighten ID of this system. System-generated.
-        system_name:
-          type: string
-          description: Name of the system.
-        system_type:
-          type: string
-          description: Type of the system. One of 'residential', 'commercial', or 'other'. Default 'residential'. Cannot be null.
-        status:
-          type: string
-          description: System's status.
-        stage:
-          type: integer
-          description: What stage of the activation process this activation is in. System-generated.
-        internet_connection:
-          type: string
-          description: How the system's Envoys connect to the Internet.
-            Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
-        lease:
-          type: boolean
-          description: Whether the system is leased. Default false.
-        operational:
-          type: boolean
-          description: Whether this system is permitted to operate. Default true.
-        owner:
-          type: object
-          description: Name of the system owner. Owner must be an Enlighten user.
-            If the user of the API is a self-installer, the owner must be himself. If the query parameter 'expand=owner' passed in the request owner detail will appear in the response.
-          properties:
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-            phone:
-              type: string
-            active:
-              type: boolean
-              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
-            user_id:
-              type: integer
-            user_roles:
-              type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
-              items:
-                type: string
-                description: Role.
-            enlighten_emails:
-              type: boolean
-            enlighten_view:
-              type: string
-            uri:
-              type: string
-            updated_at:
-              type: integer
-            company:
-              type: object
-              description: A hash of information about the owner's company. Use the query parameter 'expand=owner.company' to get owner company detail.
-              properties:
-                company_id:
-                  type: integer
-                company_name:
-                  type: string
-                location:
-                  type: string
-                roles:
-                  type: array
-                  description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer'].
-                    For other role roles will be empty.
-                  items:
-                    type: string
-                    description: Role.
-                uri:
-                  type: string
-        owner_id:
-          type: integer
-          description: Enlighten ID of this system owner. System-generated. This field is optional.
-        host:
-          type: object
-          description: Name of the system host. Please see "Specifying an Owner and Lease Arrangement", above, for more information.
-            If the query parameter 'expand=host' passed in the request host detail will appear in the response.
-          properties:
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-            phone:
-              type: string
-            active:
-              type: boolean
-              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
-            user_id:
-              type: integer
-            user_roles:
-              type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
-              items:
-                type: string
-                description: Role.
-            enlighten_emails:
-              type: boolean
-            enlighten_view:
-              type: string
-            updated_at:
-              type: integer
-            company:
-              type: object
-              description: A hash of information about the system host's company. Use the query parameter 'expand=host.company' to get system host company detail.
-              properties:
-                company_id:
-                  type: integer
-                company_name:
-                  type: string
-                location:
-                  type: string
-                roles:
-                  type: array
-                  description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer'].
-                    For other role roles will be empty.
-                  items:
-                    type: string
-                    description: Role.
-                uri:
-                  type: string
-            uri:
-              type: string
-        host_id:
-          type: integer
-          description: Enlighten ID of this system host. System-generated. This field is optional.
-        installer_name:
-          type: string
-          description: Name of the installer.
-        installer_id:
-          type: integer
-          description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
-        uri:
-          type: string
-          description: URI for this activation.
-        updated_at:
-          type: integer
-          description: Activation last updated timestamp.
-        reference:
-          type: string
-          description: Identifier of this system as provided by the calling user's company.
-            This attribute is not present if the calling user's company does not have a reference for this system.
-        other_references:
-          type: array
-          description: Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system.
-          items:
-            type: string
-            description: Name of the reference.
-        allow_public_access:
-          type: boolean
-          description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
-        interconnect_date:
-          type: string
-          description: When the system was approved to connect to the grid.
-        installer_support_email:
-          type: string
-          description: Installer support email.
-        source:
-          type: string
-          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
-            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
-        array_type:
-          type: string
-          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
-            All other values will be ignored. To unset array_type, pass null.
-        attachment_type:
-          type: string
-          description: How the microinverters are attached to the panels.
-            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
-        ensemble_envoy:
-          type: string
-          description: Specifies serial number of ensemble envoy in multi envoy system.
-        production_mode:
-          type: string
-          description: Possible value is 'on' and 'off'.
-        grid_profile:
-          type: string
-          description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
-        requested_profile:
-          type: string
-        requested_report_freq:
-          type: string
-        voltage:
-          type: string
-          description: Supported voltage/phase associated with a commercial system inside North America.
-            If system type is not commercial, or if the installer exists & installer's country is not inside North America, or if the system's country is not inside North America, then the voltage value would be null.
-        envoy_serial_numbers:
-          type: array
-          description: A list of Envoys installed on this system.
-          items:
-            type: string
-            description: Envoy serial number.
-        expected_envoy_count:
-          type: integer
-          description: Total envoys the system is supposed to have.
-        expected_pcu_count:
-          type: integer
-          description: Total PCUs the system is supposed to have.
-        expected_nsr_count:
-          type: integer
-          description: Total nsrs the system is supposed to have.
-        expected_meter_count:
-          type: integer
-          description: Total meters the system is supposed to have.
-        expected_encharge_count:
-          type: integer
-          description: Total encharges the system is supposed to have.
-        expected_enpower_count:
-          type: integer
-          description: Total enpowers the system is supposed to have.
-        pv_manufacturer:
-          type: integer
-          description: Enlighten ID of the PV manufacturer associated with the PV model installed on the system. See PvManufacturers for how to retrieve PV manufacturer IDs.
-        pv_manufacturer_name:
-          type: string
-          description: Name of the Custom PV module manufacturer associated with the system.
-        pv_model:
-          type: integer
-          description: Enlighten ID of the PV model installed on the system. See PvManufacturers and PvModels for how to retrieve PV model IDs.
-        pv_model_name:
-          type: string
-          description: Name of the Custom PV module model associated with the system.
-        pv_module_power_rating:
-          minimum: 0
-          type: number
-          description: Power rating (in W) of the PV module installed on the system.
-          format: float
-        pv_module_type:
-          type: integer
-          description: Type ID of the PV module installed on the system. 1 -> 'Mono-facial', 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'.
-        encharge:
-          type: array
-          description: Encharge detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              encharge_serial_numbers:
-                type: array
-                description: Encharge serial numbers.
-                items:
-                  type: string
-                  description: Encharge serial number.
-        enpower:
-          type: array
-          description: Enpower detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              enpower_serial_numbers:
-                type: array
-                description: Enpower serial numbers.
-                items:
-                  type: string
-                  description: Enpower serial number.
-        address:
-          type: object
-          description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
-          properties:
-            street1:
-              type: string
-              description: Street line 1.
-            city:
-              type: string
-              description: City.
-            state:
-              type: string
-              description: State.
-            postal_code:
-              type: string
-              description: Postal code.
-            country:
-              type: string
-              description: Country.
-            latitude:
-              type: integer
-              description: Latitude.
-            longitude:
-              type: integer
-              description: Longitude.
-            street2:
-              type: string
-              description: Street line 2. This field is optional.
-      example:
-        system_id: 12345
-        system_name: Enphase system
-        system_type: residential
-        status: Microinverters Not Reporting
-        stage: 5
-        internet_connection: dialup
-        lease: false
-        operational: true
-        owner:
-          first_name: Test
-          last_name: Owner
-          email: testowner@domain.com
-          phone: "9876543210"
-          active: true
-          user_id: 246
-          user_roles: [ ]
-          enlighten_emails: false
-          enlighten_view: manager
-          uri: /api/v4/activations/12345/users/246.json
-          updated_at: 1444834807
-          company:
-            company_id: 67
-            company_name: Test Installer
-            location: Petaluma, CA - US
-            roles:
-              - installer
-            uri: /api/v4/companies/67.json
-        owner_id: 246
-        host:
-          first_name: Test
-          last_name: User
-          email: testhost@domain.com
-          phone: "9876543210"
-          active: true
-          user_id: 248
-          user_roles: [ ]
-          enlighten_emails: false
-          enlighten_view: manager
-          uri: /api/v4/activations/12345/users/248.json
-          updated_at: 1444834807
-          company:
-            company_id: 67
-            company_name: Test Installer
-            location: Petaluma, CA - US
-            roles:
-              - installer
-            uri: /api/v4/companies/67.json
-        host_id: 248
-        installer_name: Enphase & Energy
-        installer_id: 5
-        uri: /api/v4/partner/activations/12345.json
-        updated_at: 1628156578
-        allow_public_access: true
-        interconnect_date: ""
-        installer_support_email: ""
-        source: microinverters
-        array_type: ""
-        attachment_type: ""
-        ensemble_envoy: ""
-        production_mode: on
-        grid_profile: ""
-        requested_profile: ""
-        requested_report_freq: ""
-        voltage: ""
-        envoy_serial_numbers:
-          - "202040004942"
-        expected_envoy_count: 1
-        expected_pcu_count: 4
-        expected_acb_count: 0
-        expected_nsr_count: 0
-        expected_meter_count: 0
-        expected_encharge_count: 4
-        expected_enpower_count: 1
-        pv_manufacturer: ""
-        pv_manufacturer_name: ""
-        pv_model: ""
-        pv_model_name: ""
-        pv_module_power_rating: ""
-        pv_module_type: ""
-        encharge:
-          - envoy_serial_number: "202040004942"
-            encharge_serial_numbers:
-              - "122038023664"
-              - "122038023672"
-              - "122050050473"
-              - "122050050474"
-        enpower:
-          - envoy_serial_number: "202040004942"
-            enpower_serial_numbers:
-              - "122051103228"
-        address:
-          street1: Bangalore Lane
-          city: San Diego
-          state: CA
-          postal_code: "92126"
-          country: US
-          latitude: 32.912785
-          longitude: -117.153778
+      $ref: '#/components/schemas/System'
     UpdatePartnerActivationRequest:
-      required:
-        - system_name
-      type: object
-      properties:
-        system_name:
-          type: string
-          description: Name of the system. Limit 255 characters.
-        system_type:
-          type: string
-          description: Type of the system. Possible values are 'residential', 'commercial', 'other'. Default 'residential'.
-        internet_connection:
-          type: string
-          description: How the system's Envoys connect to the Internet. Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
-        lease:
-          type: boolean
-          description: Whether the system is leased. Default false.
-        operational:
-          type: boolean
-          description: Whether this system is permitted to operate. Default true.
-        owner_id:
-          type: integer
-          description: Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself.
-            If the user of the API is an installer then use the Search user API to get the owner user ID.
-            If the owner not exist in the enlighten then use Create home owner API to create it newly.
-        host_id:
-          type: integer
-          description: Enlighten ID of the system host. System host must be an Enlighten user. Optional.
-            If the user of the API is an installer then use the Search user API to get the host user ID.
-            If the host not exist in the enlighten then use Create home owner API to create it newly.
-        installer_id:
-          type: integer
-          description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
-        allow_public_access:
-          type: boolean
-          description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
-        interconnect_date:
-          type: string
-          description: When the system was approved to connect to the grid. Date format.
-        source:
-          type: string
-          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
-            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
-        array_type:
-          type: string
-          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
-            All other values will be ignored. To unset array_type, pass null.
-          enum:
-            - fixed_open_rack
-            - fixed_roof_mount
-            - single_axis_tracking
-            - single_axis_backtracking
-            - dual_axis_tracking
-        attachment_type:
-          type: string
-          description: How the microinverters are attached to the panels.
-            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
-          enum:
-            - rack_mount
-            - zep
-            - acm
-            - bipv
-            - frame_mount
-            - railless_mount
-        ensemble_envoy:
-          type: string
-          description: Specifies serial number of ensemble envoy in multi envoy system.
-        grid_profile:
-          type: string
-          description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
-        requested_profile:
-          type: string
-        requested_report_freq:
-          type: string
-        voltage:
-          type: string
-          description: Supported voltage/phase associated with a commercial system inside North America.
-            If system type is not commercial, or if the installer exists & installer's country is not inside North America, or if the system's country is not inside North America, then the voltage value would be null.
-        envoy_serial_numbers:
-          type: array
-          description: A list of Envoys installed on this system.
-          items:
-            type: string
-        pv_manufacturer:
-          type: integer
-          description: Enlighten ID of the PV manufacturer associated with the PV model installed on the system. See PvManufacturers for how to retrieve PV manufacturer IDs.
-        pv_manufacturer_name:
-          type: string
-          description: Name of the Custom PV module manufacturer associated with the system.
-        pv_model:
-          type: integer
-          description: Enlighten ID of the PV model installed on the system. See PvManufacturers and PvModels for how to retrieve PV model IDs.
-        pv_model_name:
-          type: string
-          description: Name of the Custom PV module model associated with the system.
-        pv_module_power_rating:
-          minimum: 0
-          type: number
-          description: Power rating (in W) of the PV module installed on the system.
-          format: float
-        pv_module_type:
-          type: integer
-          description: Type ID of the PV module installed on the system. 1 -> 'Mono-facial', 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'.
-        expected_envoy_count:
-          type: integer
-          description: Total envoys the system is supposed to have.
-        expected_pcu_count:
-          type: integer
-          description: Total PCUs the system is supposed to have.
-        expected_acb_count:
-          type: integer
-          description: Total acbs the system is supposed to have.
-        expected_nsr_count:
-          type: integer
-          description: Total nsrs the system is supposed to have.
-        expected_meter_count:
-          type: integer
-          description: Total meters the system is supposed to have.
-        expected_encharge_count:
-          type: integer
-          description: Total encharges the system is supposed to have.
-        expected_enpower_count:
-          type: integer
-          description: Total enpowers the system is supposed to have.
-        reference:
-          type: string
-          description: Identifier of this system as provided by the calling user's company.
-            This attribute is not present if the calling user's company does not have a reference for this system. This value should be alphanumeric.
-        encharge:
-          type: array
-          description: Encharge detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              encharge_serial_numbers:
-                type: array
-                description: Encharge serial numbers.
-                items:
-                  type: string
-        enpower:
-          type: array
-          description: Enpower detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              enpower_serial_numbers:
-                type: array
-                description: Enpower serial numbers.
-                items:
-                  type: string
-        address:
-          required:
-            - city
-            - country
-            - postal_code
-            - state
-            - street1
-          type: object
-          description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
-          properties:
-            street1:
-              type: string
-            street2:
-              type: string
-            city:
-              type: string
-            state:
-              type: string
-            country:
-              type: string
-            postal_code:
-              type: string
+      $ref: '#/components/schemas/SystemParams'
     UpdatePartnerActivationResponse:
-      type: object
-      properties:
-        system_id:
-          type: integer
-          description: Enlighten ID of this system. System-generated.
-        system_name:
-          type: string
-          description: Name of the system.
-        system_type:
-          type: string
-          description: Type of the system. One of 'residential', 'commercial', or 'other'. Default 'residential'. Cannot be null.
-        status:
-          type: string
-          description: System's status.
-        stage:
-          type: integer
-          description: What stage of the activation process this activation is in. System-generated.
-        internet_connection:
-          type: string
-          description: How the system's Envoys connect to the Internet.
-            Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
-        lease:
-          type: boolean
-          description: Whether the system is leased. Default false.
-        operational:
-          type: boolean
-          description: Whether this system is permitted to operate. Default true.
-        owner:
-          type: object
-          description: Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself.
-            If the query parameter 'expand=owner' passed in the request owner detail will appear in the response.
-          properties:
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-            phone:
-              type: string
-            active:
-              type: boolean
-              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
-            user_id:
-              type: integer
-            user_roles:
-              type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
-              items:
-                type: string
-                description: Role.
-            enlighten_emails:
-              type: boolean
-            enlighten_view:
-              type: string
-            uri:
-              type: string
-            updated_at:
-              type: integer
-        owner_id:
-          type: integer
-          description: Enlighten ID of this system owner. System-generated. This field is optional.
-        host:
-          type: object
-          description: Name of the system host. Please see "Specifying an Owner and Lease Arrangement", above, for more information.
-            If the query parameter 'expand=host' passed in the request host detail will appear in the response.
-          properties:
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-            phone:
-              type: string
-            active:
-              type: boolean
-              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
-            user_id:
-              type: integer
-            user_roles:
-              type: array
-              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-                For other users user_roles will be empty.
-              items:
-                type: string
-                description: Role.
-            enlighten_emails:
-              type: boolean
-            enlighten_view:
-              type: string
-            uri:
-              type: string
-            updated_at:
-              type: integer
-        host_id:
-          type: integer
-          description: Enlighten ID of this system host. System-generated. This field is optional.
-        installer_name:
-          type: string
-          description: Name of the installer.
-        installer_id:
-          type: integer
-          description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
-        uri:
-          type: string
-          description: URI for this activation.
-        updated_at:
-          type: integer
-          description: Activation last updated timestamp.
-        reference:
-          type: string
-          description: Identifier of this system as provided by the calling user's company.
-            This attribute is not present if the calling user's company does not have a reference for this system.
-        other_references:
-          type: array
-          description: Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system.
-          items:
-            type: string
-            description: Name of the reference.
-        allow_public_access:
-          type: boolean
-          description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
-        interconnect_date:
-          type: string
-          description: When the system was approved to connect to the grid.
-        installer_support_email:
-          type: string
-          description: Installer support email.
-        source:
-          type: string
-          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
-            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
-        array_type:
-          type: string
-          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
-            All other values will be ignored. To unset array_type, pass null.
-        attachment_type:
-          type: string
-          description: How the microinverters are attached to the panels.
-            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
-        ensemble_envoy:
-          type: string
-          description: Specifies serial number of ensemble envoy in multi envoy system.
-        production_mode:
-          type: string
-          description: Possible value is 'on' and 'off'.
-        grid_profile:
-          type: string
-          description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
-        requested_profile:
-          type: string
-        requested_report_freq:
-          type: string
-        voltage:
-          type: string
-          description: Supported voltage/phase associated with a commercial system inside North America.
-            If system type is not commercial, or if the installer exists & installer's country is not inside North America, or if the system's country is not inside North America, then the voltage value would be null.
-        envoy_serial_numbers:
-          type: array
-          description: A list of Envoys installed on this system.
-          items:
-            type: string
-            description: Envoy serial number.
-        expected_envoy_count:
-          type: integer
-          description: Total envoys the system is supposed to have.
-        expected_pcu_count:
-          type: integer
-          description: Total PCUs the system is supposed to have.
-        expected_nsr_count:
-          type: integer
-          description: Total nsrs the system is supposed to have.
-        expected_meter_count:
-          type: integer
-          description: Total meters the system is supposed to have.
-        expected_encharge_count:
-          type: integer
-          description: Total encharges the system is supposed to have.
-        expected_enpower_count:
-          type: integer
-          description: Total enpowers the system is supposed to have.
-        pv_manufacturer:
-          type: integer
-          description: Enlighten ID of the PV manufacturer associated with the PV model installed on the system. See PvManufacturers for how to retrieve PV manufacturer IDs.
-        pv_manufacturer_name:
-          type: string
-          description: Name of the Custom PV module manufacturer associated with the system.
-        pv_model:
-          type: integer
-          description: Enlighten ID of the PV model installed on the system. See PvManufacturers and PvModels for how to retrieve PV model IDs.
-        pv_model_name:
-          type: string
-          description: Name of the Custom PV module model associated with the system.
-        pv_module_power_rating:
-          minimum: 0
-          type: number
-          description: Power rating (in W) of the PV module installed on the system.
-          format: float
-        pv_module_type:
-          type: integer
-          description: Type ID of the PV module installed on the system. 1 -> 'Mono-facial', 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'.
-        encharge:
-          type: array
-          description: Encharge detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              encharge_serial_numbers:
-                type: array
-                description: Encharge serial numbers.
-                items:
-                  type: string
-                  description: Encharge serial number.
-        enpower:
-          type: array
-          description: Enpower detail.
-          items:
-            type: object
-            properties:
-              envoy_serial_number:
-                type: string
-                description: Envoy serial number.
-              enpower_serial_numbers:
-                type: array
-                description: Enpower serial numbers.
-                items:
-                  type: string
-                  description: Enpower serial number.
-        address:
-          type: object
-          description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
-          properties:
-            street1:
-              type: string
-              description: Street line 1.
-            city:
-              type: string
-              description: City.
-            state:
-              type: string
-              description: State.
-            postal_code:
-              type: string
-              description: Postal code.
-            country:
-              type: string
-              description: Country.
-            latitude:
-              type: integer
-              description: Latitude.
-            longitude:
-              type: integer
-              description: Longitude.
-            street2:
-              type: string
-              description: Street line 2. This field is optional.
-      example:
-        system_id: 12345
-        system_name: Enphase system
-        system_type: residential
-        status: Microinverters Not Reporting
-        stage: 5
-        internet_connection: dialup
-        lease: false
-        operational: true
-        owner:
-          first_name: Test
-          last_name: Owner
-          email: testowner@domain.com
-          phone: "9876543210"
-          active: true
-          user_id: 246
-          user_roles: [ ]
-          enlighten_emails: false
-          enlighten_view: manager
-          uri: /api/v4/activations/12345/users/246.json
-          updated_at: 1444834807
-        owner_id: 246
-        host:
-          first_name: Test
-          last_name: User
-          email: testhost@domain.com
-          phone: "9876543210"
-          active: true
-          user_id: 248
-          user_roles: [ ]
-          enlighten_emails: false
-          enlighten_view: manager
-          uri: /api/v4/activations/12345/users/248.json
-          updated_at: 1444834807
-        host_id: 248
-        installer_name: Enphase & Energy
-        installer_id: 5
-        uri: /api/v4/partner/activations/12345.json
-        updated_at: 1628156578
-        allow_public_access: true
-        interconnect_date: ""
-        installer_support_email: ""
-        source: microinverters
-        array_type: ""
-        attachment_type: ""
-        ensemble_envoy: ""
-        production_mode: on
-        grid_profile: ""
-        requested_profile: ""
-        requested_report_freq: ""
-        voltage: ""
-        envoy_serial_numbers:
-          - "202040004942"
-        expected_envoy_count: 1
-        expected_pcu_count: 4
-        expected_nsr_count: 0
-        expected_meter_count: 0
-        expected_encharge_count: 4
-        expected_enpower_count: 1
-        pv_manufacturer: ""
-        pv_manufacturer_name: ""
-        pv_model: ""
-        pv_model_name: ""
-        pv_module_power_rating: ""
-        pv_module_type: ""
-        encharge:
-          - envoy_serial_number: "202040004942"
-            encharge_serial_numbers:
-              - "122038023664"
-              - "122038023672"
-              - "122050050473"
-              - "122050050474"
-        enpower:
-          - envoy_serial_number: "202040004942"
-            enpower_serial_numbers:
-              - "122051103228"
-        address:
-          street1: Bangalore Lane
-          city: San Diego
-          state: CA
-          postal_code: "92126"
-          country: US
-          latitude: 32.912785
-          longitude: -117.153778
+      $ref: '#/components/schemas/System'
     DeleteActivationResponse:
       type: object
       properties:
@@ -3411,163 +1946,11 @@ components:
       example:
         message: Activation deleted successfully
     GetActivationUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-        company:
-          type: object
-          properties:
-            company_id:
-              type: integer
-              description: Enlighten-generated ID of the company to which the user belongs.
-            company_name:
-              type: string
-              description: Name of the company to which the user belongs.
-            location:
-              type: string
-              description: Company location.
-            roles:
-              type: array
-              description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer']. For other role roles will be empty.
-              items:
-                type: string
-                description: Role.
-            uri:
-              type: string
-              description: URI to the show() method for the company. System-generated.
-      example:
-        active: true
-        user_roles: [ ]
-        email: username@domain.com
-        enlighten_emails: false
-        enlighten_view: my
-        first_name: Joe
-        last_name: User
-        phone: 1-800-123-1234
-        uri: /api/v4/users/123456.json
-        user_id: 123456
-        updated_at: 1508128974
-        company:
-          company_id: 5
-          company_name: Enphase Energy
-          location: Petaluma, CA - US
-          roles:
-            - installer
-          uri: /api/v4/companies/5.json
+      $ref: '#/components/schemas/User'
     UpdateActivationUserRequest:
-      type: object
-      properties:
-        company_id:
-          type: integer
-          description: Enlighten-generated ID of the company to which the user belongs, if any. DEPRECATED.
-            Use the 'company' attribute instead, and the query parameter 'expand=company' to get detailed company information.
-        email:
-          type: string
-          description: Email address of the user. Must be unique within Enlighten. Required.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten. Default false.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has. Options 'my' for MyEnlighten, 'manager' for Enlighten Manager. Default 'my'.
-            Users who do not belong to companies should be set to 'my'. You must have an agreement with Enphase Energy to set a user to 'manager'.
-        first_name:
-          type: string
-          description: User's first name. Required.
-        last_name:
-          type: string
-          description: User's last name. Required.
-        phone:
-          type: string
-          description: Telephone number of the user. Optional. Max length 255.
+      $ref: '#/components/schemas/UserParams'
     UpdateActivationUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-      example:
-        active: true
-        user_roles: [ ]
-        email: username@domain.com
-        enlighten_emails: false
-        enlighten_view: my
-        first_name: Joe
-        last_name: User
-        phone: 1-800-123-1234
-        uri: /api/v4/users/123456.json
-        user_id: 123456
-        updated_at: 1565775103
+      $ref: '#/components/schemas/User'
     GrantActivationUserAccessResponse:
       type: object
       properties:
@@ -3656,57 +2039,7 @@ components:
           type: string
           description: Telephone number of the user. Optional. Max length 255.
     CreateCompanyUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-      example:
-        active: true
-        user_roles: [ ]
-        email: sample@gmail.com
-        enlighten_emails: true
-        enlighten_view: manager
-        first_name: Test
-        last_name: User
-        phone: "1234567890"
-        uri: /api/v4/users/2020.json
-        user_id: 2020
-        updated_at: 1565928605
+      $ref: '#/components/schemas/User'
     CreateUserRequest:
       required:
         - email
@@ -3738,57 +2071,7 @@ components:
           type: integer
           description: Enlighten-generated ID of the company to which the user belongs, if any.
     CreateUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-      example:
-        active: true
-        user_roles: [ ]
-        email: sample@gmail.com
-        enlighten_emails: true
-        enlighten_view: my
-        first_name: Test
-        last_name: User
-        phone: "1234567890"
-        uri: /api/v4/users/2020.json
-        user_id: 2020
-        updated_at: 1565928605
+      $ref: '#/components/schemas/User'
     SearchUsersResponse:
       type: object
       properties:
@@ -3802,84 +2085,7 @@ components:
         user_id: 123
         company_id: 1
     GetCompanyUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-        company:
-          type: object
-          properties:
-            company_id:
-              type: integer
-              description: Enlighten-generated ID of the company to which the user belongs.
-            company_name:
-              type: string
-              description: Name of the company to which the user belongs.
-            location:
-              type: string
-              description: Company location.
-            roles:
-              type: array
-              description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer']. For other role roles will be empty.
-              items:
-                type: string
-            uri:
-              type: string
-              description: URI to the show() method for the company. System-generated.
-      example:
-        active: true
-        user_roles: [ ]
-        email: username@domain.com
-        enlighten_emails: false
-        enlighten_view: my
-        first_name: Joe
-        last_name: User
-        phone: 1-800-123-1234
-        uri: /api/v4/users/123456.json
-        user_id: 123456
-        updated_at: 1508128974
-        company:
-          company_id: 5
-          company_name: Enphase Energy
-          location: Petaluma, CA - US
-          roles:
-            - installer
-          uri: /api/v4/companies/5.json
+      $ref: '#/components/schemas/User'
     UpdateCompanyUserRequest:
       type: object
       properties:
@@ -3903,293 +2109,15 @@ components:
           type: string
           description: Telephone number of the user. Optional. Max length 255.
     UpdateCompanyUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-      example:
-        active: true
-        user_roles: [ ]
-        email: sample@gmail.com
-        enlighten_emails: true
-        enlighten_view: manager
-        first_name: Test
-        last_name: User
-        phone: "1234567890"
-        uri: /api/v4/users/210071.json
-        user_id: 210071
-        updated_at: 1565928605
+      $ref: '#/components/schemas/User'
     GetUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-        company:
-          type: object
-          properties:
-            company_id:
-              type: integer
-              description: Enlighten-generated ID of the company to which the user belongs.
-            company_name:
-              type: string
-              description: Name of the company to which the user belongs.
-            location:
-              type: string
-              description: Company location.
-            roles:
-              type: array
-              description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer']. For other role roles will be empty.
-              items:
-                type: string
-            uri:
-              type: string
-              description: URI to the show() method for the company. System-generated.
-      example:
-        active: true
-        user_roles: [ ]
-        email: username@domain.com
-        enlighten_emails: false
-        enlighten_view: my
-        first_name: Joe
-        last_name: User
-        phone: 1-800-123-1234
-        uri: /api/v4/users/123456.json
-        user_id: 123456
-        updated_at: 1508128974
-        company:
-          company_id: 5
-          company_name: Enphase Energy
-          location: Petaluma, CA - US
-          roles:
-            - installer
-          uri: /api/v4/companies/5.json
+      $ref: '#/components/schemas/User'
     UpdateUserRequest:
-      type: object
-      properties:
-        company_id:
-          type: integer
-          description: Enlighten-generated ID of the company to which the user belongs.
-        email:
-          type: string
-          description: Email address of the user. Must be unique within Enlighten. Required.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten. Default false.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has. Options 'my' for MyEnlighten, 'manager' for Enlighten Manager. Default 'my'.
-            Users who do not belong to companies should be set to 'my'. You must have an agreement with Enphase Energy to set a user to 'manager'.
-        first_name:
-          type: string
-          description: User's first name. Required.
-        last_name:
-          type: string
-          description: User's last name. Required.
-        phone:
-          type: string
-          description: Telephone number of the user. Optional. Max length 255.
+      $ref: '#/components/schemas/UserParams'
     UpdateUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-      example:
-        active: true
-        user_roles: [ ]
-        email: username@domain.com
-        enlighten_emails: false
-        enlighten_view: my
-        first_name: Joe
-        last_name: User
-        phone: 1-800-123-1234
-        uri: /api/v4/users/123456.json
-        user_id: 123456
-        updated_at: 1565775103
+      $ref: '#/components/schemas/User'
     GetSelfUserResponse:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the user is allowed to log in to Enlighten.
-        user_roles:
-          type: array
-          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
-            For other users user_roles will be empty.
-          items:
-            type: string
-            description: Role.
-        email:
-          type: string
-          description: Email address of the user.
-        enlighten_emails:
-          type: boolean
-          description: Whether the user receives automated emails from Enlighten.
-        enlighten_view:
-          type: string
-          description: Which view of Enlighten the user has.
-        first_name:
-          type: string
-          description: User's first name.
-        last_name:
-          type: string
-          description: User's last name.
-        phone:
-          type: string
-          description: Telephone number of the user.
-        uri:
-          type: string
-          description: URI to the show() method for the user. System-generated.
-        user_id:
-          type: integer
-          description: Enlighten ID of the user. System-generated.
-        updated_at:
-          type: integer
-          description: Last updated date and time in Epoch format.
-        company:
-          type: object
-          properties:
-            company_id:
-              type: integer
-              description: Enlighten-generated ID of the company to which the user belongs.
-            company_name:
-              type: string
-              description: Name of the company to which the user belongs.
-            location:
-              type: string
-              description: Company location.
-            roles:
-              type: array
-              description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer']. For other role roles will be empty.
-              items:
-                type: string
-                description: Role.
-            uri:
-              type: string
-              description: URI to the show() method for the company. System-generated.
-      example:
-        active: true
-        user_roles: [ ]
-        email: username@domain.com
-        enlighten_emails: false
-        enlighten_view: my
-        first_name: Joe
-        last_name: User
-        phone: 1-800-123-1234
-        uri: /api/v4/users/123456.json
-        user_id: 123456
-        updated_at: 1508128974
-        company:
-          company_id: 5
-          company_name: Enphase Energy
-          location: Petaluma, CA - US
-          roles:
-            - installer
-          uri: /api/v4/companies/5.json
+      $ref: '#/components/schemas/User'
     GetSelfCompanyBranchesResponse:
       type: object
       properties:
@@ -4234,36 +2162,7 @@ components:
               - installer
             uri: /api/v4/companies/81.json
     GetActivationEstimateResponse:
-      type: object
-      properties:
-        system_id:
-          type: integer
-          description: System this estimate is for.
-        degrade_factor:
-          type: string
-          description: Annual production degradation factor for the system, from year 0 of the system's life. Must be 0.0% or higher. Default 0.5%.
-        month_estimates:
-          type: array
-          description: Estimated monthly production of the system, in kWh. A value for each month must be provided, and must be greater than 0.
-            Send an empty array if you need to remove monthly estimates. Default empty array.
-          items:
-            type: string
-      example:
-        system_id: 67
-        degrade_factor: "0.4"
-        month_estimates:
-          - "3112.0"
-          - "3248.0"
-          - "3805.0"
-          - "4437.0"
-          - "4266.0"
-          - "3998.0"
-          - "4034.0"
-          - "3840.0"
-          - "3647.0"
-          - "3551.0"
-          - "2926.0"
-          - "2872.0"
+      $ref: '#/components/schemas/SystemEstimate'
     UpdateActivationEstimateRequest:
       required:
         - degrade_factor
@@ -4280,35 +2179,7 @@ components:
           items:
             type: string
     UpdateActivationEstimateResponse:
-      type: object
-      properties:
-        system_id:
-          type: integer
-          description: System this estimate is for.
-        degrade_factor:
-          type: string
-          description: Annual production degradation factor for the system.
-        month_estimates:
-          type: array
-          description: Estimated monthly production of the system, in kWh.
-          items:
-            type: string
-      example:
-        system_id: 67
-        degrade_factor: "0.4"
-        month_estimates:
-          - "3112.0"
-          - "3248.0"
-          - "3805.0"
-          - "4437.0"
-          - "4266.0"
-          - "3998.0"
-          - "4034.0"
-          - "3840.0"
-          - "3647.0"
-          - "3551.0"
-          - "2926.0"
-          - "2872.0"
+      $ref: '#/components/schemas/SystemEstimate'
     GetGridProfilesResponse:
       type: object
       properties:
@@ -4522,6 +2393,753 @@ components:
           - - 1049
             - ATI 1650-175
     GetSystemTariffSettingsResponse:
+      $ref: '#/components/schemas/TariffSettings'
+    UpdateSystemTariffSettingsRequest:
+      $ref: '#/components/schemas/TariffSettings'
+    UpdateSystemTariffSettingsResponse:
+      type: object
+      properties:
+        task:
+          type: object
+          properties:
+            status:
+              type: string
+              description: Status of latest tariff update task.
+            created_at:
+              type: string
+              description: Created time of latest tariff update task.
+      example:
+        task:
+          status: pending
+          created_at: 2021-06-24T13:29:16Z
+    GetSystemArraysResponse:
+      $ref: '#/components/schemas/Arrays'
+    UpdateSystemArraysRequest:
+      required:
+        - angle
+        - arrays
+      type: object
+      properties:
+        angle:
+          type: integer
+          description: Angle of the system.
+        arrays:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArrayParams'
+    UpdateSystemArraysResponse:
+      $ref: '#/components/schemas/Arrays'
+    GetSystemArrayResponse:
+      $ref: '#/components/schemas/Array'
+    UpdateSystemArrayRequest:
+      $ref: '#/components/schemas/ArrayParams'
+    UpdateSystemArrayResponse:
+      $ref: '#/components/schemas/Array'
+    DeleteSystemArrayResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Array deleted successfully
+    Address:
+      type: object
+      description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
+      properties:
+        street1:
+          type: string
+          description: Street line 1.
+        street2:
+          type: string
+          description: Street line 2. This field is optional.
+        city:
+          type: string
+          description: City.
+        state:
+          type: string
+          description: State.
+        country:
+          type: string
+          description: Country.
+        postal_code:
+          type: string
+          description: Postal code.
+        latitude:
+          type: integer
+          description: Latitude.
+        longitude:
+          type: integer
+          description: Longitude.
+    System:
+      type: object
+      properties:
+        system_id:
+          type: integer
+          description: Enlighten ID of this system. System-generated.
+        system_name:
+          type: string
+          description: Name of the system.
+        system_type:
+          type: string
+          description: Type of the system. One of 'residential', 'commercial', or 'other'. Default 'residential'. Cannot be null.
+        status:
+          type: string
+          description: System's status.
+        stage:
+          type: integer
+          description: What stage of the activation process this activation is in. System-generated.
+        internet_connection:
+          type: string
+          description: How the system's Envoys connect to the Internet.
+            Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
+        lease:
+          type: boolean
+          description: Whether the system is leased. Default false.
+        operational:
+          type: boolean
+          description: Whether this system is permitted to operate. Default true.
+        owner:
+          type: object
+          description: Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself.
+            If the query parameter 'expand=owner' passed in the request owner detail will appear in the response.
+          properties:
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+            phone:
+              type: string
+            active:
+              type: boolean
+              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
+            user_id:
+              type: integer
+            user_roles:
+              type: array
+              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
+                For other users user_roles will be empty.
+              items:
+                type: string
+                description: Role.
+            enlighten_emails:
+              type: boolean
+            enlighten_view:
+              type: string
+            uri:
+              type: string
+            updated_at:
+              type: integer
+            company:
+              type: object
+              description: A hash of information about the owner's company. Use the query parameter 'expand=owner.company' to get owner company detail.
+              properties:
+                company_id:
+                  type: integer
+                company_name:
+                  type: string
+                location:
+                  type: string
+                roles:
+                  type: array
+                  description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer'].
+                    For other role roles will be empty.
+                  items:
+                    type: string
+                    description: Role.
+                uri:
+                  type: string
+        owner_id:
+          type: integer
+          description: Enlighten ID of this system owner. System-generated. This field is optional.
+        host:
+          type: object
+          description: Name of the system host. Please see "Specifying an Owner and Lease Arrangement", above, for more information.
+            If the query parameter 'expand=host' passed in the request host detail will appear in the response.
+          properties:
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+            phone:
+              type: string
+            active:
+              type: boolean
+              description: Whether the user is allowed to log in to Enlighten. Values true, false. Default true.
+            user_id:
+              type: integer
+            user_roles:
+              type: array
+              description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
+                For other users user_roles will be empty.
+              items:
+                type: string
+                description: Role.
+            enlighten_emails:
+              type: boolean
+            enlighten_view:
+              type: string
+            uri:
+              type: string
+            updated_at:
+              type: integer
+            company:
+              type: object
+              description: A hash of information about the system host's company. Use the query parameter 'expand=host.company' to get system host company detail.
+              properties:
+                company_id:
+                  type: integer
+                company_name:
+                  type: string
+                location:
+                  type: string
+                roles:
+                  type: array
+                  description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer'].
+                    For other role roles will be empty.
+                  items:
+                    type: string
+                    description: Role.
+                uri:
+                  type: string
+        host_id:
+          type: integer
+          description: Enlighten ID of this system host. System-generated. This field is optional.
+        installer_name:
+          type: string
+          description: Name of the installer.
+        installer_id:
+          type: integer
+          description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
+        uri:
+          type: string
+          description: URI for this activation.
+        updated_at:
+          type: integer
+          description: Activation last updated timestamp.
+        reference:
+          type: string
+          description: Identifier of this system as provided by the calling user's company.
+            This attribute is not present if the calling user's company does not have a reference for this system.
+        other_references:
+          type: array
+          description: Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system.
+          items:
+            type: string
+            description: Name of the reference.
+        allow_public_access:
+          type: boolean
+          description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
+        interconnect_date:
+          type: string
+          description: When the system was approved to connect to the grid.
+        installer_support_email:
+          type: string
+          description: Installer support email.
+        source:
+          type: string
+          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
+            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
+        array_type:
+          type: string
+          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
+            All other values will be ignored. To unset array_type, pass null.
+        attachment_type:
+          type: string
+          description: How the microinverters are attached to the panels.
+            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
+        ensemble_envoy:
+          type: string
+          description: Specifies serial number of ensemble envoy in multi envoy system.
+        production_mode:
+          type: string
+          description: Possible value is 'on' and 'off'.
+        grid_profile:
+          type: string
+          description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
+        requested_profile:
+          type: string
+        requested_report_freq:
+          type: string
+        voltage:
+          type: string
+          description: Supported voltage/phase associated with a commercial system inside North America.
+            If system type is not commercial, or if the installer exists & installer's country is not inside North America, or if the system's country is not inside North America, then the voltage value would be null.
+        envoy_serial_numbers:
+          type: array
+          description: A list of Envoys installed on this system.
+          items:
+            type: string
+            description: Envoy serial number.
+        expected_envoy_count:
+          type: integer
+          description: Total envoys the system is supposed to have.
+        expected_pcu_count:
+          type: integer
+          description: Total PCUs the system is supposed to have.
+        expected_nsr_count:
+          type: integer
+          description: Total nsrs the system is supposed to have.
+        expected_meter_count:
+          type: integer
+          description: Total meters the system is supposed to have.
+        expected_encharge_count:
+          type: integer
+          description: Total encharges the system is supposed to have.
+        expected_enpower_count:
+          type: integer
+          description: Total enpowers the system is supposed to have.
+        pv_manufacturer:
+          type: integer
+          description: Enlighten ID of the PV manufacturer associated with the PV model installed on the system. See PvManufacturers for how to retrieve PV manufacturer IDs.
+        pv_manufacturer_name:
+          type: string
+          description: Name of the Custom PV module manufacturer associated with the system.
+        pv_model:
+          type: integer
+          description: Enlighten ID of the PV model installed on the system. See PvManufacturers and PvModels for how to retrieve PV model IDs.
+        pv_model_name:
+          type: string
+          description: Name of the Custom PV module model associated with the system.
+        pv_module_power_rating:
+          minimum: 0
+          type: number
+          description: Power rating (in W) of the PV module installed on the system.
+          format: float
+        pv_module_type:
+          type: integer
+          description: Type ID of the PV module installed on the system. 1 -> 'Mono-facial', 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'.
+        encharge:
+          type: array
+          description: Encharge detail.
+          items:
+            type: object
+            properties:
+              envoy_serial_number:
+                type: string
+                description: Envoy serial number.
+              encharge_serial_numbers:
+                type: array
+                description: Encharge serial numbers.
+                items:
+                  type: string
+                  description: Encharge serial number.
+        enpower:
+          type: array
+          description: Enpower detail.
+          items:
+            type: object
+            properties:
+              envoy_serial_number:
+                type: string
+                description: Envoy serial number.
+              enpower_serial_numbers:
+                type: array
+                description: Enpower serial numbers.
+                items:
+                  type: string
+                  description: Enpower serial number.
+        address:
+          $ref: '#/components/schemas/Address'
+      example:
+        system_id: 12345
+        system_name: Enphase system
+        system_type: residential
+        status: Microinverters Not Reporting
+        stage: 5
+        internet_connection: dialup
+        lease: false
+        operational: true
+        owner:
+          first_name: Test
+          last_name: Owner
+          email: testowner@domain.com
+          phone: "9876543210"
+          active: true
+          user_id: 246
+          user_roles: [ ]
+          enlighten_emails: false
+          enlighten_view: manager
+          uri: /api/v4/activations/12345/users/246.json
+          updated_at: 1444834807
+          company:
+            company_id: 67
+            company_name: Test Installer
+            location: Petaluma, CA - US
+            roles:
+              - installer
+            uri: /api/v4/companies/67.json
+        owner_id: 246
+        host:
+          first_name: Test
+          last_name: User
+          email: testhost@domain.com
+          phone: "9876543210"
+          active: true
+          user_id: 248
+          user_roles: [ ]
+          enlighten_emails: false
+          enlighten_view: manager
+          uri: /api/v4/activations/12345/users/248.json
+          updated_at: 1444834807
+          company:
+            company_id: 67
+            company_name: Test Installer
+            location: Petaluma, CA - US
+            roles:
+              - installer
+            uri: /api/v4/companies/67.json
+        host_id: 248
+        installer_name: Enphase & Energy
+        installer_id: 5
+        uri: /api/v4/partner/activations/12345.json
+        updated_at: 1628156578
+        allow_public_access: true
+        interconnect_date: ""
+        installer_support_email: ""
+        source: microinverters
+        array_type: ""
+        attachment_type: ""
+        ensemble_envoy: ""
+        production_mode: on
+        grid_profile: ""
+        requested_profile: ""
+        requested_report_freq: ""
+        voltage: ""
+        envoy_serial_numbers:
+          - "202040004942"
+        expected_envoy_count: 1
+        expected_pcu_count: 4
+        expected_acb_count: 0
+        expected_nsr_count: 0
+        expected_meter_count: 0
+        expected_encharge_count: 4
+        expected_enpower_count: 1
+        pv_manufacturer: ""
+        pv_manufacturer_name: ""
+        pv_model: ""
+        pv_model_name: ""
+        pv_module_power_rating: ""
+        pv_module_type: ""
+        encharge:
+          - envoy_serial_number: "202040004942"
+            encharge_serial_numbers:
+              - "122038023664"
+              - "122038023672"
+              - "122050050473"
+              - "122050050474"
+        enpower:
+          - envoy_serial_number: "202040004942"
+            enpower_serial_numbers:
+              - "122051103228"
+        address:
+          street1: Bangalore Lane
+          city: San Diego
+          state: CA
+          postal_code: "92126"
+          country: US
+          latitude: 32.912785
+          longitude: -117.153778
+    SystemParams:
+      required:
+        - system_name
+      type: object
+      properties:
+        system_name:
+          type: string
+          description: Name of the system. Limit 255 characters.
+        system_type:
+          type: string
+          description: Type of the system. Possible values are 'residential', 'commercial', 'other'. Default 'residential'.
+        internet_connection:
+          type: string
+          description: How the system's Envoys connect to the Internet. Possible values are none, cellular, broadband, dialup. Use 'dialup' if the Internet connection is satellite or dial-up.
+        lease:
+          type: boolean
+          description: Whether the system is leased. Default false.
+        operational:
+          type: boolean
+          description: Whether this system is permitted to operate. Default true.
+        owner_id:
+          type: integer
+          description: Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself.
+            If the user of the API is an installer then use the Search user API to get the owner user ID.
+            If the owner not exist in the enlighten then use Create home owner API to create it newly.
+        host_id:
+          type: integer
+          description: Enlighten ID of the system host. System host must be an Enlighten user. Optional.
+            If the user of the API is an installer then use the Search user API to get the host user ID.
+            If the host not exist in the enlighten then use Create home owner API to create it newly.
+        installer_id:
+          type: integer
+          description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
+        allow_public_access:
+          type: boolean
+          description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
+        interconnect_date:
+          type: string
+          description: When the system was approved to connect to the grid. Date format.
+        source:
+          type: string
+          description: Source of production measurements taken on the system. Possible values 'meter', 'microinverters'.
+            When 'meter', production values come from a revenue-grade meter on the system. When 'microinverters', production values come from the microinverters on the system.
+        array_type:
+          type: string
+          description: Type of array installed. Possible values are fixed_open_rack, fixed_roof_mount, single_axis_tracking, single_axis_backtracking, dual_axis_tracking.
+            All other values will be ignored. To unset array_type, pass null.
+          enum:
+            - fixed_open_rack
+            - fixed_roof_mount
+            - single_axis_tracking
+            - single_axis_backtracking
+            - dual_axis_tracking
+        attachment_type:
+          type: string
+          description: How the microinverters are attached to the panels.
+            Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
+          enum:
+            - rack_mount
+            - zep
+            - acm
+            - bipv
+            - frame_mount
+            - railless_mount
+        ensemble_envoy:
+          type: string
+          description: Specifies serial number of ensemble envoy in multi envoy system.
+        grid_profile:
+          type: string
+          description: Grid profile to set on this system's microinverters. See GridProfiles API for how to retrieve a list of known profiles.
+        requested_profile:
+          type: string
+        requested_report_freq:
+          type: string
+        voltage:
+          type: string
+          description: Supported voltage/phase associated with a commercial system inside North America.
+            If system type is not commercial, or if the installer exists & installer's country is not inside North America, or if the system's country is not inside North America, then the voltage value would be null.
+        envoy_serial_numbers:
+          type: array
+          description: A list of Envoys installed on this system.
+          items:
+            type: string
+        pv_manufacturer:
+          type: integer
+          description: Enlighten ID of the PV manufacturer associated with the PV model installed on the system. See PvManufacturers for how to retrieve PV manufacturer IDs.
+        pv_manufacturer_name:
+          type: string
+          description: Name of the Custom PV module manufacturer associated with the system.
+        pv_model:
+          type: integer
+          description: Enlighten ID of the PV model installed on the system. See PvManufacturers and PvModels for how to retrieve PV model IDs.
+        pv_model_name:
+          type: string
+          description: Name of the Custom PV module model associated with the system.
+        pv_module_power_rating:
+          minimum: 0
+          type: number
+          description: Power rating (in W) of the PV module installed on the system.
+          format: float
+        pv_module_type:
+          type: integer
+          description: Type ID of the PV module installed on the system. 1 -> 'Mono-facial', 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'.
+        expected_envoy_count:
+          type: integer
+          description: Total envoys the system is supposed to have.
+        expected_pcu_count:
+          type: integer
+          description: Total PCUs the system is supposed to have.
+        expected_acb_count:
+          type: integer
+          description: Total acbs the system is supposed to have.
+        expected_nsr_count:
+          type: integer
+          description: Total nsrs the system is supposed to have.
+        expected_meter_count:
+          type: integer
+          description: Total meters the system is supposed to have.
+        expected_encharge_count:
+          type: integer
+          description: Total encharges the system is supposed to have.
+        expected_enpower_count:
+          type: integer
+          description: Total enpowers the system is supposed to have.
+        reference:
+          type: string
+          description: Identifier of this system as provided by the calling user's company.
+            This attribute is not present if the calling user's company does not have a reference for this system. This value should be alphanumeric.
+        encharge:
+          type: array
+          description: Encharge detail.
+          items:
+            type: object
+            properties:
+              envoy_serial_number:
+                type: string
+                description: Envoy serial number.
+              encharge_serial_numbers:
+                type: array
+                description: Encharge serial numbers.
+                items:
+                  type: string
+        enpower:
+          type: array
+          description: Enpower detail.
+          items:
+            type: object
+            properties:
+              envoy_serial_number:
+                type: string
+                description: Envoy serial number.
+              enpower_serial_numbers:
+                type: array
+                description: Enpower serial numbers.
+                items:
+                  type: string
+        address:
+          required:
+            - city
+            - country
+            - postal_code
+            - state
+            - street1
+          type: object
+          description: Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client.
+          properties:
+            street1:
+              type: string
+            street2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            country:
+              type: string
+            postal_code:
+              type: string
+    User:
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: Whether the user is allowed to log in to Enlighten.
+        user_roles:
+          type: array
+          description: What type of user this is in Enlighten. Possible values are ['self_installer']. For self installer user user_roles will be ['self_installer'].
+            For other users user_roles will be empty.
+          items:
+            type: string
+            description: Role.
+        email:
+          type: string
+          description: Email address of the user.
+        enlighten_emails:
+          type: boolean
+          description: Whether the user receives automated emails from Enlighten.
+        enlighten_view:
+          type: string
+          description: Which view of Enlighten the user has.
+        first_name:
+          type: string
+          description: User's first name.
+        last_name:
+          type: string
+          description: User's last name.
+        phone:
+          type: string
+          description: Telephone number of the user.
+        uri:
+          type: string
+          description: URI to the show() method for the user. System-generated.
+        user_id:
+          type: integer
+          description: Enlighten ID of the user. System-generated.
+        updated_at:
+          type: integer
+          description: Last updated date and time in Epoch format.
+        company:
+          $ref: '#/components/schemas/Company'
+      example:
+        active: true
+        user_roles: [ ]
+        email: username@domain.com
+        enlighten_emails: false
+        enlighten_view: my
+        first_name: Joe
+        last_name: User
+        phone: 1-800-123-1234
+        uri: /api/v4/users/123456.json
+        user_id: 123456
+        updated_at: 1508128974
+        company:
+          company_id: 5
+          company_name: Enphase Energy
+          location: Petaluma, CA - US
+          roles:
+            - installer
+          uri: /api/v4/companies/5.json
+    UserParams:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          description: Enlighten-generated ID of the company to which the user belongs, if any. DEPRECATED.
+            Use the 'company' attribute instead, and the query parameter 'expand=company' to get detailed company information.
+        email:
+          type: string
+          description: Email address of the user. Must be unique within Enlighten. Required.
+        enlighten_emails:
+          type: boolean
+          description: Whether the user receives automated emails from Enlighten. Default false.
+        enlighten_view:
+          type: string
+          description: Which view of Enlighten the user has. Options 'my' for MyEnlighten, 'manager' for Enlighten Manager. Default 'my'.
+            Users who do not belong to companies should be set to 'my'. You must have an agreement with Enphase Energy to set a user to 'manager'.
+        first_name:
+          type: string
+          description: User's first name. Required.
+        last_name:
+          type: string
+          description: User's last name. Required.
+        phone:
+          type: string
+          description: Telephone number of the user. Optional. Max length 255.
+    SystemEstimate:
+      type: object
+      properties:
+        system_id:
+          type: integer
+          description: System this estimate is for.
+        degrade_factor:
+          type: string
+          description: Annual production degradation factor for the system, from year 0 of the system's life. Must be 0.0% or higher. Default 0.5%.
+        month_estimates:
+          type: array
+          description: Estimated monthly production of the system, in kWh. A value for each month must be provided, and must be greater than 0.
+            Send an empty array if you need to remove monthly estimates. Default empty array.
+          items:
+            type: string
+      example:
+        system_id: 67
+        degrade_factor: "0.4"
+        month_estimates:
+          - "3112.0"
+          - "3248.0"
+          - "3805.0"
+          - "4437.0"
+          - "4266.0"
+          - "3998.0"
+          - "4034.0"
+          - "3840.0"
+          - "3647.0"
+          - "3551.0"
+          - "2926.0"
+          - "2872.0"
+    TariffSettings:
       type: object
       properties:
         tariff:
@@ -4545,107 +3163,9 @@ components:
                   type: string
                   description: FiT rate. e.g=0.0.
             seasons:
-              type: array
-              description: ToU seasons.
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: ToU year ID. e.g='all_year_long'.
-                  start:
-                    type: string
-                    description: Start of season. e.g='1/1'.
-                  days:
-                    type: array
-                    description: ToU seasons.
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          description: ToU days ID. e.g='all_days'.
-                        days:
-                          type: string
-                          description: Comma separated days. e.g='Sun,Mon,Tue,Wed,Thu,Fri,Sat'.
-                        must_charge_start:
-                          type: integer
-                          description: Must charge start field. e.g=0.
-                        must_charge_duration:
-                          type: integer
-                          description: Must charge duration field. e.g=0.
-                        periods:
-                          type: array
-                          description: Periods.
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                                description: Period ID. e.g='period_1'.
-                              start:
-                                type: string
-                                description: Period start. e.g=0.
-                              rate:
-                                type: string
-                                description: Period rate. e.g=0.0.
-                              error:
-                                type: object
-                                description: Dynamic fields will appear.
-                                properties: { }
-                  enable_charge_from_grid:
-                    type: boolean
-                  enable_discharge_to_grid:
-                    type: boolean
+              $ref: '#/components/schemas/TariffSeasons'
             seasons_sell:
-              type: array
-              description: ToU seasons sell.
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: ToU year ID. e.g='all_year_long'.
-                  start:
-                    type: string
-                    description: Start of season. e.g='1/1'.
-                  days:
-                    type: array
-                    description: ToU seasons.
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          description: ToU days ID. e.g='all_days'.
-                        days:
-                          type: string
-                          description: Comma separated days. e.g='Sun,Mon,Tue,Wed,Thu,Fri,Sat'.
-                        must_charge_start:
-                          type: integer
-                          description: Must charge start field. e.g=0.
-                        must_charge_duration:
-                          type: integer
-                          description: Must charge duration field. e.g=0.
-                        periods:
-                          type: array
-                          description: Periods.
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                                description: Period ID. e.g='period_1'.
-                              start:
-                                type: string
-                                description: Period start. e.g=0.
-                              rate:
-                                type: string
-                                description: Period rate. e.g=0.0.
-                              error:
-                                type: object
-                                description: Dynamic fields will appear.
-                                properties: { }
+              $ref: '#/components/schemas/TariffSeasons'
         task:
           type: object
           properties:
@@ -4801,148 +3321,7 @@ components:
         task:
           status: pending
           created_at: 2021-06-24T13:29:16Z
-    UpdateSystemTariffSettingsRequest:
-      type: object
-      properties:
-        tariff:
-          type: object
-          properties:
-            currency_type:
-              type: object
-              description: Currency type.
-              properties:
-                code:
-                  type: string
-                  description: Currency code. e.g='USD'.
-            single_rate:
-              type: object
-              description: Single rate.
-              properties:
-                rate:
-                  type: string
-                  description: Usage rate. e.g=0.0.
-                sell:
-                  type: string
-                  description: FiT rate. e.g=0.0.
-            seasons:
-              type: array
-              description: ToU seasons.
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: ToU year ID. e.g='all_year_long'.
-                  start:
-                    type: string
-                    description: Start of season. e.g='1/1'.
-                  days:
-                    type: array
-                    description: ToU seasons.
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          description: ToU days ID. e.g='all_days'.
-                        days:
-                          type: string
-                          description: Comma separated days. e.g='Sun,Mon,Tue,Wed,Thu,Fri,Sat'.
-                        must_charge_start:
-                          type: integer
-                          description: Must charge start field. e.g=0.
-                        must_charge_duration:
-                          type: integer
-                          description: Must charge duration field. e.g=0.
-                        periods:
-                          type: array
-                          description: Periods.
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                                description: Period ID. e.g='period_1'.
-                              start:
-                                type: string
-                                description: Period start. e.g=0.
-                              rate:
-                                type: string
-                                description: Period rate. e.g=0.0.
-                              error:
-                                type: object
-                                description: Dynamic fields will appear.
-                                properties: { }
-                  enable_charge_from_grid:
-                    type: boolean
-                  enable_discharge_to_grid:
-                    type: boolean
-            seasons_sell:
-              type: array
-              description: ToU seasons sell.
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: ToU year ID. e.g='all_year_long'.
-                  start:
-                    type: string
-                    description: Start of season. e.g='1/1'.
-                  days:
-                    type: array
-                    description: ToU seasons.
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          description: ToU days ID. e.g='all_days'.
-                        days:
-                          type: string
-                          description: Comma separated days. e.g='Sun,Mon,Tue,Wed,Thu,Fri,Sat'.
-                        must_charge_start:
-                          type: integer
-                          description: Must charge start field. e.g=0.
-                        must_charge_duration:
-                          type: integer
-                          description: Must charge duration field. e.g=0.
-                        periods:
-                          type: array
-                          description: Periods.
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                                description: Period ID. e.g='period_1'.
-                              start:
-                                type: string
-                                description: Period start. e.g=0.
-                              rate:
-                                type: string
-                                description: Period rate. e.g=0.0.
-                              error:
-                                type: object
-                                description: Dynamic fields will appear.
-                                properties: { }
-    UpdateSystemTariffSettingsResponse:
-      type: object
-      properties:
-        task:
-          type: object
-          properties:
-            status:
-              type: string
-              description: Status of latest tariff update task.
-            created_at:
-              type: string
-              description: Created time of latest tariff update task.
-      example:
-        task:
-          status: pending
-          created_at: 2021-06-24T13:29:16Z
-    GetSystemArraysResponse:
+    Arrays:
       type: object
       properties:
         system_id:
@@ -4960,57 +3339,7 @@ components:
         arrays:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                type: integer
-                description: ID of the array.
-              label:
-                type: string
-                description: Name of the array.
-              angle:
-                type: integer
-                description: Angle of the array.
-              tilt:
-                type: string
-                description: Tilt of the array.
-              reporting_envoys:
-                type: array
-                description: List of envoys serial numbers.
-                items:
-                  type: string
-              provisioned_envoy:
-                type: string
-                description: Provisioned envoy.
-              updated_at:
-                type: integer
-                description: Last updated Epoch time.
-              left:
-                type: integer
-                description: Left axis position of array.
-              top:
-                type: integer
-                description: Top axis position of array.
-              modules:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      description: ID of the module.
-                    left:
-                      type: integer
-                      description: Left axis position of module.
-                    top:
-                      type: integer
-                      description: Top axis position of module.
-                    angle:
-                      type: integer
-                      description: Angle of the module.
-                    serial_num:
-                      type: string
-                      description: Inverter serial number mapped with this module.
+            $ref: '#/components/schemas/Array'
         inventory:
           type: array
           description: List of active inverter serial numbers.
@@ -5063,6 +3392,7 @@ components:
         system_id: 698927061
         created_at: 1564385055
         updated_at: 1567596211
+        angle: 30
         arrays:
           - id: 207359
             label: First
@@ -5070,6 +3400,7 @@ components:
             tilt: "30.0"
             reporting_envoys:
               - "121625050638"
+            provisioned_envoy: "121616035667"
             updated_at: 1500983465
             left: 29
             top: -3
@@ -5098,211 +3429,7 @@ components:
             height: 50
             left: 40
             top: 50
-    UpdateSystemArraysRequest:
-      required:
-        - angle
-        - arrays
-      type: object
-      properties:
-        angle:
-          type: integer
-          description: Angle of the system.
-        arrays:
-          type: array
-          items:
-            required:
-              - angle
-              - label
-              - left
-              - modules
-              - provisioned_envoy
-              - tilt
-              - top
-            type: object
-            properties:
-              id:
-                type: integer
-                description: ID of the array. ID cannot be changed. It is only used to identify the array that needs to be updated.
-              label:
-                type: string
-                description: Name of the array.
-              angle:
-                type: integer
-                description: Angle of the array. Rotate the array clockwise by the given value.
-              tilt:
-                type: string
-                description: Tilt of the array.
-              provisioned_envoy:
-                type: string
-                description: Provisioned envoy.
-              left:
-                type: integer
-                description: Left axis position of array. Increase the value to move the array to the right, and decrease to move it to the left.
-              top:
-                type: integer
-                description: Top axis position of array. Increase the value to move the array up, and decrease to move it down.
-              modules:
-                type: array
-                items:
-                  required:
-                    - angle
-                    - left
-                    - serial_num
-                    - top
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      description: ID of the module. ID cannot be changed. It is only used to identify the module that needs to be updated.
-                    left:
-                      type: integer
-                      description: Left axis position of module w.r.t Array. Increase the value to move the module to the right, and decrease to move it to the left.
-                    top:
-                      type: integer
-                      description: Top axis position of module w.r.t Array. Increase the value to move the module up, and decrease to move it down.
-                    angle:
-                      type: integer
-                      description: Angle of the module. Rotate the module clockwise by the given value w.r.t array angle. For example to rotate the array clockwise by 90 degrees pass 90.
-                    serial_num:
-                      type: string
-                      description: Inverter serial number mapped with this module.
-    UpdateSystemArraysResponse:
-      type: object
-      properties:
-        system_id:
-          type: integer
-          description: System ID.
-        created_at:
-          type: integer
-          description: System created Epoch time.
-        updated_at:
-          type: integer
-          description: System updated Epoch time.
-        angle:
-          type: integer
-          description: Angle of the system.
-        arrays:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-                description: ID of the array.
-              label:
-                type: string
-                description: Name of the array.
-              angle:
-                type: integer
-                description: Angle of the array.
-              tilt:
-                type: string
-                description: Tilt of the array.
-              reporting_envoys:
-                type: array
-                description: List of envoys serial numbers.
-                items:
-                  type: string
-              provisioned_envoy:
-                type: string
-                description: Provisioned envoy.
-              updated_at:
-                type: integer
-                description: Last updated Epoch time.
-              left:
-                type: integer
-                description: Left axis position of array.
-              top:
-                type: integer
-                description: Top axis position of array.
-              modules:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      description: ID of the module.
-                    left:
-                      type: integer
-                      description: Left axis position of module.
-                    top:
-                      type: integer
-                      description: Top axis position of module.
-                    angle:
-                      type: integer
-                      description: Angle of the module.
-                    serial_num:
-                      type: string
-                      description: Inverter serial number mapped with this module.
-        inventory:
-          type: array
-          description: List of active inverter serial numbers.
-          items:
-            type: string
-        layers:
-          type: array
-          items:
-            type: object
-            properties:
-              file:
-                type: string
-                description: Background image url.
-              scale:
-                type: integer
-                description: Zoom level.
-              angle:
-                type: integer
-                description: Angle of the layer.
-              opacity:
-                type: integer
-                description: Opacity of the layer.
-              width:
-                type: integer
-                description: Width of the layer.
-              height:
-                type: integer
-                description: Height of the layer.
-              left:
-                type: integer
-                description: Left of the layer.
-              top:
-                type: integer
-                description: Top of the layer.
-      example:
-        system_id: 698907319
-        created_at: 1500983465
-        updated_at: 1567054291
-        angle: 30
-        arrays:
-          - id: 196890
-            label: First
-            angle: 1
-            tilt: "30.0"
-            reporting_envoys:
-              - "121616035667"
-            provisioned_envoy: "121616035667"
-            updated_at: 1567073699
-            left: 312.73802084399847
-            top: -1.746112539693911
-            modules:
-              - id: 4240726
-                left: 515.1244301160826
-                top: 306.8368158154327
-                angle: 10
-                serial_num: "121649047850"
-        inventory:
-          - "121649047924"
-          - "121702035683"
-          - "121649047850"
-        layers:
-          - file: ""
-            scale: 34
-            angle: 45
-            opacity: 56
-            width: 80
-            height: 50
-    GetSystemArrayResponse:
+    Array:
       type: object
       properties:
         id:
@@ -5371,7 +3498,7 @@ components:
             top: 202
             angle: 0
             serial_num: "121501065212"
-    UpdateSystemArrayRequest:
+    ArrayParams:
       required:
         - angle
         - label
@@ -5428,82 +3555,82 @@ components:
               serial_num:
                 type: string
                 description: Inverter serial number mapped with this module.
-    UpdateSystemArrayResponse:
+    Company:
       type: object
+      description: Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself.
+        If the query parameter 'expand=owner' passed in the request owner detail will appear in the response.
       properties:
-        id:
+        company_id:
           type: integer
-          description: ID of the array.
-        label:
+          description: Enlighten-generated ID of the company to which the user belongs.
+        company_name:
           type: string
-          description: Name of the array.
-        angle:
-          type: integer
-          description: Angle of the array.
-        tilt:
+          description: Name of the company to which the user belongs.
+        location:
           type: string
-          description: Tilt of the array.
-        reporting_envoys:
+          description: Company location.
+        roles:
           type: array
-          description: List of envoys serial numbers.
+          description: What type of company this is in Enphase. Possible values are ['installer']. For installer company roles will be ['installer']. For other role roles will be empty.
           items:
             type: string
-        provisioned_envoy:
+            description: Role.
+        uri:
           type: string
-          description: Provisioned envoy.
-        updated_at:
-          type: integer
-          description: Last updated Epoch time.
-        left:
-          type: integer
-          description: Left axis position of array.
-        top:
-          type: integer
-          description: Top axis position of array.
-        modules:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-                description: ID of the module.
-              left:
-                type: integer
-                description: Left axis position of module.
-              top:
-                type: integer
-                description: Top axis position of module.
-              angle:
-                type: integer
-                description: Angle of the module.
-              serial_num:
-                type: string
-                description: Inverter serial number mapped with this module.
-      example:
-        id: 207359
-        label: First
-        angle: 0
-        tilt: "30.0"
-        reporting_envoys:
-          - "121625050638"
-        provisioned_envoy: "121625050638"
-        updated_at: 1567074167
-        left: 29
-        top: -3
-        modules:
-          - id: 4743704
-            left: 300
-            top: 202
-            angle: 0
-            serial_num: "121501065212"
-    DeleteSystemArrayResponse:
-      type: object
-      properties:
-        message:
-          type: string
-      example:
-        message: Array deleted successfully
+          description: URI to the show() method for the company. System-generated.
+    TariffSeasons:
+      type: array
+      description: ToU seasons.
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            description: ToU year ID. e.g='all_year_long'.
+          start:
+            type: string
+            description: Start of season. e.g='1/1'.
+          days:
+            type: array
+            description: ToU seasons.
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ToU days ID. e.g='all_days'.
+                days:
+                  type: string
+                  description: Comma separated days. e.g='Sun,Mon,Tue,Wed,Thu,Fri,Sat'.
+                must_charge_start:
+                  type: integer
+                  description: Must charge start field. e.g=0.
+                must_charge_duration:
+                  type: integer
+                  description: Must charge duration field. e.g=0.
+                periods:
+                  type: array
+                  description: Periods.
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Period ID. e.g='period_1'.
+                      start:
+                        type: string
+                        description: Period start. e.g=0.
+                      rate:
+                        type: string
+                        description: Period rate. e.g=0.0.
+                      error:
+                        type: object
+                        description: Dynamic fields will appear.
+                        properties: { }
+          enable_charge_from_grid:
+            type: boolean
+          enable_discharge_to_grid:
+            type: boolean
     UnprocessableEntityError:
       type: object
       properties:
