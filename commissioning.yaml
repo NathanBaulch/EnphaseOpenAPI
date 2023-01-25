@@ -2755,17 +2755,8 @@ components:
         uri: /api/v4/partner/activations/12345.json
         updated_at: 1628156578
         allow_public_access: true
-        interconnect_date: ""
-        installer_support_email: ""
         source: microinverters
-        array_type: ""
-        attachment_type: ""
-        ensemble_envoy: ""
         production_mode: on
-        grid_profile: ""
-        requested_profile: ""
-        requested_report_freq: ""
-        voltage: ""
         envoy_serial_numbers:
           - "202040004942"
         expected_envoy_count: 1
@@ -2775,12 +2766,6 @@ components:
         expected_meter_count: 0
         expected_encharge_count: 4
         expected_enpower_count: 1
-        pv_manufacturer: ""
-        pv_manufacturer_name: ""
-        pv_model: ""
-        pv_model_name: ""
-        pv_module_power_rating: ""
-        pv_module_type: ""
         encharge:
           - envoy_serial_number: "202040004942"
             encharge_serial_numbers:
@@ -3359,7 +3344,7 @@ components:
             count: 1
             serialNum: "222323223363"
         layers:
-          - file: ""
+          - file: example.jpg
             scale: 34
             angle: 45
             opacity: 56

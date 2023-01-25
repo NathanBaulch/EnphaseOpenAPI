@@ -1971,7 +1971,6 @@ components:
               serial_number: "912158973973"
               part_number: 800-00595-r01
               sku: Q-RELAY-1P-INT
-              model: ""
               status: normal
               active: true
             - id: 1059640326
@@ -1980,7 +1979,6 @@ components:
               serial_number: "912163603334"
               part_number: 800-00595-r01
               sku: Q-RELAY-1P-INT
-              model: ""
               status: normal
               active: true
           acbs:
@@ -1990,7 +1988,6 @@ components:
               serial_number: "911364446952"
               part_number: 800-00560-r03
               sku: IQ7-B1200-LN-I-INT01-RV0
-              model: ""
               status: normal
               active: true
             - id: 1059640321
@@ -1999,7 +1996,6 @@ components:
               serial_number: "911499228280"
               part_number: 800-00560-r03
               sku: IQ7-B1200-LN-I-INT01-RV0
-              model: ""
               status: normal
               active: true
           encharges:
@@ -2009,7 +2005,6 @@ components:
               serial_number: "121593621979"
               part_number: 800-00562-r01
               sku: B03-A01-US00-1-3
-              model: ""
               status: normal
               active: true
           enpowers:
@@ -2019,7 +2014,6 @@ components:
               serial_number: "121245173988"
               part_number: 800-01135-r02
               sku: EP200G101-M240US00
-              model: ""
               status: normal
               active: true
     RetrieveSystemIdResponse:
