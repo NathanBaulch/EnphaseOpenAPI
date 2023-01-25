@@ -95,7 +95,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SearchSystemsRequest'
-        required: false
       responses:
         200:
           description: List of systems.
