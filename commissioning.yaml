@@ -2313,8 +2313,11 @@ components:
             type: array
             description: Each item is an array. It contain two values.
             items:
-              type: object
-              properties: { }
+              oneOf:
+                - type: integer
+                - type: string
+            minItems: 2
+            maxItems: 2
       example:
         pv_manufacturers:
           - - 106
@@ -2344,8 +2347,11 @@ components:
           items:
             type: array
             items:
-              type: object
-              properties: { }
+              oneOf:
+                - type: integer
+                - type: string
+            minItems: 2
+            maxItems: 2
       example:
         pv_manufacturer:
           pv_manufacturer_id: 109
@@ -3558,7 +3564,7 @@ components:
                       error:
                         type: object
                         description: Dynamic fields will appear.
-                        properties: { }
+                        additionalProperties: true
           enable_charge_from_grid:
             type: boolean
           enable_discharge_to_grid:
