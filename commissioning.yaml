@@ -2054,8 +2054,9 @@ components:
       properties:
         company_id:
           type: integer
-          description: Enlighten-generated ID of the company to which the user belongs, if any. DEPRECATED.
+          description: Enlighten-generated ID of the company to which the user belongs, if any.
             Use the 'company' attribute instead, and the query parameter 'expand=company' to get detailed company information.
+          deprecated: true
         email:
           type: string
           description: Email address of the user. Must be unique within Enlighten. Required.
@@ -3008,8 +3009,9 @@ components:
       properties:
         company_id:
           type: integer
-          description: Enlighten-generated ID of the company to which the user belongs, if any. DEPRECATED.
+          description: Enlighten-generated ID of the company to which the user belongs, if any.
             Use the 'company' attribute instead, and the query parameter 'expand=company' to get detailed company information.
+          deprecated: true
         email:
           type: string
           description: Email address of the user. Must be unique within Enlighten. Required.
