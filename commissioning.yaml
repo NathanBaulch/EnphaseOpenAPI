@@ -102,7 +102,7 @@ paths:
       description: Create new activation.
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/CreatePartnerActivationRequest'
       responses:
@@ -194,7 +194,7 @@ paths:
             type: integer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/UpdatePartnerActivationRequest'
       responses:
@@ -353,7 +353,7 @@ paths:
             type: integer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/UpdateActivationUserRequest'
       responses:
@@ -564,7 +564,7 @@ paths:
             type: integer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/SetActivationOpsProductionModeRequest'
       responses:
@@ -659,7 +659,7 @@ paths:
             type: integer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/CreateCompanyUserRequest'
       responses:
@@ -709,7 +709,7 @@ paths:
         Using this API to create both homeowner as well as a company user. If you want to create company user, then pass company_id inside the user object.
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/CreateUserRequest'
       responses:
@@ -871,7 +871,7 @@ paths:
             type: integer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/UpdateCompanyUserRequest'
       responses:
@@ -980,7 +980,7 @@ paths:
             type: integer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/UpdateUserRequest'
       responses:
@@ -1143,7 +1143,7 @@ paths:
             type: integer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               $ref: '#/components/schemas/UpdateActivationEstimateRequest'
       responses:
