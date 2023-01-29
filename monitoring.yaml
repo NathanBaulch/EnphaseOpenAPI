@@ -47,7 +47,7 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -59,9 +59,11 @@ paths:
                 details: system is missing at Json body location
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/search:
     post:
       operationId: SearchSystems
@@ -98,15 +100,7 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         422:
           description: Unprocessable Entity
           content:
@@ -118,9 +112,11 @@ paths:
                 details: System are missing at JSON body location
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /systems/{system_id}:
     get:
@@ -141,23 +137,17 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/summary:
     get:
       operationId: GetSystemSummary
@@ -177,23 +167,17 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/devices:
     get:
       operationId: GetSystemDevices
@@ -213,23 +197,17 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/retrieve_system_id:
     get:
       operationId: RetrieveSystemId
@@ -254,17 +232,9 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: Envoy not found with this serial number
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -276,9 +246,11 @@ paths:
                 details: Provide envoy serial number
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/production_meter_readings:
     get:
       operationId: GetSystemProductionMeterReadings
@@ -310,19 +282,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Authorized
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -334,9 +298,11 @@ paths:
                 details: Failed to parse date 1613543106
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/rgm_stats:
     get:
       operationId: GetSystemRgmStats
@@ -377,19 +343,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -401,11 +359,11 @@ paths:
                 details: Requested date range is invalid for this system
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
-          $ref: '#/components/responses/DataTemporarilyUnavailable'
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/consumption_lifetime:
     get:
       operationId: GetSystemConsumptionLifetime
@@ -442,19 +400,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -466,9 +416,11 @@ paths:
                 details: Requested date is in the future
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/energy_lifetime:
     get:
       operationId: GetSystemEnergyLifetime
@@ -514,19 +466,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -538,9 +482,11 @@ paths:
                 details: Requested date range is invalid for this system
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/battery_lifetime:
     get:
       operationId: GetSystemBatteryLifetime
@@ -576,19 +522,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -600,9 +538,11 @@ paths:
                 details: Requested date is in the future
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/energy_import_lifetime:
     get:
       operationId: GetSystemEnergyImportLifetime
@@ -638,19 +578,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -662,9 +594,11 @@ paths:
                 details: Requested date is in the future
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/energy_export_lifetime:
     get:
       operationId: GetSystemEnergyExportLifetime
@@ -700,19 +634,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -724,9 +650,11 @@ paths:
                 details: Requested date is in the future
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/inverters_summary_by_envoy_or_site:
     get:
       operationId: GetInvertersSummaryByEnvoyOrSite
@@ -755,7 +683,7 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -767,9 +695,11 @@ paths:
                 details: Envoy serial number or Site ID mandatory
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/telemetry/production_micro:
     get:
       operationId: GetSystemProductionMicroTelemetry
@@ -813,19 +743,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -838,11 +760,11 @@ paths:
                   {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/telemetry/production_meter:
     get:
       operationId: GetSystemProductionMeterTelemetry
@@ -887,19 +809,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -912,11 +826,11 @@ paths:
                   {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/telemetry/battery:
     get:
       operationId: GetSystemBatteryTelemetry
@@ -961,19 +875,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -986,11 +892,11 @@ paths:
                   {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/telemetry/consumption_meter:
     get:
       operationId: GetSystemConsumptionMeterTelemetry
@@ -1036,19 +942,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1061,11 +959,11 @@ paths:
                   {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/devices/micros/{serial_no}/telemetry:
     get:
       operationId: GetSystemMicroDeviceTelemetry
@@ -1115,19 +1013,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: Micro not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1140,11 +1030,11 @@ paths:
                   {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/devices/acbs/{serial_no}/telemetry:
     get:
       operationId: GetSystemAcbDeviceTelemetry
@@ -1195,19 +1085,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: ACB not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1220,11 +1102,11 @@ paths:
                   {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/devices/encharges/{serial_no}/telemetry:
     get:
       operationId: GetSystemEnchargeDeviceTelemetry
@@ -1275,19 +1157,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: Encharge not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1300,11 +1174,11 @@ paths:
                   {:start_at=>1566930600, :end_at=>1565333100, :first_interval=>1565072100, :last_interval=>1565333700}
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/config/{system_id}/battery_settings:
     get:
       operationId: GetSystemBatterySettings
@@ -1324,19 +1198,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1348,9 +1214,11 @@ paths:
                 details: System doesn't have encharges
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/config/{system_id}/storm_guard:
     get:
       operationId: GetSystemStormGuardSettings
@@ -1370,19 +1238,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1394,9 +1254,11 @@ paths:
                 details: System doesn't have encharges
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/config/{system_id}/grid_status:
     get:
       operationId: GetSystemGridStatusSettings
@@ -1416,19 +1278,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1440,9 +1294,11 @@ paths:
                 details: System doesn't have encharges
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/config/{system_id}/load_control:
     get:
       operationId: GetSystemLoadControlSettings
@@ -1462,19 +1318,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1486,9 +1334,11 @@ paths:
                 details: System doesn't have encharges
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/energy_import_telemetry:
     get:
       operationId: GetSystemEnergyImportTelemetry
@@ -1530,19 +1380,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1556,11 +1398,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/energy_export_telemetry:
     get:
       operationId: GetSystemEnergyExportTelemetry
@@ -1601,19 +1443,11 @@ paths:
         401:
           $ref: '#/components/responses/UnauthorizedError'
         403:
-          $ref: '#/components/responses/Forbidden'
+          $ref: '#/components/responses/ForbiddenError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Not Found
-                details: System not found for {:id=>"1"}
-                code: 404
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable Entity
           content:
@@ -1627,11 +1461,11 @@ paths:
                   :last_interval=>1565333700}'
                 code: 422
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         500:
           $ref: '#/components/responses/InternalServerError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
 components:
   parameters:
     SystemId:
@@ -3324,6 +3158,27 @@ components:
       type: string
       enum:
         - all
+    ClientError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error type.
+        details:
+          type: string
+          description: Error details.
+        code:
+          type: integer
+          description: Error code.
+    MethodNotAllowedError:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
     TooManyRequestsError:
       type: object
       properties:
@@ -3348,6 +3203,15 @@ components:
         limit:
           type: integer
           description: Limit count for the period.
+    InternalServerError:
+      type: object
+      properties:
+        reason:
+          type: string
+        message:
+          type: array
+          items:
+            type: string
     DataTemporarilyUnavailableError:
       type: object
       properties:
@@ -3359,7 +3223,7 @@ components:
           description: Error messages.
           items:
             type: string
-    ClientError:
+    NotImplementedError:
       type: object
       properties:
         message:
@@ -3371,17 +3235,8 @@ components:
         code:
           type: integer
           description: Error code.
-    ServerError:
-      type: object
-      properties:
-        reason:
-          type: string
-        message:
-          type: array
-          items:
-            type: string
   responses:
-    Unauthorized:
+    UnauthorizedError:
       description: Unauthorized
       content:
         application/json:
@@ -3391,7 +3246,7 @@ components:
             message: Not Authorized
             details: User is not authorized
             code: 401
-    Forbidden:
+    ForbiddenError:
       description: Forbidden
       content:
         application/json:
@@ -3401,17 +3256,27 @@ components:
             message: Forbidden
             details: Not authorized to access this resource
             code: 403
-    MethodNotAllowed:
+    NotFoundError:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ClientError'
+          example:
+            message: Not Found
+            details: System not found for {:id=>"1"}
+            code: 404
+    MethodNotAllowedError:
       description: Method Not Allowed
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ServerError'
+            $ref: '#/components/schemas/MethodNotAllowedError'
           example:
             reason: "405"
             message:
               - Method not allowed
-    TooManyRequests:
+    TooManyRequestsError:
       description: Too Many Requests
       content:
         application/json:
@@ -3430,27 +3295,26 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ClientError'
-          example:
-            message: Internal Server Error
-            details: Problem parsing time. Is time passed correctly in the following fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
-            code: 500
-    DataTemporarilyUnavailable:
-      description: Under some conditions, data for a given period may be temporarily unavailable. When this condition is detected, the response code is 500.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/DataTemporarilyUnavailableError'
-          example:
-            errorCode: 7
-            errorMessages:
-              - Data is temporarily unavailable
-    NotImplemented:
+            oneOf:
+              - $ref: '#/components/schemas/InternalServerError'
+              - $ref: '#/components/schemas/DataTemporarilyUnavailableError'
+          examples:
+            InternalServerError:
+              value:
+                message: Internal Server Error
+                details: Problem parsing time. Is time passed correctly in the following fields {:start_date=>"2019-08-33", :end_at=>"2019-08-29"}
+                code: 500
+            DataTemporarilyUnavailableError:
+              value:
+                errorCode: 7
+                errorMessages:
+                  - Data is temporarily unavailable
+    NotImplementedError:
       description: Not Implemented
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ServerError'
+            $ref: '#/components/schemas/NotImplementedError'
           example:
             reason: "501"
             message:

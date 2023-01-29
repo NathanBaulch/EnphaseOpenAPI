@@ -78,9 +78,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetPartnerActivationsResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -91,9 +91,9 @@ paths:
                 errorMessages:
                   - Invalid stage option 11
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     post:
       operationId: CreatePartnerActivation
       tags:
@@ -113,9 +113,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreatePartnerActivationResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -127,9 +127,9 @@ paths:
                 errorMessages:
                   - The system type must be residential, commercial, or other.
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /partner/activations/{id}:
     get:
@@ -162,23 +162,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetPartnerActivationResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Couldn't find Site with an out of range value for 'id'
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdatePartnerActivation
       tags:
@@ -205,9 +197,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdatePartnerActivationResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -219,9 +211,9 @@ paths:
                 errorMessages:
                   - The system type must be residential, commercial, or other.
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /activations/{id}:
     delete:
@@ -245,19 +237,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeleteActivationResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Couldn't find Site with an out of range value for 'id'
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -270,9 +254,9 @@ paths:
                   - Devices are present on this system. Please retry after removing
                     devices
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /activations/{activation_id}/users/{user_id}:
     get:
       operationId: GetActivationUser
@@ -307,17 +291,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetActivationUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -328,7 +304,7 @@ paths:
                 errorMessages:
                   - Invalid expand option
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
     put:
       operationId: UpdateActivationUser
       tags:
@@ -364,19 +340,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateActivationUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -387,9 +355,9 @@ paths:
                 errorMessages:
                   - User param are missing at body location
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
     post:
       operationId: GrantActivationUserAccess
@@ -420,19 +388,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/GrantActivationUserAccessResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -443,9 +403,9 @@ paths:
                 errorMessages:
                   - Some error messages
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     delete:
       operationId: RevokeActivationUserAccess
       tags:
@@ -475,19 +435,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/RevokeActivationUserAccessResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -498,9 +450,9 @@ paths:
                 errorMessages:
                   - Some error messages
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /activations/{activation_id}/ops/production_mode:
     get:
       operationId: GetActivationOpsProductionMode
@@ -523,19 +475,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetActivationOpsProductionModeResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -546,9 +490,9 @@ paths:
                 errorMessages:
                   - System not yet communicated
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     post:
       operationId: SetActivationOpsProductionMode
       tags:
@@ -575,19 +519,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/SetActivationOpsProductionModeResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -598,9 +534,9 @@ paths:
                 errorMessages:
                   - No active Envoys present in the site
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /companies/{company_id}/users:
     get:
@@ -624,23 +560,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetCompanyUsersResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Company not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     post:
       operationId: CreateCompanyUser
       tags:
@@ -670,19 +598,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateCompanyUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Company not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -693,9 +613,9 @@ paths:
                 errorMessages:
                   - User param are missing at body location
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /users:
     post:
@@ -720,9 +640,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -733,9 +653,9 @@ paths:
                 errorMessages:
                   - User param are missing at body location
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /users/search:
     get:
@@ -758,19 +678,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/SearchUsersResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -781,9 +693,9 @@ paths:
                 errorMessages:
                   - Email should not be blank
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /companies/{company_id}/users/{user_id}:
     get:
       operationId: GetCompanyUser
@@ -820,19 +732,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetCompanyUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -843,9 +747,9 @@ paths:
                 errorMessages:
                   - Invalid expand option
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdateCompanyUser
       tags:
@@ -882,19 +786,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateCompanyUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -905,9 +801,9 @@ paths:
                 errorMessages:
                   - Email has already been registered
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /users/{user_id}:
     get:
@@ -937,19 +833,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -960,9 +848,9 @@ paths:
                 errorMessages:
                   - Invalid expand option
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdateUser
       tags:
@@ -991,19 +879,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1014,9 +894,9 @@ paths:
                 errorMessages:
                   - Email has already been registered
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /users/self:
     get:
@@ -1040,19 +920,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSelfUserResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - User not found.
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1063,9 +935,9 @@ paths:
                 errorMessages:
                   - Invalid expand option
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /companies/self/branches:
     get:
       operationId: GetSelfCompanyBranches
@@ -1081,13 +953,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSelfCompanyBranchesResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /activations/{activation_id}/estimate:
     get:
       operationId: GetActivationEstimate
@@ -1111,23 +983,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetActivationEstimateResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdateActivationEstimate
       tags:
@@ -1154,19 +1018,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateActivationEstimateResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1178,9 +1034,9 @@ paths:
                 errorMessages:
                   - Estimate parameter missing in body
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /grid_profiles:
     get:
@@ -1197,23 +1053,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetGridProfilesResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Partner company missing
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/{system_id}/meters/{serial_number}:
     get:
       operationId: GetSystemMeter
@@ -1242,23 +1090,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemMeterResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Meter not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdateSystemMeter
       tags:
@@ -1292,19 +1132,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateSystemMeterResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1315,9 +1147,9 @@ paths:
                 errorMessages:
                   - operational date parameter missing in url
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /activations/{activation_id}/meters/{serial_number}/meter_control:
     post:
       operationId: SetActivationMeterStatus
@@ -1351,19 +1183,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/SetActivationMeterStatusResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Meter not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1374,9 +1198,9 @@ paths:
                 errorMessages:
                   - Invalid status, expected status is 'enabled' or 'disabled'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /pv_manufacturers:
     get:
@@ -1393,13 +1217,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetPvManufacturersResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /pv_manufacturers/{pv_manufacturer_id}/pv_models:
     get:
       operationId: GetPvManufacturerModels
@@ -1422,23 +1246,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetPvManufacturerModelsResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - Manufacturer not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
   /systems/config/{system_id}/tariff:
     get:
       operationId: GetSystemTariffSettings
@@ -1461,23 +1277,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemTariffSettingsResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdateSystemTariffSettings
       tags:
@@ -1503,23 +1311,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateSystemTariffSettingsResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /systems/{system_id}/arrays:
     get:
@@ -1543,23 +1343,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemArraysResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdateSystemArrays
       tags:
@@ -1591,19 +1383,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateSystemArraysResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1614,9 +1398,9 @@ paths:
                 errorMessages:
                   - some error messages
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
   /systems/{system_id}/arrays/{id}:
     get:
@@ -1646,19 +1430,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSystemArrayResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1669,9 +1445,9 @@ paths:
                 errorMessages:
                   - some error messages
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
     put:
       operationId: UpdateSystemArray
       tags:
@@ -1709,19 +1485,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateSystemArrayResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1732,9 +1500,9 @@ paths:
                 errorMessages:
                   - some error messages
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
     delete:
       operationId: DeleteSystemArray
@@ -1763,19 +1531,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeleteSystemArrayResponse'
         401:
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/UnauthorizedError'
         404:
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerError'
-              example:
-                reason: "404"
-                message:
-                  - System not found
+          $ref: '#/components/responses/NotFoundError'
         405:
-          $ref: '#/components/responses/MethodNotAllowed'
+          $ref: '#/components/responses/MethodNotAllowedError'
         422:
           description: Unprocessable entity. The body contains error information in a hash of errorMessages and an optional errorCode.
           content:
@@ -1786,9 +1546,9 @@ paths:
                 errorMessages:
                   - Array not found
         429:
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/TooManyRequestsError'
         501:
-          $ref: '#/components/responses/NotImplemented'
+          $ref: '#/components/responses/NotImplementedError'
 components:
   schemas:
     GetPartnerActivationsResponse:
@@ -3690,7 +3450,7 @@ components:
           items:
             type: string
   responses:
-    Unauthorized:
+    UnauthorizedError:
       description: Unauthorized
       content:
         application/json:
@@ -3701,7 +3461,17 @@ components:
             message:
               - Not authorized to access requested resource.
               - API Key missing in url/headers!
-    MethodNotAllowed:
+    NotFoundError:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ServerError'
+          example:
+            reason: "404"
+            message:
+              - System not found
+    MethodNotAllowedError:
       description: Method Not Allowed
       content:
         application/json:
@@ -3711,13 +3481,13 @@ components:
             reason: "405"
             message:
               - Method not allowed
-    TooManyRequests:
+    TooManyRequestsError:
       description: Too Many Requests
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/TooManyRequestsError'
-    NotImplemented:
+    NotImplementedError:
       description: Not Implemented
       content:
         application/json:
