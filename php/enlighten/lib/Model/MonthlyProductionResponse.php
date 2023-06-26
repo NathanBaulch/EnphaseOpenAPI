@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * MonthlyProductionResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,8 +61,8 @@ class MonthlyProductionResponse implements ModelInterface, ArrayAccess, \JsonSer
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'production_wh' => 'int',
-        'meter_readings' => '\OpenAPI\Client\Model\MonthlyProductionResponseMeterReadingsInner[]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'meter_readings' => '\EnphaseOpenAPI\Enlighten\Model\MonthlyProductionResponseMeterReadingsInner[]',
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta'
     ];
 
     /**
@@ -453,7 +453,7 @@ class MonthlyProductionResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meter_readings
      *
-     * @return \OpenAPI\Client\Model\MonthlyProductionResponseMeterReadingsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\MonthlyProductionResponseMeterReadingsInner[]
      */
     public function getMeterReadings()
     {
@@ -463,7 +463,7 @@ class MonthlyProductionResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meter_readings
      *
-     * @param \OpenAPI\Client\Model\MonthlyProductionResponseMeterReadingsInner[] $meter_readings If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
+     * @param \EnphaseOpenAPI\Enlighten\Model\MonthlyProductionResponseMeterReadingsInner[] $meter_readings If the system has any revenue-grade meters installed, the meter readings at the beginning and end of the reporting period are included here. Otherwise, the array is empty.
      *
      * @return self
      */
@@ -480,7 +480,7 @@ class MonthlyProductionResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -490,7 +490,7 @@ class MonthlyProductionResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */

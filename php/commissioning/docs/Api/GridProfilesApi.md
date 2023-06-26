@@ -1,4 +1,4 @@
-# OpenAPI\Client\GridProfilesApi
+# EnphaseOpenAPI\Commissioning\GridProfilesApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getGridProfiles()`
 
 ```php
-getGridProfiles(): \OpenAPI\Client\Model\GetGridProfilesResponse
+getGridProfiles(): \EnphaseOpenAPI\Commissioning\Model\GetGridProfilesResponse
 ```
 
 Lists the available profiles
@@ -25,15 +25,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\GridProfilesApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\GridProfilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetGridProfilesResponse**](../Model/GetGridProfilesResponse.md)
+[**\EnphaseOpenAPI\Commissioning\Model\GetGridProfilesResponse**](../Model/GetGridProfilesResponse.md)
 
 ### Authorization
 

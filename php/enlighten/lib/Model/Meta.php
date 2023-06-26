@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * Meta Class Doc Comment
  *
  * @category Class
  * @description Information about the system that you can use to ascertain the timeliness of the production data included in the response.
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\OpenAPI\Client\Model\Status',
+        'status' => '\EnphaseOpenAPI\Enlighten\Model\Status',
         'last_report_at' => 'int',
         'last_energy_at' => 'int',
         'operational_at' => 'int'
@@ -326,7 +326,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\Status
+     * @return \EnphaseOpenAPI\Enlighten\Model\Status
      */
     public function getStatus()
     {
@@ -336,7 +336,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\Status $status status
+     * @param \EnphaseOpenAPI\Enlighten\Model\Status $status status
      *
      * @return self
      */

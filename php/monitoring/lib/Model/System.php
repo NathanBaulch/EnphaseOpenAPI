@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * System Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,16 +61,16 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'public_name' => 'string',
         'timezone' => 'string',
-        'address' => '\OpenAPI\Client\Model\SystemAddress',
-        'connection_type' => '\OpenAPI\Client\Model\SystemConnectionTypeEnum',
+        'address' => '\EnphaseOpenAPI\Monitoring\Model\SystemAddress',
+        'connection_type' => '\EnphaseOpenAPI\Monitoring\Model\SystemConnectionTypeEnum',
         'energy_lifetime' => 'int',
         'energy_today' => 'int',
         'system_size' => 'float',
-        'status' => '\OpenAPI\Client\Model\SystemStatusEnum',
+        'status' => '\EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum',
         'last_report_at' => 'int',
         'last_energy_at' => 'int',
         'operational_at' => 'int',
-        'attachment_type' => '\OpenAPI\Client\Model\SystemAttachmentTypeEnum',
+        'attachment_type' => '\EnphaseOpenAPI\Monitoring\Model\SystemAttachmentTypeEnum',
         'interconnect_date' => '\DateTime',
         'reference' => 'string',
         'other_references' => 'string[]'
@@ -512,7 +512,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\SystemAddress|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemAddress|null
      */
     public function getAddress()
     {
@@ -522,7 +522,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\SystemAddress|null $address address
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemAddress|null $address address
      *
      * @return self
      */
@@ -539,7 +539,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets connection_type
      *
-     * @return \OpenAPI\Client\Model\SystemConnectionTypeEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemConnectionTypeEnum|null
      */
     public function getConnectionType()
     {
@@ -549,7 +549,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets connection_type
      *
-     * @param \OpenAPI\Client\Model\SystemConnectionTypeEnum|null $connection_type connection_type
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemConnectionTypeEnum|null $connection_type connection_type
      *
      * @return self
      */
@@ -647,7 +647,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\SystemStatusEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum|null
      */
     public function getStatus()
     {
@@ -657,7 +657,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\SystemStatusEnum|null $status status
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum|null $status status
      *
      * @return self
      */
@@ -755,7 +755,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets attachment_type
      *
-     * @return \OpenAPI\Client\Model\SystemAttachmentTypeEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemAttachmentTypeEnum|null
      */
     public function getAttachmentType()
     {
@@ -765,7 +765,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attachment_type
      *
-     * @param \OpenAPI\Client\Model\SystemAttachmentTypeEnum|null $attachment_type attachment_type
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemAttachmentTypeEnum|null $attachment_type attachment_type
      *
      * @return self
      */

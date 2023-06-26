@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * GetPvManufacturerModelsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class GetPvManufacturerModelsResponse implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pv_manufacturers' => '\OpenAPI\Client\Model\GetPvManufacturerModelsResponsePvManufacturers',
-        'pv_models' => '\OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[][]'
+        'pv_manufacturers' => '\EnphaseOpenAPI\Commissioning\Model\GetPvManufacturerModelsResponsePvManufacturers',
+        'pv_models' => '\EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[][]'
     ];
 
     /**
@@ -299,7 +299,7 @@ class GetPvManufacturerModelsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Gets pv_manufacturers
      *
-     * @return \OpenAPI\Client\Model\GetPvManufacturerModelsResponsePvManufacturers|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetPvManufacturerModelsResponsePvManufacturers|null
      */
     public function getPvManufacturers()
     {
@@ -309,7 +309,7 @@ class GetPvManufacturerModelsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Sets pv_manufacturers
      *
-     * @param \OpenAPI\Client\Model\GetPvManufacturerModelsResponsePvManufacturers|null $pv_manufacturers pv_manufacturers
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetPvManufacturerModelsResponsePvManufacturers|null $pv_manufacturers pv_manufacturers
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class GetPvManufacturerModelsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Gets pv_models
      *
-     * @return \OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[][]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[][]|null
      */
     public function getPvModels()
     {
@@ -336,7 +336,7 @@ class GetPvManufacturerModelsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Sets pv_models
      *
-     * @param \OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[][]|null $pv_models A list of PV models for this manufacturer. Each element in the list is an array including the model's primary key and name. The list may be empty.
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[][]|null $pv_models A list of PV models for this manufacturer. Each element in the list is an array including the model's primary key and name. The list may be empty.
      *
      * @return self
      */

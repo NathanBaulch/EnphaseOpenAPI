@@ -1,4 +1,4 @@
-# OpenAPI\Client\SiteLevelConsumptionMonitoringApi
+# EnphaseOpenAPI\Monitoring\SiteLevelConsumptionMonitoringApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -17,7 +17,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getSystemBatteryLifetime()`
 
 ```php
-getSystemBatteryLifetime($system_id, $start_date, $end_date): \OpenAPI\Client\Model\GetSystemBatteryLifetimeResponse
+getSystemBatteryLifetime($system_id, $start_date, $end_date): \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryLifetimeResponse
 ```
 
 battery_lifetime
@@ -32,15 +32,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -68,7 +68,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemBatteryLifetimeResponse**](../Model/GetSystemBatteryLifetimeResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryLifetimeResponse**](../Model/GetSystemBatteryLifetimeResponse.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ try {
 ## `getSystemBatteryTelemetry()`
 
 ```php
-getSystemBatteryTelemetry($system_id, $start_at, $granularity): \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponse
+getSystemBatteryTelemetry($system_id, $start_at, $granularity): \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponse
 ```
 
 Retrieves telemetry for all batteries for a system
@@ -101,15 +101,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ $apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
 );
 $system_id = 56; // int | Unique numeric ID of the system.
 $start_at = 56; // int | Start time for fetching the telemetry data in Epoch time format. Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
-$granularity = new \OpenAPI\Client\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
+$granularity = new \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
 
 try {
     $result = $apiInstance->getSystemBatteryTelemetry($system_id, $start_at, $granularity);
@@ -137,7 +137,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemBatteryTelemetryResponse**](../Model/GetSystemBatteryTelemetryResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponse**](../Model/GetSystemBatteryTelemetryResponse.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ try {
 ## `getSystemConsumptionLifetime()`
 
 ```php
-getSystemConsumptionLifetime($system_id, $start_date, $end_date): \OpenAPI\Client\Model\GetSystemConsumptionLifetimeResponse
+getSystemConsumptionLifetime($system_id, $start_date, $end_date): \EnphaseOpenAPI\Monitoring\Model\GetSystemConsumptionLifetimeResponse
 ```
 
 consumption_lifetime
@@ -170,15 +170,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -206,7 +206,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemConsumptionLifetimeResponse**](../Model/GetSystemConsumptionLifetimeResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemConsumptionLifetimeResponse**](../Model/GetSystemConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ try {
 ## `getSystemConsumptionMeterTelemetry()`
 
 ```php
-getSystemConsumptionMeterTelemetry($system_id, $start_at, $granularity): \OpenAPI\Client\Model\GetSystemConsumptionMeterTelemetryResponse
+getSystemConsumptionMeterTelemetry($system_id, $start_at, $granularity): \EnphaseOpenAPI\Monitoring\Model\GetSystemConsumptionMeterTelemetryResponse
 ```
 
 Retrieves telemetry for all consumption meters for a system
@@ -239,15 +239,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -255,7 +255,7 @@ $apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
 );
 $system_id = 56; // int | Unique numeric ID of the system.
 $start_at = 56; // int | Requested start time for telemetry data in Epoch time format. Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. If no start_at is specified, defaults to midnight today, in the timezone of the system. If the start_at specified is earlier than the system's first reported date, then the system first reported date is considered as start_at. By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
-$granularity = new \OpenAPI\Client\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
+$granularity = new \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
 
 try {
     $result = $apiInstance->getSystemConsumptionMeterTelemetry($system_id, $start_at, $granularity);
@@ -275,7 +275,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemConsumptionMeterTelemetryResponse**](../Model/GetSystemConsumptionMeterTelemetryResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemConsumptionMeterTelemetryResponse**](../Model/GetSystemConsumptionMeterTelemetryResponse.md)
 
 ### Authorization
 
@@ -293,7 +293,7 @@ try {
 ## `getSystemEnergyExportLifetime()`
 
 ```php
-getSystemEnergyExportLifetime($system_id, $start_date, $end_date): \OpenAPI\Client\Model\GetSystemEnergyExportLifetimeResponse
+getSystemEnergyExportLifetime($system_id, $start_date, $end_date): \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyExportLifetimeResponse
 ```
 
 export_lifetime
@@ -308,15 +308,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -344,7 +344,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemEnergyExportLifetimeResponse**](../Model/GetSystemEnergyExportLifetimeResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyExportLifetimeResponse**](../Model/GetSystemEnergyExportLifetimeResponse.md)
 
 ### Authorization
 
@@ -362,7 +362,7 @@ try {
 ## `getSystemEnergyExportTelemetry()`
 
 ```php
-getSystemEnergyExportTelemetry($system_id, $start_at, $granularity): \OpenAPI\Client\Model\GetSystemEnergyExportTelemetryResponse
+getSystemEnergyExportTelemetry($system_id, $start_at, $granularity): \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyExportTelemetryResponse
 ```
 
 Retrieves energy exported to grid in regular intervals
@@ -377,15 +377,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -393,7 +393,7 @@ $apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
 );
 $system_id = 56; // int | Unique numeric ID of the system.
 $start_at = 56; // int | Start time for fetching the telemetry data in Epoch time format. Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
-$granularity = new \OpenAPI\Client\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
+$granularity = new \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
 
 try {
     $result = $apiInstance->getSystemEnergyExportTelemetry($system_id, $start_at, $granularity);
@@ -413,7 +413,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemEnergyExportTelemetryResponse**](../Model/GetSystemEnergyExportTelemetryResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyExportTelemetryResponse**](../Model/GetSystemEnergyExportTelemetryResponse.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ try {
 ## `getSystemEnergyImportLifetime()`
 
 ```php
-getSystemEnergyImportLifetime($system_id, $start_date, $end_date): \OpenAPI\Client\Model\GetSystemEnergyImportLifetimeResponse
+getSystemEnergyImportLifetime($system_id, $start_date, $end_date): \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyImportLifetimeResponse
 ```
 
 import_lifetime
@@ -446,15 +446,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -482,7 +482,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemEnergyImportLifetimeResponse**](../Model/GetSystemEnergyImportLifetimeResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyImportLifetimeResponse**](../Model/GetSystemEnergyImportLifetimeResponse.md)
 
 ### Authorization
 
@@ -500,7 +500,7 @@ try {
 ## `getSystemEnergyImportTelemetry()`
 
 ```php
-getSystemEnergyImportTelemetry($system_id, $start_at, $granularity): \OpenAPI\Client\Model\GetSystemEnergyImportTelemetryResponse
+getSystemEnergyImportTelemetry($system_id, $start_at, $granularity): \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyImportTelemetryResponse
 ```
 
 Retrieves energy imported from grid in regular intervals
@@ -515,15 +515,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SiteLevelConsumptionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -531,7 +531,7 @@ $apiInstance = new OpenAPI\Client\Api\SiteLevelConsumptionMonitoringApi(
 );
 $system_id = 56; // int | Unique numeric ID of the system.
 $start_at = 56; // int | Start time for fetching the telemetry data in Epoch time format. Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
-$granularity = new \OpenAPI\Client\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
+$granularity = new \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
 
 try {
     $result = $apiInstance->getSystemEnergyImportTelemetry($system_id, $start_at, $granularity);
@@ -551,7 +551,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemEnergyImportTelemetryResponse**](../Model/GetSystemEnergyImportTelemetryResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyImportTelemetryResponse**](../Model/GetSystemEnergyImportTelemetryResponse.md)
 
 ### Authorization
 

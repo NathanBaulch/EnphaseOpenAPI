@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * GetPvManufacturersResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GetPvManufacturersResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pv_manufacturers' => '\OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[][]'
+        'pv_manufacturers' => '\EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[][]'
     ];
 
     /**
@@ -292,7 +292,7 @@ class GetPvManufacturersResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets pv_manufacturers
      *
-     * @return \OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[][]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[][]|null
      */
     public function getPvManufacturers()
     {
@@ -302,7 +302,7 @@ class GetPvManufacturersResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets pv_manufacturers
      *
-     * @param \OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[][]|null $pv_manufacturers A list of PV manufacturers. Each element in the list is an array including the model's manufacturer's primary key and name. The list may be empty.
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[][]|null $pv_manufacturers A list of PV manufacturers. Each element in the list is an array including the model's manufacturer's primary key and name. The list may be empty.
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * UpdateSystemTariffSettingsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class UpdateSystemTariffSettingsResponse implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'task' => '\OpenAPI\Client\Model\UpdateSystemTariffSettingsResponseTask'
+        'task' => '\EnphaseOpenAPI\Commissioning\Model\UpdateSystemTariffSettingsResponseTask'
     ];
 
     /**
@@ -292,7 +292,7 @@ class UpdateSystemTariffSettingsResponse implements ModelInterface, ArrayAccess,
     /**
      * Gets task
      *
-     * @return \OpenAPI\Client\Model\UpdateSystemTariffSettingsResponseTask|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\UpdateSystemTariffSettingsResponseTask|null
      */
     public function getTask()
     {
@@ -302,7 +302,7 @@ class UpdateSystemTariffSettingsResponse implements ModelInterface, ArrayAccess,
     /**
      * Sets task
      *
-     * @param \OpenAPI\Client\Model\UpdateSystemTariffSettingsResponseTask|null $task task
+     * @param \EnphaseOpenAPI\Commissioning\Model\UpdateSystemTariffSettingsResponseTask|null $task task
      *
      * @return self
      */

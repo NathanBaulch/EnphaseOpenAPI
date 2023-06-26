@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * TariffSeasonsInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class TariffSeasonsInner implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'id' => 'string',
         'start' => 'string',
-        'days' => '\OpenAPI\Client\Model\TariffSeasonsInnerDaysInner[]',
+        'days' => '\EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInnerDaysInner[]',
         'enable_charge_from_grid' => 'bool',
         'enable_discharge_to_grid' => 'bool'
     ];
@@ -374,7 +374,7 @@ class TariffSeasonsInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets days
      *
-     * @return \OpenAPI\Client\Model\TariffSeasonsInnerDaysInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInnerDaysInner[]|null
      */
     public function getDays()
     {
@@ -384,7 +384,7 @@ class TariffSeasonsInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets days
      *
-     * @param \OpenAPI\Client\Model\TariffSeasonsInnerDaysInner[]|null $days ToU seasons.
+     * @param \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInnerDaysInner[]|null $days ToU seasons.
      *
      * @return self
      */

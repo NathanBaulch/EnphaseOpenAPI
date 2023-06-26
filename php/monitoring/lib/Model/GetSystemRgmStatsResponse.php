@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemRgmStatsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,9 +59,9 @@ class GetSystemRgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'system_id' => 'int',
         'total_devices' => 'int',
-        'meta' => '\OpenAPI\Client\Model\Meta',
-        'intervals' => '\OpenAPI\Client\Model\GetSystemRgmStatsResponseIntervalsInner[]',
-        'meter_intervals' => '\OpenAPI\Client\Model\GetSystemRgmStatsResponseMeterIntervalsInner[]'
+        'meta' => '\EnphaseOpenAPI\Monitoring\Model\Meta',
+        'intervals' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseIntervalsInner[]',
+        'meter_intervals' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseMeterIntervalsInner[]'
     ];
 
     /**
@@ -374,7 +374,7 @@ class GetSystemRgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\Meta|null
      */
     public function getMeta()
     {
@@ -384,7 +384,7 @@ class GetSystemRgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta|null $meta meta
+     * @param \EnphaseOpenAPI\Monitoring\Model\Meta|null $meta meta
      *
      * @return self
      */
@@ -401,7 +401,7 @@ class GetSystemRgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\GetSystemRgmStatsResponseIntervalsInner[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseIntervalsInner[]|null
      */
     public function getIntervals()
     {
@@ -411,7 +411,7 @@ class GetSystemRgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\GetSystemRgmStatsResponseIntervalsInner[]|null $intervals A list of intervals between the requested start and end times.
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseIntervalsInner[]|null $intervals A list of intervals between the requested start and end times.
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class GetSystemRgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meter_intervals
      *
-     * @return \OpenAPI\Client\Model\GetSystemRgmStatsResponseMeterIntervalsInner[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseMeterIntervalsInner[]|null
      */
     public function getMeterIntervals()
     {
@@ -438,7 +438,7 @@ class GetSystemRgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meter_intervals
      *
-     * @param \OpenAPI\Client\Model\GetSystemRgmStatsResponseMeterIntervalsInner[]|null $meter_intervals A list of intervals of a meter between the requested start and end times.
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseMeterIntervalsInner[]|null $meter_intervals A list of intervals of a meter between the requested start and end times.
      *
      * @return self
      */

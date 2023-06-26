@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,15 +26,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace EnphaseOpenAPI\Commissioning\Model;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * SystemSourceEnum Class Doc Comment
  *
  * @category Class
  * @description Source of production measurements taken on the system. When &#39;meter&#39;, production values come from a revenue-grade meter on the system. When &#39;microinverters&#39;, production values come from the microinverters on the system.
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

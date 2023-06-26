@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * Company Class Doc Comment
  *
  * @category Class
  * @description Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself. If the query parameter &#39;expand&#x3D;owner&#39; passed in the request owner detail will appear in the response.
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         'company_id' => 'int',
         'company_name' => 'string',
         'location' => 'string',
-        'roles' => '\OpenAPI\Client\Model\CompanyRoleEnum[]',
+        'roles' => '\EnphaseOpenAPI\Commissioning\Model\CompanyRoleEnum[]',
         'uri' => 'string'
     ];
 
@@ -402,7 +402,7 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets roles
      *
-     * @return \OpenAPI\Client\Model\CompanyRoleEnum[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\CompanyRoleEnum[]|null
      */
     public function getRoles()
     {
@@ -412,7 +412,7 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets roles
      *
-     * @param \OpenAPI\Client\Model\CompanyRoleEnum[]|null $roles What type of company this is in Enphase. For installer company roles will be ['installer']. For other role roles will be empty.
+     * @param \EnphaseOpenAPI\Commissioning\Model\CompanyRoleEnum[]|null $roles What type of company this is in Enphase. For installer company roles will be ['installer']. For other role roles will be empty.
      *
      * @return self
      */

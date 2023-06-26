@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemBatteryTelemetryResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,12 +58,12 @@ class GetSystemBatteryTelemetryResponse implements ModelInterface, ArrayAccess, 
       */
     protected static $openAPITypes = [
         'system_id' => 'int',
-        'granularity' => '\OpenAPI\Client\Model\TelemetryGranularityEnum',
+        'granularity' => '\EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum',
         'total_devices' => 'int',
         'start_at' => 'int',
         'end_at' => 'int',
         'items' => 'string',
-        'intervals' => '\OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInner[]',
+        'intervals' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInner[]',
         'last_reported_aggregate_soc' => 'string'
     ];
 
@@ -368,7 +368,7 @@ class GetSystemBatteryTelemetryResponse implements ModelInterface, ArrayAccess, 
     /**
      * Gets granularity
      *
-     * @return \OpenAPI\Client\Model\TelemetryGranularityEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum|null
      */
     public function getGranularity()
     {
@@ -378,7 +378,7 @@ class GetSystemBatteryTelemetryResponse implements ModelInterface, ArrayAccess, 
     /**
      * Sets granularity
      *
-     * @param \OpenAPI\Client\Model\TelemetryGranularityEnum|null $granularity granularity
+     * @param \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum|null $granularity granularity
      *
      * @return self
      */
@@ -503,7 +503,7 @@ class GetSystemBatteryTelemetryResponse implements ModelInterface, ArrayAccess, 
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInner[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInner[]|null
      */
     public function getIntervals()
     {
@@ -513,7 +513,7 @@ class GetSystemBatteryTelemetryResponse implements ModelInterface, ArrayAccess, 
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInner[]|null $intervals intervals
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInner[]|null $intervals intervals
      *
      * @return self
      */

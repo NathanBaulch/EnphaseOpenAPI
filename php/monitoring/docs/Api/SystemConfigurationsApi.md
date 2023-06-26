@@ -1,4 +1,4 @@
-# OpenAPI\Client\SystemConfigurationsApi
+# EnphaseOpenAPI\Monitoring\SystemConfigurationsApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getSystemBatterySettings()`
 
 ```php
-getSystemBatterySettings($system_id): \OpenAPI\Client\Model\GetSystemBatterySettingsResponse
+getSystemBatterySettings($system_id): \EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse
 ```
 
 Returns the current battery settings of a system
@@ -28,15 +28,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemConfigurationsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemConfigurationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -60,7 +60,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemBatterySettingsResponse**](../Model/GetSystemBatterySettingsResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse**](../Model/GetSystemBatterySettingsResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ try {
 ## `getSystemGridStatusSettings()`
 
 ```php
-getSystemGridStatusSettings($system_id): \OpenAPI\Client\Model\GetSystemGridStatusSettingsResponse
+getSystemGridStatusSettings($system_id): \EnphaseOpenAPI\Monitoring\Model\GetSystemGridStatusSettingsResponse
 ```
 
 Returns the current grid status settings of a system
@@ -93,15 +93,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemConfigurationsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemConfigurationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -125,7 +125,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemGridStatusSettingsResponse**](../Model/GetSystemGridStatusSettingsResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemGridStatusSettingsResponse**](../Model/GetSystemGridStatusSettingsResponse.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ try {
 ## `getSystemLoadControlSettings()`
 
 ```php
-getSystemLoadControlSettings($system_id): \OpenAPI\Client\Model\GetSystemLoadControlSettingsResponse
+getSystemLoadControlSettings($system_id): \EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse
 ```
 
 Returns the current load control settings of a system
@@ -158,15 +158,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemConfigurationsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemConfigurationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -190,7 +190,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemLoadControlSettingsResponse**](../Model/GetSystemLoadControlSettingsResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse**](../Model/GetSystemLoadControlSettingsResponse.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ try {
 ## `getSystemStormGuardSettings()`
 
 ```php
-getSystemStormGuardSettings($system_id): \OpenAPI\Client\Model\GetSystemStormGuardSettingsResponse
+getSystemStormGuardSettings($system_id): \EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse
 ```
 
 Returns the current storm guard settings of a system
@@ -223,15 +223,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemConfigurationsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemConfigurationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -255,7 +255,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemStormGuardSettingsResponse**](../Model/GetSystemStormGuardSettingsResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse**](../Model/GetSystemStormGuardSettingsResponse.md)
 
 ### Authorization
 

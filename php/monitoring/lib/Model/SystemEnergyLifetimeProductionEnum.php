@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,14 +26,14 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace EnphaseOpenAPI\Monitoring\Model;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * SystemEnergyLifetimeProductionEnum Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **operational_at** | **int** | The time at which this system became operational. Corresponds to the system&#39;s interconnect time, if one is specified. Otherwise, it is the system&#39;s first interval end time. The format is Unix epoch time unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). |
 **size_w** | **int** | The size of the system, in Watts. For historical requests, returns 0. |
 **source** | **string** | Indicates whether the production of this system is measured by its microinverters (&#x60;microinverters&#x60;) or by revenue-grade meters (&#x60;meter&#x60;) installed on the system. |
-**status** | [**\OpenAPI\Client\Model\Status**](Status.md) |  |
+**status** | [**\EnphaseOpenAPI\Enlighten\Model\Status**](Status.md) |  |
 **summary_date** | **\DateTime** | Effective date of the response. For historical requests, returns the date requested. For current requests, returns the current date. The format is &#x60;YYYY-mm-dd&#x60; unless you pass a &#x60;datetime_format&#x60; parameter as described [here](https://developer.enphase.com/docs#Datetimes). |
 **system_id** | **int** | The Enlighten ID of the system. |
 

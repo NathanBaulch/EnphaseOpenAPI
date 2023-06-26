@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * ConsumptionLifetimeResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class ConsumptionLifetimeResponse implements ModelInterface, ArrayAccess, \JsonS
         'start_date' => '\DateTime',
         'system_id' => 'int',
         'consumption' => 'int[]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta'
     ];
 
     /**
@@ -403,7 +403,7 @@ class ConsumptionLifetimeResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -413,7 +413,7 @@ class ConsumptionLifetimeResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\ArraysApi
+# EnphaseOpenAPI\Commissioning\ArraysApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `deleteSystemArray()`
 
 ```php
-deleteSystemArray($system_id, $id): \OpenAPI\Client\Model\DeleteSystemArrayResponse
+deleteSystemArray($system_id, $id): \EnphaseOpenAPI\Commissioning\Model\DeleteSystemArrayResponse
 ```
 
 Delete an array by ID
@@ -29,15 +29,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ArraysApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -63,7 +63,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DeleteSystemArrayResponse**](../Model/DeleteSystemArrayResponse.md)
+[**\EnphaseOpenAPI\Commissioning\Model\DeleteSystemArrayResponse**](../Model/DeleteSystemArrayResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ try {
 ## `getSystemArray()`
 
 ```php
-getSystemArray($system_id, $id): \OpenAPI\Client\Model\ModelArray
+getSystemArray($system_id, $id): \EnphaseOpenAPI\Commissioning\Model\ModelArray
 ```
 
 Fetch array details by ID
@@ -96,15 +96,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ArraysApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -130,7 +130,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ModelArray**](../Model/ModelArray.md)
+[**\EnphaseOpenAPI\Commissioning\Model\ModelArray**](../Model/ModelArray.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ try {
 ## `getSystemArrays()`
 
 ```php
-getSystemArrays($system_id): \OpenAPI\Client\Model\Arrays
+getSystemArrays($system_id): \EnphaseOpenAPI\Commissioning\Model\Arrays
 ```
 
 Fetch particular system Array details
@@ -163,15 +163,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ArraysApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -195,7 +195,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Arrays**](../Model/Arrays.md)
+[**\EnphaseOpenAPI\Commissioning\Model\Arrays**](../Model/Arrays.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ try {
 ## `updateSystemArray()`
 
 ```php
-updateSystemArray($system_id, $id, $params): \OpenAPI\Client\Model\ModelArray
+updateSystemArray($system_id, $id, $params): \EnphaseOpenAPI\Commissioning\Model\ModelArray
 ```
 
 Update particular system array details
@@ -228,15 +228,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ArraysApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -244,7 +244,7 @@ $apiInstance = new OpenAPI\Client\Api\ArraysApi(
 );
 $system_id = 56; // int | System ID.
 $id = 56; // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
-$params = new \OpenAPI\Client\Model\ArrayParams(); // \OpenAPI\Client\Model\ArrayParams
+$params = new \EnphaseOpenAPI\Commissioning\Model\ArrayParams(); // \EnphaseOpenAPI\Commissioning\Model\ArrayParams
 
 try {
     $result = $apiInstance->updateSystemArray($system_id, $id, $params);
@@ -260,11 +260,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **system_id** | **int**| System ID. | |
 | **id** | **int**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. | |
-| **params** | **\OpenAPI\Client\Model\ArrayParams**|  | [optional] |
+| **params** | **\EnphaseOpenAPI\Commissioning\Model\ArrayParams**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ModelArray**](../Model/ModelArray.md)
+[**\EnphaseOpenAPI\Commissioning\Model\ModelArray**](../Model/ModelArray.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ try {
 ## `updateSystemArrays()`
 
 ```php
-updateSystemArrays($system_id, $params): \OpenAPI\Client\Model\Arrays
+updateSystemArrays($system_id, $params): \EnphaseOpenAPI\Commissioning\Model\Arrays
 ```
 
 Update all arrays for system
@@ -297,22 +297,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ArraysApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $system_id = 56; // int | System ID.
-$params = new \OpenAPI\Client\Model\UpdateSystemArraysRequest(); // \OpenAPI\Client\Model\UpdateSystemArraysRequest
+$params = new \EnphaseOpenAPI\Commissioning\Model\UpdateSystemArraysRequest(); // \EnphaseOpenAPI\Commissioning\Model\UpdateSystemArraysRequest
 
 try {
     $result = $apiInstance->updateSystemArrays($system_id, $params);
@@ -327,11 +327,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **system_id** | **int**| System ID. | |
-| **params** | [**\OpenAPI\Client\Model\UpdateSystemArraysRequest**](../Model/UpdateSystemArraysRequest.md)|  | [optional] |
+| **params** | [**\EnphaseOpenAPI\Commissioning\Model\UpdateSystemArraysRequest**](../Model/UpdateSystemArraysRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Arrays**](../Model/Arrays.md)
+[**\EnphaseOpenAPI\Commissioning\Model\Arrays**](../Model/Arrays.md)
 
 ### Authorization
 

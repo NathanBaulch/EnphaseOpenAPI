@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * SystemHost Class Doc Comment
  *
  * @category Class
  * @description Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information. If the query parameter &#39;expand&#x3D;host&#39; passed in the request host detail will appear in the response.
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -64,12 +64,12 @@ class SystemHost implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'string',
         'active' => 'bool',
         'user_id' => 'int',
-        'user_roles' => '\OpenAPI\Client\Model\UserRoleEnum[]',
+        'user_roles' => '\EnphaseOpenAPI\Commissioning\Model\UserRoleEnum[]',
         'enlighten_emails' => 'bool',
         'enlighten_view' => 'string',
         'uri' => 'string',
         'updated_at' => 'int',
-        'company' => '\OpenAPI\Client\Model\SystemHostCompany'
+        'company' => '\EnphaseOpenAPI\Commissioning\Model\SystemHostCompany'
     ];
 
     /**
@@ -532,7 +532,7 @@ class SystemHost implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets user_roles
      *
-     * @return \OpenAPI\Client\Model\UserRoleEnum[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\UserRoleEnum[]|null
      */
     public function getUserRoles()
     {
@@ -542,7 +542,7 @@ class SystemHost implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets user_roles
      *
-     * @param \OpenAPI\Client\Model\UserRoleEnum[]|null $user_roles What type of user this is in Enlighten. For self installer user user_roles will be ['self_installer']. For other users user_roles will be empty.
+     * @param \EnphaseOpenAPI\Commissioning\Model\UserRoleEnum[]|null $user_roles What type of user this is in Enlighten. For self installer user user_roles will be ['self_installer']. For other users user_roles will be empty.
      *
      * @return self
      */
@@ -667,7 +667,7 @@ class SystemHost implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets company
      *
-     * @return \OpenAPI\Client\Model\SystemHostCompany|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemHostCompany|null
      */
     public function getCompany()
     {
@@ -677,7 +677,7 @@ class SystemHost implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company
      *
-     * @param \OpenAPI\Client\Model\SystemHostCompany|null $company company
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemHostCompany|null $company company
      *
      * @return self
      */

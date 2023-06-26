@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * EnvoysResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class EnvoysResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'system_id' => 'int',
-        'envoys' => '\OpenAPI\Client\Model\EnvoysResponseEnvoysInner[]'
+        'envoys' => '\EnphaseOpenAPI\Enlighten\Model\EnvoysResponseEnvoysInner[]'
     ];
 
     /**
@@ -332,7 +332,7 @@ class EnvoysResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets envoys
      *
-     * @return \OpenAPI\Client\Model\EnvoysResponseEnvoysInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\EnvoysResponseEnvoysInner[]
      */
     public function getEnvoys()
     {
@@ -342,7 +342,7 @@ class EnvoysResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets envoys
      *
-     * @param \OpenAPI\Client\Model\EnvoysResponseEnvoysInner[] $envoys A list of active Envoys on this system.
+     * @param \EnphaseOpenAPI\Enlighten\Model\EnvoysResponseEnvoysInner[] $envoys A list of active Envoys on this system.
      *
      * @return self
      */

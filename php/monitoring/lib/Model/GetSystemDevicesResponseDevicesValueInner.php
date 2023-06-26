@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemDevicesResponseDevicesValueInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -69,7 +69,7 @@ class GetSystemDevicesResponseDevicesValueInner implements ModelInterface, Array
         'active' => 'bool',
         'state' => 'string',
         'config_type' => 'string',
-        'cellular_modem' => '\OpenAPI\Client\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem'
+        'cellular_modem' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem'
     ];
 
     /**
@@ -700,7 +700,7 @@ class GetSystemDevicesResponseDevicesValueInner implements ModelInterface, Array
     /**
      * Gets cellular_modem
      *
-     * @return \OpenAPI\Client\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem|null
      */
     public function getCellularModem()
     {
@@ -710,7 +710,7 @@ class GetSystemDevicesResponseDevicesValueInner implements ModelInterface, Array
     /**
      * Sets cellular_modem
      *
-     * @param \OpenAPI\Client\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem|null $cellular_modem cellular_modem
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem|null $cellular_modem cellular_modem
      *
      * @return self
      */

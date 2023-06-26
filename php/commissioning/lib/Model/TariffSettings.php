@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * TariffSettings Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class TariffSettings implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tariff' => '\OpenAPI\Client\Model\TariffSettingsTariff',
-        'task' => '\OpenAPI\Client\Model\UpdateSystemTariffSettingsResponseTask'
+        'tariff' => '\EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariff',
+        'task' => '\EnphaseOpenAPI\Commissioning\Model\UpdateSystemTariffSettingsResponseTask'
     ];
 
     /**
@@ -299,7 +299,7 @@ class TariffSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tariff
      *
-     * @return \OpenAPI\Client\Model\TariffSettingsTariff|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariff|null
      */
     public function getTariff()
     {
@@ -309,7 +309,7 @@ class TariffSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tariff
      *
-     * @param \OpenAPI\Client\Model\TariffSettingsTariff|null $tariff tariff
+     * @param \EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariff|null $tariff tariff
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class TariffSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets task
      *
-     * @return \OpenAPI\Client\Model\UpdateSystemTariffSettingsResponseTask|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\UpdateSystemTariffSettingsResponseTask|null
      */
     public function getTask()
     {
@@ -336,7 +336,7 @@ class TariffSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets task
      *
-     * @param \OpenAPI\Client\Model\UpdateSystemTariffSettingsResponseTask|null $task task
+     * @param \EnphaseOpenAPI\Commissioning\Model\UpdateSystemTariffSettingsResponseTask|null $task task
      *
      * @return self
      */

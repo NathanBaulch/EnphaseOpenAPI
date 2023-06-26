@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **system_id** | **int** | Enlighten ID of this system. System-generated. | [optional]
 **system_name** | **string** | Name of the system. | [optional]
-**system_type** | [**\OpenAPI\Client\Model\SystemTypeEnum**](SystemTypeEnum.md) |  | [optional]
+**system_type** | [**\EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum**](SystemTypeEnum.md) |  | [optional]
 **status** | **string** | System&#39;s status. | [optional]
 **stage** | **int** | What stage of the activation process this activation is in. System-generated. | [optional]
-**internet_connection** | [**\OpenAPI\Client\Model\SystemInternetConnectionEnum**](SystemInternetConnectionEnum.md) |  | [optional]
+**internet_connection** | [**\EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum**](SystemInternetConnectionEnum.md) |  | [optional]
 **lease** | **bool** | Whether the system is leased. Default false. | [optional]
 **operational** | **bool** | Whether this system is permitted to operate. Default true. | [optional]
 **owner** | **string** | Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself. | [optional]
@@ -22,6 +22,6 @@ Name | Type | Description | Notes
 **updated_at** | **int** | Activation last updated timestamp. | [optional]
 **reference** | **string** | Identifier of this system as provided by the calling user&#39;s company. This attribute is not present if the calling user&#39;s company does not have a reference for this system. | [optional]
 **other_references** | **string[]** | Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system. | [optional]
-**address** | [**\OpenAPI\Client\Model\Address**](Address.md) |  | [optional]
+**address** | [**\EnphaseOpenAPI\Commissioning\Model\Address**](Address.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

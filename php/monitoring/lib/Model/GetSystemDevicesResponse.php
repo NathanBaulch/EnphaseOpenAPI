@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemDevicesResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class GetSystemDevicesResponse implements ModelInterface, ArrayAccess, \JsonSeri
         'system_id' => 'int',
         'total_devices' => 'int',
         'items' => 'string',
-        'devices' => 'array<string,\OpenAPI\Client\Model\GetSystemDevicesResponseDevicesValueInner[]>'
+        'devices' => 'array<string,\EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponseDevicesValueInner[]>'
     ];
 
     /**
@@ -394,7 +394,7 @@ class GetSystemDevicesResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets devices
      *
-     * @return array<string,\OpenAPI\Client\Model\GetSystemDevicesResponseDevicesValueInner[]>|null
+     * @return array<string,\EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponseDevicesValueInner[]>|null
      */
     public function getDevices()
     {
@@ -404,7 +404,7 @@ class GetSystemDevicesResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets devices
      *
-     * @param array<string,\OpenAPI\Client\Model\GetSystemDevicesResponseDevicesValueInner[]>|null $devices Hash keys include all the possible device types micros, meters, gateways, mids, q_relays, ACBs, Encharges, Enpowers (if the devices of this type are present). For all the device types, the object will contain the serial_number and model with some additional information pertaining to the device type.
+     * @param array<string,\EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponseDevicesValueInner[]>|null $devices Hash keys include all the possible device types micros, meters, gateways, mids, q_relays, ACBs, Encharges, Enpowers (if the devices of this type are present). For all the device types, the object will contain the serial_number and model with some additional information pertaining to the device type.
      *
      * @return self
      */

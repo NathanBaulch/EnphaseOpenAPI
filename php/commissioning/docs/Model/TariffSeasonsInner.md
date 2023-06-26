@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | ToU year ID. e.g&#x3D;&#39;all_year_long&#39;. | [optional]
 **start** | **string** | Start of season. e.g&#x3D;&#39;1/1&#39;. | [optional]
-**days** | [**\OpenAPI\Client\Model\TariffSeasonsInnerDaysInner[]**](TariffSeasonsInnerDaysInner.md) | ToU seasons. | [optional]
+**days** | [**\EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInnerDaysInner[]**](TariffSeasonsInnerDaysInner.md) | ToU seasons. | [optional]
 **enable_charge_from_grid** | **bool** |  | [optional]
 **enable_discharge_to_grid** | **bool** |  | [optional]
 

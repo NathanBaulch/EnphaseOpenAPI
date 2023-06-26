@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * GetPartnerActivationsResponseSystemsInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,10 +59,10 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
     protected static $openAPITypes = [
         'system_id' => 'int',
         'system_name' => 'string',
-        'system_type' => '\OpenAPI\Client\Model\SystemTypeEnum',
+        'system_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum',
         'status' => 'string',
         'stage' => 'int',
-        'internet_connection' => '\OpenAPI\Client\Model\SystemInternetConnectionEnum',
+        'internet_connection' => '\EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum',
         'lease' => 'bool',
         'operational' => 'bool',
         'owner' => 'string',
@@ -75,7 +75,7 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
         'updated_at' => 'int',
         'reference' => 'string',
         'other_references' => 'string[]',
-        'address' => '\OpenAPI\Client\Model\Address'
+        'address' => '\EnphaseOpenAPI\Commissioning\Model\Address'
     ];
 
     /**
@@ -472,7 +472,7 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
     /**
      * Gets system_type
      *
-     * @return \OpenAPI\Client\Model\SystemTypeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum|null
      */
     public function getSystemType()
     {
@@ -482,7 +482,7 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
     /**
      * Sets system_type
      *
-     * @param \OpenAPI\Client\Model\SystemTypeEnum|null $system_type system_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum|null $system_type system_type
      *
      * @return self
      */
@@ -553,7 +553,7 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
     /**
      * Gets internet_connection
      *
-     * @return \OpenAPI\Client\Model\SystemInternetConnectionEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum|null
      */
     public function getInternetConnection()
     {
@@ -563,7 +563,7 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
     /**
      * Sets internet_connection
      *
-     * @param \OpenAPI\Client\Model\SystemInternetConnectionEnum|null $internet_connection internet_connection
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum|null $internet_connection internet_connection
      *
      * @return self
      */
@@ -904,7 +904,7 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\Address|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\Address|null
      */
     public function getAddress()
     {
@@ -914,7 +914,7 @@ class GetPartnerActivationsResponseSystemsInner implements ModelInterface, Array
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\Address|null $address address
+     * @param \EnphaseOpenAPI\Commissioning\Model\Address|null $address address
      *
      * @return self
      */

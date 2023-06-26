@@ -1,4 +1,4 @@
-# OpenAPI\Client\MetersApi
+# EnphaseOpenAPI\Commissioning\MetersApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getSystemMeter()`
 
 ```php
-getSystemMeter($system_id, $serial_number): \OpenAPI\Client\Model\GetSystemMeterResponse
+getSystemMeter($system_id, $serial_number): \EnphaseOpenAPI\Commissioning\Model\GetSystemMeterResponse
 ```
 
 Returns the requested meter detail.
@@ -27,15 +27,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MetersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\MetersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -61,7 +61,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemMeterResponse**](../Model/GetSystemMeterResponse.md)
+[**\EnphaseOpenAPI\Commissioning\Model\GetSystemMeterResponse**](../Model/GetSystemMeterResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ try {
 ## `setActivationMeterStatus()`
 
 ```php
-setActivationMeterStatus($activation_id, $serial_number, $params): \OpenAPI\Client\Model\SetActivationMeterStatusResponse
+setActivationMeterStatus($activation_id, $serial_number, $params): \EnphaseOpenAPI\Commissioning\Model\SetActivationMeterStatusResponse
 ```
 
 Enable or Disable the meters.
@@ -94,15 +94,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MetersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\MetersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -110,7 +110,7 @@ $apiInstance = new OpenAPI\Client\Api\MetersApi(
 );
 $activation_id = 56; // int | Activation ID.
 $serial_number = 'serial_number_example'; // string | Meter serial number.
-$params = new \OpenAPI\Client\Model\SetActivationMeterStatusRequest(); // \OpenAPI\Client\Model\SetActivationMeterStatusRequest
+$params = new \EnphaseOpenAPI\Commissioning\Model\SetActivationMeterStatusRequest(); // \EnphaseOpenAPI\Commissioning\Model\SetActivationMeterStatusRequest
 
 try {
     $result = $apiInstance->setActivationMeterStatus($activation_id, $serial_number, $params);
@@ -126,11 +126,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **activation_id** | **int**| Activation ID. | |
 | **serial_number** | **string**| Meter serial number. | |
-| **params** | [**\OpenAPI\Client\Model\SetActivationMeterStatusRequest**](../Model/SetActivationMeterStatusRequest.md)|  | [optional] |
+| **params** | [**\EnphaseOpenAPI\Commissioning\Model\SetActivationMeterStatusRequest**](../Model/SetActivationMeterStatusRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SetActivationMeterStatusResponse**](../Model/SetActivationMeterStatusResponse.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SetActivationMeterStatusResponse**](../Model/SetActivationMeterStatusResponse.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ try {
 ## `updateSystemMeter()`
 
 ```php
-updateSystemMeter($system_id, $serial_number, $operational_date): \OpenAPI\Client\Model\UpdateSystemMeterResponse
+updateSystemMeter($system_id, $serial_number, $operational_date): \EnphaseOpenAPI\Commissioning\Model\UpdateSystemMeterResponse
 ```
 
 Update the operational date of a meter by serial number.
@@ -163,15 +163,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MetersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\MetersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -199,7 +199,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\UpdateSystemMeterResponse**](../Model/UpdateSystemMeterResponse.md)
+[**\EnphaseOpenAPI\Commissioning\Model\UpdateSystemMeterResponse**](../Model/UpdateSystemMeterResponse.md)
 
 ### Authorization
 

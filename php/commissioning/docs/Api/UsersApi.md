@@ -1,4 +1,4 @@
-# OpenAPI\Client\UsersApi
+# EnphaseOpenAPI\Commissioning\UsersApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -15,7 +15,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getActivationUser()`
 
 ```php
-getActivationUser($activation_id, $user_id, $expand): \OpenAPI\Client\Model\User
+getActivationUser($activation_id, $user_id, $expand): \EnphaseOpenAPI\Commissioning\Model\User
 ```
 
 Returns the requested user
@@ -30,15 +30,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -46,7 +46,7 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $activation_id = 56; // int | Enlighten ID of the activation(system). System-generated.
 $user_id = 56; // int | Enlighten ID of the user. System-generated.
-$expand = new \OpenAPI\Client\Model\UserExpandEnum(); // UserExpandEnum | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information not include in the response.
+$expand = new \EnphaseOpenAPI\Commissioning\Model\UserExpandEnum(); // UserExpandEnum | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information not include in the response.
 
 try {
     $result = $apiInstance->getActivationUser($activation_id, $user_id, $expand);
@@ -66,7 +66,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\User**](../Model/User.md)
+[**\EnphaseOpenAPI\Commissioning\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ try {
 ## `getSelfUser()`
 
 ```php
-getSelfUser($expand): \OpenAPI\Client\Model\User
+getSelfUser($expand): \EnphaseOpenAPI\Commissioning\Model\User
 ```
 
 Return the current logged in user detail
@@ -99,21 +99,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$expand = new \OpenAPI\Client\Model\UserExpandEnum(); // UserExpandEnum | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response.
+$expand = new \EnphaseOpenAPI\Commissioning\Model\UserExpandEnum(); // UserExpandEnum | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response.
 
 try {
     $result = $apiInstance->getSelfUser($expand);
@@ -131,7 +131,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\User**](../Model/User.md)
+[**\EnphaseOpenAPI\Commissioning\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ try {
 ## `getUser()`
 
 ```php
-getUser($user_id, $expand): \OpenAPI\Client\Model\User
+getUser($user_id, $expand): \EnphaseOpenAPI\Commissioning\Model\User
 ```
 
 Returns the requested user
@@ -164,22 +164,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $user_id = 56; // int | User ID.
-$expand = new \OpenAPI\Client\Model\UserExpandEnum(); // UserExpandEnum | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response.
+$expand = new \EnphaseOpenAPI\Commissioning\Model\UserExpandEnum(); // UserExpandEnum | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response.
 
 try {
     $result = $apiInstance->getUser($user_id, $expand);
@@ -198,7 +198,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\User**](../Model/User.md)
+[**\EnphaseOpenAPI\Commissioning\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ try {
 ## `searchUsers()`
 
 ```php
-searchUsers($email): \OpenAPI\Client\Model\SearchUsersResponse
+searchUsers($email): \EnphaseOpenAPI\Commissioning\Model\SearchUsersResponse
 ```
 
 Search user
@@ -231,15 +231,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -263,7 +263,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SearchUsersResponse**](../Model/SearchUsersResponse.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SearchUsersResponse**](../Model/SearchUsersResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ try {
 ## `updateActivationUser()`
 
 ```php
-updateActivationUser($activation_id, $user_id, $params): \OpenAPI\Client\Model\User
+updateActivationUser($activation_id, $user_id, $params): \EnphaseOpenAPI\Commissioning\Model\User
 ```
 
 Update user
@@ -296,15 +296,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -312,7 +312,7 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $activation_id = 56; // int | Enlighten ID of the activation(system). System-generated.
 $user_id = 56; // int | Enlighten ID of the user. System-generated.
-$params = new \OpenAPI\Client\Model\UserParams(); // \OpenAPI\Client\Model\UserParams
+$params = new \EnphaseOpenAPI\Commissioning\Model\UserParams(); // \EnphaseOpenAPI\Commissioning\Model\UserParams
 
 try {
     $result = $apiInstance->updateActivationUser($activation_id, $user_id, $params);
@@ -328,11 +328,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **activation_id** | **int**| Enlighten ID of the activation(system). System-generated. | |
 | **user_id** | **int**| Enlighten ID of the user. System-generated. | |
-| **params** | **\OpenAPI\Client\Model\UserParams**|  | [optional] |
+| **params** | **\EnphaseOpenAPI\Commissioning\Model\UserParams**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\User**](../Model/User.md)
+[**\EnphaseOpenAPI\Commissioning\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -350,7 +350,7 @@ try {
 ## `updateUser()`
 
 ```php
-updateUser($user_id, $params): \OpenAPI\Client\Model\User
+updateUser($user_id, $params): \EnphaseOpenAPI\Commissioning\Model\User
 ```
 
 Update user
@@ -365,22 +365,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $user_id = 56; // int | User ID.
-$params = new \OpenAPI\Client\Model\UserParams(); // \OpenAPI\Client\Model\UserParams
+$params = new \EnphaseOpenAPI\Commissioning\Model\UserParams(); // \EnphaseOpenAPI\Commissioning\Model\UserParams
 
 try {
     $result = $apiInstance->updateUser($user_id, $params);
@@ -395,11 +395,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **user_id** | **int**| User ID. | |
-| **params** | **\OpenAPI\Client\Model\UserParams**|  | [optional] |
+| **params** | **\EnphaseOpenAPI\Commissioning\Model\UserParams**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\User**](../Model/User.md)
+[**\EnphaseOpenAPI\Commissioning\Model\User**](../Model/User.md)
 
 ### Authorization
 

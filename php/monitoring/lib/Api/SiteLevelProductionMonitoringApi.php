@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace EnphaseOpenAPI\Monitoring\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use EnphaseOpenAPI\Monitoring\ApiException;
+use EnphaseOpenAPI\Monitoring\Configuration;
+use EnphaseOpenAPI\Monitoring\HeaderSelector;
+use EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * SiteLevelProductionMonitoringApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -145,9 +145,9 @@ class SiteLevelProductionMonitoringApi
      * @param  SystemEnergyLifetimeProductionEnum $production When &#39;all&#39;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemEnergyLifetime'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemEnergyLifetime($system_id, $start_date = null, $end_date = null, $production = null, string $contentType = self::contentTypes['getSystemEnergyLifetime'][0])
     {
@@ -166,9 +166,9 @@ class SiteLevelProductionMonitoringApi
      * @param  SystemEnergyLifetimeProductionEnum $production When &#39;all&#39;, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemEnergyLifetime'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemEnergyLifetimeWithHttpInfo($system_id, $start_date = null, $end_date = null, $production = null, string $contentType = self::contentTypes['getSystemEnergyLifetime'][0])
     {
@@ -211,143 +211,143 @@ class SiteLevelProductionMonitoringApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 405:
-                    if ('\OpenAPI\Client\Model\MethodNotAllowedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\MethodNotAllowedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MethodNotAllowedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\OpenAPI\Client\Model\TooManyRequestsError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TooManyRequestsError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TooManyRequestsError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\GetSystems500Response' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystems500Response' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystems500Response', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 501:
-                    if ('\OpenAPI\Client\Model\NotImplementedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NotImplementedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NotImplementedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -368,7 +368,7 @@ class SiteLevelProductionMonitoringApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -376,7 +376,7 @@ class SiteLevelProductionMonitoringApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -384,7 +384,7 @@ class SiteLevelProductionMonitoringApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -392,7 +392,7 @@ class SiteLevelProductionMonitoringApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -400,7 +400,7 @@ class SiteLevelProductionMonitoringApi
                 case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MethodNotAllowedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -408,7 +408,7 @@ class SiteLevelProductionMonitoringApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -416,7 +416,7 @@ class SiteLevelProductionMonitoringApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TooManyRequestsError',
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -424,7 +424,7 @@ class SiteLevelProductionMonitoringApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystems500Response',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -432,7 +432,7 @@ class SiteLevelProductionMonitoringApi
                 case 501:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NotImplementedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -482,7 +482,7 @@ class SiteLevelProductionMonitoringApi
      */
     public function getSystemEnergyLifetimeAsyncWithHttpInfo($system_id, $start_date = null, $end_date = null, $production = null, string $contentType = self::contentTypes['getSystemEnergyLifetime'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetSystemEnergyLifetimeResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyLifetimeResponse';
         $request = $this->getSystemEnergyLifetimeRequest($system_id, $start_date, $end_date, $production, $contentType);
 
         return $this->client
@@ -664,9 +664,9 @@ class SiteLevelProductionMonitoringApi
      * @param  int $end_at End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemProductionMeterReadings'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemProductionMeterReadings($system_id, $end_at = null, string $contentType = self::contentTypes['getSystemProductionMeterReadings'][0])
     {
@@ -683,9 +683,9 @@ class SiteLevelProductionMonitoringApi
      * @param  int $end_at End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemProductionMeterReadings'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemProductionMeterReadingsWithHttpInfo($system_id, $end_at = null, string $contentType = self::contentTypes['getSystemProductionMeterReadings'][0])
     {
@@ -728,143 +728,143 @@ class SiteLevelProductionMonitoringApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 405:
-                    if ('\OpenAPI\Client\Model\MethodNotAllowedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\MethodNotAllowedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MethodNotAllowedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\OpenAPI\Client\Model\TooManyRequestsError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TooManyRequestsError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TooManyRequestsError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\GetSystems500Response' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystems500Response' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystems500Response', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 501:
-                    if ('\OpenAPI\Client\Model\NotImplementedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NotImplementedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NotImplementedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -885,7 +885,7 @@ class SiteLevelProductionMonitoringApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -893,7 +893,7 @@ class SiteLevelProductionMonitoringApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -901,7 +901,7 @@ class SiteLevelProductionMonitoringApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -909,7 +909,7 @@ class SiteLevelProductionMonitoringApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -917,7 +917,7 @@ class SiteLevelProductionMonitoringApi
                 case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MethodNotAllowedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -925,7 +925,7 @@ class SiteLevelProductionMonitoringApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -933,7 +933,7 @@ class SiteLevelProductionMonitoringApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TooManyRequestsError',
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -941,7 +941,7 @@ class SiteLevelProductionMonitoringApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystems500Response',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -949,7 +949,7 @@ class SiteLevelProductionMonitoringApi
                 case 501:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NotImplementedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -995,7 +995,7 @@ class SiteLevelProductionMonitoringApi
      */
     public function getSystemProductionMeterReadingsAsyncWithHttpInfo($system_id, $end_at = null, string $contentType = self::contentTypes['getSystemProductionMeterReadings'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponse';
         $request = $this->getSystemProductionMeterReadingsRequest($system_id, $end_at, $contentType);
 
         return $this->client
@@ -1156,9 +1156,9 @@ class SiteLevelProductionMonitoringApi
      * @param  TelemetryGranularityEnum $granularity Granularity of the telemetry data. Default is &#39;day&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemProductionMeterTelemetry'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemProductionMeterTelemetry($system_id, $start_at = null, $granularity = null, string $contentType = self::contentTypes['getSystemProductionMeterTelemetry'][0])
     {
@@ -1176,9 +1176,9 @@ class SiteLevelProductionMonitoringApi
      * @param  TelemetryGranularityEnum $granularity Granularity of the telemetry data. Default is &#39;day&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemProductionMeterTelemetry'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemProductionMeterTelemetryWithHttpInfo($system_id, $start_at = null, $granularity = null, string $contentType = self::contentTypes['getSystemProductionMeterTelemetry'][0])
     {
@@ -1221,143 +1221,143 @@ class SiteLevelProductionMonitoringApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 405:
-                    if ('\OpenAPI\Client\Model\MethodNotAllowedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\MethodNotAllowedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MethodNotAllowedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\OpenAPI\Client\Model\TooManyRequestsError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TooManyRequestsError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TooManyRequestsError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\GetSystems500Response' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystems500Response' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystems500Response', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 501:
-                    if ('\OpenAPI\Client\Model\NotImplementedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NotImplementedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NotImplementedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1378,7 +1378,7 @@ class SiteLevelProductionMonitoringApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1386,7 +1386,7 @@ class SiteLevelProductionMonitoringApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1394,7 +1394,7 @@ class SiteLevelProductionMonitoringApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1402,7 +1402,7 @@ class SiteLevelProductionMonitoringApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1410,7 +1410,7 @@ class SiteLevelProductionMonitoringApi
                 case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MethodNotAllowedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1418,7 +1418,7 @@ class SiteLevelProductionMonitoringApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1426,7 +1426,7 @@ class SiteLevelProductionMonitoringApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TooManyRequestsError',
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1434,7 +1434,7 @@ class SiteLevelProductionMonitoringApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystems500Response',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1442,7 +1442,7 @@ class SiteLevelProductionMonitoringApi
                 case 501:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NotImplementedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1490,7 +1490,7 @@ class SiteLevelProductionMonitoringApi
      */
     public function getSystemProductionMeterTelemetryAsyncWithHttpInfo($system_id, $start_at = null, $granularity = null, string $contentType = self::contentTypes['getSystemProductionMeterTelemetry'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponse';
         $request = $this->getSystemProductionMeterTelemetryRequest($system_id, $start_at, $granularity, $contentType);
 
         return $this->client
@@ -1662,9 +1662,9 @@ class SiteLevelProductionMonitoringApi
      * @param  TelemetryGranularityEnum $granularity Granularity of the telemetry data. Default is &#39;day&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemProductionMicroTelemetry'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemProductionMicroTelemetry($system_id, $start_at = null, $granularity = null, string $contentType = self::contentTypes['getSystemProductionMicroTelemetry'][0])
     {
@@ -1682,9 +1682,9 @@ class SiteLevelProductionMonitoringApi
      * @param  TelemetryGranularityEnum $granularity Granularity of the telemetry data. Default is &#39;day&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemProductionMicroTelemetry'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemProductionMicroTelemetryWithHttpInfo($system_id, $start_at = null, $granularity = null, string $contentType = self::contentTypes['getSystemProductionMicroTelemetry'][0])
     {
@@ -1727,143 +1727,143 @@ class SiteLevelProductionMonitoringApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 405:
-                    if ('\OpenAPI\Client\Model\MethodNotAllowedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\MethodNotAllowedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MethodNotAllowedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\OpenAPI\Client\Model\TooManyRequestsError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TooManyRequestsError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TooManyRequestsError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\GetSystems500Response' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystems500Response' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystems500Response', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 501:
-                    if ('\OpenAPI\Client\Model\NotImplementedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NotImplementedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NotImplementedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1884,7 +1884,7 @@ class SiteLevelProductionMonitoringApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1892,7 +1892,7 @@ class SiteLevelProductionMonitoringApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1900,7 +1900,7 @@ class SiteLevelProductionMonitoringApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1908,7 +1908,7 @@ class SiteLevelProductionMonitoringApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1916,7 +1916,7 @@ class SiteLevelProductionMonitoringApi
                 case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MethodNotAllowedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1924,7 +1924,7 @@ class SiteLevelProductionMonitoringApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1932,7 +1932,7 @@ class SiteLevelProductionMonitoringApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TooManyRequestsError',
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1940,7 +1940,7 @@ class SiteLevelProductionMonitoringApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystems500Response',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1948,7 +1948,7 @@ class SiteLevelProductionMonitoringApi
                 case 501:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NotImplementedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1996,7 +1996,7 @@ class SiteLevelProductionMonitoringApi
      */
     public function getSystemProductionMicroTelemetryAsyncWithHttpInfo($system_id, $start_at = null, $granularity = null, string $contentType = self::contentTypes['getSystemProductionMicroTelemetry'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetSystemProductionMicroTelemetryResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMicroTelemetryResponse';
         $request = $this->getSystemProductionMicroTelemetryRequest($system_id, $start_at, $granularity, $contentType);
 
         return $this->client
@@ -2168,9 +2168,9 @@ class SiteLevelProductionMonitoringApi
      * @param  int $end_at End of reporting period in Unix epoch time. If no end is specified, default to the time of the request or (start time + 1 week), whichever is earlier. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemRgmStats'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetSystemRgmStatsResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemRgmStats($system_id, $start_at = null, $end_at = null, string $contentType = self::contentTypes['getSystemRgmStats'][0])
     {
@@ -2188,9 +2188,9 @@ class SiteLevelProductionMonitoringApi
      * @param  int $end_at End of reporting period in Unix epoch time. If no end is specified, default to the time of the request or (start time + 1 week), whichever is earlier. If the end is later than the last reported interval the response data ends with the last reported interval. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemRgmStats'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetSystemRgmStatsResponse|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\MethodNotAllowedError|\OpenAPI\Client\Model\ClientError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\GetSystems500Response|\OpenAPI\Client\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemRgmStatsWithHttpInfo($system_id, $start_at = null, $end_at = null, string $contentType = self::contentTypes['getSystemRgmStats'][0])
     {
@@ -2233,143 +2233,143 @@ class SiteLevelProductionMonitoringApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetSystemRgmStatsResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystemRgmStatsResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystemRgmStatsResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 405:
-                    if ('\OpenAPI\Client\Model\MethodNotAllowedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\MethodNotAllowedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MethodNotAllowedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ClientError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ClientError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClientError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\OpenAPI\Client\Model\TooManyRequestsError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TooManyRequestsError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TooManyRequestsError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\GetSystems500Response' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetSystems500Response' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetSystems500Response', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 501:
-                    if ('\OpenAPI\Client\Model\NotImplementedError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NotImplementedError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NotImplementedError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetSystemRgmStatsResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2390,7 +2390,7 @@ class SiteLevelProductionMonitoringApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystemRgmStatsResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2398,7 +2398,7 @@ class SiteLevelProductionMonitoringApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2406,7 +2406,7 @@ class SiteLevelProductionMonitoringApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2414,7 +2414,7 @@ class SiteLevelProductionMonitoringApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2422,7 +2422,7 @@ class SiteLevelProductionMonitoringApi
                 case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MethodNotAllowedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2430,7 +2430,7 @@ class SiteLevelProductionMonitoringApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ClientError',
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2438,7 +2438,7 @@ class SiteLevelProductionMonitoringApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TooManyRequestsError',
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2446,7 +2446,7 @@ class SiteLevelProductionMonitoringApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetSystems500Response',
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2454,7 +2454,7 @@ class SiteLevelProductionMonitoringApi
                 case 501:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NotImplementedError',
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2502,7 +2502,7 @@ class SiteLevelProductionMonitoringApi
      */
     public function getSystemRgmStatsAsyncWithHttpInfo($system_id, $start_at = null, $end_at = null, string $contentType = self::contentTypes['getSystemRgmStats'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetSystemRgmStatsResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponse';
         $request = $this->getSystemRgmStatsRequest($system_id, $start_at, $end_at, $contentType);
 
         return $this->client

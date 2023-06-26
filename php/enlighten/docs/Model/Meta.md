@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**\OpenAPI\Client\Model\Status**](Status.md) |  |
+**status** | [**\EnphaseOpenAPI\Enlighten\Model\Status**](Status.md) |  |
 **last_report_at** | **int** |  |
 **last_energy_at** | **int** |  |
 **operational_at** | **int** |  |

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,15 +26,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace EnphaseOpenAPI\Monitoring\Model;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * SystemPublicNameEnum Class Doc Comment
  *
  * @category Class
  * @description Name displayed on the public system page. Default&#x3D;residential. Only for systems that allow public access.
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

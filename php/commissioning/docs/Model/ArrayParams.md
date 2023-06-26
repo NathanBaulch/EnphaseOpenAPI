@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **provisioned_envoy** | **string** | Provisioned envoy. |
 **left** | **int** | Left axis position of array. Increase the value to move the array to the right, and decrease to move it to the left. |
 **top** | **int** | Top axis position of array. Increase the value to move the array up, and decrease to move it down. |
-**modules** | [**\OpenAPI\Client\Model\ArrayParamsModulesInner[]**](ArrayParamsModulesInner.md) |  |
+**modules** | [**\EnphaseOpenAPI\Commissioning\Model\ArrayParamsModulesInner[]**](ArrayParamsModulesInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

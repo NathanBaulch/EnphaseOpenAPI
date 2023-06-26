@@ -1,4 +1,4 @@
-# OpenAPI\Client\DeviceLevelProductionMonitoringApi
+# EnphaseOpenAPI\Monitoring\DeviceLevelProductionMonitoringApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getSystemAcbDeviceTelemetry()`
 
 ```php
-getSystemAcbDeviceTelemetry($system_id, $serial_no, $start_at, $granularity): \OpenAPI\Client\Model\BatteryDeviceTelemetry
+getSystemAcbDeviceTelemetry($system_id, $serial_no, $start_at, $granularity): \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetry
 ```
 
 Retrieves telemetry for single ACB
@@ -27,15 +27,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DeviceLevelProductionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\DeviceLevelProductionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -44,7 +44,7 @@ $apiInstance = new OpenAPI\Client\Api\DeviceLevelProductionMonitoringApi(
 $system_id = 56; // int | Unique numeric ID of the system.
 $serial_no = 'serial_no_example'; // string | Serial number of the acb.
 $start_at = 56; // int | Start time for fetching the telemetry data in Epoch time format. Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
-$granularity = new \OpenAPI\Client\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
+$granularity = new \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
 
 try {
     $result = $apiInstance->getSystemAcbDeviceTelemetry($system_id, $serial_no, $start_at, $granularity);
@@ -65,7 +65,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BatteryDeviceTelemetry**](../Model/BatteryDeviceTelemetry.md)
+[**\EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetry**](../Model/BatteryDeviceTelemetry.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ try {
 ## `getSystemEnchargeDeviceTelemetry()`
 
 ```php
-getSystemEnchargeDeviceTelemetry($system_id, $serial_no, $start_at, $granularity): \OpenAPI\Client\Model\BatteryDeviceTelemetry
+getSystemEnchargeDeviceTelemetry($system_id, $serial_no, $start_at, $granularity): \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetry
 ```
 
 Retrieves telemetry for single Encharge
@@ -98,15 +98,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DeviceLevelProductionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\DeviceLevelProductionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -115,7 +115,7 @@ $apiInstance = new OpenAPI\Client\Api\DeviceLevelProductionMonitoringApi(
 $system_id = 56; // int | Unique numeric ID of the system.
 $serial_no = 'serial_no_example'; // string | Serial number of the Encharge.
 $start_at = 56; // int | Start time for fetching the telemetry data in Epoch time format. Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
-$granularity = new \OpenAPI\Client\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
+$granularity = new \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
 
 try {
     $result = $apiInstance->getSystemEnchargeDeviceTelemetry($system_id, $serial_no, $start_at, $granularity);
@@ -136,7 +136,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BatteryDeviceTelemetry**](../Model/BatteryDeviceTelemetry.md)
+[**\EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetry**](../Model/BatteryDeviceTelemetry.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ try {
 ## `getSystemMicroDeviceTelemetry()`
 
 ```php
-getSystemMicroDeviceTelemetry($system_id, $serial_no, $start_at, $granularity): \OpenAPI\Client\Model\GetSystemMicroDeviceTelemetryResponse
+getSystemMicroDeviceTelemetry($system_id, $serial_no, $start_at, $granularity): \EnphaseOpenAPI\Monitoring\Model\GetSystemMicroDeviceTelemetryResponse
 ```
 
 Retrieves telemetry for single micro/pcu
@@ -169,15 +169,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DeviceLevelProductionMonitoringApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\DeviceLevelProductionMonitoringApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -186,7 +186,7 @@ $apiInstance = new OpenAPI\Client\Api\DeviceLevelProductionMonitoringApi(
 $system_id = 56; // int | Unique numeric ID of the system.
 $serial_no = 'serial_no_example'; // string | Serial number of the individual solar Microinverter.
 $start_at = 56; // int | Start time for fetching the telemetry data in Epoch time format. Alternatively one can use start_date in place of start_at for passing the start date as string in YYYY-MM-DD format. By default start_at will appear in response. If start_date parameter is passed in the url then start_date field will appear in response.
-$granularity = new \OpenAPI\Client\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
+$granularity = new \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum(); // TelemetryGranularityEnum | Granularity of the telemetry data. Default is 'day'.
 
 try {
     $result = $apiInstance->getSystemMicroDeviceTelemetry($system_id, $serial_no, $start_at, $granularity);
@@ -207,7 +207,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemMicroDeviceTelemetryResponse**](../Model/GetSystemMicroDeviceTelemetryResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemMicroDeviceTelemetryResponse**](../Model/GetSystemMicroDeviceTelemetryResponse.md)
 
 ### Authorization
 

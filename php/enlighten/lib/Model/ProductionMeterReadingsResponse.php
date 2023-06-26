@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * ProductionMeterReadingsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class ProductionMeterReadingsResponse implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'system_id' => 'int',
-        'meter_readings' => '\OpenAPI\Client\Model\ProductionMeterReadingsResponseMeterReadingsInner[]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'meter_readings' => '\EnphaseOpenAPI\Enlighten\Model\ProductionMeterReadingsResponseMeterReadingsInner[]',
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta'
     ];
 
     /**
@@ -342,7 +342,7 @@ class ProductionMeterReadingsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Gets meter_readings
      *
-     * @return \OpenAPI\Client\Model\ProductionMeterReadingsResponseMeterReadingsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\ProductionMeterReadingsResponseMeterReadingsInner[]
      */
     public function getMeterReadings()
     {
@@ -352,7 +352,7 @@ class ProductionMeterReadingsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Sets meter_readings
      *
-     * @param \OpenAPI\Client\Model\ProductionMeterReadingsResponseMeterReadingsInner[] $meter_readings meter_readings
+     * @param \EnphaseOpenAPI\Enlighten\Model\ProductionMeterReadingsResponseMeterReadingsInner[] $meter_readings meter_readings
      *
      * @return self
      */
@@ -369,7 +369,7 @@ class ProductionMeterReadingsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -379,7 +379,7 @@ class ProductionMeterReadingsResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */

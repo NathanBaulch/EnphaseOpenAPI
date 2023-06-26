@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemRgmStatsResponseMeterIntervalsInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class GetSystemRgmStatsResponseMeterIntervalsInner implements ModelInterface, Ar
     protected static $openAPITypes = [
         'meter_serial_number' => 'string',
         'envoy_serial_number' => 'string',
-        'intervals' => '\OpenAPI\Client\Model\GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner[]'
+        'intervals' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner[]'
     ];
 
     /**
@@ -360,7 +360,7 @@ class GetSystemRgmStatsResponseMeterIntervalsInner implements ModelInterface, Ar
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner[]|null
      */
     public function getIntervals()
     {
@@ -370,7 +370,7 @@ class GetSystemRgmStatsResponseMeterIntervalsInner implements ModelInterface, Ar
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner[]|null $intervals Individual meter level interval.
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner[]|null $intervals Individual meter level interval.
      *
      * @return self
      */

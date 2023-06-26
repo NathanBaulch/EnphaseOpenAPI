@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,11 +63,11 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner implements ModelI
         'serial_number' => 'string',
         'sku' => 'string',
         'status' => 'string',
-        'power_produced' => '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced',
+        'power_produced' => '\EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced',
         'proc_load' => 'string',
         'param_table' => 'string',
         'envoy_serial_number' => 'string',
-        'energy' => '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy',
+        'energy' => '\EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy',
         'grid_profile' => 'string',
         'last_report_date' => '\DateTime'
     ];
@@ -615,7 +615,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner implements ModelI
     /**
      * Gets power_produced
      *
-     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced
+     * @return \EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced
      */
     public function getPowerProduced()
     {
@@ -625,7 +625,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner implements ModelI
     /**
      * Sets power_produced
      *
-     * @param \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced $power_produced power_produced
+     * @param \EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced $power_produced power_produced
      *
      * @return self
      */
@@ -723,7 +723,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner implements ModelI
     /**
      * Gets energy
      *
-     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy
+     * @return \EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy
      */
     public function getEnergy()
     {
@@ -733,7 +733,7 @@ class InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner implements ModelI
     /**
      * Sets energy
      *
-     * @param \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy $energy energy
+     * @param \EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy $energy energy
      *
      * @return self
      */

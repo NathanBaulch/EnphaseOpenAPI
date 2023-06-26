@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **updated_at** | **int** | Last updated Epoch time. | [optional]
 **left** | **int** | Left axis position of array. | [optional]
 **top** | **int** | Top axis position of array. | [optional]
-**modules** | [**\OpenAPI\Client\Model\ArrayModulesInner[]**](ArrayModulesInner.md) |  | [optional]
+**modules** | [**\EnphaseOpenAPI\Commissioning\Model\ArrayModulesInner[]**](ArrayModulesInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

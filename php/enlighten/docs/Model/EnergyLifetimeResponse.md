@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **micro_production** | **int[]** |  | [optional]
 **meter_production** | **int[]** |  | [optional]
 **meter_start_date** | **\DateTime** | The first day in the time series when measurements are taken from a meter instead of from microinverters. This field is not present unless the system has a meter. | [optional]
-**meta** | [**\OpenAPI\Client\Model\Meta**](Meta.md) |  |
+**meta** | [**\EnphaseOpenAPI\Enlighten\Model\Meta**](Meta.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

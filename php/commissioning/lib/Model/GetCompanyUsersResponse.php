@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * GetCompanyUsersResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GetCompanyUsersResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'users' => '\OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[]'
+        'users' => '\EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[]'
     ];
 
     /**
@@ -300,7 +300,7 @@ class GetCompanyUsersResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets users
      *
-     * @return \OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[]|null
      */
     public function getUsers()
     {
@@ -310,7 +310,7 @@ class GetCompanyUsersResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets users
      *
-     * @param \OpenAPI\Client\Model\GetCompanyUsersResponseUsersInner[]|null $users Zero or more users. Each user is an array. In that first value of the array is Enlighten ID of the user. System-generated. Second value of the array is the email address of the user.
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponseUsersInner[]|null $users Zero or more users. Each user is an array. In that first value of the array is Enlighten ID of the user. System-generated. Second value of the array is the email address of the user.
      *
      * @return self
      */

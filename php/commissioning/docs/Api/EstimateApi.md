@@ -1,4 +1,4 @@
-# OpenAPI\Client\EstimateApi
+# EnphaseOpenAPI\Commissioning\EstimateApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -11,7 +11,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getActivationEstimate()`
 
 ```php
-getActivationEstimate($activation_id): \OpenAPI\Client\Model\SystemEstimate
+getActivationEstimate($activation_id): \EnphaseOpenAPI\Commissioning\Model\SystemEstimate
 ```
 
 Returns the estimate for this system.
@@ -26,15 +26,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\EstimateApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\EstimateApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SystemEstimate**](../Model/SystemEstimate.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SystemEstimate**](../Model/SystemEstimate.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `updateActivationEstimate()`
 
 ```php
-updateActivationEstimate($activation_id, $params): \OpenAPI\Client\Model\SystemEstimate
+updateActivationEstimate($activation_id, $params): \EnphaseOpenAPI\Commissioning\Model\SystemEstimate
 ```
 
 Update the estimate for this system.
@@ -91,22 +91,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\EstimateApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\EstimateApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $activation_id = 56; // int | Activation ID.
-$params = new \OpenAPI\Client\Model\UpdateActivationEstimateRequest(); // \OpenAPI\Client\Model\UpdateActivationEstimateRequest
+$params = new \EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest(); // \EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest
 
 try {
     $result = $apiInstance->updateActivationEstimate($activation_id, $params);
@@ -121,11 +121,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **activation_id** | **int**| Activation ID. | |
-| **params** | [**\OpenAPI\Client\Model\UpdateActivationEstimateRequest**](../Model/UpdateActivationEstimateRequest.md)|  | [optional] |
+| **params** | [**\EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest**](../Model/UpdateActivationEstimateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SystemEstimate**](../Model/SystemEstimate.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SystemEstimate**](../Model/SystemEstimate.md)
 
 ### Authorization
 

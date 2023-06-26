@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * SearchSystemsRequestSystem Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,9 +59,9 @@ class SearchSystemsRequestSystem implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'ids' => 'int[]',
         'name' => 'string',
-        'public_name' => '\OpenAPI\Client\Model\SystemPublicNameEnum',
-        'statuses' => '\OpenAPI\Client\Model\SystemStatusEnum[]',
-        'connection_type' => '\OpenAPI\Client\Model\SystemConnectionTypeEnum'
+        'public_name' => '\EnphaseOpenAPI\Monitoring\Model\SystemPublicNameEnum',
+        'statuses' => '\EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum[]',
+        'connection_type' => '\EnphaseOpenAPI\Monitoring\Model\SystemConnectionTypeEnum'
     ];
 
     /**
@@ -374,7 +374,7 @@ class SearchSystemsRequestSystem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets public_name
      *
-     * @return \OpenAPI\Client\Model\SystemPublicNameEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemPublicNameEnum|null
      */
     public function getPublicName()
     {
@@ -384,7 +384,7 @@ class SearchSystemsRequestSystem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets public_name
      *
-     * @param \OpenAPI\Client\Model\SystemPublicNameEnum|null $public_name public_name
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemPublicNameEnum|null $public_name public_name
      *
      * @return self
      */
@@ -401,7 +401,7 @@ class SearchSystemsRequestSystem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets statuses
      *
-     * @return \OpenAPI\Client\Model\SystemStatusEnum[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum[]|null
      */
     public function getStatuses()
     {
@@ -411,7 +411,7 @@ class SearchSystemsRequestSystem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets statuses
      *
-     * @param \OpenAPI\Client\Model\SystemStatusEnum[]|null $statuses Search by System status.
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum[]|null $statuses Search by System status.
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class SearchSystemsRequestSystem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets connection_type
      *
-     * @return \OpenAPI\Client\Model\SystemConnectionTypeEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemConnectionTypeEnum|null
      */
     public function getConnectionType()
     {
@@ -438,7 +438,7 @@ class SearchSystemsRequestSystem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets connection_type
      *
-     * @param \OpenAPI\Client\Model\SystemConnectionTypeEnum|null $connection_type connection_type
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemConnectionTypeEnum|null $connection_type connection_type
      *
      * @return self
      */

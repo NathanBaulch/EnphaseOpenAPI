@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **system_name** | **string** | Name of the system. Limit 255 characters. |
-**system_type** | [**\OpenAPI\Client\Model\SystemTypeEnum**](SystemTypeEnum.md) |  | [optional]
-**internet_connection** | [**\OpenAPI\Client\Model\SystemInternetConnectionEnum**](SystemInternetConnectionEnum.md) |  | [optional]
+**system_type** | [**\EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum**](SystemTypeEnum.md) |  | [optional]
+**internet_connection** | [**\EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum**](SystemInternetConnectionEnum.md) |  | [optional]
 **lease** | **bool** | Whether the system is leased. Default false. | [optional]
 **operational** | **bool** | Whether this system is permitted to operate. Default true. | [optional]
 **owner_id** | **int** | Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself. If the user of the API is an installer then use the Search user API to get the owner user ID. If the owner not exist in the enlighten then use Create home owner API to create it newly. | [optional]
@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **installer_id** | **int** | Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID. | [optional]
 **allow_public_access** | **bool** | When true, the system will be eligible to appear in the public systems lists of Enphase and the system&#39;s installer. Default true. | [optional]
 **interconnect_date** | **\DateTime** | When the system was approved to connect to the grid. | [optional]
-**source** | [**\OpenAPI\Client\Model\SystemSourceEnum**](SystemSourceEnum.md) |  | [optional]
-**array_type** | [**\OpenAPI\Client\Model\SystemArrayTypeEnum**](SystemArrayTypeEnum.md) |  | [optional]
-**attachment_type** | [**\OpenAPI\Client\Model\SystemAttachmentTypeEnum**](SystemAttachmentTypeEnum.md) |  | [optional]
+**source** | [**\EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum**](SystemSourceEnum.md) |  | [optional]
+**array_type** | [**\EnphaseOpenAPI\Commissioning\Model\SystemArrayTypeEnum**](SystemArrayTypeEnum.md) |  | [optional]
+**attachment_type** | [**\EnphaseOpenAPI\Commissioning\Model\SystemAttachmentTypeEnum**](SystemAttachmentTypeEnum.md) |  | [optional]
 **ensemble_envoy** | **string** | Specifies serial number of ensemble envoy in multi envoy system. | [optional]
 **grid_profile** | **string** | Grid profile to set on this system&#39;s microinverters. See GridProfiles API for how to retrieve a list of known profiles. | [optional]
 **requested_profile** | **string** |  | [optional]
@@ -37,8 +37,8 @@ Name | Type | Description | Notes
 **expected_encharge_count** | **int** | Total encharges the system is supposed to have. | [optional]
 **expected_enpower_count** | **int** | Total enpowers the system is supposed to have. | [optional]
 **reference** | **string** | Identifier of this system as provided by the calling user&#39;s company. This attribute is not present if the calling user&#39;s company does not have a reference for this system. This value should be alphanumeric. | [optional]
-**encharge** | [**\OpenAPI\Client\Model\SystemParamsEnchargeInner[]**](SystemParamsEnchargeInner.md) | Encharge detail. | [optional]
-**enpower** | [**\OpenAPI\Client\Model\SystemParamsEnpowerInner[]**](SystemParamsEnpowerInner.md) | Enpower detail. | [optional]
-**address** | [**\OpenAPI\Client\Model\SystemParamsAddress**](SystemParamsAddress.md) |  | [optional]
+**encharge** | [**\EnphaseOpenAPI\Commissioning\Model\SystemParamsEnchargeInner[]**](SystemParamsEnchargeInner.md) | Encharge detail. | [optional]
+**enpower** | [**\EnphaseOpenAPI\Commissioning\Model\SystemParamsEnpowerInner[]**](SystemParamsEnpowerInner.md) | Enpower detail. | [optional]
+**address** | [**\EnphaseOpenAPI\Commissioning\Model\SystemParamsAddress**](SystemParamsAddress.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

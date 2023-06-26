@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **city** | **string** | The name of the city where the system is located. |
 **postal_code** | **string** | The postal code where the system is located. |
 **timezone** | **string** | The timezone of the system. |
-**connection_type** | [**\OpenAPI\Client\Model\ConnectionType**](ConnectionType.md) |  |
+**connection_type** | [**\EnphaseOpenAPI\Enlighten\Model\ConnectionType**](ConnectionType.md) |  |
 **status** | **string** | The current status of the system. You can find this and more in the &#x60;meta&#x60; property. |
-**meta** | [**\OpenAPI\Client\Model\Meta**](Meta.md) |  |
+**meta** | [**\EnphaseOpenAPI\Enlighten\Model\Meta**](Meta.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * GetPartnerActivationsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GetPartnerActivationsResponse implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'systems' => '\OpenAPI\Client\Model\GetPartnerActivationsResponseSystemsInner[]',
+        'systems' => '\EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInner[]',
         'next' => 'string'
     ];
 
@@ -299,7 +299,7 @@ class GetPartnerActivationsResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets systems
      *
-     * @return \OpenAPI\Client\Model\GetPartnerActivationsResponseSystemsInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInner[]|null
      */
     public function getSystems()
     {
@@ -309,7 +309,7 @@ class GetPartnerActivationsResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets systems
      *
-     * @param \OpenAPI\Client\Model\GetPartnerActivationsResponseSystemsInner[]|null $systems Zero or more activations.
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInner[]|null $systems Zero or more activations.
      *
      * @return self
      */

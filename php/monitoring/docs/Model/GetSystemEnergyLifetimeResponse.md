@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **production** | **int[]** | An array of production measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty. | [optional]
 **micro_production** | **int[]** |  | [optional]
 **meter_production** | **int[]** |  | [optional]
-**meta** | [**\OpenAPI\Client\Model\Meta**](Meta.md) |  | [optional]
+**meta** | [**\EnphaseOpenAPI\Monitoring\Model\Meta**](Meta.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

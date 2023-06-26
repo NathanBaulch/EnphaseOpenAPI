@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * ConsumptionStatsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class ConsumptionStatsResponse implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'system_id' => 'int',
         'total_devices' => 'int',
-        'meta' => '\OpenAPI\Client\Model\Meta',
-        'intervals' => '\OpenAPI\Client\Model\ConsumptionStatsResponseIntervalsInner[]'
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta',
+        'intervals' => '\EnphaseOpenAPI\Enlighten\Model\ConsumptionStatsResponseIntervalsInner[]'
     ];
 
     /**
@@ -379,7 +379,7 @@ class ConsumptionStatsResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -389,7 +389,7 @@ class ConsumptionStatsResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */
@@ -406,7 +406,7 @@ class ConsumptionStatsResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\ConsumptionStatsResponseIntervalsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\ConsumptionStatsResponseIntervalsInner[]
      */
     public function getIntervals()
     {
@@ -416,7 +416,7 @@ class ConsumptionStatsResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\ConsumptionStatsResponseIntervalsInner[] $intervals A list of intervals between the requested start and end times.
+     * @param \EnphaseOpenAPI\Enlighten\Model\ConsumptionStatsResponseIntervalsInner[] $intervals A list of intervals between the requested start and end times.
      *
      * @return self
      */

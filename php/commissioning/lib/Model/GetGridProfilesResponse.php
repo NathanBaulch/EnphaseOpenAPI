@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * GetGridProfilesResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GetGridProfilesResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'grid_profiles' => '\OpenAPI\Client\Model\GetGridProfilesResponseGridProfilesInner[]'
+        'grid_profiles' => '\EnphaseOpenAPI\Commissioning\Model\GetGridProfilesResponseGridProfilesInner[]'
     ];
 
     /**
@@ -292,7 +292,7 @@ class GetGridProfilesResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets grid_profiles
      *
-     * @return \OpenAPI\Client\Model\GetGridProfilesResponseGridProfilesInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetGridProfilesResponseGridProfilesInner[]|null
      */
     public function getGridProfiles()
     {
@@ -302,7 +302,7 @@ class GetGridProfilesResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets grid_profiles
      *
-     * @param \OpenAPI\Client\Model\GetGridProfilesResponseGridProfilesInner[]|null $grid_profiles grid_profiles
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetGridProfilesResponseGridProfilesInner[]|null $grid_profiles grid_profiles
      *
      * @return self
      */

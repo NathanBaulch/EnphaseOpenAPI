@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * InventoryResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,10 +58,10 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'system_id' => 'int',
-        'envoys' => '\OpenAPI\Client\Model\InventoryResponseEnvoysInner[]',
-        'inverters' => '\OpenAPI\Client\Model\InventoryResponseEnvoysInner[]',
-        'meters' => '\OpenAPI\Client\Model\InventoryResponseMetersInner[]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'envoys' => '\EnphaseOpenAPI\Enlighten\Model\InventoryResponseEnvoysInner[]',
+        'inverters' => '\EnphaseOpenAPI\Enlighten\Model\InventoryResponseEnvoysInner[]',
+        'meters' => '\EnphaseOpenAPI\Enlighten\Model\InventoryResponseMetersInner[]',
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta'
     ];
 
     /**
@@ -359,7 +359,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets envoys
      *
-     * @return \OpenAPI\Client\Model\InventoryResponseEnvoysInner[]|null
+     * @return \EnphaseOpenAPI\Enlighten\Model\InventoryResponseEnvoysInner[]|null
      */
     public function getEnvoys()
     {
@@ -369,7 +369,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets envoys
      *
-     * @param \OpenAPI\Client\Model\InventoryResponseEnvoysInner[]|null $envoys A list of Envoys on this system, including serial number.
+     * @param \EnphaseOpenAPI\Enlighten\Model\InventoryResponseEnvoysInner[]|null $envoys A list of Envoys on this system, including serial number.
      *
      * @return self
      */
@@ -386,7 +386,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets inverters
      *
-     * @return \OpenAPI\Client\Model\InventoryResponseEnvoysInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\InventoryResponseEnvoysInner[]
      */
     public function getInverters()
     {
@@ -396,7 +396,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets inverters
      *
-     * @param \OpenAPI\Client\Model\InventoryResponseEnvoysInner[] $inverters A list of inverters on this system, including serial and model numbers.
+     * @param \EnphaseOpenAPI\Enlighten\Model\InventoryResponseEnvoysInner[] $inverters A list of inverters on this system, including serial and model numbers.
      *
      * @return self
      */
@@ -413,7 +413,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets meters
      *
-     * @return \OpenAPI\Client\Model\InventoryResponseMetersInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\InventoryResponseMetersInner[]
      */
     public function getMeters()
     {
@@ -423,7 +423,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets meters
      *
-     * @param \OpenAPI\Client\Model\InventoryResponseMetersInner[] $meters A list of meters on this system, including serial number, manufacturer, and model number.
+     * @param \EnphaseOpenAPI\Enlighten\Model\InventoryResponseMetersInner[] $meters A list of meters on this system, including serial number, manufacturer, and model number.
      *
      * @return self
      */
@@ -440,7 +440,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -450,7 +450,7 @@ class InventoryResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */

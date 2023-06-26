@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * UpdateSystemArraysRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class UpdateSystemArraysRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'angle' => 'int',
-        'arrays' => '\OpenAPI\Client\Model\ArrayParams[]'
+        'arrays' => '\EnphaseOpenAPI\Commissioning\Model\ArrayParams[]'
     ];
 
     /**
@@ -332,7 +332,7 @@ class UpdateSystemArraysRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets arrays
      *
-     * @return \OpenAPI\Client\Model\ArrayParams[]
+     * @return \EnphaseOpenAPI\Commissioning\Model\ArrayParams[]
      */
     public function getArrays()
     {
@@ -342,7 +342,7 @@ class UpdateSystemArraysRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets arrays
      *
-     * @param \OpenAPI\Client\Model\ArrayParams[] $arrays arrays
+     * @param \EnphaseOpenAPI\Commissioning\Model\ArrayParams[] $arrays arrays
      *
      * @return self
      */

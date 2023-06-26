@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,15 +26,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace EnphaseOpenAPI\Commissioning\Model;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * SystemAttachmentTypeEnum Class Doc Comment
  *
  * @category Class
  * @description How the microinverters are attached to the panels. Possible values are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount), railless_mount (Other Railless Mount).
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

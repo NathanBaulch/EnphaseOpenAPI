@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemProductionMeterReadingsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class GetSystemProductionMeterReadingsResponse implements ModelInterface, ArrayA
       */
     protected static $openAPITypes = [
         'system_id' => 'int',
-        'meter_readings' => '\OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponseMeterReadingsInner[]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'meter_readings' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponseMeterReadingsInner[]',
+        'meta' => '\EnphaseOpenAPI\Monitoring\Model\Meta'
     ];
 
     /**
@@ -333,7 +333,7 @@ class GetSystemProductionMeterReadingsResponse implements ModelInterface, ArrayA
     /**
      * Gets meter_readings
      *
-     * @return \OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponseMeterReadingsInner[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponseMeterReadingsInner[]|null
      */
     public function getMeterReadings()
     {
@@ -343,7 +343,7 @@ class GetSystemProductionMeterReadingsResponse implements ModelInterface, ArrayA
     /**
      * Sets meter_readings
      *
-     * @param \OpenAPI\Client\Model\GetSystemProductionMeterReadingsResponseMeterReadingsInner[]|null $meter_readings Production meter readings.
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterReadingsResponseMeterReadingsInner[]|null $meter_readings Production meter readings.
      *
      * @return self
      */
@@ -360,7 +360,7 @@ class GetSystemProductionMeterReadingsResponse implements ModelInterface, ArrayA
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\Meta|null
      */
     public function getMeta()
     {
@@ -370,7 +370,7 @@ class GetSystemProductionMeterReadingsResponse implements ModelInterface, ArrayA
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta|null $meta meta
+     * @param \EnphaseOpenAPI\Monitoring\Model\Meta|null $meta meta
      *
      * @return self
      */

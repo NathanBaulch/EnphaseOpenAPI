@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * Arrays Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,10 +61,10 @@ class Arrays implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'int',
         'updated_at' => 'int',
         'angle' => 'int',
-        'arrays' => '\OpenAPI\Client\Model\ModelArray[]',
+        'arrays' => '\EnphaseOpenAPI\Commissioning\Model\ModelArray[]',
         'inventory' => 'string[]',
-        'inventory_details' => '\OpenAPI\Client\Model\ArraysInventoryDetailsInner[]',
-        'layers' => '\OpenAPI\Client\Model\ArraysLayersInner[]'
+        'inventory_details' => '\EnphaseOpenAPI\Commissioning\Model\ArraysInventoryDetailsInner[]',
+        'layers' => '\EnphaseOpenAPI\Commissioning\Model\ArraysLayersInner[]'
     ];
 
     /**
@@ -449,7 +449,7 @@ class Arrays implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets arrays
      *
-     * @return \OpenAPI\Client\Model\ModelArray[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\ModelArray[]|null
      */
     public function getArrays()
     {
@@ -459,7 +459,7 @@ class Arrays implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets arrays
      *
-     * @param \OpenAPI\Client\Model\ModelArray[]|null $arrays arrays
+     * @param \EnphaseOpenAPI\Commissioning\Model\ModelArray[]|null $arrays arrays
      *
      * @return self
      */
@@ -503,7 +503,7 @@ class Arrays implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets inventory_details
      *
-     * @return \OpenAPI\Client\Model\ArraysInventoryDetailsInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\ArraysInventoryDetailsInner[]|null
      */
     public function getInventoryDetails()
     {
@@ -513,7 +513,7 @@ class Arrays implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets inventory_details
      *
-     * @param \OpenAPI\Client\Model\ArraysInventoryDetailsInner[]|null $inventory_details inventory_details
+     * @param \EnphaseOpenAPI\Commissioning\Model\ArraysInventoryDetailsInner[]|null $inventory_details inventory_details
      *
      * @return self
      */
@@ -530,7 +530,7 @@ class Arrays implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets layers
      *
-     * @return \OpenAPI\Client\Model\ArraysLayersInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\ArraysLayersInner[]|null
      */
     public function getLayers()
     {
@@ -540,7 +540,7 @@ class Arrays implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets layers
      *
-     * @param \OpenAPI\Client\Model\ArraysLayersInner[]|null $layers layers
+     * @param \EnphaseOpenAPI\Commissioning\Model\ArraysLayersInner[]|null $layers layers
      *
      * @return self
      */

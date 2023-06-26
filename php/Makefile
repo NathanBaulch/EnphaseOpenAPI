@@ -39,7 +39,7 @@ generate/%: $(OPENAPICLI)
 	$(call generate,$*)
 
 define generate
-	$(OPENAPICLI) generate -i ../$(1).yaml -g $(lang) -o ./$(1) --package-name $(1) --git-user-id $(author) --git-repo-id $(proj) --http-user-agent $(proj)/$(lang)
+	$(OPENAPICLI) generate -i ../$(1).yaml -g $(lang) -o ./$(1) --package-name $(1) --git-user-id $(author) --git-repo-id $(proj) --http-user-agent $(proj)/$(lang) -p invokerPackage=$(proj)'\\'$(shell str=$(1); echo $${str^})
 	cd ./$(1)
 	dos2unix -o ./.openapi-generator/FILES
 	composer require spatie/guzzle-rate-limiter-middleware

@@ -4,12 +4,12 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
-use OpenAPI\Client\Api\DefaultApi;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\Model\ClientError;
-use OpenAPI\Client\Model\NotFoundError;
-use OpenAPI\Client\Model\UnprocessableEntityError;
+use EnphaseOpenAPI\Enlighten\Api\DefaultApi;
+use EnphaseOpenAPI\Enlighten\ApiException;
+use EnphaseOpenAPI\Enlighten\Configuration;
+use EnphaseOpenAPI\Enlighten\Model\ClientError;
+use EnphaseOpenAPI\Enlighten\Model\NotFoundError;
+use EnphaseOpenAPI\Enlighten\Model\UnprocessableEntityError;
 use Spatie\GuzzleRateLimiterMiddleware\RateLimiterMiddleware;
 
 parse_str(implode('&', array_slice($argv, 1)), $_GET);

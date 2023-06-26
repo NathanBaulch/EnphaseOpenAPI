@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * SetActivationOpsProductionModeRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class SetActivationOpsProductionModeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'mode' => '\OpenAPI\Client\Model\SystemProductionModeEnum'
+        'mode' => '\EnphaseOpenAPI\Commissioning\Model\SystemProductionModeEnum'
     ];
 
     /**
@@ -295,7 +295,7 @@ class SetActivationOpsProductionModeRequest implements ModelInterface, ArrayAcce
     /**
      * Gets mode
      *
-     * @return \OpenAPI\Client\Model\SystemProductionModeEnum
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemProductionModeEnum
      */
     public function getMode()
     {
@@ -305,7 +305,7 @@ class SetActivationOpsProductionModeRequest implements ModelInterface, ArrayAcce
     /**
      * Sets mode
      *
-     * @param \OpenAPI\Client\Model\SystemProductionModeEnum $mode mode
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemProductionModeEnum $mode mode
      *
      * @return self
      */

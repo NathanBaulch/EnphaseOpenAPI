@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * InvertersSummaryByEnvoyOrSiteResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class InvertersSummaryByEnvoyOrSiteResponse implements ModelInterface, ArrayAcce
       */
     protected static $openAPITypes = [
         'signal_strength' => 'int',
-        'micro_inverters' => '\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner[]'
+        'micro_inverters' => '\EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner[]'
     ];
 
     /**
@@ -332,7 +332,7 @@ class InvertersSummaryByEnvoyOrSiteResponse implements ModelInterface, ArrayAcce
     /**
      * Gets micro_inverters
      *
-     * @return \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner[]
      */
     public function getMicroInverters()
     {
@@ -342,7 +342,7 @@ class InvertersSummaryByEnvoyOrSiteResponse implements ModelInterface, ArrayAcce
     /**
      * Sets micro_inverters
      *
-     * @param \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner[] $micro_inverters A list of active inverters on this system, including serial and model numbers.
+     * @param \EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner[] $micro_inverters A list of active inverters on this system, including serial and model numbers.
      *
      * @return self
      */

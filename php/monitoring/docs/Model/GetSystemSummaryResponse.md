@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **operational_at** | **int** | Timestamp (in epoch format) at which this system became operational. Corresponds to the system&#39;s interconnect time, if one is specified. Otherwise, it is the system&#39;s first reported interval end time. | [optional]
 **size_w** | **int** | System size in watts. | [optional]
 **source** | **string** | Source of energy measurement. | [optional]
-**status** | [**\OpenAPI\Client\Model\SystemStatusEnum**](SystemStatusEnum.md) |  | [optional]
+**status** | [**\EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum**](SystemStatusEnum.md) |  | [optional]
 **summary_date** | **\DateTime** | Summary date. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

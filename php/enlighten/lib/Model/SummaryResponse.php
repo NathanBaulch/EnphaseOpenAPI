@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * SummaryResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -66,7 +66,7 @@ class SummaryResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'operational_at' => 'int',
         'size_w' => 'int',
         'source' => 'string',
-        'status' => '\OpenAPI\Client\Model\Status',
+        'status' => '\EnphaseOpenAPI\Enlighten\Model\Status',
         'summary_date' => '\DateTime',
         'system_id' => 'int'
     ];
@@ -682,7 +682,7 @@ class SummaryResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\Status
+     * @return \EnphaseOpenAPI\Enlighten\Model\Status
      */
     public function getStatus()
     {
@@ -692,7 +692,7 @@ class SummaryResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\Status $status status
+     * @param \EnphaseOpenAPI\Enlighten\Model\Status $status status
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * TariffSettingsTariff Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,10 +57,10 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency_type' => '\OpenAPI\Client\Model\TariffSettingsTariffCurrencyType',
-        'single_rate' => '\OpenAPI\Client\Model\TariffSettingsTariffSingleRate',
-        'seasons' => '\OpenAPI\Client\Model\TariffSeasonsInner[]',
-        'seasons_sell' => '\OpenAPI\Client\Model\TariffSeasonsInner[]'
+        'currency_type' => '\EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariffCurrencyType',
+        'single_rate' => '\EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariffSingleRate',
+        'seasons' => '\EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInner[]',
+        'seasons_sell' => '\EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInner[]'
     ];
 
     /**
@@ -313,7 +313,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets currency_type
      *
-     * @return \OpenAPI\Client\Model\TariffSettingsTariffCurrencyType|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariffCurrencyType|null
      */
     public function getCurrencyType()
     {
@@ -323,7 +323,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets currency_type
      *
-     * @param \OpenAPI\Client\Model\TariffSettingsTariffCurrencyType|null $currency_type currency_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariffCurrencyType|null $currency_type currency_type
      *
      * @return self
      */
@@ -340,7 +340,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets single_rate
      *
-     * @return \OpenAPI\Client\Model\TariffSettingsTariffSingleRate|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariffSingleRate|null
      */
     public function getSingleRate()
     {
@@ -350,7 +350,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets single_rate
      *
-     * @param \OpenAPI\Client\Model\TariffSettingsTariffSingleRate|null $single_rate single_rate
+     * @param \EnphaseOpenAPI\Commissioning\Model\TariffSettingsTariffSingleRate|null $single_rate single_rate
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets seasons
      *
-     * @return \OpenAPI\Client\Model\TariffSeasonsInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInner[]|null
      */
     public function getSeasons()
     {
@@ -377,7 +377,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets seasons
      *
-     * @param \OpenAPI\Client\Model\TariffSeasonsInner[]|null $seasons ToU seasons.
+     * @param \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInner[]|null $seasons ToU seasons.
      *
      * @return self
      */
@@ -394,7 +394,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets seasons_sell
      *
-     * @return \OpenAPI\Client\Model\TariffSeasonsInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInner[]|null
      */
     public function getSeasonsSell()
     {
@@ -404,7 +404,7 @@ class TariffSettingsTariff implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets seasons_sell
      *
-     * @param \OpenAPI\Client\Model\TariffSeasonsInner[]|null $seasons_sell ToU seasons.
+     * @param \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInner[]|null $seasons_sell ToU seasons.
      *
      * @return self
      */

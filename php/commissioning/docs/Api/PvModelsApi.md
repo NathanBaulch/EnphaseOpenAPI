@@ -1,4 +1,4 @@
-# OpenAPI\Client\PvModelsApi
+# EnphaseOpenAPI\Commissioning\PvModelsApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getPvManufacturerModels()`
 
 ```php
-getPvManufacturerModels($pv_manufacturer_id): \OpenAPI\Client\Model\GetPvManufacturerModelsResponse
+getPvManufacturerModels($pv_manufacturer_id): \EnphaseOpenAPI\Commissioning\Model\GetPvManufacturerModelsResponse
 ```
 
 Returns PV module manufacturers
@@ -25,15 +25,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\PvModelsApi(
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\PvModelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetPvManufacturerModelsResponse**](../Model/GetPvManufacturerModelsResponse.md)
+[**\EnphaseOpenAPI\Commissioning\Model\GetPvManufacturerModelsResponse**](../Model/GetPvManufacturerModelsResponse.md)
 
 ### Authorization
 

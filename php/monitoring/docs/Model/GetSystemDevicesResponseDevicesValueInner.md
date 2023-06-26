@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **active** | **bool** |  | [optional]
 **state** | **string** |  | [optional]
 **config_type** | **string** |  | [optional]
-**cellular_modem** | [**\OpenAPI\Client\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem**](GetSystemDevicesResponseDevicesValueInnerCellularModem.md) |  | [optional]
+**cellular_modem** | [**\EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponseDevicesValueInnerCellularModem**](GetSystemDevicesResponseDevicesValueInnerCellularModem.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

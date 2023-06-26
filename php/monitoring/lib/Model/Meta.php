@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * Meta Class Doc Comment
  *
  * @category Class
  * @description Information about the system such as its status, when it became operational and last reported to Envoy.
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\OpenAPI\Client\Model\SystemStatusEnum',
+        'status' => '\EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum',
         'last_report_at' => 'int',
         'last_energy_at' => 'int',
         'operational_at' => 'int'
@@ -314,7 +314,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\SystemStatusEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum|null
      */
     public function getStatus()
     {
@@ -324,7 +324,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\SystemStatusEnum|null $status status
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum|null $status status
      *
      * @return self
      */

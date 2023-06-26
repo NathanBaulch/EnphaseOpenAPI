@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * TariffSeasonsInnerDaysInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class TariffSeasonsInnerDaysInner implements ModelInterface, ArrayAccess, \JsonS
         'days' => 'string',
         'must_charge_start' => 'int',
         'must_charge_duration' => 'int',
-        'periods' => '\OpenAPI\Client\Model\TariffSeasonsInnerDaysInnerPeriodsInner[]'
+        'periods' => '\EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInnerDaysInnerPeriodsInner[]'
     ];
 
     /**
@@ -428,7 +428,7 @@ class TariffSeasonsInnerDaysInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets periods
      *
-     * @return \OpenAPI\Client\Model\TariffSeasonsInnerDaysInnerPeriodsInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInnerDaysInnerPeriodsInner[]|null
      */
     public function getPeriods()
     {
@@ -438,7 +438,7 @@ class TariffSeasonsInnerDaysInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets periods
      *
-     * @param \OpenAPI\Client\Model\TariffSeasonsInnerDaysInnerPeriodsInner[]|null $periods Periods.
+     * @param \EnphaseOpenAPI\Commissioning\Model\TariffSeasonsInnerDaysInnerPeriodsInner[]|null $periods Periods.
      *
      * @return self
      */

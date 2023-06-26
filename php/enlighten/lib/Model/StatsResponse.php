@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * StatsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'system_id' => 'int',
         'total_devices' => 'int',
-        'meta' => '\OpenAPI\Client\Model\Meta',
-        'intervals' => '\OpenAPI\Client\Model\StatsResponseIntervalsInner[]'
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta',
+        'intervals' => '\EnphaseOpenAPI\Enlighten\Model\StatsResponseIntervalsInner[]'
     ];
 
     /**
@@ -379,7 +379,7 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -389,7 +389,7 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */
@@ -406,7 +406,7 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\StatsResponseIntervalsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\StatsResponseIntervalsInner[]
      */
     public function getIntervals()
     {
@@ -416,7 +416,7 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\StatsResponseIntervalsInner[] $intervals A list of intervals between the requested start and end times.
+     * @param \EnphaseOpenAPI\Enlighten\Model\StatsResponseIntervalsInner[] $intervals A list of intervals between the requested start and end times.
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * RgmStatsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,9 +59,9 @@ class RgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'system_id' => 'int',
         'total_devices' => 'int',
-        'meta' => '\OpenAPI\Client\Model\Meta',
-        'intervals' => '\OpenAPI\Client\Model\RgmStatsResponseIntervalsInner[]',
-        'meter_intervals' => '\OpenAPI\Client\Model\RgmStatsResponseMeterIntervalsInner[]'
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta',
+        'intervals' => '\EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseIntervalsInner[]',
+        'meter_intervals' => '\EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseMeterIntervalsInner[]'
     ];
 
     /**
@@ -389,7 +389,7 @@ class RgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -399,7 +399,7 @@ class RgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class RgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\RgmStatsResponseIntervalsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseIntervalsInner[]
      */
     public function getIntervals()
     {
@@ -426,7 +426,7 @@ class RgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\RgmStatsResponseIntervalsInner[] $intervals A list of intervals between the requested start and end times.
+     * @param \EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseIntervalsInner[] $intervals A list of intervals between the requested start and end times.
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class RgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meter_intervals
      *
-     * @return \OpenAPI\Client\Model\RgmStatsResponseMeterIntervalsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseMeterIntervalsInner[]
      */
     public function getMeterIntervals()
     {
@@ -453,7 +453,7 @@ class RgmStatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meter_intervals
      *
-     * @param \OpenAPI\Client\Model\RgmStatsResponseMeterIntervalsInner[] $meter_intervals A list of intervals of a meter between the requested start and end times.
+     * @param \EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseMeterIntervalsInner[] $meter_intervals A list of intervals of a meter between the requested start and end times.
      *
      * @return self
      */

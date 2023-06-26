@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * RgmStatsResponseMeterIntervalsInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class RgmStatsResponseMeterIntervalsInner implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'meter_serial_number' => 'string',
         'envoy_serial_number' => 'string',
-        'intervals' => '\OpenAPI\Client\Model\RgmStatsResponseMeterIntervalsInnerIntervalsInner[]'
+        'intervals' => '\EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseMeterIntervalsInnerIntervalsInner[]'
     ];
 
     /**
@@ -369,7 +369,7 @@ class RgmStatsResponseMeterIntervalsInner implements ModelInterface, ArrayAccess
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\RgmStatsResponseMeterIntervalsInnerIntervalsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseMeterIntervalsInnerIntervalsInner[]
      */
     public function getIntervals()
     {
@@ -379,7 +379,7 @@ class RgmStatsResponseMeterIntervalsInner implements ModelInterface, ArrayAccess
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\RgmStatsResponseMeterIntervalsInnerIntervalsInner[] $intervals Individual meter level interval.
+     * @param \EnphaseOpenAPI\Enlighten\Model\RgmStatsResponseMeterIntervalsInnerIntervalsInner[] $intervals Individual meter level interval.
      *
      * @return self
      */

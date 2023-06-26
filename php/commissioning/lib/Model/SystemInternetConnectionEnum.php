@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,15 +26,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace EnphaseOpenAPI\Commissioning\Model;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * SystemInternetConnectionEnum Class Doc Comment
  *
  * @category Class
  * @description How the system&#39;s Envoys connect to the Internet. Use &#39;dialup&#39; if the Internet connection is satellite or dial-up.
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemBatteryTelemetryResponseIntervalsInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class GetSystemBatteryTelemetryResponseIntervalsInner implements ModelInterface,
       */
     protected static $openAPITypes = [
         'end_at' => 'int',
-        'charge' => '\OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerCharge',
-        'discharge' => '\OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerDischarge',
-        'soc' => '\OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerSoc'
+        'charge' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerCharge',
+        'discharge' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerDischarge',
+        'soc' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerSoc'
     ];
 
     /**
@@ -340,7 +340,7 @@ class GetSystemBatteryTelemetryResponseIntervalsInner implements ModelInterface,
     /**
      * Gets charge
      *
-     * @return \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerCharge|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerCharge|null
      */
     public function getCharge()
     {
@@ -350,7 +350,7 @@ class GetSystemBatteryTelemetryResponseIntervalsInner implements ModelInterface,
     /**
      * Sets charge
      *
-     * @param \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerCharge|null $charge charge
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerCharge|null $charge charge
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class GetSystemBatteryTelemetryResponseIntervalsInner implements ModelInterface,
     /**
      * Gets discharge
      *
-     * @return \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerDischarge|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerDischarge|null
      */
     public function getDischarge()
     {
@@ -377,7 +377,7 @@ class GetSystemBatteryTelemetryResponseIntervalsInner implements ModelInterface,
     /**
      * Sets discharge
      *
-     * @param \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerDischarge|null $discharge discharge
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerDischarge|null $discharge discharge
      *
      * @return self
      */
@@ -394,7 +394,7 @@ class GetSystemBatteryTelemetryResponseIntervalsInner implements ModelInterface,
     /**
      * Gets soc
      *
-     * @return \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerSoc|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerSoc|null
      */
     public function getSoc()
     {
@@ -404,7 +404,7 @@ class GetSystemBatteryTelemetryResponseIntervalsInner implements ModelInterface,
     /**
      * Sets soc
      *
-     * @param \OpenAPI\Client\Model\GetSystemBatteryTelemetryResponseIntervalsInnerSoc|null $soc soc
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemBatteryTelemetryResponseIntervalsInnerSoc|null $soc soc
      *
      * @return self
      */

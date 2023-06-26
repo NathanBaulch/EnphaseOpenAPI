@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * SystemsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class SystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'systems' => '\OpenAPI\Client\Model\SystemsResponseSystemsInner[]',
+        'systems' => '\EnphaseOpenAPI\Enlighten\Model\SystemsResponseSystemsInner[]',
         'next' => 'string'
     ];
 
@@ -302,7 +302,7 @@ class SystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets systems
      *
-     * @return \OpenAPI\Client\Model\SystemsResponseSystemsInner[]
+     * @return \EnphaseOpenAPI\Enlighten\Model\SystemsResponseSystemsInner[]
      */
     public function getSystems()
     {
@@ -312,7 +312,7 @@ class SystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets systems
      *
-     * @param \OpenAPI\Client\Model\SystemsResponseSystemsInner[] $systems systems
+     * @param \EnphaseOpenAPI\Enlighten\Model\SystemsResponseSystemsInner[] $systems systems
      *
      * @return self
      */

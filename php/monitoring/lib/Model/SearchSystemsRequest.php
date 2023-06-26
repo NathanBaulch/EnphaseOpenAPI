@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * SearchSystemsRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class SearchSystemsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'system' => '\OpenAPI\Client\Model\SearchSystemsRequestSystem',
-        'sort_by' => '\OpenAPI\Client\Model\SystemSortByEnum'
+        'system' => '\EnphaseOpenAPI\Monitoring\Model\SearchSystemsRequestSystem',
+        'sort_by' => '\EnphaseOpenAPI\Monitoring\Model\SystemSortByEnum'
     ];
 
     /**
@@ -302,7 +302,7 @@ class SearchSystemsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets system
      *
-     * @return \OpenAPI\Client\Model\SearchSystemsRequestSystem
+     * @return \EnphaseOpenAPI\Monitoring\Model\SearchSystemsRequestSystem
      */
     public function getSystem()
     {
@@ -312,7 +312,7 @@ class SearchSystemsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets system
      *
-     * @param \OpenAPI\Client\Model\SearchSystemsRequestSystem $system system
+     * @param \EnphaseOpenAPI\Monitoring\Model\SearchSystemsRequestSystem $system system
      *
      * @return self
      */
@@ -329,7 +329,7 @@ class SearchSystemsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets sort_by
      *
-     * @return \OpenAPI\Client\Model\SystemSortByEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemSortByEnum|null
      */
     public function getSortBy()
     {
@@ -339,7 +339,7 @@ class SearchSystemsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets sort_by
      *
-     * @param \OpenAPI\Client\Model\SystemSortByEnum|null $sort_by sort_by
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemSortByEnum|null $sort_by sort_by
      *
      * @return self
      */

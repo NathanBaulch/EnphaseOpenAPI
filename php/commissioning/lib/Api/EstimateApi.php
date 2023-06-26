@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace EnphaseOpenAPI\Commissioning\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use EnphaseOpenAPI\Commissioning\ApiException;
+use EnphaseOpenAPI\Commissioning\Configuration;
+use EnphaseOpenAPI\Commissioning\HeaderSelector;
+use EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * EstimateApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -133,9 +133,9 @@ class EstimateApi
      * @param  int $activation_id Activation ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivationEstimate'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SystemEstimate|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemEstimate|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function getActivationEstimate($activation_id, string $contentType = self::contentTypes['getActivationEstimate'][0])
     {
@@ -151,9 +151,9 @@ class EstimateApi
      * @param  int $activation_id Activation ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivationEstimate'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SystemEstimate|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\SystemEstimate|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getActivationEstimateWithHttpInfo($activation_id, string $contentType = self::contentTypes['getActivationEstimate'][0])
     {
@@ -196,98 +196,98 @@ class EstimateApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SystemEstimate' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\SystemEstimate' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SystemEstimate' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\SystemEstimate' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SystemEstimate', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 405:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\OpenAPI\Client\Model\TooManyRequestsError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TooManyRequestsError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TooManyRequestsError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 501:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SystemEstimate';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -308,7 +308,7 @@ class EstimateApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SystemEstimate',
+                        '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -316,7 +316,7 @@ class EstimateApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -324,7 +324,7 @@ class EstimateApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -332,7 +332,7 @@ class EstimateApi
                 case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -340,7 +340,7 @@ class EstimateApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TooManyRequestsError',
+                        '\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -348,7 +348,7 @@ class EstimateApi
                 case 501:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -392,7 +392,7 @@ class EstimateApi
      */
     public function getActivationEstimateAsyncWithHttpInfo($activation_id, string $contentType = self::contentTypes['getActivationEstimate'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SystemEstimate';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate';
         $request = $this->getActivationEstimateRequest($activation_id, $contentType);
 
         return $this->client
@@ -538,12 +538,12 @@ class EstimateApi
      * Update the estimate for this system.
      *
      * @param  int $activation_id Activation ID. (required)
-     * @param  \OpenAPI\Client\Model\UpdateActivationEstimateRequest $params params (optional)
+     * @param  \EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest $params params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateActivationEstimate'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SystemEstimate|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemEstimate|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function updateActivationEstimate($activation_id, $params = null, string $contentType = self::contentTypes['updateActivationEstimate'][0])
     {
@@ -557,12 +557,12 @@ class EstimateApi
      * Update the estimate for this system.
      *
      * @param  int $activation_id Activation ID. (required)
-     * @param  \OpenAPI\Client\Model\UpdateActivationEstimateRequest $params (optional)
+     * @param  \EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateActivationEstimate'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SystemEstimate|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\ServerError|\OpenAPI\Client\Model\UnprocessableEntityError|\OpenAPI\Client\Model\TooManyRequestsError|\OpenAPI\Client\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\SystemEstimate|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateActivationEstimateWithHttpInfo($activation_id, $params = null, string $contentType = self::contentTypes['updateActivationEstimate'][0])
     {
@@ -605,113 +605,113 @@ class EstimateApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SystemEstimate' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\SystemEstimate' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SystemEstimate' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\SystemEstimate' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SystemEstimate', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 405:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\UnprocessableEntityError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\UnprocessableEntityError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UnprocessableEntityError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\OpenAPI\Client\Model\TooManyRequestsError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TooManyRequestsError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TooManyRequestsError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 501:
-                    if ('\OpenAPI\Client\Model\ServerError' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ServerError' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ServerError', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SystemEstimate';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -732,7 +732,7 @@ class EstimateApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SystemEstimate',
+                        '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -740,7 +740,7 @@ class EstimateApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -748,7 +748,7 @@ class EstimateApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -756,7 +756,7 @@ class EstimateApi
                 case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -764,7 +764,7 @@ class EstimateApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\UnprocessableEntityError',
+                        '\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -772,7 +772,7 @@ class EstimateApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TooManyRequestsError',
+                        '\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -780,7 +780,7 @@ class EstimateApi
                 case 501:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ServerError',
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -796,7 +796,7 @@ class EstimateApi
      * Update the estimate for this system.
      *
      * @param  int $activation_id Activation ID. (required)
-     * @param  \OpenAPI\Client\Model\UpdateActivationEstimateRequest $params (optional)
+     * @param  \EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateActivationEstimate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -818,7 +818,7 @@ class EstimateApi
      * Update the estimate for this system.
      *
      * @param  int $activation_id Activation ID. (required)
-     * @param  \OpenAPI\Client\Model\UpdateActivationEstimateRequest $params (optional)
+     * @param  \EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateActivationEstimate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -826,7 +826,7 @@ class EstimateApi
      */
     public function updateActivationEstimateAsyncWithHttpInfo($activation_id, $params = null, string $contentType = self::contentTypes['updateActivationEstimate'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SystemEstimate';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemEstimate';
         $request = $this->updateActivationEstimateRequest($activation_id, $params, $contentType);
 
         return $this->client
@@ -869,7 +869,7 @@ class EstimateApi
      * Create request for operation 'updateActivationEstimate'
      *
      * @param  int $activation_id Activation ID. (required)
-     * @param  \OpenAPI\Client\Model\UpdateActivationEstimateRequest $params (optional)
+     * @param  \EnphaseOpenAPI\Commissioning\Model\UpdateActivationEstimateRequest $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateActivationEstimate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

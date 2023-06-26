@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * BatteryDeviceTelemetryIntervalsInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class BatteryDeviceTelemetryIntervalsInner implements ModelInterface, ArrayAcces
       */
     protected static $openAPITypes = [
         'end_at' => 'int',
-        'charge' => '\OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerCharge',
-        'discharge' => '\OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerDischarge',
-        'soc' => '\OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerSoc'
+        'charge' => '\EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerCharge',
+        'discharge' => '\EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerDischarge',
+        'soc' => '\EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerSoc'
     ];
 
     /**
@@ -340,7 +340,7 @@ class BatteryDeviceTelemetryIntervalsInner implements ModelInterface, ArrayAcces
     /**
      * Gets charge
      *
-     * @return \OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerCharge|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerCharge|null
      */
     public function getCharge()
     {
@@ -350,7 +350,7 @@ class BatteryDeviceTelemetryIntervalsInner implements ModelInterface, ArrayAcces
     /**
      * Sets charge
      *
-     * @param \OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerCharge|null $charge charge
+     * @param \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerCharge|null $charge charge
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class BatteryDeviceTelemetryIntervalsInner implements ModelInterface, ArrayAcces
     /**
      * Gets discharge
      *
-     * @return \OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerDischarge|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerDischarge|null
      */
     public function getDischarge()
     {
@@ -377,7 +377,7 @@ class BatteryDeviceTelemetryIntervalsInner implements ModelInterface, ArrayAcces
     /**
      * Sets discharge
      *
-     * @param \OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerDischarge|null $discharge discharge
+     * @param \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerDischarge|null $discharge discharge
      *
      * @return self
      */
@@ -394,7 +394,7 @@ class BatteryDeviceTelemetryIntervalsInner implements ModelInterface, ArrayAcces
     /**
      * Gets soc
      *
-     * @return \OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerSoc|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerSoc|null
      */
     public function getSoc()
     {
@@ -404,7 +404,7 @@ class BatteryDeviceTelemetryIntervalsInner implements ModelInterface, ArrayAcces
     /**
      * Sets soc
      *
-     * @param \OpenAPI\Client\Model\BatteryDeviceTelemetryIntervalsInnerSoc|null $soc soc
+     * @param \EnphaseOpenAPI\Monitoring\Model\BatteryDeviceTelemetryIntervalsInnerSoc|null $soc soc
      *
      * @return self
      */

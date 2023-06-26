@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * ModelArray Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -66,7 +66,7 @@ class ModelArray implements ModelInterface, ArrayAccess, \JsonSerializable
         'updated_at' => 'int',
         'left' => 'int',
         'top' => 'int',
-        'modules' => '\OpenAPI\Client\Model\ArrayModulesInner[]'
+        'modules' => '\EnphaseOpenAPI\Commissioning\Model\ArrayModulesInner[]'
     ];
 
     /**
@@ -598,7 +598,7 @@ class ModelArray implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets modules
      *
-     * @return \OpenAPI\Client\Model\ArrayModulesInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\ArrayModulesInner[]|null
      */
     public function getModules()
     {
@@ -608,7 +608,7 @@ class ModelArray implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modules
      *
-     * @param \OpenAPI\Client\Model\ArrayModulesInner[]|null $modules modules
+     * @param \EnphaseOpenAPI\Commissioning\Model\ArrayModulesInner[]|null $modules modules
      *
      * @return self
      */

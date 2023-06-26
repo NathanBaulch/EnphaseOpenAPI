@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemEnergyImportLifetimeResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class GetSystemEnergyImportLifetimeResponse implements ModelInterface, ArrayAcce
         'system_id' => 'int',
         'start_date' => '\DateTime',
         'import' => 'int[]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'meta' => '\EnphaseOpenAPI\Monitoring\Model\Meta'
     ];
 
     /**
@@ -394,7 +394,7 @@ class GetSystemEnergyImportLifetimeResponse implements ModelInterface, ArrayAcce
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\Meta|null
      */
     public function getMeta()
     {
@@ -404,7 +404,7 @@ class GetSystemEnergyImportLifetimeResponse implements ModelInterface, ArrayAcce
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta|null $meta meta
+     * @param \EnphaseOpenAPI\Monitoring\Model\Meta|null $meta meta
      *
      * @return self
      */

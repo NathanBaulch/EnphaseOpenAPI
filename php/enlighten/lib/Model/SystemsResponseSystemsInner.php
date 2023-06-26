@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Enlighten\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Enlighten\ObjectSerializer;
 
 /**
  * SystemsResponseSystemsInner Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Enlighten
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -67,9 +67,9 @@ class SystemsResponseSystemsInner implements ModelInterface, ArrayAccess, \JsonS
         'city' => 'string',
         'postal_code' => 'string',
         'timezone' => 'string',
-        'connection_type' => '\OpenAPI\Client\Model\ConnectionType',
+        'connection_type' => '\EnphaseOpenAPI\Enlighten\Model\ConnectionType',
         'status' => 'string',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'meta' => '\EnphaseOpenAPI\Enlighten\Model\Meta'
     ];
 
     /**
@@ -739,7 +739,7 @@ class SystemsResponseSystemsInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets connection_type
      *
-     * @return \OpenAPI\Client\Model\ConnectionType
+     * @return \EnphaseOpenAPI\Enlighten\Model\ConnectionType
      */
     public function getConnectionType()
     {
@@ -749,7 +749,7 @@ class SystemsResponseSystemsInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets connection_type
      *
-     * @param \OpenAPI\Client\Model\ConnectionType $connection_type connection_type
+     * @param \EnphaseOpenAPI\Enlighten\Model\ConnectionType $connection_type connection_type
      *
      * @return self
      */
@@ -805,7 +805,7 @@ class SystemsResponseSystemsInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \EnphaseOpenAPI\Enlighten\Model\Meta
      */
     public function getMeta()
     {
@@ -815,7 +815,7 @@ class SystemsResponseSystemsInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \EnphaseOpenAPI\Enlighten\Model\Meta $meta meta
      *
      * @return self
      */

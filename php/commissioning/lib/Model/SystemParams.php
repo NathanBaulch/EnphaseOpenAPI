@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * SystemParams Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'system_name' => 'string',
-        'system_type' => '\OpenAPI\Client\Model\SystemTypeEnum',
-        'internet_connection' => '\OpenAPI\Client\Model\SystemInternetConnectionEnum',
+        'system_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum',
+        'internet_connection' => '\EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum',
         'lease' => 'bool',
         'operational' => 'bool',
         'owner_id' => 'int',
@@ -67,9 +67,9 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         'installer_id' => 'int',
         'allow_public_access' => 'bool',
         'interconnect_date' => '\DateTime',
-        'source' => '\OpenAPI\Client\Model\SystemSourceEnum',
-        'array_type' => '\OpenAPI\Client\Model\SystemArrayTypeEnum',
-        'attachment_type' => '\OpenAPI\Client\Model\SystemAttachmentTypeEnum',
+        'source' => '\EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum',
+        'array_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemArrayTypeEnum',
+        'attachment_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemAttachmentTypeEnum',
         'ensemble_envoy' => 'string',
         'grid_profile' => 'string',
         'requested_profile' => 'string',
@@ -90,9 +90,9 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         'expected_encharge_count' => 'int',
         'expected_enpower_count' => 'int',
         'reference' => 'string',
-        'encharge' => '\OpenAPI\Client\Model\SystemParamsEnchargeInner[]',
-        'enpower' => '\OpenAPI\Client\Model\SystemParamsEnpowerInner[]',
-        'address' => '\OpenAPI\Client\Model\SystemParamsAddress'
+        'encharge' => '\EnphaseOpenAPI\Commissioning\Model\SystemParamsEnchargeInner[]',
+        'enpower' => '\EnphaseOpenAPI\Commissioning\Model\SystemParamsEnpowerInner[]',
+        'address' => '\EnphaseOpenAPI\Commissioning\Model\SystemParamsAddress'
     ];
 
     /**
@@ -571,7 +571,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets system_type
      *
-     * @return \OpenAPI\Client\Model\SystemTypeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum|null
      */
     public function getSystemType()
     {
@@ -581,7 +581,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets system_type
      *
-     * @param \OpenAPI\Client\Model\SystemTypeEnum|null $system_type system_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum|null $system_type system_type
      *
      * @return self
      */
@@ -598,7 +598,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets internet_connection
      *
-     * @return \OpenAPI\Client\Model\SystemInternetConnectionEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum|null
      */
     public function getInternetConnection()
     {
@@ -608,7 +608,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets internet_connection
      *
-     * @param \OpenAPI\Client\Model\SystemInternetConnectionEnum|null $internet_connection internet_connection
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum|null $internet_connection internet_connection
      *
      * @return self
      */
@@ -814,7 +814,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets source
      *
-     * @return \OpenAPI\Client\Model\SystemSourceEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum|null
      */
     public function getSource()
     {
@@ -824,7 +824,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source
      *
-     * @param \OpenAPI\Client\Model\SystemSourceEnum|null $source source
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum|null $source source
      *
      * @return self
      */
@@ -841,7 +841,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets array_type
      *
-     * @return \OpenAPI\Client\Model\SystemArrayTypeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemArrayTypeEnum|null
      */
     public function getArrayType()
     {
@@ -851,7 +851,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets array_type
      *
-     * @param \OpenAPI\Client\Model\SystemArrayTypeEnum|null $array_type array_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemArrayTypeEnum|null $array_type array_type
      *
      * @return self
      */
@@ -868,7 +868,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets attachment_type
      *
-     * @return \OpenAPI\Client\Model\SystemAttachmentTypeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemAttachmentTypeEnum|null
      */
     public function getAttachmentType()
     {
@@ -878,7 +878,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attachment_type
      *
-     * @param \OpenAPI\Client\Model\SystemAttachmentTypeEnum|null $attachment_type attachment_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemAttachmentTypeEnum|null $attachment_type attachment_type
      *
      * @return self
      */
@@ -1440,7 +1440,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets encharge
      *
-     * @return \OpenAPI\Client\Model\SystemParamsEnchargeInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemParamsEnchargeInner[]|null
      */
     public function getEncharge()
     {
@@ -1450,7 +1450,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets encharge
      *
-     * @param \OpenAPI\Client\Model\SystemParamsEnchargeInner[]|null $encharge Encharge detail.
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemParamsEnchargeInner[]|null $encharge Encharge detail.
      *
      * @return self
      */
@@ -1467,7 +1467,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets enpower
      *
-     * @return \OpenAPI\Client\Model\SystemParamsEnpowerInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemParamsEnpowerInner[]|null
      */
     public function getEnpower()
     {
@@ -1477,7 +1477,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enpower
      *
-     * @param \OpenAPI\Client\Model\SystemParamsEnpowerInner[]|null $enpower Enpower detail.
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemParamsEnpowerInner[]|null $enpower Enpower detail.
      *
      * @return self
      */
@@ -1494,7 +1494,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\SystemParamsAddress|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemParamsAddress|null
      */
     public function getAddress()
     {
@@ -1504,7 +1504,7 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\SystemParamsAddress|null $address address
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemParamsAddress|null $address address
      *
      * @return self
      */

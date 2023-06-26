@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * System Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,15 +59,15 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'system_id' => 'int',
         'system_name' => 'string',
-        'system_type' => '\OpenAPI\Client\Model\SystemTypeEnum',
+        'system_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum',
         'status' => 'string',
         'stage' => 'int',
-        'internet_connection' => '\OpenAPI\Client\Model\SystemInternetConnectionEnum',
+        'internet_connection' => '\EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum',
         'lease' => 'bool',
         'operational' => 'bool',
-        'owner' => '\OpenAPI\Client\Model\SystemOwner',
+        'owner' => '\EnphaseOpenAPI\Commissioning\Model\SystemOwner',
         'owner_id' => 'int',
-        'host' => '\OpenAPI\Client\Model\SystemHost',
+        'host' => '\EnphaseOpenAPI\Commissioning\Model\SystemHost',
         'host_id' => 'int',
         'installer_name' => 'string',
         'installer_id' => 'int',
@@ -78,11 +78,11 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'allow_public_access' => 'bool',
         'interconnect_date' => '\DateTime',
         'installer_support_email' => 'string',
-        'source' => '\OpenAPI\Client\Model\SystemSourceEnum',
-        'array_type' => '\OpenAPI\Client\Model\SystemArrayTypeEnum',
-        'attachment_type' => '\OpenAPI\Client\Model\SystemAttachmentTypeEnum',
+        'source' => '\EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum',
+        'array_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemArrayTypeEnum',
+        'attachment_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemAttachmentTypeEnum',
         'ensemble_envoy' => 'string',
-        'production_mode' => '\OpenAPI\Client\Model\SystemProductionModeEnum',
+        'production_mode' => '\EnphaseOpenAPI\Commissioning\Model\SystemProductionModeEnum',
         'grid_profile' => 'string',
         'requested_profile' => 'string',
         'requested_report_freq' => 'string',
@@ -100,9 +100,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'pv_model_name' => 'string',
         'pv_module_power_rating' => 'float',
         'pv_module_type' => 'int',
-        'encharge' => '\OpenAPI\Client\Model\SystemEnchargeInner[]',
-        'enpower' => '\OpenAPI\Client\Model\SystemEnpowerInner[]',
-        'address' => '\OpenAPI\Client\Model\Address'
+        'encharge' => '\EnphaseOpenAPI\Commissioning\Model\SystemEnchargeInner[]',
+        'enpower' => '\EnphaseOpenAPI\Commissioning\Model\SystemEnpowerInner[]',
+        'address' => '\EnphaseOpenAPI\Commissioning\Model\Address'
     ];
 
     /**
@@ -665,7 +665,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets system_type
      *
-     * @return \OpenAPI\Client\Model\SystemTypeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum|null
      */
     public function getSystemType()
     {
@@ -675,7 +675,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets system_type
      *
-     * @param \OpenAPI\Client\Model\SystemTypeEnum|null $system_type system_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum|null $system_type system_type
      *
      * @return self
      */
@@ -746,7 +746,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets internet_connection
      *
-     * @return \OpenAPI\Client\Model\SystemInternetConnectionEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum|null
      */
     public function getInternetConnection()
     {
@@ -756,7 +756,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets internet_connection
      *
-     * @param \OpenAPI\Client\Model\SystemInternetConnectionEnum|null $internet_connection internet_connection
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum|null $internet_connection internet_connection
      *
      * @return self
      */
@@ -827,7 +827,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets owner
      *
-     * @return \OpenAPI\Client\Model\SystemOwner|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemOwner|null
      */
     public function getOwner()
     {
@@ -837,7 +837,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets owner
      *
-     * @param \OpenAPI\Client\Model\SystemOwner|null $owner owner
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemOwner|null $owner owner
      *
      * @return self
      */
@@ -881,7 +881,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets host
      *
-     * @return \OpenAPI\Client\Model\SystemHost|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemHost|null
      */
     public function getHost()
     {
@@ -891,7 +891,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets host
      *
-     * @param \OpenAPI\Client\Model\SystemHost|null $host host
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemHost|null $host host
      *
      * @return self
      */
@@ -1178,7 +1178,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets source
      *
-     * @return \OpenAPI\Client\Model\SystemSourceEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum|null
      */
     public function getSource()
     {
@@ -1188,7 +1188,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source
      *
-     * @param \OpenAPI\Client\Model\SystemSourceEnum|null $source source
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum|null $source source
      *
      * @return self
      */
@@ -1205,7 +1205,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets array_type
      *
-     * @return \OpenAPI\Client\Model\SystemArrayTypeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemArrayTypeEnum|null
      */
     public function getArrayType()
     {
@@ -1215,7 +1215,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets array_type
      *
-     * @param \OpenAPI\Client\Model\SystemArrayTypeEnum|null $array_type array_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemArrayTypeEnum|null $array_type array_type
      *
      * @return self
      */
@@ -1232,7 +1232,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets attachment_type
      *
-     * @return \OpenAPI\Client\Model\SystemAttachmentTypeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemAttachmentTypeEnum|null
      */
     public function getAttachmentType()
     {
@@ -1242,7 +1242,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attachment_type
      *
-     * @param \OpenAPI\Client\Model\SystemAttachmentTypeEnum|null $attachment_type attachment_type
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemAttachmentTypeEnum|null $attachment_type attachment_type
      *
      * @return self
      */
@@ -1286,7 +1286,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets production_mode
      *
-     * @return \OpenAPI\Client\Model\SystemProductionModeEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemProductionModeEnum|null
      */
     public function getProductionMode()
     {
@@ -1296,7 +1296,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets production_mode
      *
-     * @param \OpenAPI\Client\Model\SystemProductionModeEnum|null $production_mode production_mode
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemProductionModeEnum|null $production_mode production_mode
      *
      * @return self
      */
@@ -1777,7 +1777,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets encharge
      *
-     * @return \OpenAPI\Client\Model\SystemEnchargeInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemEnchargeInner[]|null
      */
     public function getEncharge()
     {
@@ -1787,7 +1787,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets encharge
      *
-     * @param \OpenAPI\Client\Model\SystemEnchargeInner[]|null $encharge Encharge detail.
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemEnchargeInner[]|null $encharge Encharge detail.
      *
      * @return self
      */
@@ -1804,7 +1804,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets enpower
      *
-     * @return \OpenAPI\Client\Model\SystemEnpowerInner[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemEnpowerInner[]|null
      */
     public function getEnpower()
     {
@@ -1814,7 +1814,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enpower
      *
-     * @param \OpenAPI\Client\Model\SystemEnpowerInner[]|null $enpower Enpower detail.
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemEnpowerInner[]|null $enpower Enpower detail.
      *
      * @return self
      */
@@ -1831,7 +1831,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\Address|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\Address|null
      */
     public function getAddress()
     {
@@ -1841,7 +1841,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\Address|null $address address
+     * @param \EnphaseOpenAPI\Commissioning\Model\Address|null $address address
      *
      * @return self
      */

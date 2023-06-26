@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * User Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'active' => 'bool',
-        'user_roles' => '\OpenAPI\Client\Model\UserRoleEnum[]',
+        'user_roles' => '\EnphaseOpenAPI\Commissioning\Model\UserRoleEnum[]',
         'email' => 'string',
         'enlighten_emails' => 'bool',
         'enlighten_view' => 'string',
@@ -68,7 +68,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
         'uri' => 'string',
         'user_id' => 'int',
         'updated_at' => 'int',
-        'company' => '\OpenAPI\Client\Model\Company'
+        'company' => '\EnphaseOpenAPI\Commissioning\Model\Company'
     ];
 
     /**
@@ -396,7 +396,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets user_roles
      *
-     * @return \OpenAPI\Client\Model\UserRoleEnum[]|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\UserRoleEnum[]|null
      */
     public function getUserRoles()
     {
@@ -406,7 +406,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets user_roles
      *
-     * @param \OpenAPI\Client\Model\UserRoleEnum[]|null $user_roles What type of user this is in Enlighten. For self installer user user_roles will be ['self_installer']. For other users user_roles will be empty.
+     * @param \EnphaseOpenAPI\Commissioning\Model\UserRoleEnum[]|null $user_roles What type of user this is in Enlighten. For self installer user user_roles will be ['self_installer']. For other users user_roles will be empty.
      *
      * @return self
      */
@@ -666,7 +666,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets company
      *
-     * @return \OpenAPI\Client\Model\Company|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\Company|null
      */
     public function getCompany()
     {
@@ -676,7 +676,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company
      *
-     * @param \OpenAPI\Client\Model\Company|null $company company
+     * @param \EnphaseOpenAPI\Commissioning\Model\Company|null $company company
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\DefaultApi
+# EnphaseOpenAPI\Enlighten\DefaultApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v2, except if the operation defines another base path.
 
@@ -22,7 +22,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v2, except if the ope
 ## `consumptionLifetime()`
 
 ```php
-consumptionLifetime($user_id, $system_id, $start_date, $end_date): \OpenAPI\Client\Model\ConsumptionLifetimeResponse
+consumptionLifetime($user_id, $system_id, $start_date, $end_date): \EnphaseOpenAPI\Enlighten\Model\ConsumptionLifetimeResponse
 ```
 
 
@@ -37,12 +37,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -72,7 +72,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ConsumptionLifetimeResponse**](../Model/ConsumptionLifetimeResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\ConsumptionLifetimeResponse**](../Model/ConsumptionLifetimeResponse.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ try {
 ## `consumptionStats()`
 
 ```php
-consumptionStats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\ConsumptionStatsResponse
+consumptionStats($user_id, $system_id, $start_at, $end_at): \EnphaseOpenAPI\Enlighten\Model\ConsumptionStatsResponse
 ```
 
 
@@ -105,12 +105,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -140,7 +140,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ConsumptionStatsResponse**](../Model/ConsumptionStatsResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\ConsumptionStatsResponse**](../Model/ConsumptionStatsResponse.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ try {
 ## `energyLifetime()`
 
 ```php
-energyLifetime($user_id, $system_id, $start_date, $end_date, $production): \OpenAPI\Client\Model\EnergyLifetimeResponse
+energyLifetime($user_id, $system_id, $start_date, $end_date, $production): \EnphaseOpenAPI\Enlighten\Model\EnergyLifetimeResponse
 ```
 
 
@@ -173,12 +173,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -210,7 +210,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\EnergyLifetimeResponse**](../Model/EnergyLifetimeResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\EnergyLifetimeResponse**](../Model/EnergyLifetimeResponse.md)
 
 ### Authorization
 
@@ -228,7 +228,7 @@ try {
 ## `envoys()`
 
 ```php
-envoys($user_id, $system_id): \OpenAPI\Client\Model\EnvoysResponse
+envoys($user_id, $system_id): \EnphaseOpenAPI\Enlighten\Model\EnvoysResponse
 ```
 
 
@@ -243,12 +243,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -274,7 +274,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\EnvoysResponse**](../Model/EnvoysResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\EnvoysResponse**](../Model/EnvoysResponse.md)
 
 ### Authorization
 
@@ -292,7 +292,7 @@ try {
 ## `inventory()`
 
 ```php
-inventory($user_id, $system_id): \OpenAPI\Client\Model\InventoryResponse
+inventory($user_id, $system_id): \EnphaseOpenAPI\Enlighten\Model\InventoryResponse
 ```
 
 
@@ -307,12 +307,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -338,7 +338,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InventoryResponse**](../Model/InventoryResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\InventoryResponse**](../Model/InventoryResponse.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ try {
 ## `invertersSummaryByEnvoyOrSite()`
 
 ```php
-invertersSummaryByEnvoyOrSite($user_id, $site_id): \OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponse[]
+invertersSummaryByEnvoyOrSite($user_id, $site_id): \EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponse[]
 ```
 
 
@@ -371,12 +371,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -402,7 +402,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvertersSummaryByEnvoyOrSiteResponse[]**](../Model/InvertersSummaryByEnvoyOrSiteResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\InvertersSummaryByEnvoyOrSiteResponse[]**](../Model/InvertersSummaryByEnvoyOrSiteResponse.md)
 
 ### Authorization
 
@@ -420,7 +420,7 @@ try {
 ## `monthlyProduction()`
 
 ```php
-monthlyProduction($user_id, $system_id, $start_date): \OpenAPI\Client\Model\MonthlyProductionResponse
+monthlyProduction($user_id, $system_id, $start_date): \EnphaseOpenAPI\Enlighten\Model\MonthlyProductionResponse
 ```
 
 
@@ -435,12 +435,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -468,7 +468,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MonthlyProductionResponse**](../Model/MonthlyProductionResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\MonthlyProductionResponse**](../Model/MonthlyProductionResponse.md)
 
 ### Authorization
 
@@ -486,7 +486,7 @@ try {
 ## `productionMeterReadings()`
 
 ```php
-productionMeterReadings($user_id, $system_id, $end_at): \OpenAPI\Client\Model\ProductionMeterReadingsResponse
+productionMeterReadings($user_id, $system_id, $end_at): \EnphaseOpenAPI\Enlighten\Model\ProductionMeterReadingsResponse
 ```
 
 
@@ -501,12 +501,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -534,7 +534,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ProductionMeterReadingsResponse**](../Model/ProductionMeterReadingsResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\ProductionMeterReadingsResponse**](../Model/ProductionMeterReadingsResponse.md)
 
 ### Authorization
 
@@ -552,7 +552,7 @@ try {
 ## `rgmStats()`
 
 ```php
-rgmStats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\RgmStatsResponse
+rgmStats($user_id, $system_id, $start_at, $end_at): \EnphaseOpenAPI\Enlighten\Model\RgmStatsResponse
 ```
 
 
@@ -567,12 +567,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -602,7 +602,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RgmStatsResponse**](../Model/RgmStatsResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\RgmStatsResponse**](../Model/RgmStatsResponse.md)
 
 ### Authorization
 
@@ -620,7 +620,7 @@ try {
 ## `searchSystemId()`
 
 ```php
-searchSystemId($user_id, $serial_num): \OpenAPI\Client\Model\SearchSystemIdResponse
+searchSystemId($user_id, $serial_num): \EnphaseOpenAPI\Enlighten\Model\SearchSystemIdResponse
 ```
 
 
@@ -635,12 +635,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -666,7 +666,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SearchSystemIdResponse**](../Model/SearchSystemIdResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\SearchSystemIdResponse**](../Model/SearchSystemIdResponse.md)
 
 ### Authorization
 
@@ -684,7 +684,7 @@ try {
 ## `stats()`
 
 ```php
-stats($user_id, $system_id, $start_at, $end_at): \OpenAPI\Client\Model\StatsResponse
+stats($user_id, $system_id, $start_at, $end_at): \EnphaseOpenAPI\Enlighten\Model\StatsResponse
 ```
 
 
@@ -699,12 +699,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -734,7 +734,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\StatsResponse**](../Model/StatsResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\StatsResponse**](../Model/StatsResponse.md)
 
 ### Authorization
 
@@ -752,7 +752,7 @@ try {
 ## `summary()`
 
 ```php
-summary($user_id, $system_id, $summary_date): \OpenAPI\Client\Model\SummaryResponse
+summary($user_id, $system_id, $summary_date): \EnphaseOpenAPI\Enlighten\Model\SummaryResponse
 ```
 
 
@@ -767,12 +767,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -800,7 +800,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SummaryResponse**](../Model/SummaryResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\SummaryResponse**](../Model/SummaryResponse.md)
 
 ### Authorization
 
@@ -818,7 +818,7 @@ try {
 ## `systems()`
 
 ```php
-systems($user_id, $next, $limit, $system_id, $system_id2, $system_name, $system_name2, $status, $status2, $reference, $reference2, $installer, $installer2, $connection_type, $connection_type2): \OpenAPI\Client\Model\SystemsResponse
+systems($user_id, $next, $limit, $system_id, $system_id2, $system_name, $system_name2, $status, $status2, $reference, $reference2, $installer, $installer2, $connection_type, $connection_type2): \EnphaseOpenAPI\Enlighten\Model\SystemsResponse
 ```
 
 
@@ -833,12 +833,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Enlighten\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new EnphaseOpenAPI\Enlighten\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -852,13 +852,13 @@ $system_id2 = [67]; // int[]
 $system_name = Green; // string
 $system_name2 = ["Green"]; // string[]
 $status = power; // Status
-$status2 = ["comm","micro"]; // \OpenAPI\Client\Model\Status[]
+$status2 = ["comm","micro"]; // \EnphaseOpenAPI\Enlighten\Model\Status[]
 $reference = 'reference_example'; // string
 $reference2 = array('reference_example'); // string[]
 $installer = 'installer_example'; // string
 $installer2 = array('installer_example'); // string[]
-$connection_type = new \OpenAPI\Client\Model\ConnectionType(); // ConnectionType
-$connection_type2 = ["ethernet"]; // \OpenAPI\Client\Model\ConnectionType[]
+$connection_type = new \EnphaseOpenAPI\Enlighten\Model\ConnectionType(); // ConnectionType
+$connection_type2 = ["ethernet"]; // \EnphaseOpenAPI\Enlighten\Model\ConnectionType[]
 
 try {
     $result = $apiInstance->systems($user_id, $next, $limit, $system_id, $system_id2, $system_name, $system_name2, $status, $status2, $reference, $reference2, $installer, $installer2, $connection_type, $connection_type2);
@@ -880,17 +880,17 @@ try {
 | **system_name** | **string**|  | [optional] |
 | **system_name2** | [**string[]**](../Model/string.md)|  | [optional] |
 | **status** | [**Status**](../Model/.md)|  | [optional] |
-| **status2** | [**\OpenAPI\Client\Model\Status[]**](../Model/\OpenAPI\Client\Model\Status.md)|  | [optional] |
+| **status2** | [**\EnphaseOpenAPI\Enlighten\Model\Status[]**](../Model/\EnphaseOpenAPI\Enlighten\Model\Status.md)|  | [optional] |
 | **reference** | **string**|  | [optional] |
 | **reference2** | [**string[]**](../Model/string.md)|  | [optional] |
 | **installer** | **string**|  | [optional] |
 | **installer2** | [**string[]**](../Model/string.md)|  | [optional] |
 | **connection_type** | [**ConnectionType**](../Model/.md)|  | [optional] |
-| **connection_type2** | [**\OpenAPI\Client\Model\ConnectionType[]**](../Model/\OpenAPI\Client\Model\ConnectionType.md)|  | [optional] |
+| **connection_type2** | [**\EnphaseOpenAPI\Enlighten\Model\ConnectionType[]**](../Model/\EnphaseOpenAPI\Enlighten\Model\ConnectionType.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SystemsResponse**](../Model/SystemsResponse.md)
+[**\EnphaseOpenAPI\Enlighten\Model\SystemsResponse**](../Model/SystemsResponse.md)
 
 ### Authorization
 

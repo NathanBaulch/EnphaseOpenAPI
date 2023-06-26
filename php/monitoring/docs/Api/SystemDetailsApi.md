@@ -1,4 +1,4 @@
-# OpenAPI\Client\SystemDetailsApi
+# EnphaseOpenAPI\Monitoring\SystemDetailsApi
 
 All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the operation defines another base path.
 
@@ -16,7 +16,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `getInvertersSummaryByEnvoyOrSite()`
 
 ```php
-getInvertersSummaryByEnvoyOrSite($site_id, $envoy_serial_number): \OpenAPI\Client\Model\GetInvertersSummaryByEnvoyOrSiteResponseInner[]
+getInvertersSummaryByEnvoyOrSite($site_id, $envoy_serial_number): \EnphaseOpenAPI\Monitoring\Model\GetInvertersSummaryByEnvoyOrSiteResponseInner[]
 ```
 
 inverters_summary_by_envoy_or_site
@@ -31,15 +31,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemDetailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -65,7 +65,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetInvertersSummaryByEnvoyOrSiteResponseInner[]**](../Model/GetInvertersSummaryByEnvoyOrSiteResponseInner.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetInvertersSummaryByEnvoyOrSiteResponseInner[]**](../Model/GetInvertersSummaryByEnvoyOrSiteResponseInner.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ try {
 ## `getSystem()`
 
 ```php
-getSystem($system_id): \OpenAPI\Client\Model\System
+getSystem($system_id): \EnphaseOpenAPI\Monitoring\Model\System
 ```
 
 Retrieves a System by ID
@@ -98,15 +98,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemDetailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -130,7 +130,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\System**](../Model/System.md)
+[**\EnphaseOpenAPI\Monitoring\Model\System**](../Model/System.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ try {
 ## `getSystemDevices()`
 
 ```php
-getSystemDevices($system_id): \OpenAPI\Client\Model\GetSystemDevicesResponse
+getSystemDevices($system_id): \EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponse
 ```
 
 Retrieves devices for a given system
@@ -163,15 +163,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemDetailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -195,7 +195,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemDevicesResponse**](../Model/GetSystemDevicesResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemDevicesResponse**](../Model/GetSystemDevicesResponse.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ try {
 ## `getSystemSummary()`
 
 ```php
-getSystemSummary($system_id): \OpenAPI\Client\Model\GetSystemSummaryResponse
+getSystemSummary($system_id): \EnphaseOpenAPI\Monitoring\Model\GetSystemSummaryResponse
 ```
 
 Retrieves a system summary
@@ -228,15 +228,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemDetailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -260,7 +260,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemSummaryResponse**](../Model/GetSystemSummaryResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemSummaryResponse**](../Model/GetSystemSummaryResponse.md)
 
 ### Authorization
 
@@ -278,7 +278,7 @@ try {
 ## `getSystems()`
 
 ```php
-getSystems($page, $size, $sort_by): \OpenAPI\Client\Model\GetSystemsResponse
+getSystems($page, $size, $sort_by): \EnphaseOpenAPI\Monitoring\Model\GetSystemsResponse
 ```
 
 Fetch systems
@@ -293,15 +293,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemDetailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -309,7 +309,7 @@ $apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
 );
 $page = 56; // int | Page to be returned. Default=1, Min=1. For example, if page is set to 2, 2nd page is returned.
 $size = 56; // int | Maximum number of records shown per page. Default=10, Min=1, Max=100.  For example, if set to 5, 5 records are shown per page.
-$sort_by = new \OpenAPI\Client\Model\SystemSortByEnum(); // SystemSortByEnum | Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>. Current sort keys supported are id, name, and last_report_date. By default the list is sorted by decreasing system ID.
+$sort_by = new \EnphaseOpenAPI\Monitoring\Model\SystemSortByEnum(); // SystemSortByEnum | Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>. Current sort keys supported are id, name, and last_report_date. By default the list is sorted by decreasing system ID.
 
 try {
     $result = $apiInstance->getSystems($page, $size, $sort_by);
@@ -329,7 +329,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetSystemsResponse**](../Model/GetSystemsResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\GetSystemsResponse**](../Model/GetSystemsResponse.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ try {
 ## `retrieveSystemId()`
 
 ```php
-retrieveSystemId($serial_num): \OpenAPI\Client\Model\RetrieveSystemIdResponse
+retrieveSystemId($serial_num): \EnphaseOpenAPI\Monitoring\Model\RetrieveSystemIdResponse
 ```
 
 Retrieve system for a given envoy serial number
@@ -362,15 +362,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemDetailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -394,7 +394,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RetrieveSystemIdResponse**](../Model/RetrieveSystemIdResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\RetrieveSystemIdResponse**](../Model/RetrieveSystemIdResponse.md)
 
 ### Authorization
 
@@ -412,7 +412,7 @@ try {
 ## `searchSystems()`
 
 ```php
-searchSystems($page, $size, $params): \OpenAPI\Client\Model\SearchSystemsResponse
+searchSystems($page, $size, $params): \EnphaseOpenAPI\Monitoring\Model\SearchSystemsResponse
 ```
 
 Search and filter systems
@@ -427,15 +427,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ApiKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+$config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = EnphaseOpenAPI\Monitoring\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
+$apiInstance = new EnphaseOpenAPI\Monitoring\Api\SystemDetailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -443,7 +443,7 @@ $apiInstance = new OpenAPI\Client\Api\SystemDetailsApi(
 );
 $page = 56; // int | Page to be returned. Default=1, Min=1, e.g=2.
 $size = 56; // int | Maximum number of records shown per page. Default=10, Min=1, Max=1000, e.g=5.
-$params = new \OpenAPI\Client\Model\SearchSystemsRequest(); // \OpenAPI\Client\Model\SearchSystemsRequest
+$params = new \EnphaseOpenAPI\Monitoring\Model\SearchSystemsRequest(); // \EnphaseOpenAPI\Monitoring\Model\SearchSystemsRequest
 
 try {
     $result = $apiInstance->searchSystems($page, $size, $params);
@@ -459,11 +459,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| Page to be returned. Default&#x3D;1, Min&#x3D;1, e.g&#x3D;2. | [optional] |
 | **size** | **int**| Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;1000, e.g&#x3D;5. | [optional] |
-| **params** | [**\OpenAPI\Client\Model\SearchSystemsRequest**](../Model/SearchSystemsRequest.md)|  | [optional] |
+| **params** | [**\EnphaseOpenAPI\Monitoring\Model\SearchSystemsRequest**](../Model/SearchSystemsRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SearchSystemsResponse**](../Model/SearchSystemsResponse.md)
+[**\EnphaseOpenAPI\Monitoring\Model\SearchSystemsResponse**](../Model/SearchSystemsResponse.md)
 
 ### Authorization
 

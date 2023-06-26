@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemsResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,7 +62,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'size' => 'int',
         'count' => 'int',
         'items' => 'string',
-        'systems' => '\OpenAPI\Client\Model\System[]'
+        'systems' => '\EnphaseOpenAPI\Monitoring\Model\System[]'
     ];
 
     /**
@@ -478,7 +478,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets systems
      *
-     * @return \OpenAPI\Client\Model\System[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\System[]|null
      */
     public function getSystems()
     {
@@ -488,7 +488,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets systems
      *
-     * @param \OpenAPI\Client\Model\System[]|null $systems List of systems.
+     * @param \EnphaseOpenAPI\Monitoring\Model\System[]|null $systems List of systems.
      *
      * @return self
      */

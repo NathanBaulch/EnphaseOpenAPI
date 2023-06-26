@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Commissioning\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
 
 /**
  * SetActivationMeterStatusRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class SetActivationMeterStatusRequest implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\OpenAPI\Client\Model\SystemMeterStatusEnum'
+        'status' => '\EnphaseOpenAPI\Commissioning\Model\SystemMeterStatusEnum'
     ];
 
     /**
@@ -292,7 +292,7 @@ class SetActivationMeterStatusRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\SystemMeterStatusEnum|null
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemMeterStatusEnum|null
      */
     public function getStatus()
     {
@@ -302,7 +302,7 @@ class SetActivationMeterStatusRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\SystemMeterStatusEnum|null $status status
+     * @param \EnphaseOpenAPI\Commissioning\Model\SystemMeterStatusEnum|null $status status
      *
      * @return self
      */

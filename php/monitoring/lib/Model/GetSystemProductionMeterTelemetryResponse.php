@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemProductionMeterTelemetryResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,12 +58,12 @@ class GetSystemProductionMeterTelemetryResponse implements ModelInterface, Array
       */
     protected static $openAPITypes = [
         'system_id' => 'int',
-        'granularity' => '\OpenAPI\Client\Model\TelemetryGranularityEnum',
+        'granularity' => '\EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum',
         'total_devices' => 'int',
         'start_at' => 'int',
         'end_at' => 'int',
         'items' => 'string',
-        'intervals' => '\OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponseIntervalsInner[]'
+        'intervals' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponseIntervalsInner[]'
     ];
 
     /**
@@ -361,7 +361,7 @@ class GetSystemProductionMeterTelemetryResponse implements ModelInterface, Array
     /**
      * Gets granularity
      *
-     * @return \OpenAPI\Client\Model\TelemetryGranularityEnum|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum|null
      */
     public function getGranularity()
     {
@@ -371,7 +371,7 @@ class GetSystemProductionMeterTelemetryResponse implements ModelInterface, Array
     /**
      * Sets granularity
      *
-     * @param \OpenAPI\Client\Model\TelemetryGranularityEnum|null $granularity granularity
+     * @param \EnphaseOpenAPI\Monitoring\Model\TelemetryGranularityEnum|null $granularity granularity
      *
      * @return self
      */
@@ -496,7 +496,7 @@ class GetSystemProductionMeterTelemetryResponse implements ModelInterface, Array
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponseIntervalsInner[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponseIntervalsInner[]|null
      */
     public function getIntervals()
     {
@@ -506,7 +506,7 @@ class GetSystemProductionMeterTelemetryResponse implements ModelInterface, Array
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\GetSystemProductionMeterTelemetryResponseIntervalsInner[]|null $intervals intervals
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemProductionMeterTelemetryResponseIntervalsInner[]|null $intervals intervals
      *
      * @return self
      */

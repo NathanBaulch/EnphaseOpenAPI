@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace EnphaseOpenAPI\Monitoring\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \EnphaseOpenAPI\Monitoring\ObjectSerializer;
 
 /**
  * GetSystemEnergyExportTelemetryResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  EnphaseOpenAPI\Monitoring
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,8 +63,8 @@ class GetSystemEnergyExportTelemetryResponse implements ModelInterface, ArrayAcc
         'start_at' => 'int',
         'end_at' => 'int',
         'items' => 'string',
-        'intervals' => '\OpenAPI\Client\Model\GetSystemEnergyExportTelemetryResponseIntervalsInnerInner[][]',
-        'meta' => '\OpenAPI\Client\Model\Meta'
+        'intervals' => '\EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyExportTelemetryResponseIntervalsInnerInner[][]',
+        'meta' => '\EnphaseOpenAPI\Monitoring\Model\Meta'
     ];
 
     /**
@@ -503,7 +503,7 @@ class GetSystemEnergyExportTelemetryResponse implements ModelInterface, ArrayAcc
     /**
      * Gets intervals
      *
-     * @return \OpenAPI\Client\Model\GetSystemEnergyExportTelemetryResponseIntervalsInnerInner[][]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyExportTelemetryResponseIntervalsInnerInner[][]|null
      */
     public function getIntervals()
     {
@@ -513,7 +513,7 @@ class GetSystemEnergyExportTelemetryResponse implements ModelInterface, ArrayAcc
     /**
      * Sets intervals
      *
-     * @param \OpenAPI\Client\Model\GetSystemEnergyExportTelemetryResponseIntervalsInnerInner[][]|null $intervals An array of telemetry objects.
+     * @param \EnphaseOpenAPI\Monitoring\Model\GetSystemEnergyExportTelemetryResponseIntervalsInnerInner[][]|null $intervals An array of telemetry objects.
      *
      * @return self
      */
@@ -530,7 +530,7 @@ class GetSystemEnergyExportTelemetryResponse implements ModelInterface, ArrayAcc
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\Meta|null
      */
     public function getMeta()
     {
@@ -540,7 +540,7 @@ class GetSystemEnergyExportTelemetryResponse implements ModelInterface, ArrayAcc
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta|null $meta meta
+     * @param \EnphaseOpenAPI\Monitoring\Model\Meta|null $meta meta
      *
      * @return self
      */

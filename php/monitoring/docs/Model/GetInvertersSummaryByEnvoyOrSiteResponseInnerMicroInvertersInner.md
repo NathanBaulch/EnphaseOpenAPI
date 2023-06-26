@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **part_number** | **string** | Microinverter part number. | [optional]
 **sku** | **string** | SKU of the microinverter. | [optional]
 **status** | **string** | Current status of the micro inverter. | [optional]
-**power_produced** | [**\OpenAPI\Client\Model\GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced**](GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced.md) |  | [optional]
+**power_produced** | [**\EnphaseOpenAPI\Monitoring\Model\GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced**](GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced.md) |  | [optional]
 **proc_load** | **string** | Processor load. | [optional]
 **param_table** | **string** | Parameter table. | [optional]
 **envoy_serial_number** | **string** | Envoy serial number of the system that the micro reports to. | [optional]
-**energy** | [**\OpenAPI\Client\Model\GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy**](GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy.md) |  | [optional]
+**energy** | [**\EnphaseOpenAPI\Monitoring\Model\GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy**](GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy.md) |  | [optional]
 **grid_profile** | **string** | Grid profile ID. | [optional]
 **last_report_date** | **\DateTime** | Date on which the microinverter last reported. | [optional]
 
