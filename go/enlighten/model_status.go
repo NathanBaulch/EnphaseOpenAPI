@@ -20,14 +20,14 @@ type Status string
 
 // List of Status
 const (
-	COMM Status = "comm"
-	POWER Status = "power"
-	METER Status = "meter"
-	METER_ISSUE Status = "meter_issue"
-	MICRO Status = "micro"
-	BATTERY Status = "battery"
-	STORAGE_IDLE Status = "storage_idle"
-	NORMAL Status = "normal"
+	STATUS_COMM Status = "comm"
+	STATUS_POWER Status = "power"
+	STATUS_METER Status = "meter"
+	STATUS_METER_ISSUE Status = "meter_issue"
+	STATUS_MICRO Status = "micro"
+	STATUS_BATTERY Status = "battery"
+	STATUS_STORAGE_IDLE Status = "storage_idle"
+	STATUS_NORMAL Status = "normal"
 )
 
 // All allowed values of Status enum

@@ -1,0 +1,5276 @@
+openapi: 3.0.1
+info:
+  description: "Commissioning API can be used to create and update activations on\
+    \ a site, manage companies and users, update Tariff, etc."
+  license:
+    name: Enphase Energy API License Agreement.
+    url: https://enphase.com/api-license-agreement-v4
+  termsOfService: https://enphase.com/legal/terms-of-service
+  title: The Enphase Commissioning API
+  version: "4.0"
+servers:
+- url: https://api.enphaseenergy.com/api/v4
+security:
+- OAuth2: []
+- ApiKey: []
+paths:
+  /partner/activations:
+    get:
+      description: "Returns a list of activations for which the user can make API\
+        \ requests. There is a limit to the number of activations which can be returned\
+        \ at one time. If the first request does not return a full list, use the 'next'\
+        \ attribute in the response body to request the next page. By default, activations\
+        \ are returned in batches of 100. The maximum page size is 1000. Provide only\
+        \ valid filters. During filter the activations empty and invalid filter fields\
+        \ are ignored. In case the installer ID doesn't exist, API will return an\
+        \ empty array."
+      operationId: GetPartnerActivations
+      parameters:
+      - description: "If the first request does not return a full list, use the 'next'\
+          \ attribute in the response body to request the next page. By default, activations\
+          \ are returned in batches of 100. The maximum page size is 1000. If the\
+          \ returned list below the limit, then response does not include the 'next'\
+          \ field."
+        explode: true
+        in: query
+        name: next
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: There is a limit to the number of activations which can be returned
+          at one time.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Filter activations by stage. Passing in_progress alone will\
+          \ consider as you have passed all the 1,2,3,4 stages. Passing multiple stage\
+          \ values using comma to filter. E.g. stage=1,2,3. Passing in_progress with\
+          \ any other combination will give you empty systems."
+        explode: true
+        in: query
+        name: stage
+        required: false
+        schema:
+          $ref: '#/components/schemas/SystemStageEnum'
+        style: form
+      - description: Filter activations by company reference.
+        explode: true
+        in: query
+        name: reference
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter activations by installer ID.
+        explode: true
+        in: query
+        name: installer_id
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter activations by system name.
+        explode: true
+        in: query
+        name: system_name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Filter activations by address. This will perform a partial search\
+          \ and return if match found with street1, street2, country, state, zipcode\
+          \ of the activation."
+        explode: true
+        in: query
+        name: address
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Filter activations by region. Provide two latitude, longitude\
+          \ values to find activations between them. Format 'latitude1,longitude1,latitude2,longitude2'\
+          \ e.g value '44.968046,-94.420307,44.33328,-89.132008'."
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Filter activations by search. This will perform a partial search\
+          \ and return if match found with system_name, reference, system_id, street1\
+          \ and street2, country, state, zipcode of the activation."
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPartnerActivationsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Invalid stage option 11
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: List of Activations
+      tags:
+      - Activations
+    post:
+      description: Create new activation.
+      operationId: CreatePartnerActivation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePartnerActivationRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePartnerActivationResponse'
+          description: Created
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorCode: 11
+                errorMessages:
+                - "The system type must be residential, commercial, or other."
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Create new activation
+      tags:
+      - Activations
+      x-codegen-request-body-name: params
+  /partner/activations/{id}:
+    get:
+      description: "By default, the body of the response looks like the example below.\
+        \ However, you can choose to retrieve more information about the activation\
+        \ using response expansion, for example instead of returning only the owner's\
+        \ name within the system hash, the response includes detailed information\
+        \ about the owner by using expand=owner. You can also expand the owner's company\
+        \ by using expand=owner.company. The response now includes information about\
+        \ the owner and the company he belongs to, if any. By using expand=host will\
+        \ include details about the system host. You can also expand the host's company\
+        \ by using expand=host.company. The response now includes information about\
+        \ the host and the company he belongs to."
+      operationId: GetPartnerActivation
+      parameters:
+      - description: Enlighten ID of the activation(system). System-generated.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Retrieve more information about the activation. The expand query
+          parameter is a comma-separated list of associations to expand.
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          $ref: '#/components/schemas/SystemExpandEnum'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPartnerActivationResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Retrieves an Activation by ID
+      tags:
+      - Activations
+    put:
+      description: Update an activation.
+      operationId: UpdatePartnerActivation
+      parameters:
+      - description: Enlighten ID of the activation(system). System-generated.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePartnerActivationRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdatePartnerActivationResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorCode: 11
+                errorMessages:
+                - "The system type must be residential, commercial, or other."
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update an activation.
+      tags:
+      - Activations
+      x-codegen-request-body-name: params
+  /activations/{id}:
+    delete:
+      description: "To delete an activation, the activation stage must be less than\
+        \ 3 and there are no active devices associated with it."
+      operationId: DeleteActivation
+      parameters:
+      - description: Enlighten ID of the activation(system).
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteActivationResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorCode: 5
+                errorMessages:
+                - Devices are present on this system. Please retry after removing
+                  devices
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Delete an activation by ID
+      tags:
+      - Activations
+  /activations/{activation_id}/users/{user_id}:
+    delete:
+      description: Revokes a user's permission to view this system. Response status
+        200 indicates the access was revoked. The user must be the owner or the host
+        of an activation the API user can manage (or) Users created by API user (or)
+        Users who belong to your company or its branches. In all other cases you will
+        get 401 response.
+      operationId: RevokeActivationUserAccess
+      parameters:
+      - description: Enlighten ID of the activation(system).
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Enlighten ID of the user which you want to revoke the access.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevokeActivationUserAccessResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Some error messages
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Revoke Access
+      tags:
+      - Activations
+    get:
+      description: "You must have access to the requested activation and user; otherwise\
+        \ a 401 is returned. The user is requested in the scope of an activation,\
+        \ then it must be the owner or the host of an activation the API user can\
+        \ manage (or) Users created by API user (or) Users who belong to your company\
+        \ or its branches."
+      operationId: GetActivationUser
+      parameters:
+      - description: Enlighten ID of the activation(system). System-generated.
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Enlighten ID of the user. System-generated.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: "Passing expand params in the url with valid option, then the\
+          \ response will contain company object fields. Otherwise the company information\
+          \ not include in the response."
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserExpandEnum'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetActivationUserResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Invalid expand option
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+      summary: Returns the requested user
+      tags:
+      - Users
+    post:
+      description: Gives a user permission to view this system. Response status 200
+        indicates the access was granted. The user must be the owner or the host of
+        an activation the API user can manage (or) Users created by API user (or)
+        Users who belong to your company or its branches. In all other cases you will
+        get 401 response.
+      operationId: GrantActivationUserAccess
+      parameters:
+      - description: Enlighten ID of the activation(system).
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Enlighten ID of the user which you want to grant access.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrantActivationUserAccessResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Some error messages
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Grant Access
+      tags:
+      - Activations
+    put:
+      description: "You must have access to the requested activation and user; otherwise\
+        \ a 401 is returned. The user is requested in the scope of an activation,\
+        \ then it must be the owner or the host of an activation the API user can\
+        \ manage (or) Users created by API user (or) Users who belong to your company\
+        \ or its branches. When 'company_id' is passed in the body param or the user\
+        \ company_id is already defined, we will not consider the 'enlighten_view'\
+        \ field value and the user will become an enlighten manager. You may change\
+        \ a user's company if you have access to the user, the old company, and the\
+        \ new company."
+      operationId: UpdateActivationUser
+      parameters:
+      - description: Enlighten ID of the activation(system). System-generated.
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Enlighten ID of the user. System-generated.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateActivationUserRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateActivationUserResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - User param are missing at body location
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update user
+      tags:
+      - Users
+      x-codegen-request-body-name: params
+  /activations/{activation_id}/ops/production_mode:
+    get:
+      description: "Get production mode for a particular system. For that system stage\
+        \ must be greater than 2, Otherwise you will get 422."
+      operationId: GetActivationOpsProductionMode
+      parameters:
+      - description: Enlighten ID of the activation(system). System-generated.
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetActivationOpsProductionModeResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - System not yet communicated
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Get production mode
+      tags:
+      - Activations
+    post:
+      description: "Enable or Disable production mode for a particular system. For\
+        \ that system stage must be greater than 2, Otherwise you will get 422."
+      operationId: SetActivationOpsProductionMode
+      parameters:
+      - description: Enlighten ID of the activation(system). System-generated.
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetActivationOpsProductionModeRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetActivationOpsProductionModeResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - No active Envoys present in the site
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Set production mode
+      tags:
+      - Activations
+      x-codegen-request-body-name: params
+  /companies/{company_id}/users:
+    get:
+      description: Returns the users in the given company.
+      operationId: GetCompanyUsers
+      parameters:
+      - description: Company ID.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCompanyUsersResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Get all users with in a company
+      tags:
+      - Companies
+    post:
+      description: |-
+        Create a company user. When the user is created in the context of a company, then the user is belongs to that company. Otherwise, the user does not belong to a company.
+        Email, first name, and last name are mandatory fields in the user. Any unneeded fields passed in the request parameter will be skipped and not stored.
+        Pass body param in 'application/x-www-form-urlencoded' format, in this endpoint, key will be 'user' and value will be a JSON dictionary of user fields.
+      operationId: CreateCompanyUser
+      parameters:
+      - description: Company ID.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompanyUserRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCompanyUserResponse'
+          description: Created
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - User param are missing at body location
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Create company user
+      tags:
+      - Companies
+      x-codegen-request-body-name: params
+  /users:
+    post:
+      description: |-
+        Create a home owner user. Email, first name, and last name are mandatory fields in the user. Any unneeded fields passed in the request parameter will be skipped and not stored.
+        Pass body param in 'application/x-www-form-urlencoded' format, in this endpoint, key will be 'user' and value will be a JSON dictionary of user fields.
+        Using this API to create both homeowner as well as a company user. If you want to create company user, then pass company_id inside the user object.
+      operationId: CreateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserResponse'
+          description: Created
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - User param are missing at body location
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Create Home owner
+      tags:
+      - Home Owner
+      x-codegen-request-body-name: params
+  /users/search:
+    get:
+      description: Returns the user ID for the given email ID only if the user exists.
+      operationId: SearchUsers
+      parameters:
+      - description: Email address of the user.
+        explode: true
+        in: query
+        name: email
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchUsersResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Email should not be blank
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Search user
+      tags:
+      - Users
+  /companies/{company_id}/users/{user_id}:
+    get:
+      description: "Returns the requested user. If the user is requested in the scope\
+        \ of a company, then two conditions apply. 1) You must have access to the\
+        \ requested company; otherwise a 401 is returned. 2) The user must belong\
+        \ to the requested company; otherwise a 401 is returned. Company details are\
+        \ provided in the response only if 'expand' parameter is passed in the URL\
+        \ with value as company. Otherwise, company information will not be provided\
+        \ in the response."
+      operationId: GetCompanyUser
+      parameters:
+      - description: Company ID.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: User ID.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: "Passing expand params in the url with valid option, then the\
+          \ response will contain company object fields. Otherwise the company information\
+          \ will not be provided in the response."
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserExpandEnum'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCompanyUserResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Invalid expand option
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Returns the requested user
+      tags:
+      - Companies
+    put:
+      description: "Updates a user. You may change a user's company if you have access\
+        \ to the user, the old company, and the new company. The user is requested\
+        \ in the scope of a company, then three conditions apply. 1) You must have\
+        \ access to the requested company; otherwise a 401 is returned. 2) The user\
+        \ must belong to the requested company; otherwise a 401 is returned. 3) Requested\
+        \ user must be created by API user (or) it must belong to your company or\
+        \ its branches."
+      operationId: UpdateCompanyUser
+      parameters:
+      - description: Company ID.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: User ID.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCompanyUserRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCompanyUserResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Email has already been registered
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update company user
+      tags:
+      - Companies
+      x-codegen-request-body-name: params
+  /users/{user_id}:
+    get:
+      description: "You must have permission to view the user. You can view yourself,\
+        \ users you created, and users who belong to your company or its branches.\
+        \ In all other cases, a 401 is returned. Company details are provided in the\
+        \ response only if 'expand' parameter is passed in the URL with value as company.\
+        \ Otherwise, company information will not be provided in the response."
+      operationId: GetUser
+      parameters:
+      - description: User ID.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: "Passing expand params in the url with valid option, then the\
+          \ response will contain company object fields. Otherwise the company information\
+          \ will not be provided in the response."
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserExpandEnum'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Invalid expand option
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Returns the requested user
+      tags:
+      - Users
+    put:
+      description: "You must have permission to view the user. You can view yourself,\
+        \ users you created, and users who belong to your company or its branches.\
+        \ In all other cases, a 401 is returned. 'company_id' is an optional field.\
+        \ When you passing a 'company_id', the user become an enlighten manager and\
+        \ we will not consider 'enlighten_view' field value. You may change a user's\
+        \ company if you have access to the user, the old company, and the new company."
+      operationId: UpdateUser
+      parameters:
+      - description: User ID.
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Email has already been registered
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update user
+      tags:
+      - Users
+      x-codegen-request-body-name: params
+  /users/self:
+    get:
+      description: "Return the current logged in user detail. Company details are\
+        \ provided in the response only if 'expand' parameter is passed in the URL\
+        \ with value as company. Otherwise, company information will not be provided\
+        \ in the response."
+      operationId: GetSelfUser
+      parameters:
+      - description: "Passing expand params in the url with valid option, then the\
+          \ response will contain company object fields. Otherwise the company information\
+          \ will not be provided in the response."
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserExpandEnum'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSelfUserResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Invalid expand option
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Return the current logged in user detail
+      tags:
+      - Users
+  /companies/self/branches:
+    get:
+      description: "Returns information about the API user's company and its branches,\
+        \ if any."
+      operationId: GetSelfCompanyBranches
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSelfCompanyBranchesResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: User's company and its branches
+      tags:
+      - Companies
+  /activations/{activation_id}/estimate:
+    get:
+      description: "Provides access to production estimates for a system. An estimate\
+        \ includes the annual degradation factor for the system as well as estimated\
+        \ production, in kWh, for each month. By default degrade_factor value is 0.5\
+        \ and month_estimates value is an empty array."
+      operationId: GetActivationEstimate
+      parameters:
+      - description: Activation ID.
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetActivationEstimateResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Returns the estimate for this system.
+      tags:
+      - Estimate
+    put:
+      description: Updates the estimate for this system.
+      operationId: UpdateActivationEstimate
+      parameters:
+      - description: Activation ID.
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateActivationEstimateRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateActivationEstimateResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorCode: 11
+                errorMessages:
+                - Estimate parameter missing in body
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update the estimate for this system.
+      tags:
+      - Estimate
+      x-codegen-request-body-name: params
+  /grid_profiles:
+    get:
+      description: Lists the available profiles.
+      operationId: GetGridProfiles
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGridProfilesResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Lists the available profiles
+      tags:
+      - Grid Profiles
+  /systems/{system_id}/meters/{serial_number}:
+    get:
+      description: Returns the requested meter by serial number. You must have access
+        to the requested system and meter; otherwise a 401 is returned.
+      operationId: GetSystemMeter
+      parameters:
+      - description: System ID.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Meter serial number.
+        explode: false
+        in: path
+        name: serial_number
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSystemMeterResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Returns the requested meter detail.
+      tags:
+      - Meters
+    put:
+      description: Update the operational date of a meter. You must have access to
+        the requested system and meter; otherwise a 401 is returned.
+      operationId: UpdateSystemMeter
+      parameters:
+      - description: System ID.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Meter serial number.
+        explode: false
+        in: path
+        name: serial_number
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Operational date in the following format YYYY-MM-DD.
+        explode: true
+        in: query
+        name: operational_date
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemMeterResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - operational date parameter missing in url
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update the operational date of a meter by serial number.
+      tags:
+      - Meters
+  /activations/{activation_id}/meters/{serial_number}/meter_control:
+    post:
+      description: Enable or Disable the meters. You must have access to the requested
+        system and meter; otherwise a 401 is returned.
+      operationId: SetActivationMeterStatus
+      parameters:
+      - description: Activation ID.
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Meter serial number.
+        explode: false
+        in: path
+        name: serial_number
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetActivationMeterStatusRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetActivationMeterStatusResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - "Invalid status, expected status is 'enabled' or 'disabled'"
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Enable or Disable the meters.
+      tags:
+      - Meters
+      x-codegen-request-body-name: params
+  /pv_manufacturers:
+    get:
+      description: Returns information about the PV module manufacturers known in
+        Enlighten.
+      operationId: GetPvManufacturers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPvManufacturersResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Returns PV module manufacturers
+      tags:
+      - PvManufacturers
+  /pv_manufacturers/{pv_manufacturer_id}/pv_models:
+    get:
+      description: Returns information about the PV modules known in Enlighten.
+      operationId: GetPvManufacturerModels
+      parameters:
+      - description: Pv manufacturer ID.
+        explode: false
+        in: path
+        name: pv_manufacturer_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPvManufacturerModelsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Returns PV module manufacturers
+      tags:
+      - PvModels
+  /systems/config/{system_id}/tariff:
+    get:
+      description: Get tariff for a system.
+      operationId: GetSystemTariffSettings
+      parameters:
+      - description: Unique numeric ID of the system.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSystemTariffSettingsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Get tariff for a system
+      tags:
+      - Tariff
+    put:
+      operationId: UpdateSystemTariffSettings
+      parameters:
+      - description: Unique numeric ID of the system.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/text:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemTariffSettingsRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemTariffSettingsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update tariff for a system
+      tags:
+      - Tariff
+      x-codegen-request-body-name: params
+  /systems/{system_id}/arrays:
+    get:
+      description: Fetch particular system Array details.
+      operationId: GetSystemArrays
+      parameters:
+      - description: System ID.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSystemArraysResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Fetch particular system Array details
+      tags:
+      - Arrays
+    put:
+      description: "Update all arrays for system. The angle, left, and top fields\
+        \ in the request parameter must be of integer type. Enlighten will rearrange\
+        \ the top and left values of the modules to fit the modules properly and avoid\
+        \ overlap. Therefore, the top and left values in the response may be slightly\
+        \ different from the top and left values passed in the request parameters.\
+        \ In array level, top and left is the total size of the modules inside that\
+        \ array. Overall the arrays top and left values should not overlap. In the\
+        \ module level, the size of a panel is 100 units long in the x axis and 200\
+        \ units long in the y axis. Please pass the left and top values in the request\
+        \ parameter in multiples of 100 and 200 respectively."
+      operationId: UpdateSystemArrays
+      parameters:
+      - description: System ID.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/text:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemArraysRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemArraysResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - some error messages
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update all arrays for system
+      tags:
+      - Arrays
+      x-codegen-request-body-name: params
+  /systems/{system_id}/arrays/{id}:
+    delete:
+      description: Delete an array by ID.
+      operationId: DeleteSystemArray
+      parameters:
+      - description: System ID.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Array ID.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteSystemArrayResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - Array not found
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Delete an array by ID
+      tags:
+      - Arrays
+    get:
+      description: Fetch array details by ID.
+      operationId: GetSystemArray
+      parameters:
+      - description: System ID.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: "Array ID. If an empty value is passed in the Array ID, this\
+          \ endpoint behaves as 'Fetch particular system Array details' endpoint."
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSystemArrayResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - some error messages
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Fetch array details by ID
+      tags:
+      - Arrays
+    put:
+      description: "Update particular system array details. The angle, left, and top\
+        \ fields in the request parameter must be of integer type. Enlighten will\
+        \ rearrange the top and left values of the modules to fit the modules properly\
+        \ and avoid overlap. Therefore, the top and left values in the response may\
+        \ be slightly different from the top and left values passed in the request\
+        \ parameters. In array level, top and left is the total size of the modules\
+        \ inside that array. Overall in arrays, the top and left values should not\
+        \ overlap. In the module level, the size of a panel is 100 units long in the\
+        \ x axis and 200 units long in the y axis. Please pass the left and top values\
+        \ in the request parameter in multiples of 100 and 200 respectively."
+      operationId: UpdateSystemArray
+      parameters:
+      - description: System ID.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: "Array ID. If an empty value is passed in the Array ID, this\
+          \ endpoint behaves as 'Update all Arrays' endpoint."
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/text:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemArrayRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemArrayResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorMessages:
+                - some error messages
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Update particular system array details
+      tags:
+      - Arrays
+      x-codegen-request-body-name: params
+components:
+  responses:
+    UnauthorizedError:
+      content:
+        application/json:
+          example:
+            reason: "401"
+            message:
+            - Not authorized to access requested resource.
+            - API Key missing in url/headers!
+          schema:
+            $ref: '#/components/schemas/ServerError'
+      description: Unauthorized
+    NotFoundError:
+      content:
+        application/json:
+          example:
+            reason: "404"
+            message:
+            - System not found
+          schema:
+            $ref: '#/components/schemas/ServerError'
+      description: Not Found
+    MethodNotAllowedError:
+      content:
+        application/json:
+          example:
+            reason: "405"
+            message:
+            - Method not allowed
+          schema:
+            $ref: '#/components/schemas/ServerError'
+      description: Method Not Allowed
+    TooManyRequestsError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TooManyRequestsError'
+      description: Too Many Requests
+    NotImplementedError:
+      content:
+        application/json:
+          example:
+            reason: "501"
+            message:
+            - Not Implemented
+          schema:
+            $ref: '#/components/schemas/ServerError'
+      description: Not Implemented
+  schemas:
+    GetPartnerActivationsResponse:
+      example:
+        systems:
+        - system_id: 12345
+          system_name: System name
+          system_type: residential
+          status: Normal
+          stage: 5
+          internet_connection: dialup
+          lease: false
+          operational: true
+          owner: Test User
+          owner_id: 123
+          host: 321
+          host_id: Host name
+          installer_name: Enphase & Energy
+          installer_id: 1
+          uri: /api/v4/partner/activations/12345.json
+          updated_at: 1628153151
+          reference: ENPH123
+          other_references:
+          - OTHER1234
+          address:
+            street1: Bangalore Lane
+            city: San Diego
+            state: CA
+            postal_code: "92126"
+            country: US
+            latitude: 32.912785
+            longitude: -117.153778
+            street2: 2nd Street
+        next: 4e6a6b344f5445774d446b350a
+      properties:
+        systems:
+          description: Zero or more activations.
+          items:
+            $ref: '#/components/schemas/GetPartnerActivationsResponse_systems_inner'
+          type: array
+        next:
+          description: "If the first request does not return a full list, use the\
+            \ 'next' attribute in the response body to request the next page. By default,\
+            \ activations are returned in batches of 10. The maximum page size is\
+            \ 1000."
+          type: string
+      type: object
+    CreatePartnerActivationRequest:
+      $ref: '#/components/schemas/SystemParams'
+    CreatePartnerActivationResponse:
+      $ref: '#/components/schemas/System'
+    GetPartnerActivationResponse:
+      $ref: '#/components/schemas/System'
+    UpdatePartnerActivationRequest:
+      $ref: '#/components/schemas/SystemParams'
+    UpdatePartnerActivationResponse:
+      $ref: '#/components/schemas/System'
+    DeleteActivationResponse:
+      example:
+        message: Activation deleted successfully
+      properties:
+        message:
+          type: string
+      type: object
+    GetActivationUserResponse:
+      $ref: '#/components/schemas/User'
+    UpdateActivationUserRequest:
+      $ref: '#/components/schemas/UserParams'
+    UpdateActivationUserResponse:
+      $ref: '#/components/schemas/User'
+    GrantActivationUserAccessResponse:
+      example:
+        message: User access granted successfully
+      properties:
+        message:
+          type: string
+      type: object
+    RevokeActivationUserAccessResponse:
+      example:
+        message: User access revoked successfully
+      properties:
+        message:
+          type: string
+      type: object
+    GetActivationOpsProductionModeResponse:
+      example:
+        mode: true
+        total_micros: 21
+        energy_producing_micros: 18
+      properties:
+        mode:
+          type: string
+        total_micros:
+          description: Total number of microinverters in the system.
+          type: integer
+        energy_producing_micros:
+          description: Total number of microinverters producing energy in the system.
+          type: integer
+      type: object
+    SetActivationOpsProductionModeRequest:
+      example:
+        mode: null
+      properties:
+        mode:
+          $ref: '#/components/schemas/SystemProductionModeEnum'
+      required:
+      - mode
+      type: object
+    SetActivationOpsProductionModeResponse:
+      example:
+        message: Production mode Task sent to envoy Successfully
+      properties:
+        message:
+          type: string
+      type: object
+    GetCompanyUsersResponse:
+      example:
+        users:
+        - - 6
+          - test@gmail.com
+        - - 7
+          - test2@gmail.com
+      properties:
+        users:
+          description: Zero or more users. Each user is an array. In that first value
+            of the array is Enlighten ID of the user. System-generated. Second value
+            of the array is the email address of the user.
+          items:
+            $ref: '#/components/schemas/GetCompanyUsersResponse_users_inner'
+          maxItems: 2
+          minItems: 2
+          type: array
+      type: object
+    CreateCompanyUserRequest:
+      example:
+        enlighten_emails: true
+        phone: phone
+        last_name: last_name
+        first_name: first_name
+        email: email
+      properties:
+        email:
+          description: Email address of the user. Must be unique within Enlighten.
+            Required.
+          type: string
+        enlighten_emails:
+          description: Whether the user receives automated emails from Enlighten.
+            Default false.
+          type: boolean
+        first_name:
+          description: User's first name. Required.
+          type: string
+        last_name:
+          description: User's last name. Required.
+          type: string
+        phone:
+          description: Telephone number of the user. Optional.
+          maxLength: 255
+          type: string
+      required:
+      - email
+      - first_name
+      - last_name
+      type: object
+    CreateCompanyUserResponse:
+      $ref: '#/components/schemas/User'
+    CreateUserRequest:
+      example:
+        enlighten_emails: true
+        enlighten_view: enlighten_view
+        company_id: 0
+        phone: phone
+        last_name: last_name
+        first_name: first_name
+        email: email
+      properties:
+        email:
+          description: Email address of the user. Must be unique within Enlighten.
+            Required.
+          type: string
+        enlighten_emails:
+          description: Whether the user receives automated emails from Enlighten.
+            Default false.
+          type: boolean
+        enlighten_view:
+          description: "Which view of Enlighten the user has. Options 'my' for MyEnlighten,\
+            \ 'manager' for Enlighten Manager. Default 'my'. Users who do not belong\
+            \ to companies should be set to 'my'. You must have an agreement with\
+            \ Enphase Energy to set a user to 'manager'. Company ID is required when\
+            \ enlighten_view is 'manager'."
+          type: string
+        first_name:
+          description: User's first name. Required.
+          type: string
+        last_name:
+          description: User's last name. Required.
+          type: string
+        phone:
+          description: Telephone number of the user. Optional.
+          maxLength: 255
+          type: string
+        company_id:
+          description: "Enlighten-generated ID of the company to which the user belongs,\
+            \ if any."
+          type: integer
+      required:
+      - email
+      - first_name
+      - last_name
+      type: object
+    CreateUserResponse:
+      $ref: '#/components/schemas/User'
+    SearchUsersResponse:
+      example:
+        user_id: 123
+        company_id: 1
+      properties:
+        user_id:
+          description: Enlighten ID of the user.
+          type: integer
+        company_id:
+          description: "Enlighten ID of the company that the user belongs to. If the\
+            \ user does not belong to a company, this field will not be present in\
+            \ the response."
+          type: integer
+      type: object
+    GetCompanyUserResponse:
+      $ref: '#/components/schemas/User'
+    UpdateCompanyUserRequest:
+      example:
+        company_id: 0
+        enlighten_emails: true
+        phone: phone
+        last_name: last_name
+        first_name: first_name
+        email: email
+      properties:
+        company_id:
+          deprecated: true
+          description: "Enlighten-generated ID of the company to which the user belongs,\
+            \ if any. Use the 'company' attribute instead, and the query parameter\
+            \ 'expand=company' to get detailed company information."
+          type: integer
+        email:
+          description: Email address of the user. Must be unique within Enlighten.
+            Required.
+          type: string
+        enlighten_emails:
+          description: Whether the user receives automated emails from Enlighten.
+            Default false.
+          type: boolean
+        first_name:
+          description: User's first name. Required.
+          type: string
+        last_name:
+          description: User's last name. Required.
+          type: string
+        phone:
+          description: Telephone number of the user. Optional.
+          maxLength: 255
+          type: string
+      type: object
+    UpdateCompanyUserResponse:
+      $ref: '#/components/schemas/User'
+    GetUserResponse:
+      $ref: '#/components/schemas/User'
+    UpdateUserRequest:
+      $ref: '#/components/schemas/UserParams'
+    UpdateUserResponse:
+      $ref: '#/components/schemas/User'
+    GetSelfUserResponse:
+      $ref: '#/components/schemas/User'
+    GetSelfCompanyBranchesResponse:
+      example:
+        company_id: 9
+        company_name: Super Solar
+        branches:
+        - company_id: 81
+          company_name: Super Solar North
+          location: "Petaluma, CA - US"
+          roles:
+          - installer
+          uri: /api/v4/companies/81.json
+      properties:
+        company_id:
+          description: Enlighten ID of the API user's company.
+          type: integer
+        company_name:
+          description: Name of the API user's company.
+          type: string
+        branches:
+          description: A list of branches belonging to the API user's company. May
+            be empty.
+          items:
+            $ref: '#/components/schemas/GetSelfCompanyBranchesResponse_branches_inner'
+          type: array
+      type: object
+    GetActivationEstimateResponse:
+      $ref: '#/components/schemas/SystemEstimate'
+    UpdateActivationEstimateRequest:
+      example:
+        degrade_factor: degrade_factor
+        month_estimates:
+        - month_estimates
+        - month_estimates
+      properties:
+        degrade_factor:
+          description: "Annual production degradation factor for the system, from\
+            \ year 0 of the system's life. Must be 0.0% or higher."
+          type: string
+        month_estimates:
+          description: "Estimated monthly production of the system, in kWh. A value\
+            \ for each month must be provided, and must be greater than 0. Send an\
+            \ empty array if you need to remove monthly estimates."
+          items:
+            type: string
+          type: array
+      required:
+      - degrade_factor
+      - month_estimates
+      type: object
+    UpdateActivationEstimateResponse:
+      $ref: '#/components/schemas/SystemEstimate'
+    GetGridProfilesResponse:
+      example:
+        grid_profiles:
+        - id: 9d9e749bf64f462fb8b2aac1
+          profile_id: agf:5f2299d9f22aad4ae0e15bfd
+          created: 2017-05-23T17:46:46Z
+          updated: 2017-05-23T17:46:46Z
+          name: Profile Name
+          description: Profile Description.
+          version: 1.0.1
+          envoy_type: north_america
+          countries:
+          - US
+          states:
+          - HI
+          state_names:
+          - Hawaii
+          ensemble_1_compatible: false
+      properties:
+        grid_profiles:
+          items:
+            $ref: '#/components/schemas/GetGridProfilesResponse_grid_profiles_inner'
+          type: array
+      type: object
+    GetSystemMeterResponse:
+      example:
+        serial_number: "123456789012"
+        manufacturer: Enphase Energy
+        model: Envoy S
+        type: production
+        operational_date: 2017-06-13
+        first_report_date: 2020-06-11T22:15:00-08:00
+        last_report_date: 2020-06-14T22:15:00-08:00
+        phase: L1(A)
+        envoy_serial_number: "121832000404"
+        status: normal
+        state: enabled
+      properties:
+        serial_number:
+          description: Meter serial number.
+          type: string
+        manufacturer:
+          description: Name of the manufacturer.
+          type: string
+        model:
+          description: Model.
+          type: string
+        type:
+          description: Meter type.
+          type: string
+        operational_date:
+          description: Operational date.
+          format: date
+          type: string
+        first_report_date:
+          description: First report date.
+          format: date-time
+          type: string
+        last_report_date:
+          description: Last report date.
+          format: date-time
+          type: string
+        phase:
+          description: Phase.
+          type: string
+        envoy_serial_number:
+          description: Envoy serial number.
+          type: string
+        status:
+          description: Meter status.
+          type: string
+        state:
+          description: Meter state.
+          type: string
+      type: object
+    UpdateSystemMeterResponse:
+      example:
+        serial_number: "123456789012"
+        manufacturer: Enphase Energy
+        model: Envoy S
+        type: production
+        operational_date: 2017-06-13
+      properties:
+        serial_number:
+          description: Meter serial number.
+          type: string
+        manufacturer:
+          description: Name of the manufacturer.
+          type: string
+        model:
+          description: Model.
+          type: string
+        type:
+          description: Meter type.
+          type: string
+        operational_date:
+          description: Operational date.
+          format: date
+          type: string
+      type: object
+    SetActivationMeterStatusRequest:
+      example:
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/SystemMeterStatusEnum'
+      type: object
+    SetActivationMeterStatusResponse:
+      example:
+        reason: "200"
+        message:
+        - Enable task sent to meter. Please wait until meter is enabled
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+      type: object
+    GetPvManufacturersResponse:
+      example:
+        pv_manufacturers:
+        - - 106
+          - 1Soltech
+        - - 107
+          - AIDE Solar
+        - - 108
+          - aleo solar AG
+        - - 109
+          - Alps Technology Inc
+      properties:
+        pv_manufacturers:
+          description: A list of PV manufacturers. Each element in the list is an
+            array including the model's manufacturer's primary key and name. The list
+            may be empty.
+          items:
+            description: Each item is an array. It contain two values.
+            items:
+              $ref: '#/components/schemas/GetCompanyUsersResponse_users_inner'
+            maxItems: 2
+            minItems: 2
+            type: array
+          type: array
+      type: object
+    GetPvManufacturerModelsResponse:
+      example:
+        pv_manufacturer:
+          pv_manufacturer_id: 109
+          name: Alps Technology Inc
+        pv_models:
+        - - 1047
+          - ATI 1650-155
+        - - 1048
+          - ATI 1650-165
+        - - 1049
+          - ATI 1650-175
+      properties:
+        pv_manufacturers:
+          $ref: '#/components/schemas/GetPvManufacturerModelsResponse_pv_manufacturers'
+        pv_models:
+          description: A list of PV models for this manufacturer. Each element in
+            the list is an array including the model's primary key and name. The list
+            may be empty.
+          items:
+            items:
+              $ref: '#/components/schemas/GetCompanyUsersResponse_users_inner'
+            maxItems: 2
+            minItems: 2
+            type: array
+          type: array
+      type: object
+    GetSystemTariffSettingsResponse:
+      $ref: '#/components/schemas/TariffSettings'
+    UpdateSystemTariffSettingsRequest:
+      $ref: '#/components/schemas/TariffSettings'
+    UpdateSystemTariffSettingsResponse:
+      example:
+        task:
+          status: pending
+          created_at: 2021-06-24T13:29:16Z
+      properties:
+        task:
+          $ref: '#/components/schemas/UpdateSystemTariffSettingsResponse_task'
+      type: object
+    GetSystemArraysResponse:
+      $ref: '#/components/schemas/Arrays'
+    UpdateSystemArraysRequest:
+      properties:
+        angle:
+          description: Angle of the system.
+          type: integer
+        arrays:
+          items:
+            $ref: '#/components/schemas/ArrayParams'
+          type: array
+      required:
+      - angle
+      - arrays
+      type: object
+    UpdateSystemArraysResponse:
+      $ref: '#/components/schemas/Arrays'
+    GetSystemArrayResponse:
+      $ref: '#/components/schemas/Array'
+    UpdateSystemArrayRequest:
+      $ref: '#/components/schemas/ArrayParams'
+    UpdateSystemArrayResponse:
+      $ref: '#/components/schemas/Array'
+    DeleteSystemArrayResponse:
+      example:
+        message: Array deleted successfully
+      properties:
+        message:
+          type: string
+      type: object
+    Address:
+      description: "Location of the system. Use the ISO 3166-1 2-letter code for the\
+        \ country. Latitude and longitude are calculated by Enlighten, not provided\
+        \ by the client."
+      properties:
+        street1:
+          description: Street line 1.
+          type: string
+        street2:
+          description: Street line 2. This field is optional.
+          type: string
+        city:
+          description: City.
+          type: string
+        state:
+          description: State.
+          type: string
+        country:
+          description: Country.
+          type: string
+        postal_code:
+          description: Postal code.
+          type: string
+        latitude:
+          description: Latitude.
+          type: integer
+        longitude:
+          description: Longitude.
+          type: integer
+      type: object
+    System:
+      example:
+        system_id: 12345
+        system_name: Enphase system
+        system_type: residential
+        status: Microinverters Not Reporting
+        stage: 5
+        internet_connection: dialup
+        lease: false
+        operational: true
+        owner:
+          first_name: Test
+          last_name: Owner
+          email: testowner@domain.com
+          phone: "9876543210"
+          active: true
+          user_id: 246
+          user_roles: []
+          enlighten_emails: false
+          enlighten_view: manager
+          uri: /api/v4/activations/12345/users/246.json
+          updated_at: 1444834807
+          company:
+            company_id: 67
+            company_name: Test Installer
+            location: "Petaluma, CA - US"
+            roles:
+            - installer
+            uri: /api/v4/companies/67.json
+        owner_id: 246
+        host:
+          first_name: Test
+          last_name: User
+          email: testhost@domain.com
+          phone: "9876543210"
+          active: true
+          user_id: 248
+          user_roles: []
+          enlighten_emails: false
+          enlighten_view: manager
+          uri: /api/v4/activations/12345/users/248.json
+          updated_at: 1444834807
+          company:
+            company_id: 67
+            company_name: Test Installer
+            location: "Petaluma, CA - US"
+            roles:
+            - installer
+            uri: /api/v4/companies/67.json
+        host_id: 248
+        installer_name: Enphase & Energy
+        installer_id: 5
+        uri: /api/v4/partner/activations/12345.json
+        updated_at: 1628156578
+        allow_public_access: true
+        source: microinverters
+        production_mode: true
+        envoy_serial_numbers:
+        - "202040004942"
+        expected_envoy_count: 1
+        expected_pcu_count: 4
+        expected_acb_count: 0
+        expected_nsr_count: 0
+        expected_meter_count: 0
+        expected_encharge_count: 4
+        expected_enpower_count: 1
+        encharge:
+        - envoy_serial_number: "202040004942"
+          encharge_serial_numbers:
+          - "122038023664"
+          - "122038023672"
+          - "122050050473"
+          - "122050050474"
+        enpower:
+        - envoy_serial_number: "202040004942"
+          enpower_serial_numbers:
+          - "122051103228"
+        address:
+          street1: Bangalore Lane
+          city: San Diego
+          state: CA
+          postal_code: "92126"
+          country: US
+          latitude: 32.912785
+          longitude: -117.153778
+      properties:
+        system_id:
+          description: Enlighten ID of this system. System-generated.
+          type: integer
+        system_name:
+          description: Name of the system.
+          type: string
+        system_type:
+          $ref: '#/components/schemas/SystemTypeEnum'
+        status:
+          description: System's status.
+          type: string
+        stage:
+          description: What stage of the activation process this activation is in.
+            System-generated.
+          type: integer
+        internet_connection:
+          $ref: '#/components/schemas/SystemInternetConnectionEnum'
+        lease:
+          description: Whether the system is leased. Default false.
+          type: boolean
+        operational:
+          description: Whether this system is permitted to operate. Default true.
+          type: boolean
+        owner:
+          $ref: '#/components/schemas/System_owner'
+        owner_id:
+          description: Enlighten ID of this system owner. System-generated. This field
+            is optional.
+          type: integer
+        host:
+          $ref: '#/components/schemas/System_host'
+        host_id:
+          description: Enlighten ID of this system host. System-generated. This field
+            is optional.
+          type: integer
+        installer_name:
+          description: Name of the installer.
+          type: string
+        installer_id:
+          description: Enlighten ID of the installer of this system. Defaults to current
+            user's company ID.
+          type: integer
+        uri:
+          description: URI for this activation.
+          type: string
+        updated_at:
+          description: Activation last updated timestamp.
+          format: int64
+          type: integer
+        reference:
+          description: Identifier of this system as provided by the calling user's
+            company. This attribute is not present if the calling user's company does
+            not have a reference for this system.
+          type: string
+        other_references:
+          description: Identifiers assigned to this activation by other companies
+            which have access to it. This attribute is not present if there are no
+            other references for this system.
+          items:
+            description: Name of the reference.
+            type: string
+          type: array
+        allow_public_access:
+          description: "When true, the system will be eligible to appear in the public\
+            \ systems lists of Enphase and the system's installer. Default true."
+          type: boolean
+        interconnect_date:
+          description: When the system was approved to connect to the grid.
+          format: date
+          type: string
+        installer_support_email:
+          description: Installer support email.
+          type: string
+        source:
+          $ref: '#/components/schemas/SystemSourceEnum'
+        array_type:
+          $ref: '#/components/schemas/SystemArrayTypeEnum'
+        attachment_type:
+          $ref: '#/components/schemas/SystemAttachmentTypeEnum'
+        ensemble_envoy:
+          description: Specifies serial number of ensemble envoy in multi envoy system.
+          type: string
+        production_mode:
+          $ref: '#/components/schemas/SystemProductionModeEnum'
+        grid_profile:
+          description: Grid profile to set on this system's microinverters. See GridProfiles
+            API for how to retrieve a list of known profiles.
+          type: string
+        requested_profile:
+          type: string
+        requested_report_freq:
+          type: string
+        voltage:
+          description: "Supported voltage/phase associated with a commercial system\
+            \ inside North America. If system type is not commercial, or if the installer\
+            \ exists & installer's country is not inside North America, or if the\
+            \ system's country is not inside North America, then the voltage value\
+            \ would be null."
+          type: string
+        envoy_serial_numbers:
+          description: A list of Envoys installed on this system.
+          items:
+            description: Envoy serial number.
+            type: string
+          type: array
+        expected_envoy_count:
+          description: Total envoys the system is supposed to have.
+          type: integer
+        expected_pcu_count:
+          description: Total PCUs the system is supposed to have.
+          type: integer
+        expected_nsr_count:
+          description: Total nsrs the system is supposed to have.
+          type: integer
+        expected_meter_count:
+          description: Total meters the system is supposed to have.
+          type: integer
+        expected_encharge_count:
+          description: Total encharges the system is supposed to have.
+          type: integer
+        expected_enpower_count:
+          description: Total enpowers the system is supposed to have.
+          type: integer
+        pv_manufacturer:
+          description: Enlighten ID of the PV manufacturer associated with the PV
+            model installed on the system. See PvManufacturers for how to retrieve
+            PV manufacturer IDs.
+          type: integer
+        pv_manufacturer_name:
+          description: Name of the Custom PV module manufacturer associated with the
+            system.
+          type: string
+        pv_model:
+          description: Enlighten ID of the PV model installed on the system. See PvManufacturers
+            and PvModels for how to retrieve PV model IDs.
+          type: integer
+        pv_model_name:
+          description: Name of the Custom PV module model associated with the system.
+          type: string
+        pv_module_power_rating:
+          description: Power rating (in W) of the PV module installed on the system.
+          format: float
+          minimum: 0
+          type: number
+        pv_module_type:
+          description: "Type ID of the PV module installed on the system. 1 -> 'Mono-facial',\
+            \ 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'."
+          type: integer
+        encharge:
+          description: Encharge detail.
+          items:
+            $ref: '#/components/schemas/System_encharge_inner'
+          type: array
+        enpower:
+          description: Enpower detail.
+          items:
+            $ref: '#/components/schemas/System_enpower_inner'
+          type: array
+        address:
+          $ref: '#/components/schemas/Address'
+      type: object
+    SystemParams:
+      example:
+        requested_profile: requested_profile
+        pv_model: 5
+        expected_acb_count: 2
+        owner_id: 0
+        encharge:
+        - encharge_serial_numbers:
+          - encharge_serial_numbers
+          - encharge_serial_numbers
+          envoy_serial_number: envoy_serial_number
+        - encharge_serial_numbers:
+          - encharge_serial_numbers
+          - encharge_serial_numbers
+          envoy_serial_number: envoy_serial_number
+        expected_pcu_count: 3
+        expected_enpower_count: 1
+        source: null
+        pv_manufacturer_name: pv_manufacturer_name
+        expected_encharge_count: 1
+        reference: reference
+        interconnect_date: 2000-01-23
+        enpower:
+        - enpower_serial_numbers:
+          - enpower_serial_numbers
+          - enpower_serial_numbers
+          envoy_serial_number: envoy_serial_number
+        - enpower_serial_numbers:
+          - enpower_serial_numbers
+          - enpower_serial_numbers
+          envoy_serial_number: envoy_serial_number
+        installer_id: 1
+        pv_module_type: 7
+        array_type: null
+        allow_public_access: true
+        pv_manufacturer: 5
+        requested_report_freq: requested_report_freq
+        ensemble_envoy: ensemble_envoy
+        address:
+          country: country
+          city: city
+          street1: street1
+          street2: street2
+          state: state
+          postal_code: postal_code
+        system_name: system_name
+        operational: true
+        expected_envoy_count: 9
+        expected_nsr_count: 4
+        host_id: 6
+        expected_meter_count: 7
+        voltage: voltage
+        envoy_serial_numbers:
+        - envoy_serial_numbers
+        - envoy_serial_numbers
+        pv_model_name: pv_model_name
+        system_type: null
+        attachment_type: null
+        pv_module_power_rating: 0.23021358
+        internet_connection: null
+        grid_profile: grid_profile
+        lease: true
+      properties:
+        system_name:
+          description: Name of the system. Limit 255 characters.
+          type: string
+        system_type:
+          $ref: '#/components/schemas/SystemTypeEnum'
+        internet_connection:
+          $ref: '#/components/schemas/SystemInternetConnectionEnum'
+        lease:
+          description: Whether the system is leased. Default false.
+          type: boolean
+        operational:
+          description: Whether this system is permitted to operate. Default true.
+          type: boolean
+        owner_id:
+          description: "Enlighten ID of the system owner. Owner must be an Enlighten\
+            \ user. Optional. If the user of the API is a self-installer, the owner\
+            \ must be himself. If the user of the API is an installer then use the\
+            \ Search user API to get the owner user ID. If the owner not exist in\
+            \ the enlighten then use Create home owner API to create it newly."
+          type: integer
+        host_id:
+          description: Enlighten ID of the system host. System host must be an Enlighten
+            user. Optional. If the user of the API is an installer then use the Search
+            user API to get the host user ID. If the host not exist in the enlighten
+            then use Create home owner API to create it newly.
+          type: integer
+        installer_id:
+          description: Enlighten ID of the installer of this system. Defaults to current
+            user's company ID.
+          type: integer
+        allow_public_access:
+          description: "When true, the system will be eligible to appear in the public\
+            \ systems lists of Enphase and the system's installer. Default true."
+          type: boolean
+        interconnect_date:
+          description: When the system was approved to connect to the grid.
+          format: date
+          type: string
+        source:
+          $ref: '#/components/schemas/SystemSourceEnum'
+        array_type:
+          $ref: '#/components/schemas/SystemArrayTypeEnum'
+        attachment_type:
+          $ref: '#/components/schemas/SystemAttachmentTypeEnum'
+        ensemble_envoy:
+          description: Specifies serial number of ensemble envoy in multi envoy system.
+          type: string
+        grid_profile:
+          description: Grid profile to set on this system's microinverters. See GridProfiles
+            API for how to retrieve a list of known profiles.
+          type: string
+        requested_profile:
+          type: string
+        requested_report_freq:
+          type: string
+        voltage:
+          description: "Supported voltage/phase associated with a commercial system\
+            \ inside North America. If system type is not commercial, or if the installer\
+            \ exists & installer's country is not inside North America, or if the\
+            \ system's country is not inside North America, then the voltage value\
+            \ would be null."
+          type: string
+        envoy_serial_numbers:
+          description: A list of Envoys installed on this system.
+          items:
+            type: string
+          type: array
+        pv_manufacturer:
+          description: Enlighten ID of the PV manufacturer associated with the PV
+            model installed on the system. See PvManufacturers for how to retrieve
+            PV manufacturer IDs.
+          type: integer
+        pv_manufacturer_name:
+          description: Name of the Custom PV module manufacturer associated with the
+            system.
+          type: string
+        pv_model:
+          description: Enlighten ID of the PV model installed on the system. See PvManufacturers
+            and PvModels for how to retrieve PV model IDs.
+          type: integer
+        pv_model_name:
+          description: Name of the Custom PV module model associated with the system.
+          type: string
+        pv_module_power_rating:
+          description: Power rating (in W) of the PV module installed on the system.
+          format: float
+          minimum: 0
+          type: number
+        pv_module_type:
+          description: "Type ID of the PV module installed on the system. 1 -> 'Mono-facial',\
+            \ 2 -> 'Bi-facial', 3 -> 'Split cell', 4 -> 'Other'."
+          type: integer
+        expected_envoy_count:
+          description: Total envoys the system is supposed to have.
+          type: integer
+        expected_pcu_count:
+          description: Total PCUs the system is supposed to have.
+          type: integer
+        expected_acb_count:
+          description: Total acbs the system is supposed to have.
+          type: integer
+        expected_nsr_count:
+          description: Total nsrs the system is supposed to have.
+          type: integer
+        expected_meter_count:
+          description: Total meters the system is supposed to have.
+          type: integer
+        expected_encharge_count:
+          description: Total encharges the system is supposed to have.
+          type: integer
+        expected_enpower_count:
+          description: Total enpowers the system is supposed to have.
+          type: integer
+        reference:
+          description: Identifier of this system as provided by the calling user's
+            company. This attribute is not present if the calling user's company does
+            not have a reference for this system. This value should be alphanumeric.
+          type: string
+        encharge:
+          description: Encharge detail.
+          items:
+            $ref: '#/components/schemas/SystemParams_encharge_inner'
+          type: array
+        enpower:
+          description: Enpower detail.
+          items:
+            $ref: '#/components/schemas/SystemParams_enpower_inner'
+          type: array
+        address:
+          $ref: '#/components/schemas/SystemParams_address'
+      required:
+      - system_name
+      type: object
+    User:
+      example:
+        active: true
+        user_roles: []
+        email: username@domain.com
+        enlighten_emails: false
+        enlighten_view: my
+        first_name: Joe
+        last_name: User
+        phone: 1-800-123-1234
+        uri: /api/v4/users/123456.json
+        user_id: 123456
+        updated_at: 1508128974
+        company:
+          company_id: 5
+          company_name: Enphase Energy
+          location: "Petaluma, CA - US"
+          roles:
+          - installer
+          uri: /api/v4/companies/5.json
+      properties:
+        active:
+          description: Whether the user is allowed to log in to Enlighten.
+          type: boolean
+        user_roles:
+          description: "What type of user this is in Enlighten. For self installer\
+            \ user user_roles will be ['self_installer']. For other users user_roles\
+            \ will be empty."
+          items:
+            $ref: '#/components/schemas/UserRoleEnum'
+          type: array
+        email:
+          description: Email address of the user.
+          type: string
+        enlighten_emails:
+          description: Whether the user receives automated emails from Enlighten.
+          type: boolean
+        enlighten_view:
+          description: Which view of Enlighten the user has.
+          type: string
+        first_name:
+          description: User's first name.
+          type: string
+        last_name:
+          description: User's last name.
+          type: string
+        phone:
+          description: Telephone number of the user.
+          type: string
+        uri:
+          description: URI to the show() method for the user. System-generated.
+          type: string
+        user_id:
+          description: Enlighten ID of the user. System-generated.
+          type: integer
+        updated_at:
+          description: Last updated date and time in Epoch format.
+          format: int64
+          type: integer
+        company:
+          $ref: '#/components/schemas/Company'
+      type: object
+    UserParams:
+      example:
+        company_id: 0
+        enlighten_emails: true
+        enlighten_view: enlighten_view
+        phone: phone
+        last_name: last_name
+        first_name: first_name
+        email: email
+      properties:
+        company_id:
+          deprecated: true
+          description: "Enlighten-generated ID of the company to which the user belongs,\
+            \ if any. Use the 'company' attribute instead, and the query parameter\
+            \ 'expand=company' to get detailed company information."
+          type: integer
+        email:
+          description: Email address of the user. Must be unique within Enlighten.
+            Required.
+          type: string
+        enlighten_emails:
+          description: Whether the user receives automated emails from Enlighten.
+            Default false.
+          type: boolean
+        enlighten_view:
+          description: "Which view of Enlighten the user has. Options 'my' for MyEnlighten,\
+            \ 'manager' for Enlighten Manager. Default 'my'. Users who do not belong\
+            \ to companies should be set to 'my'. You must have an agreement with\
+            \ Enphase Energy to set a user to 'manager'."
+          type: string
+        first_name:
+          description: User's first name. Required.
+          type: string
+        last_name:
+          description: User's last name. Required.
+          type: string
+        phone:
+          description: Telephone number of the user. Optional.
+          maxLength: 255
+          type: string
+      type: object
+    SystemEstimate:
+      example:
+        system_id: 67
+        degrade_factor: "0.4"
+        month_estimates:
+        - "3112.0"
+        - "3248.0"
+        - "3805.0"
+        - "4437.0"
+        - "4266.0"
+        - "3998.0"
+        - "4034.0"
+        - "3840.0"
+        - "3647.0"
+        - "3551.0"
+        - "2926.0"
+        - "2872.0"
+      properties:
+        system_id:
+          description: System this estimate is for.
+          type: integer
+        degrade_factor:
+          description: "Annual production degradation factor for the system, from\
+            \ year 0 of the system's life. Must be 0.0% or higher. Default 0.5%."
+          type: string
+        month_estimates:
+          description: "Estimated monthly production of the system, in kWh. A value\
+            \ for each month must be provided, and must be greater than 0. Send an\
+            \ empty array if you need to remove monthly estimates. Default empty array."
+          items:
+            type: string
+          type: array
+      type: object
+    TariffSettings:
+      example:
+        tariff:
+          storage_settings:
+            mode: backup
+            reserved_soc: 100
+          currency:
+            code: AUD
+          single_rate:
+            rate: "1"
+            sell: "1"
+          seasons:
+          - id: all_year_long
+            start: 1/1
+            days:
+            - id: weekdays
+              days: "Mon,Tue,Wed,Thu,Fri"
+              must_charge_start: 0
+              must_charge_duration: 59
+              periods:
+              - id: period_1
+                start: 0
+                rate: "10"
+                error: {}
+              - id: period_2
+                start: 240
+                rate: "12"
+                error: {}
+              - id: period_3
+                start: 480
+                rate: "10"
+                error: {}
+              - id: period_4
+                start: 720
+                rate: "12"
+                error: {}
+              - id: period_5
+                start: 960
+                rate: "10"
+                error: {}
+              - id: period_6
+                start: 1200
+                rate: "12"
+                error: {}
+              enable_charge_from_grid: true
+              enable_discharge_to_grid: true
+            - id: weekend
+              days: "Sun,Sat"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+              enable_charge_from_grid: false
+              enable_discharge_to_grid: false
+          - id: summer
+            start: 3/1
+            days:
+            - id: weekdays
+              days: "Mon,Tue,Wed,Thu,Fri"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+            - id: weekend
+              days: "Sun,Sat"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+          - id: fall
+            start: 6/1
+            days:
+            - id: weekdays
+              days: "Mon,Tue,Wed,Thu,Fri"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+            - id: weekend
+              days: "Sun,Sat"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+          - id: winter
+            start: 9/1
+            days:
+            - id: weekdays
+              days: "Mon,Tue,Wed,Thu,Fri"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+            - id: weekend
+              days: "Sun,Sat"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+          - id: spring
+            start: 10/1
+            days:
+            - id: weekdays
+              days: "Mon,Tue,Wed,Thu,Fri"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+            - id: weekend
+              days: "Sun,Sat"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+          seasons_sell:
+          - id: all_year_long
+            start: 1/1
+            days:
+            - id: all_days
+              days: "Sun,Mon,Tue,Wed,Thu,Fri,Sat"
+              must_charge_start: 0
+              must_charge_duration: 0
+              periods:
+              - id: period_1
+                start: 0
+                rate: "1"
+        task:
+          status: pending
+          created_at: 2021-06-24T13:29:16Z
+      properties:
+        tariff:
+          $ref: '#/components/schemas/TariffSettings_tariff'
+        task:
+          $ref: '#/components/schemas/UpdateSystemTariffSettingsResponse_task'
+      type: object
+    Arrays:
+      example:
+        system_id: 698927061
+        created_at: 1564385055
+        updated_at: 1567596211
+        angle: 30
+        arrays:
+        - id: 207359
+          label: First
+          angle: 0
+          tilt: "30.0"
+          reporting_envoys:
+          - "121625050638"
+          provisioned_envoy: "121616035667"
+          updated_at: 1500983465
+          left: 29
+          top: -3
+          modules:
+          - id: 4743704
+            left: 300
+            top: 202
+            angle: 0
+            serial_num: "121501065212"
+        inventory:
+        - "121418008963"
+        - "121338007327"
+        inventory_details:
+        - type: Wireless Range Extender
+          count: 1
+          serialNum: "212323223351"
+        - type: M215
+          count: 1
+          serialNum: "222323223363"
+        layers:
+        - file: example.jpg
+          scale: 34
+          angle: 45
+          opacity: 56
+          width: 80
+          height: 50
+          left: 40
+          top: 50
+      properties:
+        system_id:
+          description: System ID.
+          type: integer
+        created_at:
+          description: System created Epoch time.
+          format: int64
+          type: integer
+        updated_at:
+          description: System updated Epoch time.
+          format: int64
+          type: integer
+        angle:
+          description: Angle of the system.
+          type: integer
+        arrays:
+          items:
+            $ref: '#/components/schemas/Array'
+          type: array
+        inventory:
+          description: List of active inverter serial numbers.
+          items:
+            type: string
+          type: array
+        inventory_details:
+          items:
+            $ref: '#/components/schemas/Arrays_inventory_details_inner'
+          type: array
+        layers:
+          items:
+            $ref: '#/components/schemas/Arrays_layers_inner'
+          type: array
+      type: object
+    Array:
+      example:
+        id: 207359
+        label: First
+        angle: 0
+        tilt: "30.0"
+        reporting_envoys:
+        - "121625050638"
+        provisioned_envoy: "121625050638"
+        updated_at: 1567074167
+        left: 29
+        top: -3
+        modules:
+        - id: 4743704
+          left: 300
+          top: 202
+          angle: 0
+          serial_num: "121501065212"
+      properties:
+        id:
+          description: ID of the array.
+          type: integer
+        label:
+          description: Name of the array.
+          type: string
+        angle:
+          description: Angle of the array.
+          type: integer
+        tilt:
+          description: Tilt of the array.
+          type: string
+        reporting_envoys:
+          description: List of envoys serial numbers.
+          items:
+            type: string
+          type: array
+        provisioned_envoy:
+          description: Provisioned envoy.
+          type: string
+        updated_at:
+          description: Last updated Epoch time.
+          format: int64
+          type: integer
+        left:
+          description: Left axis position of array.
+          type: integer
+        top:
+          description: Top axis position of array.
+          type: integer
+        modules:
+          items:
+            $ref: '#/components/schemas/Array_modules_inner'
+          type: array
+      type: object
+    ArrayParams:
+      properties:
+        id:
+          description: ID of the array. ID cannot be changed. It is only used to identify
+            the array that needs to be updated.
+          type: integer
+        label:
+          description: Name of the array.
+          type: string
+        angle:
+          description: Angle of the array. Rotate the array clockwise by the given
+            value.
+          type: integer
+        tilt:
+          description: Tilt of the array.
+          type: string
+        provisioned_envoy:
+          description: Provisioned envoy.
+          type: string
+        left:
+          description: "Left axis position of array. Increase the value to move the\
+            \ array to the right, and decrease to move it to the left."
+          type: integer
+        top:
+          description: "Top axis position of array. Increase the value to move the\
+            \ array up, and decrease to move it down."
+          type: integer
+        modules:
+          items:
+            $ref: '#/components/schemas/ArrayParams_modules_inner'
+          type: array
+      required:
+      - angle
+      - label
+      - left
+      - modules
+      - provisioned_envoy
+      - tilt
+      - top
+      type: object
+    Company:
+      description: "Name of the system owner. Owner must be an Enlighten user. If\
+        \ the user of the API is a self-installer, the owner must be himself. If the\
+        \ query parameter 'expand=owner' passed in the request owner detail will appear\
+        \ in the response."
+      properties:
+        company_id:
+          description: Enlighten-generated ID of the company to which the user belongs.
+          type: integer
+        company_name:
+          description: Name of the company to which the user belongs.
+          type: string
+        location:
+          description: Company location.
+          type: string
+        roles:
+          description: "What type of company this is in Enphase. For installer company\
+            \ roles will be ['installer']. For other role roles will be empty."
+          items:
+            $ref: '#/components/schemas/CompanyRoleEnum'
+          type: array
+        uri:
+          description: URI to the show() method for the company. System-generated.
+          type: string
+      type: object
+    TariffSeasons:
+      description: ToU seasons.
+      items:
+        $ref: '#/components/schemas/TariffSeasons_inner'
+      type: array
+    SystemStageEnum:
+      enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - in_progress
+      type: string
+    SystemExpandEnum:
+      enum:
+      - owner
+      - owner.company
+      - host
+      - host.company
+      type: string
+    UserExpandEnum:
+      enum:
+      - company
+      type: string
+    SystemTypeEnum:
+      description: Type of the system. Default 'residential'.
+      enum:
+      - residential
+      - commercial
+      - other
+      type: string
+    SystemInternetConnectionEnum:
+      description: How the system's Envoys connect to the Internet. Use 'dialup' if
+        the Internet connection is satellite or dial-up.
+      enum:
+      - none
+      - cellular
+      - broadband
+      - dialup
+      type: string
+    SystemProductionModeEnum:
+      enum:
+      - "true"
+      - "false"
+      type: string
+    CompanyRoleEnum:
+      enum:
+      - installer
+      type: string
+    SystemMeterStatusEnum:
+      enum:
+      - enabled
+      - disabled
+      type: string
+    UserRoleEnum:
+      enum:
+      - self_installer
+      type: string
+    SystemSourceEnum:
+      description: "Source of production measurements taken on the system. When 'meter',\
+        \ production values come from a revenue-grade meter on the system. When 'microinverters',\
+        \ production values come from the microinverters on the system."
+      enum:
+      - meter
+      - microinverters
+      type: string
+    SystemArrayTypeEnum:
+      description: "Type of array installed. All other values will be ignored. To\
+        \ unset array_type, pass null."
+      enum:
+      - fixed_open_rack
+      - fixed_roof_mount
+      - single_axis_tracking
+      - single_axis_backtracking
+      - dual_axis_tracking
+      type: string
+    SystemAttachmentTypeEnum:
+      description: "How the microinverters are attached to the panels. Possible values\
+        \ are acm (AC Module), rack_mount (rack- or rail-mounted), zep (Zep Solar\
+        \ compatible), bipv (Building Integrated PV), frame_mount (Enphase Frame Mount),\
+        \ railless_mount (Other Railless Mount)."
+      enum:
+      - rack_mount
+      - zep
+      - acm
+      - bipv
+      - frame_mount
+      - railless_mount
+      type: string
+    UnprocessableEntityError:
+      properties:
+        errorCode:
+          type: integer
+        errorMessages:
+          items:
+            type: string
+          type: array
+      type: object
+    TooManyRequestsError:
+      example:
+        reason: "429"
+        message:
+        - Usage limit exceeded for plan Partner (custom)
+        period: minute
+        period_start: 1623825660
+        period_end: 1623825720
+        limit: 5
+      properties:
+        reason:
+          description: Response code.
+          type: string
+        message:
+          items:
+            description: Error messages.
+            type: string
+          type: array
+        period:
+          description: Quota exceeded for minute/month.
+          type: string
+        period_start:
+          description: Starting period timestamp.
+          type: integer
+        period_end:
+          description: Ending period timestamp.
+          type: integer
+        limit:
+          description: Limit count for the period.
+          type: integer
+      type: object
+    ServerError:
+      properties:
+        reason:
+          type: string
+        message:
+          items:
+            type: string
+          type: array
+      type: object
+    GetPartnerActivationsResponse_systems_inner:
+      properties:
+        system_id:
+          description: Enlighten ID of this system. System-generated.
+          type: integer
+        system_name:
+          description: Name of the system.
+          type: string
+        system_type:
+          $ref: '#/components/schemas/SystemTypeEnum'
+        status:
+          description: System's status.
+          type: string
+        stage:
+          description: What stage of the activation process this activation is in.
+            System-generated.
+          type: integer
+        internet_connection:
+          $ref: '#/components/schemas/SystemInternetConnectionEnum'
+        lease:
+          description: Whether the system is leased. Default false.
+          type: boolean
+        operational:
+          description: Whether this system is permitted to operate. Default true.
+          type: boolean
+        owner:
+          description: "Name of the system owner. Owner must be an Enlighten user.\
+            \ If the user of the API is a self-installer, the owner must be himself."
+          type: string
+        owner_id:
+          description: Enlighten ID of this system owner. System-generated.
+          type: integer
+        host:
+          description: "Name of the system host. Please see \"Specifying an Owner\
+            \ and Lease Arrangement\", above, for more information."
+          type: string
+        host_id:
+          description: Enlighten ID of this system host. System-generated.
+          type: integer
+        installer_name:
+          description: Name of the installer.
+          type: string
+        installer_id:
+          description: Enlighten ID of the installer of this system. Defaults to current
+            user's company ID.
+          type: integer
+        uri:
+          description: URI for this activation.
+          type: string
+        updated_at:
+          description: Activation last updated timestamp.
+          format: int64
+          type: integer
+        reference:
+          description: Identifier of this system as provided by the calling user's
+            company. This attribute is not present if the calling user's company does
+            not have a reference for this system.
+          type: string
+        other_references:
+          description: Identifiers assigned to this activation by other companies
+            which have access to it. This attribute is not present if there are no
+            other references for this system.
+          items:
+            description: Name of the reference.
+            type: string
+          type: array
+        address:
+          $ref: '#/components/schemas/Address'
+      type: object
+    GetCompanyUsersResponse_users_inner:
+      oneOf:
+      - type: integer
+      - type: string
+    GetSelfCompanyBranchesResponse_branches_inner:
+      properties:
+        company_id:
+          description: Enlighten ID of the company.
+          type: integer
+        company_name:
+          description: Name of the company.
+          type: string
+        location:
+          description: Company location.
+          type: string
+        roles:
+          description: "What type of company this is in Enphase. For installer company\
+            \ roles will be ['installer']. For other role roles will be empty."
+          items:
+            $ref: '#/components/schemas/CompanyRoleEnum'
+          type: array
+        uri:
+          description: URI to the show() method for the company. System-generated.
+          type: string
+      type: object
+    GetGridProfilesResponse_grid_profiles_inner:
+      properties:
+        id:
+          description: Grid profile ID. System-generated.
+          type: string
+        profile_id:
+          type: string
+        created:
+          description: Profile created date and time.
+          format: date-time
+          type: string
+        updated:
+          description: Profile last updated date and time.
+          format: date-time
+          type: string
+        name:
+          description: Profile name.
+          type: string
+        description:
+          description: Profile description.
+          type: string
+        version:
+          description: Profile version.
+          type: string
+        envoy_type:
+          description: Envoy type.
+          type: string
+        countries:
+          description: Name of the Countries.
+          items:
+            type: string
+          type: array
+        states:
+          description: States code.
+          items:
+            type: string
+          type: array
+        state_names:
+          description: Name of the states.
+          items:
+            type: string
+          type: array
+        ensemble_1_compatible:
+          type: boolean
+      type: object
+    GetPvManufacturerModelsResponse_pv_manufacturers:
+      description: Information about the manufacturer whose PV module models are in
+        the response.
+      properties:
+        pv_manufacturer_id:
+          description: Pv manufacturer ID.
+          type: integer
+        name:
+          description: Name of the Pv manufacturer.
+          type: string
+      type: object
+    UpdateSystemTariffSettingsResponse_task:
+      properties:
+        status:
+          description: Status of latest tariff update task.
+          type: string
+        created_at:
+          description: Created time of latest tariff update task.
+          type: string
+      type: object
+    System_owner_company:
+      description: A hash of information about the owner's company. Use the query
+        parameter 'expand=owner.company' to get owner company detail.
+      properties:
+        company_id:
+          type: integer
+        company_name:
+          type: string
+        location:
+          type: string
+        roles:
+          description: "What type of company this is in Enphase. For installer company\
+            \ roles will be ['installer']. For other role roles will be empty."
+          items:
+            $ref: '#/components/schemas/CompanyRoleEnum'
+          type: array
+        uri:
+          type: string
+      type: object
+    System_owner:
+      description: "Name of the system owner. Owner must be an Enlighten user. If\
+        \ the user of the API is a self-installer, the owner must be himself. If the\
+        \ query parameter 'expand=owner' passed in the request owner detail will appear\
+        \ in the response."
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        active:
+          description: "Whether the user is allowed to log in to Enlighten. Values\
+            \ true, false. Default true."
+          type: boolean
+        user_id:
+          type: integer
+        user_roles:
+          description: "What type of user this is in Enlighten. For self installer\
+            \ user user_roles will be ['self_installer']. For other users user_roles\
+            \ will be empty."
+          items:
+            $ref: '#/components/schemas/UserRoleEnum'
+          type: array
+        enlighten_emails:
+          type: boolean
+        enlighten_view:
+          type: string
+        uri:
+          type: string
+        updated_at:
+          format: int64
+          type: integer
+        company:
+          $ref: '#/components/schemas/System_owner_company'
+      type: object
+    System_host_company:
+      description: A hash of information about the system host's company. Use the
+        query parameter 'expand=host.company' to get system host company detail.
+      properties:
+        company_id:
+          type: integer
+        company_name:
+          type: string
+        location:
+          type: string
+        roles:
+          description: "What type of company this is in Enphase. For installer company\
+            \ roles will be ['installer']. For other role roles will be empty."
+          items:
+            $ref: '#/components/schemas/CompanyRoleEnum'
+          type: array
+        uri:
+          type: string
+      type: object
+    System_host:
+      description: "Name of the system host. Please see \"Specifying an Owner and\
+        \ Lease Arrangement\", above, for more information. If the query parameter\
+        \ 'expand=host' passed in the request host detail will appear in the response."
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        active:
+          description: "Whether the user is allowed to log in to Enlighten. Values\
+            \ true, false. Default true."
+          type: boolean
+        user_id:
+          type: integer
+        user_roles:
+          description: "What type of user this is in Enlighten. For self installer\
+            \ user user_roles will be ['self_installer']. For other users user_roles\
+            \ will be empty."
+          items:
+            $ref: '#/components/schemas/UserRoleEnum'
+          type: array
+        enlighten_emails:
+          type: boolean
+        enlighten_view:
+          type: string
+        uri:
+          type: string
+        updated_at:
+          format: int64
+          type: integer
+        company:
+          $ref: '#/components/schemas/System_host_company'
+      type: object
+    System_encharge_inner:
+      properties:
+        envoy_serial_number:
+          description: Envoy serial number.
+          type: string
+        encharge_serial_numbers:
+          description: Encharge serial numbers.
+          items:
+            description: Encharge serial number.
+            type: string
+          type: array
+      type: object
+    System_enpower_inner:
+      properties:
+        envoy_serial_number:
+          description: Envoy serial number.
+          type: string
+        enpower_serial_numbers:
+          description: Enpower serial numbers.
+          items:
+            description: Enpower serial number.
+            type: string
+          type: array
+      type: object
+    SystemParams_encharge_inner:
+      example:
+        encharge_serial_numbers:
+        - encharge_serial_numbers
+        - encharge_serial_numbers
+        envoy_serial_number: envoy_serial_number
+      properties:
+        envoy_serial_number:
+          description: Envoy serial number.
+          type: string
+        encharge_serial_numbers:
+          description: Encharge serial numbers.
+          items:
+            type: string
+          type: array
+      type: object
+    SystemParams_enpower_inner:
+      example:
+        enpower_serial_numbers:
+        - enpower_serial_numbers
+        - enpower_serial_numbers
+        envoy_serial_number: envoy_serial_number
+      properties:
+        envoy_serial_number:
+          description: Envoy serial number.
+          type: string
+        enpower_serial_numbers:
+          description: Enpower serial numbers.
+          items:
+            type: string
+          type: array
+      type: object
+    SystemParams_address:
+      description: "Location of the system. Use the ISO 3166-1 2-letter code for the\
+        \ country. Latitude and longitude are calculated by Enlighten, not provided\
+        \ by the client."
+      example:
+        country: country
+        city: city
+        street1: street1
+        street2: street2
+        state: state
+        postal_code: postal_code
+      properties:
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postal_code:
+          type: string
+      required:
+      - city
+      - country
+      - postal_code
+      - state
+      - street1
+      type: object
+    TariffSettings_tariff_currency_type:
+      description: Currency type.
+      properties:
+        code:
+          description: Tariff currency code. e.g='USD'.
+          type: string
+      type: object
+    TariffSettings_tariff_single_rate:
+      description: Single rate.
+      properties:
+        rate:
+          description: Usage rate. e.g=0.0.
+          type: string
+        sell:
+          description: FiT rate. e.g=0.0.
+          type: string
+      type: object
+    TariffSettings_tariff:
+      properties:
+        currency_type:
+          $ref: '#/components/schemas/TariffSettings_tariff_currency_type'
+        single_rate:
+          $ref: '#/components/schemas/TariffSettings_tariff_single_rate'
+        seasons:
+          description: ToU seasons.
+          items:
+            $ref: '#/components/schemas/TariffSeasons_inner'
+          type: array
+        seasons_sell:
+          description: ToU seasons.
+          items:
+            $ref: '#/components/schemas/TariffSeasons_inner'
+          type: array
+      type: object
+    Arrays_inventory_details_inner:
+      properties:
+        type:
+          description: Device type.
+          type: string
+        count:
+          description: Device count.
+          type: integer
+        serialNum:
+          description: Device serial number.
+          type: string
+      type: object
+    Arrays_layers_inner:
+      properties:
+        file:
+          description: Background image url.
+          type: string
+        scale:
+          description: Zoom level.
+          type: integer
+        angle:
+          description: Angle of the layer.
+          type: integer
+        opacity:
+          description: Opacity of the layer.
+          type: integer
+        width:
+          description: Width of the layer.
+          type: integer
+        height:
+          description: Height of the layer.
+          type: integer
+        left:
+          description: Left of the layer.
+          type: integer
+        top:
+          description: Top of the layer.
+          type: integer
+      type: object
+    Array_modules_inner:
+      properties:
+        id:
+          description: ID of the module.
+          type: integer
+        left:
+          description: Left axis position of module.
+          type: integer
+        top:
+          description: Top axis position of module.
+          type: integer
+        angle:
+          description: Angle of the module.
+          type: integer
+        serial_num:
+          description: Inverter serial number mapped with this module.
+          type: string
+      type: object
+    ArrayParams_modules_inner:
+      properties:
+        id:
+          description: ID of the module. ID cannot be changed. It is only used to
+            identify the array that needs to be updated.
+          type: integer
+        left:
+          description: "Left axis position of module w.r.t Array. Increase the value\
+            \ to move the module to the right, and decrease to move it to the left."
+          type: integer
+        top:
+          description: "Top axis position of module w.r.t Array. Increase the value\
+            \ to move the module up, and decrease to move it down."
+          type: integer
+        angle:
+          description: Angle of the module. Rotate the module clockwise by the given
+            value w.r.t array angle. For example to rotate the array clockwise by
+            90 degrees pass 90.
+          type: integer
+        serial_num:
+          description: Inverter serial number mapped with this module.
+          type: string
+      required:
+      - angle
+      - left
+      - serial_num
+      - top
+      type: object
+    TariffSeasons_inner_days_inner_periods_inner:
+      properties:
+        id:
+          description: Period ID. e.g='period_1'.
+          type: string
+        start:
+          description: Period start. e.g=0.
+          type: string
+        rate:
+          description: Period rate. e.g=0.0.
+          type: string
+        error:
+          additionalProperties: true
+          description: Dynamic fields will appear.
+          type: object
+      type: object
+    TariffSeasons_inner_days_inner:
+      properties:
+        id:
+          description: ToU days ID. e.g='all_days'.
+          type: string
+        days:
+          description: "Comma separated days. e.g='Sun,Mon,Tue,Wed,Thu,Fri,Sat'."
+          type: string
+        must_charge_start:
+          description: Must charge start field. e.g=0.
+          type: integer
+        must_charge_duration:
+          description: Must charge duration field. e.g=0.
+          type: integer
+        periods:
+          description: Periods.
+          items:
+            $ref: '#/components/schemas/TariffSeasons_inner_days_inner_periods_inner'
+          type: array
+      type: object
+    TariffSeasons_inner:
+      properties:
+        id:
+          description: ToU year ID. e.g='all_year_long'.
+          type: string
+        start:
+          description: Start of season. e.g='1/1'.
+          type: string
+        days:
+          description: ToU seasons.
+          items:
+            $ref: '#/components/schemas/TariffSeasons_inner_days_inner'
+          type: array
+        enable_charge_from_grid:
+          type: boolean
+        enable_discharge_to_grid:
+          type: boolean
+      type: object
+  securitySchemes:
+    OAuth2:
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.enphaseenergy.com/oauth/authorize
+          scopes: {}
+          tokenUrl: https://api.enphaseenergy.com/oauth/token
+      type: oauth2
+    ApiKey:
+      in: query
+      name: key
+      type: apiKey

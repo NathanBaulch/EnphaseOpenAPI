@@ -20,9 +20,9 @@ type ConnectionType string
 
 // List of ConnectionType
 const (
-	ETHERNET ConnectionType = "ethernet"
-	CELLULAR ConnectionType = "cellular"
-	WIFI ConnectionType = "wifi"
+	CONNECTIONTYPE_ETHERNET ConnectionType = "ethernet"
+	CONNECTIONTYPE_CELLULAR ConnectionType = "cellular"
+	CONNECTIONTYPE_WIFI ConnectionType = "wifi"
 )
 
 // All allowed values of ConnectionType enum
