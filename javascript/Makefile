@@ -1,4 +1,4 @@
-OPENAPICLI := ../bin/openapi-generator-cli
+OPENAPICLI := ../.bin/openapi-generator-cli
 
 export OPENAPI_GENERATOR_VERSION = 6.6.0
 export JAVA_OPTS = -Dlog.level=warn --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED
