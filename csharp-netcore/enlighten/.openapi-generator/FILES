@@ -1,5 +1,6 @@
 .gitignore
 README.md
+api/openapi.yaml
 docs/ClientError.md
 docs/ConflictError.md
 docs/ConnectionType.md
@@ -37,8 +38,10 @@ docs/SystemsResponse.md
 docs/SystemsResponseSystemsInner.md
 docs/UnprocessableEntityError.md
 src/EnphaseOpenAPI.Enlighten/Api/DefaultApi.cs
+src/EnphaseOpenAPI.Enlighten/Client/ApiClient.cs
 src/EnphaseOpenAPI.Enlighten/Client/ApiException.cs
 src/EnphaseOpenAPI.Enlighten/Client/ApiResponse.cs
+src/EnphaseOpenAPI.Enlighten/Client/ClientUtils.cs
 src/EnphaseOpenAPI.Enlighten/Client/Configuration.cs
 src/EnphaseOpenAPI.Enlighten/Client/ExceptionFactory.cs
 src/EnphaseOpenAPI.Enlighten/Client/GlobalConfiguration.cs
@@ -52,6 +55,7 @@ src/EnphaseOpenAPI.Enlighten/Client/OpenAPIDateConverter.cs
 src/EnphaseOpenAPI.Enlighten/Client/RequestOptions.cs
 src/EnphaseOpenAPI.Enlighten/Client/RetryConfiguration.cs
 src/EnphaseOpenAPI.Enlighten/EnphaseOpenAPI.Enlighten.csproj
+src/EnphaseOpenAPI.Enlighten/Model/AbstractOpenAPISchema.cs
 src/EnphaseOpenAPI.Enlighten/Model/ClientError.cs
 src/EnphaseOpenAPI.Enlighten/Model/ConflictError.cs
 src/EnphaseOpenAPI.Enlighten/Model/ConnectionType.cs

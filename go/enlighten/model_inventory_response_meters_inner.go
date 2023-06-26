@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InventoryResponseMetersInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InventoryResponseMetersInner{}
+
 // InventoryResponseMetersInner struct for InventoryResponseMetersInner
 type InventoryResponseMetersInner struct {
 	Sn string `json:"sn"`
@@ -57,7 +60,7 @@ func (o *InventoryResponseMetersInner) GetSn() string {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseMetersInner) GetSnOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Sn, true
 }
@@ -81,7 +84,7 @@ func (o *InventoryResponseMetersInner) GetManufacturer() string {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseMetersInner) GetManufacturerOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Manufacturer, true
 }
@@ -105,7 +108,7 @@ func (o *InventoryResponseMetersInner) GetModel() string {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseMetersInner) GetModelOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Model, true
 }
@@ -117,7 +120,7 @@ func (o *InventoryResponseMetersInner) SetModel(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *InventoryResponseMetersInner) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -127,15 +130,15 @@ func (o *InventoryResponseMetersInner) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseMetersInner) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
-    return nil, false
+	if o == nil || IsNil(o.Status) {
+		return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *InventoryResponseMetersInner) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -149,7 +152,7 @@ func (o *InventoryResponseMetersInner) SetStatus(v string) {
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *InventoryResponseMetersInner) GetState() string {
-	if o == nil || isNil(o.State) {
+	if o == nil || IsNil(o.State) {
 		var ret string
 		return ret
 	}
@@ -159,15 +162,15 @@ func (o *InventoryResponseMetersInner) GetState() string {
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseMetersInner) GetStateOk() (*string, bool) {
-	if o == nil || isNil(o.State) {
-    return nil, false
+	if o == nil || IsNil(o.State) {
+		return nil, false
 	}
 	return o.State, true
 }
 
 // HasState returns a boolean if a field has been set.
 func (o *InventoryResponseMetersInner) HasState() bool {
-	if o != nil && !isNil(o.State) {
+	if o != nil && !IsNil(o.State) {
 		return true
 	}
 
@@ -180,23 +183,25 @@ func (o *InventoryResponseMetersInner) SetState(v string) {
 }
 
 func (o InventoryResponseMetersInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sn"] = o.Sn
-	}
-	if true {
-		toSerialize["manufacturer"] = o.Manufacturer
-	}
-	if true {
-		toSerialize["model"] = o.Model
-	}
-	if !isNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
-	if !isNil(o.State) {
-		toSerialize["state"] = o.State
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InventoryResponseMetersInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sn"] = o.Sn
+	toSerialize["manufacturer"] = o.Manufacturer
+	toSerialize["model"] = o.Model
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
+	return toSerialize, nil
 }
 
 type NullableInventoryResponseMetersInner struct {

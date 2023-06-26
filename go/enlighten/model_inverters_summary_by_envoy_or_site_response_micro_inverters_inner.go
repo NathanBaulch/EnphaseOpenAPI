@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner{}
+
 // InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner struct for InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner
 type InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner struct {
 	Id int32 `json:"id"`
@@ -80,7 +83,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetId() int32
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Id, true
 }
@@ -104,7 +107,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetModel() st
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetModelOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Model, true
 }
@@ -128,7 +131,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetPartNumber
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetPartNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.PartNumber, true
 }
@@ -152,7 +155,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetSerialNumb
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetSerialNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SerialNumber, true
 }
@@ -176,7 +179,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetSku() stri
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetSkuOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Sku, true
 }
@@ -200,7 +203,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetStatus() s
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetStatusOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Status, true
 }
@@ -224,7 +227,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetPowerProdu
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetPowerProducedOk() (*InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerPowerProduced, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.PowerProduced, true
 }
@@ -248,7 +251,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetProcLoad()
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetProcLoadOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ProcLoad, true
 }
@@ -272,7 +275,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetParamTable
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetParamTableOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ParamTable, true
 }
@@ -296,7 +299,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetEnvoySeria
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetEnvoySerialNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EnvoySerialNumber, true
 }
@@ -320,7 +323,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetEnergy() I
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetEnergyOk() (*InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Energy, true
 }
@@ -344,7 +347,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetGridProfil
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetGridProfileOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.GridProfile, true
 }
@@ -368,7 +371,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetLastReport
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) GetLastReportDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LastReportDate, true
 }
@@ -379,47 +382,29 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) SetLastReport
 }
 
 func (o InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["model"] = o.Model
-	}
-	if true {
-		toSerialize["part_number"] = o.PartNumber
-	}
-	if true {
-		toSerialize["serial_number"] = o.SerialNumber
-	}
-	if true {
-		toSerialize["sku"] = o.Sku
-	}
-	if true {
-		toSerialize["status"] = o.Status
-	}
-	if true {
-		toSerialize["power_produced"] = o.PowerProduced
-	}
-	if true {
-		toSerialize["proc_load"] = o.ProcLoad
-	}
-	if true {
-		toSerialize["param_table"] = o.ParamTable
-	}
-	if true {
-		toSerialize["envoy_serial_number"] = o.EnvoySerialNumber
-	}
-	if true {
-		toSerialize["energy"] = o.Energy
-	}
-	if true {
-		toSerialize["grid_profile"] = o.GridProfile
-	}
-	if true {
-		toSerialize["last_report_date"] = o.LastReportDate
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["id"] = o.Id
+	toSerialize["model"] = o.Model
+	toSerialize["part_number"] = o.PartNumber
+	toSerialize["serial_number"] = o.SerialNumber
+	toSerialize["sku"] = o.Sku
+	toSerialize["status"] = o.Status
+	toSerialize["power_produced"] = o.PowerProduced
+	toSerialize["proc_load"] = o.ProcLoad
+	toSerialize["param_table"] = o.ParamTable
+	toSerialize["envoy_serial_number"] = o.EnvoySerialNumber
+	toSerialize["energy"] = o.Energy
+	toSerialize["grid_profile"] = o.GridProfile
+	toSerialize["last_report_date"] = o.LastReportDate
+	return toSerialize, nil
 }
 
 type NullableInvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner struct {

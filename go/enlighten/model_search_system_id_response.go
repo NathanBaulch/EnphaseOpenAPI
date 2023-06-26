@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SearchSystemIdResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SearchSystemIdResponse{}
+
 // SearchSystemIdResponse struct for SearchSystemIdResponse
 type SearchSystemIdResponse struct {
 	// The Enlighten ID of the system.
@@ -52,7 +55,7 @@ func (o *SearchSystemIdResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *SearchSystemIdResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -63,11 +66,17 @@ func (o *SearchSystemIdResponse) SetSystemId(v int32) {
 }
 
 func (o SearchSystemIdResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SearchSystemIdResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	return toSerialize, nil
 }
 
 type NullableSearchSystemIdResponse struct {

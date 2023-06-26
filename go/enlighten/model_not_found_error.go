@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NotFoundError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NotFoundError{}
+
 // NotFoundError struct for NotFoundError
 type NotFoundError struct {
 	Reason string `json:"reason"`
@@ -53,7 +56,7 @@ func (o *NotFoundError) GetReason() string {
 // and a boolean to check if the value has been set.
 func (o *NotFoundError) GetReasonOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Reason, true
 }
@@ -65,7 +68,7 @@ func (o *NotFoundError) SetReason(v string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *NotFoundError) GetMessage() []string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret []string
 		return ret
 	}
@@ -75,15 +78,15 @@ func (o *NotFoundError) GetMessage() []string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotFoundError) GetMessageOk() ([]string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *NotFoundError) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -97,7 +100,7 @@ func (o *NotFoundError) SetMessage(v []string) {
 
 // GetErrorMessages returns the ErrorMessages field value if set, zero value otherwise.
 func (o *NotFoundError) GetErrorMessages() []string {
-	if o == nil || isNil(o.ErrorMessages) {
+	if o == nil || IsNil(o.ErrorMessages) {
 		var ret []string
 		return ret
 	}
@@ -107,15 +110,15 @@ func (o *NotFoundError) GetErrorMessages() []string {
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotFoundError) GetErrorMessagesOk() ([]string, bool) {
-	if o == nil || isNil(o.ErrorMessages) {
-    return nil, false
+	if o == nil || IsNil(o.ErrorMessages) {
+		return nil, false
 	}
 	return o.ErrorMessages, true
 }
 
 // HasErrorMessages returns a boolean if a field has been set.
 func (o *NotFoundError) HasErrorMessages() bool {
-	if o != nil && !isNil(o.ErrorMessages) {
+	if o != nil && !IsNil(o.ErrorMessages) {
 		return true
 	}
 
@@ -128,17 +131,23 @@ func (o *NotFoundError) SetErrorMessages(v []string) {
 }
 
 func (o NotFoundError) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["reason"] = o.Reason
-	}
-	if !isNil(o.Message) {
-		toSerialize["message"] = o.Message
-	}
-	if !isNil(o.ErrorMessages) {
-		toSerialize["errorMessages"] = o.ErrorMessages
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o NotFoundError) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["reason"] = o.Reason
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.ErrorMessages) {
+		toSerialize["errorMessages"] = o.ErrorMessages
+	}
+	return toSerialize, nil
 }
 
 type NullableNotFoundError struct {

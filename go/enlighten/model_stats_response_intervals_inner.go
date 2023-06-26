@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StatsResponseIntervalsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StatsResponseIntervalsInner{}
+
 // StatsResponseIntervalsInner struct for StatsResponseIntervalsInner
 type StatsResponseIntervalsInner struct {
 	// End date for interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
@@ -61,7 +64,7 @@ func (o *StatsResponseIntervalsInner) GetEndAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *StatsResponseIntervalsInner) GetEndAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EndAt, true
 }
@@ -85,7 +88,7 @@ func (o *StatsResponseIntervalsInner) GetPowr() int32 {
 // and a boolean to check if the value has been set.
 func (o *StatsResponseIntervalsInner) GetPowrOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Powr, true
 }
@@ -109,7 +112,7 @@ func (o *StatsResponseIntervalsInner) GetEnwh() int32 {
 // and a boolean to check if the value has been set.
 func (o *StatsResponseIntervalsInner) GetEnwhOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Enwh, true
 }
@@ -133,7 +136,7 @@ func (o *StatsResponseIntervalsInner) GetDevicesReporting() int32 {
 // and a boolean to check if the value has been set.
 func (o *StatsResponseIntervalsInner) GetDevicesReportingOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.DevicesReporting, true
 }
@@ -144,20 +147,20 @@ func (o *StatsResponseIntervalsInner) SetDevicesReporting(v int32) {
 }
 
 func (o StatsResponseIntervalsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["end_at"] = o.EndAt
-	}
-	if true {
-		toSerialize["powr"] = o.Powr
-	}
-	if true {
-		toSerialize["enwh"] = o.Enwh
-	}
-	if true {
-		toSerialize["devices_reporting"] = o.DevicesReporting
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StatsResponseIntervalsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["end_at"] = o.EndAt
+	toSerialize["powr"] = o.Powr
+	toSerialize["enwh"] = o.Enwh
+	toSerialize["devices_reporting"] = o.DevicesReporting
+	return toSerialize, nil
 }
 
 type NullableStatsResponseIntervalsInner struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RgmStatsResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RgmStatsResponse{}
+
 // RgmStatsResponse struct for RgmStatsResponse
 type RgmStatsResponse struct {
 	// Enlighten ID for this system.
@@ -63,7 +66,7 @@ func (o *RgmStatsResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -87,7 +90,7 @@ func (o *RgmStatsResponse) GetTotalDevices() int32 {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetTotalDevicesOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.TotalDevices, true
 }
@@ -111,7 +114,7 @@ func (o *RgmStatsResponse) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -135,7 +138,7 @@ func (o *RgmStatsResponse) GetIntervals() []RgmStatsResponseIntervalsInner {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetIntervalsOk() ([]RgmStatsResponseIntervalsInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Intervals, true
 }
@@ -159,7 +162,7 @@ func (o *RgmStatsResponse) GetMeterIntervals() []RgmStatsResponseMeterIntervalsI
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponse) GetMeterIntervalsOk() ([]RgmStatsResponseMeterIntervalsInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.MeterIntervals, true
 }
@@ -170,23 +173,21 @@ func (o *RgmStatsResponse) SetMeterIntervals(v []RgmStatsResponseMeterIntervalsI
 }
 
 func (o RgmStatsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["total_devices"] = o.TotalDevices
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
-	}
-	if true {
-		toSerialize["intervals"] = o.Intervals
-	}
-	if true {
-		toSerialize["meter_intervals"] = o.MeterIntervals
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RgmStatsResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	toSerialize["total_devices"] = o.TotalDevices
+	toSerialize["meta"] = o.Meta
+	toSerialize["intervals"] = o.Intervals
+	toSerialize["meter_intervals"] = o.MeterIntervals
+	return toSerialize, nil
 }
 
 type NullableRgmStatsResponse struct {

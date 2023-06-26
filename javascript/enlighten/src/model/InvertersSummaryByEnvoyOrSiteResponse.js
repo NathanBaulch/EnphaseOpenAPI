@@ -81,7 +81,7 @@ class InvertersSummaryByEnvoyOrSiteResponse {
             }
             // validate the optional field `micro_inverters` (array)
             for (const item of data['micro_inverters']) {
-                InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner.validateJsonObject(item);
+                InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner.validateJSON(item);
             };
         }
 

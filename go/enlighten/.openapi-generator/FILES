@@ -2,6 +2,7 @@
 README.md
 api/openapi.yaml
 api_default.go
+client.go
 configuration.go
 docs/ClientError.md
 docs/ConflictError.md
@@ -76,4 +77,5 @@ model_summary_response.go
 model_systems_response.go
 model_systems_response_systems_inner.go
 model_unprocessable_entity_error.go
+response.go
 utils.go

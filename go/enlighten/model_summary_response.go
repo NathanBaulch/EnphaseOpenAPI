@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SummaryResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SummaryResponse{}
+
 // SummaryResponse struct for SummaryResponse
 type SummaryResponse struct {
 	// Current power production, in Watts. For historical requests, returns 0.
@@ -84,7 +87,7 @@ func (o *SummaryResponse) GetCurrentPower() int32 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetCurrentPowerOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.CurrentPower, true
 }
@@ -108,7 +111,7 @@ func (o *SummaryResponse) GetEnergyLifetime() int32 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetEnergyLifetimeOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EnergyLifetime, true
 }
@@ -132,7 +135,7 @@ func (o *SummaryResponse) GetEnergyToday() int32 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetEnergyTodayOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EnergyToday, true
 }
@@ -156,7 +159,7 @@ func (o *SummaryResponse) GetLastIntervalEndAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetLastIntervalEndAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LastIntervalEndAt, true
 }
@@ -180,7 +183,7 @@ func (o *SummaryResponse) GetLastReportAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetLastReportAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LastReportAt, true
 }
@@ -204,7 +207,7 @@ func (o *SummaryResponse) GetModules() int32 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetModulesOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Modules, true
 }
@@ -228,7 +231,7 @@ func (o *SummaryResponse) GetOperationalAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetOperationalAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.OperationalAt, true
 }
@@ -252,7 +255,7 @@ func (o *SummaryResponse) GetSizeW() int32 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSizeWOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SizeW, true
 }
@@ -276,7 +279,7 @@ func (o *SummaryResponse) GetSource() string {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSourceOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Source, true
 }
@@ -300,7 +303,7 @@ func (o *SummaryResponse) GetStatus() Status {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetStatusOk() (*Status, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Status, true
 }
@@ -324,7 +327,7 @@ func (o *SummaryResponse) GetSummaryDate() string {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSummaryDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SummaryDate, true
 }
@@ -348,7 +351,7 @@ func (o *SummaryResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *SummaryResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -359,44 +362,28 @@ func (o *SummaryResponse) SetSystemId(v int32) {
 }
 
 func (o SummaryResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["current_power"] = o.CurrentPower
-	}
-	if true {
-		toSerialize["energy_lifetime"] = o.EnergyLifetime
-	}
-	if true {
-		toSerialize["energy_today"] = o.EnergyToday
-	}
-	if true {
-		toSerialize["last_interval_end_at"] = o.LastIntervalEndAt
-	}
-	if true {
-		toSerialize["last_report_at"] = o.LastReportAt
-	}
-	if true {
-		toSerialize["modules"] = o.Modules
-	}
-	if true {
-		toSerialize["operational_at"] = o.OperationalAt
-	}
-	if true {
-		toSerialize["size_w"] = o.SizeW
-	}
-	if true {
-		toSerialize["source"] = o.Source
-	}
-	if true {
-		toSerialize["status"] = o.Status
-	}
-	if true {
-		toSerialize["summary_date"] = o.SummaryDate
-	}
-	if true {
-		toSerialize["system_id"] = o.SystemId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SummaryResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["current_power"] = o.CurrentPower
+	toSerialize["energy_lifetime"] = o.EnergyLifetime
+	toSerialize["energy_today"] = o.EnergyToday
+	toSerialize["last_interval_end_at"] = o.LastIntervalEndAt
+	toSerialize["last_report_at"] = o.LastReportAt
+	toSerialize["modules"] = o.Modules
+	toSerialize["operational_at"] = o.OperationalAt
+	toSerialize["size_w"] = o.SizeW
+	toSerialize["source"] = o.Source
+	toSerialize["status"] = o.Status
+	toSerialize["summary_date"] = o.SummaryDate
+	toSerialize["system_id"] = o.SystemId
+	return toSerialize, nil
 }
 
 type NullableSummaryResponse struct {

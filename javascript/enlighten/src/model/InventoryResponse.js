@@ -96,7 +96,7 @@ class InventoryResponse {
             }
             // validate the optional field `envoys` (array)
             for (const item of data['envoys']) {
-                InventoryResponseEnvoysInner.validateJsonObject(item);
+                InventoryResponseEnvoysInner.validateJSON(item);
             };
         }
         if (data['inverters']) { // data not null
@@ -106,7 +106,7 @@ class InventoryResponse {
             }
             // validate the optional field `inverters` (array)
             for (const item of data['inverters']) {
-                InventoryResponseEnvoysInner.validateJsonObject(item);
+                InventoryResponseEnvoysInner.validateJSON(item);
             };
         }
         if (data['meters']) { // data not null
@@ -116,7 +116,7 @@ class InventoryResponse {
             }
             // validate the optional field `meters` (array)
             for (const item of data['meters']) {
-                InventoryResponseMetersInner.validateJsonObject(item);
+                InventoryResponseMetersInner.validateJSON(item);
             };
         }
         // validate the optional field `meta`

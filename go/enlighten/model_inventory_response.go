@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InventoryResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InventoryResponse{}
+
 // InventoryResponse struct for InventoryResponse
 type InventoryResponse struct {
 	// Enlighten ID for this system.
@@ -62,7 +65,7 @@ func (o *InventoryResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -74,7 +77,7 @@ func (o *InventoryResponse) SetSystemId(v int32) {
 
 // GetEnvoys returns the Envoys field value if set, zero value otherwise.
 func (o *InventoryResponse) GetEnvoys() []InventoryResponseEnvoysInner {
-	if o == nil || isNil(o.Envoys) {
+	if o == nil || IsNil(o.Envoys) {
 		var ret []InventoryResponseEnvoysInner
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *InventoryResponse) GetEnvoys() []InventoryResponseEnvoysInner {
 // GetEnvoysOk returns a tuple with the Envoys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryResponse) GetEnvoysOk() ([]InventoryResponseEnvoysInner, bool) {
-	if o == nil || isNil(o.Envoys) {
-    return nil, false
+	if o == nil || IsNil(o.Envoys) {
+		return nil, false
 	}
 	return o.Envoys, true
 }
 
 // HasEnvoys returns a boolean if a field has been set.
 func (o *InventoryResponse) HasEnvoys() bool {
-	if o != nil && !isNil(o.Envoys) {
+	if o != nil && !IsNil(o.Envoys) {
 		return true
 	}
 
@@ -118,7 +121,7 @@ func (o *InventoryResponse) GetInverters() []InventoryResponseEnvoysInner {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponse) GetInvertersOk() ([]InventoryResponseEnvoysInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Inverters, true
 }
@@ -142,7 +145,7 @@ func (o *InventoryResponse) GetMeters() []InventoryResponseMetersInner {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponse) GetMetersOk() ([]InventoryResponseMetersInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Meters, true
 }
@@ -166,7 +169,7 @@ func (o *InventoryResponse) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponse) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -177,23 +180,23 @@ func (o *InventoryResponse) SetMeta(v Meta) {
 }
 
 func (o InventoryResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if !isNil(o.Envoys) {
-		toSerialize["envoys"] = o.Envoys
-	}
-	if true {
-		toSerialize["inverters"] = o.Inverters
-	}
-	if true {
-		toSerialize["meters"] = o.Meters
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InventoryResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	if !IsNil(o.Envoys) {
+		toSerialize["envoys"] = o.Envoys
+	}
+	toSerialize["inverters"] = o.Inverters
+	toSerialize["meters"] = o.Meters
+	toSerialize["meta"] = o.Meta
+	return toSerialize, nil
 }
 
 type NullableInventoryResponse struct {

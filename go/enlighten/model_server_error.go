@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ServerError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ServerError{}
+
 // ServerError struct for ServerError
 type ServerError struct {
 	ErrorCode int32 `json:"errorCode"`
@@ -53,7 +56,7 @@ func (o *ServerError) GetErrorCode() int32 {
 // and a boolean to check if the value has been set.
 func (o *ServerError) GetErrorCodeOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ErrorCode, true
 }
@@ -77,7 +80,7 @@ func (o *ServerError) GetErrorMessages() []string {
 // and a boolean to check if the value has been set.
 func (o *ServerError) GetErrorMessagesOk() ([]string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ErrorMessages, true
 }
@@ -88,14 +91,18 @@ func (o *ServerError) SetErrorMessages(v []string) {
 }
 
 func (o ServerError) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["errorCode"] = o.ErrorCode
-	}
-	if true {
-		toSerialize["errorMessages"] = o.ErrorMessages
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ServerError) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["errorCode"] = o.ErrorCode
+	toSerialize["errorMessages"] = o.ErrorMessages
+	return toSerialize, nil
 }
 
 type NullableServerError struct {

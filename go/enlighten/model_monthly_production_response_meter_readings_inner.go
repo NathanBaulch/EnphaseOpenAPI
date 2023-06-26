@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MonthlyProductionResponseMeterReadingsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MonthlyProductionResponseMeterReadingsInner{}
+
 // MonthlyProductionResponseMeterReadingsInner struct for MonthlyProductionResponseMeterReadingsInner
 type MonthlyProductionResponseMeterReadingsInner struct {
 	SerialNumber string `json:"serial_number"`
@@ -55,7 +58,7 @@ func (o *MonthlyProductionResponseMeterReadingsInner) GetSerialNumber() string {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponseMeterReadingsInner) GetSerialNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SerialNumber, true
 }
@@ -79,7 +82,7 @@ func (o *MonthlyProductionResponseMeterReadingsInner) GetStart() int32 {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponseMeterReadingsInner) GetStartOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Start, true
 }
@@ -103,7 +106,7 @@ func (o *MonthlyProductionResponseMeterReadingsInner) GetEnd() int32 {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponseMeterReadingsInner) GetEndOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.End, true
 }
@@ -114,17 +117,19 @@ func (o *MonthlyProductionResponseMeterReadingsInner) SetEnd(v int32) {
 }
 
 func (o MonthlyProductionResponseMeterReadingsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["serial_number"] = o.SerialNumber
-	}
-	if true {
-		toSerialize["start"] = o.Start
-	}
-	if true {
-		toSerialize["end"] = o.End
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MonthlyProductionResponseMeterReadingsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["serial_number"] = o.SerialNumber
+	toSerialize["start"] = o.Start
+	toSerialize["end"] = o.End
+	return toSerialize, nil
 }
 
 type NullableMonthlyProductionResponseMeterReadingsInner struct {

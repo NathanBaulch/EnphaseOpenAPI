@@ -18,7 +18,7 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v2*
 | [**Summary**](DefaultApi.md#summary) | **GET** /systems/{system_id}/summary |  |
 | [**Systems**](DefaultApi.md#systems) | **GET** /systems |  |
 
-<a name="consumptionlifetime"></a>
+<a id="consumptionlifetime"></a>
 # **ConsumptionLifetime**
 > ConsumptionLifetimeResponse ConsumptionLifetime (string userId, int systemId, DateTimeOffset? startDate = null, DateTimeOffset? endDate = null)
 
@@ -123,7 +123,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="consumptionstats"></a>
+<a id="consumptionstats"></a>
 # **ConsumptionStats**
 > ConsumptionStatsResponse ConsumptionStats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
@@ -228,7 +228,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="energylifetime"></a>
+<a id="energylifetime"></a>
 # **EnergyLifetime**
 > EnergyLifetimeResponse EnergyLifetime (string userId, int systemId, DateTimeOffset? startDate = null, DateTimeOffset? endDate = null, string production = null)
 
@@ -336,7 +336,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="envoys"></a>
+<a id="envoys"></a>
 # **Envoys**
 > EnvoysResponse Envoys (string userId, int systemId)
 
@@ -437,7 +437,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inventory"></a>
+<a id="inventory"></a>
 # **Inventory**
 > InventoryResponse Inventory (string userId, int systemId)
 
@@ -538,7 +538,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inverterssummarybyenvoyorsite"></a>
+<a id="inverterssummarybyenvoyorsite"></a>
 # **InvertersSummaryByEnvoyOrSite**
 > List&lt;InvertersSummaryByEnvoyOrSiteResponse&gt; InvertersSummaryByEnvoyOrSite (string userId, int siteId)
 
@@ -639,7 +639,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="monthlyproduction"></a>
+<a id="monthlyproduction"></a>
 # **MonthlyProduction**
 > MonthlyProductionResponse MonthlyProduction (string userId, int systemId, DateTimeOffset startDate)
 
@@ -742,7 +742,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="productionmeterreadings"></a>
+<a id="productionmeterreadings"></a>
 # **ProductionMeterReadings**
 > ProductionMeterReadingsResponse ProductionMeterReadings (string userId, int systemId, long? endAt = null)
 
@@ -845,7 +845,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="rgmstats"></a>
+<a id="rgmstats"></a>
 # **RgmStats**
 > RgmStatsResponse RgmStats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
@@ -950,7 +950,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="searchsystemid"></a>
+<a id="searchsystemid"></a>
 # **SearchSystemId**
 > SearchSystemIdResponse SearchSystemId (string userId, string serialNum)
 
@@ -1052,7 +1052,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="stats"></a>
+<a id="stats"></a>
 # **Stats**
 > StatsResponse Stats (string userId, int systemId, long? startAt = null, long? endAt = null)
 
@@ -1157,7 +1157,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="summary"></a>
+<a id="summary"></a>
 # **Summary**
 > SummaryResponse Summary (string userId, int systemId, DateTimeOffset? summaryDate = null)
 
@@ -1260,7 +1260,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="systems"></a>
+<a id="systems"></a>
 # **Systems**
 > SystemsResponse Systems (string userId, string next = null, int? limit = null, int? systemId = null, List<int> systemId2 = null, string systemName = null, List<string> systemName2 = null, Status? status = null, List<Status> status2 = null, string reference = null, List<string> reference2 = null, string installer = null, List<string> installer2 = null, ConnectionType? connectionType = null, List<ConnectionType> connectionType2 = null)
 

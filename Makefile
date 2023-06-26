@@ -1,7 +1,7 @@
 OPENAPICLI := ./bin/openapi-generator-cli
 
-export OPENAPI_GENERATOR_VERSION = 6.2.1
-export JAVA_OPTS = -Dlog.level=warn
+export OPENAPI_GENERATOR_VERSION = 6.6.0
+export JAVA_OPTS = -Dlog.level=warn --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED
 
 .SILENT:
 
@@ -50,7 +50,7 @@ generate/go: clean/go $(OPENAPICLI)
 
 generate/csharp-netcore: clean/csharp-netcore $(OPENAPICLI)
 	$(call generate,csharp-netcore,EnphaseOpenAPI.Enlighten,useDateTimeOffset=true)
-	cd ./csharp-netcore/enlighten && dotnet outdated -u && dotnet build
+	cd ./csharp-netcore/enlighten && dotnet outdated -vl major -u && dotnet build
 
 generate/php: clean/php $(OPENAPICLI)
 	$(call generate,php,enlighten)
@@ -58,7 +58,7 @@ generate/php: clean/php $(OPENAPICLI)
 
 generate/python: clean/python $(OPENAPICLI)
 	$(call generate,python,enlighten)
-	cd ./python/enlighten && source ./.venv/scripts/activate && pip install --upgrade -r requirements.txt && pip install ratelimit && pip freeze > requirements.txt && dos2unix -o requirements.txt
+	cd ./python/enlighten && python -m venv .venv && source ./.venv/scripts/activate && pip install --upgrade -r requirements.txt && pip install ratelimit && pip freeze > requirements.txt && dos2unix -o requirements.txt
 
 generate/javascript: clean/javascript $(OPENAPICLI)
 	$(call generate,javascript,enlighten,usePromises=true)

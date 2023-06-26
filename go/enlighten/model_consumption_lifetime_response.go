@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ConsumptionLifetimeResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ConsumptionLifetimeResponse{}
+
 // ConsumptionLifetimeResponse struct for ConsumptionLifetimeResponse
 type ConsumptionLifetimeResponse struct {
 	// When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date` parameter is included in the request, it is included here in the response.
@@ -59,7 +62,7 @@ func (o *ConsumptionLifetimeResponse) GetStartDate() string {
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetStartDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.StartDate, true
 }
@@ -71,7 +74,7 @@ func (o *ConsumptionLifetimeResponse) SetStartDate(v string) {
 
 // GetSystemId returns the SystemId field value if set, zero value otherwise.
 func (o *ConsumptionLifetimeResponse) GetSystemId() int32 {
-	if o == nil || isNil(o.SystemId) {
+	if o == nil || IsNil(o.SystemId) {
 		var ret int32
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *ConsumptionLifetimeResponse) GetSystemId() int32 {
 // GetSystemIdOk returns a tuple with the SystemId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetSystemIdOk() (*int32, bool) {
-	if o == nil || isNil(o.SystemId) {
-    return nil, false
+	if o == nil || IsNil(o.SystemId) {
+		return nil, false
 	}
 	return o.SystemId, true
 }
 
 // HasSystemId returns a boolean if a field has been set.
 func (o *ConsumptionLifetimeResponse) HasSystemId() bool {
-	if o != nil && !isNil(o.SystemId) {
+	if o != nil && !IsNil(o.SystemId) {
 		return true
 	}
 
@@ -115,7 +118,7 @@ func (o *ConsumptionLifetimeResponse) GetConsumption() []int32 {
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetConsumptionOk() ([]int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Consumption, true
 }
@@ -139,7 +142,7 @@ func (o *ConsumptionLifetimeResponse) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *ConsumptionLifetimeResponse) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -150,20 +153,22 @@ func (o *ConsumptionLifetimeResponse) SetMeta(v Meta) {
 }
 
 func (o ConsumptionLifetimeResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["start_date"] = o.StartDate
-	}
-	if !isNil(o.SystemId) {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["consumption"] = o.Consumption
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ConsumptionLifetimeResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["start_date"] = o.StartDate
+	if !IsNil(o.SystemId) {
+		toSerialize["system_id"] = o.SystemId
+	}
+	toSerialize["consumption"] = o.Consumption
+	toSerialize["meta"] = o.Meta
+	return toSerialize, nil
 }
 
 type NullableConsumptionLifetimeResponse struct {

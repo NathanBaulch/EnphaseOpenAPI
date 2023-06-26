@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RgmStatsResponseMeterIntervalsInnerIntervalsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RgmStatsResponseMeterIntervalsInnerIntervalsInner{}
+
 // RgmStatsResponseMeterIntervalsInnerIntervalsInner struct for RgmStatsResponseMeterIntervalsInnerIntervalsInner
 type RgmStatsResponseMeterIntervalsInnerIntervalsInner struct {
 	// The reporting channel identifier.
@@ -61,7 +64,7 @@ func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetChannel() int32 {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetChannelOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Channel, true
 }
@@ -85,7 +88,7 @@ func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetEndAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetEndAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EndAt, true
 }
@@ -111,7 +114,7 @@ func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetWhDel() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetWhDelOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.WhDel.Get(), o.WhDel.IsSet()
 }
@@ -137,7 +140,7 @@ func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetCurrW() int32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) GetCurrWOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.CurrW.Get(), o.CurrW.IsSet()
 }
@@ -148,20 +151,20 @@ func (o *RgmStatsResponseMeterIntervalsInnerIntervalsInner) SetCurrW(v int32) {
 }
 
 func (o RgmStatsResponseMeterIntervalsInnerIntervalsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["channel"] = o.Channel
-	}
-	if true {
-		toSerialize["end_at"] = o.EndAt
-	}
-	if true {
-		toSerialize["wh_del"] = o.WhDel.Get()
-	}
-	if true {
-		toSerialize["curr_w"] = o.CurrW.Get()
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RgmStatsResponseMeterIntervalsInnerIntervalsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["channel"] = o.Channel
+	toSerialize["end_at"] = o.EndAt
+	toSerialize["wh_del"] = o.WhDel.Get()
+	toSerialize["curr_w"] = o.CurrW.Get()
+	return toSerialize, nil
 }
 
 type NullableRgmStatsResponseMeterIntervalsInnerIntervalsInner struct {

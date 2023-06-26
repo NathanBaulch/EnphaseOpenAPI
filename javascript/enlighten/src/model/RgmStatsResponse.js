@@ -102,7 +102,7 @@ class RgmStatsResponse {
             }
             // validate the optional field `intervals` (array)
             for (const item of data['intervals']) {
-                RgmStatsResponseIntervalsInner.validateJsonObject(item);
+                RgmStatsResponseIntervalsInner.validateJSON(item);
             };
         }
         if (data['meter_intervals']) { // data not null
@@ -112,7 +112,7 @@ class RgmStatsResponse {
             }
             // validate the optional field `meter_intervals` (array)
             for (const item of data['meter_intervals']) {
-                RgmStatsResponseMeterIntervalsInner.validateJsonObject(item);
+                RgmStatsResponseMeterIntervalsInner.validateJSON(item);
             };
         }
 

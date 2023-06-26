@@ -79,7 +79,7 @@ class SystemsResponse {
             }
             // validate the optional field `systems` (array)
             for (const item of data['systems']) {
-                SystemsResponseSystemsInner.validateJsonObject(item);
+                SystemsResponseSystemsInner.validateJSON(item);
             };
         }
         // ensure the json data is a string

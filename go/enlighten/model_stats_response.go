@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StatsResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StatsResponse{}
+
 // StatsResponse struct for StatsResponse
 type StatsResponse struct {
 	// Enlighten ID for this system.
@@ -60,7 +63,7 @@ func (o *StatsResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *StatsResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -84,7 +87,7 @@ func (o *StatsResponse) GetTotalDevices() int32 {
 // and a boolean to check if the value has been set.
 func (o *StatsResponse) GetTotalDevicesOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.TotalDevices, true
 }
@@ -108,7 +111,7 @@ func (o *StatsResponse) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *StatsResponse) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -132,7 +135,7 @@ func (o *StatsResponse) GetIntervals() []StatsResponseIntervalsInner {
 // and a boolean to check if the value has been set.
 func (o *StatsResponse) GetIntervalsOk() ([]StatsResponseIntervalsInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Intervals, true
 }
@@ -143,20 +146,20 @@ func (o *StatsResponse) SetIntervals(v []StatsResponseIntervalsInner) {
 }
 
 func (o StatsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["total_devices"] = o.TotalDevices
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
-	}
-	if true {
-		toSerialize["intervals"] = o.Intervals
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StatsResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	toSerialize["total_devices"] = o.TotalDevices
+	toSerialize["meta"] = o.Meta
+	toSerialize["intervals"] = o.Intervals
+	return toSerialize, nil
 }
 
 type NullableStatsResponse struct {

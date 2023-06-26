@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ConflictError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ConflictError{}
+
 // ConflictError struct for ConflictError
 type ConflictError struct {
 	Reason string `json:"reason"`
@@ -61,7 +64,7 @@ func (o *ConflictError) GetReason() string {
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetReasonOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Reason, true
 }
@@ -85,7 +88,7 @@ func (o *ConflictError) GetMessage() []string {
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetMessageOk() ([]string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Message, true
 }
@@ -109,7 +112,7 @@ func (o *ConflictError) GetPeriod() string {
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetPeriodOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Period, true
 }
@@ -133,7 +136,7 @@ func (o *ConflictError) GetPeriodStart() int32 {
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetPeriodStartOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.PeriodStart, true
 }
@@ -157,7 +160,7 @@ func (o *ConflictError) GetPeriodEnd() int32 {
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetPeriodEndOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.PeriodEnd, true
 }
@@ -181,7 +184,7 @@ func (o *ConflictError) GetLimit() int32 {
 // and a boolean to check if the value has been set.
 func (o *ConflictError) GetLimitOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Limit, true
 }
@@ -192,26 +195,22 @@ func (o *ConflictError) SetLimit(v int32) {
 }
 
 func (o ConflictError) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["reason"] = o.Reason
-	}
-	if true {
-		toSerialize["message"] = o.Message
-	}
-	if true {
-		toSerialize["period"] = o.Period
-	}
-	if true {
-		toSerialize["period_start"] = o.PeriodStart
-	}
-	if true {
-		toSerialize["period_end"] = o.PeriodEnd
-	}
-	if true {
-		toSerialize["limit"] = o.Limit
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ConflictError) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["reason"] = o.Reason
+	toSerialize["message"] = o.Message
+	toSerialize["period"] = o.Period
+	toSerialize["period_start"] = o.PeriodStart
+	toSerialize["period_end"] = o.PeriodEnd
+	toSerialize["limit"] = o.Limit
+	return toSerialize, nil
 }
 
 type NullableConflictError struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RgmStatsResponseIntervalsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RgmStatsResponseIntervalsInner{}
+
 // RgmStatsResponseIntervalsInner struct for RgmStatsResponseIntervalsInner
 type RgmStatsResponseIntervalsInner struct {
 	// End of interval. The format is Unix epoch time unless you pass a `datetime_format` parameter as described [here](https://developer.enphase.com/docs#Datetimes).
@@ -58,7 +61,7 @@ func (o *RgmStatsResponseIntervalsInner) GetEndAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseIntervalsInner) GetEndAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EndAt, true
 }
@@ -82,7 +85,7 @@ func (o *RgmStatsResponseIntervalsInner) GetWhDel() int32 {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseIntervalsInner) GetWhDelOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.WhDel, true
 }
@@ -106,7 +109,7 @@ func (o *RgmStatsResponseIntervalsInner) GetDevicesReporting() int32 {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseIntervalsInner) GetDevicesReportingOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.DevicesReporting, true
 }
@@ -117,17 +120,19 @@ func (o *RgmStatsResponseIntervalsInner) SetDevicesReporting(v int32) {
 }
 
 func (o RgmStatsResponseIntervalsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["end_at"] = o.EndAt
-	}
-	if true {
-		toSerialize["wh_del"] = o.WhDel
-	}
-	if true {
-		toSerialize["devices_reporting"] = o.DevicesReporting
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RgmStatsResponseIntervalsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["end_at"] = o.EndAt
+	toSerialize["wh_del"] = o.WhDel
+	toSerialize["devices_reporting"] = o.DevicesReporting
+	return toSerialize, nil
 }
 
 type NullableRgmStatsResponseIntervalsInner struct {

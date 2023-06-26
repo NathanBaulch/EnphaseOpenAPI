@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InvertersSummaryByEnvoyOrSiteResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InvertersSummaryByEnvoyOrSiteResponse{}
+
 // InvertersSummaryByEnvoyOrSiteResponse struct for InvertersSummaryByEnvoyOrSiteResponse
 type InvertersSummaryByEnvoyOrSiteResponse struct {
 	SignalStrength int32 `json:"signal_strength"`
@@ -54,7 +57,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponse) GetSignalStrength() int32 {
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponse) GetSignalStrengthOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SignalStrength, true
 }
@@ -78,7 +81,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInverters() []InvertersS
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponse) GetMicroInvertersOk() ([]InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.MicroInverters, true
 }
@@ -89,14 +92,18 @@ func (o *InvertersSummaryByEnvoyOrSiteResponse) SetMicroInverters(v []InvertersS
 }
 
 func (o InvertersSummaryByEnvoyOrSiteResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["signal_strength"] = o.SignalStrength
-	}
-	if true {
-		toSerialize["micro_inverters"] = o.MicroInverters
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InvertersSummaryByEnvoyOrSiteResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["signal_strength"] = o.SignalStrength
+	toSerialize["micro_inverters"] = o.MicroInverters
+	return toSerialize, nil
 }
 
 type NullableInvertersSummaryByEnvoyOrSiteResponse struct {

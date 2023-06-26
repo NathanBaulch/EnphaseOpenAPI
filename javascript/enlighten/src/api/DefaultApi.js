@@ -59,8 +59,8 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.startDate The date on which to start the time series. Defaults to the system's operational date.
-     * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
+     * @param {Date} [startDate] The date on which to start the time series. Defaults to the system's operational date.
+     * @param {Date} [endDate] The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ConsumptionLifetimeResponse} and HTTP response
      */
     consumptionLifetimeWithHttpInfo(userId, systemId, opts) {
@@ -121,8 +121,8 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
-     * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
+     * @param {Number} [startAt] Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
+     * @param {Number} [endAt] End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ConsumptionStatsResponse} and HTTP response
      */
     consumptionStatsWithHttpInfo(userId, systemId, opts) {
@@ -183,9 +183,9 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.startDate The date on which to start the time series. Defaults to the system's operational date.
-     * @param {Date} opts.endDate The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
-     * @param {module:model/String} opts.production When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
+     * @param {Date} [startDate] The date on which to start the time series. Defaults to the system's operational date.
+     * @param {Date} [endDate] The last date to include in the time series. Defaults to yesterday or the last day the system reported, whichever is earlier.
+     * @param {module:model/String} [production] When `all`, returns the merged time series plus the time series as reported by the microinverters and the meter on the system. Other values are ignored.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EnergyLifetimeResponse} and HTTP response
      */
     energyLifetimeWithHttpInfo(userId, systemId, opts) {
@@ -467,7 +467,7 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.endAt 
+     * @param {Number} [endAt] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ProductionMeterReadingsResponse} and HTTP response
      */
     productionMeterReadingsWithHttpInfo(userId, systemId, opts) {
@@ -526,8 +526,8 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.startAt Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
-     * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
+     * @param {Number} [startAt] Start of period to report on in Unix epoch time. If no start is specified, the assumed start is midnight today, in the timezone of the system. If the start is earlier than one year ago, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the first interval of the `operational_date`.
+     * @param {Number} [endAt] End of reporting period in Unix epoch time. If no end is specified, defaults to the time of the request. If the end is later than the last reported interval the response data ends with the last reported interval.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RgmStatsResponse} and HTTP response
      */
     rgmStatsWithHttpInfo(userId, systemId, opts) {
@@ -641,8 +641,8 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.startAt Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`.
-     * @param {Number} opts.endAt End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval.
+     * @param {Number} [startAt] Start of reporting period in Unix epoch time. If no start is specified, defaults to midnight today, in the timezone of the system. If the start date is earlier than one year ago today, the response includes an empty intervals list. If the start is earlier than the system's `operational_date`, the response data begins with the `operational_date`.
+     * @param {Number} [endAt] End of reporting period in Unix epoch time. If no end is specified, the assumed end is now. If the end is later than the last reporting interval the response data ends with the last reported interval.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StatsResponse} and HTTP response
      */
     statsWithHttpInfo(userId, systemId, opts) {
@@ -703,7 +703,7 @@ export default class DefaultApi {
      * @param {String} userId 
      * @param {Number} systemId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.summaryDate Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status.
+     * @param {Date} [summaryDate] Start of reporting period. If no `summary_date` is provided, the start is the current day at midnight site-local time. Otherwise, the start is midnight site-local time of the requested day. If the requested date cannot be parsed or is in the future, the response includes an informative error message and `422` status.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SummaryResponse} and HTTP response
      */
     summaryWithHttpInfo(userId, systemId, opts) {
@@ -761,20 +761,20 @@ export default class DefaultApi {
      * Returns a list of systems for which the user can make API requests. There is a limit to the number of systems that can be returned at one time. If the first request does not return a full list, use the `next` attribute in the response body to request the next page of systems. By default, systems are returned in batches of 100. The maximum page size is 1000.
      * @param {String} userId 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.next 
-     * @param {Number} opts.limit  (default to 100)
-     * @param {Number} opts.systemId 
-     * @param {Array.<Number>} opts.systemId2 
-     * @param {String} opts.systemName 
-     * @param {Array.<String>} opts.systemName2 
-     * @param {module:model/Status} opts.status 
-     * @param {Array.<module:model/Status>} opts.status2 
-     * @param {String} opts.reference 
-     * @param {Array.<String>} opts.reference2 
-     * @param {String} opts.installer 
-     * @param {Array.<String>} opts.installer2 
-     * @param {module:model/ConnectionType} opts.connectionType 
-     * @param {Array.<module:model/ConnectionType>} opts.connectionType2 
+     * @param {String} [next] 
+     * @param {Number} [limit = 100)] 
+     * @param {Number} [systemId] 
+     * @param {Array.<Number>} [systemId2] 
+     * @param {String} [systemName] 
+     * @param {Array.<String>} [systemName2] 
+     * @param {module:model/Status} [status] 
+     * @param {Array.<module:model/Status>} [status2] 
+     * @param {String} [reference] 
+     * @param {Array.<String>} [reference2] 
+     * @param {String} [installer] 
+     * @param {Array.<String>} [installer2] 
+     * @param {module:model/ConnectionType} [connectionType] 
+     * @param {Array.<module:model/ConnectionType>} [connectionType2] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SystemsResponse} and HTTP response
      */
     systemsWithHttpInfo(userId, opts) {

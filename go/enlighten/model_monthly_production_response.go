@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MonthlyProductionResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MonthlyProductionResponse{}
+
 // MonthlyProductionResponse struct for MonthlyProductionResponse
 type MonthlyProductionResponse struct {
 	// Enlighten ID for this system.
@@ -66,7 +69,7 @@ func (o *MonthlyProductionResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -90,7 +93,7 @@ func (o *MonthlyProductionResponse) GetStartDate() string {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetStartDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.StartDate, true
 }
@@ -114,7 +117,7 @@ func (o *MonthlyProductionResponse) GetEndDate() string {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetEndDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EndDate, true
 }
@@ -138,7 +141,7 @@ func (o *MonthlyProductionResponse) GetProductionWh() int32 {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetProductionWhOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ProductionWh, true
 }
@@ -162,7 +165,7 @@ func (o *MonthlyProductionResponse) GetMeterReadings() []MonthlyProductionRespon
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetMeterReadingsOk() ([]MonthlyProductionResponseMeterReadingsInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.MeterReadings, true
 }
@@ -186,7 +189,7 @@ func (o *MonthlyProductionResponse) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *MonthlyProductionResponse) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -197,26 +200,22 @@ func (o *MonthlyProductionResponse) SetMeta(v Meta) {
 }
 
 func (o MonthlyProductionResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["start_date"] = o.StartDate
-	}
-	if true {
-		toSerialize["end_date"] = o.EndDate
-	}
-	if true {
-		toSerialize["production_wh"] = o.ProductionWh
-	}
-	if true {
-		toSerialize["meter_readings"] = o.MeterReadings
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MonthlyProductionResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	toSerialize["start_date"] = o.StartDate
+	toSerialize["end_date"] = o.EndDate
+	toSerialize["production_wh"] = o.ProductionWh
+	toSerialize["meter_readings"] = o.MeterReadings
+	toSerialize["meta"] = o.Meta
+	return toSerialize, nil
 }
 
 type NullableMonthlyProductionResponse struct {

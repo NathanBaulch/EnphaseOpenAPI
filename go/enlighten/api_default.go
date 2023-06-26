@@ -13,7 +13,7 @@ package enlighten
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
@@ -92,7 +92,7 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/consumption_lifetime"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -101,12 +101,12 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.startDate != nil {
-		localVarQueryParams.Add("start_date", parameterToString(*r.startDate, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "start_date", r.startDate, "")
 	}
 	if r.endDate != nil {
-		localVarQueryParams.Add("end_date", parameterToString(*r.endDate, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "end_date", r.endDate, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -149,9 +149,9 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -168,8 +168,8 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -179,8 +179,8 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -190,8 +190,8 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -201,8 +201,8 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -212,8 +212,8 @@ func (a *DefaultApiService) ConsumptionLifetimeExecute(r ApiConsumptionLifetimeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -303,7 +303,7 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/consumption_stats"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -312,12 +312,12 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.startAt != nil {
-		localVarQueryParams.Add("start_at", parameterToString(*r.startAt, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "start_at", r.startAt, "")
 	}
 	if r.endAt != nil {
-		localVarQueryParams.Add("end_at", parameterToString(*r.endAt, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "end_at", r.endAt, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -360,9 +360,9 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -379,8 +379,8 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -390,8 +390,8 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -401,8 +401,8 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -412,8 +412,8 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -423,8 +423,8 @@ func (a *DefaultApiService) ConsumptionStatsExecute(r ApiConsumptionStatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -519,7 +519,7 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/energy_lifetime"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -528,15 +528,15 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.startDate != nil {
-		localVarQueryParams.Add("start_date", parameterToString(*r.startDate, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "start_date", r.startDate, "")
 	}
 	if r.endDate != nil {
-		localVarQueryParams.Add("end_date", parameterToString(*r.endDate, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "end_date", r.endDate, "")
 	}
 	if r.production != nil {
-		localVarQueryParams.Add("production", parameterToString(*r.production, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "production", r.production, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -579,9 +579,9 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -598,8 +598,8 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -609,8 +609,8 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -620,8 +620,8 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -631,8 +631,8 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -642,8 +642,8 @@ func (a *DefaultApiService) EnergyLifetimeExecute(r ApiEnergyLifetimeRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -709,7 +709,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/envoys"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -718,7 +718,7 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -760,9 +760,9 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -779,8 +779,8 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -790,8 +790,8 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -801,8 +801,8 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -812,8 +812,8 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -823,8 +823,8 @@ func (a *DefaultApiService) EnvoysExecute(r ApiEnvoysRequest) (*EnvoysResponse, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -891,7 +891,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/inventory"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -900,7 +900,7 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -942,9 +942,9 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -961,8 +961,8 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -972,8 +972,8 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -983,8 +983,8 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -994,8 +994,8 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1005,8 +1005,8 @@ func (a *DefaultApiService) InventoryExecute(r ApiInventoryRequest) (*InventoryR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1087,8 +1087,8 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 		return localVarReturnValue, nil, reportError("siteId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
-	localVarQueryParams.Add("site_id", parameterToString(*r.siteId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "site_id", r.siteId, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1130,9 +1130,9 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1149,8 +1149,8 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1160,8 +1160,8 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1171,8 +1171,8 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1182,8 +1182,8 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1193,8 +1193,8 @@ func (a *DefaultApiService) InvertersSummaryByEnvoyOrSiteExecute(r ApiInvertersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1275,7 +1275,7 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/monthly_production"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1287,8 +1287,8 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 		return localVarReturnValue, nil, reportError("startDate is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
-	localVarQueryParams.Add("start_date", parameterToString(*r.startDate, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "start_date", r.startDate, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1330,9 +1330,9 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1349,8 +1349,8 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1360,8 +1360,8 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1371,8 +1371,8 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1382,8 +1382,8 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1393,8 +1393,8 @@ func (a *DefaultApiService) MonthlyProductionExecute(r ApiMonthlyProductionReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1471,7 +1471,7 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/production_meter_readings"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1480,9 +1480,9 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.endAt != nil {
-		localVarQueryParams.Add("end_at", parameterToString(*r.endAt, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "end_at", r.endAt, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1525,9 +1525,9 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1544,8 +1544,8 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1555,8 +1555,8 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1566,8 +1566,8 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1577,8 +1577,8 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1588,8 +1588,8 @@ func (a *DefaultApiService) ProductionMeterReadingsExecute(r ApiProductionMeterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1677,7 +1677,7 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/rgm_stats"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1686,12 +1686,12 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.startAt != nil {
-		localVarQueryParams.Add("start_at", parameterToString(*r.startAt, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "start_at", r.startAt, "")
 	}
 	if r.endAt != nil {
-		localVarQueryParams.Add("end_at", parameterToString(*r.endAt, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "end_at", r.endAt, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1734,9 +1734,9 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1753,8 +1753,8 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1764,8 +1764,8 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1775,8 +1775,8 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1786,8 +1786,8 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1797,8 +1797,8 @@ func (a *DefaultApiService) RgmStatsExecute(r ApiRgmStatsRequest) (*RgmStatsResp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1879,8 +1879,8 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 		return localVarReturnValue, nil, reportError("serialNum is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
-	localVarQueryParams.Add("serial_num", parameterToString(*r.serialNum, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "serial_num", r.serialNum, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1922,9 +1922,9 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1941,8 +1941,8 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1952,8 +1952,8 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1963,8 +1963,8 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1974,8 +1974,8 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1985,8 +1985,8 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1996,8 +1996,8 @@ func (a *DefaultApiService) SearchSystemIdExecute(r ApiSearchSystemIdRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2090,7 +2090,7 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/stats"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2099,12 +2099,12 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.startAt != nil {
-		localVarQueryParams.Add("start_at", parameterToString(*r.startAt, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "start_at", r.startAt, "")
 	}
 	if r.endAt != nil {
-		localVarQueryParams.Add("end_at", parameterToString(*r.endAt, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "end_at", r.endAt, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2147,9 +2147,9 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2166,8 +2166,8 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2177,8 +2177,8 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2188,8 +2188,8 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2199,8 +2199,8 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2210,8 +2210,8 @@ func (a *DefaultApiService) StatsExecute(r ApiStatsRequest) (*StatsResponse, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2284,7 +2284,7 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 	}
 
 	localVarPath := localBasePath + "/systems/{system_id}/summary"
-	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterToString(r.systemId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2293,9 +2293,9 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.summaryDate != nil {
-		localVarQueryParams.Add("summary_date", parameterToString(*r.summaryDate, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "summary_date", r.summaryDate, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2338,9 +2338,9 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2357,8 +2357,8 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2368,8 +2368,8 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2379,8 +2379,8 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2390,8 +2390,8 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2401,8 +2401,8 @@ func (a *DefaultApiService) SummaryExecute(r ApiSummaryRequest) (*SummaryRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2558,95 +2558,95 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsRespons
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	localVarQueryParams.Add("user_id", parameterToString(*r.userId, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
 	if r.next != nil {
-		localVarQueryParams.Add("next", parameterToString(*r.next, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "next", r.next, "")
 	}
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.systemId != nil {
-		localVarQueryParams.Add("system_id", parameterToString(*r.systemId, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "system_id", r.systemId, "")
 	}
 	if r.systemId2 != nil {
 		t := *r.systemId2
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("system_id[]", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "system_id[]", s.Index(i), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("system_id[]", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "system_id[]", t, "multi")
 		}
 	}
 	if r.systemName != nil {
-		localVarQueryParams.Add("system_name", parameterToString(*r.systemName, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "system_name", r.systemName, "")
 	}
 	if r.systemName2 != nil {
 		t := *r.systemName2
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("system_name[]", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "system_name[]", s.Index(i), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("system_name[]", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "system_name[]", t, "multi")
 		}
 	}
 	if r.status != nil {
-		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "")
 	}
 	if r.status2 != nil {
 		t := *r.status2
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("status[]", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "status[]", s.Index(i), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("status[]", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "status[]", t, "multi")
 		}
 	}
 	if r.reference != nil {
-		localVarQueryParams.Add("reference", parameterToString(*r.reference, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "reference", r.reference, "")
 	}
 	if r.reference2 != nil {
 		t := *r.reference2
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("reference[]", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "reference[]", s.Index(i), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("reference[]", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "reference[]", t, "multi")
 		}
 	}
 	if r.installer != nil {
-		localVarQueryParams.Add("installer", parameterToString(*r.installer, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "installer", r.installer, "")
 	}
 	if r.installer2 != nil {
 		t := *r.installer2
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("installer[]", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "installer[]", s.Index(i), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("installer[]", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "installer[]", t, "multi")
 		}
 	}
 	if r.connectionType != nil {
-		localVarQueryParams.Add("connection_type", parameterToString(*r.connectionType, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "connection_type", r.connectionType, "")
 	}
 	if r.connectionType2 != nil {
 		t := *r.connectionType2
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("connection_type[]", parameterToString(s.Index(i), "multi"))
+				parameterAddToHeaderOrQuery(localVarQueryParams, "connection_type[]", s.Index(i), "multi")
 			}
 		} else {
-			localVarQueryParams.Add("connection_type[]", parameterToString(t, "multi"))
+			parameterAddToHeaderOrQuery(localVarQueryParams, "connection_type[]", t, "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -2690,9 +2690,9 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsRespons
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2709,8 +2709,8 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2720,8 +2720,8 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2731,8 +2731,8 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2742,8 +2742,8 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2753,8 +2753,8 @@ func (a *DefaultApiService) SystemsExecute(r ApiSystemsRequest) (*SystemsRespons
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

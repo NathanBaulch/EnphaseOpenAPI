@@ -102,7 +102,7 @@ class MonthlyProductionResponse {
             }
             // validate the optional field `meter_readings` (array)
             for (const item of data['meter_readings']) {
-                MonthlyProductionResponseMeterReadingsInner.validateJsonObject(item);
+                MonthlyProductionResponseMeterReadingsInner.validateJSON(item);
             };
         }
         // validate the optional field `meta`

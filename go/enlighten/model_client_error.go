@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ClientError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ClientError{}
+
 // ClientError struct for ClientError
 type ClientError struct {
 	Reason string `json:"reason"`
@@ -53,7 +56,7 @@ func (o *ClientError) GetReason() string {
 // and a boolean to check if the value has been set.
 func (o *ClientError) GetReasonOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Reason, true
 }
@@ -77,7 +80,7 @@ func (o *ClientError) GetMessage() []string {
 // and a boolean to check if the value has been set.
 func (o *ClientError) GetMessageOk() ([]string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Message, true
 }
@@ -88,14 +91,18 @@ func (o *ClientError) SetMessage(v []string) {
 }
 
 func (o ClientError) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["reason"] = o.Reason
-	}
-	if true {
-		toSerialize["message"] = o.Message
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ClientError) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["reason"] = o.Reason
+	toSerialize["message"] = o.Message
+	return toSerialize, nil
 }
 
 type NullableClientError struct {

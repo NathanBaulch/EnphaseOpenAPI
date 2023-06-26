@@ -94,7 +94,7 @@ class RgmStatsResponseMeterIntervalsInner {
             }
             // validate the optional field `intervals` (array)
             for (const item of data['intervals']) {
-                RgmStatsResponseMeterIntervalsInnerIntervalsInner.validateJsonObject(item);
+                RgmStatsResponseMeterIntervalsInnerIntervalsInner.validateJSON(item);
             };
         }
 

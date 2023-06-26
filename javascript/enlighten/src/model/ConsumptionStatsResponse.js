@@ -96,7 +96,7 @@ class ConsumptionStatsResponse {
             }
             // validate the optional field `intervals` (array)
             for (const item of data['intervals']) {
-                ConsumptionStatsResponseIntervalsInner.validateJsonObject(item);
+                ConsumptionStatsResponseIntervalsInner.validateJSON(item);
             };
         }
 

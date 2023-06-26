@@ -7,7 +7,5 @@
 .openapi-generator-ignore
 .travis.yml
 git_push.sh
-lib/Configuration.php
-lib/ObjectSerializer.php
 phpunit.xml.dist
 test/

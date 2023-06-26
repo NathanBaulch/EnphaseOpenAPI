@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ProductionMeterReadingsResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ProductionMeterReadingsResponse{}
+
 // ProductionMeterReadingsResponse struct for ProductionMeterReadingsResponse
 type ProductionMeterReadingsResponse struct {
 	SystemId int32 `json:"system_id"`
@@ -55,7 +58,7 @@ func (o *ProductionMeterReadingsResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -79,7 +82,7 @@ func (o *ProductionMeterReadingsResponse) GetMeterReadings() []ProductionMeterRe
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponse) GetMeterReadingsOk() ([]ProductionMeterReadingsResponseMeterReadingsInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.MeterReadings, true
 }
@@ -103,7 +106,7 @@ func (o *ProductionMeterReadingsResponse) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponse) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -114,17 +117,19 @@ func (o *ProductionMeterReadingsResponse) SetMeta(v Meta) {
 }
 
 func (o ProductionMeterReadingsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["meter_readings"] = o.MeterReadings
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ProductionMeterReadingsResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	toSerialize["meter_readings"] = o.MeterReadings
+	toSerialize["meta"] = o.Meta
+	return toSerialize, nil
 }
 
 type NullableProductionMeterReadingsResponse struct {

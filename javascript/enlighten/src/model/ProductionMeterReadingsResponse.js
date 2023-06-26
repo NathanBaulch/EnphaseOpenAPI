@@ -87,7 +87,7 @@ class ProductionMeterReadingsResponse {
             }
             // validate the optional field `meter_readings` (array)
             for (const item of data['meter_readings']) {
-                ProductionMeterReadingsResponseMeterReadingsInner.validateJsonObject(item);
+                ProductionMeterReadingsResponseMeterReadingsInner.validateJSON(item);
             };
         }
         // validate the optional field `meta`

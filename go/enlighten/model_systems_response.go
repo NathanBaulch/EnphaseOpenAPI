@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SystemsResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SystemsResponse{}
+
 // SystemsResponse struct for SystemsResponse
 type SystemsResponse struct {
 	Systems []SystemsResponseSystemsInner `json:"systems"`
@@ -52,7 +55,7 @@ func (o *SystemsResponse) GetSystems() []SystemsResponseSystemsInner {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponse) GetSystemsOk() ([]SystemsResponseSystemsInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Systems, true
 }
@@ -64,7 +67,7 @@ func (o *SystemsResponse) SetSystems(v []SystemsResponseSystemsInner) {
 
 // GetNext returns the Next field value if set, zero value otherwise.
 func (o *SystemsResponse) GetNext() string {
-	if o == nil || isNil(o.Next) {
+	if o == nil || IsNil(o.Next) {
 		var ret string
 		return ret
 	}
@@ -74,15 +77,15 @@ func (o *SystemsResponse) GetNext() string {
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SystemsResponse) GetNextOk() (*string, bool) {
-	if o == nil || isNil(o.Next) {
-    return nil, false
+	if o == nil || IsNil(o.Next) {
+		return nil, false
 	}
 	return o.Next, true
 }
 
 // HasNext returns a boolean if a field has been set.
 func (o *SystemsResponse) HasNext() bool {
-	if o != nil && !isNil(o.Next) {
+	if o != nil && !IsNil(o.Next) {
 		return true
 	}
 
@@ -95,14 +98,20 @@ func (o *SystemsResponse) SetNext(v string) {
 }
 
 func (o SystemsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["systems"] = o.Systems
-	}
-	if !isNil(o.Next) {
-		toSerialize["next"] = o.Next
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SystemsResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["systems"] = o.Systems
+	if !IsNil(o.Next) {
+		toSerialize["next"] = o.Next
+	}
+	return toSerialize, nil
 }
 
 type NullableSystemsResponse struct {

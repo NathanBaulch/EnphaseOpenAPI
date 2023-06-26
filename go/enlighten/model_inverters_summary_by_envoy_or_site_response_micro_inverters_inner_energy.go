@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy{}
+
 // InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy Returns the lifetime energy of the Microinverter. If the system has never produced energy, the energy value would be 0.
 type InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy struct {
 	Value int32 `json:"value"`
@@ -55,7 +58,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) GetValu
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) GetValueOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Value, true
 }
@@ -79,7 +82,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) GetUnit
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) GetUnitsOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Units, true
 }
@@ -103,7 +106,7 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) GetPrec
 // and a boolean to check if the value has been set.
 func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) GetPrecisionOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Precision, true
 }
@@ -114,17 +117,19 @@ func (o *InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) SetPrec
 }
 
 func (o InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["value"] = o.Value
-	}
-	if true {
-		toSerialize["units"] = o.Units
-	}
-	if true {
-		toSerialize["precision"] = o.Precision
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["value"] = o.Value
+	toSerialize["units"] = o.Units
+	toSerialize["precision"] = o.Precision
+	return toSerialize, nil
 }
 
 type NullableInvertersSummaryByEnvoyOrSiteResponseMicroInvertersInnerEnergy struct {

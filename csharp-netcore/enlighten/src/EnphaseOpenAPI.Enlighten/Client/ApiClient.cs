@@ -9,8 +9,18 @@
 
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Net;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters;
+using System.Text;
+using System.Threading;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -59,6 +69,12 @@ namespace EnphaseOpenAPI.Enlighten.Client
         /// <returns>A JSON string.</returns>
         public string Serialize(object obj)
         {
+            if (obj != null && obj is EnphaseOpenAPI.Enlighten.Model.AbstractOpenAPISchema)
+            {
+                // the object to be serialized is an oneOf/anyOf schema
+                return ((EnphaseOpenAPI.Enlighten.Model.AbstractOpenAPISchema)obj).ToJson();
+            }
+            else
             {
                 return JsonConvert.SerializeObject(obj, _serializerSettings);
             }
@@ -80,6 +96,47 @@ namespace EnphaseOpenAPI.Enlighten.Client
         /// <returns>Object representation of the JSON string.</returns>
         internal object Deserialize(RestResponse response, Type type)
         {
+            if (type == typeof(byte[])) // return byte array
+            {
+                return response.RawBytes;
+            }
+
+            // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
+            if (type == typeof(Stream))
+            {
+                var bytes = response.RawBytes;
+                if (response.Headers != null)
+                {
+                    var filePath = string.IsNullOrEmpty(_configuration.TempFolderPath)
+                        ? Path.GetTempPath()
+                        : _configuration.TempFolderPath;
+                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
+                    foreach (var header in response.Headers)
+                    {
+                        var match = regex.Match(header.ToString());
+                        if (match.Success)
+                        {
+                            string fileName = filePath + ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
+                            File.WriteAllBytes(fileName, bytes);
+                            return new FileStream(fileName, FileMode.Open);
+                        }
+                    }
+                }
+                var stream = new MemoryStream(bytes);
+                return stream;
+            }
+
+            if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
+            {
+                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
+            }
+
+            if (type == typeof(string) || type.Name.StartsWith("System.Nullable")) // return primitive type
+            {
+                return Convert.ChangeType(response.Content, type);
+            }
+
+            // at this point, it must be a model (json)
             try
             {
                 return JsonConvert.DeserializeObject(response.Content, type, _serializerSettings);
@@ -267,6 +324,68 @@ namespace EnphaseOpenAPI.Enlighten.Client
                 }
             }
 
+            if (options.FormParameters != null)
+            {
+                foreach (var formParam in options.FormParameters)
+                {
+                    request.AddParameter(formParam.Key, formParam.Value);
+                }
+            }
+
+            if (options.Data != null)
+            {
+                if (options.Data is Stream stream)
+                {
+                    var contentType = "application/octet-stream";
+                    if (options.HeaderParameters != null)
+                    {
+                        var contentTypes = options.HeaderParameters["Content-Type"];
+                        contentType = contentTypes[0];
+                    }
+
+                    var bytes = ClientUtils.ReadAsBytes(stream);
+                    request.AddParameter(contentType, bytes, ParameterType.RequestBody);
+                }
+                else
+                {
+                    if (options.HeaderParameters != null)
+                    {
+                        var contentTypes = options.HeaderParameters["Content-Type"];
+                        if (contentTypes == null || contentTypes.Any(header => header.Contains("application/json")))
+                        {
+                            request.RequestFormat = DataFormat.Json;
+                        }
+                        else
+                        {
+                            // TODO: Generated client user should add additional handlers. RestSharp only supports XML and JSON, with XML as default.
+                        }
+                    }
+                    else
+                    {
+                        // Here, we'll assume JSON APIs are more common. XML can be forced by adding produces/consumes to openapi spec explicitly.
+                        request.RequestFormat = DataFormat.Json;
+                    }
+
+                    request.AddJsonBody(options.Data);
+                }
+            }
+
+            if (options.FileParameters != null)
+            {
+                foreach (var fileParam in options.FileParameters)
+                {
+                    foreach (var file in fileParam.Value)
+                    {
+                        var bytes = ClientUtils.ReadAsBytes(file);
+                        var fileStream = file as FileStream;
+                        if (fileStream != null)
+                            request.AddFile(fileParam.Key, bytes, System.IO.Path.GetFileName(fileStream.Name));
+                        else
+                            request.AddFile(fileParam.Key, bytes, "no_file_name_provided");
+                    }
+                }
+            }
+
             return request;
         }
 
@@ -294,6 +413,20 @@ namespace EnphaseOpenAPI.Enlighten.Client
                 foreach (var responseHeader in response.ContentHeaders)
                 {
                     transformed.Headers.Add(responseHeader.Name, ClientUtils.ParameterToString(responseHeader.Value));
+                }
+            }
+
+            if (response.Cookies != null)
+            {
+                foreach (var responseCookies in response.Cookies.Cast<Cookie>())
+                {
+                    transformed.Cookies.Add(
+                        new Cookie(
+                            responseCookies.Name,
+                            responseCookies.Value,
+                            responseCookies.Path,
+                            responseCookies.Domain)
+                        );
                 }
             }
 
@@ -344,6 +477,31 @@ namespace EnphaseOpenAPI.Enlighten.Client
                 response = client.Execute<T>(req);
             }
 
+            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
+            if (typeof(EnphaseOpenAPI.Enlighten.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            {
+                try
+                {
+                    response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                }
+                catch (Exception ex)
+                {
+                    throw ex.InnerException != null ? ex.InnerException : ex;
+                }
+            }
+            else if (typeof(T).Name == "Stream") // for binary response
+            {
+                response.Data = (T)(object)new MemoryStream(response.RawBytes);
+            }
+            else if (typeof(T).Name == "Byte[]") // for byte response
+            {
+                response.Data = (T)(object)response.RawBytes;
+            }
+            else if (typeof(T).Name == "String") // for string response
+            {
+                response.Data = (T)(object)response.Content;
+            }
+
             InterceptResponse(req, response);
 
             var result = ToApiResponse(response);
@@ -352,6 +510,32 @@ namespace EnphaseOpenAPI.Enlighten.Client
                 result.ErrorText = response.ErrorMessage;
             }
 
+            if (response.Cookies != null && response.Cookies.Count > 0)
+            {
+                if (result.Cookies == null) result.Cookies = new List<Cookie>();
+                foreach (var restResponseCookie in response.Cookies.Cast<Cookie>())
+                {
+                    var cookie = new Cookie(
+                        restResponseCookie.Name,
+                        restResponseCookie.Value,
+                        restResponseCookie.Path,
+                        restResponseCookie.Domain
+                    )
+                    {
+                        Comment = restResponseCookie.Comment,
+                        CommentUri = restResponseCookie.CommentUri,
+                        Discard = restResponseCookie.Discard,
+                        Expired = restResponseCookie.Expired,
+                        Expires = restResponseCookie.Expires,
+                        HttpOnly = restResponseCookie.HttpOnly,
+                        Port = restResponseCookie.Port,
+                        Secure = restResponseCookie.Secure,
+                        Version = restResponseCookie.Version
+                    };
+
+                    result.Cookies.Add(cookie);
+                }
+            }
             return result;
         }
 
@@ -388,6 +572,20 @@ namespace EnphaseOpenAPI.Enlighten.Client
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
             }
 
+            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
+            if (typeof(EnphaseOpenAPI.Enlighten.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            {
+                response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+            }
+            else if (typeof(T).Name == "Stream") // for binary response
+            {
+                response.Data = (T)(object)new MemoryStream(response.RawBytes);
+            }
+            else if (typeof(T).Name == "Byte[]") // for byte response
+            {
+                response.Data = (T)(object)response.RawBytes;
+            }
+
             InterceptResponse(req, response);
 
             var result = ToApiResponse(response);
@@ -396,6 +594,32 @@ namespace EnphaseOpenAPI.Enlighten.Client
                 result.ErrorText = response.ErrorMessage;
             }
 
+            if (response.Cookies != null && response.Cookies.Count > 0)
+            {
+                if (result.Cookies == null) result.Cookies = new List<Cookie>();
+                foreach (var restResponseCookie in response.Cookies.Cast<Cookie>())
+                {
+                    var cookie = new Cookie(
+                        restResponseCookie.Name,
+                        restResponseCookie.Value,
+                        restResponseCookie.Path,
+                        restResponseCookie.Domain
+                    )
+                    {
+                        Comment = restResponseCookie.Comment,
+                        CommentUri = restResponseCookie.CommentUri,
+                        Discard = restResponseCookie.Discard,
+                        Expired = restResponseCookie.Expired,
+                        Expires = restResponseCookie.Expires,
+                        HttpOnly = restResponseCookie.HttpOnly,
+                        Port = restResponseCookie.Port,
+                        Secure = restResponseCookie.Secure,
+                        Version = restResponseCookie.Version
+                    };
+
+                    result.Cookies.Add(cookie);
+                }
+            }
             return result;
         }
 

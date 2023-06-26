@@ -38,7 +38,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -114,7 +114,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -191,7 +191,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -269,7 +269,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -341,7 +341,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -413,7 +413,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -482,7 +482,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -556,7 +556,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -630,7 +630,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -706,7 +706,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -774,7 +774,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -851,7 +851,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {
@@ -925,7 +925,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/enlighten"
 )
 
 func main() {

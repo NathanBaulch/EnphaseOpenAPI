@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Meta type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Meta{}
+
 // Meta Information about the system that you can use to ascertain the timeliness of the production data included in the response.
 type Meta struct {
 	Status Status `json:"status"`
@@ -57,7 +60,7 @@ func (o *Meta) GetStatus() Status {
 // and a boolean to check if the value has been set.
 func (o *Meta) GetStatusOk() (*Status, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Status, true
 }
@@ -81,7 +84,7 @@ func (o *Meta) GetLastReportAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *Meta) GetLastReportAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LastReportAt, true
 }
@@ -105,7 +108,7 @@ func (o *Meta) GetLastEnergyAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *Meta) GetLastEnergyAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LastEnergyAt, true
 }
@@ -129,7 +132,7 @@ func (o *Meta) GetOperationalAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *Meta) GetOperationalAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.OperationalAt, true
 }
@@ -140,20 +143,20 @@ func (o *Meta) SetOperationalAt(v int64) {
 }
 
 func (o Meta) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["status"] = o.Status
-	}
-	if true {
-		toSerialize["last_report_at"] = o.LastReportAt
-	}
-	if true {
-		toSerialize["last_energy_at"] = o.LastEnergyAt
-	}
-	if true {
-		toSerialize["operational_at"] = o.OperationalAt
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Meta) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["status"] = o.Status
+	toSerialize["last_report_at"] = o.LastReportAt
+	toSerialize["last_energy_at"] = o.LastEnergyAt
+	toSerialize["operational_at"] = o.OperationalAt
+	return toSerialize, nil
 }
 
 type NullableMeta struct {

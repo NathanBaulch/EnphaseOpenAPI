@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ProductionMeterReadingsResponseMeterReadingsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ProductionMeterReadingsResponseMeterReadingsInner{}
+
 // ProductionMeterReadingsResponseMeterReadingsInner struct for ProductionMeterReadingsResponseMeterReadingsInner
 type ProductionMeterReadingsResponseMeterReadingsInner struct {
 	// The serial number of the meter.
@@ -58,7 +61,7 @@ func (o *ProductionMeterReadingsResponseMeterReadingsInner) GetSerialNumber() st
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponseMeterReadingsInner) GetSerialNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SerialNumber, true
 }
@@ -82,7 +85,7 @@ func (o *ProductionMeterReadingsResponseMeterReadingsInner) GetValue() int32 {
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponseMeterReadingsInner) GetValueOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Value, true
 }
@@ -106,7 +109,7 @@ func (o *ProductionMeterReadingsResponseMeterReadingsInner) GetReadAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *ProductionMeterReadingsResponseMeterReadingsInner) GetReadAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ReadAt, true
 }
@@ -117,17 +120,19 @@ func (o *ProductionMeterReadingsResponseMeterReadingsInner) SetReadAt(v int64) {
 }
 
 func (o ProductionMeterReadingsResponseMeterReadingsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["serial_number"] = o.SerialNumber
-	}
-	if true {
-		toSerialize["value"] = o.Value
-	}
-	if true {
-		toSerialize["read_at"] = o.ReadAt
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ProductionMeterReadingsResponseMeterReadingsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["serial_number"] = o.SerialNumber
+	toSerialize["value"] = o.Value
+	toSerialize["read_at"] = o.ReadAt
+	return toSerialize, nil
 }
 
 type NullableProductionMeterReadingsResponseMeterReadingsInner struct {

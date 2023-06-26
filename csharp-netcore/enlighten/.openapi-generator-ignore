@@ -8,7 +8,4 @@
 appveyor.yml
 EnphaseOpenAPI.Enlighten.sln
 git_push.sh
-src/EnphaseOpenAPI.Enlighten/Client/ApiClient.cs
-src/EnphaseOpenAPI.Enlighten/Client/ClientUtils.cs
-src/EnphaseOpenAPI.Enlighten/Model/AbstractOpenAPISchema.cs
 src/EnphaseOpenAPI.Enlighten.Test/

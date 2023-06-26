@@ -694,7 +694,7 @@ reporting, producing, or measuring energy.</div>
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+    <pre class="example"><code>[ {
   "signal_strength" : 5,
   "micro_inverters" : [ {
     "id" : 1059689835,
@@ -741,7 +741,54 @@ reporting, producing, or measuring energy.</div>
     "grid_profile" : "57227c50e4d7973ae602c4e6",
     "last_report_date" : 1600427843
   } ]
-}</code></pre>
+}, {
+  "signal_strength" : 5,
+  "micro_inverters" : [ {
+    "id" : 1059689835,
+    "serial_number" : "688346865858",
+    "model" : "M215",
+    "part_number" : "800-00107-r01",
+    "sku" : "M215-60-2LL-S22-NA",
+    "status" : "normal",
+    "power_produced" : {
+      "value" : 34,
+      "units" : "W",
+      "precision" : 0
+    },
+    "proc_load" : "undetermined-v",
+    "param_table" : "undetermined-v",
+    "envoy_serial_number" : "121842012242",
+    "energy" : {
+      "value" : 232,
+      "units" : "Wh",
+      "precision" : 0
+    },
+    "grid_profile" : "57227c50e4d7973ae602c4e6",
+    "last_report_date" : 1600427843
+  }, {
+    "id" : 1059689836,
+    "serial_number" : "686868727227",
+    "model" : "M215",
+    "part_number" : "800-00107-r01",
+    "sku" : "M215-60-2LL-S22-NA",
+    "status" : "normal",
+    "power_produced" : {
+      "value" : 20,
+      "units" : "W",
+      "precision" : 0
+    },
+    "proc_load" : "undetermined-v",
+    "param_table" : "undetermined-v",
+    "envoy_serial_number" : "121842012242",
+    "energy" : {
+      "value" : 120,
+      "units" : "Wh",
+      "precision" : 0
+    },
+    "grid_profile" : "57227c50e4d7973ae602c4e6",
+    "last_report_date" : 1600427843
+  } ]
+} ]</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;

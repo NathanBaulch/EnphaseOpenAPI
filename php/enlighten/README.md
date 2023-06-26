@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
 
 ## Authorization
 
+Authentication schemes defined for the API:
 ### ApiKey
 
 - **Type**: API key

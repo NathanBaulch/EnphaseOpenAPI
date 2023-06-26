@@ -81,7 +81,7 @@ class EnvoysResponse {
             }
             // validate the optional field `envoys` (array)
             for (const item of data['envoys']) {
-                EnvoysResponseEnvoysInner.validateJsonObject(item);
+                EnvoysResponseEnvoysInner.validateJSON(item);
             };
         }
 

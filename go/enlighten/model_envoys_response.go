@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EnvoysResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EnvoysResponse{}
+
 // EnvoysResponse struct for EnvoysResponse
 type EnvoysResponse struct {
 	// The identifier of the system.
@@ -55,7 +58,7 @@ func (o *EnvoysResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -79,7 +82,7 @@ func (o *EnvoysResponse) GetEnvoys() []EnvoysResponseEnvoysInner {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponse) GetEnvoysOk() ([]EnvoysResponseEnvoysInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Envoys, true
 }
@@ -90,14 +93,18 @@ func (o *EnvoysResponse) SetEnvoys(v []EnvoysResponseEnvoysInner) {
 }
 
 func (o EnvoysResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["envoys"] = o.Envoys
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EnvoysResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	toSerialize["envoys"] = o.Envoys
+	return toSerialize, nil
 }
 
 type NullableEnvoysResponse struct {

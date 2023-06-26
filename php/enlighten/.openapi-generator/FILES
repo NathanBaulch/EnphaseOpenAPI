@@ -38,8 +38,9 @@ docs/Model/SummaryResponse.md
 docs/Model/SystemsResponse.md
 docs/Model/SystemsResponseSystemsInner.md
 docs/Model/UnprocessableEntityError.md
-lib/Api/DefaultApi.php
 lib/ApiException.php
+lib/Api/DefaultApi.php
+lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/ClientError.php
 lib/Model/ConflictError.php
@@ -77,3 +78,4 @@ lib/Model/SummaryResponse.php
 lib/Model/SystemsResponse.php
 lib/Model/SystemsResponseSystemsInner.php
 lib/Model/UnprocessableEntityError.php
+lib/ObjectSerializer.php

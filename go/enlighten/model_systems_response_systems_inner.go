@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SystemsResponseSystemsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SystemsResponseSystemsInner{}
+
 // SystemsResponseSystemsInner struct for SystemsResponseSystemsInner
 type SystemsResponseSystemsInner struct {
 	// The Enlighten ID of the system.
@@ -85,7 +88,7 @@ func (o *SystemsResponseSystemsInner) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -109,7 +112,7 @@ func (o *SystemsResponseSystemsInner) GetSystemName() string {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetSystemNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemName, true
 }
@@ -133,7 +136,7 @@ func (o *SystemsResponseSystemsInner) GetSystemPublicName() string {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetSystemPublicNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemPublicName, true
 }
@@ -145,7 +148,7 @@ func (o *SystemsResponseSystemsInner) SetSystemPublicName(v string) {
 
 // GetReference returns the Reference field value if set, zero value otherwise.
 func (o *SystemsResponseSystemsInner) GetReference() string {
-	if o == nil || isNil(o.Reference) {
+	if o == nil || IsNil(o.Reference) {
 		var ret string
 		return ret
 	}
@@ -155,15 +158,15 @@ func (o *SystemsResponseSystemsInner) GetReference() string {
 // GetReferenceOk returns a tuple with the Reference field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetReferenceOk() (*string, bool) {
-	if o == nil || isNil(o.Reference) {
-    return nil, false
+	if o == nil || IsNil(o.Reference) {
+		return nil, false
 	}
 	return o.Reference, true
 }
 
 // HasReference returns a boolean if a field has been set.
 func (o *SystemsResponseSystemsInner) HasReference() bool {
-	if o != nil && !isNil(o.Reference) {
+	if o != nil && !IsNil(o.Reference) {
 		return true
 	}
 
@@ -177,7 +180,7 @@ func (o *SystemsResponseSystemsInner) SetReference(v string) {
 
 // GetOtherReferences returns the OtherReferences field value if set, zero value otherwise.
 func (o *SystemsResponseSystemsInner) GetOtherReferences() []string {
-	if o == nil || isNil(o.OtherReferences) {
+	if o == nil || IsNil(o.OtherReferences) {
 		var ret []string
 		return ret
 	}
@@ -187,15 +190,15 @@ func (o *SystemsResponseSystemsInner) GetOtherReferences() []string {
 // GetOtherReferencesOk returns a tuple with the OtherReferences field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetOtherReferencesOk() ([]string, bool) {
-	if o == nil || isNil(o.OtherReferences) {
-    return nil, false
+	if o == nil || IsNil(o.OtherReferences) {
+		return nil, false
 	}
 	return o.OtherReferences, true
 }
 
 // HasOtherReferences returns a boolean if a field has been set.
 func (o *SystemsResponseSystemsInner) HasOtherReferences() bool {
-	if o != nil && !isNil(o.OtherReferences) {
+	if o != nil && !IsNil(o.OtherReferences) {
 		return true
 	}
 
@@ -221,7 +224,7 @@ func (o *SystemsResponseSystemsInner) GetCountry() string {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetCountryOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Country, true
 }
@@ -245,7 +248,7 @@ func (o *SystemsResponseSystemsInner) GetState() string {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetStateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.State, true
 }
@@ -269,7 +272,7 @@ func (o *SystemsResponseSystemsInner) GetCity() string {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetCityOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.City, true
 }
@@ -293,7 +296,7 @@ func (o *SystemsResponseSystemsInner) GetPostalCode() string {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetPostalCodeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.PostalCode, true
 }
@@ -317,7 +320,7 @@ func (o *SystemsResponseSystemsInner) GetTimezone() string {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetTimezoneOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Timezone, true
 }
@@ -341,7 +344,7 @@ func (o *SystemsResponseSystemsInner) GetConnectionType() ConnectionType {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetConnectionTypeOk() (*ConnectionType, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ConnectionType, true
 }
@@ -367,7 +370,7 @@ func (o *SystemsResponseSystemsInner) GetStatus() string {
 // Deprecated
 func (o *SystemsResponseSystemsInner) GetStatusOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Status, true
 }
@@ -392,7 +395,7 @@ func (o *SystemsResponseSystemsInner) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *SystemsResponseSystemsInner) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -403,47 +406,33 @@ func (o *SystemsResponseSystemsInner) SetMeta(v Meta) {
 }
 
 func (o SystemsResponseSystemsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["system_name"] = o.SystemName
-	}
-	if true {
-		toSerialize["system_public_name"] = o.SystemPublicName
-	}
-	if !isNil(o.Reference) {
-		toSerialize["reference"] = o.Reference
-	}
-	if !isNil(o.OtherReferences) {
-		toSerialize["other_references"] = o.OtherReferences
-	}
-	if true {
-		toSerialize["country"] = o.Country
-	}
-	if true {
-		toSerialize["state"] = o.State
-	}
-	if true {
-		toSerialize["city"] = o.City
-	}
-	if true {
-		toSerialize["postal_code"] = o.PostalCode
-	}
-	if true {
-		toSerialize["timezone"] = o.Timezone
-	}
-	if true {
-		toSerialize["connection_type"] = o.ConnectionType
-	}
-	if true {
-		toSerialize["status"] = o.Status
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SystemsResponseSystemsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["system_id"] = o.SystemId
+	toSerialize["system_name"] = o.SystemName
+	toSerialize["system_public_name"] = o.SystemPublicName
+	if !IsNil(o.Reference) {
+		toSerialize["reference"] = o.Reference
+	}
+	if !IsNil(o.OtherReferences) {
+		toSerialize["other_references"] = o.OtherReferences
+	}
+	toSerialize["country"] = o.Country
+	toSerialize["state"] = o.State
+	toSerialize["city"] = o.City
+	toSerialize["postal_code"] = o.PostalCode
+	toSerialize["timezone"] = o.Timezone
+	toSerialize["connection_type"] = o.ConnectionType
+	toSerialize["status"] = o.Status
+	toSerialize["meta"] = o.Meta
+	return toSerialize, nil
 }
 
 type NullableSystemsResponseSystemsInner struct {

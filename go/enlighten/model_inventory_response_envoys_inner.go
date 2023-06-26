@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InventoryResponseEnvoysInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InventoryResponseEnvoysInner{}
+
 // InventoryResponseEnvoysInner struct for InventoryResponseEnvoysInner
 type InventoryResponseEnvoysInner struct {
 	Sn string `json:"sn"`
@@ -55,7 +58,7 @@ func (o *InventoryResponseEnvoysInner) GetSn() string {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseEnvoysInner) GetSnOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Sn, true
 }
@@ -79,7 +82,7 @@ func (o *InventoryResponseEnvoysInner) GetModel() string {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseEnvoysInner) GetModelOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Model, true
 }
@@ -103,7 +106,7 @@ func (o *InventoryResponseEnvoysInner) GetSku() string {
 // and a boolean to check if the value has been set.
 func (o *InventoryResponseEnvoysInner) GetSkuOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Sku, true
 }
@@ -114,17 +117,19 @@ func (o *InventoryResponseEnvoysInner) SetSku(v string) {
 }
 
 func (o InventoryResponseEnvoysInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sn"] = o.Sn
-	}
-	if true {
-		toSerialize["model"] = o.Model
-	}
-	if true {
-		toSerialize["sku"] = o.Sku
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InventoryResponseEnvoysInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sn"] = o.Sn
+	toSerialize["model"] = o.Model
+	toSerialize["sku"] = o.Sku
+	return toSerialize, nil
 }
 
 type NullableInventoryResponseEnvoysInner struct {

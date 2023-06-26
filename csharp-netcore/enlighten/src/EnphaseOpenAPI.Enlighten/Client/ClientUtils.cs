@@ -10,9 +10,12 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace EnphaseOpenAPI.Enlighten.Client
@@ -22,6 +25,17 @@ namespace EnphaseOpenAPI.Enlighten.Client
     /// </summary>
     public static class ClientUtils
     {
+        /// <summary>
+        /// Sanitize filename by removing the path
+        /// </summary>
+        /// <param name="filename">Filename</param>
+        /// <returns>Filename</returns>
+        public static string SanitizeFilename(string filename)
+        {
+            Match match = Regex.Match(filename, @".*[/\\](.*)$");
+            return match.Success ? match.Groups[1].Value : filename;
+        }
+
         /// <summary>
         /// Convert params to key/value pairs.
         /// Use collectionFormat to properly format lists and collections.
@@ -88,12 +102,50 @@ namespace EnphaseOpenAPI.Enlighten.Client
                 return dateTimeOffset.ToString((configuration ?? GlobalConfiguration.Instance).DateTimeFormat);
             if (obj is bool boolean)
                 return boolean ? "true" : "false";
-            if (obj is ICollection collection)
-                return string.Join(",", collection.Cast<object>());
+            if (obj is ICollection collection) {
+                List<string> entries = new List<string>();
+                foreach (var entry in collection)
+                    entries.Add(ParameterToString(entry, configuration));
+                return string.Join(",", entries);
+            }
             if (obj is Enum && HasEnumMemberAttrValue(obj))
                 return GetEnumMemberAttrValue(obj);
 
             return Convert.ToString(obj, CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Serializes the given object when not null. Otherwise return null.
+        /// </summary>
+        /// <param name="obj">The object to serialize.</param>
+        /// <returns>Serialized string.</returns>
+        public static string Serialize(object obj)
+        {
+            return obj != null ? Newtonsoft.Json.JsonConvert.SerializeObject(obj) : null;
+        }
+
+        /// <summary>
+        /// Encode string in base64 format.
+        /// </summary>
+        /// <param name="text">string to be encoded.</param>
+        /// <returns>Encoded string.</returns>
+        public static string Base64Encode(string text)
+        {
+            return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
+        }
+
+        /// <summary>
+        /// Convert stream to byte array
+        /// </summary>
+        /// <param name="inputStream">Input stream to be converted</param>
+        /// <returns>Byte array</returns>
+        public static byte[] ReadAsBytes(Stream inputStream)
+        {
+            using (var ms = new MemoryStream())
+            {
+                inputStream.CopyTo(ms);
+                return ms.ToArray();
+            }
         }
 
         /// <summary>

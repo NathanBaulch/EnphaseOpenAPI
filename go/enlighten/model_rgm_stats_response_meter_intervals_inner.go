@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RgmStatsResponseMeterIntervalsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RgmStatsResponseMeterIntervalsInner{}
+
 // RgmStatsResponseMeterIntervalsInner struct for RgmStatsResponseMeterIntervalsInner
 type RgmStatsResponseMeterIntervalsInner struct {
 	// Serial number of the revenue grade meter.
@@ -58,7 +61,7 @@ func (o *RgmStatsResponseMeterIntervalsInner) GetMeterSerialNumber() string {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseMeterIntervalsInner) GetMeterSerialNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MeterSerialNumber, true
 }
@@ -82,7 +85,7 @@ func (o *RgmStatsResponseMeterIntervalsInner) GetEnvoySerialNumber() string {
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseMeterIntervalsInner) GetEnvoySerialNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EnvoySerialNumber, true
 }
@@ -106,7 +109,7 @@ func (o *RgmStatsResponseMeterIntervalsInner) GetIntervals() []RgmStatsResponseM
 // and a boolean to check if the value has been set.
 func (o *RgmStatsResponseMeterIntervalsInner) GetIntervalsOk() ([]RgmStatsResponseMeterIntervalsInnerIntervalsInner, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Intervals, true
 }
@@ -117,17 +120,19 @@ func (o *RgmStatsResponseMeterIntervalsInner) SetIntervals(v []RgmStatsResponseM
 }
 
 func (o RgmStatsResponseMeterIntervalsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["meter_serial_number"] = o.MeterSerialNumber
-	}
-	if true {
-		toSerialize["envoy_serial_number"] = o.EnvoySerialNumber
-	}
-	if true {
-		toSerialize["intervals"] = o.Intervals
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RgmStatsResponseMeterIntervalsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["meter_serial_number"] = o.MeterSerialNumber
+	toSerialize["envoy_serial_number"] = o.EnvoySerialNumber
+	toSerialize["intervals"] = o.Intervals
+	return toSerialize, nil
 }
 
 type NullableRgmStatsResponseMeterIntervalsInner struct {

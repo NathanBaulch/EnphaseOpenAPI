@@ -17,7 +17,6 @@ Install the following dependencies:
 
 ```shell
 go get github.com/stretchr/testify/assert
-go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -137,7 +136,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-
+Authentication schemes defined for the API:
 ### ApiKey
 
 - **Type**: API key

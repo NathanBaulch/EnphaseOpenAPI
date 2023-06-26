@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EnergyLifetimeResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EnergyLifetimeResponse{}
+
 // EnergyLifetimeResponse struct for EnergyLifetimeResponse
 type EnergyLifetimeResponse struct {
 	// When no `start_date` parameter is specified on the request, this is the `operational_date` of the system. May be null if system has never produced. When a `start_date` parameter is included in the request, it is included here in the response.
@@ -64,7 +67,7 @@ func (o *EnergyLifetimeResponse) GetStartDate() string {
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetStartDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.StartDate, true
 }
@@ -88,7 +91,7 @@ func (o *EnergyLifetimeResponse) GetSystemId() int32 {
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetSystemIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SystemId, true
 }
@@ -112,7 +115,7 @@ func (o *EnergyLifetimeResponse) GetProduction() []int32 {
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetProductionOk() ([]int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Production, true
 }
@@ -124,7 +127,7 @@ func (o *EnergyLifetimeResponse) SetProduction(v []int32) {
 
 // GetMicroProduction returns the MicroProduction field value if set, zero value otherwise.
 func (o *EnergyLifetimeResponse) GetMicroProduction() []int32 {
-	if o == nil || isNil(o.MicroProduction) {
+	if o == nil || IsNil(o.MicroProduction) {
 		var ret []int32
 		return ret
 	}
@@ -134,15 +137,15 @@ func (o *EnergyLifetimeResponse) GetMicroProduction() []int32 {
 // GetMicroProductionOk returns a tuple with the MicroProduction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMicroProductionOk() ([]int32, bool) {
-	if o == nil || isNil(o.MicroProduction) {
-    return nil, false
+	if o == nil || IsNil(o.MicroProduction) {
+		return nil, false
 	}
 	return o.MicroProduction, true
 }
 
 // HasMicroProduction returns a boolean if a field has been set.
 func (o *EnergyLifetimeResponse) HasMicroProduction() bool {
-	if o != nil && !isNil(o.MicroProduction) {
+	if o != nil && !IsNil(o.MicroProduction) {
 		return true
 	}
 
@@ -156,7 +159,7 @@ func (o *EnergyLifetimeResponse) SetMicroProduction(v []int32) {
 
 // GetMeterProduction returns the MeterProduction field value if set, zero value otherwise.
 func (o *EnergyLifetimeResponse) GetMeterProduction() []int32 {
-	if o == nil || isNil(o.MeterProduction) {
+	if o == nil || IsNil(o.MeterProduction) {
 		var ret []int32
 		return ret
 	}
@@ -166,15 +169,15 @@ func (o *EnergyLifetimeResponse) GetMeterProduction() []int32 {
 // GetMeterProductionOk returns a tuple with the MeterProduction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMeterProductionOk() ([]int32, bool) {
-	if o == nil || isNil(o.MeterProduction) {
-    return nil, false
+	if o == nil || IsNil(o.MeterProduction) {
+		return nil, false
 	}
 	return o.MeterProduction, true
 }
 
 // HasMeterProduction returns a boolean if a field has been set.
 func (o *EnergyLifetimeResponse) HasMeterProduction() bool {
-	if o != nil && !isNil(o.MeterProduction) {
+	if o != nil && !IsNil(o.MeterProduction) {
 		return true
 	}
 
@@ -188,7 +191,7 @@ func (o *EnergyLifetimeResponse) SetMeterProduction(v []int32) {
 
 // GetMeterStartDate returns the MeterStartDate field value if set, zero value otherwise.
 func (o *EnergyLifetimeResponse) GetMeterStartDate() string {
-	if o == nil || isNil(o.MeterStartDate) {
+	if o == nil || IsNil(o.MeterStartDate) {
 		var ret string
 		return ret
 	}
@@ -198,15 +201,15 @@ func (o *EnergyLifetimeResponse) GetMeterStartDate() string {
 // GetMeterStartDateOk returns a tuple with the MeterStartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMeterStartDateOk() (*string, bool) {
-	if o == nil || isNil(o.MeterStartDate) {
-    return nil, false
+	if o == nil || IsNil(o.MeterStartDate) {
+		return nil, false
 	}
 	return o.MeterStartDate, true
 }
 
 // HasMeterStartDate returns a boolean if a field has been set.
 func (o *EnergyLifetimeResponse) HasMeterStartDate() bool {
-	if o != nil && !isNil(o.MeterStartDate) {
+	if o != nil && !IsNil(o.MeterStartDate) {
 		return true
 	}
 
@@ -232,7 +235,7 @@ func (o *EnergyLifetimeResponse) GetMeta() Meta {
 // and a boolean to check if the value has been set.
 func (o *EnergyLifetimeResponse) GetMetaOk() (*Meta, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Meta, true
 }
@@ -243,29 +246,29 @@ func (o *EnergyLifetimeResponse) SetMeta(v Meta) {
 }
 
 func (o EnergyLifetimeResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["start_date"] = o.StartDate
-	}
-	if true {
-		toSerialize["system_id"] = o.SystemId
-	}
-	if true {
-		toSerialize["production"] = o.Production
-	}
-	if !isNil(o.MicroProduction) {
-		toSerialize["micro_production"] = o.MicroProduction
-	}
-	if !isNil(o.MeterProduction) {
-		toSerialize["meter_production"] = o.MeterProduction
-	}
-	if !isNil(o.MeterStartDate) {
-		toSerialize["meter_start_date"] = o.MeterStartDate
-	}
-	if true {
-		toSerialize["meta"] = o.Meta
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EnergyLifetimeResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["start_date"] = o.StartDate
+	toSerialize["system_id"] = o.SystemId
+	toSerialize["production"] = o.Production
+	if !IsNil(o.MicroProduction) {
+		toSerialize["micro_production"] = o.MicroProduction
+	}
+	if !IsNil(o.MeterProduction) {
+		toSerialize["meter_production"] = o.MeterProduction
+	}
+	if !IsNil(o.MeterStartDate) {
+		toSerialize["meter_start_date"] = o.MeterStartDate
+	}
+	toSerialize["meta"] = o.Meta
+	return toSerialize, nil
 }
 
 type NullableEnergyLifetimeResponse struct {

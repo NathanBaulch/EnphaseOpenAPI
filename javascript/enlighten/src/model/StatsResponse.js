@@ -96,7 +96,7 @@ class StatsResponse {
             }
             // validate the optional field `intervals` (array)
             for (const item of data['intervals']) {
-                StatsResponseIntervalsInner.validateJsonObject(item);
+                StatsResponseIntervalsInner.validateJSON(item);
             };
         }
 

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EnvoysResponseEnvoysInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EnvoysResponseEnvoysInner{}
+
 // EnvoysResponseEnvoysInner struct for EnvoysResponseEnvoysInner
 type EnvoysResponseEnvoysInner struct {
 	// The Enlighten ID of the Envoy.
@@ -67,7 +70,7 @@ func (o *EnvoysResponseEnvoysInner) GetEnvoyId() int32 {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponseEnvoysInner) GetEnvoyIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EnvoyId, true
 }
@@ -91,7 +94,7 @@ func (o *EnvoysResponseEnvoysInner) GetLastReportAt() int64 {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponseEnvoysInner) GetLastReportAtOk() (*int64, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LastReportAt, true
 }
@@ -115,7 +118,7 @@ func (o *EnvoysResponseEnvoysInner) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponseEnvoysInner) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -139,7 +142,7 @@ func (o *EnvoysResponseEnvoysInner) GetPartNumber() string {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponseEnvoysInner) GetPartNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.PartNumber, true
 }
@@ -163,7 +166,7 @@ func (o *EnvoysResponseEnvoysInner) GetSerialNumber() string {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponseEnvoysInner) GetSerialNumberOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SerialNumber, true
 }
@@ -187,7 +190,7 @@ func (o *EnvoysResponseEnvoysInner) GetStatus() string {
 // and a boolean to check if the value has been set.
 func (o *EnvoysResponseEnvoysInner) GetStatusOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Status, true
 }
@@ -198,26 +201,22 @@ func (o *EnvoysResponseEnvoysInner) SetStatus(v string) {
 }
 
 func (o EnvoysResponseEnvoysInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["envoy_id"] = o.EnvoyId
-	}
-	if true {
-		toSerialize["last_report_at"] = o.LastReportAt
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["part_number"] = o.PartNumber
-	}
-	if true {
-		toSerialize["serial_number"] = o.SerialNumber
-	}
-	if true {
-		toSerialize["status"] = o.Status
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EnvoysResponseEnvoysInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["envoy_id"] = o.EnvoyId
+	toSerialize["last_report_at"] = o.LastReportAt
+	toSerialize["name"] = o.Name
+	toSerialize["part_number"] = o.PartNumber
+	toSerialize["serial_number"] = o.SerialNumber
+	toSerialize["status"] = o.Status
+	return toSerialize, nil
 }
 
 type NullableEnvoysResponseEnvoysInner struct {

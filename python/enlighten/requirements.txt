@@ -1,5 +1,7 @@
-frozendict==2.3.4
-python-dateutil==2.8.2
+certifi==2023.5.7
+frozendict==2.3.8
+python-dateutil==2.7.5
 ratelimit==2.2.1
 six==1.16.0
-urllib3==1.26.12
+typing_extensions==4.3.0
+urllib3==1.26.16

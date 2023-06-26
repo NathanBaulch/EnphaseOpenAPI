@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UnprocessableEntityError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UnprocessableEntityError{}
+
 // UnprocessableEntityError struct for UnprocessableEntityError
 type UnprocessableEntityError struct {
 	Reason *string `json:"reason,omitempty"`
@@ -46,7 +49,7 @@ func NewUnprocessableEntityErrorWithDefaults() *UnprocessableEntityError {
 
 // GetReason returns the Reason field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetReason() string {
-	if o == nil || isNil(o.Reason) {
+	if o == nil || IsNil(o.Reason) {
 		var ret string
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *UnprocessableEntityError) GetReason() string {
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetReasonOk() (*string, bool) {
-	if o == nil || isNil(o.Reason) {
-    return nil, false
+	if o == nil || IsNil(o.Reason) {
+		return nil, false
 	}
 	return o.Reason, true
 }
 
 // HasReason returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasReason() bool {
-	if o != nil && !isNil(o.Reason) {
+	if o != nil && !IsNil(o.Reason) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *UnprocessableEntityError) SetReason(v string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *UnprocessableEntityError) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *UnprocessableEntityError) SetMessage(v string) {
 
 // GetErrorMessages returns the ErrorMessages field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetErrorMessages() []string {
-	if o == nil || isNil(o.ErrorMessages) {
+	if o == nil || IsNil(o.ErrorMessages) {
 		var ret []string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *UnprocessableEntityError) GetErrorMessages() []string {
 // GetErrorMessagesOk returns a tuple with the ErrorMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetErrorMessagesOk() ([]string, bool) {
-	if o == nil || isNil(o.ErrorMessages) {
-    return nil, false
+	if o == nil || IsNil(o.ErrorMessages) {
+		return nil, false
 	}
 	return o.ErrorMessages, true
 }
 
 // HasErrorMessages returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasErrorMessages() bool {
-	if o != nil && !isNil(o.ErrorMessages) {
+	if o != nil && !IsNil(o.ErrorMessages) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *UnprocessableEntityError) SetErrorMessages(v []string) {
 
 // GetStart returns the Start field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetStart() string {
-	if o == nil || isNil(o.Start) {
+	if o == nil || IsNil(o.Start) {
 		var ret string
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *UnprocessableEntityError) GetStart() string {
 // GetStartOk returns a tuple with the Start field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetStartOk() (*string, bool) {
-	if o == nil || isNil(o.Start) {
-    return nil, false
+	if o == nil || IsNil(o.Start) {
+		return nil, false
 	}
 	return o.Start, true
 }
 
 // HasStart returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasStart() bool {
-	if o != nil && !isNil(o.Start) {
+	if o != nil && !IsNil(o.Start) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *UnprocessableEntityError) SetStart(v string) {
 
 // GetEnd returns the End field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetEnd() string {
-	if o == nil || isNil(o.End) {
+	if o == nil || IsNil(o.End) {
 		var ret string
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *UnprocessableEntityError) GetEnd() string {
 // GetEndOk returns a tuple with the End field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetEndOk() (*string, bool) {
-	if o == nil || isNil(o.End) {
-    return nil, false
+	if o == nil || IsNil(o.End) {
+		return nil, false
 	}
 	return o.End, true
 }
 
 // HasEnd returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasEnd() bool {
-	if o != nil && !isNil(o.End) {
+	if o != nil && !IsNil(o.End) {
 		return true
 	}
 
@@ -206,7 +209,7 @@ func (o *UnprocessableEntityError) SetEnd(v string) {
 
 // GetStartAt returns the StartAt field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetStartAt() int32 {
-	if o == nil || isNil(o.StartAt) {
+	if o == nil || IsNil(o.StartAt) {
 		var ret int32
 		return ret
 	}
@@ -216,15 +219,15 @@ func (o *UnprocessableEntityError) GetStartAt() int32 {
 // GetStartAtOk returns a tuple with the StartAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetStartAtOk() (*int32, bool) {
-	if o == nil || isNil(o.StartAt) {
-    return nil, false
+	if o == nil || IsNil(o.StartAt) {
+		return nil, false
 	}
 	return o.StartAt, true
 }
 
 // HasStartAt returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasStartAt() bool {
-	if o != nil && !isNil(o.StartAt) {
+	if o != nil && !IsNil(o.StartAt) {
 		return true
 	}
 
@@ -238,7 +241,7 @@ func (o *UnprocessableEntityError) SetStartAt(v int32) {
 
 // GetEndAt returns the EndAt field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetEndAt() int32 {
-	if o == nil || isNil(o.EndAt) {
+	if o == nil || IsNil(o.EndAt) {
 		var ret int32
 		return ret
 	}
@@ -248,15 +251,15 @@ func (o *UnprocessableEntityError) GetEndAt() int32 {
 // GetEndAtOk returns a tuple with the EndAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetEndAtOk() (*int32, bool) {
-	if o == nil || isNil(o.EndAt) {
-    return nil, false
+	if o == nil || IsNil(o.EndAt) {
+		return nil, false
 	}
 	return o.EndAt, true
 }
 
 // HasEndAt returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasEndAt() bool {
-	if o != nil && !isNil(o.EndAt) {
+	if o != nil && !IsNil(o.EndAt) {
 		return true
 	}
 
@@ -270,7 +273,7 @@ func (o *UnprocessableEntityError) SetEndAt(v int32) {
 
 // GetFirstInterval returns the FirstInterval field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetFirstInterval() int32 {
-	if o == nil || isNil(o.FirstInterval) {
+	if o == nil || IsNil(o.FirstInterval) {
 		var ret int32
 		return ret
 	}
@@ -280,15 +283,15 @@ func (o *UnprocessableEntityError) GetFirstInterval() int32 {
 // GetFirstIntervalOk returns a tuple with the FirstInterval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetFirstIntervalOk() (*int32, bool) {
-	if o == nil || isNil(o.FirstInterval) {
-    return nil, false
+	if o == nil || IsNil(o.FirstInterval) {
+		return nil, false
 	}
 	return o.FirstInterval, true
 }
 
 // HasFirstInterval returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasFirstInterval() bool {
-	if o != nil && !isNil(o.FirstInterval) {
+	if o != nil && !IsNil(o.FirstInterval) {
 		return true
 	}
 
@@ -302,7 +305,7 @@ func (o *UnprocessableEntityError) SetFirstInterval(v int32) {
 
 // GetLastInterval returns the LastInterval field value if set, zero value otherwise.
 func (o *UnprocessableEntityError) GetLastInterval() int32 {
-	if o == nil || isNil(o.LastInterval) {
+	if o == nil || IsNil(o.LastInterval) {
 		var ret int32
 		return ret
 	}
@@ -312,15 +315,15 @@ func (o *UnprocessableEntityError) GetLastInterval() int32 {
 // GetLastIntervalOk returns a tuple with the LastInterval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UnprocessableEntityError) GetLastIntervalOk() (*int32, bool) {
-	if o == nil || isNil(o.LastInterval) {
-    return nil, false
+	if o == nil || IsNil(o.LastInterval) {
+		return nil, false
 	}
 	return o.LastInterval, true
 }
 
 // HasLastInterval returns a boolean if a field has been set.
 func (o *UnprocessableEntityError) HasLastInterval() bool {
-	if o != nil && !isNil(o.LastInterval) {
+	if o != nil && !IsNil(o.LastInterval) {
 		return true
 	}
 
@@ -333,35 +336,43 @@ func (o *UnprocessableEntityError) SetLastInterval(v int32) {
 }
 
 func (o UnprocessableEntityError) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Reason) {
-		toSerialize["reason"] = o.Reason
-	}
-	if !isNil(o.Message) {
-		toSerialize["message"] = o.Message
-	}
-	if !isNil(o.ErrorMessages) {
-		toSerialize["errorMessages"] = o.ErrorMessages
-	}
-	if !isNil(o.Start) {
-		toSerialize["start"] = o.Start
-	}
-	if !isNil(o.End) {
-		toSerialize["end"] = o.End
-	}
-	if !isNil(o.StartAt) {
-		toSerialize["start_at"] = o.StartAt
-	}
-	if !isNil(o.EndAt) {
-		toSerialize["end_at"] = o.EndAt
-	}
-	if !isNil(o.FirstInterval) {
-		toSerialize["first_interval"] = o.FirstInterval
-	}
-	if !isNil(o.LastInterval) {
-		toSerialize["last_interval"] = o.LastInterval
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UnprocessableEntityError) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Reason) {
+		toSerialize["reason"] = o.Reason
+	}
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.ErrorMessages) {
+		toSerialize["errorMessages"] = o.ErrorMessages
+	}
+	if !IsNil(o.Start) {
+		toSerialize["start"] = o.Start
+	}
+	if !IsNil(o.End) {
+		toSerialize["end"] = o.End
+	}
+	if !IsNil(o.StartAt) {
+		toSerialize["start_at"] = o.StartAt
+	}
+	if !IsNil(o.EndAt) {
+		toSerialize["end_at"] = o.EndAt
+	}
+	if !IsNil(o.FirstInterval) {
+		toSerialize["first_interval"] = o.FirstInterval
+	}
+	if !IsNil(o.LastInterval) {
+		toSerialize["last_interval"] = o.LastInterval
+	}
+	return toSerialize, nil
 }
 
 type NullableUnprocessableEntityError struct {
