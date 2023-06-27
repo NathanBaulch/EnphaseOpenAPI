@@ -56,12 +56,12 @@ class GetSystemsResponse(
                 class MetaOapg:
                     
                     @staticmethod
-                    def items() -> typing.Type['System']:
-                        return System
+                    def items() -> typing.Type['SystemDetails']:
+                        return SystemDetails
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['System'], typing.List['System']],
+                    _arg: typing.Union[typing.Tuple['SystemDetails'], typing.List['SystemDetails']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'systems':
                     return super().__new__(
@@ -70,7 +70,7 @@ class GetSystemsResponse(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> 'System':
+                def __getitem__(self, i: int) -> 'SystemDetails':
                     return super().__getitem__(i)
             __annotations__ = {
                 "total": total,
@@ -157,4 +157,4 @@ class GetSystemsResponse(
             **kwargs,
         )
 
-from monitoring.model.system import System
+from monitoring.model.system_details import SystemDetails

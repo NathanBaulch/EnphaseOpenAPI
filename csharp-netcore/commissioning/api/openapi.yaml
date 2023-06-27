@@ -3207,13 +3207,13 @@ components:
     CreatePartnerActivationRequest:
       $ref: '#/components/schemas/SystemParams'
     CreatePartnerActivationResponse:
-      $ref: '#/components/schemas/System'
+      $ref: '#/components/schemas/Activation'
     GetPartnerActivationResponse:
-      $ref: '#/components/schemas/System'
+      $ref: '#/components/schemas/Activation'
     UpdatePartnerActivationRequest:
       $ref: '#/components/schemas/SystemParams'
     UpdatePartnerActivationResponse:
-      $ref: '#/components/schemas/System'
+      $ref: '#/components/schemas/Activation'
     DeleteActivationResponse:
       example:
         message: Activation deleted successfully
@@ -3692,7 +3692,7 @@ components:
           $ref: '#/components/schemas/UpdateSystemTariffSettingsResponse_task'
       type: object
     GetSystemArraysResponse:
-      $ref: '#/components/schemas/Arrays'
+      $ref: '#/components/schemas/SystemArrays'
     UpdateSystemArraysRequest:
       properties:
         angle:
@@ -3707,13 +3707,13 @@ components:
       - arrays
       type: object
     UpdateSystemArraysResponse:
-      $ref: '#/components/schemas/Arrays'
+      $ref: '#/components/schemas/SystemArrays'
     GetSystemArrayResponse:
-      $ref: '#/components/schemas/Array'
+      $ref: '#/components/schemas/SystemArray'
     UpdateSystemArrayRequest:
       $ref: '#/components/schemas/ArrayParams'
     UpdateSystemArrayResponse:
-      $ref: '#/components/schemas/Array'
+      $ref: '#/components/schemas/SystemArray'
     DeleteSystemArrayResponse:
       example:
         message: Array deleted successfully
@@ -3751,7 +3751,7 @@ components:
           description: Longitude.
           type: integer
       type: object
-    System:
+    Activation:
       example:
         system_id: 12345
         system_name: Enphase system
@@ -3870,13 +3870,13 @@ components:
           description: Whether this system is permitted to operate. Default true.
           type: boolean
         owner:
-          $ref: '#/components/schemas/System_owner'
+          $ref: '#/components/schemas/Activation_owner'
         owner_id:
           description: Enlighten ID of this system owner. System-generated. This field
             is optional.
           type: integer
         host:
-          $ref: '#/components/schemas/System_host'
+          $ref: '#/components/schemas/Activation_host'
         host_id:
           description: Enlighten ID of this system host. System-generated. This field
             is optional.
@@ -4009,12 +4009,12 @@ components:
         encharge:
           description: Encharge detail.
           items:
-            $ref: '#/components/schemas/System_encharge_inner'
+            $ref: '#/components/schemas/Activation_encharge_inner'
           type: array
         enpower:
           description: Enpower detail.
           items:
-            $ref: '#/components/schemas/System_enpower_inner'
+            $ref: '#/components/schemas/Activation_enpower_inner'
           type: array
         address:
           $ref: '#/components/schemas/Address'
@@ -4531,7 +4531,7 @@ components:
         task:
           $ref: '#/components/schemas/UpdateSystemTariffSettingsResponse_task'
       type: object
-    Arrays:
+    SystemArrays:
       example:
         system_id: 698927061
         created_at: 1564385055
@@ -4590,7 +4590,7 @@ components:
           type: integer
         arrays:
           items:
-            $ref: '#/components/schemas/Array'
+            $ref: '#/components/schemas/SystemArray'
           type: array
         inventory:
           description: List of active inverter serial numbers.
@@ -4599,14 +4599,14 @@ components:
           type: array
         inventory_details:
           items:
-            $ref: '#/components/schemas/Arrays_inventory_details_inner'
+            $ref: '#/components/schemas/SystemArrays_inventory_details_inner'
           type: array
         layers:
           items:
-            $ref: '#/components/schemas/Arrays_layers_inner'
+            $ref: '#/components/schemas/SystemArrays_layers_inner'
           type: array
       type: object
-    Array:
+    SystemArray:
       example:
         id: 207359
         label: First
@@ -4657,7 +4657,7 @@ components:
           type: integer
         modules:
           items:
-            $ref: '#/components/schemas/Array_modules_inner'
+            $ref: '#/components/schemas/SystemArray_modules_inner'
           type: array
       type: object
     ArrayParams:
@@ -5074,7 +5074,7 @@ components:
           description: Created time of latest tariff update task.
           type: string
       type: object
-    System_owner_company:
+    Activation_owner_company:
       description: A hash of information about the owner's company. Use the query
         parameter 'expand=owner.company' to get owner company detail.
       properties:
@@ -5093,7 +5093,7 @@ components:
         uri:
           type: string
       type: object
-    System_owner:
+    Activation_owner:
       description: "Name of the system owner. Owner must be an Enlighten user. If\
         \ the user of the API is a self-installer, the owner must be himself. If the\
         \ query parameter 'expand=owner' passed in the request owner detail will appear\
@@ -5130,9 +5130,9 @@ components:
           format: int64
           type: integer
         company:
-          $ref: '#/components/schemas/System_owner_company'
+          $ref: '#/components/schemas/Activation_owner_company'
       type: object
-    System_host_company:
+    Activation_host_company:
       description: A hash of information about the system host's company. Use the
         query parameter 'expand=host.company' to get system host company detail.
       properties:
@@ -5151,7 +5151,7 @@ components:
         uri:
           type: string
       type: object
-    System_host:
+    Activation_host:
       description: Name of the system host. If the query parameter 'expand=host' passed
         in the request host detail will appear in the response.
       properties:
@@ -5186,9 +5186,9 @@ components:
           format: int64
           type: integer
         company:
-          $ref: '#/components/schemas/System_host_company'
+          $ref: '#/components/schemas/Activation_host_company'
       type: object
-    System_encharge_inner:
+    Activation_encharge_inner:
       properties:
         envoy_serial_number:
           description: Envoy serial number.
@@ -5200,7 +5200,7 @@ components:
             type: string
           type: array
       type: object
-    System_enpower_inner:
+    Activation_enpower_inner:
       properties:
         envoy_serial_number:
           description: Envoy serial number.
@@ -5309,7 +5309,7 @@ components:
             $ref: '#/components/schemas/TariffSeasons_inner'
           type: array
       type: object
-    Arrays_inventory_details_inner:
+    SystemArrays_inventory_details_inner:
       properties:
         type:
           description: Device type.
@@ -5321,7 +5321,7 @@ components:
           description: Device serial number.
           type: string
       type: object
-    Arrays_layers_inner:
+    SystemArrays_layers_inner:
       properties:
         file:
           description: Background image url.
@@ -5348,7 +5348,7 @@ components:
           description: Top of the layer.
           type: integer
       type: object
-    Array_modules_inner:
+    SystemArray_modules_inner:
       properties:
         id:
           description: ID of the module.

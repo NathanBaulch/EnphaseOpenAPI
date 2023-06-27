@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int32** | Max number of records from API per page is 100. Default is 10. | [optional] 
 **Count** | Pointer to **int32** | Total number of systems actually returned for the current page. | [optional] 
 **Items** | Pointer to **string** | Named key of the list data. In this endpoint, it is systems. | [optional] 
-**Systems** | Pointer to [**[]System**](System.md) | List of filtered systems. | [optional] 
+**Systems** | Pointer to [**[]SystemDetails**](SystemDetails.md) | List of filtered systems. | [optional] 
 
 ## Methods
 
@@ -157,20 +157,20 @@ HasItems returns a boolean if a field has been set.
 
 ### GetSystems
 
-`func (o *SearchSystemsResponse) GetSystems() []System`
+`func (o *SearchSystemsResponse) GetSystems() []SystemDetails`
 
 GetSystems returns the Systems field if non-nil, zero value otherwise.
 
 ### GetSystemsOk
 
-`func (o *SearchSystemsResponse) GetSystemsOk() (*[]System, bool)`
+`func (o *SearchSystemsResponse) GetSystemsOk() (*[]SystemDetails, bool)`
 
 GetSystemsOk returns a tuple with the Systems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSystems
 
-`func (o *SearchSystemsResponse) SetSystems(v []System)`
+`func (o *SearchSystemsResponse) SetSystems(v []SystemDetails)`
 
 SetSystems sets Systems field to given value.
 

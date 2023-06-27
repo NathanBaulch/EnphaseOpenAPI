@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## getSystem
 
-> System getSystem(systemId)
+> SystemDetails getSystem(systemId)
 
 Retrieves a System by ID
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**SystemDetails**](SystemDetails.md)
 
 ### Authorization
 

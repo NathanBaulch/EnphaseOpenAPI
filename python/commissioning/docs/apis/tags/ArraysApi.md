@@ -216,7 +216,7 @@ Type | Description  | Notes
 
 # **get_system_array**
 <a id="get_system_array"></a>
-> Array get_system_array(system_idarray_id)
+> SystemArray get_system_array(system_idarray_id)
 
 Fetch array details by ID
 
@@ -230,8 +230,8 @@ Fetch array details by ID.
 import commissioning
 from commissioning.apis.tags import arrays_api
 from commissioning.model.too_many_requests_error import TooManyRequestsError
-from commissioning.model.array import Array
 from commissioning.model.unprocessable_entity_error import UnprocessableEntityError
+from commissioning.model.system_array import SystemArray
 from commissioning.model.server_error import ServerError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v4
@@ -330,7 +330,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Array**](../../models/Array.md) |  | 
+[**SystemArray**](../../models/SystemArray.md) |  | 
 
 
 #### get_system_array.ApiResponseFor401
@@ -419,7 +419,7 @@ Type | Description  | Notes
 
 # **get_system_arrays**
 <a id="get_system_arrays"></a>
-> Arrays get_system_arrays(system_id)
+> SystemArrays get_system_arrays(system_id)
 
 Fetch particular system Array details
 
@@ -432,8 +432,8 @@ Fetch particular system Array details.
 ```python
 import commissioning
 from commissioning.apis.tags import arrays_api
+from commissioning.model.system_arrays import SystemArrays
 from commissioning.model.too_many_requests_error import TooManyRequestsError
-from commissioning.model.arrays import Arrays
 from commissioning.model.server_error import ServerError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v4
@@ -522,7 +522,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Arrays**](../../models/Arrays.md) |  | 
+[**SystemArrays**](../../models/SystemArrays.md) |  | 
 
 
 #### get_system_arrays.ApiResponseFor401
@@ -598,7 +598,7 @@ Type | Description  | Notes
 
 # **update_system_array**
 <a id="update_system_array"></a>
-> Array update_system_array(system_idarray_id)
+> SystemArray update_system_array(system_idarray_id)
 
 Update particular system array details
 
@@ -613,8 +613,8 @@ import commissioning
 from commissioning.apis.tags import arrays_api
 from commissioning.model.array_params import ArrayParams
 from commissioning.model.too_many_requests_error import TooManyRequestsError
-from commissioning.model.array import Array
 from commissioning.model.unprocessable_entity_error import UnprocessableEntityError
+from commissioning.model.system_array import SystemArray
 from commissioning.model.server_error import ServerError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v4
@@ -756,7 +756,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Array**](../../models/Array.md) |  | 
+[**SystemArray**](../../models/SystemArray.md) |  | 
 
 
 #### update_system_array.ApiResponseFor401
@@ -845,7 +845,7 @@ Type | Description  | Notes
 
 # **update_system_arrays**
 <a id="update_system_arrays"></a>
-> Arrays update_system_arrays(system_id)
+> SystemArrays update_system_arrays(system_id)
 
 Update all arrays for system
 
@@ -859,9 +859,9 @@ Update all arrays for system. The angle, left, and top fields in the request par
 import commissioning
 from commissioning.apis.tags import arrays_api
 from commissioning.model.update_system_arrays_request import UpdateSystemArraysRequest
+from commissioning.model.system_arrays import SystemArrays
 from commissioning.model.too_many_requests_error import TooManyRequestsError
 from commissioning.model.unprocessable_entity_error import UnprocessableEntityError
-from commissioning.model.arrays import Arrays
 from commissioning.model.server_error import ServerError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v4
@@ -998,7 +998,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Arrays**](../../models/Arrays.md) |  | 
+[**SystemArrays**](../../models/SystemArrays.md) |  | 
 
 
 #### update_system_arrays.ApiResponseFor401

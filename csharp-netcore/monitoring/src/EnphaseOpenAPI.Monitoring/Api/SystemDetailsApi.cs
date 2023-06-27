@@ -61,8 +61,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        System GetSystem(int systemId, int operationIndex = 0);
+        /// <returns>SystemDetails</returns>
+        SystemDetails GetSystem(int systemId, int operationIndex = 0);
 
         /// <summary>
         /// Retrieves a System by ID
@@ -73,8 +73,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        ApiResponse<System> GetSystemWithHttpInfo(int systemId, int operationIndex = 0);
+        /// <returns>ApiResponse of SystemDetails</returns>
+        ApiResponse<SystemDetails> GetSystemWithHttpInfo(int systemId, int operationIndex = 0);
         /// <summary>
         /// Retrieves devices for a given system
         /// </summary>
@@ -244,8 +244,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        System.Threading.Tasks.Task<System> GetSystemAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of SystemDetails</returns>
+        System.Threading.Tasks.Task<SystemDetails> GetSystemAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves a System by ID
@@ -257,8 +257,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System>> GetSystemWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SystemDetails)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SystemDetails>> GetSystemWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieves devices for a given system
         /// </summary>
@@ -710,10 +710,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        public System GetSystem(int systemId, int operationIndex = 0)
+        /// <returns>SystemDetails</returns>
+        public SystemDetails GetSystem(int systemId, int operationIndex = 0)
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<System> localVarResponse = GetSystemWithHttpInfo(systemId);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<SystemDetails> localVarResponse = GetSystemWithHttpInfo(systemId);
             return localVarResponse.Data;
         }
 
@@ -723,8 +723,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<System> GetSystemWithHttpInfo(int systemId, int operationIndex = 0)
+        /// <returns>ApiResponse of SystemDetails</returns>
+        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<SystemDetails> GetSystemWithHttpInfo(int systemId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
 
@@ -776,7 +776,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<System>("/systems/{system_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SystemDetails>("/systems/{system_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystem", localVarResponse);
@@ -796,10 +796,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        public async System.Threading.Tasks.Task<System> GetSystemAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of SystemDetails</returns>
+        public async System.Threading.Tasks.Task<SystemDetails> GetSystemAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<System> localVarResponse = await GetSystemWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<SystemDetails> localVarResponse = await GetSystemWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -810,8 +810,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<System>> GetSystemWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (SystemDetails)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<SystemDetails>> GetSystemWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
@@ -864,7 +864,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<System>("/systems/{system_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SystemDetails>("/systems/{system_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

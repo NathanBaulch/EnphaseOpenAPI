@@ -36,8 +36,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        System CreatePartnerActivation(SystemParams _params = default(SystemParams), int operationIndex = 0);
+        /// <returns>Activation</returns>
+        Activation CreatePartnerActivation(SystemParams _params = default(SystemParams), int operationIndex = 0);
 
         /// <summary>
         /// Create new activation
@@ -48,8 +48,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        ApiResponse<System> CreatePartnerActivationWithHttpInfo(SystemParams _params = default(SystemParams), int operationIndex = 0);
+        /// <returns>ApiResponse of Activation</returns>
+        ApiResponse<Activation> CreatePartnerActivationWithHttpInfo(SystemParams _params = default(SystemParams), int operationIndex = 0);
         /// <summary>
         /// Delete an activation by ID
         /// </summary>
@@ -106,8 +106,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        System GetPartnerActivation(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
+        /// <returns>Activation</returns>
+        Activation GetPartnerActivation(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieves an Activation by ID
@@ -119,8 +119,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        ApiResponse<System> GetPartnerActivationWithHttpInfo(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
+        /// <returns>ApiResponse of Activation</returns>
+        ApiResponse<Activation> GetPartnerActivationWithHttpInfo(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
         /// <summary>
         /// List of Activations
         /// </summary>
@@ -245,8 +245,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        System UpdatePartnerActivation(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0);
+        /// <returns>Activation</returns>
+        Activation UpdatePartnerActivation(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0);
 
         /// <summary>
         /// Update an activation.
@@ -258,8 +258,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        ApiResponse<System> UpdatePartnerActivationWithHttpInfo(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0);
+        /// <returns>ApiResponse of Activation</returns>
+        ApiResponse<Activation> UpdatePartnerActivationWithHttpInfo(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -279,8 +279,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        System.Threading.Tasks.Task<System> CreatePartnerActivationAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of Activation</returns>
+        System.Threading.Tasks.Task<Activation> CreatePartnerActivationAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create new activation
@@ -292,8 +292,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System>> CreatePartnerActivationWithHttpInfoAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (Activation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Activation>> CreatePartnerActivationWithHttpInfoAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an activation by ID
         /// </summary>
@@ -355,8 +355,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        System.Threading.Tasks.Task<System> GetPartnerActivationAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of Activation</returns>
+        System.Threading.Tasks.Task<Activation> GetPartnerActivationAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves an Activation by ID
@@ -369,8 +369,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System>> GetPartnerActivationWithHttpInfoAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (Activation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Activation>> GetPartnerActivationWithHttpInfoAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List of Activations
         /// </summary>
@@ -504,8 +504,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        System.Threading.Tasks.Task<System> UpdatePartnerActivationAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of Activation</returns>
+        System.Threading.Tasks.Task<Activation> UpdatePartnerActivationAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update an activation.
@@ -518,8 +518,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System>> UpdatePartnerActivationWithHttpInfoAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (Activation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Activation>> UpdatePartnerActivationWithHttpInfoAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -646,10 +646,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        public System CreatePartnerActivation(SystemParams _params = default(SystemParams), int operationIndex = 0)
+        /// <returns>Activation</returns>
+        public Activation CreatePartnerActivation(SystemParams _params = default(SystemParams), int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = CreatePartnerActivationWithHttpInfo(_params);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> localVarResponse = CreatePartnerActivationWithHttpInfo(_params);
             return localVarResponse.Data;
         }
 
@@ -659,8 +659,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> CreatePartnerActivationWithHttpInfo(SystemParams _params = default(SystemParams), int operationIndex = 0)
+        /// <returns>ApiResponse of Activation</returns>
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> CreatePartnerActivationWithHttpInfo(SystemParams _params = default(SystemParams), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -713,7 +713,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<System>("/partner/activations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Activation>("/partner/activations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreatePartnerActivation", localVarResponse);
@@ -733,10 +733,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        public async System.Threading.Tasks.Task<System> CreatePartnerActivationAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of Activation</returns>
+        public async System.Threading.Tasks.Task<Activation> CreatePartnerActivationAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = await CreatePartnerActivationWithHttpInfoAsync(_params, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> localVarResponse = await CreatePartnerActivationWithHttpInfoAsync(_params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -747,8 +747,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<System>> CreatePartnerActivationWithHttpInfoAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (Activation)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation>> CreatePartnerActivationWithHttpInfoAsync(SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -802,7 +802,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<System>("/partner/activations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Activation>("/partner/activations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1171,10 +1171,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        public System GetPartnerActivation(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
+        /// <returns>Activation</returns>
+        public Activation GetPartnerActivation(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = GetPartnerActivationWithHttpInfo(activationId, expand);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> localVarResponse = GetPartnerActivationWithHttpInfo(activationId, expand);
             return localVarResponse.Data;
         }
 
@@ -1185,8 +1185,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> GetPartnerActivationWithHttpInfo(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
+        /// <returns>ApiResponse of Activation</returns>
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> GetPartnerActivationWithHttpInfo(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1242,7 +1242,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Activation>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPartnerActivation", localVarResponse);
@@ -1263,10 +1263,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        public async System.Threading.Tasks.Task<System> GetPartnerActivationAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of Activation</returns>
+        public async System.Threading.Tasks.Task<Activation> GetPartnerActivationAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = await GetPartnerActivationWithHttpInfoAsync(activationId, expand, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> localVarResponse = await GetPartnerActivationWithHttpInfoAsync(activationId, expand, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1278,8 +1278,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<System>> GetPartnerActivationWithHttpInfoAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (Activation)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation>> GetPartnerActivationWithHttpInfoAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -1336,7 +1336,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Activation>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2175,10 +2175,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System</returns>
-        public System UpdatePartnerActivation(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0)
+        /// <returns>Activation</returns>
+        public Activation UpdatePartnerActivation(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = UpdatePartnerActivationWithHttpInfo(activationId, _params);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> localVarResponse = UpdatePartnerActivationWithHttpInfo(activationId, _params);
             return localVarResponse.Data;
         }
 
@@ -2189,8 +2189,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> UpdatePartnerActivationWithHttpInfo(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0)
+        /// <returns>ApiResponse of Activation</returns>
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> UpdatePartnerActivationWithHttpInfo(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -2244,7 +2244,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Activation>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePartnerActivation", localVarResponse);
@@ -2265,10 +2265,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System</returns>
-        public async System.Threading.Tasks.Task<System> UpdatePartnerActivationAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of Activation</returns>
+        public async System.Threading.Tasks.Task<Activation> UpdatePartnerActivationAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = await UpdatePartnerActivationWithHttpInfoAsync(activationId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation> localVarResponse = await UpdatePartnerActivationWithHttpInfoAsync(activationId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2280,8 +2280,8 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<System>> UpdatePartnerActivationWithHttpInfoAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (Activation)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<Activation>> UpdatePartnerActivationWithHttpInfoAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -2336,7 +2336,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Activation>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

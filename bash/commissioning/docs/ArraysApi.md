@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array**](Array.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array**](Array.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 

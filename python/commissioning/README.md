@@ -141,6 +141,7 @@ import time
 import commissioning
 from pprint import pprint
 from commissioning.apis.tags import activations_api
+from commissioning.model.activation import Activation
 from commissioning.model.delete_activation_response import DeleteActivationResponse
 from commissioning.model.get_activation_ops_production_mode_response import GetActivationOpsProductionModeResponse
 from commissioning.model.get_partner_activations_response import GetPartnerActivationsResponse
@@ -149,7 +150,6 @@ from commissioning.model.revoke_activation_user_access_response import RevokeAct
 from commissioning.model.server_error import ServerError
 from commissioning.model.set_activation_ops_production_mode_request import SetActivationOpsProductionModeRequest
 from commissioning.model.set_activation_ops_production_mode_response import SetActivationOpsProductionModeResponse
-from commissioning.model.system import System
 from commissioning.model.system_expand_enum import SystemExpandEnum
 from commissioning.model.system_params import SystemParams
 from commissioning.model.system_stage_enum import SystemStageEnum
@@ -308,10 +308,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Activation](docs/models/Activation.md)
  - [Address](docs/models/Address.md)
- - [Array](docs/models/Array.md)
  - [ArrayParams](docs/models/ArrayParams.md)
- - [Arrays](docs/models/Arrays.md)
  - [Company](docs/models/Company.md)
  - [CompanyRoleEnum](docs/models/CompanyRoleEnum.md)
  - [CreateCompanyUserRequest](docs/models/CreateCompanyUserRequest.md)
@@ -348,8 +347,9 @@ Class | Method | HTTP request | Description
  - [SetActivationMeterStatusResponse](docs/models/SetActivationMeterStatusResponse.md)
  - [SetActivationOpsProductionModeRequest](docs/models/SetActivationOpsProductionModeRequest.md)
  - [SetActivationOpsProductionModeResponse](docs/models/SetActivationOpsProductionModeResponse.md)
- - [System](docs/models/System.md)
+ - [SystemArray](docs/models/SystemArray.md)
  - [SystemArrayTypeEnum](docs/models/SystemArrayTypeEnum.md)
+ - [SystemArrays](docs/models/SystemArrays.md)
  - [SystemAttachmentTypeEnum](docs/models/SystemAttachmentTypeEnum.md)
  - [SystemEstimate](docs/models/SystemEstimate.md)
  - [SystemExpandEnum](docs/models/SystemExpandEnum.md)

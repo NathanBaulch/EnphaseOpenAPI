@@ -40,7 +40,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// <param name="count">Total number of systems actually returned for the current page..</param>
         /// <param name="items">Named key of the list data. In this endpoint, it is systems..</param>
         /// <param name="systems">List of systems..</param>
-        public GetSystemsResponse(int total = default(int), int currentPage = default(int), int size = default(int), int count = default(int), string items = default(string), List<System> systems = default(List<System>))
+        public GetSystemsResponse(int total = default(int), int currentPage = default(int), int size = default(int), int count = default(int), string items = default(string), List<SystemDetails> systems = default(List<SystemDetails>))
         {
             this.Total = total;
             this.CurrentPage = currentPage;
@@ -90,7 +90,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// </summary>
         /// <value>List of systems.</value>
         [DataMember(Name = "systems", EmitDefaultValue = false)]
-        public List<System> Systems { get; set; }
+        public List<SystemDetails> Systems { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

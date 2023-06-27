@@ -83,7 +83,7 @@ try {
 ## `getSystem()`
 
 ```php
-getSystem($system_id): \EnphaseOpenAPI\Monitoring\Model\System
+getSystem($system_id): \EnphaseOpenAPI\Monitoring\Model\SystemDetails
 ```
 
 Retrieves a System by ID
@@ -130,7 +130,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Monitoring\Model\System**](../Model/System.md)
+[**\EnphaseOpenAPI\Monitoring\Model\SystemDetails**](../Model/SystemDetails.md)
 
 ### Authorization
 

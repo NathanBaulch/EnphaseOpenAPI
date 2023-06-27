@@ -90,11 +90,11 @@ docs/StreamSystemLiveDataResponse.md
 docs/StreamSystemLiveDataResponseData.md
 docs/StreamSystemLiveDataResponseDataData.md
 docs/StreamingAPIsApi.md
-docs/System.md
-docs/SystemAddress.md
 docs/SystemAttachmentTypeEnum.md
 docs/SystemConfigurationsApi.md
 docs/SystemConnectionTypeEnum.md
+docs/SystemDetails.md
+docs/SystemDetailsAddress.md
 docs/SystemDetailsApi.md
 docs/SystemEnergyLifetimeProductionEnum.md
 docs/SystemPublicNameEnum.md
@@ -217,10 +217,10 @@ src/EnphaseOpenAPI.Monitoring/Model/StreamSystemLiveData552ResponseError.cs
 src/EnphaseOpenAPI.Monitoring/Model/StreamSystemLiveDataResponse.cs
 src/EnphaseOpenAPI.Monitoring/Model/StreamSystemLiveDataResponseData.cs
 src/EnphaseOpenAPI.Monitoring/Model/StreamSystemLiveDataResponseDataData.cs
-src/EnphaseOpenAPI.Monitoring/Model/System.cs
-src/EnphaseOpenAPI.Monitoring/Model/SystemAddress.cs
 src/EnphaseOpenAPI.Monitoring/Model/SystemAttachmentTypeEnum.cs
 src/EnphaseOpenAPI.Monitoring/Model/SystemConnectionTypeEnum.cs
+src/EnphaseOpenAPI.Monitoring/Model/SystemDetails.cs
+src/EnphaseOpenAPI.Monitoring/Model/SystemDetailsAddress.cs
 src/EnphaseOpenAPI.Monitoring/Model/SystemEnergyLifetimeProductionEnum.cs
 src/EnphaseOpenAPI.Monitoring/Model/SystemPublicNameEnum.cs
 src/EnphaseOpenAPI.Monitoring/Model/SystemSortByEnum.cs

@@ -16,7 +16,7 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 <a id="createpartneractivation"></a>
 # **CreatePartnerActivation**
-> System CreatePartnerActivation (SystemParams _params = null)
+> Activation CreatePartnerActivation (SystemParams _params = null)
 
 Create new activation
 
@@ -51,7 +51,7 @@ namespace Example
             try
             {
                 // Create new activation
-                System result = apiInstance.CreatePartnerActivation(_params);
+                Activation result = apiInstance.CreatePartnerActivation(_params);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -72,7 +72,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create new activation
-    ApiResponse<System> response = apiInstance.CreatePartnerActivationWithHttpInfo(_params);
+    ApiResponse<Activation> response = apiInstance.CreatePartnerActivationWithHttpInfo(_params);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -93,7 +93,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ catch (ApiException e)
 
 <a id="getpartneractivation"></a>
 # **GetPartnerActivation**
-> System GetPartnerActivation (int activationId, SystemExpandEnum? expand = null)
+> Activation GetPartnerActivation (int activationId, SystemExpandEnum? expand = null)
 
 Retrieves an Activation by ID
 
@@ -363,7 +363,7 @@ namespace Example
             try
             {
                 // Retrieves an Activation by ID
-                System result = apiInstance.GetPartnerActivation(activationId, expand);
+                Activation result = apiInstance.GetPartnerActivation(activationId, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -384,7 +384,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieves an Activation by ID
-    ApiResponse<System> response = apiInstance.GetPartnerActivationWithHttpInfo(activationId, expand);
+    ApiResponse<Activation> response = apiInstance.GetPartnerActivationWithHttpInfo(activationId, expand);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -406,7 +406,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -869,7 +869,7 @@ catch (ApiException e)
 
 <a id="updatepartneractivation"></a>
 # **UpdatePartnerActivation**
-> System UpdatePartnerActivation (int activationId, SystemParams _params = null)
+> Activation UpdatePartnerActivation (int activationId, SystemParams _params = null)
 
 Update an activation.
 
@@ -905,7 +905,7 @@ namespace Example
             try
             {
                 // Update an activation.
-                System result = apiInstance.UpdatePartnerActivation(activationId, _params);
+                Activation result = apiInstance.UpdatePartnerActivation(activationId, _params);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -926,7 +926,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update an activation.
-    ApiResponse<System> response = apiInstance.UpdatePartnerActivationWithHttpInfo(activationId, _params);
+    ApiResponse<Activation> response = apiInstance.UpdatePartnerActivationWithHttpInfo(activationId, _params);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -948,7 +948,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 

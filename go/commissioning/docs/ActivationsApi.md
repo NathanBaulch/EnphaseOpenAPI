@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## CreatePartnerActivation
 
-> System CreatePartnerActivation(ctx).Params(params).Execute()
+> Activation CreatePartnerActivation(ctx).Params(params).Execute()
 
 Create new activation
 
@@ -46,7 +46,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ActivationsApi.CreatePartnerActivation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreatePartnerActivation`: System
+    // response from `CreatePartnerActivation`: Activation
     fmt.Fprintf(os.Stdout, "Response from `ActivationsApi.CreatePartnerActivation`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## GetPartnerActivation
 
-> System GetPartnerActivation(ctx, activationId).Expand(expand).Execute()
+> Activation GetPartnerActivation(ctx, activationId).Expand(expand).Execute()
 
 Retrieves an Activation by ID
 
@@ -253,7 +253,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ActivationsApi.GetPartnerActivation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetPartnerActivation`: System
+    // response from `GetPartnerActivation`: Activation
     fmt.Fprintf(os.Stdout, "Response from `ActivationsApi.GetPartnerActivation`: %v\n", resp)
 }
 ```
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ## UpdatePartnerActivation
 
-> System UpdatePartnerActivation(ctx, activationId).Params(params).Execute()
+> Activation UpdatePartnerActivation(ctx, activationId).Params(params).Execute()
 
 Update an activation.
 
@@ -625,7 +625,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ActivationsApi.UpdatePartnerActivation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdatePartnerActivation`: System
+    // response from `UpdatePartnerActivation`: Activation
     fmt.Fprintf(os.Stdout, "Response from `ActivationsApi.UpdatePartnerActivation`: %v\n", resp)
 }
 ```
@@ -650,7 +650,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 

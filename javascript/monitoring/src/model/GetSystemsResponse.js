@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import System from './System';
+import SystemDetails from './SystemDetails';
 
 /**
  * The GetSystemsResponse model module.
@@ -64,7 +64,7 @@ class GetSystemsResponse {
                 obj['items'] = ApiClient.convertToType(data['items'], 'String');
             }
             if (data.hasOwnProperty('systems')) {
-                obj['systems'] = ApiClient.convertToType(data['systems'], [System]);
+                obj['systems'] = ApiClient.convertToType(data['systems'], [SystemDetails]);
             }
         }
         return obj;
@@ -87,7 +87,7 @@ class GetSystemsResponse {
             }
             // validate the optional field `systems` (array)
             for (const item of data['systems']) {
-                System.validateJSON(item);
+                SystemDetails.validateJSON(item);
             };
         }
 
@@ -131,7 +131,7 @@ GetSystemsResponse.prototype['items'] = undefined;
 
 /**
  * List of systems.
- * @member {Array.<module:model/System>} systems
+ * @member {Array.<module:model/SystemDetails>} systems
  */
 GetSystemsResponse.prototype['systems'] = undefined;
 

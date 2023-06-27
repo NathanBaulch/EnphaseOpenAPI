@@ -227,7 +227,7 @@ type ApiGetSystemRequest struct {
 	systemId int32
 }
 
-func (r ApiGetSystemRequest) Execute() (*System, *http.Response, error) {
+func (r ApiGetSystemRequest) Execute() (*SystemDetails, *http.Response, error) {
 	return r.ApiService.GetSystemExecute(r)
 }
 
@@ -249,13 +249,13 @@ func (a *SystemDetailsApiService) GetSystem(ctx context.Context, systemId int32)
 }
 
 // Execute executes the request
-//  @return System
-func (a *SystemDetailsApiService) GetSystemExecute(r ApiGetSystemRequest) (*System, *http.Response, error) {
+//  @return SystemDetails
+func (a *SystemDetailsApiService) GetSystemExecute(r ApiGetSystemRequest) (*SystemDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *System
+		localVarReturnValue  *SystemDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemDetailsApiService.GetSystem")

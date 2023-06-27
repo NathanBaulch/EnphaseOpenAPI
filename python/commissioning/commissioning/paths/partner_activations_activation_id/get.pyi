@@ -25,8 +25,8 @@ import frozendict  # noqa: F401
 
 from commissioning import schemas  # noqa: F401
 
+from commissioning.model.activation import Activation
 from commissioning.model.too_many_requests_error import TooManyRequestsError
-from commissioning.model.system import System
 from commissioning.model.system_expand_enum import SystemExpandEnum
 from commissioning.model.server_error import ServerError
 
@@ -82,7 +82,7 @@ request_path_activation_id = api_client.PathParameter(
     schema=ActivationIdSchema,
     required=True,
 )
-SchemaFor200ResponseBodyApplicationJson = System
+SchemaFor200ResponseBodyApplicationJson = Activation
 
 
 @dataclass

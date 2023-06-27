@@ -45,9 +45,9 @@ docs/models/SearchSystemsRequest.md
 docs/models/SearchSystemsResponse.md
 docs/models/StormGuardSettings.md
 docs/models/StreamSystemLiveDataResponse.md
-docs/models/System.md
 docs/models/SystemAttachmentTypeEnum.md
 docs/models/SystemConnectionTypeEnum.md
+docs/models/SystemDetails.md
 docs/models/SystemEnergyLifetimeProductionEnum.md
 docs/models/SystemPublicNameEnum.md
 docs/models/SystemSortByEnum.md
@@ -150,12 +150,12 @@ monitoring/model/storm_guard_settings.py
 monitoring/model/storm_guard_settings.pyi
 monitoring/model/stream_system_live_data_response.py
 monitoring/model/stream_system_live_data_response.pyi
-monitoring/model/system.py
-monitoring/model/system.pyi
 monitoring/model/system_attachment_type_enum.py
 monitoring/model/system_attachment_type_enum.pyi
 monitoring/model/system_connection_type_enum.py
 monitoring/model/system_connection_type_enum.pyi
+monitoring/model/system_details.py
+monitoring/model/system_details.pyi
 monitoring/model/system_energy_lifetime_production_enum.py
 monitoring/model/system_energy_lifetime_production_enum.pyi
 monitoring/model/system_public_name_enum.py

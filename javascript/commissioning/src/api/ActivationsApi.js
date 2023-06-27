@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import Activation from '../model/Activation';
 import DeleteActivationResponse from '../model/DeleteActivationResponse';
 import GetActivationOpsProductionModeResponse from '../model/GetActivationOpsProductionModeResponse';
 import GetPartnerActivationsResponse from '../model/GetPartnerActivationsResponse';
@@ -21,7 +22,6 @@ import RevokeActivationUserAccessResponse from '../model/RevokeActivationUserAcc
 import ServerError from '../model/ServerError';
 import SetActivationOpsProductionModeRequest from '../model/SetActivationOpsProductionModeRequest';
 import SetActivationOpsProductionModeResponse from '../model/SetActivationOpsProductionModeResponse';
-import System from '../model/System';
 import SystemExpandEnum from '../model/SystemExpandEnum';
 import SystemParams from '../model/SystemParams';
 import SystemStageEnum from '../model/SystemStageEnum';
@@ -53,7 +53,7 @@ export default class ActivationsApi {
      * Create new activation.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} [params] 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Activation} and HTTP response
      */
     createPartnerActivationWithHttpInfo(opts) {
       opts = opts || {};
@@ -71,7 +71,7 @@ export default class ActivationsApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = System;
+      let returnType = Activation;
       return this.apiClient.callApi(
         '/partner/activations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -84,7 +84,7 @@ export default class ActivationsApi {
      * Create new activation.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} opts.params 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Activation}
      */
     createPartnerActivation(opts) {
       return this.createPartnerActivationWithHttpInfo(opts)
@@ -196,7 +196,7 @@ export default class ActivationsApi {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemExpandEnum} [expand] Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Activation} and HTTP response
      */
     getPartnerActivationWithHttpInfo(activationId, opts) {
       opts = opts || {};
@@ -220,7 +220,7 @@ export default class ActivationsApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = System;
+      let returnType = Activation;
       return this.apiClient.callApi(
         '/partner/activations/{activation_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -234,7 +234,7 @@ export default class ActivationsApi {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemExpandEnum} opts.expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Activation}
      */
     getPartnerActivation(activationId, opts) {
       return this.getPartnerActivationWithHttpInfo(activationId, opts)
@@ -484,7 +484,7 @@ export default class ActivationsApi {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} [params] 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Activation} and HTTP response
      */
     updatePartnerActivationWithHttpInfo(activationId, opts) {
       opts = opts || {};
@@ -507,7 +507,7 @@ export default class ActivationsApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = System;
+      let returnType = Activation;
       return this.apiClient.callApi(
         '/partner/activations/{activation_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -521,7 +521,7 @@ export default class ActivationsApi {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} opts.params 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Activation}
      */
     updatePartnerActivation(activationId, opts) {
       return this.updatePartnerActivationWithHttpInfo(activationId, opts)

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## createPartnerActivation
 
-> System createPartnerActivation(opts)
+> Activation createPartnerActivation(opts)
 
 Create new activation
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ## getPartnerActivation
 
-> System getPartnerActivation(activationId, opts)
+> Activation getPartnerActivation(activationId, opts)
 
 Retrieves an Activation by ID
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ## updatePartnerActivation
 
-> System updatePartnerActivation(activationId, opts)
+> Activation updatePartnerActivation(activationId, opts)
 
 Update an activation.
 
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 

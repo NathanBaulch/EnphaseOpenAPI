@@ -30,7 +30,7 @@ type GetSystemsResponse struct {
 	// Named key of the list data. In this endpoint, it is systems.
 	Items *string `json:"items,omitempty"`
 	// List of systems.
-	Systems []System `json:"systems,omitempty"`
+	Systems []SystemDetails `json:"systems,omitempty"`
 }
 
 // NewGetSystemsResponse instantiates a new GetSystemsResponse object
@@ -211,9 +211,9 @@ func (o *GetSystemsResponse) SetItems(v string) {
 }
 
 // GetSystems returns the Systems field value if set, zero value otherwise.
-func (o *GetSystemsResponse) GetSystems() []System {
+func (o *GetSystemsResponse) GetSystems() []SystemDetails {
 	if o == nil || IsNil(o.Systems) {
-		var ret []System
+		var ret []SystemDetails
 		return ret
 	}
 	return o.Systems
@@ -221,7 +221,7 @@ func (o *GetSystemsResponse) GetSystems() []System {
 
 // GetSystemsOk returns a tuple with the Systems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetSystemsResponse) GetSystemsOk() ([]System, bool) {
+func (o *GetSystemsResponse) GetSystemsOk() ([]SystemDetails, bool) {
 	if o == nil || IsNil(o.Systems) {
 		return nil, false
 	}
@@ -237,8 +237,8 @@ func (o *GetSystemsResponse) HasSystems() bool {
 	return false
 }
 
-// SetSystems gets a reference to the given []System and assigns it to the Systems field.
-func (o *GetSystemsResponse) SetSystems(v []System) {
+// SetSystems gets a reference to the given []SystemDetails and assigns it to the Systems field.
+func (o *GetSystemsResponse) SetSystems(v []SystemDetails) {
 	o.Systems = v
 }
 

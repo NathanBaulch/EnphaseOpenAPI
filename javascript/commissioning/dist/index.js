@@ -3,6 +3,48 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Activation", {
+  enumerable: true,
+  get: function get() {
+    return _Activation["default"];
+  }
+});
+Object.defineProperty(exports, "ActivationEnchargeInner", {
+  enumerable: true,
+  get: function get() {
+    return _ActivationEnchargeInner["default"];
+  }
+});
+Object.defineProperty(exports, "ActivationEnpowerInner", {
+  enumerable: true,
+  get: function get() {
+    return _ActivationEnpowerInner["default"];
+  }
+});
+Object.defineProperty(exports, "ActivationHost", {
+  enumerable: true,
+  get: function get() {
+    return _ActivationHost["default"];
+  }
+});
+Object.defineProperty(exports, "ActivationHostCompany", {
+  enumerable: true,
+  get: function get() {
+    return _ActivationHostCompany["default"];
+  }
+});
+Object.defineProperty(exports, "ActivationOwner", {
+  enumerable: true,
+  get: function get() {
+    return _ActivationOwner["default"];
+  }
+});
+Object.defineProperty(exports, "ActivationOwnerCompany", {
+  enumerable: true,
+  get: function get() {
+    return _ActivationOwnerCompany["default"];
+  }
+});
 Object.defineProperty(exports, "ActivationsApi", {
   enumerable: true,
   get: function get() {
@@ -21,12 +63,6 @@ Object.defineProperty(exports, "ApiClient", {
     return _ApiClient["default"];
   }
 });
-Object.defineProperty(exports, "ArrayModulesInner", {
-  enumerable: true,
-  get: function get() {
-    return _ArrayModulesInner["default"];
-  }
-});
 Object.defineProperty(exports, "ArrayParams", {
   enumerable: true,
   get: function get() {
@@ -39,28 +75,10 @@ Object.defineProperty(exports, "ArrayParamsModulesInner", {
     return _ArrayParamsModulesInner["default"];
   }
 });
-Object.defineProperty(exports, "Arrays", {
-  enumerable: true,
-  get: function get() {
-    return _Arrays["default"];
-  }
-});
 Object.defineProperty(exports, "ArraysApi", {
   enumerable: true,
   get: function get() {
     return _ArraysApi["default"];
-  }
-});
-Object.defineProperty(exports, "ArraysInventoryDetailsInner", {
-  enumerable: true,
-  get: function get() {
-    return _ArraysInventoryDetailsInner["default"];
-  }
-});
-Object.defineProperty(exports, "ArraysLayersInner", {
-  enumerable: true,
-  get: function get() {
-    return _ArraysLayersInner["default"];
   }
 });
 Object.defineProperty(exports, "CompaniesApi", {
@@ -231,12 +249,6 @@ Object.defineProperty(exports, "MetersApi", {
     return _MetersApi["default"];
   }
 });
-Object.defineProperty(exports, "ModelArray", {
-  enumerable: true,
-  get: function get() {
-    return _ModelArray["default"];
-  }
-});
 Object.defineProperty(exports, "PvManufacturersApi", {
   enumerable: true,
   get: function get() {
@@ -291,10 +303,16 @@ Object.defineProperty(exports, "SetActivationOpsProductionModeResponse", {
     return _SetActivationOpsProductionModeResponse["default"];
   }
 });
-Object.defineProperty(exports, "System", {
+Object.defineProperty(exports, "SystemArray", {
   enumerable: true,
   get: function get() {
-    return _System["default"];
+    return _SystemArray["default"];
+  }
+});
+Object.defineProperty(exports, "SystemArrayModulesInner", {
+  enumerable: true,
+  get: function get() {
+    return _SystemArrayModulesInner["default"];
   }
 });
 Object.defineProperty(exports, "SystemArrayTypeEnum", {
@@ -303,22 +321,28 @@ Object.defineProperty(exports, "SystemArrayTypeEnum", {
     return _SystemArrayTypeEnum["default"];
   }
 });
+Object.defineProperty(exports, "SystemArrays", {
+  enumerable: true,
+  get: function get() {
+    return _SystemArrays["default"];
+  }
+});
+Object.defineProperty(exports, "SystemArraysInventoryDetailsInner", {
+  enumerable: true,
+  get: function get() {
+    return _SystemArraysInventoryDetailsInner["default"];
+  }
+});
+Object.defineProperty(exports, "SystemArraysLayersInner", {
+  enumerable: true,
+  get: function get() {
+    return _SystemArraysLayersInner["default"];
+  }
+});
 Object.defineProperty(exports, "SystemAttachmentTypeEnum", {
   enumerable: true,
   get: function get() {
     return _SystemAttachmentTypeEnum["default"];
-  }
-});
-Object.defineProperty(exports, "SystemEnchargeInner", {
-  enumerable: true,
-  get: function get() {
-    return _SystemEnchargeInner["default"];
-  }
-});
-Object.defineProperty(exports, "SystemEnpowerInner", {
-  enumerable: true,
-  get: function get() {
-    return _SystemEnpowerInner["default"];
   }
 });
 Object.defineProperty(exports, "SystemEstimate", {
@@ -333,18 +357,6 @@ Object.defineProperty(exports, "SystemExpandEnum", {
     return _SystemExpandEnum["default"];
   }
 });
-Object.defineProperty(exports, "SystemHost", {
-  enumerable: true,
-  get: function get() {
-    return _SystemHost["default"];
-  }
-});
-Object.defineProperty(exports, "SystemHostCompany", {
-  enumerable: true,
-  get: function get() {
-    return _SystemHostCompany["default"];
-  }
-});
 Object.defineProperty(exports, "SystemInternetConnectionEnum", {
   enumerable: true,
   get: function get() {
@@ -355,18 +367,6 @@ Object.defineProperty(exports, "SystemMeterStatusEnum", {
   enumerable: true,
   get: function get() {
     return _SystemMeterStatusEnum["default"];
-  }
-});
-Object.defineProperty(exports, "SystemOwner", {
-  enumerable: true,
-  get: function get() {
-    return _SystemOwner["default"];
-  }
-});
-Object.defineProperty(exports, "SystemOwnerCompany", {
-  enumerable: true,
-  get: function get() {
-    return _SystemOwnerCompany["default"];
   }
 });
 Object.defineProperty(exports, "SystemParams", {
@@ -544,13 +544,16 @@ Object.defineProperty(exports, "UsersApi", {
   }
 });
 var _ApiClient = _interopRequireDefault(require("./ApiClient"));
+var _Activation = _interopRequireDefault(require("./model/Activation"));
+var _ActivationEnchargeInner = _interopRequireDefault(require("./model/ActivationEnchargeInner"));
+var _ActivationEnpowerInner = _interopRequireDefault(require("./model/ActivationEnpowerInner"));
+var _ActivationHost = _interopRequireDefault(require("./model/ActivationHost"));
+var _ActivationHostCompany = _interopRequireDefault(require("./model/ActivationHostCompany"));
+var _ActivationOwner = _interopRequireDefault(require("./model/ActivationOwner"));
+var _ActivationOwnerCompany = _interopRequireDefault(require("./model/ActivationOwnerCompany"));
 var _Address = _interopRequireDefault(require("./model/Address"));
-var _ArrayModulesInner = _interopRequireDefault(require("./model/ArrayModulesInner"));
 var _ArrayParams = _interopRequireDefault(require("./model/ArrayParams"));
 var _ArrayParamsModulesInner = _interopRequireDefault(require("./model/ArrayParamsModulesInner"));
-var _Arrays = _interopRequireDefault(require("./model/Arrays"));
-var _ArraysInventoryDetailsInner = _interopRequireDefault(require("./model/ArraysInventoryDetailsInner"));
-var _ArraysLayersInner = _interopRequireDefault(require("./model/ArraysLayersInner"));
 var _Company = _interopRequireDefault(require("./model/Company"));
 var _CompanyRoleEnum = _interopRequireDefault(require("./model/CompanyRoleEnum"));
 var _CreateCompanyUserRequest = _interopRequireDefault(require("./model/CreateCompanyUserRequest"));
@@ -574,7 +577,6 @@ var _GetSelfCompanyBranchesResponse = _interopRequireDefault(require("./model/Ge
 var _GetSelfCompanyBranchesResponseBranchesInner = _interopRequireDefault(require("./model/GetSelfCompanyBranchesResponseBranchesInner"));
 var _GetSystemMeterResponse = _interopRequireDefault(require("./model/GetSystemMeterResponse"));
 var _GrantActivationUserAccessResponse = _interopRequireDefault(require("./model/GrantActivationUserAccessResponse"));
-var _ModelArray = _interopRequireDefault(require("./model/ModelArray"));
 var _RevokeActivationUserAccessResponse = _interopRequireDefault(require("./model/RevokeActivationUserAccessResponse"));
 var _SearchUsersResponse = _interopRequireDefault(require("./model/SearchUsersResponse"));
 var _ServerError = _interopRequireDefault(require("./model/ServerError"));
@@ -582,19 +584,17 @@ var _SetActivationMeterStatusRequest = _interopRequireDefault(require("./model/S
 var _SetActivationMeterStatusResponse = _interopRequireDefault(require("./model/SetActivationMeterStatusResponse"));
 var _SetActivationOpsProductionModeRequest = _interopRequireDefault(require("./model/SetActivationOpsProductionModeRequest"));
 var _SetActivationOpsProductionModeResponse = _interopRequireDefault(require("./model/SetActivationOpsProductionModeResponse"));
-var _System = _interopRequireDefault(require("./model/System"));
+var _SystemArray = _interopRequireDefault(require("./model/SystemArray"));
+var _SystemArrayModulesInner = _interopRequireDefault(require("./model/SystemArrayModulesInner"));
 var _SystemArrayTypeEnum = _interopRequireDefault(require("./model/SystemArrayTypeEnum"));
+var _SystemArrays = _interopRequireDefault(require("./model/SystemArrays"));
+var _SystemArraysInventoryDetailsInner = _interopRequireDefault(require("./model/SystemArraysInventoryDetailsInner"));
+var _SystemArraysLayersInner = _interopRequireDefault(require("./model/SystemArraysLayersInner"));
 var _SystemAttachmentTypeEnum = _interopRequireDefault(require("./model/SystemAttachmentTypeEnum"));
-var _SystemEnchargeInner = _interopRequireDefault(require("./model/SystemEnchargeInner"));
-var _SystemEnpowerInner = _interopRequireDefault(require("./model/SystemEnpowerInner"));
 var _SystemEstimate = _interopRequireDefault(require("./model/SystemEstimate"));
 var _SystemExpandEnum = _interopRequireDefault(require("./model/SystemExpandEnum"));
-var _SystemHost = _interopRequireDefault(require("./model/SystemHost"));
-var _SystemHostCompany = _interopRequireDefault(require("./model/SystemHostCompany"));
 var _SystemInternetConnectionEnum = _interopRequireDefault(require("./model/SystemInternetConnectionEnum"));
 var _SystemMeterStatusEnum = _interopRequireDefault(require("./model/SystemMeterStatusEnum"));
-var _SystemOwner = _interopRequireDefault(require("./model/SystemOwner"));
-var _SystemOwnerCompany = _interopRequireDefault(require("./model/SystemOwnerCompany"));
 var _SystemParams = _interopRequireDefault(require("./model/SystemParams"));
 var _SystemParamsAddress = _interopRequireDefault(require("./model/SystemParamsAddress"));
 var _SystemParamsEnchargeInner = _interopRequireDefault(require("./model/SystemParamsEnchargeInner"));

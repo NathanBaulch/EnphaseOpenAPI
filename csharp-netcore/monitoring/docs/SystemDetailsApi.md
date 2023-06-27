@@ -120,7 +120,7 @@ catch (ApiException e)
 
 <a id="getsystem"></a>
 # **GetSystem**
-> System GetSystem (int systemId)
+> SystemDetails GetSystem (int systemId)
 
 Retrieves a System by ID
 
@@ -155,7 +155,7 @@ namespace Example
             try
             {
                 // Retrieves a System by ID
-                System result = apiInstance.GetSystem(systemId);
+                SystemDetails result = apiInstance.GetSystem(systemId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -176,7 +176,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieves a System by ID
-    ApiResponse<System> response = apiInstance.GetSystemWithHttpInfo(systemId);
+    ApiResponse<SystemDetails> response = apiInstance.GetSystemWithHttpInfo(systemId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -197,7 +197,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**System**](System.md)
+[**SystemDetails**](SystemDetails.md)
 
 ### Authorization
 

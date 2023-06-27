@@ -11,10 +11,9 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from commissioning.model.activation import Activation
 from commissioning.model.address import Address
-from commissioning.model.array import Array
 from commissioning.model.array_params import ArrayParams
-from commissioning.model.arrays import Arrays
 from commissioning.model.company import Company
 from commissioning.model.company_role_enum import CompanyRoleEnum
 from commissioning.model.create_company_user_request import CreateCompanyUserRequest
@@ -51,8 +50,9 @@ from commissioning.model.set_activation_meter_status_request import SetActivatio
 from commissioning.model.set_activation_meter_status_response import SetActivationMeterStatusResponse
 from commissioning.model.set_activation_ops_production_mode_request import SetActivationOpsProductionModeRequest
 from commissioning.model.set_activation_ops_production_mode_response import SetActivationOpsProductionModeResponse
-from commissioning.model.system import System
+from commissioning.model.system_array import SystemArray
 from commissioning.model.system_array_type_enum import SystemArrayTypeEnum
+from commissioning.model.system_arrays import SystemArrays
 from commissioning.model.system_attachment_type_enum import SystemAttachmentTypeEnum
 from commissioning.model.system_estimate import SystemEstimate
 from commissioning.model.system_expand_enum import SystemExpandEnum

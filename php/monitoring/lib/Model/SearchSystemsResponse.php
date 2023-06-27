@@ -62,7 +62,7 @@ class SearchSystemsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'size' => 'int',
         'count' => 'int',
         'items' => 'string',
-        'systems' => '\EnphaseOpenAPI\Monitoring\Model\System[]'
+        'systems' => '\EnphaseOpenAPI\Monitoring\Model\SystemDetails[]'
     ];
 
     /**
@@ -471,7 +471,7 @@ class SearchSystemsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets systems
      *
-     * @return \EnphaseOpenAPI\Monitoring\Model\System[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemDetails[]|null
      */
     public function getSystems()
     {
@@ -481,7 +481,7 @@ class SearchSystemsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets systems
      *
-     * @param \EnphaseOpenAPI\Monitoring\Model\System[]|null $systems List of filtered systems.
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemDetails[]|null $systems List of filtered systems.
      *
      * @return self
      */

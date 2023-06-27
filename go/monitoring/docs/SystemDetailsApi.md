@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## GetSystem
 
-> System GetSystem(ctx, systemId).Execute()
+> SystemDetails GetSystem(ctx, systemId).Execute()
 
 Retrieves a System by ID
 
@@ -112,7 +112,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemDetailsApi.GetSystem``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSystem`: System
+    // response from `GetSystem`: SystemDetails
     fmt.Fprintf(os.Stdout, "Response from `SystemDetailsApi.GetSystem`: %v\n", resp)
 }
 ```
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**SystemDetails**](SystemDetails.md)
 
 ### Authorization
 

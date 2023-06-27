@@ -2167,7 +2167,7 @@ components:
           type: array
           description: List of systems.
           items:
-            $ref: '#/components/schemas/System'
+            $ref: '#/components/schemas/SystemDetails'
       example:
         total: 28
         current_page: 1
@@ -2262,7 +2262,7 @@ components:
           type: array
           description: List of filtered systems.
           items:
-            $ref: '#/components/schemas/System'
+            $ref: '#/components/schemas/SystemDetails'
       example:
         total: 28
         current_page: 1
@@ -2308,7 +2308,7 @@ components:
             last_energy_at: 1508174172
             operational_at: 1497445200
     GetSystemResponse:
-      $ref: '#/components/schemas/System'
+      $ref: '#/components/schemas/SystemDetails'
     GetSystemSummaryResponse:
       type: object
       properties:
@@ -3547,7 +3547,7 @@ components:
           last_report_at: 1445619615
           last_energy_at: 1445619033
           operational_at: 1357023600
-    System:
+    SystemDetails:
       type: object
       properties:
         system_id:

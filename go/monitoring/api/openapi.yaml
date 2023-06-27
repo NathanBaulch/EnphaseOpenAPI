@@ -4382,7 +4382,7 @@ components:
         systems:
           description: List of systems.
           items:
-            $ref: '#/components/schemas/System'
+            $ref: '#/components/schemas/SystemDetails'
           type: array
       type: object
     SearchSystemsRequest:
@@ -4472,11 +4472,11 @@ components:
         systems:
           description: List of filtered systems.
           items:
-            $ref: '#/components/schemas/System'
+            $ref: '#/components/schemas/SystemDetails'
           type: array
       type: object
     GetSystemResponse:
-      $ref: '#/components/schemas/System'
+      $ref: '#/components/schemas/SystemDetails'
     GetSystemSummaryResponse:
       example:
         system_id: 698910067
@@ -5529,7 +5529,7 @@ components:
         meta:
           $ref: '#/components/schemas/Meta'
       type: object
-    System:
+    SystemDetails:
       example:
         system_id: 72
         name: Enphase System
@@ -5569,7 +5569,7 @@ components:
           description: Timezone to which the system belongs.
           type: string
         address:
-          $ref: '#/components/schemas/System_address'
+          $ref: '#/components/schemas/SystemDetails_address'
         connection_type:
           $ref: '#/components/schemas/SystemConnectionTypeEnum'
         energy_lifetime:
@@ -6671,7 +6671,7 @@ components:
           description: Energy exported (in Watt-Hours) during that period.
           type: integer
       type: object
-    System_address:
+    SystemDetails_address:
       description: Address object for the system.
       properties:
         city:

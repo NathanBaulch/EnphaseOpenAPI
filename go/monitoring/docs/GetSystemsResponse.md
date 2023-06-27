@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int32** | Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100. | [optional] 
 **Count** | Pointer to **int32** | Total number of systems actually returned for the current page. | [optional] 
 **Items** | Pointer to **string** | Named key of the list data. In this endpoint, it is systems. | [optional] 
-**Systems** | Pointer to [**[]System**](System.md) | List of systems. | [optional] 
+**Systems** | Pointer to [**[]SystemDetails**](SystemDetails.md) | List of systems. | [optional] 
 
 ## Methods
 
@@ -157,20 +157,20 @@ HasItems returns a boolean if a field has been set.
 
 ### GetSystems
 
-`func (o *GetSystemsResponse) GetSystems() []System`
+`func (o *GetSystemsResponse) GetSystems() []SystemDetails`
 
 GetSystems returns the Systems field if non-nil, zero value otherwise.
 
 ### GetSystemsOk
 
-`func (o *GetSystemsResponse) GetSystemsOk() (*[]System, bool)`
+`func (o *GetSystemsResponse) GetSystemsOk() (*[]SystemDetails, bool)`
 
 GetSystemsOk returns a tuple with the Systems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSystems
 
-`func (o *GetSystemsResponse) SetSystems(v []System)`
+`func (o *GetSystemsResponse) SetSystems(v []SystemDetails)`
 
 SetSystems sets Systems field to given value.
 

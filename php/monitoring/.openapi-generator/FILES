@@ -93,10 +93,10 @@ docs/Model/StreamSystemLiveData552ResponseError.md
 docs/Model/StreamSystemLiveDataResponse.md
 docs/Model/StreamSystemLiveDataResponseData.md
 docs/Model/StreamSystemLiveDataResponseDataData.md
-docs/Model/System.md
-docs/Model/SystemAddress.md
 docs/Model/SystemAttachmentTypeEnum.md
 docs/Model/SystemConnectionTypeEnum.md
+docs/Model/SystemDetails.md
+docs/Model/SystemDetailsAddress.md
 docs/Model/SystemEnergyLifetimeProductionEnum.md
 docs/Model/SystemPublicNameEnum.md
 docs/Model/SystemSortByEnum.md
@@ -201,10 +201,10 @@ lib/Model/StreamSystemLiveData552ResponseError.php
 lib/Model/StreamSystemLiveDataResponse.php
 lib/Model/StreamSystemLiveDataResponseData.php
 lib/Model/StreamSystemLiveDataResponseDataData.php
-lib/Model/System.php
-lib/Model/SystemAddress.php
 lib/Model/SystemAttachmentTypeEnum.php
 lib/Model/SystemConnectionTypeEnum.php
+lib/Model/SystemDetails.php
+lib/Model/SystemDetailsAddress.php
 lib/Model/SystemEnergyLifetimeProductionEnum.php
 lib/Model/SystemPublicNameEnum.php
 lib/Model/SystemSortByEnum.php

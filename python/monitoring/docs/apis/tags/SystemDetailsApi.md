@@ -230,7 +230,7 @@ Type | Description  | Notes
 
 # **get_system**
 <a id="get_system"></a>
-> System get_system(system_id)
+> SystemDetails get_system(system_id)
 
 Retrieves a System by ID
 
@@ -243,7 +243,7 @@ Retrieves a system by ID.
 ```python
 import monitoring
 from monitoring.apis.tags import system_details_api
-from monitoring.model.system import System
+from monitoring.model.system_details import SystemDetails
 from monitoring.model.not_implemented_error import NotImplementedError
 from monitoring.model.internal_server_error import InternalServerError
 from monitoring.model.client_error import ClientError
@@ -339,7 +339,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**System**](../../models/System.md) |  | 
+[**SystemDetails**](../../models/SystemDetails.md) |  | 
 
 
 #### get_system.ApiResponseFor401

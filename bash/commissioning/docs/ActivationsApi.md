@@ -37,7 +37,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**Activation**](Activation.md)
 
 ### Authorization
 

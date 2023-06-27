@@ -14,10 +14,10 @@
 
 import ApiClient from "../ApiClient";
 import ArrayParams from '../model/ArrayParams';
-import Arrays from '../model/Arrays';
 import DeleteSystemArrayResponse from '../model/DeleteSystemArrayResponse';
-import ModelArray from '../model/ModelArray';
 import ServerError from '../model/ServerError';
+import SystemArray from '../model/SystemArray';
+import SystemArrays from '../model/SystemArrays';
 import TooManyRequestsError from '../model/TooManyRequestsError';
 import UnprocessableEntityError from '../model/UnprocessableEntityError';
 import UpdateSystemArraysRequest from '../model/UpdateSystemArraysRequest';
@@ -102,7 +102,7 @@ export default class ArraysApi {
      * Fetch array details by ID.
      * @param {Number} systemId System ID.
      * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ModelArray} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SystemArray} and HTTP response
      */
     getSystemArrayWithHttpInfo(systemId, arrayId) {
       let postBody = null;
@@ -129,7 +129,7 @@ export default class ArraysApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ModelArray;
+      let returnType = SystemArray;
       return this.apiClient.callApi(
         '/partner/systems/{system_id}/arrays/{array_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -142,7 +142,7 @@ export default class ArraysApi {
      * Fetch array details by ID.
      * @param {Number} systemId System ID.
      * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ModelArray}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SystemArray}
      */
     getSystemArray(systemId, arrayId) {
       return this.getSystemArrayWithHttpInfo(systemId, arrayId)
@@ -156,7 +156,7 @@ export default class ArraysApi {
      * Fetch particular system Array details
      * Fetch particular system Array details.
      * @param {Number} systemId System ID.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Arrays} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SystemArrays} and HTTP response
      */
     getSystemArraysWithHttpInfo(systemId) {
       let postBody = null;
@@ -178,7 +178,7 @@ export default class ArraysApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Arrays;
+      let returnType = SystemArrays;
       return this.apiClient.callApi(
         '/partner/systems/{system_id}/arrays', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -190,7 +190,7 @@ export default class ArraysApi {
      * Fetch particular system Array details
      * Fetch particular system Array details.
      * @param {Number} systemId System ID.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Arrays}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SystemArrays}
      */
     getSystemArrays(systemId) {
       return this.getSystemArraysWithHttpInfo(systemId)
@@ -207,7 +207,7 @@ export default class ArraysApi {
      * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
      * @param {Object} opts Optional parameters
      * @param {module:model/ArrayParams} [params] 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ModelArray} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SystemArray} and HTTP response
      */
     updateSystemArrayWithHttpInfo(systemId, arrayId, opts) {
       opts = opts || {};
@@ -235,7 +235,7 @@ export default class ArraysApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = ['application/text'];
       let accepts = ['application/json'];
-      let returnType = ModelArray;
+      let returnType = SystemArray;
       return this.apiClient.callApi(
         '/partner/systems/{system_id}/arrays/{array_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -250,7 +250,7 @@ export default class ArraysApi {
      * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
      * @param {Object} opts Optional parameters
      * @param {module:model/ArrayParams} opts.params 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ModelArray}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SystemArray}
      */
     updateSystemArray(systemId, arrayId, opts) {
       return this.updateSystemArrayWithHttpInfo(systemId, arrayId, opts)
@@ -266,7 +266,7 @@ export default class ArraysApi {
      * @param {Number} systemId System ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateSystemArraysRequest} [params] 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Arrays} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SystemArrays} and HTTP response
      */
     updateSystemArraysWithHttpInfo(systemId, opts) {
       opts = opts || {};
@@ -289,7 +289,7 @@ export default class ArraysApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = ['application/text'];
       let accepts = ['application/json'];
-      let returnType = Arrays;
+      let returnType = SystemArrays;
       return this.apiClient.callApi(
         '/partner/systems/{system_id}/arrays', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -303,7 +303,7 @@ export default class ArraysApi {
      * @param {Number} systemId System ID.
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateSystemArraysRequest} opts.params 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Arrays}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SystemArrays}
      */
     updateSystemArrays(systemId, opts) {
       return this.updateSystemArraysWithHttpInfo(systemId, opts)

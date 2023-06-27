@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from monitoring import schemas  # noqa: F401
 
-from monitoring.model.system import System
+from monitoring.model.system_details import SystemDetails
 from monitoring.model.not_implemented_error import NotImplementedError
 from monitoring.model.internal_server_error import InternalServerError
 from monitoring.model.client_error import ClientError
@@ -65,7 +65,7 @@ _auth = [
     'OAuth2',
     'ApiKey',
 ]
-SchemaFor200ResponseBodyApplicationJson = System
+SchemaFor200ResponseBodyApplicationJson = SystemDetails
 
 
 @dataclass

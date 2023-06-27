@@ -50,9 +50,9 @@ from monitoring.model.search_systems_request import SearchSystemsRequest
 from monitoring.model.search_systems_response import SearchSystemsResponse
 from monitoring.model.storm_guard_settings import StormGuardSettings
 from monitoring.model.stream_system_live_data_response import StreamSystemLiveDataResponse
-from monitoring.model.system import System
 from monitoring.model.system_attachment_type_enum import SystemAttachmentTypeEnum
 from monitoring.model.system_connection_type_enum import SystemConnectionTypeEnum
+from monitoring.model.system_details import SystemDetails
 from monitoring.model.system_energy_lifetime_production_enum import SystemEnergyLifetimeProductionEnum
 from monitoring.model.system_public_name_enum import SystemPublicNameEnum
 from monitoring.model.system_sort_by_enum import SystemSortByEnum

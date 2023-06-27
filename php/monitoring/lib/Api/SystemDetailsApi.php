@@ -590,7 +590,7 @@ class SystemDetailsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Monitoring\Model\System|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemDetails|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystem($system_id, string $contentType = self::contentTypes['getSystem'][0])
     {
@@ -608,7 +608,7 @@ class SystemDetailsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Monitoring\Model\System|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\SystemDetails|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystem'][0])
     {
@@ -651,17 +651,17 @@ class SystemDetailsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Monitoring\Model\System' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\SystemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Monitoring\Model\System' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\SystemDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\System', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\SystemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -772,7 +772,7 @@ class SystemDetailsApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Monitoring\Model\System';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\SystemDetails';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -793,7 +793,7 @@ class SystemDetailsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Monitoring\Model\System',
+                        '\EnphaseOpenAPI\Monitoring\Model\SystemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -893,7 +893,7 @@ class SystemDetailsApi
      */
     public function getSystemAsyncWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystem'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Monitoring\Model\System';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\SystemDetails';
         $request = $this->getSystemRequest($system_id, $contentType);
 
         return $this->client

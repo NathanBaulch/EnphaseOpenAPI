@@ -216,7 +216,7 @@ type ApiGetSystemArrayRequest struct {
 	arrayId int32
 }
 
-func (r ApiGetSystemArrayRequest) Execute() (*Array, *http.Response, error) {
+func (r ApiGetSystemArrayRequest) Execute() (*SystemArray, *http.Response, error) {
 	return r.ApiService.GetSystemArrayExecute(r)
 }
 
@@ -240,13 +240,13 @@ func (a *ArraysApiService) GetSystemArray(ctx context.Context, systemId int32, a
 }
 
 // Execute executes the request
-//  @return Array
-func (a *ArraysApiService) GetSystemArrayExecute(r ApiGetSystemArrayRequest) (*Array, *http.Response, error) {
+//  @return SystemArray
+func (a *ArraysApiService) GetSystemArrayExecute(r ApiGetSystemArrayRequest) (*SystemArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Array
+		localVarReturnValue  *SystemArray
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArraysApiService.GetSystemArray")
@@ -401,7 +401,7 @@ type ApiGetSystemArraysRequest struct {
 	systemId int32
 }
 
-func (r ApiGetSystemArraysRequest) Execute() (*Arrays, *http.Response, error) {
+func (r ApiGetSystemArraysRequest) Execute() (*SystemArrays, *http.Response, error) {
 	return r.ApiService.GetSystemArraysExecute(r)
 }
 
@@ -423,13 +423,13 @@ func (a *ArraysApiService) GetSystemArrays(ctx context.Context, systemId int32) 
 }
 
 // Execute executes the request
-//  @return Arrays
-func (a *ArraysApiService) GetSystemArraysExecute(r ApiGetSystemArraysRequest) (*Arrays, *http.Response, error) {
+//  @return SystemArrays
+func (a *ArraysApiService) GetSystemArraysExecute(r ApiGetSystemArraysRequest) (*SystemArrays, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Arrays
+		localVarReturnValue  *SystemArrays
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArraysApiService.GetSystemArrays")
@@ -579,7 +579,7 @@ func (r ApiUpdateSystemArrayRequest) Params(params ArrayParams) ApiUpdateSystemA
 	return r
 }
 
-func (r ApiUpdateSystemArrayRequest) Execute() (*Array, *http.Response, error) {
+func (r ApiUpdateSystemArrayRequest) Execute() (*SystemArray, *http.Response, error) {
 	return r.ApiService.UpdateSystemArrayExecute(r)
 }
 
@@ -603,13 +603,13 @@ func (a *ArraysApiService) UpdateSystemArray(ctx context.Context, systemId int32
 }
 
 // Execute executes the request
-//  @return Array
-func (a *ArraysApiService) UpdateSystemArrayExecute(r ApiUpdateSystemArrayRequest) (*Array, *http.Response, error) {
+//  @return SystemArray
+func (a *ArraysApiService) UpdateSystemArrayExecute(r ApiUpdateSystemArrayRequest) (*SystemArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Array
+		localVarReturnValue  *SystemArray
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArraysApiService.UpdateSystemArray")
@@ -772,7 +772,7 @@ func (r ApiUpdateSystemArraysRequest) Params(params UpdateSystemArraysRequest) A
 	return r
 }
 
-func (r ApiUpdateSystemArraysRequest) Execute() (*Arrays, *http.Response, error) {
+func (r ApiUpdateSystemArraysRequest) Execute() (*SystemArrays, *http.Response, error) {
 	return r.ApiService.UpdateSystemArraysExecute(r)
 }
 
@@ -794,13 +794,13 @@ func (a *ArraysApiService) UpdateSystemArrays(ctx context.Context, systemId int3
 }
 
 // Execute executes the request
-//  @return Arrays
-func (a *ArraysApiService) UpdateSystemArraysExecute(r ApiUpdateSystemArraysRequest) (*Arrays, *http.Response, error) {
+//  @return SystemArrays
+func (a *ArraysApiService) UpdateSystemArraysExecute(r ApiUpdateSystemArraysRequest) (*SystemArrays, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Arrays
+		localVarReturnValue  *SystemArrays
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArraysApiService.UpdateSystemArrays")

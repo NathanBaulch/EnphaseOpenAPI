@@ -118,7 +118,7 @@ catch (ApiException e)
 
 <a id="getsystemarray"></a>
 # **GetSystemArray**
-> Array GetSystemArray (int systemId, int arrayId)
+> SystemArray GetSystemArray (int systemId, int arrayId)
 
 Fetch array details by ID
 
@@ -154,7 +154,7 @@ namespace Example
             try
             {
                 // Fetch array details by ID
-                Array result = apiInstance.GetSystemArray(systemId, arrayId);
+                SystemArray result = apiInstance.GetSystemArray(systemId, arrayId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -175,7 +175,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Fetch array details by ID
-    ApiResponse<Array> response = apiInstance.GetSystemArrayWithHttpInfo(systemId, arrayId);
+    ApiResponse<SystemArray> response = apiInstance.GetSystemArrayWithHttpInfo(systemId, arrayId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -197,7 +197,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Array**](Array.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ catch (ApiException e)
 
 <a id="getsystemarrays"></a>
 # **GetSystemArrays**
-> Arrays GetSystemArrays (int systemId)
+> SystemArrays GetSystemArrays (int systemId)
 
 Fetch particular system Array details
 
@@ -259,7 +259,7 @@ namespace Example
             try
             {
                 // Fetch particular system Array details
-                Arrays result = apiInstance.GetSystemArrays(systemId);
+                SystemArrays result = apiInstance.GetSystemArrays(systemId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -280,7 +280,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Fetch particular system Array details
-    ApiResponse<Arrays> response = apiInstance.GetSystemArraysWithHttpInfo(systemId);
+    ApiResponse<SystemArrays> response = apiInstance.GetSystemArraysWithHttpInfo(systemId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -301,7 +301,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ catch (ApiException e)
 
 <a id="updatesystemarray"></a>
 # **UpdateSystemArray**
-> Array UpdateSystemArray (int systemId, int arrayId, ArrayParams _params = null)
+> SystemArray UpdateSystemArray (int systemId, int arrayId, ArrayParams _params = null)
 
 Update particular system array details
 
@@ -364,7 +364,7 @@ namespace Example
             try
             {
                 // Update particular system array details
-                Array result = apiInstance.UpdateSystemArray(systemId, arrayId, _params);
+                SystemArray result = apiInstance.UpdateSystemArray(systemId, arrayId, _params);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -385,7 +385,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update particular system array details
-    ApiResponse<Array> response = apiInstance.UpdateSystemArrayWithHttpInfo(systemId, arrayId, _params);
+    ApiResponse<SystemArray> response = apiInstance.UpdateSystemArrayWithHttpInfo(systemId, arrayId, _params);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -408,7 +408,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Array**](Array.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -435,7 +435,7 @@ catch (ApiException e)
 
 <a id="updatesystemarrays"></a>
 # **UpdateSystemArrays**
-> Arrays UpdateSystemArrays (int systemId, UpdateSystemArraysRequest _params = null)
+> SystemArrays UpdateSystemArrays (int systemId, UpdateSystemArraysRequest _params = null)
 
 Update all arrays for system
 
@@ -471,7 +471,7 @@ namespace Example
             try
             {
                 // Update all arrays for system
-                Arrays result = apiInstance.UpdateSystemArrays(systemId, _params);
+                SystemArrays result = apiInstance.UpdateSystemArrays(systemId, _params);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -492,7 +492,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update all arrays for system
-    ApiResponse<Arrays> response = apiInstance.UpdateSystemArraysWithHttpInfo(systemId, _params);
+    ApiResponse<SystemArrays> response = apiInstance.UpdateSystemArraysWithHttpInfo(systemId, _params);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -514,7 +514,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 

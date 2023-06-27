@@ -595,7 +595,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function getSystemArray($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
@@ -614,7 +614,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\SystemArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemArrayWithHttpInfo($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
@@ -657,17 +657,17 @@ class ArraysApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Commissioning\Model\ModelArray' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\SystemArray' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Commissioning\Model\ModelArray' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\SystemArray' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ModelArray', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\SystemArray', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -763,7 +763,7 @@ class ArraysApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Commissioning\Model\ModelArray';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArray';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -784,7 +784,7 @@ class ArraysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Commissioning\Model\ModelArray',
+                        '\EnphaseOpenAPI\Commissioning\Model\SystemArray',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -878,7 +878,7 @@ class ArraysApi
      */
     public function getSystemArrayAsyncWithHttpInfo($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Commissioning\Model\ModelArray';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArray';
         $request = $this->getSystemArrayRequest($system_id, $array_id, $contentType);
 
         return $this->client
@@ -1044,7 +1044,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Commissioning\Model\Arrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemArrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function getSystemArrays($system_id, string $contentType = self::contentTypes['getSystemArrays'][0])
     {
@@ -1062,7 +1062,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Commissioning\Model\Arrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\SystemArrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemArraysWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemArrays'][0])
     {
@@ -1105,17 +1105,17 @@ class ArraysApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Commissioning\Model\Arrays' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\SystemArrays' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Commissioning\Model\Arrays' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\SystemArrays' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\Arrays', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\SystemArrays', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1196,7 +1196,7 @@ class ArraysApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Commissioning\Model\Arrays';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArrays';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1217,7 +1217,7 @@ class ArraysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Commissioning\Model\Arrays',
+                        '\EnphaseOpenAPI\Commissioning\Model\SystemArrays',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1301,7 +1301,7 @@ class ArraysApi
      */
     public function getSystemArraysAsyncWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemArrays'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Commissioning\Model\Arrays';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArrays';
         $request = $this->getSystemArraysRequest($system_id, $contentType);
 
         return $this->client
@@ -1453,7 +1453,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function updateSystemArray($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
@@ -1473,7 +1473,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\SystemArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSystemArrayWithHttpInfo($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
@@ -1516,17 +1516,17 @@ class ArraysApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Commissioning\Model\ModelArray' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\SystemArray' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Commissioning\Model\ModelArray' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\SystemArray' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ModelArray', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\SystemArray', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1622,7 +1622,7 @@ class ArraysApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Commissioning\Model\ModelArray';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArray';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1643,7 +1643,7 @@ class ArraysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Commissioning\Model\ModelArray',
+                        '\EnphaseOpenAPI\Commissioning\Model\SystemArray',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1739,7 +1739,7 @@ class ArraysApi
      */
     public function updateSystemArrayAsyncWithHttpInfo($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Commissioning\Model\ModelArray';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArray';
         $request = $this->updateSystemArrayRequest($system_id, $array_id, $params, $contentType);
 
         return $this->client
@@ -1915,7 +1915,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Commissioning\Model\Arrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\SystemArrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function updateSystemArrays($system_id, $params = null, string $contentType = self::contentTypes['updateSystemArrays'][0])
     {
@@ -1934,7 +1934,7 @@ class ArraysApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Commissioning\Model\Arrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\SystemArrays|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSystemArraysWithHttpInfo($system_id, $params = null, string $contentType = self::contentTypes['updateSystemArrays'][0])
     {
@@ -1977,17 +1977,17 @@ class ArraysApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Commissioning\Model\Arrays' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\SystemArrays' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Commissioning\Model\Arrays' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\SystemArrays' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\Arrays', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\SystemArrays', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2083,7 +2083,7 @@ class ArraysApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Commissioning\Model\Arrays';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArrays';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2104,7 +2104,7 @@ class ArraysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Commissioning\Model\Arrays',
+                        '\EnphaseOpenAPI\Commissioning\Model\SystemArrays',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2198,7 +2198,7 @@ class ArraysApi
      */
     public function updateSystemArraysAsyncWithHttpInfo($system_id, $params = null, string $contentType = self::contentTypes['updateSystemArrays'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Commissioning\Model\Arrays';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\SystemArrays';
         $request = $this->updateSystemArraysRequest($system_id, $params, $contentType);
 
         return $this->client

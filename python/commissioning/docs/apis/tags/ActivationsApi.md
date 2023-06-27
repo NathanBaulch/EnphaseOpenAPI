@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 # **create_partner_activation**
 <a id="create_partner_activation"></a>
-> System create_partner_activation()
+> Activation create_partner_activation()
 
 Create new activation
 
@@ -30,10 +30,10 @@ Create new activation.
 ```python
 import commissioning
 from commissioning.apis.tags import activations_api
+from commissioning.model.activation import Activation
 from commissioning.model.too_many_requests_error import TooManyRequestsError
 from commissioning.model.unprocessable_entity_error import UnprocessableEntityError
 from commissioning.model.system_params import SystemParams
-from commissioning.model.system import System
 from commissioning.model.server_error import ServerError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v4
@@ -185,7 +185,7 @@ headers | Unset | headers were not defined |
 # SchemaFor201ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**System**](../../models/System.md) |  | 
+[**Activation**](../../models/Activation.md) |  | 
 
 
 #### create_partner_activation.ApiResponseFor401
@@ -649,7 +649,7 @@ Type | Description  | Notes
 
 # **get_partner_activation**
 <a id="get_partner_activation"></a>
-> System get_partner_activation(activation_id)
+> Activation get_partner_activation(activation_id)
 
 Retrieves an Activation by ID
 
@@ -662,8 +662,8 @@ By default, the body of the response looks like the example below. However, you 
 ```python
 import commissioning
 from commissioning.apis.tags import activations_api
+from commissioning.model.activation import Activation
 from commissioning.model.too_many_requests_error import TooManyRequestsError
-from commissioning.model.system import System
 from commissioning.model.system_expand_enum import SystemExpandEnum
 from commissioning.model.server_error import ServerError
 from pprint import pprint
@@ -788,7 +788,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**System**](../../models/System.md) |  | 
+[**Activation**](../../models/Activation.md) |  | 
 
 
 #### get_partner_activation.ApiResponseFor401
@@ -1745,7 +1745,7 @@ Type | Description  | Notes
 
 # **update_partner_activation**
 <a id="update_partner_activation"></a>
-> System update_partner_activation(activation_id)
+> Activation update_partner_activation(activation_id)
 
 Update an activation.
 
@@ -1758,10 +1758,10 @@ Update an activation.
 ```python
 import commissioning
 from commissioning.apis.tags import activations_api
+from commissioning.model.activation import Activation
 from commissioning.model.too_many_requests_error import TooManyRequestsError
 from commissioning.model.unprocessable_entity_error import UnprocessableEntityError
 from commissioning.model.system_params import SystemParams
-from commissioning.model.system import System
 from commissioning.model.server_error import ServerError
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v4
@@ -1945,7 +1945,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**System**](../../models/System.md) |  | 
+[**Activation**](../../models/Activation.md) |  | 
 
 
 #### update_partner_activation.ApiResponseFor401

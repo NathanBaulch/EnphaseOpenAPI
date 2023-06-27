@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## GetSystemArray
 
-> Array GetSystemArray(ctx, systemId, arrayId).Execute()
+> SystemArray GetSystemArray(ctx, systemId, arrayId).Execute()
 
 Fetch array details by ID
 
@@ -116,7 +116,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ArraysApi.GetSystemArray``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSystemArray`: Array
+    // response from `GetSystemArray`: SystemArray
     fmt.Fprintf(os.Stdout, "Response from `ArraysApi.GetSystemArray`: %v\n", resp)
 }
 ```
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array**](Array.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## GetSystemArrays
 
-> Arrays GetSystemArrays(ctx, systemId).Execute()
+> SystemArrays GetSystemArrays(ctx, systemId).Execute()
 
 Fetch particular system Array details
 
@@ -188,7 +188,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ArraysApi.GetSystemArrays``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSystemArrays`: Arrays
+    // response from `GetSystemArrays`: SystemArrays
     fmt.Fprintf(os.Stdout, "Response from `ArraysApi.GetSystemArrays`: %v\n", resp)
 }
 ```
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSystemArray
 
-> Array UpdateSystemArray(ctx, systemId, arrayId).Params(params).Execute()
+> SystemArray UpdateSystemArray(ctx, systemId, arrayId).Params(params).Execute()
 
 Update particular system array details
 
@@ -260,7 +260,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ArraysApi.UpdateSystemArray``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateSystemArray`: Array
+    // response from `UpdateSystemArray`: SystemArray
     fmt.Fprintf(os.Stdout, "Response from `ArraysApi.UpdateSystemArray`: %v\n", resp)
 }
 ```
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array**](Array.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSystemArrays
 
-> Arrays UpdateSystemArrays(ctx, systemId).Params(params).Execute()
+> SystemArrays UpdateSystemArrays(ctx, systemId).Params(params).Execute()
 
 Update all arrays for system
 
@@ -334,7 +334,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ArraysApi.UpdateSystemArrays``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateSystemArrays`: Arrays
+    // response from `UpdateSystemArrays`: SystemArrays
     fmt.Fprintf(os.Stdout, "Response from `ArraysApi.UpdateSystemArrays`: %v\n", resp)
 }
 ```
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 

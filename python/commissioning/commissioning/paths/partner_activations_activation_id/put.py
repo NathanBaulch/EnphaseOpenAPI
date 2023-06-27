@@ -25,10 +25,10 @@ import frozendict  # noqa: F401
 
 from commissioning import schemas  # noqa: F401
 
+from commissioning.model.activation import Activation
 from commissioning.model.too_many_requests_error import TooManyRequestsError
 from commissioning.model.unprocessable_entity_error import UnprocessableEntityError
 from commissioning.model.system_params import SystemParams
-from commissioning.model.system import System
 from commissioning.model.server_error import ServerError
 
 from . import path
@@ -73,7 +73,7 @@ _auth = [
     'OAuth2',
     'ApiKey',
 ]
-SchemaFor200ResponseBodyApplicationJson = System
+SchemaFor200ResponseBodyApplicationJson = Activation
 
 
 @dataclass

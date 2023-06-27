@@ -98,10 +98,10 @@ import StreamSystemLiveData552ResponseError from './model/StreamSystemLiveData55
 import StreamSystemLiveDataResponse from './model/StreamSystemLiveDataResponse';
 import StreamSystemLiveDataResponseData from './model/StreamSystemLiveDataResponseData';
 import StreamSystemLiveDataResponseDataData from './model/StreamSystemLiveDataResponseDataData';
-import System from './model/System';
-import SystemAddress from './model/SystemAddress';
 import SystemAttachmentTypeEnum from './model/SystemAttachmentTypeEnum';
 import SystemConnectionTypeEnum from './model/SystemConnectionTypeEnum';
+import SystemDetails from './model/SystemDetails';
+import SystemDetailsAddress from './model/SystemDetailsAddress';
 import SystemEnergyLifetimeProductionEnum from './model/SystemEnergyLifetimeProductionEnum';
 import SystemPublicNameEnum from './model/SystemPublicNameEnum';
 import SystemSortByEnum from './model/SystemSortByEnum';
@@ -668,18 +668,6 @@ export {
     StreamSystemLiveDataResponseDataData,
 
     /**
-     * The System model constructor.
-     * @property {module:model/System}
-     */
-    System,
-
-    /**
-     * The SystemAddress model constructor.
-     * @property {module:model/SystemAddress}
-     */
-    SystemAddress,
-
-    /**
      * The SystemAttachmentTypeEnum model constructor.
      * @property {module:model/SystemAttachmentTypeEnum}
      */
@@ -690,6 +678,18 @@ export {
      * @property {module:model/SystemConnectionTypeEnum}
      */
     SystemConnectionTypeEnum,
+
+    /**
+     * The SystemDetails model constructor.
+     * @property {module:model/SystemDetails}
+     */
+    SystemDetails,
+
+    /**
+     * The SystemDetailsAddress model constructor.
+     * @property {module:model/SystemDetailsAddress}
+     */
+    SystemDetailsAddress,
 
     /**
      * The SystemEnergyLifetimeProductionEnum model constructor.

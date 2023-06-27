@@ -34,7 +34,7 @@ func (r ApiCreatePartnerActivationRequest) Params(params SystemParams) ApiCreate
 	return r
 }
 
-func (r ApiCreatePartnerActivationRequest) Execute() (*System, *http.Response, error) {
+func (r ApiCreatePartnerActivationRequest) Execute() (*Activation, *http.Response, error) {
 	return r.ApiService.CreatePartnerActivationExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *ActivationsApiService) CreatePartnerActivation(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return System
-func (a *ActivationsApiService) CreatePartnerActivationExecute(r ApiCreatePartnerActivationRequest) (*System, *http.Response, error) {
+//  @return Activation
+func (a *ActivationsApiService) CreatePartnerActivationExecute(r ApiCreatePartnerActivationRequest) (*Activation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *System
+		localVarReturnValue  *Activation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivationsApiService.CreatePartnerActivation")
@@ -575,7 +575,7 @@ func (r ApiGetPartnerActivationRequest) Expand(expand SystemExpandEnum) ApiGetPa
 	return r
 }
 
-func (r ApiGetPartnerActivationRequest) Execute() (*System, *http.Response, error) {
+func (r ApiGetPartnerActivationRequest) Execute() (*Activation, *http.Response, error) {
 	return r.ApiService.GetPartnerActivationExecute(r)
 }
 
@@ -597,13 +597,13 @@ func (a *ActivationsApiService) GetPartnerActivation(ctx context.Context, activa
 }
 
 // Execute executes the request
-//  @return System
-func (a *ActivationsApiService) GetPartnerActivationExecute(r ApiGetPartnerActivationRequest) (*System, *http.Response, error) {
+//  @return Activation
+func (a *ActivationsApiService) GetPartnerActivationExecute(r ApiGetPartnerActivationRequest) (*Activation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *System
+		localVarReturnValue  *Activation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivationsApiService.GetPartnerActivation")
@@ -1574,7 +1574,7 @@ func (r ApiUpdatePartnerActivationRequest) Params(params SystemParams) ApiUpdate
 	return r
 }
 
-func (r ApiUpdatePartnerActivationRequest) Execute() (*System, *http.Response, error) {
+func (r ApiUpdatePartnerActivationRequest) Execute() (*Activation, *http.Response, error) {
 	return r.ApiService.UpdatePartnerActivationExecute(r)
 }
 
@@ -1596,13 +1596,13 @@ func (a *ActivationsApiService) UpdatePartnerActivation(ctx context.Context, act
 }
 
 // Execute executes the request
-//  @return System
-func (a *ActivationsApiService) UpdatePartnerActivationExecute(r ApiUpdatePartnerActivationRequest) (*System, *http.Response, error) {
+//  @return Activation
+func (a *ActivationsApiService) UpdatePartnerActivationExecute(r ApiUpdatePartnerActivationRequest) (*Activation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *System
+		localVarReturnValue  *Activation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivationsApiService.UpdatePartnerActivation")

@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ## getSystemArray
 
-> ModelArray getSystemArray(systemId, arrayId)
+> SystemArray getSystemArray(systemId, arrayId)
 
 Fetch array details by ID
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelArray**](ModelArray.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## getSystemArrays
 
-> Arrays getSystemArrays(systemId)
+> SystemArrays getSystemArrays(systemId)
 
 Fetch particular system Array details
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## updateSystemArray
 
-> ModelArray updateSystemArray(systemId, arrayId, opts)
+> SystemArray updateSystemArray(systemId, arrayId, opts)
 
 Update particular system array details
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelArray**](ModelArray.md)
+[**SystemArray**](SystemArray.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ## updateSystemArrays
 
-> Arrays updateSystemArrays(systemId, opts)
+> SystemArrays updateSystemArrays(systemId, opts)
 
 Update all arrays for system
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Arrays**](Arrays.md)
+[**SystemArrays**](SystemArrays.md)
 
 ### Authorization
 

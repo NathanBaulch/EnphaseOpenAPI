@@ -13,13 +13,16 @@
 
 
 import ApiClient from './ApiClient';
+import Activation from './model/Activation';
+import ActivationEnchargeInner from './model/ActivationEnchargeInner';
+import ActivationEnpowerInner from './model/ActivationEnpowerInner';
+import ActivationHost from './model/ActivationHost';
+import ActivationHostCompany from './model/ActivationHostCompany';
+import ActivationOwner from './model/ActivationOwner';
+import ActivationOwnerCompany from './model/ActivationOwnerCompany';
 import Address from './model/Address';
-import ArrayModulesInner from './model/ArrayModulesInner';
 import ArrayParams from './model/ArrayParams';
 import ArrayParamsModulesInner from './model/ArrayParamsModulesInner';
-import Arrays from './model/Arrays';
-import ArraysInventoryDetailsInner from './model/ArraysInventoryDetailsInner';
-import ArraysLayersInner from './model/ArraysLayersInner';
 import Company from './model/Company';
 import CompanyRoleEnum from './model/CompanyRoleEnum';
 import CreateCompanyUserRequest from './model/CreateCompanyUserRequest';
@@ -43,7 +46,6 @@ import GetSelfCompanyBranchesResponse from './model/GetSelfCompanyBranchesRespon
 import GetSelfCompanyBranchesResponseBranchesInner from './model/GetSelfCompanyBranchesResponseBranchesInner';
 import GetSystemMeterResponse from './model/GetSystemMeterResponse';
 import GrantActivationUserAccessResponse from './model/GrantActivationUserAccessResponse';
-import ModelArray from './model/ModelArray';
 import RevokeActivationUserAccessResponse from './model/RevokeActivationUserAccessResponse';
 import SearchUsersResponse from './model/SearchUsersResponse';
 import ServerError from './model/ServerError';
@@ -51,19 +53,17 @@ import SetActivationMeterStatusRequest from './model/SetActivationMeterStatusReq
 import SetActivationMeterStatusResponse from './model/SetActivationMeterStatusResponse';
 import SetActivationOpsProductionModeRequest from './model/SetActivationOpsProductionModeRequest';
 import SetActivationOpsProductionModeResponse from './model/SetActivationOpsProductionModeResponse';
-import System from './model/System';
+import SystemArray from './model/SystemArray';
+import SystemArrayModulesInner from './model/SystemArrayModulesInner';
 import SystemArrayTypeEnum from './model/SystemArrayTypeEnum';
+import SystemArrays from './model/SystemArrays';
+import SystemArraysInventoryDetailsInner from './model/SystemArraysInventoryDetailsInner';
+import SystemArraysLayersInner from './model/SystemArraysLayersInner';
 import SystemAttachmentTypeEnum from './model/SystemAttachmentTypeEnum';
-import SystemEnchargeInner from './model/SystemEnchargeInner';
-import SystemEnpowerInner from './model/SystemEnpowerInner';
 import SystemEstimate from './model/SystemEstimate';
 import SystemExpandEnum from './model/SystemExpandEnum';
-import SystemHost from './model/SystemHost';
-import SystemHostCompany from './model/SystemHostCompany';
 import SystemInternetConnectionEnum from './model/SystemInternetConnectionEnum';
 import SystemMeterStatusEnum from './model/SystemMeterStatusEnum';
-import SystemOwner from './model/SystemOwner';
-import SystemOwnerCompany from './model/SystemOwnerCompany';
 import SystemParams from './model/SystemParams';
 import SystemParamsAddress from './model/SystemParamsAddress';
 import SystemParamsEnchargeInner from './model/SystemParamsEnchargeInner';
@@ -143,16 +143,52 @@ export {
     ApiClient,
 
     /**
+     * The Activation model constructor.
+     * @property {module:model/Activation}
+     */
+    Activation,
+
+    /**
+     * The ActivationEnchargeInner model constructor.
+     * @property {module:model/ActivationEnchargeInner}
+     */
+    ActivationEnchargeInner,
+
+    /**
+     * The ActivationEnpowerInner model constructor.
+     * @property {module:model/ActivationEnpowerInner}
+     */
+    ActivationEnpowerInner,
+
+    /**
+     * The ActivationHost model constructor.
+     * @property {module:model/ActivationHost}
+     */
+    ActivationHost,
+
+    /**
+     * The ActivationHostCompany model constructor.
+     * @property {module:model/ActivationHostCompany}
+     */
+    ActivationHostCompany,
+
+    /**
+     * The ActivationOwner model constructor.
+     * @property {module:model/ActivationOwner}
+     */
+    ActivationOwner,
+
+    /**
+     * The ActivationOwnerCompany model constructor.
+     * @property {module:model/ActivationOwnerCompany}
+     */
+    ActivationOwnerCompany,
+
+    /**
      * The Address model constructor.
      * @property {module:model/Address}
      */
     Address,
-
-    /**
-     * The ArrayModulesInner model constructor.
-     * @property {module:model/ArrayModulesInner}
-     */
-    ArrayModulesInner,
 
     /**
      * The ArrayParams model constructor.
@@ -165,24 +201,6 @@ export {
      * @property {module:model/ArrayParamsModulesInner}
      */
     ArrayParamsModulesInner,
-
-    /**
-     * The Arrays model constructor.
-     * @property {module:model/Arrays}
-     */
-    Arrays,
-
-    /**
-     * The ArraysInventoryDetailsInner model constructor.
-     * @property {module:model/ArraysInventoryDetailsInner}
-     */
-    ArraysInventoryDetailsInner,
-
-    /**
-     * The ArraysLayersInner model constructor.
-     * @property {module:model/ArraysLayersInner}
-     */
-    ArraysLayersInner,
 
     /**
      * The Company model constructor.
@@ -323,12 +341,6 @@ export {
     GrantActivationUserAccessResponse,
 
     /**
-     * The ModelArray model constructor.
-     * @property {module:model/ModelArray}
-     */
-    ModelArray,
-
-    /**
      * The RevokeActivationUserAccessResponse model constructor.
      * @property {module:model/RevokeActivationUserAccessResponse}
      */
@@ -371,10 +383,16 @@ export {
     SetActivationOpsProductionModeResponse,
 
     /**
-     * The System model constructor.
-     * @property {module:model/System}
+     * The SystemArray model constructor.
+     * @property {module:model/SystemArray}
      */
-    System,
+    SystemArray,
+
+    /**
+     * The SystemArrayModulesInner model constructor.
+     * @property {module:model/SystemArrayModulesInner}
+     */
+    SystemArrayModulesInner,
 
     /**
      * The SystemArrayTypeEnum model constructor.
@@ -383,22 +401,28 @@ export {
     SystemArrayTypeEnum,
 
     /**
+     * The SystemArrays model constructor.
+     * @property {module:model/SystemArrays}
+     */
+    SystemArrays,
+
+    /**
+     * The SystemArraysInventoryDetailsInner model constructor.
+     * @property {module:model/SystemArraysInventoryDetailsInner}
+     */
+    SystemArraysInventoryDetailsInner,
+
+    /**
+     * The SystemArraysLayersInner model constructor.
+     * @property {module:model/SystemArraysLayersInner}
+     */
+    SystemArraysLayersInner,
+
+    /**
      * The SystemAttachmentTypeEnum model constructor.
      * @property {module:model/SystemAttachmentTypeEnum}
      */
     SystemAttachmentTypeEnum,
-
-    /**
-     * The SystemEnchargeInner model constructor.
-     * @property {module:model/SystemEnchargeInner}
-     */
-    SystemEnchargeInner,
-
-    /**
-     * The SystemEnpowerInner model constructor.
-     * @property {module:model/SystemEnpowerInner}
-     */
-    SystemEnpowerInner,
 
     /**
      * The SystemEstimate model constructor.
@@ -413,18 +437,6 @@ export {
     SystemExpandEnum,
 
     /**
-     * The SystemHost model constructor.
-     * @property {module:model/SystemHost}
-     */
-    SystemHost,
-
-    /**
-     * The SystemHostCompany model constructor.
-     * @property {module:model/SystemHostCompany}
-     */
-    SystemHostCompany,
-
-    /**
      * The SystemInternetConnectionEnum model constructor.
      * @property {module:model/SystemInternetConnectionEnum}
      */
@@ -435,18 +447,6 @@ export {
      * @property {module:model/SystemMeterStatusEnum}
      */
     SystemMeterStatusEnum,
-
-    /**
-     * The SystemOwner model constructor.
-     * @property {module:model/SystemOwner}
-     */
-    SystemOwner,
-
-    /**
-     * The SystemOwnerCompany model constructor.
-     * @property {module:model/SystemOwnerCompany}
-     */
-    SystemOwnerCompany,
 
     /**
      * The SystemParams model constructor.

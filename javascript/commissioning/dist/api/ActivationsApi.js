@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
+var _Activation = _interopRequireDefault(require("../model/Activation"));
 var _DeleteActivationResponse = _interopRequireDefault(require("../model/DeleteActivationResponse"));
 var _GetActivationOpsProductionModeResponse = _interopRequireDefault(require("../model/GetActivationOpsProductionModeResponse"));
 var _GetPartnerActivationsResponse = _interopRequireDefault(require("../model/GetPartnerActivationsResponse"));
@@ -13,7 +14,6 @@ var _RevokeActivationUserAccessResponse = _interopRequireDefault(require("../mod
 var _ServerError = _interopRequireDefault(require("../model/ServerError"));
 var _SetActivationOpsProductionModeRequest = _interopRequireDefault(require("../model/SetActivationOpsProductionModeRequest"));
 var _SetActivationOpsProductionModeResponse = _interopRequireDefault(require("../model/SetActivationOpsProductionModeResponse"));
-var _System = _interopRequireDefault(require("../model/System"));
 var _SystemExpandEnum = _interopRequireDefault(require("../model/SystemExpandEnum"));
 var _SystemParams = _interopRequireDefault(require("../model/SystemParams"));
 var _SystemStageEnum = _interopRequireDefault(require("../model/SystemStageEnum"));
@@ -60,7 +60,7 @@ var ActivationsApi = /*#__PURE__*/function () {
    * Create new activation.
    * @param {Object} opts Optional parameters
    * @param {module:model/SystemParams} [params] 
-   * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
+   * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Activation} and HTTP response
    */
   _createClass(ActivationsApi, [{
     key: "createPartnerActivationWithHttpInfo",
@@ -74,7 +74,7 @@ var ActivationsApi = /*#__PURE__*/function () {
       var authNames = ['OAuth2', 'ApiKey'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = _System["default"];
+      var returnType = _Activation["default"];
       return this.apiClient.callApi('/partner/activations', 'POST', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
@@ -83,7 +83,7 @@ var ActivationsApi = /*#__PURE__*/function () {
      * Create new activation.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} opts.params 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Activation}
      */
   }, {
     key: "createPartnerActivation",
@@ -181,7 +181,7 @@ var ActivationsApi = /*#__PURE__*/function () {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemExpandEnum} [expand] Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Activation} and HTTP response
      */
   }, {
     key: "getPartnerActivationWithHttpInfo",
@@ -203,7 +203,7 @@ var ActivationsApi = /*#__PURE__*/function () {
       var authNames = ['OAuth2', 'ApiKey'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = _System["default"];
+      var returnType = _Activation["default"];
       return this.apiClient.callApi('/partner/activations/{activation_id}', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
@@ -213,7 +213,7 @@ var ActivationsApi = /*#__PURE__*/function () {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemExpandEnum} opts.expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Activation}
      */
   }, {
     key: "getPartnerActivation",
@@ -435,7 +435,7 @@ var ActivationsApi = /*#__PURE__*/function () {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} [params] 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Activation} and HTTP response
      */
   }, {
     key: "updatePartnerActivationWithHttpInfo",
@@ -455,7 +455,7 @@ var ActivationsApi = /*#__PURE__*/function () {
       var authNames = ['OAuth2', 'ApiKey'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = _System["default"];
+      var returnType = _Activation["default"];
       return this.apiClient.callApi('/partner/activations/{activation_id}', 'PUT', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
@@ -465,7 +465,7 @@ var ActivationsApi = /*#__PURE__*/function () {
      * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} opts.params 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Activation}
      */
   }, {
     key: "updatePartnerActivation",

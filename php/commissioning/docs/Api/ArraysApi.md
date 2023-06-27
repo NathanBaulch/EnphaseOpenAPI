@@ -81,7 +81,7 @@ try {
 ## `getSystemArray()`
 
 ```php
-getSystemArray($system_id, $array_id): \EnphaseOpenAPI\Commissioning\Model\ModelArray
+getSystemArray($system_id, $array_id): \EnphaseOpenAPI\Commissioning\Model\SystemArray
 ```
 
 Fetch array details by ID
@@ -130,7 +130,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Commissioning\Model\ModelArray**](../Model/ModelArray.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SystemArray**](../Model/SystemArray.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ try {
 ## `getSystemArrays()`
 
 ```php
-getSystemArrays($system_id): \EnphaseOpenAPI\Commissioning\Model\Arrays
+getSystemArrays($system_id): \EnphaseOpenAPI\Commissioning\Model\SystemArrays
 ```
 
 Fetch particular system Array details
@@ -195,7 +195,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Commissioning\Model\Arrays**](../Model/Arrays.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SystemArrays**](../Model/SystemArrays.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ try {
 ## `updateSystemArray()`
 
 ```php
-updateSystemArray($system_id, $array_id, $params): \EnphaseOpenAPI\Commissioning\Model\ModelArray
+updateSystemArray($system_id, $array_id, $params): \EnphaseOpenAPI\Commissioning\Model\SystemArray
 ```
 
 Update particular system array details
@@ -264,7 +264,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Commissioning\Model\ModelArray**](../Model/ModelArray.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SystemArray**](../Model/SystemArray.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ try {
 ## `updateSystemArrays()`
 
 ```php
-updateSystemArrays($system_id, $params): \EnphaseOpenAPI\Commissioning\Model\Arrays
+updateSystemArrays($system_id, $params): \EnphaseOpenAPI\Commissioning\Model\SystemArrays
 ```
 
 Update all arrays for system
@@ -331,7 +331,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Commissioning\Model\Arrays**](../Model/Arrays.md)
+[**\EnphaseOpenAPI\Commissioning\Model\SystemArrays**](../Model/SystemArrays.md)
 
 ### Authorization
 

@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**System**](System.md)
+[**SystemDetails**](SystemDetails.md)
 
 ### Authorization
 

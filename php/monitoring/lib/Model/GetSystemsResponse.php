@@ -62,7 +62,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'size' => 'int',
         'count' => 'int',
         'items' => 'string',
-        'systems' => '\EnphaseOpenAPI\Monitoring\Model\System[]'
+        'systems' => '\EnphaseOpenAPI\Monitoring\Model\SystemDetails[]'
     ];
 
     /**
@@ -478,7 +478,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets systems
      *
-     * @return \EnphaseOpenAPI\Monitoring\Model\System[]|null
+     * @return \EnphaseOpenAPI\Monitoring\Model\SystemDetails[]|null
      */
     public function getSystems()
     {
@@ -488,7 +488,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets systems
      *
-     * @param \EnphaseOpenAPI\Monitoring\Model\System[]|null $systems List of systems.
+     * @param \EnphaseOpenAPI\Monitoring\Model\SystemDetails[]|null $systems List of systems.
      *
      * @return self
      */

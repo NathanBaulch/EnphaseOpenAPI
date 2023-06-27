@@ -26,9 +26,9 @@ import frozendict  # noqa: F401
 from commissioning import schemas  # noqa: F401
 
 from commissioning.model.update_system_arrays_request import UpdateSystemArraysRequest
+from commissioning.model.system_arrays import SystemArrays
 from commissioning.model.too_many_requests_error import TooManyRequestsError
 from commissioning.model.unprocessable_entity_error import UnprocessableEntityError
-from commissioning.model.arrays import Arrays
 from commissioning.model.server_error import ServerError
 
 # Path params
@@ -67,7 +67,7 @@ request_body_params = api_client.RequestBody(
             schema=SchemaForRequestBodyApplicationText),
     },
 )
-SchemaFor200ResponseBodyApplicationJson = Arrays
+SchemaFor200ResponseBodyApplicationJson = SystemArrays
 
 
 @dataclass

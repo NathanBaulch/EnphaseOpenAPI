@@ -2714,7 +2714,7 @@ Please note that the status returned in the response is not real-time and is upd
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#System">System</a>
+      <a href="#SystemDetails">SystemDetails</a>
       
     </div>
 
@@ -2757,7 +2757,7 @@ Please note that the status returned in the response is not real-time and is upd
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     System fetched.
-        <a href="#System">System</a>
+        <a href="#SystemDetails">SystemDetails</a>
     <h4 class="field-label">401</h4>
     Unauthorized
         <a href="#ClientError">ClientError</a>
@@ -3443,14 +3443,14 @@ Please note that the status returned in the response is not real-time and is upd
     <li><a href="#StreamSystemLiveData_551_response_error"><code>StreamSystemLiveData_551_response_error</code> - </a></li>
     <li><a href="#StreamSystemLiveData_552_response"><code>StreamSystemLiveData_552_response</code> - </a></li>
     <li><a href="#StreamSystemLiveData_552_response_error"><code>StreamSystemLiveData_552_response_error</code> - </a></li>
-    <li><a href="#System"><code>System</code> - </a></li>
     <li><a href="#SystemAttachmentTypeEnum"><code>SystemAttachmentTypeEnum</code> - </a></li>
     <li><a href="#SystemConnectionTypeEnum"><code>SystemConnectionTypeEnum</code> - </a></li>
+    <li><a href="#SystemDetails"><code>SystemDetails</code> - </a></li>
+    <li><a href="#SystemDetails_address"><code>SystemDetails_address</code> - </a></li>
     <li><a href="#SystemEnergyLifetimeProductionEnum"><code>SystemEnergyLifetimeProductionEnum</code> - </a></li>
     <li><a href="#SystemPublicNameEnum"><code>SystemPublicNameEnum</code> - </a></li>
     <li><a href="#SystemSortByEnum"><code>SystemSortByEnum</code> - </a></li>
     <li><a href="#SystemStatusEnum"><code>SystemStatusEnum</code> - </a></li>
-    <li><a href="#System_address"><code>System_address</code> - </a></li>
     <li><a href="#TelemetryGranularityEnum"><code>TelemetryGranularityEnum</code> - </a></li>
     <li><a href="#TooManyRequestsError"><code>TooManyRequestsError</code> - </a></li>
     <li><a href="#UpdateSystemBatterySettingsRequest"><code>UpdateSystemBatterySettingsRequest</code> - </a></li>
@@ -3955,7 +3955,7 @@ Enabled: Battery may also charge from the grid when in full backup mode or when 
 <div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum number of records shown per page. Default=10, Min=1, Max=100. </div>
 <div class="param">count (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total number of systems actually returned for the current page. </div>
 <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Named key of the list data. In this endpoint, it is systems. </div>
-<div class="param">systems (optional)</div><div class="param-desc"><span class="param-type"><a href="#System">array[System]</a></span> List of systems. </div>
+<div class="param">systems (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemDetails">array[SystemDetails]</a></span> List of systems. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -4061,7 +4061,7 @@ Enabled: Battery may also charge from the grid when in full backup mode or when 
 <div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Max number of records from API per page is 100. Default is 10. </div>
 <div class="param">count (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total number of systems actually returned for the current page. </div>
 <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Named key of the list data. In this endpoint, it is systems. </div>
-<div class="param">systems (optional)</div><div class="param-desc"><span class="param-type"><a href="#System">array[System]</a></span> List of filtered systems. </div>
+<div class="param">systems (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemDetails">array[SystemDetails]</a></span> List of filtered systems. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -4347,14 +4347,26 @@ Enabled: Battery may also charge from the grid when in full backup mode or when 
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="System"><code>System</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="SystemAttachmentTypeEnum"><code>SystemAttachmentTypeEnum</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Micro inverter attachment type.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SystemConnectionTypeEnum"><code>SystemConnectionTypeEnum</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Connection type of the system.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SystemDetails"><code>SystemDetails</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Unique numeric ID of the system. </div>
 <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the system. </div>
 <div class="param">public_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default='Residential System'. Only for systems that allow public access. </div>
 <div class="param">timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timezone to which the system belongs. </div>
-<div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#System_address">System_address</a></span>  </div>
+<div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemDetails_address">SystemDetails_address</a></span>  </div>
 <div class="param">connection_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemConnectionTypeEnum">SystemConnectionTypeEnum</a></span>  </div>
 <div class="param">energy_lifetime (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy generated by the system during its lifetime in Wh. It is returned only if the count is less than or equal to 100. </div>
 <div class="param">energy_today (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy generated by the system today in Wh. It is returned only if the count is less than or equal to 100. </div>
@@ -4370,16 +4382,14 @@ Enabled: Battery may also charge from the grid when in full backup mode or when 
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="SystemAttachmentTypeEnum"><code>SystemAttachmentTypeEnum</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Micro inverter attachment type.</div>
+    <h3><a name="SystemDetails_address"><code>SystemDetails_address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Address object for the system.</div>
     <div class="field-items">
-          </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="SystemConnectionTypeEnum"><code>SystemConnectionTypeEnum</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Connection type of the system.</div>
-    <div class="field-items">
-          </div>  <!-- field-items -->
+      <div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> City in which the system is located. </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State in which the system is located. </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Country in which the system is located. </div>
+<div class="param">postal_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal code of the system's location. </div>
+    </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="SystemEnergyLifetimeProductionEnum"><code>SystemEnergyLifetimeProductionEnum</code> - </a> <a class="up" href="#__Models">Up</a></h3>
@@ -4404,16 +4414,6 @@ Enabled: Battery may also charge from the grid when in full backup mode or when 
     <div class='model-description'></div>
     <div class="field-items">
           </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="System_address"><code>System_address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Address object for the system.</div>
-    <div class="field-items">
-      <div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> City in which the system is located. </div>
-<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State in which the system is located. </div>
-<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Country in which the system is located. </div>
-<div class="param">postal_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal code of the system's location. </div>
-    </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="TelemetryGranularityEnum"><code>TelemetryGranularityEnum</code> - </a> <a class="up" href="#__Models">Up</a></h3>

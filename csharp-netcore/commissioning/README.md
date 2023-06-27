@@ -86,7 +86,7 @@ namespace Example
             try
             {
                 // Create new activation
-                System result = apiInstance.CreatePartnerActivation(_params);
+                Activation result = apiInstance.CreatePartnerActivation(_params);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -150,14 +150,16 @@ Class | Method | HTTP request | Description
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.Activation](docs\Activation.md)
+ - [Model.ActivationEnchargeInner](docs\ActivationEnchargeInner.md)
+ - [Model.ActivationEnpowerInner](docs\ActivationEnpowerInner.md)
+ - [Model.ActivationHost](docs\ActivationHost.md)
+ - [Model.ActivationHostCompany](docs\ActivationHostCompany.md)
+ - [Model.ActivationOwner](docs\ActivationOwner.md)
+ - [Model.ActivationOwnerCompany](docs\ActivationOwnerCompany.md)
  - [Model.Address](docs\Address.md)
- - [Model.Array](docs\Array.md)
- - [Model.ArrayModulesInner](docs\ArrayModulesInner.md)
  - [Model.ArrayParams](docs\ArrayParams.md)
  - [Model.ArrayParamsModulesInner](docs\ArrayParamsModulesInner.md)
- - [Model.Arrays](docs\Arrays.md)
- - [Model.ArraysInventoryDetailsInner](docs\ArraysInventoryDetailsInner.md)
- - [Model.ArraysLayersInner](docs\ArraysLayersInner.md)
  - [Model.Company](docs\Company.md)
  - [Model.CompanyRoleEnum](docs\CompanyRoleEnum.md)
  - [Model.CreateCompanyUserRequest](docs\CreateCompanyUserRequest.md)
@@ -188,19 +190,17 @@ Class | Method | HTTP request | Description
  - [Model.SetActivationMeterStatusResponse](docs\SetActivationMeterStatusResponse.md)
  - [Model.SetActivationOpsProductionModeRequest](docs\SetActivationOpsProductionModeRequest.md)
  - [Model.SetActivationOpsProductionModeResponse](docs\SetActivationOpsProductionModeResponse.md)
- - [Model.System](docs\System.md)
+ - [Model.SystemArray](docs\SystemArray.md)
+ - [Model.SystemArrayModulesInner](docs\SystemArrayModulesInner.md)
  - [Model.SystemArrayTypeEnum](docs\SystemArrayTypeEnum.md)
+ - [Model.SystemArrays](docs\SystemArrays.md)
+ - [Model.SystemArraysInventoryDetailsInner](docs\SystemArraysInventoryDetailsInner.md)
+ - [Model.SystemArraysLayersInner](docs\SystemArraysLayersInner.md)
  - [Model.SystemAttachmentTypeEnum](docs\SystemAttachmentTypeEnum.md)
- - [Model.SystemEnchargeInner](docs\SystemEnchargeInner.md)
- - [Model.SystemEnpowerInner](docs\SystemEnpowerInner.md)
  - [Model.SystemEstimate](docs\SystemEstimate.md)
  - [Model.SystemExpandEnum](docs\SystemExpandEnum.md)
- - [Model.SystemHost](docs\SystemHost.md)
- - [Model.SystemHostCompany](docs\SystemHostCompany.md)
  - [Model.SystemInternetConnectionEnum](docs\SystemInternetConnectionEnum.md)
  - [Model.SystemMeterStatusEnum](docs\SystemMeterStatusEnum.md)
- - [Model.SystemOwner](docs\SystemOwner.md)
- - [Model.SystemOwnerCompany](docs\SystemOwnerCompany.md)
  - [Model.SystemParams](docs\SystemParams.md)
  - [Model.SystemParamsAddress](docs\SystemParamsAddress.md)
  - [Model.SystemParamsEnchargeInner](docs\SystemParamsEnchargeInner.md)

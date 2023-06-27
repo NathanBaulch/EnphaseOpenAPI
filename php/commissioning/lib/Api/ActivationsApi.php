@@ -156,7 +156,7 @@ class ActivationsApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\Activation|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function createPartnerActivation($params = null, string $contentType = self::contentTypes['createPartnerActivation'][0])
     {
@@ -174,7 +174,7 @@ class ActivationsApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\Activation|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPartnerActivationWithHttpInfo($params = null, string $contentType = self::contentTypes['createPartnerActivation'][0])
     {
@@ -217,17 +217,17 @@ class ActivationsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\EnphaseOpenAPI\Commissioning\Model\System' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\Activation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Commissioning\Model\System' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\Activation' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\System', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\Activation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -308,7 +308,7 @@ class ActivationsApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\Activation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -329,7 +329,7 @@ class ActivationsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Commissioning\Model\System',
+                        '\EnphaseOpenAPI\Commissioning\Model\Activation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -413,7 +413,7 @@ class ActivationsApi
      */
     public function createPartnerActivationAsyncWithHttpInfo($params = null, string $contentType = self::contentTypes['createPartnerActivation'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\Activation';
         $request = $this->createPartnerActivationRequest($params, $contentType);
 
         return $this->client
@@ -1417,7 +1417,7 @@ class ActivationsApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\Activation|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function getPartnerActivation($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
@@ -1436,7 +1436,7 @@ class ActivationsApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\Activation|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPartnerActivationWithHttpInfo($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
@@ -1479,17 +1479,17 @@ class ActivationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Commissioning\Model\System' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\Activation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Commissioning\Model\System' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\Activation' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\System', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\Activation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1570,7 +1570,7 @@ class ActivationsApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\Activation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1591,7 +1591,7 @@ class ActivationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Commissioning\Model\System',
+                        '\EnphaseOpenAPI\Commissioning\Model\Activation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1677,7 +1677,7 @@ class ActivationsApi
      */
     public function getPartnerActivationAsyncWithHttpInfo($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\Activation';
         $request = $this->getPartnerActivationRequest($activation_id, $expand, $contentType);
 
         return $this->client
@@ -3704,7 +3704,7 @@ class ActivationsApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     * @return \EnphaseOpenAPI\Commissioning\Model\Activation|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
     public function updatePartnerActivation($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
@@ -3723,7 +3723,7 @@ class ActivationsApi
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\Activation|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePartnerActivationWithHttpInfo($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
@@ -3766,17 +3766,17 @@ class ActivationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Commissioning\Model\System' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Commissioning\Model\Activation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Commissioning\Model\System' !== 'string') {
+                        if ('\EnphaseOpenAPI\Commissioning\Model\Activation' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\System', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\Activation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3857,7 +3857,7 @@ class ActivationsApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\Activation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3878,7 +3878,7 @@ class ActivationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Commissioning\Model\System',
+                        '\EnphaseOpenAPI\Commissioning\Model\Activation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3964,7 +3964,7 @@ class ActivationsApi
      */
     public function updatePartnerActivationAsyncWithHttpInfo($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\Activation';
         $request = $this->updatePartnerActivationRequest($activation_id, $params, $contentType);
 
         return $this->client

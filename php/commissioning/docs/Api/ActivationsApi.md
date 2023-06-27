@@ -18,7 +18,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 ## `createPartnerActivation()`
 
 ```php
-createPartnerActivation($params): \EnphaseOpenAPI\Commissioning\Model\System
+createPartnerActivation($params): \EnphaseOpenAPI\Commissioning\Model\Activation
 ```
 
 Create new activation
@@ -65,7 +65,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Commissioning\Model\System**](../Model/System.md)
+[**\EnphaseOpenAPI\Commissioning\Model\Activation**](../Model/Activation.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ try {
 ## `getPartnerActivation()`
 
 ```php
-getPartnerActivation($activation_id, $expand): \EnphaseOpenAPI\Commissioning\Model\System
+getPartnerActivation($activation_id, $expand): \EnphaseOpenAPI\Commissioning\Model\Activation
 ```
 
 Retrieves an Activation by ID
@@ -262,7 +262,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Commissioning\Model\System**](../Model/System.md)
+[**\EnphaseOpenAPI\Commissioning\Model\Activation**](../Model/Activation.md)
 
 ### Authorization
 
@@ -562,7 +562,7 @@ try {
 ## `updatePartnerActivation()`
 
 ```php
-updatePartnerActivation($activation_id, $params): \EnphaseOpenAPI\Commissioning\Model\System
+updatePartnerActivation($activation_id, $params): \EnphaseOpenAPI\Commissioning\Model\Activation
 ```
 
 Update an activation.
@@ -611,7 +611,7 @@ try {
 
 ### Return type
 
-[**\EnphaseOpenAPI\Commissioning\Model\System**](../Model/System.md)
+[**\EnphaseOpenAPI\Commissioning\Model\Activation**](../Model/Activation.md)
 
 ### Authorization
 

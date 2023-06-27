@@ -24,7 +24,7 @@ import NotImplementedError from '../model/NotImplementedError';
 import RetrieveSystemIdResponse from '../model/RetrieveSystemIdResponse';
 import SearchSystemsRequest from '../model/SearchSystemsRequest';
 import SearchSystemsResponse from '../model/SearchSystemsResponse';
-import System from '../model/System';
+import SystemDetails from '../model/SystemDetails';
 import SystemSortByEnum from '../model/SystemSortByEnum';
 import TooManyRequestsError from '../model/TooManyRequestsError';
 
@@ -102,7 +102,7 @@ export default class SystemDetailsApi {
      * Retrieves a System by ID
      * Retrieves a system by ID.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SystemDetails} and HTTP response
      */
     getSystemWithHttpInfo(systemId) {
       let postBody = null;
@@ -124,7 +124,7 @@ export default class SystemDetailsApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = System;
+      let returnType = SystemDetails;
       return this.apiClient.callApi(
         '/systems/{system_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -136,7 +136,7 @@ export default class SystemDetailsApi {
      * Retrieves a System by ID
      * Retrieves a system by ID.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SystemDetails}
      */
     getSystem(systemId) {
       return this.getSystemWithHttpInfo(systemId)
