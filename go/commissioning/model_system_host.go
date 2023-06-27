@@ -17,7 +17,7 @@ import (
 // checks if the SystemHost type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SystemHost{}
 
-// SystemHost Name of the system host. Please see \"Specifying an Owner and Lease Arrangement\", above, for more information. If the query parameter 'expand=host' passed in the request host detail will appear in the response.
+// SystemHost Name of the system host. If the query parameter 'expand=host' passed in the request host detail will appear in the response.
 type SystemHost struct {
 	FirstName *string `json:"first_name,omitempty"`
 	LastName *string `json:"last_name,omitempty"`

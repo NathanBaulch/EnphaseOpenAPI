@@ -61,7 +61,7 @@ func (a *GridProfilesApiService) GetGridProfilesExecute(r ApiGetGridProfilesRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/grid_profiles"
+	localVarPath := localBasePath + "/partner/grid_profiles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

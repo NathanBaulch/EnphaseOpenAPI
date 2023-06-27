@@ -109,27 +109,28 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ActivationsApi* | [**CreatePartnerActivation**](docs\ActivationsApi.md#createpartneractivation) | **POST** /partner/activations | Create new activation
-*ActivationsApi* | [**DeleteActivation**](docs\ActivationsApi.md#deleteactivation) | **DELETE** /activations/{id} | Delete an activation by ID
+*ActivationsApi* | [**DeleteActivation**](docs\ActivationsApi.md#deleteactivation) | **DELETE** /partner/activations/{activation_id} | Delete an activation by ID
 *ActivationsApi* | [**GetActivationOpsProductionMode**](docs\ActivationsApi.md#getactivationopsproductionmode) | **GET** /activations/{activation_id}/ops/production_mode | Get production mode
-*ActivationsApi* | [**GetPartnerActivation**](docs\ActivationsApi.md#getpartneractivation) | **GET** /partner/activations/{id} | Retrieves an Activation by ID
+*ActivationsApi* | [**GetPartnerActivation**](docs\ActivationsApi.md#getpartneractivation) | **GET** /partner/activations/{activation_id} | Retrieves an Activation by ID
 *ActivationsApi* | [**GetPartnerActivations**](docs\ActivationsApi.md#getpartneractivations) | **GET** /partner/activations | List of Activations
 *ActivationsApi* | [**GrantActivationUserAccess**](docs\ActivationsApi.md#grantactivationuseraccess) | **POST** /activations/{activation_id}/users/{user_id} | Grant Access
 *ActivationsApi* | [**RevokeActivationUserAccess**](docs\ActivationsApi.md#revokeactivationuseraccess) | **DELETE** /activations/{activation_id}/users/{user_id} | Revoke Access
 *ActivationsApi* | [**SetActivationOpsProductionMode**](docs\ActivationsApi.md#setactivationopsproductionmode) | **POST** /activations/{activation_id}/ops/production_mode | Set production mode
-*ActivationsApi* | [**UpdatePartnerActivation**](docs\ActivationsApi.md#updatepartneractivation) | **PUT** /partner/activations/{id} | Update an activation.
-*ArraysApi* | [**DeleteSystemArray**](docs\ArraysApi.md#deletesystemarray) | **DELETE** /systems/{system_id}/arrays/{id} | Delete an array by ID
-*ArraysApi* | [**GetSystemArray**](docs\ArraysApi.md#getsystemarray) | **GET** /systems/{system_id}/arrays/{id} | Fetch array details by ID
-*ArraysApi* | [**GetSystemArrays**](docs\ArraysApi.md#getsystemarrays) | **GET** /systems/{system_id}/arrays | Fetch particular system Array details
-*ArraysApi* | [**UpdateSystemArray**](docs\ArraysApi.md#updatesystemarray) | **PUT** /systems/{system_id}/arrays/{id} | Update particular system array details
-*ArraysApi* | [**UpdateSystemArrays**](docs\ArraysApi.md#updatesystemarrays) | **PUT** /systems/{system_id}/arrays | Update all arrays for system
+*ActivationsApi* | [**UpdatePartnerActivation**](docs\ActivationsApi.md#updatepartneractivation) | **PUT** /partner/activations/{activation_id} | Update an activation.
+*ArraysApi* | [**DeleteSystemArray**](docs\ArraysApi.md#deletesystemarray) | **DELETE** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID
+*ArraysApi* | [**GetSystemArray**](docs\ArraysApi.md#getsystemarray) | **GET** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID
+*ArraysApi* | [**GetSystemArrays**](docs\ArraysApi.md#getsystemarrays) | **GET** /partner/systems/{system_id}/arrays | Fetch particular system Array details
+*ArraysApi* | [**UpdateSystemArray**](docs\ArraysApi.md#updatesystemarray) | **PUT** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details
+*ArraysApi* | [**UpdateSystemArrays**](docs\ArraysApi.md#updatesystemarrays) | **PUT** /partner/systems/{system_id}/arrays | Update all arrays for system
 *CompaniesApi* | [**CreateCompanyUser**](docs\CompaniesApi.md#createcompanyuser) | **POST** /companies/{company_id}/users | Create company user
 *CompaniesApi* | [**GetCompanyUser**](docs\CompaniesApi.md#getcompanyuser) | **GET** /companies/{company_id}/users/{user_id} | Returns the requested user
 *CompaniesApi* | [**GetCompanyUsers**](docs\CompaniesApi.md#getcompanyusers) | **GET** /companies/{company_id}/users | Get all users with in a company
+*CompaniesApi* | [**GetSelfCompanyAuthorizedSubcontractors**](docs\CompaniesApi.md#getselfcompanyauthorizedsubcontractors) | **GET** /companies/self/authorized_subcontractors | User's company and its authorized subcontractors.
 *CompaniesApi* | [**GetSelfCompanyBranches**](docs\CompaniesApi.md#getselfcompanybranches) | **GET** /companies/self/branches | User's company and its branches
 *CompaniesApi* | [**UpdateCompanyUser**](docs\CompaniesApi.md#updatecompanyuser) | **PUT** /companies/{company_id}/users/{user_id} | Update company user
 *EstimateApi* | [**GetActivationEstimate**](docs\EstimateApi.md#getactivationestimate) | **GET** /activations/{activation_id}/estimate | Returns the estimate for this system.
 *EstimateApi* | [**UpdateActivationEstimate**](docs\EstimateApi.md#updateactivationestimate) | **PUT** /activations/{activation_id}/estimate | Update the estimate for this system.
-*GridProfilesApi* | [**GetGridProfiles**](docs\GridProfilesApi.md#getgridprofiles) | **GET** /grid_profiles | Lists the available profiles
+*GridProfilesApi* | [**GetGridProfiles**](docs\GridProfilesApi.md#getgridprofiles) | **GET** /partner/grid_profiles | Lists the available profiles
 *HomeOwnerApi* | [**CreateUser**](docs\HomeOwnerApi.md#createuser) | **POST** /users | Create Home owner
 *MetersApi* | [**GetSystemMeter**](docs\MetersApi.md#getsystemmeter) | **GET** /systems/{system_id}/meters/{serial_number} | Returns the requested meter detail.
 *MetersApi* | [**SetActivationMeterStatus**](docs\MetersApi.md#setactivationmeterstatus) | **POST** /activations/{activation_id}/meters/{serial_number}/meter_control | Enable or Disable the meters.
@@ -139,8 +140,8 @@ Class | Method | HTTP request | Description
 *TariffApi* | [**GetSystemTariffSettings**](docs\TariffApi.md#getsystemtariffsettings) | **GET** /systems/config/{system_id}/tariff | Get tariff for a system
 *TariffApi* | [**UpdateSystemTariffSettings**](docs\TariffApi.md#updatesystemtariffsettings) | **PUT** /systems/config/{system_id}/tariff | Update tariff for a system
 *UsersApi* | [**GetActivationUser**](docs\UsersApi.md#getactivationuser) | **GET** /activations/{activation_id}/users/{user_id} | Returns the requested user
-*UsersApi* | [**GetSelfUser**](docs\UsersApi.md#getselfuser) | **GET** /users/self | Return the current logged in user detail
-*UsersApi* | [**GetUser**](docs\UsersApi.md#getuser) | **GET** /users/{user_id} | Returns the requested user
+*UsersApi* | [**GetSelfUser**](docs\UsersApi.md#getselfuser) | **GET** /partner/users/self | Return the current logged in user detail
+*UsersApi* | [**GetUser**](docs\UsersApi.md#getuser) | **GET** /partner/users/{user_id} | Returns the requested user
 *UsersApi* | [**SearchUsers**](docs\UsersApi.md#searchusers) | **GET** /users/search | Search user
 *UsersApi* | [**UpdateActivationUser**](docs\UsersApi.md#updateactivationuser) | **PUT** /activations/{activation_id}/users/{user_id} | Update user
 *UsersApi* | [**UpdateUser**](docs\UsersApi.md#updateuser) | **PUT** /users/{user_id} | Update user
@@ -170,9 +171,12 @@ Class | Method | HTTP request | Description
  - [Model.GetGridProfilesResponseGridProfilesInner](docs\GetGridProfilesResponseGridProfilesInner.md)
  - [Model.GetPartnerActivationsResponse](docs\GetPartnerActivationsResponse.md)
  - [Model.GetPartnerActivationsResponseSystemsInner](docs\GetPartnerActivationsResponseSystemsInner.md)
+ - [Model.GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner](docs\GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.md)
  - [Model.GetPvManufacturerModelsResponse](docs\GetPvManufacturerModelsResponse.md)
  - [Model.GetPvManufacturerModelsResponsePvManufacturers](docs\GetPvManufacturerModelsResponsePvManufacturers.md)
  - [Model.GetPvManufacturersResponse](docs\GetPvManufacturersResponse.md)
+ - [Model.GetSelfCompanyAuthorizedSubcontractorsResponse](docs\GetSelfCompanyAuthorizedSubcontractorsResponse.md)
+ - [Model.GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner](docs\GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner.md)
  - [Model.GetSelfCompanyBranchesResponse](docs\GetSelfCompanyBranchesResponse.md)
  - [Model.GetSelfCompanyBranchesResponseBranchesInner](docs\GetSelfCompanyBranchesResponseBranchesInner.md)
  - [Model.GetSystemMeterResponse](docs\GetSystemMeterResponse.md)

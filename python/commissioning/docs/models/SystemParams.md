@@ -15,7 +15,11 @@ Key | Input Type | Accessed Type | Description | Notes
 **operational** | bool,  | BoolClass,  | Whether this system is permitted to operate. Default true. | [optional] 
 **owner_id** | decimal.Decimal, int,  | decimal.Decimal,  | Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself. If the user of the API is an installer then use the Search user API to get the owner user ID. If the owner not exist in the enlighten then use Create home owner API to create it newly. | [optional] 
 **host_id** | decimal.Decimal, int,  | decimal.Decimal,  | Enlighten ID of the system host. System host must be an Enlighten user. Optional. If the user of the API is an installer then use the Search user API to get the host user ID. If the host not exist in the enlighten then use Create home owner API to create it newly. | [optional] 
+**authorized_subcontractor_id** | decimal.Decimal, int,  | decimal.Decimal,  | Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site. | [optional] 
 **installer_id** | decimal.Decimal, int,  | decimal.Decimal,  | Enlighten ID of the installer of this system. Defaults to current user&#x27;s company ID. | [optional] 
+**maintainer_name** | str,  | str,  | Name of the maintainer. | [optional] 
+**maintainer_id** | decimal.Decimal, int,  | decimal.Decimal,  | The Enlighten ID of the maintainer of this system. Defaults to current user&#x27;s company ID. | [optional] 
+**[authorized_subcontractors](#authorized_subcontractors)** | list, tuple,  | tuple,  | List of sub-contractors of this system. | [optional] 
 **allow_public_access** | bool,  | BoolClass,  | When true, the system will be eligible to appear in the public systems lists of Enphase and the system&#x27;s installer. Default true. | [optional] 
 **interconnect_date** | str, date,  | str,  | When the system was approved to connect to the grid. | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
 **source** | [**SystemSourceEnum**](SystemSourceEnum.md) | [**SystemSourceEnum**](SystemSourceEnum.md) |  | [optional] 
@@ -44,6 +48,35 @@ Key | Input Type | Accessed Type | Description | Notes
 **[encharge](#encharge)** | list, tuple,  | tuple,  | Encharge detail. | [optional] 
 **[enpower](#enpower)** | list, tuple,  | tuple,  | Enpower detail. | [optional] 
 **[address](#address)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Location of the system. Use the ISO 3166-1 2-letter code for the country. Latitude and longitude are calculated by Enlighten, not provided by the client. | [optional] 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# authorized_subcontractors
+
+List of sub-contractors of this system.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | List of sub-contractors of this system. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+# items
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**authorized_subcontractor_id** | decimal.Decimal, int,  | decimal.Decimal,  | The Enlighten ID of the sub-contractor of this system. System-generated. | [optional] 
+**authorized_subcontractor_name** | str,  | str,  | Name of the sub-contractor of this system. | [optional] 
+**status** | str,  | str,  | Current status of the subcontractor for the site. This field will be shown only for pending and rejected sub-contractors. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # envoy_serial_numbers

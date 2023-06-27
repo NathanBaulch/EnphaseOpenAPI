@@ -4,11 +4,11 @@ All URIs are relative to */api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteSystemArray**](ArraysApi.md#deleteSystemArray) | **DELETE** /systems/{system_id}/arrays/{id} | Delete an array by ID
-[**getSystemArray**](ArraysApi.md#getSystemArray) | **GET** /systems/{system_id}/arrays/{id} | Fetch array details by ID
-[**getSystemArrays**](ArraysApi.md#getSystemArrays) | **GET** /systems/{system_id}/arrays | Fetch particular system Array details
-[**updateSystemArray**](ArraysApi.md#updateSystemArray) | **PUT** /systems/{system_id}/arrays/{id} | Update particular system array details
-[**updateSystemArrays**](ArraysApi.md#updateSystemArrays) | **PUT** /systems/{system_id}/arrays | Update all arrays for system
+[**deleteSystemArray**](ArraysApi.md#deleteSystemArray) | **DELETE** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID
+[**getSystemArray**](ArraysApi.md#getSystemArray) | **GET** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID
+[**getSystemArrays**](ArraysApi.md#getSystemArrays) | **GET** /partner/systems/{system_id}/arrays | Fetch particular system Array details
+[**updateSystemArray**](ArraysApi.md#updateSystemArray) | **PUT** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details
+[**updateSystemArrays**](ArraysApi.md#updateSystemArrays) | **PUT** /partner/systems/{system_id}/arrays | Update all arrays for system
 
 
 
@@ -21,7 +21,7 @@ Delete an array by ID.
 ### Example
 
 ```bash
- deleteSystemArray system_id=value id=value
+ deleteSystemArray system_id=value array_id=value
 ```
 
 ### Parameters
@@ -30,7 +30,7 @@ Delete an array by ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **systemId** | **integer** | System ID. | [default to null]
- **id** | **integer** | Array ID. | [default to null]
+ **arrayId** | **integer** | Array ID. | [default to null]
 
 ### Return type
 
@@ -57,7 +57,7 @@ Fetch array details by ID.
 ### Example
 
 ```bash
- getSystemArray system_id=value id=value
+ getSystemArray system_id=value array_id=value
 ```
 
 ### Parameters
@@ -66,7 +66,7 @@ Fetch array details by ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **systemId** | **integer** | System ID. | [default to null]
- **id** | **integer** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint. | [default to null]
+ **arrayId** | **integer** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint. | [default to null]
 
 ### Return type
 
@@ -128,7 +128,7 @@ Update particular system array details. The angle, left, and top fields in the r
 ### Example
 
 ```bash
- updateSystemArray system_id=value id=value
+ updateSystemArray system_id=value array_id=value
 ```
 
 ### Parameters
@@ -137,7 +137,7 @@ Update particular system array details. The angle, left, and top fields in the r
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **systemId** | **integer** | System ID. | [default to null]
- **id** | **integer** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint. | [default to null]
+ **arrayId** | **integer** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint. | [default to null]
  **params** | **ArrayParams** |  | [optional]
 
 ### Return type

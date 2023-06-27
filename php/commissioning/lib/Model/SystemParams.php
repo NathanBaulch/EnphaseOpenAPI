@@ -64,7 +64,11 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         'operational' => 'bool',
         'owner_id' => 'int',
         'host_id' => 'int',
+        'authorized_subcontractor_id' => 'int',
         'installer_id' => 'int',
+        'maintainer_name' => 'string',
+        'maintainer_id' => 'int',
+        'authorized_subcontractors' => '\EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner[]',
         'allow_public_access' => 'bool',
         'interconnect_date' => '\DateTime',
         'source' => '\EnphaseOpenAPI\Commissioning\Model\SystemSourceEnum',
@@ -110,7 +114,11 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         'operational' => null,
         'owner_id' => null,
         'host_id' => null,
+        'authorized_subcontractor_id' => null,
         'installer_id' => null,
+        'maintainer_name' => null,
+        'maintainer_id' => null,
+        'authorized_subcontractors' => null,
         'allow_public_access' => null,
         'interconnect_date' => 'date',
         'source' => null,
@@ -154,7 +162,11 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
 		'operational' => false,
 		'owner_id' => false,
 		'host_id' => false,
+		'authorized_subcontractor_id' => false,
 		'installer_id' => false,
+		'maintainer_name' => false,
+		'maintainer_id' => false,
+		'authorized_subcontractors' => false,
 		'allow_public_access' => false,
 		'interconnect_date' => false,
 		'source' => false,
@@ -278,7 +290,11 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         'operational' => 'operational',
         'owner_id' => 'owner_id',
         'host_id' => 'host_id',
+        'authorized_subcontractor_id' => 'authorized_subcontractor_id',
         'installer_id' => 'installer_id',
+        'maintainer_name' => 'maintainer_name',
+        'maintainer_id' => 'maintainer_id',
+        'authorized_subcontractors' => 'authorized_subcontractors',
         'allow_public_access' => 'allow_public_access',
         'interconnect_date' => 'interconnect_date',
         'source' => 'source',
@@ -322,7 +338,11 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         'operational' => 'setOperational',
         'owner_id' => 'setOwnerId',
         'host_id' => 'setHostId',
+        'authorized_subcontractor_id' => 'setAuthorizedSubcontractorId',
         'installer_id' => 'setInstallerId',
+        'maintainer_name' => 'setMaintainerName',
+        'maintainer_id' => 'setMaintainerId',
+        'authorized_subcontractors' => 'setAuthorizedSubcontractors',
         'allow_public_access' => 'setAllowPublicAccess',
         'interconnect_date' => 'setInterconnectDate',
         'source' => 'setSource',
@@ -366,7 +386,11 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         'operational' => 'getOperational',
         'owner_id' => 'getOwnerId',
         'host_id' => 'getHostId',
+        'authorized_subcontractor_id' => 'getAuthorizedSubcontractorId',
         'installer_id' => 'getInstallerId',
+        'maintainer_name' => 'getMaintainerName',
+        'maintainer_id' => 'getMaintainerId',
+        'authorized_subcontractors' => 'getAuthorizedSubcontractors',
         'allow_public_access' => 'getAllowPublicAccess',
         'interconnect_date' => 'getInterconnectDate',
         'source' => 'getSource',
@@ -461,7 +485,11 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('operational', $data ?? [], null);
         $this->setIfExists('owner_id', $data ?? [], null);
         $this->setIfExists('host_id', $data ?? [], null);
+        $this->setIfExists('authorized_subcontractor_id', $data ?? [], null);
         $this->setIfExists('installer_id', $data ?? [], null);
+        $this->setIfExists('maintainer_name', $data ?? [], null);
+        $this->setIfExists('maintainer_id', $data ?? [], null);
+        $this->setIfExists('authorized_subcontractors', $data ?? [], null);
         $this->setIfExists('allow_public_access', $data ?? [], null);
         $this->setIfExists('interconnect_date', $data ?? [], null);
         $this->setIfExists('source', $data ?? [], null);
@@ -731,6 +759,33 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets authorized_subcontractor_id
+     *
+     * @return int|null
+     */
+    public function getAuthorizedSubcontractorId()
+    {
+        return $this->container['authorized_subcontractor_id'];
+    }
+
+    /**
+     * Sets authorized_subcontractor_id
+     *
+     * @param int|null $authorized_subcontractor_id Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site.
+     *
+     * @return self
+     */
+    public function setAuthorizedSubcontractorId($authorized_subcontractor_id)
+    {
+        if (is_null($authorized_subcontractor_id)) {
+            throw new \InvalidArgumentException('non-nullable authorized_subcontractor_id cannot be null');
+        }
+        $this->container['authorized_subcontractor_id'] = $authorized_subcontractor_id;
+
+        return $this;
+    }
+
+    /**
      * Gets installer_id
      *
      * @return int|null
@@ -753,6 +808,87 @@ class SystemParams implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable installer_id cannot be null');
         }
         $this->container['installer_id'] = $installer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintainer_name
+     *
+     * @return string|null
+     */
+    public function getMaintainerName()
+    {
+        return $this->container['maintainer_name'];
+    }
+
+    /**
+     * Sets maintainer_name
+     *
+     * @param string|null $maintainer_name Name of the maintainer.
+     *
+     * @return self
+     */
+    public function setMaintainerName($maintainer_name)
+    {
+        if (is_null($maintainer_name)) {
+            throw new \InvalidArgumentException('non-nullable maintainer_name cannot be null');
+        }
+        $this->container['maintainer_name'] = $maintainer_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintainer_id
+     *
+     * @return int|null
+     */
+    public function getMaintainerId()
+    {
+        return $this->container['maintainer_id'];
+    }
+
+    /**
+     * Sets maintainer_id
+     *
+     * @param int|null $maintainer_id The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+     *
+     * @return self
+     */
+    public function setMaintainerId($maintainer_id)
+    {
+        if (is_null($maintainer_id)) {
+            throw new \InvalidArgumentException('non-nullable maintainer_id cannot be null');
+        }
+        $this->container['maintainer_id'] = $maintainer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets authorized_subcontractors
+     *
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner[]|null
+     */
+    public function getAuthorizedSubcontractors()
+    {
+        return $this->container['authorized_subcontractors'];
+    }
+
+    /**
+     * Sets authorized_subcontractors
+     *
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner[]|null $authorized_subcontractors List of sub-contractors of this system.
+     *
+     * @return self
+     */
+    public function setAuthorizedSubcontractors($authorized_subcontractors)
+    {
+        if (is_null($authorized_subcontractors)) {
+            throw new \InvalidArgumentException('non-nullable authorized_subcontractors cannot be null');
+        }
+        $this->container['authorized_subcontractors'] = $authorized_subcontractors;
 
         return $this;
     }

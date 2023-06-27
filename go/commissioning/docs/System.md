@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **SystemName** | Pointer to **string** | Name of the system. | [optional] 
 **SystemType** | Pointer to [**SystemTypeEnum**](SystemTypeEnum.md) |  | [optional] 
 **Status** | Pointer to **string** | System&#39;s status. | [optional] 
+**Timezone** | Pointer to **string** | System&#39;s timezone. | [optional] 
 **Stage** | Pointer to **int32** | What stage of the activation process this activation is in. System-generated. | [optional] 
 **InternetConnection** | Pointer to [**SystemInternetConnectionEnum**](SystemInternetConnectionEnum.md) |  | [optional] 
 **Lease** | Pointer to **bool** | Whether the system is leased. Default false. | [optional] 
@@ -18,6 +19,9 @@ Name | Type | Description | Notes
 **HostId** | Pointer to **int32** | Enlighten ID of this system host. System-generated. This field is optional. | [optional] 
 **InstallerName** | Pointer to **string** | Name of the installer. | [optional] 
 **InstallerId** | Pointer to **int32** | Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID. | [optional] 
+**MaintainerName** | Pointer to **string** | Name of the maintainer. | [optional] 
+**MaintainerId** | Pointer to **int32** | The Enlighten ID of the maintainer of this system. Defaults to current user&#39;s company ID. | [optional] 
+**AuthorizedSubcontractors** | Pointer to [**[]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner**](GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.md) | List of sub-contractors of this system. | [optional] 
 **Uri** | Pointer to **string** | URI for this activation. | [optional] 
 **UpdatedAt** | Pointer to **int64** | Activation last updated timestamp. | [optional] 
 **Reference** | Pointer to **string** | Identifier of this system as provided by the calling user&#39;s company. This attribute is not present if the calling user&#39;s company does not have a reference for this system. | [optional] 
@@ -169,6 +173,31 @@ SetStatus sets Status field to given value.
 `func (o *System) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetTimezone
+
+`func (o *System) GetTimezone() string`
+
+GetTimezone returns the Timezone field if non-nil, zero value otherwise.
+
+### GetTimezoneOk
+
+`func (o *System) GetTimezoneOk() (*string, bool)`
+
+GetTimezoneOk returns a tuple with the Timezone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimezone
+
+`func (o *System) SetTimezone(v string)`
+
+SetTimezone sets Timezone field to given value.
+
+### HasTimezone
+
+`func (o *System) HasTimezone() bool`
+
+HasTimezone returns a boolean if a field has been set.
 
 ### GetStage
 
@@ -419,6 +448,81 @@ SetInstallerId sets InstallerId field to given value.
 `func (o *System) HasInstallerId() bool`
 
 HasInstallerId returns a boolean if a field has been set.
+
+### GetMaintainerName
+
+`func (o *System) GetMaintainerName() string`
+
+GetMaintainerName returns the MaintainerName field if non-nil, zero value otherwise.
+
+### GetMaintainerNameOk
+
+`func (o *System) GetMaintainerNameOk() (*string, bool)`
+
+GetMaintainerNameOk returns a tuple with the MaintainerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintainerName
+
+`func (o *System) SetMaintainerName(v string)`
+
+SetMaintainerName sets MaintainerName field to given value.
+
+### HasMaintainerName
+
+`func (o *System) HasMaintainerName() bool`
+
+HasMaintainerName returns a boolean if a field has been set.
+
+### GetMaintainerId
+
+`func (o *System) GetMaintainerId() int32`
+
+GetMaintainerId returns the MaintainerId field if non-nil, zero value otherwise.
+
+### GetMaintainerIdOk
+
+`func (o *System) GetMaintainerIdOk() (*int32, bool)`
+
+GetMaintainerIdOk returns a tuple with the MaintainerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintainerId
+
+`func (o *System) SetMaintainerId(v int32)`
+
+SetMaintainerId sets MaintainerId field to given value.
+
+### HasMaintainerId
+
+`func (o *System) HasMaintainerId() bool`
+
+HasMaintainerId returns a boolean if a field has been set.
+
+### GetAuthorizedSubcontractors
+
+`func (o *System) GetAuthorizedSubcontractors() []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner`
+
+GetAuthorizedSubcontractors returns the AuthorizedSubcontractors field if non-nil, zero value otherwise.
+
+### GetAuthorizedSubcontractorsOk
+
+`func (o *System) GetAuthorizedSubcontractorsOk() (*[]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner, bool)`
+
+GetAuthorizedSubcontractorsOk returns a tuple with the AuthorizedSubcontractors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorizedSubcontractors
+
+`func (o *System) SetAuthorizedSubcontractors(v []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner)`
+
+SetAuthorizedSubcontractors sets AuthorizedSubcontractors field to given value.
+
+### HasAuthorizedSubcontractors
+
+`func (o *System) HasAuthorizedSubcontractors() bool`
+
+HasAuthorizedSubcontractors returns a boolean if a field has been set.
 
 ### GetUri
 

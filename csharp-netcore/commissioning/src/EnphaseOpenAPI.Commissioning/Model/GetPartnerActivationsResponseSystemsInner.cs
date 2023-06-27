@@ -50,27 +50,32 @@ namespace EnphaseOpenAPI.Commissioning.Model
         /// <param name="systemName">Name of the system..</param>
         /// <param name="systemType">systemType.</param>
         /// <param name="status">System&#39;s status..</param>
+        /// <param name="timezone">System&#39;s timezone..</param>
         /// <param name="stage">What stage of the activation process this activation is in. System-generated..</param>
         /// <param name="internetConnection">internetConnection.</param>
         /// <param name="lease">Whether the system is leased. Default false..</param>
         /// <param name="operational">Whether this system is permitted to operate. Default true..</param>
         /// <param name="owner">Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself..</param>
         /// <param name="ownerId">Enlighten ID of this system owner. System-generated..</param>
-        /// <param name="host">Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information..</param>
+        /// <param name="host">Name of the system host..</param>
         /// <param name="hostId">Enlighten ID of this system host. System-generated..</param>
         /// <param name="installerName">Name of the installer..</param>
-        /// <param name="installerId">Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID..</param>
+        /// <param name="installerId">Enlighten ID of the installer of this system..</param>
+        /// <param name="maintainerName">Name of the maintainer..</param>
+        /// <param name="maintainerId">Enlighten ID of the maintainer of this system..</param>
+        /// <param name="authorizedSubcontractors">List of sub-contractors of this system..</param>
         /// <param name="uri">URI for this activation..</param>
         /// <param name="updatedAt">Activation last updated timestamp..</param>
         /// <param name="reference">Identifier of this system as provided by the calling user&#39;s company. This attribute is not present if the calling user&#39;s company does not have a reference for this system..</param>
         /// <param name="otherReferences">Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system..</param>
         /// <param name="address">address.</param>
-        public GetPartnerActivationsResponseSystemsInner(int systemId = default(int), string systemName = default(string), SystemTypeEnum? systemType = default(SystemTypeEnum?), string status = default(string), int stage = default(int), SystemInternetConnectionEnum? internetConnection = default(SystemInternetConnectionEnum?), bool lease = default(bool), bool operational = default(bool), string owner = default(string), int ownerId = default(int), string host = default(string), int hostId = default(int), string installerName = default(string), int installerId = default(int), string uri = default(string), long updatedAt = default(long), string reference = default(string), List<string> otherReferences = default(List<string>), Address address = default(Address))
+        public GetPartnerActivationsResponseSystemsInner(int systemId = default(int), string systemName = default(string), SystemTypeEnum? systemType = default(SystemTypeEnum?), string status = default(string), string timezone = default(string), int stage = default(int), SystemInternetConnectionEnum? internetConnection = default(SystemInternetConnectionEnum?), bool lease = default(bool), bool operational = default(bool), string owner = default(string), int ownerId = default(int), string host = default(string), int hostId = default(int), string installerName = default(string), int installerId = default(int), string maintainerName = default(string), int maintainerId = default(int), List<GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner> authorizedSubcontractors = default(List<GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>), string uri = default(string), long updatedAt = default(long), string reference = default(string), List<string> otherReferences = default(List<string>), Address address = default(Address))
         {
             this.SystemId = systemId;
             this.SystemName = systemName;
             this.SystemType = systemType;
             this.Status = status;
+            this.Timezone = timezone;
             this.Stage = stage;
             this.InternetConnection = internetConnection;
             this.Lease = lease;
@@ -81,6 +86,9 @@ namespace EnphaseOpenAPI.Commissioning.Model
             this.HostId = hostId;
             this.InstallerName = installerName;
             this.InstallerId = installerId;
+            this.MaintainerName = maintainerName;
+            this.MaintainerId = maintainerId;
+            this.AuthorizedSubcontractors = authorizedSubcontractors;
             this.Uri = uri;
             this.UpdatedAt = updatedAt;
             this.Reference = reference;
@@ -108,6 +116,13 @@ namespace EnphaseOpenAPI.Commissioning.Model
         /// <value>System&#39;s status.</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// System&#39;s timezone.
+        /// </summary>
+        /// <value>System&#39;s timezone.</value>
+        [DataMember(Name = "timezone", EmitDefaultValue = false)]
+        public string Timezone { get; set; }
 
         /// <summary>
         /// What stage of the activation process this activation is in. System-generated.
@@ -145,9 +160,9 @@ namespace EnphaseOpenAPI.Commissioning.Model
         public int OwnerId { get; set; }
 
         /// <summary>
-        /// Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information.
+        /// Name of the system host.
         /// </summary>
-        /// <value>Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information.</value>
+        /// <value>Name of the system host.</value>
         [DataMember(Name = "host", EmitDefaultValue = false)]
         public string Host { get; set; }
 
@@ -166,11 +181,32 @@ namespace EnphaseOpenAPI.Commissioning.Model
         public string InstallerName { get; set; }
 
         /// <summary>
-        /// Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID.
+        /// Enlighten ID of the installer of this system.
         /// </summary>
-        /// <value>Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID.</value>
+        /// <value>Enlighten ID of the installer of this system.</value>
         [DataMember(Name = "installer_id", EmitDefaultValue = false)]
         public int InstallerId { get; set; }
+
+        /// <summary>
+        /// Name of the maintainer.
+        /// </summary>
+        /// <value>Name of the maintainer.</value>
+        [DataMember(Name = "maintainer_name", EmitDefaultValue = false)]
+        public string MaintainerName { get; set; }
+
+        /// <summary>
+        /// Enlighten ID of the maintainer of this system.
+        /// </summary>
+        /// <value>Enlighten ID of the maintainer of this system.</value>
+        [DataMember(Name = "maintainer_id", EmitDefaultValue = false)]
+        public int MaintainerId { get; set; }
+
+        /// <summary>
+        /// List of sub-contractors of this system.
+        /// </summary>
+        /// <value>List of sub-contractors of this system.</value>
+        [DataMember(Name = "authorized_subcontractors", EmitDefaultValue = false)]
+        public List<GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner> AuthorizedSubcontractors { get; set; }
 
         /// <summary>
         /// URI for this activation.
@@ -218,6 +254,7 @@ namespace EnphaseOpenAPI.Commissioning.Model
             sb.Append("  SystemName: ").Append(SystemName).Append("\n");
             sb.Append("  SystemType: ").Append(SystemType).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  Stage: ").Append(Stage).Append("\n");
             sb.Append("  InternetConnection: ").Append(InternetConnection).Append("\n");
             sb.Append("  Lease: ").Append(Lease).Append("\n");
@@ -228,6 +265,9 @@ namespace EnphaseOpenAPI.Commissioning.Model
             sb.Append("  HostId: ").Append(HostId).Append("\n");
             sb.Append("  InstallerName: ").Append(InstallerName).Append("\n");
             sb.Append("  InstallerId: ").Append(InstallerId).Append("\n");
+            sb.Append("  MaintainerName: ").Append(MaintainerName).Append("\n");
+            sb.Append("  MaintainerId: ").Append(MaintainerId).Append("\n");
+            sb.Append("  AuthorizedSubcontractors: ").Append(AuthorizedSubcontractors).Append("\n");
             sb.Append("  Uri: ").Append(Uri).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Reference: ").Append(Reference).Append("\n");
@@ -287,6 +327,11 @@ namespace EnphaseOpenAPI.Commissioning.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.Timezone == input.Timezone ||
+                    (this.Timezone != null &&
+                    this.Timezone.Equals(input.Timezone))
+                ) && 
+                (
                     this.Stage == input.Stage ||
                     this.Stage.Equals(input.Stage)
                 ) && 
@@ -328,6 +373,21 @@ namespace EnphaseOpenAPI.Commissioning.Model
                 (
                     this.InstallerId == input.InstallerId ||
                     this.InstallerId.Equals(input.InstallerId)
+                ) && 
+                (
+                    this.MaintainerName == input.MaintainerName ||
+                    (this.MaintainerName != null &&
+                    this.MaintainerName.Equals(input.MaintainerName))
+                ) && 
+                (
+                    this.MaintainerId == input.MaintainerId ||
+                    this.MaintainerId.Equals(input.MaintainerId)
+                ) && 
+                (
+                    this.AuthorizedSubcontractors == input.AuthorizedSubcontractors ||
+                    this.AuthorizedSubcontractors != null &&
+                    input.AuthorizedSubcontractors != null &&
+                    this.AuthorizedSubcontractors.SequenceEqual(input.AuthorizedSubcontractors)
                 ) && 
                 (
                     this.Uri == input.Uri ||
@@ -375,6 +435,10 @@ namespace EnphaseOpenAPI.Commissioning.Model
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
+                if (this.Timezone != null)
+                {
+                    hashCode = (hashCode * 59) + this.Timezone.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Stage.GetHashCode();
                 hashCode = (hashCode * 59) + this.InternetConnection.GetHashCode();
                 hashCode = (hashCode * 59) + this.Lease.GetHashCode();
@@ -394,6 +458,15 @@ namespace EnphaseOpenAPI.Commissioning.Model
                     hashCode = (hashCode * 59) + this.InstallerName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstallerId.GetHashCode();
+                if (this.MaintainerName != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaintainerName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MaintainerId.GetHashCode();
+                if (this.AuthorizedSubcontractors != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorizedSubcontractors.GetHashCode();
+                }
                 if (this.Uri != null)
                 {
                     hashCode = (hashCode * 59) + this.Uri.GetHashCode();

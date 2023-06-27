@@ -5,14 +5,14 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createPartnerActivation()**](ActivationsApi.md#createPartnerActivation) | **POST** /partner/activations | Create new activation |
-| [**deleteActivation()**](ActivationsApi.md#deleteActivation) | **DELETE** /activations/{id} | Delete an activation by ID |
+| [**deleteActivation()**](ActivationsApi.md#deleteActivation) | **DELETE** /partner/activations/{activation_id} | Delete an activation by ID |
 | [**getActivationOpsProductionMode()**](ActivationsApi.md#getActivationOpsProductionMode) | **GET** /activations/{activation_id}/ops/production_mode | Get production mode |
-| [**getPartnerActivation()**](ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{id} | Retrieves an Activation by ID |
+| [**getPartnerActivation()**](ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{activation_id} | Retrieves an Activation by ID |
 | [**getPartnerActivations()**](ActivationsApi.md#getPartnerActivations) | **GET** /partner/activations | List of Activations |
 | [**grantActivationUserAccess()**](ActivationsApi.md#grantActivationUserAccess) | **POST** /activations/{activation_id}/users/{user_id} | Grant Access |
 | [**revokeActivationUserAccess()**](ActivationsApi.md#revokeActivationUserAccess) | **DELETE** /activations/{activation_id}/users/{user_id} | Revoke Access |
 | [**setActivationOpsProductionMode()**](ActivationsApi.md#setActivationOpsProductionMode) | **POST** /activations/{activation_id}/ops/production_mode | Set production mode |
-| [**updatePartnerActivation()**](ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{id} | Update an activation. |
+| [**updatePartnerActivation()**](ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{activation_id} | Update an activation. |
 
 
 ## `createPartnerActivation()`
@@ -83,7 +83,7 @@ try {
 ## `deleteActivation()`
 
 ```php
-deleteActivation($id): \EnphaseOpenAPI\Commissioning\Model\DeleteActivationResponse
+deleteActivation($activation_id): \EnphaseOpenAPI\Commissioning\Model\DeleteActivationResponse
 ```
 
 Delete an activation by ID
@@ -112,10 +112,10 @@ $apiInstance = new EnphaseOpenAPI\Commissioning\Api\ActivationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Enlighten ID of the activation(system).
+$activation_id = 56; // int | Enlighten ID of the activation(system).
 
 try {
-    $result = $apiInstance->deleteActivation($id);
+    $result = $apiInstance->deleteActivation($activation_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivationsApi->deleteActivation: ', $e->getMessage(), PHP_EOL;
@@ -126,7 +126,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| Enlighten ID of the activation(system). | |
+| **activation_id** | **int**| Enlighten ID of the activation(system). | |
 
 ### Return type
 
@@ -213,7 +213,7 @@ try {
 ## `getPartnerActivation()`
 
 ```php
-getPartnerActivation($id, $expand): \EnphaseOpenAPI\Commissioning\Model\System
+getPartnerActivation($activation_id, $expand): \EnphaseOpenAPI\Commissioning\Model\System
 ```
 
 Retrieves an Activation by ID
@@ -242,11 +242,11 @@ $apiInstance = new EnphaseOpenAPI\Commissioning\Api\ActivationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Enlighten ID of the activation(system). System-generated.
+$activation_id = 56; // int | Enlighten ID of the activation(system). System-generated.
 $expand = new \EnphaseOpenAPI\Commissioning\Model\SystemExpandEnum(); // SystemExpandEnum | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
 
 try {
-    $result = $apiInstance->getPartnerActivation($id, $expand);
+    $result = $apiInstance->getPartnerActivation($activation_id, $expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivationsApi->getPartnerActivation: ', $e->getMessage(), PHP_EOL;
@@ -257,7 +257,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| Enlighten ID of the activation(system). System-generated. | |
+| **activation_id** | **int**| Enlighten ID of the activation(system). System-generated. | |
 | **expand** | [**SystemExpandEnum**](../Model/.md)| Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. | [optional] |
 
 ### Return type
@@ -311,7 +311,7 @@ $apiInstance = new EnphaseOpenAPI\Commissioning\Api\ActivationsApi(
 );
 $next = 'next_example'; // string | If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field.
 $limit = 56; // int | There is a limit to the number of activations which can be returned at one time.
-$stage = new \EnphaseOpenAPI\Commissioning\Model\SystemStageEnum(); // SystemStageEnum | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems.
+$stage = new \EnphaseOpenAPI\Commissioning\Model\SystemStageEnum(); // SystemStageEnum | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value.
 $reference = 'reference_example'; // string | Filter activations by company reference.
 $installer_id = 56; // int | Filter activations by installer ID.
 $system_name = 'system_name_example'; // string | Filter activations by system name.
@@ -333,7 +333,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **next** | **string**| If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. | [optional] |
 | **limit** | **int**| There is a limit to the number of activations which can be returned at one time. | [optional] |
-| **stage** | [**SystemStageEnum**](../Model/.md)| Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. | [optional] |
+| **stage** | [**SystemStageEnum**](../Model/.md)| Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. | [optional] |
 | **reference** | **string**| Filter activations by company reference. | [optional] |
 | **installer_id** | **int**| Filter activations by installer ID. | [optional] |
 | **system_name** | **string**| Filter activations by system name. | [optional] |
@@ -562,7 +562,7 @@ try {
 ## `updatePartnerActivation()`
 
 ```php
-updatePartnerActivation($id, $params): \EnphaseOpenAPI\Commissioning\Model\System
+updatePartnerActivation($activation_id, $params): \EnphaseOpenAPI\Commissioning\Model\System
 ```
 
 Update an activation.
@@ -591,11 +591,11 @@ $apiInstance = new EnphaseOpenAPI\Commissioning\Api\ActivationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | Enlighten ID of the activation(system). System-generated.
+$activation_id = 56; // int | Enlighten ID of the activation(system). System-generated.
 $params = new \EnphaseOpenAPI\Commissioning\Model\SystemParams(); // \EnphaseOpenAPI\Commissioning\Model\SystemParams
 
 try {
-    $result = $apiInstance->updatePartnerActivation($id, $params);
+    $result = $apiInstance->updatePartnerActivation($activation_id, $params);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivationsApi->updatePartnerActivation: ', $e->getMessage(), PHP_EOL;
@@ -606,7 +606,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| Enlighten ID of the activation(system). System-generated. | |
+| **activation_id** | **int**| Enlighten ID of the activation(system). System-generated. | |
 | **params** | **\EnphaseOpenAPI\Commissioning\Model\SystemParams**|  | [optional] |
 
 ### Return type

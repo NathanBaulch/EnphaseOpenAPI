@@ -153,6 +153,12 @@ Object.defineProperty(exports, "GetPartnerActivationsResponseSystemsInner", {
     return _GetPartnerActivationsResponseSystemsInner["default"];
   }
 });
+Object.defineProperty(exports, "GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner", {
+  enumerable: true,
+  get: function get() {
+    return _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner["default"];
+  }
+});
 Object.defineProperty(exports, "GetPvManufacturerModelsResponse", {
   enumerable: true,
   get: function get() {
@@ -169,6 +175,18 @@ Object.defineProperty(exports, "GetPvManufacturersResponse", {
   enumerable: true,
   get: function get() {
     return _GetPvManufacturersResponse["default"];
+  }
+});
+Object.defineProperty(exports, "GetSelfCompanyAuthorizedSubcontractorsResponse", {
+  enumerable: true,
+  get: function get() {
+    return _GetSelfCompanyAuthorizedSubcontractorsResponse["default"];
+  }
+});
+Object.defineProperty(exports, "GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner", {
+  enumerable: true,
+  get: function get() {
+    return _GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner["default"];
   }
 });
 Object.defineProperty(exports, "GetSelfCompanyBranchesResponse", {
@@ -546,9 +564,12 @@ var _GetGridProfilesResponse = _interopRequireDefault(require("./model/GetGridPr
 var _GetGridProfilesResponseGridProfilesInner = _interopRequireDefault(require("./model/GetGridProfilesResponseGridProfilesInner"));
 var _GetPartnerActivationsResponse = _interopRequireDefault(require("./model/GetPartnerActivationsResponse"));
 var _GetPartnerActivationsResponseSystemsInner = _interopRequireDefault(require("./model/GetPartnerActivationsResponseSystemsInner"));
+var _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner = _interopRequireDefault(require("./model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner"));
 var _GetPvManufacturerModelsResponse = _interopRequireDefault(require("./model/GetPvManufacturerModelsResponse"));
 var _GetPvManufacturerModelsResponsePvManufacturers = _interopRequireDefault(require("./model/GetPvManufacturerModelsResponsePvManufacturers"));
 var _GetPvManufacturersResponse = _interopRequireDefault(require("./model/GetPvManufacturersResponse"));
+var _GetSelfCompanyAuthorizedSubcontractorsResponse = _interopRequireDefault(require("./model/GetSelfCompanyAuthorizedSubcontractorsResponse"));
+var _GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner = _interopRequireDefault(require("./model/GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner"));
 var _GetSelfCompanyBranchesResponse = _interopRequireDefault(require("./model/GetSelfCompanyBranchesResponse"));
 var _GetSelfCompanyBranchesResponseBranchesInner = _interopRequireDefault(require("./model/GetSelfCompanyBranchesResponseBranchesInner"));
 var _GetSystemMeterResponse = _interopRequireDefault(require("./model/GetSystemMeterResponse"));

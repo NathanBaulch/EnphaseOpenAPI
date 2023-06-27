@@ -10,14 +10,14 @@
 """
 
 from commissioning.paths.partner_activations.post import CreatePartnerActivation
-from commissioning.paths.activations_id.delete import DeleteActivation
+from commissioning.paths.partner_activations_activation_id.delete import DeleteActivation
 from commissioning.paths.activations_activation_id_ops_production_mode.get import GetActivationOpsProductionMode
-from commissioning.paths.partner_activations_id.get import GetPartnerActivation
+from commissioning.paths.partner_activations_activation_id.get import GetPartnerActivation
 from commissioning.paths.partner_activations.get import GetPartnerActivations
 from commissioning.paths.activations_activation_id_users_user_id.post import GrantActivationUserAccess
 from commissioning.paths.activations_activation_id_users_user_id.delete import RevokeActivationUserAccess
 from commissioning.paths.activations_activation_id_ops_production_mode.post import SetActivationOpsProductionMode
-from commissioning.paths.partner_activations_id.put import UpdatePartnerActivation
+from commissioning.paths.partner_activations_activation_id.put import UpdatePartnerActivation
 
 
 class ActivationsApi(

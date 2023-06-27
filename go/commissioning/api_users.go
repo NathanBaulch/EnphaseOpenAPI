@@ -243,7 +243,7 @@ func (a *UsersApiService) GetSelfUserExecute(r ApiGetSelfUserRequest) (*User, *h
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/users/self"
+	localVarPath := localBasePath + "/partner/users/self"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -434,7 +434,7 @@ func (a *UsersApiService) GetUserExecute(r ApiGetUserRequest) (*User, *http.Resp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/users/{user_id}"
+	localVarPath := localBasePath + "/partner/users/{user_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"user_id"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

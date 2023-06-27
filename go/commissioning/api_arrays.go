@@ -27,7 +27,7 @@ type ApiDeleteSystemArrayRequest struct {
 	ctx context.Context
 	ApiService *ArraysApiService
 	systemId int32
-	id int32
+	arrayId int32
 }
 
 func (r ApiDeleteSystemArrayRequest) Execute() (*DeleteSystemArrayResponse, *http.Response, error) {
@@ -41,15 +41,15 @@ Delete an array by ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId System ID.
- @param id Array ID.
+ @param arrayId Array ID.
  @return ApiDeleteSystemArrayRequest
 */
-func (a *ArraysApiService) DeleteSystemArray(ctx context.Context, systemId int32, id int32) ApiDeleteSystemArrayRequest {
+func (a *ArraysApiService) DeleteSystemArray(ctx context.Context, systemId int32, arrayId int32) ApiDeleteSystemArrayRequest {
 	return ApiDeleteSystemArrayRequest{
 		ApiService: a,
 		ctx: ctx,
 		systemId: systemId,
-		id: id,
+		arrayId: arrayId,
 	}
 }
 
@@ -68,9 +68,9 @@ func (a *ArraysApiService) DeleteSystemArrayExecute(r ApiDeleteSystemArrayReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/systems/{system_id}/arrays/{id}"
+	localVarPath := localBasePath + "/partner/systems/{system_id}/arrays/{array_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"array_id"+"}", url.PathEscape(parameterValueToString(r.arrayId, "arrayId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -213,7 +213,7 @@ type ApiGetSystemArrayRequest struct {
 	ctx context.Context
 	ApiService *ArraysApiService
 	systemId int32
-	id int32
+	arrayId int32
 }
 
 func (r ApiGetSystemArrayRequest) Execute() (*Array, *http.Response, error) {
@@ -227,15 +227,15 @@ Fetch array details by ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId System ID.
- @param id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
+ @param arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
  @return ApiGetSystemArrayRequest
 */
-func (a *ArraysApiService) GetSystemArray(ctx context.Context, systemId int32, id int32) ApiGetSystemArrayRequest {
+func (a *ArraysApiService) GetSystemArray(ctx context.Context, systemId int32, arrayId int32) ApiGetSystemArrayRequest {
 	return ApiGetSystemArrayRequest{
 		ApiService: a,
 		ctx: ctx,
 		systemId: systemId,
-		id: id,
+		arrayId: arrayId,
 	}
 }
 
@@ -254,9 +254,9 @@ func (a *ArraysApiService) GetSystemArrayExecute(r ApiGetSystemArrayRequest) (*A
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/systems/{system_id}/arrays/{id}"
+	localVarPath := localBasePath + "/partner/systems/{system_id}/arrays/{array_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"array_id"+"}", url.PathEscape(parameterValueToString(r.arrayId, "arrayId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -437,7 +437,7 @@ func (a *ArraysApiService) GetSystemArraysExecute(r ApiGetSystemArraysRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/systems/{system_id}/arrays"
+	localVarPath := localBasePath + "/partner/systems/{system_id}/arrays"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -570,7 +570,7 @@ type ApiUpdateSystemArrayRequest struct {
 	ctx context.Context
 	ApiService *ArraysApiService
 	systemId int32
-	id int32
+	arrayId int32
 	params *ArrayParams
 }
 
@@ -590,15 +590,15 @@ Update particular system array details. The angle, left, and top fields in the r
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId System ID.
- @param id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
+ @param arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
  @return ApiUpdateSystemArrayRequest
 */
-func (a *ArraysApiService) UpdateSystemArray(ctx context.Context, systemId int32, id int32) ApiUpdateSystemArrayRequest {
+func (a *ArraysApiService) UpdateSystemArray(ctx context.Context, systemId int32, arrayId int32) ApiUpdateSystemArrayRequest {
 	return ApiUpdateSystemArrayRequest{
 		ApiService: a,
 		ctx: ctx,
 		systemId: systemId,
-		id: id,
+		arrayId: arrayId,
 	}
 }
 
@@ -617,9 +617,9 @@ func (a *ArraysApiService) UpdateSystemArrayExecute(r ApiUpdateSystemArrayReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/systems/{system_id}/arrays/{id}"
+	localVarPath := localBasePath + "/partner/systems/{system_id}/arrays/{array_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"array_id"+"}", url.PathEscape(parameterValueToString(r.arrayId, "arrayId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -808,7 +808,7 @@ func (a *ArraysApiService) UpdateSystemArraysExecute(r ApiUpdateSystemArraysRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/systems/{system_id}/arrays"
+	localVarPath := localBasePath + "/partner/systems/{system_id}/arrays"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

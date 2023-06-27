@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Address from './Address';
+import GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner from './GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner';
 import SystemInternetConnectionEnum from './SystemInternetConnectionEnum';
 import SystemTypeEnum from './SystemTypeEnum';
 
@@ -62,6 +63,9 @@ class GetPartnerActivationsResponseSystemsInner {
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            if (data.hasOwnProperty('timezone')) {
+                obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
+            }
             if (data.hasOwnProperty('stage')) {
                 obj['stage'] = ApiClient.convertToType(data['stage'], 'Number');
             }
@@ -91,6 +95,15 @@ class GetPartnerActivationsResponseSystemsInner {
             }
             if (data.hasOwnProperty('installer_id')) {
                 obj['installer_id'] = ApiClient.convertToType(data['installer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('maintainer_name')) {
+                obj['maintainer_name'] = ApiClient.convertToType(data['maintainer_name'], 'String');
+            }
+            if (data.hasOwnProperty('maintainer_id')) {
+                obj['maintainer_id'] = ApiClient.convertToType(data['maintainer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('authorized_subcontractors')) {
+                obj['authorized_subcontractors'] = ApiClient.convertToType(data['authorized_subcontractors'], [GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner]);
             }
             if (data.hasOwnProperty('uri')) {
                 obj['uri'] = ApiClient.convertToType(data['uri'], 'String');
@@ -126,6 +139,10 @@ class GetPartnerActivationsResponseSystemsInner {
             throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
         }
         // ensure the json data is a string
+        if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
+            throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
+        }
+        // ensure the json data is a string
         if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
             throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
         }
@@ -136,6 +153,20 @@ class GetPartnerActivationsResponseSystemsInner {
         // ensure the json data is a string
         if (data['installer_name'] && !(typeof data['installer_name'] === 'string' || data['installer_name'] instanceof String)) {
             throw new Error("Expected the field `installer_name` to be a primitive type in the JSON string but got " + data['installer_name']);
+        }
+        // ensure the json data is a string
+        if (data['maintainer_name'] && !(typeof data['maintainer_name'] === 'string' || data['maintainer_name'] instanceof String)) {
+            throw new Error("Expected the field `maintainer_name` to be a primitive type in the JSON string but got " + data['maintainer_name']);
+        }
+        if (data['authorized_subcontractors']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['authorized_subcontractors'])) {
+                throw new Error("Expected the field `authorized_subcontractors` to be an array in the JSON data but got " + data['authorized_subcontractors']);
+            }
+            // validate the optional field `authorized_subcontractors` (array)
+            for (const item of data['authorized_subcontractors']) {
+                GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.validateJSON(item);
+            };
         }
         // ensure the json data is a string
         if (data['uri'] && !(typeof data['uri'] === 'string' || data['uri'] instanceof String)) {
@@ -186,6 +217,12 @@ GetPartnerActivationsResponseSystemsInner.prototype['system_type'] = undefined;
 GetPartnerActivationsResponseSystemsInner.prototype['status'] = undefined;
 
 /**
+ * System's timezone.
+ * @member {String} timezone
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['timezone'] = undefined;
+
+/**
  * What stage of the activation process this activation is in. System-generated.
  * @member {Number} stage
  */
@@ -221,7 +258,7 @@ GetPartnerActivationsResponseSystemsInner.prototype['owner'] = undefined;
 GetPartnerActivationsResponseSystemsInner.prototype['owner_id'] = undefined;
 
 /**
- * Name of the system host. Please see \"Specifying an Owner and Lease Arrangement\", above, for more information.
+ * Name of the system host.
  * @member {String} host
  */
 GetPartnerActivationsResponseSystemsInner.prototype['host'] = undefined;
@@ -239,10 +276,28 @@ GetPartnerActivationsResponseSystemsInner.prototype['host_id'] = undefined;
 GetPartnerActivationsResponseSystemsInner.prototype['installer_name'] = undefined;
 
 /**
- * Enlighten ID of the installer of this system. Defaults to current user's company ID.
+ * Enlighten ID of the installer of this system.
  * @member {Number} installer_id
  */
 GetPartnerActivationsResponseSystemsInner.prototype['installer_id'] = undefined;
+
+/**
+ * Name of the maintainer.
+ * @member {String} maintainer_name
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['maintainer_name'] = undefined;
+
+/**
+ * Enlighten ID of the maintainer of this system.
+ * @member {Number} maintainer_id
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['maintainer_id'] = undefined;
+
+/**
+ * List of sub-contractors of this system.
+ * @member {Array.<module:model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>} authorized_subcontractors
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['authorized_subcontractors'] = undefined;
 
 /**
  * URI for this activation.

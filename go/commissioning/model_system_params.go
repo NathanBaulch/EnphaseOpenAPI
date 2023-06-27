@@ -31,8 +31,16 @@ type SystemParams struct {
 	OwnerId *int32 `json:"owner_id,omitempty"`
 	// Enlighten ID of the system host. System host must be an Enlighten user. Optional. If the user of the API is an installer then use the Search user API to get the host user ID. If the host not exist in the enlighten then use Create home owner API to create it newly.
 	HostId *int32 `json:"host_id,omitempty"`
+	// Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site.
+	AuthorizedSubcontractorId *int32 `json:"authorized_subcontractor_id,omitempty"`
 	// Enlighten ID of the installer of this system. Defaults to current user's company ID.
 	InstallerId *int32 `json:"installer_id,omitempty"`
+	// Name of the maintainer.
+	MaintainerName *string `json:"maintainer_name,omitempty"`
+	// The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+	MaintainerId *int32 `json:"maintainer_id,omitempty"`
+	// List of sub-contractors of this system.
+	AuthorizedSubcontractors []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner `json:"authorized_subcontractors,omitempty"`
 	// When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
 	AllowPublicAccess *bool `json:"allow_public_access,omitempty"`
 	// When the system was approved to connect to the grid.
@@ -319,6 +327,38 @@ func (o *SystemParams) SetHostId(v int32) {
 	o.HostId = &v
 }
 
+// GetAuthorizedSubcontractorId returns the AuthorizedSubcontractorId field value if set, zero value otherwise.
+func (o *SystemParams) GetAuthorizedSubcontractorId() int32 {
+	if o == nil || IsNil(o.AuthorizedSubcontractorId) {
+		var ret int32
+		return ret
+	}
+	return *o.AuthorizedSubcontractorId
+}
+
+// GetAuthorizedSubcontractorIdOk returns a tuple with the AuthorizedSubcontractorId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemParams) GetAuthorizedSubcontractorIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.AuthorizedSubcontractorId) {
+		return nil, false
+	}
+	return o.AuthorizedSubcontractorId, true
+}
+
+// HasAuthorizedSubcontractorId returns a boolean if a field has been set.
+func (o *SystemParams) HasAuthorizedSubcontractorId() bool {
+	if o != nil && !IsNil(o.AuthorizedSubcontractorId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthorizedSubcontractorId gets a reference to the given int32 and assigns it to the AuthorizedSubcontractorId field.
+func (o *SystemParams) SetAuthorizedSubcontractorId(v int32) {
+	o.AuthorizedSubcontractorId = &v
+}
+
 // GetInstallerId returns the InstallerId field value if set, zero value otherwise.
 func (o *SystemParams) GetInstallerId() int32 {
 	if o == nil || IsNil(o.InstallerId) {
@@ -349,6 +389,102 @@ func (o *SystemParams) HasInstallerId() bool {
 // SetInstallerId gets a reference to the given int32 and assigns it to the InstallerId field.
 func (o *SystemParams) SetInstallerId(v int32) {
 	o.InstallerId = &v
+}
+
+// GetMaintainerName returns the MaintainerName field value if set, zero value otherwise.
+func (o *SystemParams) GetMaintainerName() string {
+	if o == nil || IsNil(o.MaintainerName) {
+		var ret string
+		return ret
+	}
+	return *o.MaintainerName
+}
+
+// GetMaintainerNameOk returns a tuple with the MaintainerName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemParams) GetMaintainerNameOk() (*string, bool) {
+	if o == nil || IsNil(o.MaintainerName) {
+		return nil, false
+	}
+	return o.MaintainerName, true
+}
+
+// HasMaintainerName returns a boolean if a field has been set.
+func (o *SystemParams) HasMaintainerName() bool {
+	if o != nil && !IsNil(o.MaintainerName) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintainerName gets a reference to the given string and assigns it to the MaintainerName field.
+func (o *SystemParams) SetMaintainerName(v string) {
+	o.MaintainerName = &v
+}
+
+// GetMaintainerId returns the MaintainerId field value if set, zero value otherwise.
+func (o *SystemParams) GetMaintainerId() int32 {
+	if o == nil || IsNil(o.MaintainerId) {
+		var ret int32
+		return ret
+	}
+	return *o.MaintainerId
+}
+
+// GetMaintainerIdOk returns a tuple with the MaintainerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemParams) GetMaintainerIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaintainerId) {
+		return nil, false
+	}
+	return o.MaintainerId, true
+}
+
+// HasMaintainerId returns a boolean if a field has been set.
+func (o *SystemParams) HasMaintainerId() bool {
+	if o != nil && !IsNil(o.MaintainerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintainerId gets a reference to the given int32 and assigns it to the MaintainerId field.
+func (o *SystemParams) SetMaintainerId(v int32) {
+	o.MaintainerId = &v
+}
+
+// GetAuthorizedSubcontractors returns the AuthorizedSubcontractors field value if set, zero value otherwise.
+func (o *SystemParams) GetAuthorizedSubcontractors() []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner {
+	if o == nil || IsNil(o.AuthorizedSubcontractors) {
+		var ret []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner
+		return ret
+	}
+	return o.AuthorizedSubcontractors
+}
+
+// GetAuthorizedSubcontractorsOk returns a tuple with the AuthorizedSubcontractors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemParams) GetAuthorizedSubcontractorsOk() ([]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner, bool) {
+	if o == nil || IsNil(o.AuthorizedSubcontractors) {
+		return nil, false
+	}
+	return o.AuthorizedSubcontractors, true
+}
+
+// HasAuthorizedSubcontractors returns a boolean if a field has been set.
+func (o *SystemParams) HasAuthorizedSubcontractors() bool {
+	if o != nil && !IsNil(o.AuthorizedSubcontractors) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthorizedSubcontractors gets a reference to the given []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner and assigns it to the AuthorizedSubcontractors field.
+func (o *SystemParams) SetAuthorizedSubcontractors(v []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner) {
+	o.AuthorizedSubcontractors = v
 }
 
 // GetAllowPublicAccess returns the AllowPublicAccess field value if set, zero value otherwise.
@@ -1276,8 +1412,20 @@ func (o SystemParams) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HostId) {
 		toSerialize["host_id"] = o.HostId
 	}
+	if !IsNil(o.AuthorizedSubcontractorId) {
+		toSerialize["authorized_subcontractor_id"] = o.AuthorizedSubcontractorId
+	}
 	if !IsNil(o.InstallerId) {
 		toSerialize["installer_id"] = o.InstallerId
+	}
+	if !IsNil(o.MaintainerName) {
+		toSerialize["maintainer_name"] = o.MaintainerName
+	}
+	if !IsNil(o.MaintainerId) {
+		toSerialize["maintainer_id"] = o.MaintainerId
+	}
+	if !IsNil(o.AuthorizedSubcontractors) {
+		toSerialize["authorized_subcontractors"] = o.AuthorizedSubcontractors
 	}
 	if !IsNil(o.AllowPublicAccess) {
 		toSerialize["allow_public_access"] = o.AllowPublicAccess

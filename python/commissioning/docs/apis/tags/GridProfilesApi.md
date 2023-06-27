@@ -5,7 +5,7 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_grid_profiles**](#get_grid_profiles) | **get** /grid_profiles | Lists the available profiles
+[**get_grid_profiles**](#get_grid_profiles) | **get** /partner/grid_profiles | Lists the available profiles
 
 # **get_grid_profiles**
 <a id="get_grid_profiles"></a>

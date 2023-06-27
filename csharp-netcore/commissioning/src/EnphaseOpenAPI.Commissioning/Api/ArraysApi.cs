@@ -35,10 +35,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteSystemArrayResponse</returns>
-        DeleteSystemArrayResponse DeleteSystemArray(int systemId, int id, int operationIndex = 0);
+        DeleteSystemArrayResponse DeleteSystemArray(int systemId, int arrayId, int operationIndex = 0);
 
         /// <summary>
         /// Delete an array by ID
@@ -48,10 +48,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteSystemArrayResponse</returns>
-        ApiResponse<DeleteSystemArrayResponse> DeleteSystemArrayWithHttpInfo(int systemId, int id, int operationIndex = 0);
+        ApiResponse<DeleteSystemArrayResponse> DeleteSystemArrayWithHttpInfo(int systemId, int arrayId, int operationIndex = 0);
         /// <summary>
         /// Fetch array details by ID
         /// </summary>
@@ -60,10 +60,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Array</returns>
-        Array GetSystemArray(int systemId, int id, int operationIndex = 0);
+        Array GetSystemArray(int systemId, int arrayId, int operationIndex = 0);
 
         /// <summary>
         /// Fetch array details by ID
@@ -73,10 +73,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Array</returns>
-        ApiResponse<Array> GetSystemArrayWithHttpInfo(int systemId, int id, int operationIndex = 0);
+        ApiResponse<Array> GetSystemArrayWithHttpInfo(int systemId, int arrayId, int operationIndex = 0);
         /// <summary>
         /// Fetch particular system Array details
         /// </summary>
@@ -108,11 +108,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Array</returns>
-        Array UpdateSystemArray(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0);
+        Array UpdateSystemArray(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0);
 
         /// <summary>
         /// Update particular system array details
@@ -122,11 +122,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Array</returns>
-        ApiResponse<Array> UpdateSystemArrayWithHttpInfo(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0);
+        ApiResponse<Array> UpdateSystemArrayWithHttpInfo(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0);
         /// <summary>
         /// Update all arrays for system
         /// </summary>
@@ -169,11 +169,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteSystemArrayResponse</returns>
-        System.Threading.Tasks.Task<DeleteSystemArrayResponse> DeleteSystemArrayAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeleteSystemArrayResponse> DeleteSystemArrayAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete an array by ID
@@ -183,11 +183,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteSystemArrayResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteSystemArrayResponse>> DeleteSystemArrayWithHttpInfoAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeleteSystemArrayResponse>> DeleteSystemArrayWithHttpInfoAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Fetch array details by ID
         /// </summary>
@@ -196,11 +196,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Array</returns>
-        System.Threading.Tasks.Task<Array> GetSystemArrayAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Array> GetSystemArrayAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Fetch array details by ID
@@ -210,11 +210,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Array)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Array>> GetSystemArrayWithHttpInfoAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Array>> GetSystemArrayWithHttpInfoAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Fetch particular system Array details
         /// </summary>
@@ -248,12 +248,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Array</returns>
-        System.Threading.Tasks.Task<Array> UpdateSystemArrayAsync(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Array> UpdateSystemArrayAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update particular system array details
@@ -263,12 +263,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Array)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Array>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Array>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update all arrays for system
         /// </summary>
@@ -421,12 +421,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteSystemArrayResponse</returns>
-        public DeleteSystemArrayResponse DeleteSystemArray(int systemId, int id, int operationIndex = 0)
+        public DeleteSystemArrayResponse DeleteSystemArray(int systemId, int arrayId, int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse> localVarResponse = DeleteSystemArrayWithHttpInfo(systemId, id);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse> localVarResponse = DeleteSystemArrayWithHttpInfo(systemId, arrayId);
             return localVarResponse.Data;
         }
 
@@ -435,10 +435,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteSystemArrayResponse</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse> DeleteSystemArrayWithHttpInfo(int systemId, int id, int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse> DeleteSystemArrayWithHttpInfo(int systemId, int arrayId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -463,7 +463,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(systemId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("array_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(arrayId)); // path parameter
 
             localVarRequestOptions.Operation = "ArraysApi.DeleteSystemArray";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -491,7 +491,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeleteSystemArrayResponse>("/systems/{system_id}/arrays/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeleteSystemArrayResponse>("/partner/systems/{system_id}/arrays/{array_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteSystemArray", localVarResponse);
@@ -509,13 +509,13 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteSystemArrayResponse</returns>
-        public async System.Threading.Tasks.Task<DeleteSystemArrayResponse> DeleteSystemArrayAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeleteSystemArrayResponse> DeleteSystemArrayAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse> localVarResponse = await DeleteSystemArrayWithHttpInfoAsync(systemId, id, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse> localVarResponse = await DeleteSystemArrayWithHttpInfoAsync(systemId, arrayId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -524,11 +524,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID.</param>
+        /// <param name="arrayId">Array ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteSystemArrayResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse>> DeleteSystemArrayWithHttpInfoAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteSystemArrayResponse>> DeleteSystemArrayWithHttpInfoAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -554,7 +554,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(systemId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("array_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(arrayId)); // path parameter
 
             localVarRequestOptions.Operation = "ArraysApi.DeleteSystemArray";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -582,7 +582,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteSystemArrayResponse>("/systems/{system_id}/arrays/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteSystemArrayResponse>("/partner/systems/{system_id}/arrays/{array_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -601,12 +601,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Array</returns>
-        public Array GetSystemArray(int systemId, int id, int operationIndex = 0)
+        public Array GetSystemArray(int systemId, int arrayId, int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = GetSystemArrayWithHttpInfo(systemId, id);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = GetSystemArrayWithHttpInfo(systemId, arrayId);
             return localVarResponse.Data;
         }
 
@@ -615,10 +615,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Array</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> GetSystemArrayWithHttpInfo(int systemId, int id, int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> GetSystemArrayWithHttpInfo(int systemId, int arrayId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -643,7 +643,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(systemId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("array_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(arrayId)); // path parameter
 
             localVarRequestOptions.Operation = "ArraysApi.GetSystemArray";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -671,7 +671,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Array>("/systems/{system_id}/arrays/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Array>("/partner/systems/{system_id}/arrays/{array_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemArray", localVarResponse);
@@ -689,13 +689,13 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Array</returns>
-        public async System.Threading.Tasks.Task<Array> GetSystemArrayAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Array> GetSystemArrayAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = await GetSystemArrayWithHttpInfoAsync(systemId, id, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = await GetSystemArrayWithHttpInfoAsync(systemId, arrayId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -704,11 +704,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Array)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array>> GetSystemArrayWithHttpInfoAsync(int systemId, int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array>> GetSystemArrayWithHttpInfoAsync(int systemId, int arrayId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -734,7 +734,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(systemId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("array_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(arrayId)); // path parameter
 
             localVarRequestOptions.Operation = "ArraysApi.GetSystemArray";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -762,7 +762,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Array>("/systems/{system_id}/arrays/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Array>("/partner/systems/{system_id}/arrays/{array_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -848,7 +848,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Arrays>("/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Arrays>("/partner/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemArrays", localVarResponse);
@@ -936,7 +936,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Arrays>("/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Arrays>("/partner/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -955,13 +955,13 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Array</returns>
-        public Array UpdateSystemArray(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0)
+        public Array UpdateSystemArray(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = UpdateSystemArrayWithHttpInfo(systemId, id, _params);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = UpdateSystemArrayWithHttpInfo(systemId, arrayId, _params);
             return localVarResponse.Data;
         }
 
@@ -970,11 +970,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Array</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> UpdateSystemArrayWithHttpInfo(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> UpdateSystemArrayWithHttpInfo(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1000,7 +1000,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(systemId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("array_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(arrayId)); // path parameter
             localVarRequestOptions.Data = _params;
 
             localVarRequestOptions.Operation = "ArraysApi.UpdateSystemArray";
@@ -1029,7 +1029,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Array>("/systems/{system_id}/arrays/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Array>("/partner/systems/{system_id}/arrays/{array_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateSystemArray", localVarResponse);
@@ -1047,14 +1047,14 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Array</returns>
-        public async System.Threading.Tasks.Task<Array> UpdateSystemArrayAsync(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Array> UpdateSystemArrayAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = await UpdateSystemArrayWithHttpInfoAsync(systemId, id, _params, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array> localVarResponse = await UpdateSystemArrayWithHttpInfoAsync(systemId, arrayId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1063,12 +1063,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">System ID.</param>
-        /// <param name="id">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
+        /// <param name="arrayId">Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Array)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int id, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<Array>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -1095,7 +1095,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(systemId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("array_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(arrayId)); // path parameter
             localVarRequestOptions.Data = _params;
 
             localVarRequestOptions.Operation = "ArraysApi.UpdateSystemArray";
@@ -1124,7 +1124,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Array>("/systems/{system_id}/arrays/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Array>("/partner/systems/{system_id}/arrays/{array_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1214,7 +1214,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Arrays>("/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Arrays>("/partner/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateSystemArrays", localVarResponse);
@@ -1306,7 +1306,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Arrays>("/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Arrays>("/partner/systems/{system_id}/arrays", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -33,9 +33,12 @@ docs/Model/GetGridProfilesResponse.md
 docs/Model/GetGridProfilesResponseGridProfilesInner.md
 docs/Model/GetPartnerActivationsResponse.md
 docs/Model/GetPartnerActivationsResponseSystemsInner.md
+docs/Model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.md
 docs/Model/GetPvManufacturerModelsResponse.md
 docs/Model/GetPvManufacturerModelsResponsePvManufacturers.md
 docs/Model/GetPvManufacturersResponse.md
+docs/Model/GetSelfCompanyAuthorizedSubcontractorsResponse.md
+docs/Model/GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner.md
 docs/Model/GetSelfCompanyBranchesResponse.md
 docs/Model/GetSelfCompanyBranchesResponseBranchesInner.md
 docs/Model/GetSystemMeterResponse.md
@@ -122,9 +125,12 @@ lib/Model/GetGridProfilesResponse.php
 lib/Model/GetGridProfilesResponseGridProfilesInner.php
 lib/Model/GetPartnerActivationsResponse.php
 lib/Model/GetPartnerActivationsResponseSystemsInner.php
+lib/Model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.php
 lib/Model/GetPvManufacturerModelsResponse.php
 lib/Model/GetPvManufacturerModelsResponsePvManufacturers.php
 lib/Model/GetPvManufacturersResponse.php
+lib/Model/GetSelfCompanyAuthorizedSubcontractorsResponse.php
+lib/Model/GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner.php
 lib/Model/GetSelfCompanyBranchesResponse.php
 lib/Model/GetSelfCompanyBranchesResponseBranchesInner.php
 lib/Model/GetSystemMeterResponse.php

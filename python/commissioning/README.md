@@ -190,7 +190,17 @@ with commissioning.ApiClient(configuration) as api_client:
         operational=True,
         owner_id=1,
         host_id=1,
+        authorized_subcontractor_id=1,
         installer_id=1,
+        maintainer_name="maintainer_name_example",
+        maintainer_id=1,
+        authorized_subcontractors=[
+            dict(
+                authorized_subcontractor_id=1,
+                authorized_subcontractor_name="authorized_subcontractor_name_example",
+                status="status_example",
+            )
+        ],
         allow_public_access=True,
         interconnect_date="1970-01-01",
         source=SystemSourceEnum("meter"),
@@ -259,27 +269,28 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ActivationsApi* | [**create_partner_activation**](docs/apis/tags/ActivationsApi.md#create_partner_activation) | **post** /partner/activations | Create new activation
-*ActivationsApi* | [**delete_activation**](docs/apis/tags/ActivationsApi.md#delete_activation) | **delete** /activations/{id} | Delete an activation by ID
+*ActivationsApi* | [**delete_activation**](docs/apis/tags/ActivationsApi.md#delete_activation) | **delete** /partner/activations/{activation_id} | Delete an activation by ID
 *ActivationsApi* | [**get_activation_ops_production_mode**](docs/apis/tags/ActivationsApi.md#get_activation_ops_production_mode) | **get** /activations/{activation_id}/ops/production_mode | Get production mode
-*ActivationsApi* | [**get_partner_activation**](docs/apis/tags/ActivationsApi.md#get_partner_activation) | **get** /partner/activations/{id} | Retrieves an Activation by ID
+*ActivationsApi* | [**get_partner_activation**](docs/apis/tags/ActivationsApi.md#get_partner_activation) | **get** /partner/activations/{activation_id} | Retrieves an Activation by ID
 *ActivationsApi* | [**get_partner_activations**](docs/apis/tags/ActivationsApi.md#get_partner_activations) | **get** /partner/activations | List of Activations
 *ActivationsApi* | [**grant_activation_user_access**](docs/apis/tags/ActivationsApi.md#grant_activation_user_access) | **post** /activations/{activation_id}/users/{user_id} | Grant Access
 *ActivationsApi* | [**revoke_activation_user_access**](docs/apis/tags/ActivationsApi.md#revoke_activation_user_access) | **delete** /activations/{activation_id}/users/{user_id} | Revoke Access
 *ActivationsApi* | [**set_activation_ops_production_mode**](docs/apis/tags/ActivationsApi.md#set_activation_ops_production_mode) | **post** /activations/{activation_id}/ops/production_mode | Set production mode
-*ActivationsApi* | [**update_partner_activation**](docs/apis/tags/ActivationsApi.md#update_partner_activation) | **put** /partner/activations/{id} | Update an activation.
-*ArraysApi* | [**delete_system_array**](docs/apis/tags/ArraysApi.md#delete_system_array) | **delete** /systems/{system_id}/arrays/{id} | Delete an array by ID
-*ArraysApi* | [**get_system_array**](docs/apis/tags/ArraysApi.md#get_system_array) | **get** /systems/{system_id}/arrays/{id} | Fetch array details by ID
-*ArraysApi* | [**get_system_arrays**](docs/apis/tags/ArraysApi.md#get_system_arrays) | **get** /systems/{system_id}/arrays | Fetch particular system Array details
-*ArraysApi* | [**update_system_array**](docs/apis/tags/ArraysApi.md#update_system_array) | **put** /systems/{system_id}/arrays/{id} | Update particular system array details
-*ArraysApi* | [**update_system_arrays**](docs/apis/tags/ArraysApi.md#update_system_arrays) | **put** /systems/{system_id}/arrays | Update all arrays for system
+*ActivationsApi* | [**update_partner_activation**](docs/apis/tags/ActivationsApi.md#update_partner_activation) | **put** /partner/activations/{activation_id} | Update an activation.
+*ArraysApi* | [**delete_system_array**](docs/apis/tags/ArraysApi.md#delete_system_array) | **delete** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID
+*ArraysApi* | [**get_system_array**](docs/apis/tags/ArraysApi.md#get_system_array) | **get** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID
+*ArraysApi* | [**get_system_arrays**](docs/apis/tags/ArraysApi.md#get_system_arrays) | **get** /partner/systems/{system_id}/arrays | Fetch particular system Array details
+*ArraysApi* | [**update_system_array**](docs/apis/tags/ArraysApi.md#update_system_array) | **put** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details
+*ArraysApi* | [**update_system_arrays**](docs/apis/tags/ArraysApi.md#update_system_arrays) | **put** /partner/systems/{system_id}/arrays | Update all arrays for system
 *CompaniesApi* | [**create_company_user**](docs/apis/tags/CompaniesApi.md#create_company_user) | **post** /companies/{company_id}/users | Create company user
 *CompaniesApi* | [**get_company_user**](docs/apis/tags/CompaniesApi.md#get_company_user) | **get** /companies/{company_id}/users/{user_id} | Returns the requested user
 *CompaniesApi* | [**get_company_users**](docs/apis/tags/CompaniesApi.md#get_company_users) | **get** /companies/{company_id}/users | Get all users with in a company
+*CompaniesApi* | [**get_self_company_authorized_subcontractors**](docs/apis/tags/CompaniesApi.md#get_self_company_authorized_subcontractors) | **get** /companies/self/authorized_subcontractors | User&#x27;s company and its authorized subcontractors.
 *CompaniesApi* | [**get_self_company_branches**](docs/apis/tags/CompaniesApi.md#get_self_company_branches) | **get** /companies/self/branches | User&#x27;s company and its branches
 *CompaniesApi* | [**update_company_user**](docs/apis/tags/CompaniesApi.md#update_company_user) | **put** /companies/{company_id}/users/{user_id} | Update company user
 *EstimateApi* | [**get_activation_estimate**](docs/apis/tags/EstimateApi.md#get_activation_estimate) | **get** /activations/{activation_id}/estimate | Returns the estimate for this system.
 *EstimateApi* | [**update_activation_estimate**](docs/apis/tags/EstimateApi.md#update_activation_estimate) | **put** /activations/{activation_id}/estimate | Update the estimate for this system.
-*GridProfilesApi* | [**get_grid_profiles**](docs/apis/tags/GridProfilesApi.md#get_grid_profiles) | **get** /grid_profiles | Lists the available profiles
+*GridProfilesApi* | [**get_grid_profiles**](docs/apis/tags/GridProfilesApi.md#get_grid_profiles) | **get** /partner/grid_profiles | Lists the available profiles
 *HomeOwnerApi* | [**create_user**](docs/apis/tags/HomeOwnerApi.md#create_user) | **post** /users | Create Home owner
 *MetersApi* | [**get_system_meter**](docs/apis/tags/MetersApi.md#get_system_meter) | **get** /systems/{system_id}/meters/{serial_number} | Returns the requested meter detail.
 *MetersApi* | [**set_activation_meter_status**](docs/apis/tags/MetersApi.md#set_activation_meter_status) | **post** /activations/{activation_id}/meters/{serial_number}/meter_control | Enable or Disable the meters.
@@ -289,8 +300,8 @@ Class | Method | HTTP request | Description
 *TariffApi* | [**get_system_tariff_settings**](docs/apis/tags/TariffApi.md#get_system_tariff_settings) | **get** /systems/config/{system_id}/tariff | Get tariff for a system
 *TariffApi* | [**update_system_tariff_settings**](docs/apis/tags/TariffApi.md#update_system_tariff_settings) | **put** /systems/config/{system_id}/tariff | Update tariff for a system
 *UsersApi* | [**get_activation_user**](docs/apis/tags/UsersApi.md#get_activation_user) | **get** /activations/{activation_id}/users/{user_id} | Returns the requested user
-*UsersApi* | [**get_self_user**](docs/apis/tags/UsersApi.md#get_self_user) | **get** /users/self | Return the current logged in user detail
-*UsersApi* | [**get_user**](docs/apis/tags/UsersApi.md#get_user) | **get** /users/{user_id} | Returns the requested user
+*UsersApi* | [**get_self_user**](docs/apis/tags/UsersApi.md#get_self_user) | **get** /partner/users/self | Return the current logged in user detail
+*UsersApi* | [**get_user**](docs/apis/tags/UsersApi.md#get_user) | **get** /partner/users/{user_id} | Returns the requested user
 *UsersApi* | [**search_users**](docs/apis/tags/UsersApi.md#search_users) | **get** /users/search | Search user
 *UsersApi* | [**update_activation_user**](docs/apis/tags/UsersApi.md#update_activation_user) | **put** /activations/{activation_id}/users/{user_id} | Update user
 *UsersApi* | [**update_user**](docs/apis/tags/UsersApi.md#update_user) | **put** /users/{user_id} | Update user
@@ -321,6 +332,7 @@ Class | Method | HTTP request | Description
  - [GetPartnerActivationsResponse](docs/models/GetPartnerActivationsResponse.md)
  - [GetPvManufacturerModelsResponse](docs/models/GetPvManufacturerModelsResponse.md)
  - [GetPvManufacturersResponse](docs/models/GetPvManufacturersResponse.md)
+ - [GetSelfCompanyAuthorizedSubcontractorsResponse](docs/models/GetSelfCompanyAuthorizedSubcontractorsResponse.md)
  - [GetSelfCompanyBranchesResponse](docs/models/GetSelfCompanyBranchesResponse.md)
  - [GetSelfUserResponse](docs/models/GetSelfUserResponse.md)
  - [GetSystemArrayResponse](docs/models/GetSystemArrayResponse.md)

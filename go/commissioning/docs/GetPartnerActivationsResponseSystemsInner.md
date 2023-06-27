@@ -8,16 +8,20 @@ Name | Type | Description | Notes
 **SystemName** | Pointer to **string** | Name of the system. | [optional] 
 **SystemType** | Pointer to [**SystemTypeEnum**](SystemTypeEnum.md) |  | [optional] 
 **Status** | Pointer to **string** | System&#39;s status. | [optional] 
+**Timezone** | Pointer to **string** | System&#39;s timezone. | [optional] 
 **Stage** | Pointer to **int32** | What stage of the activation process this activation is in. System-generated. | [optional] 
 **InternetConnection** | Pointer to [**SystemInternetConnectionEnum**](SystemInternetConnectionEnum.md) |  | [optional] 
 **Lease** | Pointer to **bool** | Whether the system is leased. Default false. | [optional] 
 **Operational** | Pointer to **bool** | Whether this system is permitted to operate. Default true. | [optional] 
 **Owner** | Pointer to **string** | Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself. | [optional] 
 **OwnerId** | Pointer to **int32** | Enlighten ID of this system owner. System-generated. | [optional] 
-**Host** | Pointer to **string** | Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information. | [optional] 
+**Host** | Pointer to **string** | Name of the system host. | [optional] 
 **HostId** | Pointer to **int32** | Enlighten ID of this system host. System-generated. | [optional] 
 **InstallerName** | Pointer to **string** | Name of the installer. | [optional] 
-**InstallerId** | Pointer to **int32** | Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID. | [optional] 
+**InstallerId** | Pointer to **int32** | Enlighten ID of the installer of this system. | [optional] 
+**MaintainerName** | Pointer to **string** | Name of the maintainer. | [optional] 
+**MaintainerId** | Pointer to **int32** | Enlighten ID of the maintainer of this system. | [optional] 
+**AuthorizedSubcontractors** | Pointer to [**[]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner**](GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.md) | List of sub-contractors of this system. | [optional] 
 **Uri** | Pointer to **string** | URI for this activation. | [optional] 
 **UpdatedAt** | Pointer to **int64** | Activation last updated timestamp. | [optional] 
 **Reference** | Pointer to **string** | Identifier of this system as provided by the calling user&#39;s company. This attribute is not present if the calling user&#39;s company does not have a reference for this system. | [optional] 
@@ -142,6 +146,31 @@ SetStatus sets Status field to given value.
 `func (o *GetPartnerActivationsResponseSystemsInner) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetTimezone
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetTimezone() string`
+
+GetTimezone returns the Timezone field if non-nil, zero value otherwise.
+
+### GetTimezoneOk
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetTimezoneOk() (*string, bool)`
+
+GetTimezoneOk returns a tuple with the Timezone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimezone
+
+`func (o *GetPartnerActivationsResponseSystemsInner) SetTimezone(v string)`
+
+SetTimezone sets Timezone field to given value.
+
+### HasTimezone
+
+`func (o *GetPartnerActivationsResponseSystemsInner) HasTimezone() bool`
+
+HasTimezone returns a boolean if a field has been set.
 
 ### GetStage
 
@@ -392,6 +421,81 @@ SetInstallerId sets InstallerId field to given value.
 `func (o *GetPartnerActivationsResponseSystemsInner) HasInstallerId() bool`
 
 HasInstallerId returns a boolean if a field has been set.
+
+### GetMaintainerName
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetMaintainerName() string`
+
+GetMaintainerName returns the MaintainerName field if non-nil, zero value otherwise.
+
+### GetMaintainerNameOk
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetMaintainerNameOk() (*string, bool)`
+
+GetMaintainerNameOk returns a tuple with the MaintainerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintainerName
+
+`func (o *GetPartnerActivationsResponseSystemsInner) SetMaintainerName(v string)`
+
+SetMaintainerName sets MaintainerName field to given value.
+
+### HasMaintainerName
+
+`func (o *GetPartnerActivationsResponseSystemsInner) HasMaintainerName() bool`
+
+HasMaintainerName returns a boolean if a field has been set.
+
+### GetMaintainerId
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetMaintainerId() int32`
+
+GetMaintainerId returns the MaintainerId field if non-nil, zero value otherwise.
+
+### GetMaintainerIdOk
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetMaintainerIdOk() (*int32, bool)`
+
+GetMaintainerIdOk returns a tuple with the MaintainerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintainerId
+
+`func (o *GetPartnerActivationsResponseSystemsInner) SetMaintainerId(v int32)`
+
+SetMaintainerId sets MaintainerId field to given value.
+
+### HasMaintainerId
+
+`func (o *GetPartnerActivationsResponseSystemsInner) HasMaintainerId() bool`
+
+HasMaintainerId returns a boolean if a field has been set.
+
+### GetAuthorizedSubcontractors
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetAuthorizedSubcontractors() []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner`
+
+GetAuthorizedSubcontractors returns the AuthorizedSubcontractors field if non-nil, zero value otherwise.
+
+### GetAuthorizedSubcontractorsOk
+
+`func (o *GetPartnerActivationsResponseSystemsInner) GetAuthorizedSubcontractorsOk() (*[]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner, bool)`
+
+GetAuthorizedSubcontractorsOk returns a tuple with the AuthorizedSubcontractors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorizedSubcontractors
+
+`func (o *GetPartnerActivationsResponseSystemsInner) SetAuthorizedSubcontractors(v []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner)`
+
+SetAuthorizedSubcontractors sets AuthorizedSubcontractors field to given value.
+
+### HasAuthorizedSubcontractors
+
+`func (o *GetPartnerActivationsResponseSystemsInner) HasAuthorizedSubcontractors() bool`
+
+HasAuthorizedSubcontractors returns a boolean if a field has been set.
 
 ### GetUri
 

@@ -201,7 +201,7 @@ func (a *ActivationsApiService) CreatePartnerActivationExecute(r ApiCreatePartne
 type ApiDeleteActivationRequest struct {
 	ctx context.Context
 	ApiService *ActivationsApiService
-	id int32
+	activationId int32
 }
 
 func (r ApiDeleteActivationRequest) Execute() (*DeleteActivationResponse, *http.Response, error) {
@@ -214,14 +214,14 @@ DeleteActivation Delete an activation by ID
 To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Enlighten ID of the activation(system).
+ @param activationId Enlighten ID of the activation(system).
  @return ApiDeleteActivationRequest
 */
-func (a *ActivationsApiService) DeleteActivation(ctx context.Context, id int32) ApiDeleteActivationRequest {
+func (a *ActivationsApiService) DeleteActivation(ctx context.Context, activationId int32) ApiDeleteActivationRequest {
 	return ApiDeleteActivationRequest{
 		ApiService: a,
 		ctx: ctx,
-		id: id,
+		activationId: activationId,
 	}
 }
 
@@ -240,8 +240,8 @@ func (a *ActivationsApiService) DeleteActivationExecute(r ApiDeleteActivationReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/activations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath := localBasePath + "/partner/activations/{activation_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"activation_id"+"}", url.PathEscape(parameterValueToString(r.activationId, "activationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -565,7 +565,7 @@ func (a *ActivationsApiService) GetActivationOpsProductionModeExecute(r ApiGetAc
 type ApiGetPartnerActivationRequest struct {
 	ctx context.Context
 	ApiService *ActivationsApiService
-	id int32
+	activationId int32
 	expand *SystemExpandEnum
 }
 
@@ -585,14 +585,14 @@ GetPartnerActivation Retrieves an Activation by ID
 By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner's name within the system hash, the response includes detailed information about the owner by using expand=owner. You can also expand the owner's company by using expand=owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand=host will include details about the system host. You can also expand the host's company by using expand=host.company. The response now includes information about the host and the company he belongs to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Enlighten ID of the activation(system). System-generated.
+ @param activationId Enlighten ID of the activation(system). System-generated.
  @return ApiGetPartnerActivationRequest
 */
-func (a *ActivationsApiService) GetPartnerActivation(ctx context.Context, id int32) ApiGetPartnerActivationRequest {
+func (a *ActivationsApiService) GetPartnerActivation(ctx context.Context, activationId int32) ApiGetPartnerActivationRequest {
 	return ApiGetPartnerActivationRequest{
 		ApiService: a,
 		ctx: ctx,
-		id: id,
+		activationId: activationId,
 	}
 }
 
@@ -611,8 +611,8 @@ func (a *ActivationsApiService) GetPartnerActivationExecute(r ApiGetPartnerActiv
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/partner/activations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath := localBasePath + "/partner/activations/{activation_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"activation_id"+"}", url.PathEscape(parameterValueToString(r.activationId, "activationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -769,7 +769,7 @@ func (r ApiGetPartnerActivationsRequest) Limit(limit int32) ApiGetPartnerActivat
 	return r
 }
 
-// Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems.
+// Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value.
 func (r ApiGetPartnerActivationsRequest) Stage(stage SystemStageEnum) ApiGetPartnerActivationsRequest {
 	r.stage = &stage
 	return r
@@ -1565,7 +1565,7 @@ func (a *ActivationsApiService) SetActivationOpsProductionModeExecute(r ApiSetAc
 type ApiUpdatePartnerActivationRequest struct {
 	ctx context.Context
 	ApiService *ActivationsApiService
-	id int32
+	activationId int32
 	params *SystemParams
 }
 
@@ -1584,14 +1584,14 @@ UpdatePartnerActivation Update an activation.
 Update an activation.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Enlighten ID of the activation(system). System-generated.
+ @param activationId Enlighten ID of the activation(system). System-generated.
  @return ApiUpdatePartnerActivationRequest
 */
-func (a *ActivationsApiService) UpdatePartnerActivation(ctx context.Context, id int32) ApiUpdatePartnerActivationRequest {
+func (a *ActivationsApiService) UpdatePartnerActivation(ctx context.Context, activationId int32) ApiUpdatePartnerActivationRequest {
 	return ApiUpdatePartnerActivationRequest{
 		ApiService: a,
 		ctx: ctx,
-		id: id,
+		activationId: activationId,
 	}
 }
 
@@ -1610,8 +1610,8 @@ func (a *ActivationsApiService) UpdatePartnerActivationExecute(r ApiUpdatePartne
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/partner/activations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath := localBasePath + "/partner/activations/{activation_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"activation_id"+"}", url.PathEscape(parameterValueToString(r.activationId, "activationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

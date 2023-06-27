@@ -26,7 +26,7 @@ using OpenAPIDateConverter = EnphaseOpenAPI.Commissioning.Client.OpenAPIDateConv
 namespace EnphaseOpenAPI.Commissioning.Model
 {
     /// <summary>
-    /// Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information. If the query parameter &#39;expand&#x3D;host&#39; passed in the request host detail will appear in the response.
+    /// Name of the system host. If the query parameter &#39;expand&#x3D;host&#39; passed in the request host detail will appear in the response.
     /// </summary>
     [DataContract(Name = "System_host")]
     public partial class SystemHost : IEquatable<SystemHost>, IValidatableObject

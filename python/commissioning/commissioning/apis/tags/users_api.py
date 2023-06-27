@@ -10,8 +10,8 @@
 """
 
 from commissioning.paths.activations_activation_id_users_user_id.get import GetActivationUser
-from commissioning.paths.users_self.get import GetSelfUser
-from commissioning.paths.users_user_id.get import GetUser
+from commissioning.paths.partner_users_self.get import GetSelfUser
+from commissioning.paths.partner_users_user_id.get import GetUser
 from commissioning.paths.users_search.get import SearchUsers
 from commissioning.paths.activations_activation_id_users_user_id.put import UpdateActivationUser
 from commissioning.paths.users_user_id.put import UpdateUser

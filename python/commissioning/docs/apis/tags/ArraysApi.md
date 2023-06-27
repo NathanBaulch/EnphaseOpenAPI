@@ -5,15 +5,15 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_system_array**](#delete_system_array) | **delete** /systems/{system_id}/arrays/{id} | Delete an array by ID
-[**get_system_array**](#get_system_array) | **get** /systems/{system_id}/arrays/{id} | Fetch array details by ID
-[**get_system_arrays**](#get_system_arrays) | **get** /systems/{system_id}/arrays | Fetch particular system Array details
-[**update_system_array**](#update_system_array) | **put** /systems/{system_id}/arrays/{id} | Update particular system array details
-[**update_system_arrays**](#update_system_arrays) | **put** /systems/{system_id}/arrays | Update all arrays for system
+[**delete_system_array**](#delete_system_array) | **delete** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID
+[**get_system_array**](#get_system_array) | **get** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID
+[**get_system_arrays**](#get_system_arrays) | **get** /partner/systems/{system_id}/arrays | Fetch particular system Array details
+[**update_system_array**](#update_system_array) | **put** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details
+[**update_system_arrays**](#update_system_arrays) | **put** /partner/systems/{system_id}/arrays | Update all arrays for system
 
 # **delete_system_array**
 <a id="delete_system_array"></a>
-> DeleteSystemArrayResponse delete_system_array(system_idid)
+> DeleteSystemArrayResponse delete_system_array(system_idarray_id)
 
 Delete an array by ID
 
@@ -61,7 +61,7 @@ with commissioning.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     path_params = {
         'system_id': 1,
-        'id': 1,
+        'array_id': 1,
     }
     try:
         # Delete an array by ID
@@ -88,7 +88,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 system_id | SystemIdSchema | | 
-id | IdSchema | | 
+array_id | ArrayIdSchema | | 
 
 # SystemIdSchema
 
@@ -97,7 +97,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
-# IdSchema
+# ArrayIdSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -216,7 +216,7 @@ Type | Description  | Notes
 
 # **get_system_array**
 <a id="get_system_array"></a>
-> Array get_system_array(system_idid)
+> Array get_system_array(system_idarray_id)
 
 Fetch array details by ID
 
@@ -264,7 +264,7 @@ with commissioning.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     path_params = {
         'system_id': 1,
-        'id': 1,
+        'array_id': 1,
     }
     try:
         # Fetch array details by ID
@@ -291,7 +291,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 system_id | SystemIdSchema | | 
-id | IdSchema | | 
+array_id | ArrayIdSchema | | 
 
 # SystemIdSchema
 
@@ -300,7 +300,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
-# IdSchema
+# ArrayIdSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -598,7 +598,7 @@ Type | Description  | Notes
 
 # **update_system_array**
 <a id="update_system_array"></a>
-> Array update_system_array(system_idid)
+> Array update_system_array(system_idarray_id)
 
 Update particular system array details
 
@@ -647,7 +647,7 @@ with commissioning.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     path_params = {
         'system_id': 1,
-        'id': 1,
+        'array_id': 1,
     }
     try:
         # Update particular system array details
@@ -661,7 +661,7 @@ with commissioning.ApiClient(configuration) as api_client:
     # example passing only optional values
     path_params = {
         'system_id': 1,
-        'id': 1,
+        'array_id': 1,
     }
     body = ArrayParams(
         id=1,
@@ -717,7 +717,7 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 system_id | SystemIdSchema | | 
-id | IdSchema | | 
+array_id | ArrayIdSchema | | 
 
 # SystemIdSchema
 
@@ -726,7 +726,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
-# IdSchema
+# ArrayIdSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

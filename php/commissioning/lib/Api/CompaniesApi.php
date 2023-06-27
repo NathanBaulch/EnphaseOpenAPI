@@ -80,6 +80,9 @@ class CompaniesApi
         'getCompanyUsers' => [
             'application/json',
         ],
+        'getSelfCompanyAuthorizedSubcontractors' => [
+            'application/json',
+        ],
         'getSelfCompanyBranches' => [
             'application/json',
         ],
@@ -1385,6 +1388,370 @@ class CompaniesApi
                 $resourcePath
             );
         }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('key');
+        if ($apiKey !== null) {
+            $queryParams['key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSelfCompanyAuthorizedSubcontractors
+     *
+     * User&#39;s company and its authorized subcontractors.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSelfCompanyAuthorizedSubcontractors'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
+     */
+    public function getSelfCompanyAuthorizedSubcontractors(string $contentType = self::contentTypes['getSelfCompanyAuthorizedSubcontractors'][0])
+    {
+        list($response) = $this->getSelfCompanyAuthorizedSubcontractorsWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSelfCompanyAuthorizedSubcontractorsWithHttpInfo
+     *
+     * User&#39;s company and its authorized subcontractors.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSelfCompanyAuthorizedSubcontractors'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSelfCompanyAuthorizedSubcontractorsWithHttpInfo(string $contentType = self::contentTypes['getSelfCompanyAuthorizedSubcontractors'][0])
+    {
+        $request = $this->getSelfCompanyAuthorizedSubcontractorsRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 501:
+                    if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Commissioning\Model\ServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Commissioning\Model\ServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 501:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Commissioning\Model\ServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSelfCompanyAuthorizedSubcontractorsAsync
+     *
+     * User&#39;s company and its authorized subcontractors.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSelfCompanyAuthorizedSubcontractors'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSelfCompanyAuthorizedSubcontractorsAsync(string $contentType = self::contentTypes['getSelfCompanyAuthorizedSubcontractors'][0])
+    {
+        return $this->getSelfCompanyAuthorizedSubcontractorsAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSelfCompanyAuthorizedSubcontractorsAsyncWithHttpInfo
+     *
+     * User&#39;s company and its authorized subcontractors.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSelfCompanyAuthorizedSubcontractors'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSelfCompanyAuthorizedSubcontractorsAsyncWithHttpInfo(string $contentType = self::contentTypes['getSelfCompanyAuthorizedSubcontractors'][0])
+    {
+        $returnType = '\EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse';
+        $request = $this->getSelfCompanyAuthorizedSubcontractorsRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSelfCompanyAuthorizedSubcontractors'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSelfCompanyAuthorizedSubcontractors'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSelfCompanyAuthorizedSubcontractorsRequest(string $contentType = self::contentTypes['getSelfCompanyAuthorizedSubcontractors'][0])
+    {
+
+
+        $resourcePath = '/companies/self/authorized_subcontractors';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateCompanyUser**](CompaniesApi.md#CreateCompanyUser) | **Post** /companies/{company_id}/users | Create company user
 [**GetCompanyUser**](CompaniesApi.md#GetCompanyUser) | **Get** /companies/{company_id}/users/{user_id} | Returns the requested user
 [**GetCompanyUsers**](CompaniesApi.md#GetCompanyUsers) | **Get** /companies/{company_id}/users | Get all users with in a company
+[**GetSelfCompanyAuthorizedSubcontractors**](CompaniesApi.md#GetSelfCompanyAuthorizedSubcontractors) | **Get** /companies/self/authorized_subcontractors | User&#39;s company and its authorized subcontractors.
 [**GetSelfCompanyBranches**](CompaniesApi.md#GetSelfCompanyBranches) | **Get** /companies/self/branches | User&#39;s company and its branches
 [**UpdateCompanyUser**](CompaniesApi.md#UpdateCompanyUser) | **Put** /companies/{company_id}/users/{user_id} | Update company user
 
@@ -214,6 +215,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetCompanyUsersResponse**](GetCompanyUsersResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSelfCompanyAuthorizedSubcontractors
+
+> GetSelfCompanyAuthorizedSubcontractorsResponse GetSelfCompanyAuthorizedSubcontractors(ctx).Execute()
+
+User's company and its authorized subcontractors.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/NathanBaulch/EnphaseOpenAPI/commissioning"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CompaniesApi.GetSelfCompanyAuthorizedSubcontractors(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CompaniesApi.GetSelfCompanyAuthorizedSubcontractors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSelfCompanyAuthorizedSubcontractors`: GetSelfCompanyAuthorizedSubcontractorsResponse
+    fmt.Fprintf(os.Stdout, "Response from `CompaniesApi.GetSelfCompanyAuthorizedSubcontractors`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSelfCompanyAuthorizedSubcontractorsRequest struct via the builder pattern
+
+
+### Return type
+
+[**GetSelfCompanyAuthorizedSubcontractorsResponse**](GetSelfCompanyAuthorizedSubcontractorsResponse.md)
 
 ### Authorization
 

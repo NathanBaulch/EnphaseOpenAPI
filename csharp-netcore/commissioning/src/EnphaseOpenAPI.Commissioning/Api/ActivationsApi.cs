@@ -57,10 +57,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteActivationResponse</returns>
-        DeleteActivationResponse DeleteActivation(int id, int operationIndex = 0);
+        DeleteActivationResponse DeleteActivation(int activationId, int operationIndex = 0);
 
         /// <summary>
         /// Delete an activation by ID
@@ -69,10 +69,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteActivationResponse</returns>
-        ApiResponse<DeleteActivationResponse> DeleteActivationWithHttpInfo(int id, int operationIndex = 0);
+        ApiResponse<DeleteActivationResponse> DeleteActivationWithHttpInfo(int activationId, int operationIndex = 0);
         /// <summary>
         /// Get production mode
         /// </summary>
@@ -103,11 +103,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System</returns>
-        System GetPartnerActivation(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
+        System GetPartnerActivation(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieves an Activation by ID
@@ -116,11 +116,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System</returns>
-        ApiResponse<System> GetPartnerActivationWithHttpInfo(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
+        ApiResponse<System> GetPartnerActivationWithHttpInfo(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0);
         /// <summary>
         /// List of Activations
         /// </summary>
@@ -130,7 +130,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -150,7 +150,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -242,11 +242,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System</returns>
-        System UpdatePartnerActivation(int id, SystemParams _params = default(SystemParams), int operationIndex = 0);
+        System UpdatePartnerActivation(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0);
 
         /// <summary>
         /// Update an activation.
@@ -255,11 +255,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System</returns>
-        ApiResponse<System> UpdatePartnerActivationWithHttpInfo(int id, SystemParams _params = default(SystemParams), int operationIndex = 0);
+        ApiResponse<System> UpdatePartnerActivationWithHttpInfo(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -301,11 +301,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteActivationResponse</returns>
-        System.Threading.Tasks.Task<DeleteActivationResponse> DeleteActivationAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeleteActivationResponse> DeleteActivationAsync(int activationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete an activation by ID
@@ -314,11 +314,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteActivationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteActivationResponse>> DeleteActivationWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeleteActivationResponse>> DeleteActivationWithHttpInfoAsync(int activationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get production mode
         /// </summary>
@@ -351,12 +351,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System</returns>
-        System.Threading.Tasks.Task<System> GetPartnerActivationAsync(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System> GetPartnerActivationAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves an Activation by ID
@@ -365,12 +365,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System>> GetPartnerActivationWithHttpInfoAsync(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System>> GetPartnerActivationWithHttpInfoAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List of Activations
         /// </summary>
@@ -380,7 +380,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -401,7 +401,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -500,12 +500,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System</returns>
-        System.Threading.Tasks.Task<System> UpdatePartnerActivationAsync(int id, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System> UpdatePartnerActivationAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update an activation.
@@ -514,12 +514,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System>> UpdatePartnerActivationWithHttpInfoAsync(int id, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System>> UpdatePartnerActivationWithHttpInfoAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -820,12 +820,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Delete an activation by ID To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteActivationResponse</returns>
-        public DeleteActivationResponse DeleteActivation(int id, int operationIndex = 0)
+        public DeleteActivationResponse DeleteActivation(int activationId, int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse> localVarResponse = DeleteActivationWithHttpInfo(id);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse> localVarResponse = DeleteActivationWithHttpInfo(activationId);
             return localVarResponse.Data;
         }
 
@@ -833,10 +833,10 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Delete an activation by ID To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteActivationResponse</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse> DeleteActivationWithHttpInfo(int id, int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse> DeleteActivationWithHttpInfo(int activationId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -860,7 +860,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("activation_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(activationId)); // path parameter
 
             localVarRequestOptions.Operation = "ActivationsApi.DeleteActivation";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -888,7 +888,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeleteActivationResponse>("/activations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeleteActivationResponse>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteActivation", localVarResponse);
@@ -905,13 +905,13 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Delete an activation by ID To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteActivationResponse</returns>
-        public async System.Threading.Tasks.Task<DeleteActivationResponse> DeleteActivationAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeleteActivationResponse> DeleteActivationAsync(int activationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse> localVarResponse = await DeleteActivationWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse> localVarResponse = await DeleteActivationWithHttpInfoAsync(activationId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -919,11 +919,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Delete an activation by ID To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system).</param>
+        /// <param name="activationId">Enlighten ID of the activation(system).</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteActivationResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse>> DeleteActivationWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<DeleteActivationResponse>> DeleteActivationWithHttpInfoAsync(int activationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -948,7 +948,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("activation_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(activationId)); // path parameter
 
             localVarRequestOptions.Operation = "ActivationsApi.DeleteActivation";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -976,7 +976,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteActivationResponse>("/activations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteActivationResponse>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1168,13 +1168,13 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Retrieves an Activation by ID By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System</returns>
-        public System GetPartnerActivation(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
+        public System GetPartnerActivation(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = GetPartnerActivationWithHttpInfo(id, expand);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = GetPartnerActivationWithHttpInfo(activationId, expand);
             return localVarResponse.Data;
         }
 
@@ -1182,11 +1182,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Retrieves an Activation by ID By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> GetPartnerActivationWithHttpInfo(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> GetPartnerActivationWithHttpInfo(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1210,7 +1210,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("activation_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(activationId)); // path parameter
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
@@ -1242,7 +1242,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<System>("/partner/activations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPartnerActivation", localVarResponse);
@@ -1259,14 +1259,14 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Retrieves an Activation by ID By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System</returns>
-        public async System.Threading.Tasks.Task<System> GetPartnerActivationAsync(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System> GetPartnerActivationAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = await GetPartnerActivationWithHttpInfoAsync(id, expand, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = await GetPartnerActivationWithHttpInfoAsync(activationId, expand, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1274,12 +1274,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Retrieves an Activation by ID By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner&#39;s name within the system hash, the response includes detailed information about the owner by using expand&#x3D;owner. You can also expand the owner&#39;s company by using expand&#x3D;owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand&#x3D;host will include details about the system host. You can also expand the host&#39;s company by using expand&#x3D;host.company. The response now includes information about the host and the company he belongs to.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="expand">Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<System>> GetPartnerActivationWithHttpInfoAsync(int id, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<System>> GetPartnerActivationWithHttpInfoAsync(int activationId, SystemExpandEnum? expand = default(SystemExpandEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -1304,7 +1304,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("activation_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(activationId)); // path parameter
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
@@ -1336,7 +1336,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<System>("/partner/activations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1356,7 +1356,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -1377,7 +1377,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -1492,7 +1492,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -1514,7 +1514,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)</param>
         /// <param name="limit">There is a limit to the number of activations which can be returned at one time. (optional)</param>
-        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)</param>
+        /// <param name="stage">Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)</param>
         /// <param name="reference">Filter activations by company reference. (optional)</param>
         /// <param name="installerId">Filter activations by installer ID. (optional)</param>
         /// <param name="systemName">Filter activations by system name. (optional)</param>
@@ -2172,13 +2172,13 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation. Update an activation.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System</returns>
-        public System UpdatePartnerActivation(int id, SystemParams _params = default(SystemParams), int operationIndex = 0)
+        public System UpdatePartnerActivation(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0)
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = UpdatePartnerActivationWithHttpInfo(id, _params);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = UpdatePartnerActivationWithHttpInfo(activationId, _params);
             return localVarResponse.Data;
         }
 
@@ -2186,11 +2186,11 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation. Update an activation.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> UpdatePartnerActivationWithHttpInfo(int id, SystemParams _params = default(SystemParams), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> UpdatePartnerActivationWithHttpInfo(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -2215,7 +2215,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("activation_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(activationId)); // path parameter
             localVarRequestOptions.Data = _params;
 
             localVarRequestOptions.Operation = "ActivationsApi.UpdatePartnerActivation";
@@ -2244,7 +2244,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<System>("/partner/activations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePartnerActivation", localVarResponse);
@@ -2261,14 +2261,14 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation. Update an activation.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System</returns>
-        public async System.Threading.Tasks.Task<System> UpdatePartnerActivationAsync(int id, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System> UpdatePartnerActivationAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = await UpdatePartnerActivationWithHttpInfoAsync(id, _params, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<System> localVarResponse = await UpdatePartnerActivationWithHttpInfoAsync(activationId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2276,12 +2276,12 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// Update an activation. Update an activation.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Enlighten ID of the activation(system). System-generated.</param>
+        /// <param name="activationId">Enlighten ID of the activation(system). System-generated.</param>
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<System>> UpdatePartnerActivationWithHttpInfoAsync(int id, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<System>> UpdatePartnerActivationWithHttpInfoAsync(int activationId, SystemParams _params = default(SystemParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -2307,7 +2307,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("activation_id", EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToString(activationId)); // path parameter
             localVarRequestOptions.Data = _params;
 
             localVarRequestOptions.Operation = "ActivationsApi.UpdatePartnerActivation";
@@ -2336,7 +2336,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<System>("/partner/activations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<System>("/partner/activations/{activation_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -5,8 +5,8 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetActivationUser**](UsersApi.md#GetActivationUser) | **Get** /activations/{activation_id}/users/{user_id} | Returns the requested user
-[**GetSelfUser**](UsersApi.md#GetSelfUser) | **Get** /users/self | Return the current logged in user detail
-[**GetUser**](UsersApi.md#GetUser) | **Get** /users/{user_id} | Returns the requested user
+[**GetSelfUser**](UsersApi.md#GetSelfUser) | **Get** /partner/users/self | Return the current logged in user detail
+[**GetUser**](UsersApi.md#GetUser) | **Get** /partner/users/{user_id} | Returns the requested user
 [**SearchUsers**](UsersApi.md#SearchUsers) | **Get** /users/search | Search user
 [**UpdateActivationUser**](UsersApi.md#UpdateActivationUser) | **Put** /activations/{activation_id}/users/{user_id} | Update user
 [**UpdateUser**](UsersApi.md#UpdateUser) | **Put** /users/{user_id} | Update user

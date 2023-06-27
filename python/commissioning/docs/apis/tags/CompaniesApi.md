@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**create_company_user**](#create_company_user) | **post** /companies/{company_id}/users | Create company user
 [**get_company_user**](#get_company_user) | **get** /companies/{company_id}/users/{user_id} | Returns the requested user
 [**get_company_users**](#get_company_users) | **get** /companies/{company_id}/users | Get all users with in a company
+[**get_self_company_authorized_subcontractors**](#get_self_company_authorized_subcontractors) | **get** /companies/self/authorized_subcontractors | User&#x27;s company and its authorized subcontractors.
 [**get_self_company_branches**](#get_self_company_branches) | **get** /companies/self/branches | User&#x27;s company and its branches
 [**update_company_user**](#update_company_user) | **put** /companies/{company_id}/users/{user_id} | Update company user
 
@@ -638,6 +639,145 @@ Type | Description  | Notes
 
 
 #### get_company_users.ApiResponseFor501
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor501ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor501ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ServerError**](../../models/ServerError.md) |  | 
+
+
+### Authorization
+
+[OAuth2](../../../README.md#OAuth2), [ApiKey](../../../README.md#ApiKey)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_self_company_authorized_subcontractors**
+<a id="get_self_company_authorized_subcontractors"></a>
+> GetSelfCompanyAuthorizedSubcontractorsResponse get_self_company_authorized_subcontractors()
+
+User's company and its authorized subcontractors.
+
+Returns all the authorized subcontractors of a given company, if any.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* Api Key Authentication (ApiKey):
+```python
+import commissioning
+from commissioning.apis.tags import companies_api
+from commissioning.model.get_self_company_authorized_subcontractors_response import GetSelfCompanyAuthorizedSubcontractorsResponse
+from commissioning.model.too_many_requests_error import TooManyRequestsError
+from commissioning.model.server_error import ServerError
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.enphaseenergy.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = commissioning.Configuration(
+    host = "https://api.enphaseenergy.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: OAuth2
+configuration = commissioning.Configuration(
+    host = "https://api.enphaseenergy.com/api/v4",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+# Enter a context with an instance of the API client
+with commissioning.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = companies_api.CompaniesApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # User's company and its authorized subcontractors.
+        api_response = api_instance.get_self_company_authorized_subcontractors()
+        pprint(api_response)
+    except commissioning.ApiException as e:
+        print("Exception when calling CompaniesApi->get_self_company_authorized_subcontractors: %s\n" % e)
+```
+### Parameters
+This endpoint does not need any parameter.
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_self_company_authorized_subcontractors.ApiResponseFor200) | OK
+401 | [ApiResponseFor401](#get_self_company_authorized_subcontractors.ApiResponseFor401) | Unauthorized
+405 | [ApiResponseFor405](#get_self_company_authorized_subcontractors.ApiResponseFor405) | Method Not Allowed
+429 | [ApiResponseFor429](#get_self_company_authorized_subcontractors.ApiResponseFor429) | Too Many Requests
+501 | [ApiResponseFor501](#get_self_company_authorized_subcontractors.ApiResponseFor501) | Not Implemented
+
+#### get_self_company_authorized_subcontractors.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GetSelfCompanyAuthorizedSubcontractorsResponse**](../../models/GetSelfCompanyAuthorizedSubcontractorsResponse.md) |  | 
+
+
+#### get_self_company_authorized_subcontractors.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ServerError**](../../models/ServerError.md) |  | 
+
+
+#### get_self_company_authorized_subcontractors.ApiResponseFor405
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor405ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor405ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ServerError**](../../models/ServerError.md) |  | 
+
+
+#### get_self_company_authorized_subcontractors.ApiResponseFor429
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor429ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor429ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**TooManyRequestsError**](../../models/TooManyRequestsError.md) |  | 
+
+
+#### get_self_company_authorized_subcontractors.ApiResponseFor501
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

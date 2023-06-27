@@ -5,14 +5,14 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreatePartnerActivation**](ActivationsApi.md#createpartneractivation) | **POST** /partner/activations | Create new activation |
-| [**DeleteActivation**](ActivationsApi.md#deleteactivation) | **DELETE** /activations/{id} | Delete an activation by ID |
+| [**DeleteActivation**](ActivationsApi.md#deleteactivation) | **DELETE** /partner/activations/{activation_id} | Delete an activation by ID |
 | [**GetActivationOpsProductionMode**](ActivationsApi.md#getactivationopsproductionmode) | **GET** /activations/{activation_id}/ops/production_mode | Get production mode |
-| [**GetPartnerActivation**](ActivationsApi.md#getpartneractivation) | **GET** /partner/activations/{id} | Retrieves an Activation by ID |
+| [**GetPartnerActivation**](ActivationsApi.md#getpartneractivation) | **GET** /partner/activations/{activation_id} | Retrieves an Activation by ID |
 | [**GetPartnerActivations**](ActivationsApi.md#getpartneractivations) | **GET** /partner/activations | List of Activations |
 | [**GrantActivationUserAccess**](ActivationsApi.md#grantactivationuseraccess) | **POST** /activations/{activation_id}/users/{user_id} | Grant Access |
 | [**RevokeActivationUserAccess**](ActivationsApi.md#revokeactivationuseraccess) | **DELETE** /activations/{activation_id}/users/{user_id} | Revoke Access |
 | [**SetActivationOpsProductionMode**](ActivationsApi.md#setactivationopsproductionmode) | **POST** /activations/{activation_id}/ops/production_mode | Set production mode |
-| [**UpdatePartnerActivation**](ActivationsApi.md#updatepartneractivation) | **PUT** /partner/activations/{id} | Update an activation. |
+| [**UpdatePartnerActivation**](ActivationsApi.md#updatepartneractivation) | **PUT** /partner/activations/{activation_id} | Update an activation. |
 
 <a id="createpartneractivation"></a>
 # **CreatePartnerActivation**
@@ -119,7 +119,7 @@ catch (ApiException e)
 
 <a id="deleteactivation"></a>
 # **DeleteActivation**
-> DeleteActivationResponse DeleteActivation (int id)
+> DeleteActivationResponse DeleteActivation (int activationId)
 
 Delete an activation by ID
 
@@ -149,12 +149,12 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new ActivationsApi(config);
-            var id = 56;  // int | Enlighten ID of the activation(system).
+            var activationId = 56;  // int | Enlighten ID of the activation(system).
 
             try
             {
                 // Delete an activation by ID
-                DeleteActivationResponse result = apiInstance.DeleteActivation(id);
+                DeleteActivationResponse result = apiInstance.DeleteActivation(activationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -175,7 +175,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete an activation by ID
-    ApiResponse<DeleteActivationResponse> response = apiInstance.DeleteActivationWithHttpInfo(id);
+    ApiResponse<DeleteActivationResponse> response = apiInstance.DeleteActivationWithHttpInfo(activationId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -192,7 +192,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Enlighten ID of the activation(system). |  |
+| **activationId** | **int** | Enlighten ID of the activation(system). |  |
 
 ### Return type
 
@@ -327,7 +327,7 @@ catch (ApiException e)
 
 <a id="getpartneractivation"></a>
 # **GetPartnerActivation**
-> System GetPartnerActivation (int id, SystemExpandEnum? expand = null)
+> System GetPartnerActivation (int activationId, SystemExpandEnum? expand = null)
 
 Retrieves an Activation by ID
 
@@ -357,13 +357,13 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new ActivationsApi(config);
-            var id = 56;  // int | Enlighten ID of the activation(system). System-generated.
+            var activationId = 56;  // int | Enlighten ID of the activation(system). System-generated.
             var expand = (SystemExpandEnum) "owner";  // SystemExpandEnum? | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional) 
 
             try
             {
                 // Retrieves an Activation by ID
-                System result = apiInstance.GetPartnerActivation(id, expand);
+                System result = apiInstance.GetPartnerActivation(activationId, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -384,7 +384,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieves an Activation by ID
-    ApiResponse<System> response = apiInstance.GetPartnerActivationWithHttpInfo(id, expand);
+    ApiResponse<System> response = apiInstance.GetPartnerActivationWithHttpInfo(activationId, expand);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -401,7 +401,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Enlighten ID of the activation(system). System-generated. |  |
+| **activationId** | **int** | Enlighten ID of the activation(system). System-generated. |  |
 | **expand** | **SystemExpandEnum?** | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. | [optional]  |
 
 ### Return type
@@ -464,7 +464,7 @@ namespace Example
             var apiInstance = new ActivationsApi(config);
             var next = "next_example";  // string | If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field. (optional) 
             var limit = 56;  // int? | There is a limit to the number of activations which can be returned at one time. (optional) 
-            var stage = (SystemStageEnum) "1";  // SystemStageEnum? | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. (optional) 
+            var stage = (SystemStageEnum) "1";  // SystemStageEnum? | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional) 
             var reference = "reference_example";  // string | Filter activations by company reference. (optional) 
             var installerId = 56;  // int? | Filter activations by installer ID. (optional) 
             var systemName = "systemName_example";  // string | Filter activations by system name. (optional) 
@@ -515,7 +515,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **next** | **string** | If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. | [optional]  |
 | **limit** | **int?** | There is a limit to the number of activations which can be returned at one time. | [optional]  |
-| **stage** | **SystemStageEnum?** | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. | [optional]  |
+| **stage** | **SystemStageEnum?** | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. | [optional]  |
 | **reference** | **string** | Filter activations by company reference. | [optional]  |
 | **installerId** | **int?** | Filter activations by installer ID. | [optional]  |
 | **systemName** | **string** | Filter activations by system name. | [optional]  |
@@ -869,7 +869,7 @@ catch (ApiException e)
 
 <a id="updatepartneractivation"></a>
 # **UpdatePartnerActivation**
-> System UpdatePartnerActivation (int id, SystemParams _params = null)
+> System UpdatePartnerActivation (int activationId, SystemParams _params = null)
 
 Update an activation.
 
@@ -899,13 +899,13 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new ActivationsApi(config);
-            var id = 56;  // int | Enlighten ID of the activation(system). System-generated.
+            var activationId = 56;  // int | Enlighten ID of the activation(system). System-generated.
             var _params = new SystemParams();  // SystemParams |  (optional) 
 
             try
             {
                 // Update an activation.
-                System result = apiInstance.UpdatePartnerActivation(id, _params);
+                System result = apiInstance.UpdatePartnerActivation(activationId, _params);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -926,7 +926,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update an activation.
-    ApiResponse<System> response = apiInstance.UpdatePartnerActivationWithHttpInfo(id, _params);
+    ApiResponse<System> response = apiInstance.UpdatePartnerActivationWithHttpInfo(activationId, _params);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -943,7 +943,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Enlighten ID of the activation(system). System-generated. |  |
+| **activationId** | **int** | Enlighten ID of the activation(system). System-generated. |  |
 | **_params** | **SystemParams** |  | [optional]  |
 
 ### Return type

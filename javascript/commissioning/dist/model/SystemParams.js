@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
+var _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner = _interopRequireDefault(require("./GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner"));
 var _SystemArrayTypeEnum = _interopRequireDefault(require("./SystemArrayTypeEnum"));
 var _SystemAttachmentTypeEnum = _interopRequireDefault(require("./SystemAttachmentTypeEnum"));
 var _SystemInternetConnectionEnum = _interopRequireDefault(require("./SystemInternetConnectionEnum"));
@@ -94,8 +95,20 @@ var SystemParams = /*#__PURE__*/function () {
         if (data.hasOwnProperty('host_id')) {
           obj['host_id'] = _ApiClient["default"].convertToType(data['host_id'], 'Number');
         }
+        if (data.hasOwnProperty('authorized_subcontractor_id')) {
+          obj['authorized_subcontractor_id'] = _ApiClient["default"].convertToType(data['authorized_subcontractor_id'], 'Number');
+        }
         if (data.hasOwnProperty('installer_id')) {
           obj['installer_id'] = _ApiClient["default"].convertToType(data['installer_id'], 'Number');
+        }
+        if (data.hasOwnProperty('maintainer_name')) {
+          obj['maintainer_name'] = _ApiClient["default"].convertToType(data['maintainer_name'], 'String');
+        }
+        if (data.hasOwnProperty('maintainer_id')) {
+          obj['maintainer_id'] = _ApiClient["default"].convertToType(data['maintainer_id'], 'Number');
+        }
+        if (data.hasOwnProperty('authorized_subcontractors')) {
+          obj['authorized_subcontractors'] = _ApiClient["default"].convertToType(data['authorized_subcontractors'], [_GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner["default"]]);
         }
         if (data.hasOwnProperty('allow_public_access')) {
           obj['allow_public_access'] = _ApiClient["default"].convertToType(data['allow_public_access'], 'Boolean');
@@ -213,6 +226,31 @@ var SystemParams = /*#__PURE__*/function () {
         throw new Error("Expected the field `system_name` to be a primitive type in the JSON string but got " + data['system_name']);
       }
       // ensure the json data is a string
+      if (data['maintainer_name'] && !(typeof data['maintainer_name'] === 'string' || data['maintainer_name'] instanceof String)) {
+        throw new Error("Expected the field `maintainer_name` to be a primitive type in the JSON string but got " + data['maintainer_name']);
+      }
+      if (data['authorized_subcontractors']) {
+        // data not null
+        // ensure the json data is an array
+        if (!Array.isArray(data['authorized_subcontractors'])) {
+          throw new Error("Expected the field `authorized_subcontractors` to be an array in the JSON data but got " + data['authorized_subcontractors']);
+        }
+        // validate the optional field `authorized_subcontractors` (array)
+        var _iterator2 = _createForOfIteratorHelper(data['authorized_subcontractors']),
+          _step2;
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var item = _step2.value;
+            _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner["default"].validateJSON(item);
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+        ;
+      }
+      // ensure the json data is a string
       if (data['ensemble_envoy'] && !(typeof data['ensemble_envoy'] === 'string' || data['ensemble_envoy'] instanceof String)) {
         throw new Error("Expected the field `ensemble_envoy` to be a primitive type in the JSON string but got " + data['ensemble_envoy']);
       }
@@ -255,17 +293,17 @@ var SystemParams = /*#__PURE__*/function () {
           throw new Error("Expected the field `encharge` to be an array in the JSON data but got " + data['encharge']);
         }
         // validate the optional field `encharge` (array)
-        var _iterator2 = _createForOfIteratorHelper(data['encharge']),
-          _step2;
+        var _iterator3 = _createForOfIteratorHelper(data['encharge']),
+          _step3;
         try {
-          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-            var item = _step2.value;
-            _SystemParamsEnchargeInner["default"].validateJSON(item);
+          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+            var _item = _step3.value;
+            _SystemParamsEnchargeInner["default"].validateJSON(_item);
           }
         } catch (err) {
-          _iterator2.e(err);
+          _iterator3.e(err);
         } finally {
-          _iterator2.f();
+          _iterator3.f();
         }
         ;
       }
@@ -276,17 +314,17 @@ var SystemParams = /*#__PURE__*/function () {
           throw new Error("Expected the field `enpower` to be an array in the JSON data but got " + data['enpower']);
         }
         // validate the optional field `enpower` (array)
-        var _iterator3 = _createForOfIteratorHelper(data['enpower']),
-          _step3;
+        var _iterator4 = _createForOfIteratorHelper(data['enpower']),
+          _step4;
         try {
-          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-            var _item = _step3.value;
-            _SystemParamsEnpowerInner["default"].validateJSON(_item);
+          for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+            var _item2 = _step4.value;
+            _SystemParamsEnpowerInner["default"].validateJSON(_item2);
           }
         } catch (err) {
-          _iterator3.e(err);
+          _iterator4.e(err);
         } finally {
-          _iterator3.f();
+          _iterator4.f();
         }
         ;
       }
@@ -343,10 +381,34 @@ SystemParams.prototype['owner_id'] = undefined;
 SystemParams.prototype['host_id'] = undefined;
 
 /**
+ * Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site.
+ * @member {Number} authorized_subcontractor_id
+ */
+SystemParams.prototype['authorized_subcontractor_id'] = undefined;
+
+/**
  * Enlighten ID of the installer of this system. Defaults to current user's company ID.
  * @member {Number} installer_id
  */
 SystemParams.prototype['installer_id'] = undefined;
+
+/**
+ * Name of the maintainer.
+ * @member {String} maintainer_name
+ */
+SystemParams.prototype['maintainer_name'] = undefined;
+
+/**
+ * The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+ * @member {Number} maintainer_id
+ */
+SystemParams.prototype['maintainer_id'] = undefined;
+
+/**
+ * List of sub-contractors of this system.
+ * @member {Array.<module:model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>} authorized_subcontractors
+ */
+SystemParams.prototype['authorized_subcontractors'] = undefined;
 
 /**
  * When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.

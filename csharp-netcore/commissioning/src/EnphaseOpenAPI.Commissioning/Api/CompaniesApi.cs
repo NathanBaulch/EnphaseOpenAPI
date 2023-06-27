@@ -103,6 +103,27 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <returns>ApiResponse of GetCompanyUsersResponse</returns>
         ApiResponse<GetCompanyUsersResponse> GetCompanyUsersWithHttpInfo(int companyId, int operationIndex = 0);
         /// <summary>
+        /// User&#39;s company and its authorized subcontractors.
+        /// </summary>
+        /// <remarks>
+        /// Returns all the authorized subcontractors of a given company, if any.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetSelfCompanyAuthorizedSubcontractorsResponse</returns>
+        GetSelfCompanyAuthorizedSubcontractorsResponse GetSelfCompanyAuthorizedSubcontractors(int operationIndex = 0);
+
+        /// <summary>
+        /// User&#39;s company and its authorized subcontractors.
+        /// </summary>
+        /// <remarks>
+        /// Returns all the authorized subcontractors of a given company, if any.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetSelfCompanyAuthorizedSubcontractorsResponse</returns>
+        ApiResponse<GetSelfCompanyAuthorizedSubcontractorsResponse> GetSelfCompanyAuthorizedSubcontractorsWithHttpInfo(int operationIndex = 0);
+        /// <summary>
         /// User&#39;s company and its branches
         /// </summary>
         /// <remarks>
@@ -240,6 +261,29 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetCompanyUsersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetCompanyUsersResponse>> GetCompanyUsersWithHttpInfoAsync(int companyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// User&#39;s company and its authorized subcontractors.
+        /// </summary>
+        /// <remarks>
+        /// Returns all the authorized subcontractors of a given company, if any.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetSelfCompanyAuthorizedSubcontractorsResponse</returns>
+        System.Threading.Tasks.Task<GetSelfCompanyAuthorizedSubcontractorsResponse> GetSelfCompanyAuthorizedSubcontractorsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// User&#39;s company and its authorized subcontractors.
+        /// </summary>
+        /// <remarks>
+        /// Returns all the authorized subcontractors of a given company, if any.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetSelfCompanyAuthorizedSubcontractorsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSelfCompanyAuthorizedSubcontractorsResponse>> GetSelfCompanyAuthorizedSubcontractorsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// User&#39;s company and its branches
         /// </summary>
@@ -951,6 +995,174 @@ namespace EnphaseOpenAPI.Commissioning.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyUsers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// User&#39;s company and its authorized subcontractors. Returns all the authorized subcontractors of a given company, if any.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetSelfCompanyAuthorizedSubcontractorsResponse</returns>
+        public GetSelfCompanyAuthorizedSubcontractorsResponse GetSelfCompanyAuthorizedSubcontractors(int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<GetSelfCompanyAuthorizedSubcontractorsResponse> localVarResponse = GetSelfCompanyAuthorizedSubcontractorsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// User&#39;s company and its authorized subcontractors. Returns all the authorized subcontractors of a given company, if any.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetSelfCompanyAuthorizedSubcontractorsResponse</returns>
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<GetSelfCompanyAuthorizedSubcontractorsResponse> GetSelfCompanyAuthorizedSubcontractorsWithHttpInfo(int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Commissioning.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Commissioning.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "CompaniesApi.GetSelfCompanyAuthorizedSubcontractors";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetSelfCompanyAuthorizedSubcontractorsResponse>("/companies/self/authorized_subcontractors", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSelfCompanyAuthorizedSubcontractors", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// User&#39;s company and its authorized subcontractors. Returns all the authorized subcontractors of a given company, if any.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetSelfCompanyAuthorizedSubcontractorsResponse</returns>
+        public async System.Threading.Tasks.Task<GetSelfCompanyAuthorizedSubcontractorsResponse> GetSelfCompanyAuthorizedSubcontractorsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            EnphaseOpenAPI.Commissioning.Client.ApiResponse<GetSelfCompanyAuthorizedSubcontractorsResponse> localVarResponse = await GetSelfCompanyAuthorizedSubcontractorsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// User&#39;s company and its authorized subcontractors. Returns all the authorized subcontractors of a given company, if any.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Commissioning.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetSelfCompanyAuthorizedSubcontractorsResponse)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<GetSelfCompanyAuthorizedSubcontractorsResponse>> GetSelfCompanyAuthorizedSubcontractorsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Commissioning.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Commissioning.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "CompaniesApi.GetSelfCompanyAuthorizedSubcontractors";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Commissioning.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetSelfCompanyAuthorizedSubcontractorsResponse>("/companies/self/authorized_subcontractors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSelfCompanyAuthorizedSubcontractors", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

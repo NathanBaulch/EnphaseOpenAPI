@@ -5,14 +5,14 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreatePartnerActivation**](ActivationsApi.md#CreatePartnerActivation) | **Post** /partner/activations | Create new activation
-[**DeleteActivation**](ActivationsApi.md#DeleteActivation) | **Delete** /activations/{id} | Delete an activation by ID
+[**DeleteActivation**](ActivationsApi.md#DeleteActivation) | **Delete** /partner/activations/{activation_id} | Delete an activation by ID
 [**GetActivationOpsProductionMode**](ActivationsApi.md#GetActivationOpsProductionMode) | **Get** /activations/{activation_id}/ops/production_mode | Get production mode
-[**GetPartnerActivation**](ActivationsApi.md#GetPartnerActivation) | **Get** /partner/activations/{id} | Retrieves an Activation by ID
+[**GetPartnerActivation**](ActivationsApi.md#GetPartnerActivation) | **Get** /partner/activations/{activation_id} | Retrieves an Activation by ID
 [**GetPartnerActivations**](ActivationsApi.md#GetPartnerActivations) | **Get** /partner/activations | List of Activations
 [**GrantActivationUserAccess**](ActivationsApi.md#GrantActivationUserAccess) | **Post** /activations/{activation_id}/users/{user_id} | Grant Access
 [**RevokeActivationUserAccess**](ActivationsApi.md#RevokeActivationUserAccess) | **Delete** /activations/{activation_id}/users/{user_id} | Revoke Access
 [**SetActivationOpsProductionMode**](ActivationsApi.md#SetActivationOpsProductionMode) | **Post** /activations/{activation_id}/ops/production_mode | Set production mode
-[**UpdatePartnerActivation**](ActivationsApi.md#UpdatePartnerActivation) | **Put** /partner/activations/{id} | Update an activation.
+[**UpdatePartnerActivation**](ActivationsApi.md#UpdatePartnerActivation) | **Put** /partner/activations/{activation_id} | Update an activation.
 
 
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## DeleteActivation
 
-> DeleteActivationResponse DeleteActivation(ctx, id).Execute()
+> DeleteActivationResponse DeleteActivation(ctx, activationId).Execute()
 
 Delete an activation by ID
 
@@ -103,11 +103,11 @@ import (
 )
 
 func main() {
-    id := int32(56) // int32 | Enlighten ID of the activation(system).
+    activationId := int32(56) // int32 | Enlighten ID of the activation(system).
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ActivationsApi.DeleteActivation(context.Background(), id).Execute()
+    resp, r, err := apiClient.ActivationsApi.DeleteActivation(context.Background(), activationId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ActivationsApi.DeleteActivation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -123,7 +123,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | Enlighten ID of the activation(system). | 
+**activationId** | **int32** | Enlighten ID of the activation(system). | 
 
 ### Other Parameters
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## GetPartnerActivation
 
-> System GetPartnerActivation(ctx, id).Expand(expand).Execute()
+> System GetPartnerActivation(ctx, activationId).Expand(expand).Execute()
 
 Retrieves an Activation by ID
 
@@ -243,12 +243,12 @@ import (
 )
 
 func main() {
-    id := int32(56) // int32 | Enlighten ID of the activation(system). System-generated.
+    activationId := int32(56) // int32 | Enlighten ID of the activation(system). System-generated.
     expand := openapiclient.SystemExpandEnum("owner") // SystemExpandEnum | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ActivationsApi.GetPartnerActivation(context.Background(), id).Expand(expand).Execute()
+    resp, r, err := apiClient.ActivationsApi.GetPartnerActivation(context.Background(), activationId).Expand(expand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ActivationsApi.GetPartnerActivation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -264,7 +264,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | Enlighten ID of the activation(system). System-generated. | 
+**activationId** | **int32** | Enlighten ID of the activation(system). System-generated. | 
 
 ### Other Parameters
 
@@ -317,7 +317,7 @@ import (
 func main() {
     next := "next_example" // string | If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field. (optional)
     limit := int32(56) // int32 | There is a limit to the number of activations which can be returned at one time. (optional)
-    stage := openapiclient.SystemStageEnum("1") // SystemStageEnum | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)
+    stage := openapiclient.SystemStageEnum("1") // SystemStageEnum | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)
     reference := "reference_example" // string | Filter activations by company reference. (optional)
     installerId := int32(56) // int32 | Filter activations by installer ID. (optional)
     systemName := "systemName_example" // string | Filter activations by system name. (optional)
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **next** | **string** | If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. | 
  **limit** | **int32** | There is a limit to the number of activations which can be returned at one time. | 
- **stage** | [**SystemStageEnum**](SystemStageEnum.md) | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. | 
+ **stage** | [**SystemStageEnum**](SystemStageEnum.md) | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. | 
  **reference** | **string** | Filter activations by company reference. | 
  **installerId** | **int32** | Filter activations by installer ID. | 
  **systemName** | **string** | Filter activations by system name. | 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ## UpdatePartnerActivation
 
-> System UpdatePartnerActivation(ctx, id).Params(params).Execute()
+> System UpdatePartnerActivation(ctx, activationId).Params(params).Execute()
 
 Update an activation.
 
@@ -615,12 +615,12 @@ import (
 )
 
 func main() {
-    id := int32(56) // int32 | Enlighten ID of the activation(system). System-generated.
+    activationId := int32(56) // int32 | Enlighten ID of the activation(system). System-generated.
     params := SystemParams(987) // SystemParams |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ActivationsApi.UpdatePartnerActivation(context.Background(), id).Params(params).Execute()
+    resp, r, err := apiClient.ActivationsApi.UpdatePartnerActivation(context.Background(), activationId).Params(params).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ActivationsApi.UpdatePartnerActivation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -636,7 +636,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | Enlighten ID of the activation(system). System-generated. | 
+**activationId** | **int32** | Enlighten ID of the activation(system). System-generated. | 
 
 ### Other Parameters
 

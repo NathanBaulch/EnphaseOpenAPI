@@ -35,7 +35,7 @@ use \EnphaseOpenAPI\Commissioning\ObjectSerializer;
  * SystemHost Class Doc Comment
  *
  * @category Class
- * @description Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information. If the query parameter &#39;expand&#x3D;host&#39; passed in the request host detail will appear in the response.
+ * @description Name of the system host. If the query parameter &#39;expand&#x3D;host&#39; passed in the request host detail will appear in the response.
  * @package  EnphaseOpenAPI\Commissioning
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

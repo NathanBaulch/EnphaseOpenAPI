@@ -50,7 +50,8 @@ paths:
       - description: "Filter activations by stage. Passing in_progress alone will\
           \ consider as you have passed all the 1,2,3,4 stages. Passing multiple stage\
           \ values using comma to filter. E.g. stage=1,2,3. Passing in_progress with\
-          \ any other combination will give you empty systems."
+          \ any other combination will give you empty systems. This parameter searches\
+          \ for an exact match of the input value."
         explode: true
         in: query
         name: stage
@@ -236,7 +237,89 @@ paths:
       tags:
       - Activations
       x-codegen-request-body-name: params
-  /partner/activations/{id}:
+  /partner/activations/{activation_id}:
+    delete:
+      description: "To delete an activation, the activation stage must be less than\
+        \ 3 and there are no active devices associated with it."
+      operationId: DeleteActivation
+      parameters:
+      - description: Enlighten ID of the activation(system).
+        explode: false
+        in: path
+        name: activation_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteActivationResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              example:
+                reason: "404"
+                message:
+                - System not found
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                errorCode: 5
+                errorMessages:
+                - Devices are present on this system. Please retry after removing
+                  devices
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityError'
+          description: Unprocessable entity. The body contains error information in
+            a hash of errorMessages and an optional errorCode.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: Delete an activation by ID
+      tags:
+      - Activations
     get:
       description: "By default, the body of the response looks like the example below.\
         \ However, you can choose to retrieve more information about the activation\
@@ -253,7 +336,7 @@ paths:
       - description: Enlighten ID of the activation(system). System-generated.
         explode: false
         in: path
-        name: id
+        name: activation_id
         required: true
         schema:
           type: integer
@@ -331,7 +414,7 @@ paths:
       - description: Enlighten ID of the activation(system). System-generated.
         explode: false
         in: path
-        name: id
+        name: activation_id
         required: true
         schema:
           type: integer
@@ -400,89 +483,6 @@ paths:
       tags:
       - Activations
       x-codegen-request-body-name: params
-  /activations/{id}:
-    delete:
-      description: "To delete an activation, the activation stage must be less than\
-        \ 3 and there are no active devices associated with it."
-      operationId: DeleteActivation
-      parameters:
-      - description: Enlighten ID of the activation(system).
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeleteActivationResponse'
-          description: OK
-        "401":
-          content:
-            application/json:
-              example:
-                reason: "401"
-                message:
-                - Not authorized to access requested resource.
-                - API Key missing in url/headers!
-              schema:
-                $ref: '#/components/schemas/ServerError'
-          description: Unauthorized
-        "404":
-          content:
-            application/json:
-              example:
-                reason: "404"
-                message:
-                - System not found
-              schema:
-                $ref: '#/components/schemas/ServerError'
-          description: Not Found
-        "405":
-          content:
-            application/json:
-              example:
-                reason: "405"
-                message:
-                - Method not allowed
-              schema:
-                $ref: '#/components/schemas/ServerError'
-          description: Method Not Allowed
-        "422":
-          content:
-            application/json:
-              example:
-                errorCode: 5
-                errorMessages:
-                - Devices are present on this system. Please retry after removing
-                  devices
-              schema:
-                $ref: '#/components/schemas/UnprocessableEntityError'
-          description: Unprocessable entity. The body contains error information in
-            a hash of errorMessages and an optional errorCode.
-        "429":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TooManyRequestsError'
-          description: Too Many Requests
-        "501":
-          content:
-            application/json:
-              example:
-                reason: "501"
-                message:
-                - Not Implemented
-              schema:
-                $ref: '#/components/schemas/ServerError'
-          description: Not Implemented
-      summary: Delete an activation by ID
-      tags:
-      - Activations
   /activations/{activation_id}/users/{user_id}:
     delete:
       description: Revokes a user's permission to view this system. Response status
@@ -1526,7 +1526,7 @@ paths:
       tags:
       - Companies
       x-codegen-request-body-name: params
-  /users/{user_id}:
+  /partner/users/{user_id}:
     get:
       description: "You must have permission to view the user. You can view yourself,\
         \ users you created, and users who belong to your company or its branches.\
@@ -1620,6 +1620,7 @@ paths:
       summary: Returns the requested user
       tags:
       - Users
+  /users/{user_id}:
     put:
       description: "You must have permission to view the user. You can view yourself,\
         \ users you created, and users who belong to your company or its branches.\
@@ -1710,7 +1711,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: params
-  /users/self:
+  /partner/users/self:
     get:
       description: "Return the current logged in user detail. Company details are\
         \ provided in the response only if 'expand' parameter is passed in the URL\
@@ -1845,6 +1846,58 @@ paths:
                 $ref: '#/components/schemas/ServerError'
           description: Not Implemented
       summary: User's company and its branches
+      tags:
+      - Companies
+  /companies/self/authorized_subcontractors:
+    get:
+      description: "Returns all the authorized subcontractors of a given company,\
+        \ if any."
+      operationId: GetSelfCompanyAuthorizedSubcontractors
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSelfCompanyAuthorizedSubcontractorsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                reason: "401"
+                message:
+                - Not authorized to access requested resource.
+                - API Key missing in url/headers!
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Unauthorized
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Not Implemented
+      summary: User's company and its authorized subcontractors.
       tags:
       - Companies
   /activations/{activation_id}/estimate:
@@ -2006,7 +2059,7 @@ paths:
       tags:
       - Estimate
       x-codegen-request-body-name: params
-  /grid_profiles:
+  /partner/grid_profiles:
     get:
       description: Lists the available profiles.
       operationId: GetGridProfiles
@@ -2604,7 +2657,7 @@ paths:
       tags:
       - Tariff
       x-codegen-request-body-name: params
-  /systems/{system_id}/arrays:
+  /partner/systems/{system_id}/arrays:
     get:
       description: Fetch particular system Array details.
       operationId: GetSystemArrays
@@ -2768,7 +2821,7 @@ paths:
       tags:
       - Arrays
       x-codegen-request-body-name: params
-  /systems/{system_id}/arrays/{id}:
+  /partner/systems/{system_id}/arrays/{array_id}:
     delete:
       description: Delete an array by ID.
       operationId: DeleteSystemArray
@@ -2784,7 +2837,7 @@ paths:
       - description: Array ID.
         explode: false
         in: path
-        name: id
+        name: array_id
         required: true
         schema:
           type: integer
@@ -2872,7 +2925,7 @@ paths:
           \ endpoint behaves as 'Fetch particular system Array details' endpoint."
         explode: false
         in: path
-        name: id
+        name: array_id
         required: true
         schema:
           type: integer
@@ -2969,7 +3022,7 @@ paths:
           \ endpoint behaves as 'Update all Arrays' endpoint."
         explode: false
         in: path
-        name: id
+        name: array_id
         required: true
         schema:
           type: integer
@@ -3104,6 +3157,7 @@ components:
           system_name: System name
           system_type: residential
           status: Normal
+          timezone: US/Pacific
           stage: 5
           internet_connection: dialup
           lease: false
@@ -3114,6 +3168,14 @@ components:
           host_id: Host name
           installer_name: Enphase & Energy
           installer_id: 1
+          maintainer_name: Enphase & Energy
+          maintainer_id: 5
+          authorized_subcontractors:
+          - authorized_subcontractor_id: 67
+            authorized_subcontractor_name: Enphase India
+          - authorized_subcontractor_id: 68
+            authorized_subcontractor_name: Enphase India
+            status: Pending for system owner approval
           uri: /api/v4/partner/activations/12345.json
           updated_at: 1628153151
           reference: ENPH123
@@ -3390,6 +3452,32 @@ components:
             be empty.
           items:
             $ref: '#/components/schemas/GetSelfCompanyBranchesResponse_branches_inner'
+          type: array
+      type: object
+    GetSelfCompanyAuthorizedSubcontractorsResponse:
+      example:
+        company_id: 9
+        company_name: Super Solar
+        authorized_subcontractors:
+        - company_id: 81
+          company_name: Super Solar North
+          location: "Petaluma, CA - US"
+          roles:
+          - installer
+          uri: /api/v4/companies/81.json
+          status: Enabled
+      properties:
+        company_id:
+          description: Enlighten ID of the API user's company.
+          type: integer
+        company_name:
+          description: Name of the API user's company.
+          type: string
+        authorized_subcontractors:
+          description: A list of subcontractors belonging to the API user's company.
+            May be empty.
+          items:
+            $ref: '#/components/schemas/GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner'
           type: array
       type: object
     GetActivationEstimateResponse:
@@ -3669,6 +3757,7 @@ components:
         system_name: Enphase system
         system_type: residential
         status: Microinverters Not Reporting
+        timezone: US/Pacific
         stage: 5
         internet_connection: dialup
         lease: false
@@ -3715,6 +3804,11 @@ components:
         host_id: 248
         installer_name: Enphase & Energy
         installer_id: 5
+        maintainer_name: Enphase & Energy
+        maintainer_id: 5
+        authorized_subcontractors:
+        - authorized_subcontractor_id: 67
+          authorized_subcontractor_name: Enphase India
         uri: /api/v4/partner/activations/12345.json
         updated_at: 1628156578
         allow_public_access: true
@@ -3760,6 +3854,9 @@ components:
         status:
           description: System's status.
           type: string
+        timezone:
+          description: System's timezone.
+          type: string
         stage:
           description: What stage of the activation process this activation is in.
             System-generated.
@@ -3791,6 +3888,18 @@ components:
           description: Enlighten ID of the installer of this system. Defaults to current
             user's company ID.
           type: integer
+        maintainer_name:
+          description: Name of the maintainer.
+          type: string
+        maintainer_id:
+          description: The Enlighten ID of the maintainer of this system. Defaults
+            to current user's company ID.
+          type: integer
+        authorized_subcontractors:
+          description: List of sub-contractors of this system.
+          items:
+            $ref: '#/components/schemas/GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner'
+          type: array
         uri:
           description: URI for this activation.
           type: string
@@ -3913,8 +4022,8 @@ components:
     SystemParams:
       example:
         requested_profile: requested_profile
-        pv_model: 5
-        expected_acb_count: 2
+        pv_model: 9
+        expected_acb_count: 1
         owner_id: 0
         encharge:
         - encharge_serial_numbers:
@@ -3925,11 +4034,12 @@ components:
           - encharge_serial_numbers
           - encharge_serial_numbers
           envoy_serial_number: envoy_serial_number
-        expected_pcu_count: 3
-        expected_enpower_count: 1
+        expected_pcu_count: 7
+        expected_enpower_count: 7
         source: null
         pv_manufacturer_name: pv_manufacturer_name
-        expected_encharge_count: 1
+        expected_encharge_count: 6
+        authorized_subcontractor_id: 1
         reference: reference
         interconnect_date: 2000-01-23
         enpower:
@@ -3941,11 +4051,11 @@ components:
           - enpower_serial_numbers
           - enpower_serial_numbers
           envoy_serial_number: envoy_serial_number
-        installer_id: 1
-        pv_module_type: 7
+        installer_id: 5
+        pv_module_type: 2
         array_type: null
         allow_public_access: true
-        pv_manufacturer: 5
+        pv_manufacturer: 7
         requested_report_freq: requested_report_freq
         ensemble_envoy: ensemble_envoy
         address:
@@ -3957,21 +4067,30 @@ components:
           postal_code: postal_code
         system_name: system_name
         operational: true
-        expected_envoy_count: 9
-        expected_nsr_count: 4
+        expected_envoy_count: 4
+        expected_nsr_count: 1
         host_id: 6
-        expected_meter_count: 7
+        maintainer_name: maintainer_name
+        expected_meter_count: 1
         voltage: voltage
+        maintainer_id: 5
         envoy_serial_numbers:
         - envoy_serial_numbers
         - envoy_serial_numbers
         pv_model_name: pv_model_name
         system_type: null
         attachment_type: null
-        pv_module_power_rating: 0.23021358
+        pv_module_power_rating: 0.36160767
         internet_connection: null
         grid_profile: grid_profile
         lease: true
+        authorized_subcontractors:
+        - authorized_subcontractor_name: authorized_subcontractor_name
+          authorized_subcontractor_id: 2
+          status: status
+        - authorized_subcontractor_name: authorized_subcontractor_name
+          authorized_subcontractor_id: 2
+          status: status
       properties:
         system_name:
           description: Name of the system. Limit 255 characters.
@@ -3999,10 +4118,27 @@ components:
             user API to get the host user ID. If the host not exist in the enlighten
             then use Create home owner API to create it newly.
           type: integer
+        authorized_subcontractor_id:
+          description: "Enlighten ID of the sub-contractor you want to add to the\
+            \ system. Optional. If you are the home owner, you cannot add subcontractors\
+            \ for the site."
+          type: integer
         installer_id:
           description: Enlighten ID of the installer of this system. Defaults to current
             user's company ID.
           type: integer
+        maintainer_name:
+          description: Name of the maintainer.
+          type: string
+        maintainer_id:
+          description: The Enlighten ID of the maintainer of this system. Defaults
+            to current user's company ID.
+          type: integer
+        authorized_subcontractors:
+          description: List of sub-contractors of this system.
+          items:
+            $ref: '#/components/schemas/GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner'
+          type: array
         allow_public_access:
           description: "When true, the system will be eligible to appear in the public\
             \ systems lists of Enphase and the system's installer. Default true."
@@ -4728,6 +4864,23 @@ components:
             type: string
           type: array
       type: object
+    GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner:
+      example:
+        authorized_subcontractor_name: authorized_subcontractor_name
+        authorized_subcontractor_id: 2
+        status: status
+      properties:
+        authorized_subcontractor_id:
+          description: The Enlighten ID of the sub-contractor of this system. System-generated.
+          type: integer
+        authorized_subcontractor_name:
+          description: Name of the sub-contractor of this system.
+          type: string
+        status:
+          description: Current status of the subcontractor for the site. This field
+            will be shown only for pending and rejected sub-contractors.
+          type: string
+      type: object
     GetPartnerActivationsResponse_systems_inner:
       properties:
         system_id:
@@ -4740,6 +4893,9 @@ components:
           $ref: '#/components/schemas/SystemTypeEnum'
         status:
           description: System's status.
+          type: string
+        timezone:
+          description: System's timezone.
           type: string
         stage:
           description: What stage of the activation process this activation is in.
@@ -4761,8 +4917,7 @@ components:
           description: Enlighten ID of this system owner. System-generated.
           type: integer
         host:
-          description: "Name of the system host. Please see \"Specifying an Owner\
-            \ and Lease Arrangement\", above, for more information."
+          description: Name of the system host.
           type: string
         host_id:
           description: Enlighten ID of this system host. System-generated.
@@ -4771,9 +4926,19 @@ components:
           description: Name of the installer.
           type: string
         installer_id:
-          description: Enlighten ID of the installer of this system. Defaults to current
-            user's company ID.
+          description: Enlighten ID of the installer of this system.
           type: integer
+        maintainer_name:
+          description: Name of the maintainer.
+          type: string
+        maintainer_id:
+          description: Enlighten ID of the maintainer of this system.
+          type: integer
+        authorized_subcontractors:
+          description: List of sub-contractors of this system.
+          items:
+            $ref: '#/components/schemas/GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner'
+          type: array
         uri:
           description: URI for this activation.
           type: string
@@ -4820,6 +4985,28 @@ components:
           type: array
         uri:
           description: URI to the show() method for the company. System-generated.
+          type: string
+      type: object
+    GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner:
+      properties:
+        company_id:
+          description: Enlighten ID of the company.
+          type: integer
+        company_name:
+          description: Name of the company.
+          type: string
+        location:
+          description: Company location.
+          type: string
+        roles:
+          items:
+            $ref: '#/components/schemas/CompanyRoleEnum'
+          type: array
+        uri:
+          description: URI to the show() method for the company. System-generated.
+          type: string
+        status:
+          description: Whether the subcontractor is enabled or disabled.
           type: string
       type: object
     GetGridProfilesResponse_grid_profiles_inner:
@@ -4965,9 +5152,8 @@ components:
           type: string
       type: object
     System_host:
-      description: "Name of the system host. Please see \"Specifying an Owner and\
-        \ Lease Arrangement\", above, for more information. If the query parameter\
-        \ 'expand=host' passed in the request host detail will appear in the response."
+      description: Name of the system host. If the query parameter 'expand=host' passed
+        in the request host detail will appear in the response.
       properties:
         first_name:
           type: string

@@ -269,7 +269,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetGridProfilesResponse>("/grid_profiles", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetGridProfilesResponse>("/partner/grid_profiles", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGridProfiles", localVarResponse);
@@ -354,7 +354,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetGridProfilesResponse>("/grid_profiles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetGridProfilesResponse>("/partner/grid_profiles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -1,5 +1,5 @@
 # EnphaseOpenAPI.Commissioning.Model.SystemHost
-Name of the system host. Please see \"Specifying an Owner and Lease Arrangement\", above, for more information. If the query parameter 'expand=host' passed in the request host detail will appear in the response.
+Name of the system host. If the query parameter 'expand=host' passed in the request host detail will appear in the response.
 
 ## Properties
 

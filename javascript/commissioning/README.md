@@ -130,27 +130,28 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *TheEnphaseCommissioningApi.ActivationsApi* | [**createPartnerActivation**](docs/ActivationsApi.md#createPartnerActivation) | **POST** /partner/activations | Create new activation
-*TheEnphaseCommissioningApi.ActivationsApi* | [**deleteActivation**](docs/ActivationsApi.md#deleteActivation) | **DELETE** /activations/{id} | Delete an activation by ID
+*TheEnphaseCommissioningApi.ActivationsApi* | [**deleteActivation**](docs/ActivationsApi.md#deleteActivation) | **DELETE** /partner/activations/{activation_id} | Delete an activation by ID
 *TheEnphaseCommissioningApi.ActivationsApi* | [**getActivationOpsProductionMode**](docs/ActivationsApi.md#getActivationOpsProductionMode) | **GET** /activations/{activation_id}/ops/production_mode | Get production mode
-*TheEnphaseCommissioningApi.ActivationsApi* | [**getPartnerActivation**](docs/ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{id} | Retrieves an Activation by ID
+*TheEnphaseCommissioningApi.ActivationsApi* | [**getPartnerActivation**](docs/ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{activation_id} | Retrieves an Activation by ID
 *TheEnphaseCommissioningApi.ActivationsApi* | [**getPartnerActivations**](docs/ActivationsApi.md#getPartnerActivations) | **GET** /partner/activations | List of Activations
 *TheEnphaseCommissioningApi.ActivationsApi* | [**grantActivationUserAccess**](docs/ActivationsApi.md#grantActivationUserAccess) | **POST** /activations/{activation_id}/users/{user_id} | Grant Access
 *TheEnphaseCommissioningApi.ActivationsApi* | [**revokeActivationUserAccess**](docs/ActivationsApi.md#revokeActivationUserAccess) | **DELETE** /activations/{activation_id}/users/{user_id} | Revoke Access
 *TheEnphaseCommissioningApi.ActivationsApi* | [**setActivationOpsProductionMode**](docs/ActivationsApi.md#setActivationOpsProductionMode) | **POST** /activations/{activation_id}/ops/production_mode | Set production mode
-*TheEnphaseCommissioningApi.ActivationsApi* | [**updatePartnerActivation**](docs/ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{id} | Update an activation.
-*TheEnphaseCommissioningApi.ArraysApi* | [**deleteSystemArray**](docs/ArraysApi.md#deleteSystemArray) | **DELETE** /systems/{system_id}/arrays/{id} | Delete an array by ID
-*TheEnphaseCommissioningApi.ArraysApi* | [**getSystemArray**](docs/ArraysApi.md#getSystemArray) | **GET** /systems/{system_id}/arrays/{id} | Fetch array details by ID
-*TheEnphaseCommissioningApi.ArraysApi* | [**getSystemArrays**](docs/ArraysApi.md#getSystemArrays) | **GET** /systems/{system_id}/arrays | Fetch particular system Array details
-*TheEnphaseCommissioningApi.ArraysApi* | [**updateSystemArray**](docs/ArraysApi.md#updateSystemArray) | **PUT** /systems/{system_id}/arrays/{id} | Update particular system array details
-*TheEnphaseCommissioningApi.ArraysApi* | [**updateSystemArrays**](docs/ArraysApi.md#updateSystemArrays) | **PUT** /systems/{system_id}/arrays | Update all arrays for system
+*TheEnphaseCommissioningApi.ActivationsApi* | [**updatePartnerActivation**](docs/ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{activation_id} | Update an activation.
+*TheEnphaseCommissioningApi.ArraysApi* | [**deleteSystemArray**](docs/ArraysApi.md#deleteSystemArray) | **DELETE** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID
+*TheEnphaseCommissioningApi.ArraysApi* | [**getSystemArray**](docs/ArraysApi.md#getSystemArray) | **GET** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID
+*TheEnphaseCommissioningApi.ArraysApi* | [**getSystemArrays**](docs/ArraysApi.md#getSystemArrays) | **GET** /partner/systems/{system_id}/arrays | Fetch particular system Array details
+*TheEnphaseCommissioningApi.ArraysApi* | [**updateSystemArray**](docs/ArraysApi.md#updateSystemArray) | **PUT** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details
+*TheEnphaseCommissioningApi.ArraysApi* | [**updateSystemArrays**](docs/ArraysApi.md#updateSystemArrays) | **PUT** /partner/systems/{system_id}/arrays | Update all arrays for system
 *TheEnphaseCommissioningApi.CompaniesApi* | [**createCompanyUser**](docs/CompaniesApi.md#createCompanyUser) | **POST** /companies/{company_id}/users | Create company user
 *TheEnphaseCommissioningApi.CompaniesApi* | [**getCompanyUser**](docs/CompaniesApi.md#getCompanyUser) | **GET** /companies/{company_id}/users/{user_id} | Returns the requested user
 *TheEnphaseCommissioningApi.CompaniesApi* | [**getCompanyUsers**](docs/CompaniesApi.md#getCompanyUsers) | **GET** /companies/{company_id}/users | Get all users with in a company
+*TheEnphaseCommissioningApi.CompaniesApi* | [**getSelfCompanyAuthorizedSubcontractors**](docs/CompaniesApi.md#getSelfCompanyAuthorizedSubcontractors) | **GET** /companies/self/authorized_subcontractors | User&#39;s company and its authorized subcontractors.
 *TheEnphaseCommissioningApi.CompaniesApi* | [**getSelfCompanyBranches**](docs/CompaniesApi.md#getSelfCompanyBranches) | **GET** /companies/self/branches | User&#39;s company and its branches
 *TheEnphaseCommissioningApi.CompaniesApi* | [**updateCompanyUser**](docs/CompaniesApi.md#updateCompanyUser) | **PUT** /companies/{company_id}/users/{user_id} | Update company user
 *TheEnphaseCommissioningApi.EstimateApi* | [**getActivationEstimate**](docs/EstimateApi.md#getActivationEstimate) | **GET** /activations/{activation_id}/estimate | Returns the estimate for this system.
 *TheEnphaseCommissioningApi.EstimateApi* | [**updateActivationEstimate**](docs/EstimateApi.md#updateActivationEstimate) | **PUT** /activations/{activation_id}/estimate | Update the estimate for this system.
-*TheEnphaseCommissioningApi.GridProfilesApi* | [**getGridProfiles**](docs/GridProfilesApi.md#getGridProfiles) | **GET** /grid_profiles | Lists the available profiles
+*TheEnphaseCommissioningApi.GridProfilesApi* | [**getGridProfiles**](docs/GridProfilesApi.md#getGridProfiles) | **GET** /partner/grid_profiles | Lists the available profiles
 *TheEnphaseCommissioningApi.HomeOwnerApi* | [**createUser**](docs/HomeOwnerApi.md#createUser) | **POST** /users | Create Home owner
 *TheEnphaseCommissioningApi.MetersApi* | [**getSystemMeter**](docs/MetersApi.md#getSystemMeter) | **GET** /systems/{system_id}/meters/{serial_number} | Returns the requested meter detail.
 *TheEnphaseCommissioningApi.MetersApi* | [**setActivationMeterStatus**](docs/MetersApi.md#setActivationMeterStatus) | **POST** /activations/{activation_id}/meters/{serial_number}/meter_control | Enable or Disable the meters.
@@ -160,8 +161,8 @@ Class | Method | HTTP request | Description
 *TheEnphaseCommissioningApi.TariffApi* | [**getSystemTariffSettings**](docs/TariffApi.md#getSystemTariffSettings) | **GET** /systems/config/{system_id}/tariff | Get tariff for a system
 *TheEnphaseCommissioningApi.TariffApi* | [**updateSystemTariffSettings**](docs/TariffApi.md#updateSystemTariffSettings) | **PUT** /systems/config/{system_id}/tariff | Update tariff for a system
 *TheEnphaseCommissioningApi.UsersApi* | [**getActivationUser**](docs/UsersApi.md#getActivationUser) | **GET** /activations/{activation_id}/users/{user_id} | Returns the requested user
-*TheEnphaseCommissioningApi.UsersApi* | [**getSelfUser**](docs/UsersApi.md#getSelfUser) | **GET** /users/self | Return the current logged in user detail
-*TheEnphaseCommissioningApi.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /users/{user_id} | Returns the requested user
+*TheEnphaseCommissioningApi.UsersApi* | [**getSelfUser**](docs/UsersApi.md#getSelfUser) | **GET** /partner/users/self | Return the current logged in user detail
+*TheEnphaseCommissioningApi.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /partner/users/{user_id} | Returns the requested user
 *TheEnphaseCommissioningApi.UsersApi* | [**searchUsers**](docs/UsersApi.md#searchUsers) | **GET** /users/search | Search user
 *TheEnphaseCommissioningApi.UsersApi* | [**updateActivationUser**](docs/UsersApi.md#updateActivationUser) | **PUT** /activations/{activation_id}/users/{user_id} | Update user
 *TheEnphaseCommissioningApi.UsersApi* | [**updateUser**](docs/UsersApi.md#updateUser) | **PUT** /users/{user_id} | Update user
@@ -189,9 +190,12 @@ Class | Method | HTTP request | Description
  - [TheEnphaseCommissioningApi.GetGridProfilesResponseGridProfilesInner](docs/GetGridProfilesResponseGridProfilesInner.md)
  - [TheEnphaseCommissioningApi.GetPartnerActivationsResponse](docs/GetPartnerActivationsResponse.md)
  - [TheEnphaseCommissioningApi.GetPartnerActivationsResponseSystemsInner](docs/GetPartnerActivationsResponseSystemsInner.md)
+ - [TheEnphaseCommissioningApi.GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner](docs/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.md)
  - [TheEnphaseCommissioningApi.GetPvManufacturerModelsResponse](docs/GetPvManufacturerModelsResponse.md)
  - [TheEnphaseCommissioningApi.GetPvManufacturerModelsResponsePvManufacturers](docs/GetPvManufacturerModelsResponsePvManufacturers.md)
  - [TheEnphaseCommissioningApi.GetPvManufacturersResponse](docs/GetPvManufacturersResponse.md)
+ - [TheEnphaseCommissioningApi.GetSelfCompanyAuthorizedSubcontractorsResponse](docs/GetSelfCompanyAuthorizedSubcontractorsResponse.md)
+ - [TheEnphaseCommissioningApi.GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner](docs/GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner.md)
  - [TheEnphaseCommissioningApi.GetSelfCompanyBranchesResponse](docs/GetSelfCompanyBranchesResponse.md)
  - [TheEnphaseCommissioningApi.GetSelfCompanyBranchesResponseBranchesInner](docs/GetSelfCompanyBranchesResponseBranchesInner.md)
  - [TheEnphaseCommissioningApi.GetSystemMeterResponse](docs/GetSystemMeterResponse.md)

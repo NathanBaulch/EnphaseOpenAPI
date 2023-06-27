@@ -12,6 +12,7 @@
 from commissioning.paths.companies_company_id_users.post import CreateCompanyUser
 from commissioning.paths.companies_company_id_users_user_id.get import GetCompanyUser
 from commissioning.paths.companies_company_id_users.get import GetCompanyUsers
+from commissioning.paths.companies_self_authorized_subcontractors.get import GetSelfCompanyAuthorizedSubcontractors
 from commissioning.paths.companies_self_branches.get import GetSelfCompanyBranches
 from commissioning.paths.companies_company_id_users_user_id.put import UpdateCompanyUser
 
@@ -20,6 +21,7 @@ class CompaniesApi(
     CreateCompanyUser,
     GetCompanyUser,
     GetCompanyUsers,
+    GetSelfCompanyAuthorizedSubcontractors,
     GetSelfCompanyBranches,
     UpdateCompanyUser,
 ):

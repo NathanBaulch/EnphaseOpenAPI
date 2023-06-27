@@ -899,7 +899,7 @@ class UsersApi
 
 
 
-        $resourcePath = '/users/self';
+        $resourcePath = '/partner/users/self';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1336,7 +1336,7 @@ class UsersApi
 
 
 
-        $resourcePath = '/users/{user_id}';
+        $resourcePath = '/partner/users/{user_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 var _Address = _interopRequireDefault(require("./Address"));
+var _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner = _interopRequireDefault(require("./GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner"));
 var _SystemArrayTypeEnum = _interopRequireDefault(require("./SystemArrayTypeEnum"));
 var _SystemAttachmentTypeEnum = _interopRequireDefault(require("./SystemAttachmentTypeEnum"));
 var _SystemEnchargeInner = _interopRequireDefault(require("./SystemEnchargeInner"));
@@ -85,6 +86,9 @@ var System = /*#__PURE__*/function () {
         if (data.hasOwnProperty('status')) {
           obj['status'] = _ApiClient["default"].convertToType(data['status'], 'String');
         }
+        if (data.hasOwnProperty('timezone')) {
+          obj['timezone'] = _ApiClient["default"].convertToType(data['timezone'], 'String');
+        }
         if (data.hasOwnProperty('stage')) {
           obj['stage'] = _ApiClient["default"].convertToType(data['stage'], 'Number');
         }
@@ -114,6 +118,15 @@ var System = /*#__PURE__*/function () {
         }
         if (data.hasOwnProperty('installer_id')) {
           obj['installer_id'] = _ApiClient["default"].convertToType(data['installer_id'], 'Number');
+        }
+        if (data.hasOwnProperty('maintainer_name')) {
+          obj['maintainer_name'] = _ApiClient["default"].convertToType(data['maintainer_name'], 'String');
+        }
+        if (data.hasOwnProperty('maintainer_id')) {
+          obj['maintainer_id'] = _ApiClient["default"].convertToType(data['maintainer_id'], 'Number');
+        }
+        if (data.hasOwnProperty('authorized_subcontractors')) {
+          obj['authorized_subcontractors'] = _ApiClient["default"].convertToType(data['authorized_subcontractors'], [_GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner["default"]]);
         }
         if (data.hasOwnProperty('uri')) {
           obj['uri'] = _ApiClient["default"].convertToType(data['uri'], 'String');
@@ -231,6 +244,10 @@ var System = /*#__PURE__*/function () {
       if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
         throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
       }
+      // ensure the json data is a string
+      if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
+        throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
+      }
       // validate the optional field `owner`
       if (data['owner']) {
         // data not null
@@ -244,6 +261,31 @@ var System = /*#__PURE__*/function () {
       // ensure the json data is a string
       if (data['installer_name'] && !(typeof data['installer_name'] === 'string' || data['installer_name'] instanceof String)) {
         throw new Error("Expected the field `installer_name` to be a primitive type in the JSON string but got " + data['installer_name']);
+      }
+      // ensure the json data is a string
+      if (data['maintainer_name'] && !(typeof data['maintainer_name'] === 'string' || data['maintainer_name'] instanceof String)) {
+        throw new Error("Expected the field `maintainer_name` to be a primitive type in the JSON string but got " + data['maintainer_name']);
+      }
+      if (data['authorized_subcontractors']) {
+        // data not null
+        // ensure the json data is an array
+        if (!Array.isArray(data['authorized_subcontractors'])) {
+          throw new Error("Expected the field `authorized_subcontractors` to be an array in the JSON data but got " + data['authorized_subcontractors']);
+        }
+        // validate the optional field `authorized_subcontractors` (array)
+        var _iterator = _createForOfIteratorHelper(data['authorized_subcontractors']),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var item = _step.value;
+            _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner["default"].validateJSON(item);
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        ;
       }
       // ensure the json data is a string
       if (data['uri'] && !(typeof data['uri'] === 'string' || data['uri'] instanceof String)) {
@@ -300,17 +342,17 @@ var System = /*#__PURE__*/function () {
           throw new Error("Expected the field `encharge` to be an array in the JSON data but got " + data['encharge']);
         }
         // validate the optional field `encharge` (array)
-        var _iterator = _createForOfIteratorHelper(data['encharge']),
-          _step;
+        var _iterator2 = _createForOfIteratorHelper(data['encharge']),
+          _step2;
         try {
-          for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var item = _step.value;
-            _SystemEnchargeInner["default"].validateJSON(item);
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var _item = _step2.value;
+            _SystemEnchargeInner["default"].validateJSON(_item);
           }
         } catch (err) {
-          _iterator.e(err);
+          _iterator2.e(err);
         } finally {
-          _iterator.f();
+          _iterator2.f();
         }
         ;
       }
@@ -321,17 +363,17 @@ var System = /*#__PURE__*/function () {
           throw new Error("Expected the field `enpower` to be an array in the JSON data but got " + data['enpower']);
         }
         // validate the optional field `enpower` (array)
-        var _iterator2 = _createForOfIteratorHelper(data['enpower']),
-          _step2;
+        var _iterator3 = _createForOfIteratorHelper(data['enpower']),
+          _step3;
         try {
-          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-            var _item = _step2.value;
-            _SystemEnpowerInner["default"].validateJSON(_item);
+          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+            var _item2 = _step3.value;
+            _SystemEnpowerInner["default"].validateJSON(_item2);
           }
         } catch (err) {
-          _iterator2.e(err);
+          _iterator3.e(err);
         } finally {
-          _iterator2.f();
+          _iterator3.f();
         }
         ;
       }
@@ -367,6 +409,12 @@ System.prototype['system_type'] = undefined;
  * @member {String} status
  */
 System.prototype['status'] = undefined;
+
+/**
+ * System's timezone.
+ * @member {String} timezone
+ */
+System.prototype['timezone'] = undefined;
 
 /**
  * What stage of the activation process this activation is in. System-generated.
@@ -424,6 +472,24 @@ System.prototype['installer_name'] = undefined;
  * @member {Number} installer_id
  */
 System.prototype['installer_id'] = undefined;
+
+/**
+ * Name of the maintainer.
+ * @member {String} maintainer_name
+ */
+System.prototype['maintainer_name'] = undefined;
+
+/**
+ * The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+ * @member {Number} maintainer_id
+ */
+System.prototype['maintainer_id'] = undefined;
+
+/**
+ * List of sub-contractors of this system.
+ * @member {Array.<module:model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>} authorized_subcontractors
+ */
+System.prototype['authorized_subcontractors'] = undefined;
 
 /**
  * URI for this activation.

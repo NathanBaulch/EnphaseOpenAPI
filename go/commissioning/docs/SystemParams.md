@@ -11,7 +11,11 @@ Name | Type | Description | Notes
 **Operational** | Pointer to **bool** | Whether this system is permitted to operate. Default true. | [optional] 
 **OwnerId** | Pointer to **int32** | Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself. If the user of the API is an installer then use the Search user API to get the owner user ID. If the owner not exist in the enlighten then use Create home owner API to create it newly. | [optional] 
 **HostId** | Pointer to **int32** | Enlighten ID of the system host. System host must be an Enlighten user. Optional. If the user of the API is an installer then use the Search user API to get the host user ID. If the host not exist in the enlighten then use Create home owner API to create it newly. | [optional] 
+**AuthorizedSubcontractorId** | Pointer to **int32** | Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site. | [optional] 
 **InstallerId** | Pointer to **int32** | Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID. | [optional] 
+**MaintainerName** | Pointer to **string** | Name of the maintainer. | [optional] 
+**MaintainerId** | Pointer to **int32** | The Enlighten ID of the maintainer of this system. Defaults to current user&#39;s company ID. | [optional] 
+**AuthorizedSubcontractors** | Pointer to [**[]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner**](GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.md) | List of sub-contractors of this system. | [optional] 
 **AllowPublicAccess** | Pointer to **bool** | When true, the system will be eligible to appear in the public systems lists of Enphase and the system&#39;s installer. Default true. | [optional] 
 **InterconnectDate** | Pointer to **string** | When the system was approved to connect to the grid. | [optional] 
 **Source** | Pointer to [**SystemSourceEnum**](SystemSourceEnum.md) |  | [optional] 
@@ -230,6 +234,31 @@ SetHostId sets HostId field to given value.
 
 HasHostId returns a boolean if a field has been set.
 
+### GetAuthorizedSubcontractorId
+
+`func (o *SystemParams) GetAuthorizedSubcontractorId() int32`
+
+GetAuthorizedSubcontractorId returns the AuthorizedSubcontractorId field if non-nil, zero value otherwise.
+
+### GetAuthorizedSubcontractorIdOk
+
+`func (o *SystemParams) GetAuthorizedSubcontractorIdOk() (*int32, bool)`
+
+GetAuthorizedSubcontractorIdOk returns a tuple with the AuthorizedSubcontractorId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorizedSubcontractorId
+
+`func (o *SystemParams) SetAuthorizedSubcontractorId(v int32)`
+
+SetAuthorizedSubcontractorId sets AuthorizedSubcontractorId field to given value.
+
+### HasAuthorizedSubcontractorId
+
+`func (o *SystemParams) HasAuthorizedSubcontractorId() bool`
+
+HasAuthorizedSubcontractorId returns a boolean if a field has been set.
+
 ### GetInstallerId
 
 `func (o *SystemParams) GetInstallerId() int32`
@@ -254,6 +283,81 @@ SetInstallerId sets InstallerId field to given value.
 `func (o *SystemParams) HasInstallerId() bool`
 
 HasInstallerId returns a boolean if a field has been set.
+
+### GetMaintainerName
+
+`func (o *SystemParams) GetMaintainerName() string`
+
+GetMaintainerName returns the MaintainerName field if non-nil, zero value otherwise.
+
+### GetMaintainerNameOk
+
+`func (o *SystemParams) GetMaintainerNameOk() (*string, bool)`
+
+GetMaintainerNameOk returns a tuple with the MaintainerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintainerName
+
+`func (o *SystemParams) SetMaintainerName(v string)`
+
+SetMaintainerName sets MaintainerName field to given value.
+
+### HasMaintainerName
+
+`func (o *SystemParams) HasMaintainerName() bool`
+
+HasMaintainerName returns a boolean if a field has been set.
+
+### GetMaintainerId
+
+`func (o *SystemParams) GetMaintainerId() int32`
+
+GetMaintainerId returns the MaintainerId field if non-nil, zero value otherwise.
+
+### GetMaintainerIdOk
+
+`func (o *SystemParams) GetMaintainerIdOk() (*int32, bool)`
+
+GetMaintainerIdOk returns a tuple with the MaintainerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintainerId
+
+`func (o *SystemParams) SetMaintainerId(v int32)`
+
+SetMaintainerId sets MaintainerId field to given value.
+
+### HasMaintainerId
+
+`func (o *SystemParams) HasMaintainerId() bool`
+
+HasMaintainerId returns a boolean if a field has been set.
+
+### GetAuthorizedSubcontractors
+
+`func (o *SystemParams) GetAuthorizedSubcontractors() []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner`
+
+GetAuthorizedSubcontractors returns the AuthorizedSubcontractors field if non-nil, zero value otherwise.
+
+### GetAuthorizedSubcontractorsOk
+
+`func (o *SystemParams) GetAuthorizedSubcontractorsOk() (*[]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner, bool)`
+
+GetAuthorizedSubcontractorsOk returns a tuple with the AuthorizedSubcontractors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorizedSubcontractors
+
+`func (o *SystemParams) SetAuthorizedSubcontractors(v []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner)`
+
+SetAuthorizedSubcontractors sets AuthorizedSubcontractors field to given value.
+
+### HasAuthorizedSubcontractors
+
+`func (o *SystemParams) HasAuthorizedSubcontractors() bool`
+
+HasAuthorizedSubcontractors returns a boolean if a field has been set.
 
 ### GetAllowPublicAccess
 

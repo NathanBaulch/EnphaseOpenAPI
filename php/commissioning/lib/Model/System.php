@@ -61,6 +61,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_name' => 'string',
         'system_type' => '\EnphaseOpenAPI\Commissioning\Model\SystemTypeEnum',
         'status' => 'string',
+        'timezone' => 'string',
         'stage' => 'int',
         'internet_connection' => '\EnphaseOpenAPI\Commissioning\Model\SystemInternetConnectionEnum',
         'lease' => 'bool',
@@ -71,6 +72,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'host_id' => 'int',
         'installer_name' => 'string',
         'installer_id' => 'int',
+        'maintainer_name' => 'string',
+        'maintainer_id' => 'int',
+        'authorized_subcontractors' => '\EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner[]',
         'uri' => 'string',
         'updated_at' => 'int',
         'reference' => 'string',
@@ -117,6 +121,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_name' => null,
         'system_type' => null,
         'status' => null,
+        'timezone' => null,
         'stage' => null,
         'internet_connection' => null,
         'lease' => null,
@@ -127,6 +132,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'host_id' => null,
         'installer_name' => null,
         'installer_id' => null,
+        'maintainer_name' => null,
+        'maintainer_id' => null,
+        'authorized_subcontractors' => null,
         'uri' => null,
         'updated_at' => 'int64',
         'reference' => null,
@@ -171,6 +179,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
 		'system_name' => false,
 		'system_type' => false,
 		'status' => false,
+		'timezone' => false,
 		'stage' => false,
 		'internet_connection' => false,
 		'lease' => false,
@@ -181,6 +190,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
 		'host_id' => false,
 		'installer_name' => false,
 		'installer_id' => false,
+		'maintainer_name' => false,
+		'maintainer_id' => false,
+		'authorized_subcontractors' => false,
 		'uri' => false,
 		'updated_at' => false,
 		'reference' => false,
@@ -305,6 +317,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_name' => 'system_name',
         'system_type' => 'system_type',
         'status' => 'status',
+        'timezone' => 'timezone',
         'stage' => 'stage',
         'internet_connection' => 'internet_connection',
         'lease' => 'lease',
@@ -315,6 +328,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'host_id' => 'host_id',
         'installer_name' => 'installer_name',
         'installer_id' => 'installer_id',
+        'maintainer_name' => 'maintainer_name',
+        'maintainer_id' => 'maintainer_id',
+        'authorized_subcontractors' => 'authorized_subcontractors',
         'uri' => 'uri',
         'updated_at' => 'updated_at',
         'reference' => 'reference',
@@ -359,6 +375,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_name' => 'setSystemName',
         'system_type' => 'setSystemType',
         'status' => 'setStatus',
+        'timezone' => 'setTimezone',
         'stage' => 'setStage',
         'internet_connection' => 'setInternetConnection',
         'lease' => 'setLease',
@@ -369,6 +386,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'host_id' => 'setHostId',
         'installer_name' => 'setInstallerName',
         'installer_id' => 'setInstallerId',
+        'maintainer_name' => 'setMaintainerName',
+        'maintainer_id' => 'setMaintainerId',
+        'authorized_subcontractors' => 'setAuthorizedSubcontractors',
         'uri' => 'setUri',
         'updated_at' => 'setUpdatedAt',
         'reference' => 'setReference',
@@ -413,6 +433,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_name' => 'getSystemName',
         'system_type' => 'getSystemType',
         'status' => 'getStatus',
+        'timezone' => 'getTimezone',
         'stage' => 'getStage',
         'internet_connection' => 'getInternetConnection',
         'lease' => 'getLease',
@@ -423,6 +444,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'host_id' => 'getHostId',
         'installer_name' => 'getInstallerName',
         'installer_id' => 'getInstallerId',
+        'maintainer_name' => 'getMaintainerName',
+        'maintainer_id' => 'getMaintainerId',
+        'authorized_subcontractors' => 'getAuthorizedSubcontractors',
         'uri' => 'getUri',
         'updated_at' => 'getUpdatedAt',
         'reference' => 'getReference',
@@ -518,6 +542,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('system_name', $data ?? [], null);
         $this->setIfExists('system_type', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('timezone', $data ?? [], null);
         $this->setIfExists('stage', $data ?? [], null);
         $this->setIfExists('internet_connection', $data ?? [], null);
         $this->setIfExists('lease', $data ?? [], null);
@@ -528,6 +553,9 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('host_id', $data ?? [], null);
         $this->setIfExists('installer_name', $data ?? [], null);
         $this->setIfExists('installer_id', $data ?? [], null);
+        $this->setIfExists('maintainer_name', $data ?? [], null);
+        $this->setIfExists('maintainer_id', $data ?? [], null);
+        $this->setIfExists('authorized_subcontractors', $data ?? [], null);
         $this->setIfExists('uri', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('reference', $data ?? [], null);
@@ -712,6 +740,33 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string|null
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string|null $timezone System's timezone.
+     *
+     * @return self
+     */
+    public function setTimezone($timezone)
+    {
+        if (is_null($timezone)) {
+            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+        }
+        $this->container['timezone'] = $timezone;
 
         return $this;
     }
@@ -982,6 +1037,87 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable installer_id cannot be null');
         }
         $this->container['installer_id'] = $installer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintainer_name
+     *
+     * @return string|null
+     */
+    public function getMaintainerName()
+    {
+        return $this->container['maintainer_name'];
+    }
+
+    /**
+     * Sets maintainer_name
+     *
+     * @param string|null $maintainer_name Name of the maintainer.
+     *
+     * @return self
+     */
+    public function setMaintainerName($maintainer_name)
+    {
+        if (is_null($maintainer_name)) {
+            throw new \InvalidArgumentException('non-nullable maintainer_name cannot be null');
+        }
+        $this->container['maintainer_name'] = $maintainer_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintainer_id
+     *
+     * @return int|null
+     */
+    public function getMaintainerId()
+    {
+        return $this->container['maintainer_id'];
+    }
+
+    /**
+     * Sets maintainer_id
+     *
+     * @param int|null $maintainer_id The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+     *
+     * @return self
+     */
+    public function setMaintainerId($maintainer_id)
+    {
+        if (is_null($maintainer_id)) {
+            throw new \InvalidArgumentException('non-nullable maintainer_id cannot be null');
+        }
+        $this->container['maintainer_id'] = $maintainer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets authorized_subcontractors
+     *
+     * @return \EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner[]|null
+     */
+    public function getAuthorizedSubcontractors()
+    {
+        return $this->container['authorized_subcontractors'];
+    }
+
+    /**
+     * Sets authorized_subcontractors
+     *
+     * @param \EnphaseOpenAPI\Commissioning\Model\GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner[]|null $authorized_subcontractors List of sub-contractors of this system.
+     *
+     * @return self
+     */
+    public function setAuthorizedSubcontractors($authorized_subcontractors)
+    {
+        if (is_null($authorized_subcontractors)) {
+            throw new \InvalidArgumentException('non-nullable authorized_subcontractors cannot be null');
+        }
+        $this->container['authorized_subcontractors'] = $authorized_subcontractors;
 
         return $this;
     }

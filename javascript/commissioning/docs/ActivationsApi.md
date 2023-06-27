@@ -5,14 +5,14 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createPartnerActivation**](ActivationsApi.md#createPartnerActivation) | **POST** /partner/activations | Create new activation
-[**deleteActivation**](ActivationsApi.md#deleteActivation) | **DELETE** /activations/{id} | Delete an activation by ID
+[**deleteActivation**](ActivationsApi.md#deleteActivation) | **DELETE** /partner/activations/{activation_id} | Delete an activation by ID
 [**getActivationOpsProductionMode**](ActivationsApi.md#getActivationOpsProductionMode) | **GET** /activations/{activation_id}/ops/production_mode | Get production mode
-[**getPartnerActivation**](ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{id} | Retrieves an Activation by ID
+[**getPartnerActivation**](ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{activation_id} | Retrieves an Activation by ID
 [**getPartnerActivations**](ActivationsApi.md#getPartnerActivations) | **GET** /partner/activations | List of Activations
 [**grantActivationUserAccess**](ActivationsApi.md#grantActivationUserAccess) | **POST** /activations/{activation_id}/users/{user_id} | Grant Access
 [**revokeActivationUserAccess**](ActivationsApi.md#revokeActivationUserAccess) | **DELETE** /activations/{activation_id}/users/{user_id} | Revoke Access
 [**setActivationOpsProductionMode**](ActivationsApi.md#setActivationOpsProductionMode) | **POST** /activations/{activation_id}/ops/production_mode | Set production mode
-[**updatePartnerActivation**](ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{id} | Update an activation.
+[**updatePartnerActivation**](ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{activation_id} | Update an activation.
 
 
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## deleteActivation
 
-> DeleteActivationResponse deleteActivation(id)
+> DeleteActivationResponse deleteActivation(activationId)
 
 Delete an activation by ID
 
@@ -94,8 +94,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new TheEnphaseCommissioningApi.ActivationsApi();
-let id = 56; // Number | Enlighten ID of the activation(system).
-apiInstance.deleteActivation(id).then((data) => {
+let activationId = 56; // Number | Enlighten ID of the activation(system).
+apiInstance.deleteActivation(activationId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -108,7 +108,7 @@ apiInstance.deleteActivation(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Enlighten ID of the activation(system). | 
+ **activationId** | **Number**| Enlighten ID of the activation(system). | 
 
 ### Return type
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ## getPartnerActivation
 
-> System getPartnerActivation(id, opts)
+> System getPartnerActivation(activationId, opts)
 
 Retrieves an Activation by ID
 
@@ -200,11 +200,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new TheEnphaseCommissioningApi.ActivationsApi();
-let id = 56; // Number | Enlighten ID of the activation(system). System-generated.
+let activationId = 56; // Number | Enlighten ID of the activation(system). System-generated.
 let opts = {
   'expand': new TheEnphaseCommissioningApi.SystemExpandEnum() // SystemExpandEnum | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
 };
-apiInstance.getPartnerActivation(id, opts).then((data) => {
+apiInstance.getPartnerActivation(activationId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -217,7 +217,7 @@ apiInstance.getPartnerActivation(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Enlighten ID of the activation(system). System-generated. | 
+ **activationId** | **Number**| Enlighten ID of the activation(system). System-generated. | 
  **expand** | [**SystemExpandEnum**](.md)| Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. | [optional] 
 
 ### Return type
@@ -260,7 +260,7 @@ let apiInstance = new TheEnphaseCommissioningApi.ActivationsApi();
 let opts = {
   'next': "next_example", // String | If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field.
   'limit': 56, // Number | There is a limit to the number of activations which can be returned at one time.
-  'stage': new TheEnphaseCommissioningApi.SystemStageEnum(), // SystemStageEnum | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems.
+  'stage': new TheEnphaseCommissioningApi.SystemStageEnum(), // SystemStageEnum | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value.
   'reference': "reference_example", // String | Filter activations by company reference.
   'installerId': 56, // Number | Filter activations by installer ID.
   'systemName': "systemName_example", // String | Filter activations by system name.
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **next** | **String**| If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. | [optional] 
  **limit** | **Number**| There is a limit to the number of activations which can be returned at one time. | [optional] 
- **stage** | [**SystemStageEnum**](.md)| Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. | [optional] 
+ **stage** | [**SystemStageEnum**](.md)| Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. | [optional] 
  **reference** | **String**| Filter activations by company reference. | [optional] 
  **installerId** | **Number**| Filter activations by installer ID. | [optional] 
  **systemName** | **String**| Filter activations by system name. | [optional] 
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ## updatePartnerActivation
 
-> System updatePartnerActivation(id, opts)
+> System updatePartnerActivation(activationId, opts)
 
 Update an activation.
 
@@ -495,11 +495,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new TheEnphaseCommissioningApi.ActivationsApi();
-let id = 56; // Number | Enlighten ID of the activation(system). System-generated.
+let activationId = 56; // Number | Enlighten ID of the activation(system). System-generated.
 let opts = {
   'params': new TheEnphaseCommissioningApi.SystemParams() // SystemParams | 
 };
-apiInstance.updatePartnerActivation(id, opts).then((data) => {
+apiInstance.updatePartnerActivation(activationId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -512,7 +512,7 @@ apiInstance.updatePartnerActivation(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Enlighten ID of the activation(system). System-generated. | 
+ **activationId** | **Number**| Enlighten ID of the activation(system). System-generated. | 
  **params** | **SystemParams**|  | [optional] 
 
 ### Return type

@@ -4,15 +4,15 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteSystemArray**](ArraysApi.md#deletesystemarray) | **DELETE** /systems/{system_id}/arrays/{id} | Delete an array by ID |
-| [**GetSystemArray**](ArraysApi.md#getsystemarray) | **GET** /systems/{system_id}/arrays/{id} | Fetch array details by ID |
-| [**GetSystemArrays**](ArraysApi.md#getsystemarrays) | **GET** /systems/{system_id}/arrays | Fetch particular system Array details |
-| [**UpdateSystemArray**](ArraysApi.md#updatesystemarray) | **PUT** /systems/{system_id}/arrays/{id} | Update particular system array details |
-| [**UpdateSystemArrays**](ArraysApi.md#updatesystemarrays) | **PUT** /systems/{system_id}/arrays | Update all arrays for system |
+| [**DeleteSystemArray**](ArraysApi.md#deletesystemarray) | **DELETE** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID |
+| [**GetSystemArray**](ArraysApi.md#getsystemarray) | **GET** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID |
+| [**GetSystemArrays**](ArraysApi.md#getsystemarrays) | **GET** /partner/systems/{system_id}/arrays | Fetch particular system Array details |
+| [**UpdateSystemArray**](ArraysApi.md#updatesystemarray) | **PUT** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details |
+| [**UpdateSystemArrays**](ArraysApi.md#updatesystemarrays) | **PUT** /partner/systems/{system_id}/arrays | Update all arrays for system |
 
 <a id="deletesystemarray"></a>
 # **DeleteSystemArray**
-> DeleteSystemArrayResponse DeleteSystemArray (int systemId, int id)
+> DeleteSystemArrayResponse DeleteSystemArray (int systemId, int arrayId)
 
 Delete an array by ID
 
@@ -43,12 +43,12 @@ namespace Example
 
             var apiInstance = new ArraysApi(config);
             var systemId = 56;  // int | System ID.
-            var id = 56;  // int | Array ID.
+            var arrayId = 56;  // int | Array ID.
 
             try
             {
                 // Delete an array by ID
-                DeleteSystemArrayResponse result = apiInstance.DeleteSystemArray(systemId, id);
+                DeleteSystemArrayResponse result = apiInstance.DeleteSystemArray(systemId, arrayId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete an array by ID
-    ApiResponse<DeleteSystemArrayResponse> response = apiInstance.DeleteSystemArrayWithHttpInfo(systemId, id);
+    ApiResponse<DeleteSystemArrayResponse> response = apiInstance.DeleteSystemArrayWithHttpInfo(systemId, arrayId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -87,7 +87,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **systemId** | **int** | System ID. |  |
-| **id** | **int** | Array ID. |  |
+| **arrayId** | **int** | Array ID. |  |
 
 ### Return type
 
@@ -118,7 +118,7 @@ catch (ApiException e)
 
 <a id="getsystemarray"></a>
 # **GetSystemArray**
-> Array GetSystemArray (int systemId, int id)
+> Array GetSystemArray (int systemId, int arrayId)
 
 Fetch array details by ID
 
@@ -149,12 +149,12 @@ namespace Example
 
             var apiInstance = new ArraysApi(config);
             var systemId = 56;  // int | System ID.
-            var id = 56;  // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
+            var arrayId = 56;  // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
 
             try
             {
                 // Fetch array details by ID
-                Array result = apiInstance.GetSystemArray(systemId, id);
+                Array result = apiInstance.GetSystemArray(systemId, arrayId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -175,7 +175,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Fetch array details by ID
-    ApiResponse<Array> response = apiInstance.GetSystemArrayWithHttpInfo(systemId, id);
+    ApiResponse<Array> response = apiInstance.GetSystemArrayWithHttpInfo(systemId, arrayId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -193,7 +193,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **systemId** | **int** | System ID. |  |
-| **id** | **int** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. |  |
+| **arrayId** | **int** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. |  |
 
 ### Return type
 
@@ -327,7 +327,7 @@ catch (ApiException e)
 
 <a id="updatesystemarray"></a>
 # **UpdateSystemArray**
-> Array UpdateSystemArray (int systemId, int id, ArrayParams _params = null)
+> Array UpdateSystemArray (int systemId, int arrayId, ArrayParams _params = null)
 
 Update particular system array details
 
@@ -358,13 +358,13 @@ namespace Example
 
             var apiInstance = new ArraysApi(config);
             var systemId = 56;  // int | System ID.
-            var id = 56;  // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
+            var arrayId = 56;  // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
             var _params = new ArrayParams();  // ArrayParams |  (optional) 
 
             try
             {
                 // Update particular system array details
-                Array result = apiInstance.UpdateSystemArray(systemId, id, _params);
+                Array result = apiInstance.UpdateSystemArray(systemId, arrayId, _params);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -385,7 +385,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update particular system array details
-    ApiResponse<Array> response = apiInstance.UpdateSystemArrayWithHttpInfo(systemId, id, _params);
+    ApiResponse<Array> response = apiInstance.UpdateSystemArrayWithHttpInfo(systemId, arrayId, _params);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -403,7 +403,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **systemId** | **int** | System ID. |  |
-| **id** | **int** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. |  |
+| **arrayId** | **int** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. |  |
 | **_params** | **ArrayParams** |  | [optional]  |
 
 ### Return type

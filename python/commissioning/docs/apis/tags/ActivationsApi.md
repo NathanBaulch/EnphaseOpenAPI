@@ -6,14 +6,14 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_partner_activation**](#create_partner_activation) | **post** /partner/activations | Create new activation
-[**delete_activation**](#delete_activation) | **delete** /activations/{id} | Delete an activation by ID
+[**delete_activation**](#delete_activation) | **delete** /partner/activations/{activation_id} | Delete an activation by ID
 [**get_activation_ops_production_mode**](#get_activation_ops_production_mode) | **get** /activations/{activation_id}/ops/production_mode | Get production mode
-[**get_partner_activation**](#get_partner_activation) | **get** /partner/activations/{id} | Retrieves an Activation by ID
+[**get_partner_activation**](#get_partner_activation) | **get** /partner/activations/{activation_id} | Retrieves an Activation by ID
 [**get_partner_activations**](#get_partner_activations) | **get** /partner/activations | List of Activations
 [**grant_activation_user_access**](#grant_activation_user_access) | **post** /activations/{activation_id}/users/{user_id} | Grant Access
 [**revoke_activation_user_access**](#revoke_activation_user_access) | **delete** /activations/{activation_id}/users/{user_id} | Revoke Access
 [**set_activation_ops_production_mode**](#set_activation_ops_production_mode) | **post** /activations/{activation_id}/ops/production_mode | Set production mode
-[**update_partner_activation**](#update_partner_activation) | **put** /partner/activations/{id} | Update an activation.
+[**update_partner_activation**](#update_partner_activation) | **put** /partner/activations/{activation_id} | Update an activation.
 
 # **create_partner_activation**
 <a id="create_partner_activation"></a>
@@ -72,7 +72,17 @@ with commissioning.ApiClient(configuration) as api_client:
         operational=True,
         owner_id=1,
         host_id=1,
+        authorized_subcontractor_id=1,
         installer_id=1,
+        maintainer_name="maintainer_name_example",
+        maintainer_id=1,
+        authorized_subcontractors=[
+            dict(
+                authorized_subcontractor_id=1,
+                authorized_subcontractor_name="authorized_subcontractor_name_example",
+                status="status_example",
+            )
+        ],
         allow_public_access=True,
         interconnect_date="1970-01-01",
         source=SystemSourceEnum("meter"),
@@ -251,7 +261,7 @@ Type | Description  | Notes
 
 # **delete_activation**
 <a id="delete_activation"></a>
-> DeleteActivationResponse delete_activation(id)
+> DeleteActivationResponse delete_activation(activation_id)
 
 Delete an activation by ID
 
@@ -298,7 +308,7 @@ with commissioning.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params = {
-        'id': 1,
+        'activation_id': 1,
     }
     try:
         # Delete an activation by ID
@@ -324,9 +334,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | IdSchema | | 
+activation_id | ActivationIdSchema | | 
 
-# IdSchema
+# ActivationIdSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -639,7 +649,7 @@ Type | Description  | Notes
 
 # **get_partner_activation**
 <a id="get_partner_activation"></a>
-> System get_partner_activation(id)
+> System get_partner_activation(activation_id)
 
 Retrieves an Activation by ID
 
@@ -686,7 +696,7 @@ with commissioning.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params = {
-        'id': 1,
+        'activation_id': 1,
     }
     query_params = {
     }
@@ -702,7 +712,7 @@ with commissioning.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     path_params = {
-        'id': 1,
+        'activation_id': 1,
     }
     query_params = {
         'expand': SystemExpandEnum("owner"),
@@ -747,9 +757,9 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | IdSchema | | 
+activation_id | ActivationIdSchema | | 
 
-# IdSchema
+# ActivationIdSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1735,7 +1745,7 @@ Type | Description  | Notes
 
 # **update_partner_activation**
 <a id="update_partner_activation"></a>
-> System update_partner_activation(id)
+> System update_partner_activation(activation_id)
 
 Update an activation.
 
@@ -1783,7 +1793,7 @@ with commissioning.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params = {
-        'id': 1,
+        'activation_id': 1,
     }
     try:
         # Update an activation.
@@ -1796,7 +1806,7 @@ with commissioning.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     path_params = {
-        'id': 1,
+        'activation_id': 1,
     }
     body = SystemParams(
         system_name="system_name_example",
@@ -1806,7 +1816,17 @@ with commissioning.ApiClient(configuration) as api_client:
         operational=True,
         owner_id=1,
         host_id=1,
+        authorized_subcontractor_id=1,
         installer_id=1,
+        maintainer_name="maintainer_name_example",
+        maintainer_id=1,
+        authorized_subcontractors=[
+            dict(
+                authorized_subcontractor_id=1,
+                authorized_subcontractor_name="authorized_subcontractor_name_example",
+                status="status_example",
+            )
+        ],
         allow_public_access=True,
         interconnect_date="1970-01-01",
         source=SystemSourceEnum("meter"),
@@ -1894,9 +1914,9 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | IdSchema | | 
+activation_id | ActivationIdSchema | | 
 
-# IdSchema
+# ActivationIdSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

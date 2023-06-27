@@ -551,16 +551,16 @@ class ActivationsApi
      *
      * Delete an activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteActivation'] to see the possible values for this operation
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EnphaseOpenAPI\Commissioning\Model\DeleteActivationResponse|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
-    public function deleteActivation($id, string $contentType = self::contentTypes['deleteActivation'][0])
+    public function deleteActivation($activation_id, string $contentType = self::contentTypes['deleteActivation'][0])
     {
-        list($response) = $this->deleteActivationWithHttpInfo($id, $contentType);
+        list($response) = $this->deleteActivationWithHttpInfo($activation_id, $contentType);
         return $response;
     }
 
@@ -569,16 +569,16 @@ class ActivationsApi
      *
      * Delete an activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteActivation'] to see the possible values for this operation
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EnphaseOpenAPI\Commissioning\Model\DeleteActivationResponse|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteActivationWithHttpInfo($id, string $contentType = self::contentTypes['deleteActivation'][0])
+    public function deleteActivationWithHttpInfo($activation_id, string $contentType = self::contentTypes['deleteActivation'][0])
     {
-        $request = $this->deleteActivationRequest($id, $contentType);
+        $request = $this->deleteActivationRequest($activation_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -807,15 +807,15 @@ class ActivationsApi
      *
      * Delete an activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteActivationAsync($id, string $contentType = self::contentTypes['deleteActivation'][0])
+    public function deleteActivationAsync($activation_id, string $contentType = self::contentTypes['deleteActivation'][0])
     {
-        return $this->deleteActivationAsyncWithHttpInfo($id, $contentType)
+        return $this->deleteActivationAsyncWithHttpInfo($activation_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -828,16 +828,16 @@ class ActivationsApi
      *
      * Delete an activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteActivationAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteActivation'][0])
+    public function deleteActivationAsyncWithHttpInfo($activation_id, string $contentType = self::contentTypes['deleteActivation'][0])
     {
         $returnType = '\EnphaseOpenAPI\Commissioning\Model\DeleteActivationResponse';
-        $request = $this->deleteActivationRequest($id, $contentType);
+        $request = $this->deleteActivationRequest($activation_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -878,24 +878,24 @@ class ActivationsApi
     /**
      * Create request for operation 'deleteActivation'
      *
-     * @param  int $id Enlighten ID of the activation(system). (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteActivationRequest($id, string $contentType = self::contentTypes['deleteActivation'][0])
+    public function deleteActivationRequest($activation_id, string $contentType = self::contentTypes['deleteActivation'][0])
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'activation_id' is set
+        if ($activation_id === null || (is_array($activation_id) && count($activation_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteActivation'
+                'Missing the required parameter $activation_id when calling deleteActivation'
             );
         }
 
 
-        $resourcePath = '/activations/{id}';
+        $resourcePath = '/partner/activations/{activation_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -905,10 +905,10 @@ class ActivationsApi
 
 
         // path params
-        if ($id !== null) {
+        if ($activation_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'activation_id' . '}',
+                ObjectSerializer::toPathValue($activation_id),
                 $resourcePath
             );
         }
@@ -1411,7 +1411,7 @@ class ActivationsApi
      *
      * Retrieves an Activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  SystemExpandEnum $expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPartnerActivation'] to see the possible values for this operation
      *
@@ -1419,9 +1419,9 @@ class ActivationsApi
      * @throws \InvalidArgumentException
      * @return \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
-    public function getPartnerActivation($id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
+    public function getPartnerActivation($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
-        list($response) = $this->getPartnerActivationWithHttpInfo($id, $expand, $contentType);
+        list($response) = $this->getPartnerActivationWithHttpInfo($activation_id, $expand, $contentType);
         return $response;
     }
 
@@ -1430,7 +1430,7 @@ class ActivationsApi
      *
      * Retrieves an Activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  SystemExpandEnum $expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPartnerActivation'] to see the possible values for this operation
      *
@@ -1438,9 +1438,9 @@ class ActivationsApi
      * @throws \InvalidArgumentException
      * @return array of \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPartnerActivationWithHttpInfo($id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
+    public function getPartnerActivationWithHttpInfo($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
-        $request = $this->getPartnerActivationRequest($id, $expand, $contentType);
+        $request = $this->getPartnerActivationRequest($activation_id, $expand, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1646,16 +1646,16 @@ class ActivationsApi
      *
      * Retrieves an Activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  SystemExpandEnum $expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPartnerActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPartnerActivationAsync($id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
+    public function getPartnerActivationAsync($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
-        return $this->getPartnerActivationAsyncWithHttpInfo($id, $expand, $contentType)
+        return $this->getPartnerActivationAsyncWithHttpInfo($activation_id, $expand, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1668,17 +1668,17 @@ class ActivationsApi
      *
      * Retrieves an Activation by ID
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  SystemExpandEnum $expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPartnerActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPartnerActivationAsyncWithHttpInfo($id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
+    public function getPartnerActivationAsyncWithHttpInfo($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
         $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
-        $request = $this->getPartnerActivationRequest($id, $expand, $contentType);
+        $request = $this->getPartnerActivationRequest($activation_id, $expand, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1719,26 +1719,26 @@ class ActivationsApi
     /**
      * Create request for operation 'getPartnerActivation'
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  SystemExpandEnum $expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPartnerActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPartnerActivationRequest($id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
+    public function getPartnerActivationRequest($activation_id, $expand = null, string $contentType = self::contentTypes['getPartnerActivation'][0])
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'activation_id' is set
+        if ($activation_id === null || (is_array($activation_id) && count($activation_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getPartnerActivation'
+                'Missing the required parameter $activation_id when calling getPartnerActivation'
             );
         }
 
 
 
-        $resourcePath = '/partner/activations/{id}';
+        $resourcePath = '/partner/activations/{activation_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1757,10 +1757,10 @@ class ActivationsApi
 
 
         // path params
-        if ($id !== null) {
+        if ($activation_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'activation_id' . '}',
+                ObjectSerializer::toPathValue($activation_id),
                 $resourcePath
             );
         }
@@ -1835,7 +1835,7 @@ class ActivationsApi
      *
      * @param  string $next If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)
      * @param  int $limit There is a limit to the number of activations which can be returned at one time. (optional)
-     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)
+     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)
      * @param  string $reference Filter activations by company reference. (optional)
      * @param  int $installer_id Filter activations by installer ID. (optional)
      * @param  string $system_name Filter activations by system name. (optional)
@@ -1861,7 +1861,7 @@ class ActivationsApi
      *
      * @param  string $next If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)
      * @param  int $limit There is a limit to the number of activations which can be returned at one time. (optional)
-     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)
+     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)
      * @param  string $reference Filter activations by company reference. (optional)
      * @param  int $installer_id Filter activations by installer ID. (optional)
      * @param  string $system_name Filter activations by system name. (optional)
@@ -2084,7 +2084,7 @@ class ActivationsApi
      *
      * @param  string $next If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)
      * @param  int $limit There is a limit to the number of activations which can be returned at one time. (optional)
-     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)
+     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)
      * @param  string $reference Filter activations by company reference. (optional)
      * @param  int $installer_id Filter activations by installer ID. (optional)
      * @param  string $system_name Filter activations by system name. (optional)
@@ -2113,7 +2113,7 @@ class ActivationsApi
      *
      * @param  string $next If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)
      * @param  int $limit There is a limit to the number of activations which can be returned at one time. (optional)
-     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)
+     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)
      * @param  string $reference Filter activations by company reference. (optional)
      * @param  int $installer_id Filter activations by installer ID. (optional)
      * @param  string $system_name Filter activations by system name. (optional)
@@ -2171,7 +2171,7 @@ class ActivationsApi
      *
      * @param  string $next If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. (optional)
      * @param  int $limit There is a limit to the number of activations which can be returned at one time. (optional)
-     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. (optional)
+     * @param  SystemStageEnum $stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional)
      * @param  string $reference Filter activations by company reference. (optional)
      * @param  int $installer_id Filter activations by installer ID. (optional)
      * @param  string $system_name Filter activations by system name. (optional)
@@ -3698,7 +3698,7 @@ class ActivationsApi
      *
      * Update an activation.
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\SystemParams $params params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePartnerActivation'] to see the possible values for this operation
      *
@@ -3706,9 +3706,9 @@ class ActivationsApi
      * @throws \InvalidArgumentException
      * @return \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
-    public function updatePartnerActivation($id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
+    public function updatePartnerActivation($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
-        list($response) = $this->updatePartnerActivationWithHttpInfo($id, $params, $contentType);
+        list($response) = $this->updatePartnerActivationWithHttpInfo($activation_id, $params, $contentType);
         return $response;
     }
 
@@ -3717,7 +3717,7 @@ class ActivationsApi
      *
      * Update an activation.
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\SystemParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePartnerActivation'] to see the possible values for this operation
      *
@@ -3725,9 +3725,9 @@ class ActivationsApi
      * @throws \InvalidArgumentException
      * @return array of \EnphaseOpenAPI\Commissioning\Model\System|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePartnerActivationWithHttpInfo($id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
+    public function updatePartnerActivationWithHttpInfo($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
-        $request = $this->updatePartnerActivationRequest($id, $params, $contentType);
+        $request = $this->updatePartnerActivationRequest($activation_id, $params, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3933,16 +3933,16 @@ class ActivationsApi
      *
      * Update an activation.
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\SystemParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePartnerActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePartnerActivationAsync($id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
+    public function updatePartnerActivationAsync($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
-        return $this->updatePartnerActivationAsyncWithHttpInfo($id, $params, $contentType)
+        return $this->updatePartnerActivationAsyncWithHttpInfo($activation_id, $params, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3955,17 +3955,17 @@ class ActivationsApi
      *
      * Update an activation.
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\SystemParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePartnerActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePartnerActivationAsyncWithHttpInfo($id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
+    public function updatePartnerActivationAsyncWithHttpInfo($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
         $returnType = '\EnphaseOpenAPI\Commissioning\Model\System';
-        $request = $this->updatePartnerActivationRequest($id, $params, $contentType);
+        $request = $this->updatePartnerActivationRequest($activation_id, $params, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4006,26 +4006,26 @@ class ActivationsApi
     /**
      * Create request for operation 'updatePartnerActivation'
      *
-     * @param  int $id Enlighten ID of the activation(system). System-generated. (required)
+     * @param  int $activation_id Enlighten ID of the activation(system). System-generated. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\SystemParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePartnerActivation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePartnerActivationRequest($id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
+    public function updatePartnerActivationRequest($activation_id, $params = null, string $contentType = self::contentTypes['updatePartnerActivation'][0])
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'activation_id' is set
+        if ($activation_id === null || (is_array($activation_id) && count($activation_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updatePartnerActivation'
+                'Missing the required parameter $activation_id when calling updatePartnerActivation'
             );
         }
 
 
 
-        $resourcePath = '/partner/activations/{id}';
+        $resourcePath = '/partner/activations/{activation_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4035,10 +4035,10 @@ class ActivationsApi
 
 
         // path params
-        if ($id !== null) {
+        if ($activation_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'activation_id' . '}',
+                ObjectSerializer::toPathValue($activation_id),
                 $resourcePath
             );
         }

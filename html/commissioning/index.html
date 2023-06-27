@@ -201,28 +201,29 @@ font-style: italic;
   <h4><a href="#Activations">Activations</a></h4>
   <ul>
   <li><a href="#createPartnerActivation"><code><span class="http-method">post</span> /partner/activations</code></a></li>
-  <li><a href="#deleteActivation"><code><span class="http-method">delete</span> /activations/{id}</code></a></li>
+  <li><a href="#deleteActivation"><code><span class="http-method">delete</span> /partner/activations/{activation_id}</code></a></li>
   <li><a href="#getActivationOpsProductionMode"><code><span class="http-method">get</span> /activations/{activation_id}/ops/production_mode</code></a></li>
-  <li><a href="#getPartnerActivation"><code><span class="http-method">get</span> /partner/activations/{id}</code></a></li>
+  <li><a href="#getPartnerActivation"><code><span class="http-method">get</span> /partner/activations/{activation_id}</code></a></li>
   <li><a href="#getPartnerActivations"><code><span class="http-method">get</span> /partner/activations</code></a></li>
   <li><a href="#grantActivationUserAccess"><code><span class="http-method">post</span> /activations/{activation_id}/users/{user_id}</code></a></li>
   <li><a href="#revokeActivationUserAccess"><code><span class="http-method">delete</span> /activations/{activation_id}/users/{user_id}</code></a></li>
   <li><a href="#setActivationOpsProductionMode"><code><span class="http-method">post</span> /activations/{activation_id}/ops/production_mode</code></a></li>
-  <li><a href="#updatePartnerActivation"><code><span class="http-method">put</span> /partner/activations/{id}</code></a></li>
+  <li><a href="#updatePartnerActivation"><code><span class="http-method">put</span> /partner/activations/{activation_id}</code></a></li>
   </ul>
   <h4><a href="#Arrays">Arrays</a></h4>
   <ul>
-  <li><a href="#deleteSystemArray"><code><span class="http-method">delete</span> /systems/{system_id}/arrays/{id}</code></a></li>
-  <li><a href="#getSystemArray"><code><span class="http-method">get</span> /systems/{system_id}/arrays/{id}</code></a></li>
-  <li><a href="#getSystemArrays"><code><span class="http-method">get</span> /systems/{system_id}/arrays</code></a></li>
-  <li><a href="#updateSystemArray"><code><span class="http-method">put</span> /systems/{system_id}/arrays/{id}</code></a></li>
-  <li><a href="#updateSystemArrays"><code><span class="http-method">put</span> /systems/{system_id}/arrays</code></a></li>
+  <li><a href="#deleteSystemArray"><code><span class="http-method">delete</span> /partner/systems/{system_id}/arrays/{array_id}</code></a></li>
+  <li><a href="#getSystemArray"><code><span class="http-method">get</span> /partner/systems/{system_id}/arrays/{array_id}</code></a></li>
+  <li><a href="#getSystemArrays"><code><span class="http-method">get</span> /partner/systems/{system_id}/arrays</code></a></li>
+  <li><a href="#updateSystemArray"><code><span class="http-method">put</span> /partner/systems/{system_id}/arrays/{array_id}</code></a></li>
+  <li><a href="#updateSystemArrays"><code><span class="http-method">put</span> /partner/systems/{system_id}/arrays</code></a></li>
   </ul>
   <h4><a href="#Companies">Companies</a></h4>
   <ul>
   <li><a href="#createCompanyUser"><code><span class="http-method">post</span> /companies/{company_id}/users</code></a></li>
   <li><a href="#getCompanyUser"><code><span class="http-method">get</span> /companies/{company_id}/users/{user_id}</code></a></li>
   <li><a href="#getCompanyUsers"><code><span class="http-method">get</span> /companies/{company_id}/users</code></a></li>
+  <li><a href="#getSelfCompanyAuthorizedSubcontractors"><code><span class="http-method">get</span> /companies/self/authorized_subcontractors</code></a></li>
   <li><a href="#getSelfCompanyBranches"><code><span class="http-method">get</span> /companies/self/branches</code></a></li>
   <li><a href="#updateCompanyUser"><code><span class="http-method">put</span> /companies/{company_id}/users/{user_id}</code></a></li>
   </ul>
@@ -233,7 +234,7 @@ font-style: italic;
   </ul>
   <h4><a href="#GridProfiles">GridProfiles</a></h4>
   <ul>
-  <li><a href="#getGridProfiles"><code><span class="http-method">get</span> /grid_profiles</code></a></li>
+  <li><a href="#getGridProfiles"><code><span class="http-method">get</span> /partner/grid_profiles</code></a></li>
   </ul>
   <h4><a href="#HomeOwner">HomeOwner</a></h4>
   <ul>
@@ -261,8 +262,8 @@ font-style: italic;
   <h4><a href="#Users">Users</a></h4>
   <ul>
   <li><a href="#getActivationUser"><code><span class="http-method">get</span> /activations/{activation_id}/users/{user_id}</code></a></li>
-  <li><a href="#getSelfUser"><code><span class="http-method">get</span> /users/self</code></a></li>
-  <li><a href="#getUser"><code><span class="http-method">get</span> /users/{user_id}</code></a></li>
+  <li><a href="#getSelfUser"><code><span class="http-method">get</span> /partner/users/self</code></a></li>
+  <li><a href="#getUser"><code><span class="http-method">get</span> /partner/users/{user_id}</code></a></li>
   <li><a href="#searchUsers"><code><span class="http-method">get</span> /users/search</code></a></li>
   <li><a href="#updateActivationUser"><code><span class="http-method">put</span> /activations/{activation_id}/users/{user_id}</code></a></li>
   <li><a href="#updateUser"><code><span class="http-method">put</span> /users/{user_id}</code></a></li>
@@ -309,6 +310,7 @@ font-style: italic;
   "system_name" : "Enphase system",
   "system_type" : "residential",
   "status" : "Microinverters Not Reporting",
+  "timezone" : "US/Pacific",
   "stage" : 5,
   "internet_connection" : "dialup",
   "lease" : false,
@@ -357,6 +359,12 @@ font-style: italic;
   "host_id" : 248,
   "installer_name" : "Enphase & Energy",
   "installer_id" : 5,
+  "maintainer_name" : "Enphase & Energy",
+  "maintainer_id" : 5,
+  "authorized_subcontractors" : [ {
+    "authorized_subcontractor_id" : 67,
+    "authorized_subcontractor_name" : "Enphase India"
+  } ],
   "uri" : "/api/v4/partner/activations/12345.json",
   "updated_at" : 1628156578,
   "allow_public_access" : true,
@@ -420,13 +428,13 @@ font-style: italic;
   <div class="method"><a name="deleteActivation"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /activations/{id}</code></pre></div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /partner/activations/{activation_id}</code></pre></div>
     <div class="method-summary">Delete an activation by ID (<span class="nickname">deleteActivation</span>)</div>
     <div class="method-notes">To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">activation_id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Enlighten ID of the activation(system). default: null </div>
     </div>  <!-- field-items -->
@@ -550,13 +558,13 @@ font-style: italic;
   <div class="method"><a name="getPartnerActivation"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /partner/activations/{id}</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /partner/activations/{activation_id}</code></pre></div>
     <div class="method-summary">Retrieves an Activation by ID (<span class="nickname">getPartnerActivation</span>)</div>
     <div class="method-notes">By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner's name within the system hash, the response includes detailed information about the owner by using expand=owner. You can also expand the owner's company by using expand=owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand=host will include details about the system host. You can also expand the host's company by using expand=host.company. The response now includes information about the host and the company he belongs to.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">activation_id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Enlighten ID of the activation(system). System-generated. default: null </div>
     </div>  <!-- field-items -->
@@ -587,6 +595,7 @@ font-style: italic;
   "system_name" : "Enphase system",
   "system_type" : "residential",
   "status" : "Microinverters Not Reporting",
+  "timezone" : "US/Pacific",
   "stage" : 5,
   "internet_connection" : "dialup",
   "lease" : false,
@@ -635,6 +644,12 @@ font-style: italic;
   "host_id" : 248,
   "installer_name" : "Enphase & Energy",
   "installer_id" : 5,
+  "maintainer_name" : "Enphase & Energy",
+  "maintainer_id" : 5,
+  "authorized_subcontractors" : [ {
+    "authorized_subcontractor_id" : 67,
+    "authorized_subcontractor_name" : "Enphase India"
+  } ],
   "uri" : "/api/v4/partner/activations/12345.json",
   "updated_at" : 1628156578,
   "allow_public_access" : true,
@@ -714,7 +729,7 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; There is a limit to the number of activations which can be returned at one time. default: null </div><div class="param">stage (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. default: null </div><div class="param">reference (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. default: null </div><div class="param">reference (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter activations by company reference. default: null </div><div class="param">installer_id (optional)</div>
 
@@ -746,6 +761,7 @@ font-style: italic;
     "system_name" : "System name",
     "system_type" : "residential",
     "status" : "Normal",
+    "timezone" : "US/Pacific",
     "stage" : 5,
     "internet_connection" : "dialup",
     "lease" : false,
@@ -756,6 +772,16 @@ font-style: italic;
     "host_id" : "Host name",
     "installer_name" : "Enphase & Energy",
     "installer_id" : 1,
+    "maintainer_name" : "Enphase & Energy",
+    "maintainer_id" : 5,
+    "authorized_subcontractors" : [ {
+      "authorized_subcontractor_id" : 67,
+      "authorized_subcontractor_name" : "Enphase India"
+    }, {
+      "authorized_subcontractor_id" : 68,
+      "authorized_subcontractor_name" : "Enphase India",
+      "status" : "Pending for system owner approval"
+    } ],
     "uri" : "/api/v4/partner/activations/12345.json",
     "updated_at" : 1628153151,
     "reference" : "ENPH123",
@@ -1013,13 +1039,13 @@ font-style: italic;
   <div class="method"><a name="updatePartnerActivation"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /partner/activations/{id}</code></pre></div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /partner/activations/{activation_id}</code></pre></div>
     <div class="method-summary">Update an activation. (<span class="nickname">updatePartnerActivation</span>)</div>
     <div class="method-notes">Update an activation.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">activation_id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Enlighten ID of the activation(system). System-generated. default: null </div>
     </div>  <!-- field-items -->
@@ -1056,6 +1082,7 @@ font-style: italic;
   "system_name" : "Enphase system",
   "system_type" : "residential",
   "status" : "Microinverters Not Reporting",
+  "timezone" : "US/Pacific",
   "stage" : 5,
   "internet_connection" : "dialup",
   "lease" : false,
@@ -1104,6 +1131,12 @@ font-style: italic;
   "host_id" : 248,
   "installer_name" : "Enphase & Energy",
   "installer_id" : 5,
+  "maintainer_name" : "Enphase & Energy",
+  "maintainer_id" : 5,
+  "authorized_subcontractors" : [ {
+    "authorized_subcontractor_id" : 67,
+    "authorized_subcontractor_name" : "Enphase India"
+  } ],
   "uri" : "/api/v4/partner/activations/12345.json",
   "updated_at" : 1628156578,
   "allow_public_access" : true,
@@ -1168,7 +1201,7 @@ font-style: italic;
   <div class="method"><a name="deleteSystemArray"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /systems/{system_id}/arrays/{id}</code></pre></div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /partner/systems/{system_id}/arrays/{array_id}</code></pre></div>
     <div class="method-summary">Delete an array by ID (<span class="nickname">deleteSystemArray</span>)</div>
     <div class="method-notes">Delete an array by ID.</div>
 
@@ -1176,7 +1209,7 @@ font-style: italic;
     <div class="field-items">
       <div class="param">system_id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; System ID. default: null </div><div class="param">id (required)</div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; System ID. default: null </div><div class="param">array_id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Array ID. default: null </div>
     </div>  <!-- field-items -->
@@ -1234,7 +1267,7 @@ font-style: italic;
   <div class="method"><a name="getSystemArray"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/arrays/{id}</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /partner/systems/{system_id}/arrays/{array_id}</code></pre></div>
     <div class="method-summary">Fetch array details by ID (<span class="nickname">getSystemArray</span>)</div>
     <div class="method-notes">Fetch array details by ID.</div>
 
@@ -1242,7 +1275,7 @@ font-style: italic;
     <div class="field-items">
       <div class="param">system_id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; System ID. default: null </div><div class="param">id (required)</div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; System ID. default: null </div><div class="param">array_id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint. default: null </div>
     </div>  <!-- field-items -->
@@ -1315,7 +1348,7 @@ font-style: italic;
   <div class="method"><a name="getSystemArrays"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/arrays</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /partner/systems/{system_id}/arrays</code></pre></div>
     <div class="method-summary">Fetch particular system Array details (<span class="nickname">getSystemArrays</span>)</div>
     <div class="method-notes">Fetch particular system Array details.</div>
 
@@ -1417,7 +1450,7 @@ font-style: italic;
   <div class="method"><a name="updateSystemArray"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /systems/{system_id}/arrays/{id}</code></pre></div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /partner/systems/{system_id}/arrays/{array_id}</code></pre></div>
     <div class="method-summary">Update particular system array details (<span class="nickname">updateSystemArray</span>)</div>
     <div class="method-notes">Update particular system array details. The angle, left, and top fields in the request parameter must be of integer type. Enlighten will rearrange the top and left values of the modules to fit the modules properly and avoid overlap. Therefore, the top and left values in the response may be slightly different from the top and left values passed in the request parameters. In array level, top and left is the total size of the modules inside that array. Overall in arrays, the top and left values should not overlap. In the module level, the size of a panel is 100 units long in the x axis and 200 units long in the y axis. Please pass the left and top values in the request parameter in multiples of 100 and 200 respectively.</div>
 
@@ -1425,7 +1458,7 @@ font-style: italic;
     <div class="field-items">
       <div class="param">system_id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; System ID. default: null </div><div class="param">id (required)</div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; System ID. default: null </div><div class="param">array_id (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint. default: null </div>
     </div>  <!-- field-items -->
@@ -1510,7 +1543,7 @@ font-style: italic;
   <div class="method"><a name="updateSystemArrays"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /systems/{system_id}/arrays</code></pre></div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /partner/systems/{system_id}/arrays</code></pre></div>
     <div class="method-summary">Update all arrays for system (<span class="nickname">updateSystemArrays</span>)</div>
     <div class="method-notes">Update all arrays for system. The angle, left, and top fields in the request parameter must be of integer type. Enlighten will rearrange the top and left values of the modules to fit the modules properly and avoid overlap. Therefore, the top and left values in the response may be slightly different from the top and left values passed in the request parameters. In array level, top and left is the total size of the modules inside that array. Overall the arrays top and left values should not overlap. In the module level, the size of a panel is 100 units long in the x axis and 200 units long in the y axis. Please pass the left and top values in the request parameter in multiples of 100 and 200 respectively.</div>
 
@@ -1870,6 +1903,67 @@ Pass body param in 'application/x-www-form-urlencoded' format, in this endpoint,
         <a href="#ServerError">ServerError</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="getSelfCompanyAuthorizedSubcontractors"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /companies/self/authorized_subcontractors</code></pre></div>
+    <div class="method-summary">User's company and its authorized subcontractors. (<span class="nickname">getSelfCompanyAuthorizedSubcontractors</span>)</div>
+    <div class="method-notes">Returns all the authorized subcontractors of a given company, if any.</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetSelfCompanyAuthorizedSubcontractorsResponse">GetSelfCompanyAuthorizedSubcontractorsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "company_id" : 9,
+  "company_name" : "Super Solar",
+  "authorized_subcontractors" : [ {
+    "company_id" : 81,
+    "company_name" : "Super Solar North",
+    "location" : "Petaluma, CA - US",
+    "roles" : [ "installer" ],
+    "uri" : "/api/v4/companies/81.json",
+    "status" : "Enabled"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#GetSelfCompanyAuthorizedSubcontractorsResponse">GetSelfCompanyAuthorizedSubcontractorsResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#ServerError">ServerError</a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#ServerError">ServerError</a>
+    <h4 class="field-label">429</h4>
+    Too Many Requests
+        <a href="#TooManyRequestsError">TooManyRequestsError</a>
+    <h4 class="field-label">501</h4>
+    Not Implemented
+        <a href="#ServerError">ServerError</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="getSelfCompanyBranches"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -2171,7 +2265,7 @@ Pass body param in 'application/x-www-form-urlencoded' format, in this endpoint,
   <div class="method"><a name="getGridProfiles"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /grid_profiles</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /partner/grid_profiles</code></pre></div>
     <div class="method-summary">Lists the available profiles (<span class="nickname">getGridProfiles</span>)</div>
     <div class="method-notes">Lists the available profiles.</div>
 
@@ -3078,7 +3172,7 @@ Using this API to create both homeowner as well as a company user. If you want t
   <div class="method"><a name="getSelfUser"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /users/self</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /partner/users/self</code></pre></div>
     <div class="method-summary">Return the current logged in user detail (<span class="nickname">getSelfUser</span>)</div>
     <div class="method-notes">Return the current logged in user detail. Company details are provided in the response only if 'expand' parameter is passed in the URL with value as company. Otherwise, company information will not be provided in the response.</div>
 
@@ -3159,7 +3253,7 @@ Using this API to create both homeowner as well as a company user. If you want t
   <div class="method"><a name="getUser"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /users/{user_id}</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /partner/users/{user_id}</code></pre></div>
     <div class="method-summary">Returns the requested user (<span class="nickname">getUser</span>)</div>
     <div class="method-notes">You must have permission to view the user. You can view yourself, users you created, and users who belong to your company or its branches. In all other cases, a 401 is returned. Company details are provided in the response only if 'expand' parameter is passed in the URL with value as company. Otherwise, company information will not be provided in the response.</div>
 
@@ -3523,9 +3617,12 @@ Using this API to create both homeowner as well as a company user. If you want t
     <li><a href="#GetGridProfilesResponse_grid_profiles_inner"><code>GetGridProfilesResponse_grid_profiles_inner</code> - </a></li>
     <li><a href="#GetPartnerActivationsResponse"><code>GetPartnerActivationsResponse</code> - </a></li>
     <li><a href="#GetPartnerActivationsResponse_systems_inner"><code>GetPartnerActivationsResponse_systems_inner</code> - </a></li>
+    <li><a href="#GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner"><code>GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner</code> - </a></li>
     <li><a href="#GetPvManufacturerModelsResponse"><code>GetPvManufacturerModelsResponse</code> - </a></li>
     <li><a href="#GetPvManufacturerModelsResponse_pv_manufacturers"><code>GetPvManufacturerModelsResponse_pv_manufacturers</code> - </a></li>
     <li><a href="#GetPvManufacturersResponse"><code>GetPvManufacturersResponse</code> - </a></li>
+    <li><a href="#GetSelfCompanyAuthorizedSubcontractorsResponse"><code>GetSelfCompanyAuthorizedSubcontractorsResponse</code> - </a></li>
+    <li><a href="#GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner"><code>GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner</code> - </a></li>
     <li><a href="#GetSelfCompanyBranchesResponse"><code>GetSelfCompanyBranchesResponse</code> - </a></li>
     <li><a href="#GetSelfCompanyBranchesResponse_branches_inner"><code>GetSelfCompanyBranchesResponse_branches_inner</code> - </a></li>
     <li><a href="#GetSystemMeterResponse"><code>GetSystemMeterResponse</code> - </a></li>
@@ -3800,21 +3897,34 @@ Using this API to create both homeowner as well as a company user. If you want t
 <div class="param">system_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the system. </div>
 <div class="param">system_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemTypeEnum">SystemTypeEnum</a></span>  </div>
 <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> System's status. </div>
+<div class="param">timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> System's timezone. </div>
 <div class="param">stage (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> What stage of the activation process this activation is in. System-generated. </div>
 <div class="param">internet_connection (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemInternetConnectionEnum">SystemInternetConnectionEnum</a></span>  </div>
 <div class="param">lease (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether the system is leased. Default false. </div>
 <div class="param">operational (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether this system is permitted to operate. Default true. </div>
 <div class="param">owner (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the system owner. Owner must be an Enlighten user. If the user of the API is a self-installer, the owner must be himself. </div>
 <div class="param">owner_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of this system owner. System-generated. </div>
-<div class="param">host (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the system host. Please see &quot;Specifying an Owner and Lease Arrangement&quot;, above, for more information. </div>
+<div class="param">host (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the system host. </div>
 <div class="param">host_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of this system host. System-generated. </div>
 <div class="param">installer_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the installer. </div>
-<div class="param">installer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the installer of this system. Defaults to current user's company ID. </div>
+<div class="param">installer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the installer of this system. </div>
+<div class="param">maintainer_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the maintainer. </div>
+<div class="param">maintainer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the maintainer of this system. </div>
+<div class="param">authorized_subcontractors (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner">array[GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner]</a></span> List of sub-contractors of this system. </div>
 <div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI for this activation. </div>
 <div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Activation last updated timestamp. format: int64</div>
 <div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifier of this system as provided by the calling user's company. This attribute is not present if the calling user's company does not have a reference for this system. </div>
 <div class="param">other_references (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Identifiers assigned to this activation by other companies which have access to it. This attribute is not present if there are no other references for this system. </div>
 <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#Address">Address</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner"><code>GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">authorized_subcontractor_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the sub-contractor of this system. System-generated. </div>
+<div class="param">authorized_subcontractor_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the sub-contractor of this system. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Current status of the subcontractor for the site. This field will be shown only for pending and rejected sub-contractors. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -3838,6 +3948,27 @@ Using this API to create both homeowner as well as a company user. If you want t
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">pv_manufacturers (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">array[array[GetCompanyUsersResponse_users_inner]]</a></span> A list of PV manufacturers. Each element in the list is an array including the model's manufacturer's primary key and name. The list may be empty. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetSelfCompanyAuthorizedSubcontractorsResponse"><code>GetSelfCompanyAuthorizedSubcontractorsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">company_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the API user's company. </div>
+<div class="param">company_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the API user's company. </div>
+<div class="param">authorized_subcontractors (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner">array[GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner]</a></span> A list of subcontractors belonging to the API user's company. May be empty. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner"><code>GetSelfCompanyAuthorizedSubcontractorsResponse_authorized_subcontractors_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">company_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the company. </div>
+<div class="param">company_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the company. </div>
+<div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Company location. </div>
+<div class="param">roles (optional)</div><div class="param-desc"><span class="param-type"><a href="#CompanyRoleEnum">array[CompanyRoleEnum]</a></span>  </div>
+<div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI to the show() method for the company. System-generated. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Whether the subcontractor is enabled or disabled. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -3944,6 +4075,7 @@ Using this API to create both homeowner as well as a company user. If you want t
 <div class="param">system_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the system. </div>
 <div class="param">system_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemTypeEnum">SystemTypeEnum</a></span>  </div>
 <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> System's status. </div>
+<div class="param">timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> System's timezone. </div>
 <div class="param">stage (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> What stage of the activation process this activation is in. System-generated. </div>
 <div class="param">internet_connection (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemInternetConnectionEnum">SystemInternetConnectionEnum</a></span>  </div>
 <div class="param">lease (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether the system is leased. Default false. </div>
@@ -3954,6 +4086,9 @@ Using this API to create both homeowner as well as a company user. If you want t
 <div class="param">host_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of this system host. System-generated. This field is optional. </div>
 <div class="param">installer_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the installer. </div>
 <div class="param">installer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the installer of this system. Defaults to current user's company ID. </div>
+<div class="param">maintainer_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the maintainer. </div>
+<div class="param">maintainer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the maintainer of this system. Defaults to current user's company ID. </div>
+<div class="param">authorized_subcontractors (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner">array[GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner]</a></span> List of sub-contractors of this system. </div>
 <div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI for this activation. </div>
 <div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Activation last updated timestamp. format: int64</div>
 <div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifier of this system as provided by the calling user's company. This attribute is not present if the calling user's company does not have a reference for this system. </div>
@@ -4038,7 +4173,11 @@ Using this API to create both homeowner as well as a company user. If you want t
 <div class="param">operational (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether this system is permitted to operate. Default true. </div>
 <div class="param">owner_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself. If the user of the API is an installer then use the Search user API to get the owner user ID. If the owner not exist in the enlighten then use Create home owner API to create it newly. </div>
 <div class="param">host_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the system host. System host must be an Enlighten user. Optional. If the user of the API is an installer then use the Search user API to get the host user ID. If the host not exist in the enlighten then use Create home owner API to create it newly. </div>
+<div class="param">authorized_subcontractor_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site. </div>
 <div class="param">installer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Enlighten ID of the installer of this system. Defaults to current user's company ID. </div>
+<div class="param">maintainer_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the maintainer. </div>
+<div class="param">maintainer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The Enlighten ID of the maintainer of this system. Defaults to current user's company ID. </div>
+<div class="param">authorized_subcontractors (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner">array[GetPartnerActivationsResponse_systems_inner_authorized_subcontractors_inner]</a></span> List of sub-contractors of this system. </div>
 <div class="param">allow_public_access (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true. </div>
 <div class="param">interconnect_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> When the system was approved to connect to the grid. format: date</div>
 <div class="param">source (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemSourceEnum">SystemSourceEnum</a></span>  </div>
@@ -4139,7 +4278,7 @@ Using this API to create both homeowner as well as a company user. If you want t
   </div>
   <div class="model">
     <h3><a name="System_host"><code>System_host</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Name of the system host. Please see &quot;Specifying an Owner and Lease Arrangement&quot;, above, for more information. If the query parameter 'expand=host' passed in the request host detail will appear in the response.</div>
+    <div class='model-description'>Name of the system host. If the query parameter 'expand=host' passed in the request host detail will appear in the response.</div>
     <div class="field-items">
       <div class="param">first_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">last_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>

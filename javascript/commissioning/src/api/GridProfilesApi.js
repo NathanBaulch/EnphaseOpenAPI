@@ -59,7 +59,7 @@ export default class GridProfilesApi {
       let accepts = ['application/json'];
       let returnType = GetGridProfilesResponse;
       return this.apiClient.callApi(
-        '/grid_profiles', 'GET',
+        '/partner/grid_profiles', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

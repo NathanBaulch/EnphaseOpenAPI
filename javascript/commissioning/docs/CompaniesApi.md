@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createCompanyUser**](CompaniesApi.md#createCompanyUser) | **POST** /companies/{company_id}/users | Create company user
 [**getCompanyUser**](CompaniesApi.md#getCompanyUser) | **GET** /companies/{company_id}/users/{user_id} | Returns the requested user
 [**getCompanyUsers**](CompaniesApi.md#getCompanyUsers) | **GET** /companies/{company_id}/users | Get all users with in a company
+[**getSelfCompanyAuthorizedSubcontractors**](CompaniesApi.md#getSelfCompanyAuthorizedSubcontractors) | **GET** /companies/self/authorized_subcontractors | User&#39;s company and its authorized subcontractors.
 [**getSelfCompanyBranches**](CompaniesApi.md#getSelfCompanyBranches) | **GET** /companies/self/branches | User&#39;s company and its branches
 [**updateCompanyUser**](CompaniesApi.md#updateCompanyUser) | **PUT** /companies/{company_id}/users/{user_id} | Update company user
 
@@ -170,6 +171,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetCompanyUsersResponse**](GetCompanyUsersResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getSelfCompanyAuthorizedSubcontractors
+
+> GetSelfCompanyAuthorizedSubcontractorsResponse getSelfCompanyAuthorizedSubcontractors()
+
+User&#39;s company and its authorized subcontractors.
+
+Returns all the authorized subcontractors of a given company, if any.
+
+### Example
+
+```javascript
+import TheEnphaseCommissioningApi from 'the_enphase_commissioning_api';
+let defaultClient = TheEnphaseCommissioningApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: OAuth2
+let OAuth2 = defaultClient.authentications['OAuth2'];
+OAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new TheEnphaseCommissioningApi.CompaniesApi();
+apiInstance.getSelfCompanyAuthorizedSubcontractors().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetSelfCompanyAuthorizedSubcontractorsResponse**](GetSelfCompanyAuthorizedSubcontractorsResponse.md)
 
 ### Authorization
 

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner from './GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner';
 import SystemArrayTypeEnum from './SystemArrayTypeEnum';
 import SystemAttachmentTypeEnum from './SystemAttachmentTypeEnum';
 import SystemInternetConnectionEnum from './SystemInternetConnectionEnum';
@@ -78,8 +79,20 @@ class SystemParams {
             if (data.hasOwnProperty('host_id')) {
                 obj['host_id'] = ApiClient.convertToType(data['host_id'], 'Number');
             }
+            if (data.hasOwnProperty('authorized_subcontractor_id')) {
+                obj['authorized_subcontractor_id'] = ApiClient.convertToType(data['authorized_subcontractor_id'], 'Number');
+            }
             if (data.hasOwnProperty('installer_id')) {
                 obj['installer_id'] = ApiClient.convertToType(data['installer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('maintainer_name')) {
+                obj['maintainer_name'] = ApiClient.convertToType(data['maintainer_name'], 'String');
+            }
+            if (data.hasOwnProperty('maintainer_id')) {
+                obj['maintainer_id'] = ApiClient.convertToType(data['maintainer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('authorized_subcontractors')) {
+                obj['authorized_subcontractors'] = ApiClient.convertToType(data['authorized_subcontractors'], [GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner]);
             }
             if (data.hasOwnProperty('allow_public_access')) {
                 obj['allow_public_access'] = ApiClient.convertToType(data['allow_public_access'], 'Boolean');
@@ -184,6 +197,20 @@ class SystemParams {
         // ensure the json data is a string
         if (data['system_name'] && !(typeof data['system_name'] === 'string' || data['system_name'] instanceof String)) {
             throw new Error("Expected the field `system_name` to be a primitive type in the JSON string but got " + data['system_name']);
+        }
+        // ensure the json data is a string
+        if (data['maintainer_name'] && !(typeof data['maintainer_name'] === 'string' || data['maintainer_name'] instanceof String)) {
+            throw new Error("Expected the field `maintainer_name` to be a primitive type in the JSON string but got " + data['maintainer_name']);
+        }
+        if (data['authorized_subcontractors']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['authorized_subcontractors'])) {
+                throw new Error("Expected the field `authorized_subcontractors` to be an array in the JSON data but got " + data['authorized_subcontractors']);
+            }
+            // validate the optional field `authorized_subcontractors` (array)
+            for (const item of data['authorized_subcontractors']) {
+                GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.validateJSON(item);
+            };
         }
         // ensure the json data is a string
         if (data['ensemble_envoy'] && !(typeof data['ensemble_envoy'] === 'string' || data['ensemble_envoy'] instanceof String)) {
@@ -295,10 +322,34 @@ SystemParams.prototype['owner_id'] = undefined;
 SystemParams.prototype['host_id'] = undefined;
 
 /**
+ * Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site.
+ * @member {Number} authorized_subcontractor_id
+ */
+SystemParams.prototype['authorized_subcontractor_id'] = undefined;
+
+/**
  * Enlighten ID of the installer of this system. Defaults to current user's company ID.
  * @member {Number} installer_id
  */
 SystemParams.prototype['installer_id'] = undefined;
+
+/**
+ * Name of the maintainer.
+ * @member {String} maintainer_name
+ */
+SystemParams.prototype['maintainer_name'] = undefined;
+
+/**
+ * The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+ * @member {Number} maintainer_id
+ */
+SystemParams.prototype['maintainer_id'] = undefined;
+
+/**
+ * List of sub-contractors of this system.
+ * @member {Array.<module:model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>} authorized_subcontractors
+ */
+SystemParams.prototype['authorized_subcontractors'] = undefined;
 
 /**
  * When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.

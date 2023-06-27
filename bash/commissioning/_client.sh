@@ -311,6 +311,7 @@ case $state in
             "updateSystemArrays[Update all arrays for system]"             "createCompanyUser[Create company user]" \
             "getCompanyUser[Returns the requested user]" \
             "getCompanyUsers[Get all users with in a company]" \
+            "getSelfCompanyAuthorizedSubcontractors[User's company and its authorized subcontractors.]" \
             "getSelfCompanyBranches[User's company and its branches]" \
             "updateCompanyUser[Update company user]"             "getActivationEstimate[Returns the estimate for this system.]" \
             "updateActivationEstimate[Update the estimate for this system.]"             "getGridProfiles[Lists the available profiles]"             "createUser[Create Home owner]"             "getSystemMeter[Returns the requested meter detail.]" \
@@ -338,7 +339,7 @@ case $state in
       deleteActivation)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] Enlighten ID of the activation(system)."
+          "activation_id=:[PATH] Enlighten ID of the activation(system)."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -352,7 +353,7 @@ case $state in
       getPartnerActivation)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] Enlighten ID of the activation(system). System-generated."
+          "activation_id=:[PATH] Enlighten ID of the activation(system). System-generated."
           "expand=:[QUERY] Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
@@ -362,7 +363,7 @@ case $state in
         _op_arguments=(
                     "next=:[QUERY] If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field."
 "limit=:[QUERY] There is a limit to the number of activations which can be returned at one time."
-"stage=:[QUERY] Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems."
+"stage=:[QUERY] Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value."
 "reference=:[QUERY] Filter activations by company reference."
 "installer_id=:[QUERY] Filter activations by installer ID."
 "system_name=:[QUERY] Filter activations by system name."
@@ -398,7 +399,7 @@ case $state in
       updatePartnerActivation)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] Enlighten ID of the activation(system). System-generated."
+          "activation_id=:[PATH] Enlighten ID of the activation(system). System-generated."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -406,7 +407,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "system_id=:[PATH] System ID."
-"id=:[PATH] Array ID."
+"array_id=:[PATH] Array ID."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -414,7 +415,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "system_id=:[PATH] System ID."
-"id=:[PATH] Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint."
+"array_id=:[PATH] Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -429,7 +430,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "system_id=:[PATH] System ID."
-"id=:[PATH] Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint."
+"array_id=:[PATH] Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -461,6 +462,12 @@ case $state in
         _op_arguments=(
           "company_id=:[PATH] Company ID."
                     )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getSelfCompanyAuthorizedSubcontractors)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getSelfCompanyBranches)

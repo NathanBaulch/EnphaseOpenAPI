@@ -61,6 +61,7 @@ class GetPartnerActivationsResponse(
                                 def system_type() -> typing.Type['SystemTypeEnum']:
                                     return SystemTypeEnum
                                 status = schemas.StrSchema
+                                timezone = schemas.StrSchema
                                 stage = schemas.IntSchema
                             
                                 @staticmethod
@@ -74,6 +75,100 @@ class GetPartnerActivationsResponse(
                                 host_id = schemas.IntSchema
                                 installer_name = schemas.StrSchema
                                 installer_id = schemas.IntSchema
+                                maintainer_name = schemas.StrSchema
+                                maintainer_id = schemas.IntSchema
+                                
+                                
+                                class authorized_subcontractors(
+                                    schemas.ListSchema
+                                ):
+                                
+                                
+                                    class MetaOapg:
+                                        
+                                        
+                                        class items(
+                                            schemas.DictSchema
+                                        ):
+                                        
+                                        
+                                            class MetaOapg:
+                                                
+                                                class properties:
+                                                    authorized_subcontractor_id = schemas.IntSchema
+                                                    authorized_subcontractor_name = schemas.StrSchema
+                                                    status = schemas.StrSchema
+                                                    __annotations__ = {
+                                                        "authorized_subcontractor_id": authorized_subcontractor_id,
+                                                        "authorized_subcontractor_name": authorized_subcontractor_name,
+                                                        "status": status,
+                                                    }
+                                            
+                                            @typing.overload
+                                            def __getitem__(self, name: typing_extensions.Literal["authorized_subcontractor_id"]) -> MetaOapg.properties.authorized_subcontractor_id: ...
+                                            
+                                            @typing.overload
+                                            def __getitem__(self, name: typing_extensions.Literal["authorized_subcontractor_name"]) -> MetaOapg.properties.authorized_subcontractor_name: ...
+                                            
+                                            @typing.overload
+                                            def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+                                            
+                                            @typing.overload
+                                            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                                            
+                                            def __getitem__(self, name: typing.Union[typing_extensions.Literal["authorized_subcontractor_id", "authorized_subcontractor_name", "status", ], str]):
+                                                # dict_instance[name] accessor
+                                                return super().__getitem__(name)
+                                            
+                                            
+                                            @typing.overload
+                                            def get_item_oapg(self, name: typing_extensions.Literal["authorized_subcontractor_id"]) -> typing.Union[MetaOapg.properties.authorized_subcontractor_id, schemas.Unset]: ...
+                                            
+                                            @typing.overload
+                                            def get_item_oapg(self, name: typing_extensions.Literal["authorized_subcontractor_name"]) -> typing.Union[MetaOapg.properties.authorized_subcontractor_name, schemas.Unset]: ...
+                                            
+                                            @typing.overload
+                                            def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+                                            
+                                            @typing.overload
+                                            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                                            
+                                            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["authorized_subcontractor_id", "authorized_subcontractor_name", "status", ], str]):
+                                                return super().get_item_oapg(name)
+                                            
+                                        
+                                            def __new__(
+                                                cls,
+                                                *_args: typing.Union[dict, frozendict.frozendict, ],
+                                                authorized_subcontractor_id: typing.Union[MetaOapg.properties.authorized_subcontractor_id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+                                                authorized_subcontractor_name: typing.Union[MetaOapg.properties.authorized_subcontractor_name, str, schemas.Unset] = schemas.unset,
+                                                status: typing.Union[MetaOapg.properties.status, str, schemas.Unset] = schemas.unset,
+                                                _configuration: typing.Optional[schemas.Configuration] = None,
+                                                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                                            ) -> 'items':
+                                                return super().__new__(
+                                                    cls,
+                                                    *_args,
+                                                    authorized_subcontractor_id=authorized_subcontractor_id,
+                                                    authorized_subcontractor_name=authorized_subcontractor_name,
+                                                    status=status,
+                                                    _configuration=_configuration,
+                                                    **kwargs,
+                                                )
+                                
+                                    def __new__(
+                                        cls,
+                                        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, ]]],
+                                        _configuration: typing.Optional[schemas.Configuration] = None,
+                                    ) -> 'authorized_subcontractors':
+                                        return super().__new__(
+                                            cls,
+                                            _arg,
+                                            _configuration=_configuration,
+                                        )
+                                
+                                    def __getitem__(self, i: int) -> MetaOapg.items:
+                                        return super().__getitem__(i)
                                 uri = schemas.StrSchema
                                 updated_at = schemas.Int64Schema
                                 reference = schemas.StrSchema
@@ -109,6 +204,7 @@ class GetPartnerActivationsResponse(
                                     "system_name": system_name,
                                     "system_type": system_type,
                                     "status": status,
+                                    "timezone": timezone,
                                     "stage": stage,
                                     "internet_connection": internet_connection,
                                     "lease": lease,
@@ -119,6 +215,9 @@ class GetPartnerActivationsResponse(
                                     "host_id": host_id,
                                     "installer_name": installer_name,
                                     "installer_id": installer_id,
+                                    "maintainer_name": maintainer_name,
+                                    "maintainer_id": maintainer_id,
+                                    "authorized_subcontractors": authorized_subcontractors,
                                     "uri": uri,
                                     "updated_at": updated_at,
                                     "reference": reference,
@@ -137,6 +236,9 @@ class GetPartnerActivationsResponse(
                         
                         @typing.overload
                         def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+                        
+                        @typing.overload
+                        def __getitem__(self, name: typing_extensions.Literal["timezone"]) -> MetaOapg.properties.timezone: ...
                         
                         @typing.overload
                         def __getitem__(self, name: typing_extensions.Literal["stage"]) -> MetaOapg.properties.stage: ...
@@ -169,6 +271,15 @@ class GetPartnerActivationsResponse(
                         def __getitem__(self, name: typing_extensions.Literal["installer_id"]) -> MetaOapg.properties.installer_id: ...
                         
                         @typing.overload
+                        def __getitem__(self, name: typing_extensions.Literal["maintainer_name"]) -> MetaOapg.properties.maintainer_name: ...
+                        
+                        @typing.overload
+                        def __getitem__(self, name: typing_extensions.Literal["maintainer_id"]) -> MetaOapg.properties.maintainer_id: ...
+                        
+                        @typing.overload
+                        def __getitem__(self, name: typing_extensions.Literal["authorized_subcontractors"]) -> MetaOapg.properties.authorized_subcontractors: ...
+                        
+                        @typing.overload
                         def __getitem__(self, name: typing_extensions.Literal["uri"]) -> MetaOapg.properties.uri: ...
                         
                         @typing.overload
@@ -186,7 +297,7 @@ class GetPartnerActivationsResponse(
                         @typing.overload
                         def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                         
-                        def __getitem__(self, name: typing.Union[typing_extensions.Literal["system_id", "system_name", "system_type", "status", "stage", "internet_connection", "lease", "operational", "owner", "owner_id", "host", "host_id", "installer_name", "installer_id", "uri", "updated_at", "reference", "other_references", "address", ], str]):
+                        def __getitem__(self, name: typing.Union[typing_extensions.Literal["system_id", "system_name", "system_type", "status", "timezone", "stage", "internet_connection", "lease", "operational", "owner", "owner_id", "host", "host_id", "installer_name", "installer_id", "maintainer_name", "maintainer_id", "authorized_subcontractors", "uri", "updated_at", "reference", "other_references", "address", ], str]):
                             # dict_instance[name] accessor
                             return super().__getitem__(name)
                         
@@ -202,6 +313,9 @@ class GetPartnerActivationsResponse(
                         
                         @typing.overload
                         def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+                        
+                        @typing.overload
+                        def get_item_oapg(self, name: typing_extensions.Literal["timezone"]) -> typing.Union[MetaOapg.properties.timezone, schemas.Unset]: ...
                         
                         @typing.overload
                         def get_item_oapg(self, name: typing_extensions.Literal["stage"]) -> typing.Union[MetaOapg.properties.stage, schemas.Unset]: ...
@@ -234,6 +348,15 @@ class GetPartnerActivationsResponse(
                         def get_item_oapg(self, name: typing_extensions.Literal["installer_id"]) -> typing.Union[MetaOapg.properties.installer_id, schemas.Unset]: ...
                         
                         @typing.overload
+                        def get_item_oapg(self, name: typing_extensions.Literal["maintainer_name"]) -> typing.Union[MetaOapg.properties.maintainer_name, schemas.Unset]: ...
+                        
+                        @typing.overload
+                        def get_item_oapg(self, name: typing_extensions.Literal["maintainer_id"]) -> typing.Union[MetaOapg.properties.maintainer_id, schemas.Unset]: ...
+                        
+                        @typing.overload
+                        def get_item_oapg(self, name: typing_extensions.Literal["authorized_subcontractors"]) -> typing.Union[MetaOapg.properties.authorized_subcontractors, schemas.Unset]: ...
+                        
+                        @typing.overload
                         def get_item_oapg(self, name: typing_extensions.Literal["uri"]) -> typing.Union[MetaOapg.properties.uri, schemas.Unset]: ...
                         
                         @typing.overload
@@ -251,7 +374,7 @@ class GetPartnerActivationsResponse(
                         @typing.overload
                         def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                         
-                        def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["system_id", "system_name", "system_type", "status", "stage", "internet_connection", "lease", "operational", "owner", "owner_id", "host", "host_id", "installer_name", "installer_id", "uri", "updated_at", "reference", "other_references", "address", ], str]):
+                        def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["system_id", "system_name", "system_type", "status", "timezone", "stage", "internet_connection", "lease", "operational", "owner", "owner_id", "host", "host_id", "installer_name", "installer_id", "maintainer_name", "maintainer_id", "authorized_subcontractors", "uri", "updated_at", "reference", "other_references", "address", ], str]):
                             return super().get_item_oapg(name)
                         
                     
@@ -262,6 +385,7 @@ class GetPartnerActivationsResponse(
                             system_name: typing.Union[MetaOapg.properties.system_name, str, schemas.Unset] = schemas.unset,
                             system_type: typing.Union['SystemTypeEnum', schemas.Unset] = schemas.unset,
                             status: typing.Union[MetaOapg.properties.status, str, schemas.Unset] = schemas.unset,
+                            timezone: typing.Union[MetaOapg.properties.timezone, str, schemas.Unset] = schemas.unset,
                             stage: typing.Union[MetaOapg.properties.stage, decimal.Decimal, int, schemas.Unset] = schemas.unset,
                             internet_connection: typing.Union['SystemInternetConnectionEnum', schemas.Unset] = schemas.unset,
                             lease: typing.Union[MetaOapg.properties.lease, bool, schemas.Unset] = schemas.unset,
@@ -272,6 +396,9 @@ class GetPartnerActivationsResponse(
                             host_id: typing.Union[MetaOapg.properties.host_id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
                             installer_name: typing.Union[MetaOapg.properties.installer_name, str, schemas.Unset] = schemas.unset,
                             installer_id: typing.Union[MetaOapg.properties.installer_id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+                            maintainer_name: typing.Union[MetaOapg.properties.maintainer_name, str, schemas.Unset] = schemas.unset,
+                            maintainer_id: typing.Union[MetaOapg.properties.maintainer_id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+                            authorized_subcontractors: typing.Union[MetaOapg.properties.authorized_subcontractors, list, tuple, schemas.Unset] = schemas.unset,
                             uri: typing.Union[MetaOapg.properties.uri, str, schemas.Unset] = schemas.unset,
                             updated_at: typing.Union[MetaOapg.properties.updated_at, decimal.Decimal, int, schemas.Unset] = schemas.unset,
                             reference: typing.Union[MetaOapg.properties.reference, str, schemas.Unset] = schemas.unset,
@@ -287,6 +414,7 @@ class GetPartnerActivationsResponse(
                                 system_name=system_name,
                                 system_type=system_type,
                                 status=status,
+                                timezone=timezone,
                                 stage=stage,
                                 internet_connection=internet_connection,
                                 lease=lease,
@@ -297,6 +425,9 @@ class GetPartnerActivationsResponse(
                                 host_id=host_id,
                                 installer_name=installer_name,
                                 installer_id=installer_id,
+                                maintainer_name=maintainer_name,
+                                maintainer_id=maintainer_id,
+                                authorized_subcontractors=authorized_subcontractors,
                                 uri=uri,
                                 updated_at=updated_at,
                                 reference=reference,

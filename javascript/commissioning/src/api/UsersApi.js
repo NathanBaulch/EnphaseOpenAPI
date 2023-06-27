@@ -128,7 +128,7 @@ export default class UsersApi {
       let accepts = ['application/json'];
       let returnType = User;
       return this.apiClient.callApi(
-        '/users/self', 'GET',
+        '/partner/users/self', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -181,7 +181,7 @@ export default class UsersApi {
       let accepts = ['application/json'];
       let returnType = User;
       return this.apiClient.callApi(
-        '/users/{user_id}', 'GET',
+        '/partner/users/{user_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

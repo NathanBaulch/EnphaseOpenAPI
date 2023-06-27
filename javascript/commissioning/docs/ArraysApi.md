@@ -4,17 +4,17 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteSystemArray**](ArraysApi.md#deleteSystemArray) | **DELETE** /systems/{system_id}/arrays/{id} | Delete an array by ID
-[**getSystemArray**](ArraysApi.md#getSystemArray) | **GET** /systems/{system_id}/arrays/{id} | Fetch array details by ID
-[**getSystemArrays**](ArraysApi.md#getSystemArrays) | **GET** /systems/{system_id}/arrays | Fetch particular system Array details
-[**updateSystemArray**](ArraysApi.md#updateSystemArray) | **PUT** /systems/{system_id}/arrays/{id} | Update particular system array details
-[**updateSystemArrays**](ArraysApi.md#updateSystemArrays) | **PUT** /systems/{system_id}/arrays | Update all arrays for system
+[**deleteSystemArray**](ArraysApi.md#deleteSystemArray) | **DELETE** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID
+[**getSystemArray**](ArraysApi.md#getSystemArray) | **GET** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID
+[**getSystemArrays**](ArraysApi.md#getSystemArrays) | **GET** /partner/systems/{system_id}/arrays | Fetch particular system Array details
+[**updateSystemArray**](ArraysApi.md#updateSystemArray) | **PUT** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details
+[**updateSystemArrays**](ArraysApi.md#updateSystemArrays) | **PUT** /partner/systems/{system_id}/arrays | Update all arrays for system
 
 
 
 ## deleteSystemArray
 
-> DeleteSystemArrayResponse deleteSystemArray(systemId, id)
+> DeleteSystemArrayResponse deleteSystemArray(systemId, arrayId)
 
 Delete an array by ID
 
@@ -36,8 +36,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new TheEnphaseCommissioningApi.ArraysApi();
 let systemId = 56; // Number | System ID.
-let id = 56; // Number | Array ID.
-apiInstance.deleteSystemArray(systemId, id).then((data) => {
+let arrayId = 56; // Number | Array ID.
+apiInstance.deleteSystemArray(systemId, arrayId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -51,7 +51,7 @@ apiInstance.deleteSystemArray(systemId, id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **systemId** | **Number**| System ID. | 
- **id** | **Number**| Array ID. | 
+ **arrayId** | **Number**| Array ID. | 
 
 ### Return type
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ## getSystemArray
 
-> ModelArray getSystemArray(systemId, id)
+> ModelArray getSystemArray(systemId, arrayId)
 
 Fetch array details by ID
 
@@ -91,8 +91,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new TheEnphaseCommissioningApi.ArraysApi();
 let systemId = 56; // Number | System ID.
-let id = 56; // Number | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
-apiInstance.getSystemArray(systemId, id).then((data) => {
+let arrayId = 56; // Number | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
+apiInstance.getSystemArray(systemId, arrayId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -106,7 +106,7 @@ apiInstance.getSystemArray(systemId, id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **systemId** | **Number**| System ID. | 
- **id** | **Number**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. | 
+ **arrayId** | **Number**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. | 
 
 ### Return type
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## updateSystemArray
 
-> ModelArray updateSystemArray(systemId, id, opts)
+> ModelArray updateSystemArray(systemId, arrayId, opts)
 
 Update particular system array details
 
@@ -199,11 +199,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new TheEnphaseCommissioningApi.ArraysApi();
 let systemId = 56; // Number | System ID.
-let id = 56; // Number | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
+let arrayId = 56; // Number | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
 let opts = {
   'params': new TheEnphaseCommissioningApi.ArrayParams() // ArrayParams | 
 };
-apiInstance.updateSystemArray(systemId, id, opts).then((data) => {
+apiInstance.updateSystemArray(systemId, arrayId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -217,7 +217,7 @@ apiInstance.updateSystemArray(systemId, id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **systemId** | **Number**| System ID. | 
- **id** | **Number**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. | 
+ **arrayId** | **Number**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. | 
  **params** | **ArrayParams**|  | [optional] 
 
 ### Return type

@@ -96,9 +96,9 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
 operation_parameters_minimum_occurrences["createPartnerActivation:::params"]=0
-operation_parameters_minimum_occurrences["deleteActivation:::id"]=1
+operation_parameters_minimum_occurrences["deleteActivation:::activation_id"]=1
 operation_parameters_minimum_occurrences["getActivationOpsProductionMode:::activation_id"]=1
-operation_parameters_minimum_occurrences["getPartnerActivation:::id"]=1
+operation_parameters_minimum_occurrences["getPartnerActivation:::activation_id"]=1
 operation_parameters_minimum_occurrences["getPartnerActivation:::expand"]=0
 operation_parameters_minimum_occurrences["getPartnerActivations:::next"]=0
 operation_parameters_minimum_occurrences["getPartnerActivations:::limit"]=0
@@ -115,15 +115,15 @@ operation_parameters_minimum_occurrences["revokeActivationUserAccess:::activatio
 operation_parameters_minimum_occurrences["revokeActivationUserAccess:::user_id"]=1
 operation_parameters_minimum_occurrences["setActivationOpsProductionMode:::activation_id"]=1
 operation_parameters_minimum_occurrences["setActivationOpsProductionMode:::params"]=0
-operation_parameters_minimum_occurrences["updatePartnerActivation:::id"]=1
+operation_parameters_minimum_occurrences["updatePartnerActivation:::activation_id"]=1
 operation_parameters_minimum_occurrences["updatePartnerActivation:::params"]=0
 operation_parameters_minimum_occurrences["deleteSystemArray:::system_id"]=1
-operation_parameters_minimum_occurrences["deleteSystemArray:::id"]=1
+operation_parameters_minimum_occurrences["deleteSystemArray:::array_id"]=1
 operation_parameters_minimum_occurrences["getSystemArray:::system_id"]=1
-operation_parameters_minimum_occurrences["getSystemArray:::id"]=1
+operation_parameters_minimum_occurrences["getSystemArray:::array_id"]=1
 operation_parameters_minimum_occurrences["getSystemArrays:::system_id"]=1
 operation_parameters_minimum_occurrences["updateSystemArray:::system_id"]=1
-operation_parameters_minimum_occurrences["updateSystemArray:::id"]=1
+operation_parameters_minimum_occurrences["updateSystemArray:::array_id"]=1
 operation_parameters_minimum_occurrences["updateSystemArray:::params"]=0
 operation_parameters_minimum_occurrences["updateSystemArrays:::system_id"]=1
 operation_parameters_minimum_occurrences["updateSystemArrays:::params"]=0
@@ -173,9 +173,9 @@ operation_parameters_minimum_occurrences["updateUser:::params"]=0
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
 operation_parameters_maximum_occurrences["createPartnerActivation:::params"]=0
-operation_parameters_maximum_occurrences["deleteActivation:::id"]=0
+operation_parameters_maximum_occurrences["deleteActivation:::activation_id"]=0
 operation_parameters_maximum_occurrences["getActivationOpsProductionMode:::activation_id"]=0
-operation_parameters_maximum_occurrences["getPartnerActivation:::id"]=0
+operation_parameters_maximum_occurrences["getPartnerActivation:::activation_id"]=0
 operation_parameters_maximum_occurrences["getPartnerActivation:::expand"]=0
 operation_parameters_maximum_occurrences["getPartnerActivations:::next"]=0
 operation_parameters_maximum_occurrences["getPartnerActivations:::limit"]=0
@@ -192,15 +192,15 @@ operation_parameters_maximum_occurrences["revokeActivationUserAccess:::activatio
 operation_parameters_maximum_occurrences["revokeActivationUserAccess:::user_id"]=0
 operation_parameters_maximum_occurrences["setActivationOpsProductionMode:::activation_id"]=0
 operation_parameters_maximum_occurrences["setActivationOpsProductionMode:::params"]=0
-operation_parameters_maximum_occurrences["updatePartnerActivation:::id"]=0
+operation_parameters_maximum_occurrences["updatePartnerActivation:::activation_id"]=0
 operation_parameters_maximum_occurrences["updatePartnerActivation:::params"]=0
 operation_parameters_maximum_occurrences["deleteSystemArray:::system_id"]=0
-operation_parameters_maximum_occurrences["deleteSystemArray:::id"]=0
+operation_parameters_maximum_occurrences["deleteSystemArray:::array_id"]=0
 operation_parameters_maximum_occurrences["getSystemArray:::system_id"]=0
-operation_parameters_maximum_occurrences["getSystemArray:::id"]=0
+operation_parameters_maximum_occurrences["getSystemArray:::array_id"]=0
 operation_parameters_maximum_occurrences["getSystemArrays:::system_id"]=0
 operation_parameters_maximum_occurrences["updateSystemArray:::system_id"]=0
-operation_parameters_maximum_occurrences["updateSystemArray:::id"]=0
+operation_parameters_maximum_occurrences["updateSystemArray:::array_id"]=0
 operation_parameters_maximum_occurrences["updateSystemArray:::params"]=0
 operation_parameters_maximum_occurrences["updateSystemArrays:::system_id"]=0
 operation_parameters_maximum_occurrences["updateSystemArrays:::params"]=0
@@ -247,9 +247,9 @@ operation_parameters_maximum_occurrences["updateUser:::params"]=0
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
 operation_parameters_collection_type["createPartnerActivation:::params"]=""
-operation_parameters_collection_type["deleteActivation:::id"]=""
+operation_parameters_collection_type["deleteActivation:::activation_id"]=""
 operation_parameters_collection_type["getActivationOpsProductionMode:::activation_id"]=""
-operation_parameters_collection_type["getPartnerActivation:::id"]=""
+operation_parameters_collection_type["getPartnerActivation:::activation_id"]=""
 operation_parameters_collection_type["getPartnerActivation:::expand"]=""
 operation_parameters_collection_type["getPartnerActivations:::next"]=""
 operation_parameters_collection_type["getPartnerActivations:::limit"]=""
@@ -266,15 +266,15 @@ operation_parameters_collection_type["revokeActivationUserAccess:::activation_id
 operation_parameters_collection_type["revokeActivationUserAccess:::user_id"]=""
 operation_parameters_collection_type["setActivationOpsProductionMode:::activation_id"]=""
 operation_parameters_collection_type["setActivationOpsProductionMode:::params"]=""
-operation_parameters_collection_type["updatePartnerActivation:::id"]=""
+operation_parameters_collection_type["updatePartnerActivation:::activation_id"]=""
 operation_parameters_collection_type["updatePartnerActivation:::params"]=""
 operation_parameters_collection_type["deleteSystemArray:::system_id"]=""
-operation_parameters_collection_type["deleteSystemArray:::id"]=""
+operation_parameters_collection_type["deleteSystemArray:::array_id"]=""
 operation_parameters_collection_type["getSystemArray:::system_id"]=""
-operation_parameters_collection_type["getSystemArray:::id"]=""
+operation_parameters_collection_type["getSystemArray:::array_id"]=""
 operation_parameters_collection_type["getSystemArrays:::system_id"]=""
 operation_parameters_collection_type["updateSystemArray:::system_id"]=""
-operation_parameters_collection_type["updateSystemArray:::id"]=""
+operation_parameters_collection_type["updateSystemArray:::array_id"]=""
 operation_parameters_collection_type["updateSystemArray:::params"]=""
 operation_parameters_collection_type["updateSystemArrays:::system_id"]=""
 operation_parameters_collection_type["updateSystemArrays:::params"]=""
@@ -746,6 +746,7 @@ read -r -d '' ops <<EOF
   ${CYAN}createCompanyUser${OFF};Create company user (AUTH) (AUTH)
   ${CYAN}getCompanyUser${OFF};Returns the requested user (AUTH) (AUTH)
   ${CYAN}getCompanyUsers${OFF};Get all users with in a company (AUTH) (AUTH)
+  ${CYAN}getSelfCompanyAuthorizedSubcontractors${OFF};User's company and its authorized subcontractors. (AUTH) (AUTH)
   ${CYAN}getSelfCompanyBranches${OFF};User's company and its branches (AUTH) (AUTH)
   ${CYAN}updateCompanyUser${OFF};Update company user (AUTH) (AUTH)
 EOF
@@ -899,7 +900,7 @@ print_deleteActivation_help() {
     echo -e "To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Enlighten ID of the activation(system). ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}activation_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Enlighten ID of the activation(system). ${YELLOW}Specify as: activation_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -959,7 +960,7 @@ print_getPartnerActivation_help() {
     echo -e "By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner's name within the system hash, the response includes detailed information about the owner by using expand=owner. You can also expand the owner's company by using expand=owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand=host will include details about the system host. You can also expand the host's company by using expand=host.company. The response now includes information about the host and the company he belongs to." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Enlighten ID of the activation(system). System-generated. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}activation_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Enlighten ID of the activation(system). System-generated. ${YELLOW}Specify as: activation_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}expand${OFF} ${BLUE}[SystemExpandEnum]${OFF} ${CYAN}(default: null)${OFF} - Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.${YELLOW} Specify as: expand=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
@@ -993,7 +994,7 @@ print_getPartnerActivations_help() {
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - There is a limit to the number of activations which can be returned at one time.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}stage${OFF} ${BLUE}[SystemStageEnum]${OFF} ${CYAN}(default: null)${OFF} - Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems.${YELLOW} Specify as: stage=value${OFF}" \
+    echo -e "  * ${GREEN}stage${OFF} ${BLUE}[SystemStageEnum]${OFF} ${CYAN}(default: null)${OFF} - Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value.${YELLOW} Specify as: stage=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}reference${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter activations by company reference.${YELLOW} Specify as: reference=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1128,7 +1129,7 @@ print_updatePartnerActivation_help() {
     echo -e "Update an activation." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Enlighten ID of the activation(system). System-generated. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}activation_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Enlighten ID of the activation(system). System-generated. ${YELLOW}Specify as: activation_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -1159,7 +1160,7 @@ print_deleteSystemArray_help() {
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - System ID. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Array ID. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}array_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Array ID. ${YELLOW}Specify as: array_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1190,7 +1191,7 @@ print_getSystemArray_help() {
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - System ID. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}array_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint. ${YELLOW}Specify as: array_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1249,7 +1250,7 @@ print_updateSystemArray_help() {
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - System ID. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}array_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint. ${YELLOW}Specify as: array_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/text]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -1389,6 +1390,30 @@ print_getCompanyUsers_help() {
     echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=404
     echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=405
+    echo -e "${result_color_table[${code:0:1}]}  405;Method Not Allowed${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=429
+    echo -e "${result_color_table[${code:0:1}]}  429;Too Many Requests${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=501
+    echo -e "${result_color_table[${code:0:1}]}  501;Not Implemented${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getSelfCompanyAuthorizedSubcontractors operation
+#
+##############################################################################
+print_getSelfCompanyAuthorizedSubcontractors_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getSelfCompanyAuthorizedSubcontractors - User's company and its authorized subcontractors.${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Returns all the authorized subcontractors of a given company, if any." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=405
     echo -e "${result_color_table[${code:0:1}]}  405;Method Not Allowed${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=429
@@ -2049,13 +2074,13 @@ call_createPartnerActivation() {
 call_deleteActivation() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(id)
+    local path_parameter_names=(activation_id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/activations/{id}" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/activations/{activation_id}" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2121,13 +2146,13 @@ call_getActivationOpsProductionMode() {
 call_getPartnerActivation() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(id)
+    local path_parameter_names=(activation_id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(expand   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/partner/activations/{id}" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/activations/{activation_id}" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2343,13 +2368,13 @@ call_setActivationOpsProductionMode() {
 call_updatePartnerActivation() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(id)
+    local path_parameter_names=(activation_id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/partner/activations/{id}" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/activations/{activation_id}" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2421,13 +2446,13 @@ call_updatePartnerActivation() {
 call_deleteSystemArray() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(system_id id)
+    local path_parameter_names=(system_id array_id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/systems/{system_id}/arrays/{id}" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/systems/{system_id}/arrays/{array_id}" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2457,13 +2482,13 @@ call_deleteSystemArray() {
 call_getSystemArray() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(system_id id)
+    local path_parameter_names=(system_id array_id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/systems/{system_id}/arrays/{id}" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/systems/{system_id}/arrays/{array_id}" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2499,7 +2524,7 @@ call_getSystemArrays() {
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/systems/{system_id}/arrays" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/systems/{system_id}/arrays" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2529,13 +2554,13 @@ call_getSystemArrays() {
 call_updateSystemArray() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(system_id id)
+    local path_parameter_names=(system_id array_id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/systems/{system_id}/arrays/{id}" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/systems/{system_id}/arrays/{array_id}" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2613,7 +2638,7 @@ call_updateSystemArrays() {
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/systems/{system_id}/arrays" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/systems/{system_id}/arrays" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2806,6 +2831,42 @@ call_getCompanyUsers() {
     local path
 
     if ! path=$(build_request_path "/api/v4/companies/{company_id}/users" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getSelfCompanyAuthorizedSubcontractors operation
+#
+##############################################################################
+call_getSelfCompanyAuthorizedSubcontractors() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(   key )
+    local path
+
+    if ! path=$(build_request_path "/api/v4/companies/self/authorized_subcontractors" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3069,7 +3130,7 @@ call_getGridProfiles() {
     local query_parameter_names=(   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/grid_profiles" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/grid_profiles" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3555,7 +3616,7 @@ call_getSelfUser() {
     local query_parameter_names=(expand   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/users/self" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/users/self" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3591,7 +3652,7 @@ call_getUser() {
     local query_parameter_names=(expand   key )
     local path
 
-    if ! path=$(build_request_path "/api/v4/users/{user_id}" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v4/partner/users/{user_id}" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3953,6 +4014,9 @@ case $key in
     getCompanyUsers)
     operation="getCompanyUsers"
     ;;
+    getSelfCompanyAuthorizedSubcontractors)
+    operation="getSelfCompanyAuthorizedSubcontractors"
+    ;;
     getSelfCompanyBranches)
     operation="getSelfCompanyBranches"
     ;;
@@ -4137,6 +4201,9 @@ case $operation in
     ;;
     getCompanyUsers)
     call_getCompanyUsers
+    ;;
+    getSelfCompanyAuthorizedSubcontractors)
+    call_getSelfCompanyAuthorizedSubcontractors
     ;;
     getSelfCompanyBranches)
     call_getSelfCompanyBranches

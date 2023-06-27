@@ -85,6 +85,7 @@ _()
     operations["createCompanyUser"]=1
     operations["getCompanyUser"]=1
     operations["getCompanyUsers"]=1
+    operations["getSelfCompanyAuthorizedSubcontractors"]=1
     operations["getSelfCompanyBranches"]=1
     operations["updateCompanyUser"]=1
     operations["getActivationEstimate"]=1
@@ -109,22 +110,23 @@ _()
     # Only include path, query and header parameters
     declare -A operation_parameters
     operation_parameters["createPartnerActivation"]=""
-    operation_parameters["deleteActivation"]="id= "
+    operation_parameters["deleteActivation"]="activation_id= "
     operation_parameters["getActivationOpsProductionMode"]="activation_id= "
-    operation_parameters["getPartnerActivation"]="id= expand= "
+    operation_parameters["getPartnerActivation"]="activation_id= expand= "
     operation_parameters["getPartnerActivations"]="next= limit= stage= reference= installer_id= system_name= address= region= search= "
     operation_parameters["grantActivationUserAccess"]="activation_id= user_id= "
     operation_parameters["revokeActivationUserAccess"]="activation_id= user_id= "
     operation_parameters["setActivationOpsProductionMode"]="activation_id= "
-    operation_parameters["updatePartnerActivation"]="id= "
-    operation_parameters["deleteSystemArray"]="system_id= id= "
-    operation_parameters["getSystemArray"]="system_id= id= "
+    operation_parameters["updatePartnerActivation"]="activation_id= "
+    operation_parameters["deleteSystemArray"]="system_id= array_id= "
+    operation_parameters["getSystemArray"]="system_id= array_id= "
     operation_parameters["getSystemArrays"]="system_id= "
-    operation_parameters["updateSystemArray"]="system_id= id= "
+    operation_parameters["updateSystemArray"]="system_id= array_id= "
     operation_parameters["updateSystemArrays"]="system_id= "
     operation_parameters["createCompanyUser"]="company_id= "
     operation_parameters["getCompanyUser"]="company_id= user_id= expand= "
     operation_parameters["getCompanyUsers"]="company_id= "
+    operation_parameters["getSelfCompanyAuthorizedSubcontractors"]=""
     operation_parameters["getSelfCompanyBranches"]=""
     operation_parameters["updateCompanyUser"]="company_id= user_id= "
     operation_parameters["getActivationEstimate"]="activation_id= "

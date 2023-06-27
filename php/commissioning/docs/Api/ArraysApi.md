@@ -4,17 +4,17 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteSystemArray()**](ArraysApi.md#deleteSystemArray) | **DELETE** /systems/{system_id}/arrays/{id} | Delete an array by ID |
-| [**getSystemArray()**](ArraysApi.md#getSystemArray) | **GET** /systems/{system_id}/arrays/{id} | Fetch array details by ID |
-| [**getSystemArrays()**](ArraysApi.md#getSystemArrays) | **GET** /systems/{system_id}/arrays | Fetch particular system Array details |
-| [**updateSystemArray()**](ArraysApi.md#updateSystemArray) | **PUT** /systems/{system_id}/arrays/{id} | Update particular system array details |
-| [**updateSystemArrays()**](ArraysApi.md#updateSystemArrays) | **PUT** /systems/{system_id}/arrays | Update all arrays for system |
+| [**deleteSystemArray()**](ArraysApi.md#deleteSystemArray) | **DELETE** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID |
+| [**getSystemArray()**](ArraysApi.md#getSystemArray) | **GET** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID |
+| [**getSystemArrays()**](ArraysApi.md#getSystemArrays) | **GET** /partner/systems/{system_id}/arrays | Fetch particular system Array details |
+| [**updateSystemArray()**](ArraysApi.md#updateSystemArray) | **PUT** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details |
+| [**updateSystemArrays()**](ArraysApi.md#updateSystemArrays) | **PUT** /partner/systems/{system_id}/arrays | Update all arrays for system |
 
 
 ## `deleteSystemArray()`
 
 ```php
-deleteSystemArray($system_id, $id): \EnphaseOpenAPI\Commissioning\Model\DeleteSystemArrayResponse
+deleteSystemArray($system_id, $array_id): \EnphaseOpenAPI\Commissioning\Model\DeleteSystemArrayResponse
 ```
 
 Delete an array by ID
@@ -44,10 +44,10 @@ $apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     $config
 );
 $system_id = 56; // int | System ID.
-$id = 56; // int | Array ID.
+$array_id = 56; // int | Array ID.
 
 try {
-    $result = $apiInstance->deleteSystemArray($system_id, $id);
+    $result = $apiInstance->deleteSystemArray($system_id, $array_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ArraysApi->deleteSystemArray: ', $e->getMessage(), PHP_EOL;
@@ -59,7 +59,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **system_id** | **int**| System ID. | |
-| **id** | **int**| Array ID. | |
+| **array_id** | **int**| Array ID. | |
 
 ### Return type
 
@@ -81,7 +81,7 @@ try {
 ## `getSystemArray()`
 
 ```php
-getSystemArray($system_id, $id): \EnphaseOpenAPI\Commissioning\Model\ModelArray
+getSystemArray($system_id, $array_id): \EnphaseOpenAPI\Commissioning\Model\ModelArray
 ```
 
 Fetch array details by ID
@@ -111,10 +111,10 @@ $apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     $config
 );
 $system_id = 56; // int | System ID.
-$id = 56; // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
+$array_id = 56; // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
 
 try {
-    $result = $apiInstance->getSystemArray($system_id, $id);
+    $result = $apiInstance->getSystemArray($system_id, $array_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ArraysApi->getSystemArray: ', $e->getMessage(), PHP_EOL;
@@ -126,7 +126,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **system_id** | **int**| System ID. | |
-| **id** | **int**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. | |
+| **array_id** | **int**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. | |
 
 ### Return type
 
@@ -213,7 +213,7 @@ try {
 ## `updateSystemArray()`
 
 ```php
-updateSystemArray($system_id, $id, $params): \EnphaseOpenAPI\Commissioning\Model\ModelArray
+updateSystemArray($system_id, $array_id, $params): \EnphaseOpenAPI\Commissioning\Model\ModelArray
 ```
 
 Update particular system array details
@@ -243,11 +243,11 @@ $apiInstance = new EnphaseOpenAPI\Commissioning\Api\ArraysApi(
     $config
 );
 $system_id = 56; // int | System ID.
-$id = 56; // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
+$array_id = 56; // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
 $params = new \EnphaseOpenAPI\Commissioning\Model\ArrayParams(); // \EnphaseOpenAPI\Commissioning\Model\ArrayParams
 
 try {
-    $result = $apiInstance->updateSystemArray($system_id, $id, $params);
+    $result = $apiInstance->updateSystemArray($system_id, $array_id, $params);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ArraysApi->updateSystemArray: ', $e->getMessage(), PHP_EOL;
@@ -259,7 +259,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **system_id** | **int**| System ID. | |
-| **id** | **int**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. | |
+| **array_id** | **int**| Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. | |
 | **params** | **\EnphaseOpenAPI\Commissioning\Model\ArrayParams**|  | [optional] |
 
 ### Return type

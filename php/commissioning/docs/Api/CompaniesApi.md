@@ -7,6 +7,7 @@ All URIs are relative to https://api.enphaseenergy.com/api/v4, except if the ope
 | [**createCompanyUser()**](CompaniesApi.md#createCompanyUser) | **POST** /companies/{company_id}/users | Create company user |
 | [**getCompanyUser()**](CompaniesApi.md#getCompanyUser) | **GET** /companies/{company_id}/users/{user_id} | Returns the requested user |
 | [**getCompanyUsers()**](CompaniesApi.md#getCompanyUsers) | **GET** /companies/{company_id}/users | Get all users with in a company |
+| [**getSelfCompanyAuthorizedSubcontractors()**](CompaniesApi.md#getSelfCompanyAuthorizedSubcontractors) | **GET** /companies/self/authorized_subcontractors | User&#39;s company and its authorized subcontractors. |
 | [**getSelfCompanyBranches()**](CompaniesApi.md#getSelfCompanyBranches) | **GET** /companies/self/branches | User&#39;s company and its branches |
 | [**updateCompanyUser()**](CompaniesApi.md#updateCompanyUser) | **PUT** /companies/{company_id}/users/{user_id} | Update company user |
 
@@ -198,6 +199,68 @@ try {
 ### Return type
 
 [**\EnphaseOpenAPI\Commissioning\Model\GetCompanyUsersResponse**](../Model/GetCompanyUsersResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2), [ApiKey](../../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSelfCompanyAuthorizedSubcontractors()`
+
+```php
+getSelfCompanyAuthorizedSubcontractors(): \EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse
+```
+
+User's company and its authorized subcontractors.
+
+Returns all the authorized subcontractors of a given company, if any.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ApiKey
+$config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EnphaseOpenAPI\Commissioning\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+
+
+$apiInstance = new EnphaseOpenAPI\Commissioning\Api\CompaniesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getSelfCompanyAuthorizedSubcontractors();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompaniesApi->getSelfCompanyAuthorizedSubcontractors: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\EnphaseOpenAPI\Commissioning\Model\GetSelfCompanyAuthorizedSubcontractorsResponse**](../Model/GetSelfCompanyAuthorizedSubcontractorsResponse.md)
 
 ### Authorization
 

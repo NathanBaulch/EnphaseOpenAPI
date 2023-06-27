@@ -33,9 +33,12 @@ import GetGridProfilesResponse from './model/GetGridProfilesResponse';
 import GetGridProfilesResponseGridProfilesInner from './model/GetGridProfilesResponseGridProfilesInner';
 import GetPartnerActivationsResponse from './model/GetPartnerActivationsResponse';
 import GetPartnerActivationsResponseSystemsInner from './model/GetPartnerActivationsResponseSystemsInner';
+import GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner from './model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner';
 import GetPvManufacturerModelsResponse from './model/GetPvManufacturerModelsResponse';
 import GetPvManufacturerModelsResponsePvManufacturers from './model/GetPvManufacturerModelsResponsePvManufacturers';
 import GetPvManufacturersResponse from './model/GetPvManufacturersResponse';
+import GetSelfCompanyAuthorizedSubcontractorsResponse from './model/GetSelfCompanyAuthorizedSubcontractorsResponse';
+import GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner from './model/GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner';
 import GetSelfCompanyBranchesResponse from './model/GetSelfCompanyBranchesResponse';
 import GetSelfCompanyBranchesResponseBranchesInner from './model/GetSelfCompanyBranchesResponseBranchesInner';
 import GetSystemMeterResponse from './model/GetSystemMeterResponse';
@@ -260,6 +263,12 @@ export {
     GetPartnerActivationsResponseSystemsInner,
 
     /**
+     * The GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner model constructor.
+     * @property {module:model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner}
+     */
+    GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner,
+
+    /**
      * The GetPvManufacturerModelsResponse model constructor.
      * @property {module:model/GetPvManufacturerModelsResponse}
      */
@@ -276,6 +285,18 @@ export {
      * @property {module:model/GetPvManufacturersResponse}
      */
     GetPvManufacturersResponse,
+
+    /**
+     * The GetSelfCompanyAuthorizedSubcontractorsResponse model constructor.
+     * @property {module:model/GetSelfCompanyAuthorizedSubcontractorsResponse}
+     */
+    GetSelfCompanyAuthorizedSubcontractorsResponse,
+
+    /**
+     * The GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner model constructor.
+     * @property {module:model/GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner}
+     */
+    GetSelfCompanyAuthorizedSubcontractorsResponseAuthorizedSubcontractorsInner,
 
     /**
      * The GetSelfCompanyBranchesResponse model constructor.

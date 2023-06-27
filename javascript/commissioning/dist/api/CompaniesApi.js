@@ -7,6 +7,7 @@ exports["default"] = void 0;
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 var _CreateCompanyUserRequest = _interopRequireDefault(require("../model/CreateCompanyUserRequest"));
 var _GetCompanyUsersResponse = _interopRequireDefault(require("../model/GetCompanyUsersResponse"));
+var _GetSelfCompanyAuthorizedSubcontractorsResponse = _interopRequireDefault(require("../model/GetSelfCompanyAuthorizedSubcontractorsResponse"));
 var _GetSelfCompanyBranchesResponse = _interopRequireDefault(require("../model/GetSelfCompanyBranchesResponse"));
 var _ServerError = _interopRequireDefault(require("../model/ServerError"));
 var _TooManyRequestsError = _interopRequireDefault(require("../model/TooManyRequestsError"));
@@ -188,6 +189,39 @@ var CompaniesApi = /*#__PURE__*/function () {
     key: "getCompanyUsers",
     value: function getCompanyUsers(companyId) {
       return this.getCompanyUsersWithHttpInfo(companyId).then(function (response_and_data) {
+        return response_and_data.data;
+      });
+    }
+
+    /**
+     * User's company and its authorized subcontractors.
+     * Returns all the authorized subcontractors of a given company, if any.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetSelfCompanyAuthorizedSubcontractorsResponse} and HTTP response
+     */
+  }, {
+    key: "getSelfCompanyAuthorizedSubcontractorsWithHttpInfo",
+    value: function getSelfCompanyAuthorizedSubcontractorsWithHttpInfo() {
+      var postBody = null;
+      var pathParams = {};
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+      var authNames = ['OAuth2', 'ApiKey'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = _GetSelfCompanyAuthorizedSubcontractorsResponse["default"];
+      return this.apiClient.callApi('/companies/self/authorized_subcontractors', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+    }
+
+    /**
+     * User's company and its authorized subcontractors.
+     * Returns all the authorized subcontractors of a given company, if any.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetSelfCompanyAuthorizedSubcontractorsResponse}
+     */
+  }, {
+    key: "getSelfCompanyAuthorizedSubcontractors",
+    value: function getSelfCompanyAuthorizedSubcontractors() {
+      return this.getSelfCompanyAuthorizedSubcontractorsWithHttpInfo().then(function (response_and_data) {
         return response_and_data.data;
       });
     }

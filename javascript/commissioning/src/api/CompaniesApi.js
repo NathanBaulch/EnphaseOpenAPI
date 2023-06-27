@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import CreateCompanyUserRequest from '../model/CreateCompanyUserRequest';
 import GetCompanyUsersResponse from '../model/GetCompanyUsersResponse';
+import GetSelfCompanyAuthorizedSubcontractorsResponse from '../model/GetSelfCompanyAuthorizedSubcontractorsResponse';
 import GetSelfCompanyBranchesResponse from '../model/GetSelfCompanyBranchesResponse';
 import ServerError from '../model/ServerError';
 import TooManyRequestsError from '../model/TooManyRequestsError';
@@ -199,6 +200,47 @@ export default class CompaniesApi {
      */
     getCompanyUsers(companyId) {
       return this.getCompanyUsersWithHttpInfo(companyId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * User's company and its authorized subcontractors.
+     * Returns all the authorized subcontractors of a given company, if any.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetSelfCompanyAuthorizedSubcontractorsResponse} and HTTP response
+     */
+    getSelfCompanyAuthorizedSubcontractorsWithHttpInfo() {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetSelfCompanyAuthorizedSubcontractorsResponse;
+      return this.apiClient.callApi(
+        '/companies/self/authorized_subcontractors', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * User's company and its authorized subcontractors.
+     * Returns all the authorized subcontractors of a given company, if any.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetSelfCompanyAuthorizedSubcontractorsResponse}
+     */
+    getSelfCompanyAuthorizedSubcontractors() {
+      return this.getSelfCompanyAuthorizedSubcontractorsWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });

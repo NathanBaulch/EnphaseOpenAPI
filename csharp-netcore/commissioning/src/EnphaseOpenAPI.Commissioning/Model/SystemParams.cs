@@ -76,7 +76,11 @@ namespace EnphaseOpenAPI.Commissioning.Model
         /// <param name="operational">Whether this system is permitted to operate. Default true..</param>
         /// <param name="ownerId">Enlighten ID of the system owner. Owner must be an Enlighten user. Optional. If the user of the API is a self-installer, the owner must be himself. If the user of the API is an installer then use the Search user API to get the owner user ID. If the owner not exist in the enlighten then use Create home owner API to create it newly..</param>
         /// <param name="hostId">Enlighten ID of the system host. System host must be an Enlighten user. Optional. If the user of the API is an installer then use the Search user API to get the host user ID. If the host not exist in the enlighten then use Create home owner API to create it newly..</param>
+        /// <param name="authorizedSubcontractorId">Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site..</param>
         /// <param name="installerId">Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID..</param>
+        /// <param name="maintainerName">Name of the maintainer..</param>
+        /// <param name="maintainerId">The Enlighten ID of the maintainer of this system. Defaults to current user&#39;s company ID..</param>
+        /// <param name="authorizedSubcontractors">List of sub-contractors of this system..</param>
         /// <param name="allowPublicAccess">When true, the system will be eligible to appear in the public systems lists of Enphase and the system&#39;s installer. Default true..</param>
         /// <param name="interconnectDate">When the system was approved to connect to the grid..</param>
         /// <param name="source">source.</param>
@@ -105,7 +109,7 @@ namespace EnphaseOpenAPI.Commissioning.Model
         /// <param name="encharge">Encharge detail..</param>
         /// <param name="enpower">Enpower detail..</param>
         /// <param name="address">address.</param>
-        public SystemParams(string systemName = default(string), SystemTypeEnum? systemType = default(SystemTypeEnum?), SystemInternetConnectionEnum? internetConnection = default(SystemInternetConnectionEnum?), bool lease = default(bool), bool operational = default(bool), int ownerId = default(int), int hostId = default(int), int installerId = default(int), bool allowPublicAccess = default(bool), DateTimeOffset interconnectDate = default(DateTimeOffset), SystemSourceEnum? source = default(SystemSourceEnum?), SystemArrayTypeEnum? arrayType = default(SystemArrayTypeEnum?), SystemAttachmentTypeEnum? attachmentType = default(SystemAttachmentTypeEnum?), string ensembleEnvoy = default(string), string gridProfile = default(string), string requestedProfile = default(string), string requestedReportFreq = default(string), string voltage = default(string), List<string> envoySerialNumbers = default(List<string>), int pvManufacturer = default(int), string pvManufacturerName = default(string), int pvModel = default(int), string pvModelName = default(string), float pvModulePowerRating = default(float), int pvModuleType = default(int), int expectedEnvoyCount = default(int), int expectedPcuCount = default(int), int expectedAcbCount = default(int), int expectedNsrCount = default(int), int expectedMeterCount = default(int), int expectedEnchargeCount = default(int), int expectedEnpowerCount = default(int), string reference = default(string), List<SystemParamsEnchargeInner> encharge = default(List<SystemParamsEnchargeInner>), List<SystemParamsEnpowerInner> enpower = default(List<SystemParamsEnpowerInner>), SystemParamsAddress address = default(SystemParamsAddress))
+        public SystemParams(string systemName = default(string), SystemTypeEnum? systemType = default(SystemTypeEnum?), SystemInternetConnectionEnum? internetConnection = default(SystemInternetConnectionEnum?), bool lease = default(bool), bool operational = default(bool), int ownerId = default(int), int hostId = default(int), int authorizedSubcontractorId = default(int), int installerId = default(int), string maintainerName = default(string), int maintainerId = default(int), List<GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner> authorizedSubcontractors = default(List<GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>), bool allowPublicAccess = default(bool), DateTimeOffset interconnectDate = default(DateTimeOffset), SystemSourceEnum? source = default(SystemSourceEnum?), SystemArrayTypeEnum? arrayType = default(SystemArrayTypeEnum?), SystemAttachmentTypeEnum? attachmentType = default(SystemAttachmentTypeEnum?), string ensembleEnvoy = default(string), string gridProfile = default(string), string requestedProfile = default(string), string requestedReportFreq = default(string), string voltage = default(string), List<string> envoySerialNumbers = default(List<string>), int pvManufacturer = default(int), string pvManufacturerName = default(string), int pvModel = default(int), string pvModelName = default(string), float pvModulePowerRating = default(float), int pvModuleType = default(int), int expectedEnvoyCount = default(int), int expectedPcuCount = default(int), int expectedAcbCount = default(int), int expectedNsrCount = default(int), int expectedMeterCount = default(int), int expectedEnchargeCount = default(int), int expectedEnpowerCount = default(int), string reference = default(string), List<SystemParamsEnchargeInner> encharge = default(List<SystemParamsEnchargeInner>), List<SystemParamsEnpowerInner> enpower = default(List<SystemParamsEnpowerInner>), SystemParamsAddress address = default(SystemParamsAddress))
         {
             // to ensure "systemName" is required (not null)
             if (systemName == null)
@@ -119,7 +123,11 @@ namespace EnphaseOpenAPI.Commissioning.Model
             this.Operational = operational;
             this.OwnerId = ownerId;
             this.HostId = hostId;
+            this.AuthorizedSubcontractorId = authorizedSubcontractorId;
             this.InstallerId = installerId;
+            this.MaintainerName = maintainerName;
+            this.MaintainerId = maintainerId;
+            this.AuthorizedSubcontractors = authorizedSubcontractors;
             this.AllowPublicAccess = allowPublicAccess;
             this.InterconnectDate = interconnectDate;
             this.Source = source;
@@ -186,11 +194,39 @@ namespace EnphaseOpenAPI.Commissioning.Model
         public int HostId { get; set; }
 
         /// <summary>
+        /// Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site.
+        /// </summary>
+        /// <value>Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site.</value>
+        [DataMember(Name = "authorized_subcontractor_id", EmitDefaultValue = false)]
+        public int AuthorizedSubcontractorId { get; set; }
+
+        /// <summary>
         /// Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID.
         /// </summary>
         /// <value>Enlighten ID of the installer of this system. Defaults to current user&#39;s company ID.</value>
         [DataMember(Name = "installer_id", EmitDefaultValue = false)]
         public int InstallerId { get; set; }
+
+        /// <summary>
+        /// Name of the maintainer.
+        /// </summary>
+        /// <value>Name of the maintainer.</value>
+        [DataMember(Name = "maintainer_name", EmitDefaultValue = false)]
+        public string MaintainerName { get; set; }
+
+        /// <summary>
+        /// The Enlighten ID of the maintainer of this system. Defaults to current user&#39;s company ID.
+        /// </summary>
+        /// <value>The Enlighten ID of the maintainer of this system. Defaults to current user&#39;s company ID.</value>
+        [DataMember(Name = "maintainer_id", EmitDefaultValue = false)]
+        public int MaintainerId { get; set; }
+
+        /// <summary>
+        /// List of sub-contractors of this system.
+        /// </summary>
+        /// <value>List of sub-contractors of this system.</value>
+        [DataMember(Name = "authorized_subcontractors", EmitDefaultValue = false)]
+        public List<GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner> AuthorizedSubcontractors { get; set; }
 
         /// <summary>
         /// When true, the system will be eligible to appear in the public systems lists of Enphase and the system&#39;s installer. Default true.
@@ -380,7 +416,11 @@ namespace EnphaseOpenAPI.Commissioning.Model
             sb.Append("  Operational: ").Append(Operational).Append("\n");
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  HostId: ").Append(HostId).Append("\n");
+            sb.Append("  AuthorizedSubcontractorId: ").Append(AuthorizedSubcontractorId).Append("\n");
             sb.Append("  InstallerId: ").Append(InstallerId).Append("\n");
+            sb.Append("  MaintainerName: ").Append(MaintainerName).Append("\n");
+            sb.Append("  MaintainerId: ").Append(MaintainerId).Append("\n");
+            sb.Append("  AuthorizedSubcontractors: ").Append(AuthorizedSubcontractors).Append("\n");
             sb.Append("  AllowPublicAccess: ").Append(AllowPublicAccess).Append("\n");
             sb.Append("  InterconnectDate: ").Append(InterconnectDate).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
@@ -474,8 +514,27 @@ namespace EnphaseOpenAPI.Commissioning.Model
                     this.HostId.Equals(input.HostId)
                 ) && 
                 (
+                    this.AuthorizedSubcontractorId == input.AuthorizedSubcontractorId ||
+                    this.AuthorizedSubcontractorId.Equals(input.AuthorizedSubcontractorId)
+                ) && 
+                (
                     this.InstallerId == input.InstallerId ||
                     this.InstallerId.Equals(input.InstallerId)
+                ) && 
+                (
+                    this.MaintainerName == input.MaintainerName ||
+                    (this.MaintainerName != null &&
+                    this.MaintainerName.Equals(input.MaintainerName))
+                ) && 
+                (
+                    this.MaintainerId == input.MaintainerId ||
+                    this.MaintainerId.Equals(input.MaintainerId)
+                ) && 
+                (
+                    this.AuthorizedSubcontractors == input.AuthorizedSubcontractors ||
+                    this.AuthorizedSubcontractors != null &&
+                    input.AuthorizedSubcontractors != null &&
+                    this.AuthorizedSubcontractors.SequenceEqual(input.AuthorizedSubcontractors)
                 ) && 
                 (
                     this.AllowPublicAccess == input.AllowPublicAccess ||
@@ -626,7 +685,17 @@ namespace EnphaseOpenAPI.Commissioning.Model
                 hashCode = (hashCode * 59) + this.Operational.GetHashCode();
                 hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
                 hashCode = (hashCode * 59) + this.HostId.GetHashCode();
+                hashCode = (hashCode * 59) + this.AuthorizedSubcontractorId.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstallerId.GetHashCode();
+                if (this.MaintainerName != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaintainerName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MaintainerId.GetHashCode();
+                if (this.AuthorizedSubcontractors != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorizedSubcontractors.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.AllowPublicAccess.GetHashCode();
                 if (this.InterconnectDate != null)
                 {

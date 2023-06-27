@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Address from './Address';
+import GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner from './GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner';
 import SystemArrayTypeEnum from './SystemArrayTypeEnum';
 import SystemAttachmentTypeEnum from './SystemAttachmentTypeEnum';
 import SystemEnchargeInner from './SystemEnchargeInner';
@@ -70,6 +71,9 @@ class System {
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            if (data.hasOwnProperty('timezone')) {
+                obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
+            }
             if (data.hasOwnProperty('stage')) {
                 obj['stage'] = ApiClient.convertToType(data['stage'], 'Number');
             }
@@ -99,6 +103,15 @@ class System {
             }
             if (data.hasOwnProperty('installer_id')) {
                 obj['installer_id'] = ApiClient.convertToType(data['installer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('maintainer_name')) {
+                obj['maintainer_name'] = ApiClient.convertToType(data['maintainer_name'], 'String');
+            }
+            if (data.hasOwnProperty('maintainer_id')) {
+                obj['maintainer_id'] = ApiClient.convertToType(data['maintainer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('authorized_subcontractors')) {
+                obj['authorized_subcontractors'] = ApiClient.convertToType(data['authorized_subcontractors'], [GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner]);
             }
             if (data.hasOwnProperty('uri')) {
                 obj['uri'] = ApiClient.convertToType(data['uri'], 'String');
@@ -214,6 +227,10 @@ class System {
         if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
             throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
         }
+        // ensure the json data is a string
+        if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
+            throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
+        }
         // validate the optional field `owner`
         if (data['owner']) { // data not null
           SystemOwner.validateJSON(data['owner']);
@@ -225,6 +242,20 @@ class System {
         // ensure the json data is a string
         if (data['installer_name'] && !(typeof data['installer_name'] === 'string' || data['installer_name'] instanceof String)) {
             throw new Error("Expected the field `installer_name` to be a primitive type in the JSON string but got " + data['installer_name']);
+        }
+        // ensure the json data is a string
+        if (data['maintainer_name'] && !(typeof data['maintainer_name'] === 'string' || data['maintainer_name'] instanceof String)) {
+            throw new Error("Expected the field `maintainer_name` to be a primitive type in the JSON string but got " + data['maintainer_name']);
+        }
+        if (data['authorized_subcontractors']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['authorized_subcontractors'])) {
+                throw new Error("Expected the field `authorized_subcontractors` to be an array in the JSON data but got " + data['authorized_subcontractors']);
+            }
+            // validate the optional field `authorized_subcontractors` (array)
+            for (const item of data['authorized_subcontractors']) {
+                GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner.validateJSON(item);
+            };
         }
         // ensure the json data is a string
         if (data['uri'] && !(typeof data['uri'] === 'string' || data['uri'] instanceof String)) {
@@ -331,6 +362,12 @@ System.prototype['system_type'] = undefined;
 System.prototype['status'] = undefined;
 
 /**
+ * System's timezone.
+ * @member {String} timezone
+ */
+System.prototype['timezone'] = undefined;
+
+/**
  * What stage of the activation process this activation is in. System-generated.
  * @member {Number} stage
  */
@@ -386,6 +423,24 @@ System.prototype['installer_name'] = undefined;
  * @member {Number} installer_id
  */
 System.prototype['installer_id'] = undefined;
+
+/**
+ * Name of the maintainer.
+ * @member {String} maintainer_name
+ */
+System.prototype['maintainer_name'] = undefined;
+
+/**
+ * The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+ * @member {Number} maintainer_id
+ */
+System.prototype['maintainer_id'] = undefined;
+
+/**
+ * List of sub-contractors of this system.
+ * @member {Array.<module:model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>} authorized_subcontractors
+ */
+System.prototype['authorized_subcontractors'] = undefined;
 
 /**
  * URI for this activation.

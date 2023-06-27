@@ -6,10 +6,14 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 var _Address = _interopRequireDefault(require("./Address"));
+var _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner = _interopRequireDefault(require("./GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner"));
 var _SystemInternetConnectionEnum = _interopRequireDefault(require("./SystemInternetConnectionEnum"));
 var _SystemTypeEnum = _interopRequireDefault(require("./SystemTypeEnum"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -74,6 +78,9 @@ var GetPartnerActivationsResponseSystemsInner = /*#__PURE__*/function () {
         if (data.hasOwnProperty('status')) {
           obj['status'] = _ApiClient["default"].convertToType(data['status'], 'String');
         }
+        if (data.hasOwnProperty('timezone')) {
+          obj['timezone'] = _ApiClient["default"].convertToType(data['timezone'], 'String');
+        }
         if (data.hasOwnProperty('stage')) {
           obj['stage'] = _ApiClient["default"].convertToType(data['stage'], 'Number');
         }
@@ -103,6 +110,15 @@ var GetPartnerActivationsResponseSystemsInner = /*#__PURE__*/function () {
         }
         if (data.hasOwnProperty('installer_id')) {
           obj['installer_id'] = _ApiClient["default"].convertToType(data['installer_id'], 'Number');
+        }
+        if (data.hasOwnProperty('maintainer_name')) {
+          obj['maintainer_name'] = _ApiClient["default"].convertToType(data['maintainer_name'], 'String');
+        }
+        if (data.hasOwnProperty('maintainer_id')) {
+          obj['maintainer_id'] = _ApiClient["default"].convertToType(data['maintainer_id'], 'Number');
+        }
+        if (data.hasOwnProperty('authorized_subcontractors')) {
+          obj['authorized_subcontractors'] = _ApiClient["default"].convertToType(data['authorized_subcontractors'], [_GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner["default"]]);
         }
         if (data.hasOwnProperty('uri')) {
           obj['uri'] = _ApiClient["default"].convertToType(data['uri'], 'String');
@@ -140,6 +156,10 @@ var GetPartnerActivationsResponseSystemsInner = /*#__PURE__*/function () {
         throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
       }
       // ensure the json data is a string
+      if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
+        throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
+      }
+      // ensure the json data is a string
       if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
         throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
       }
@@ -150,6 +170,31 @@ var GetPartnerActivationsResponseSystemsInner = /*#__PURE__*/function () {
       // ensure the json data is a string
       if (data['installer_name'] && !(typeof data['installer_name'] === 'string' || data['installer_name'] instanceof String)) {
         throw new Error("Expected the field `installer_name` to be a primitive type in the JSON string but got " + data['installer_name']);
+      }
+      // ensure the json data is a string
+      if (data['maintainer_name'] && !(typeof data['maintainer_name'] === 'string' || data['maintainer_name'] instanceof String)) {
+        throw new Error("Expected the field `maintainer_name` to be a primitive type in the JSON string but got " + data['maintainer_name']);
+      }
+      if (data['authorized_subcontractors']) {
+        // data not null
+        // ensure the json data is an array
+        if (!Array.isArray(data['authorized_subcontractors'])) {
+          throw new Error("Expected the field `authorized_subcontractors` to be an array in the JSON data but got " + data['authorized_subcontractors']);
+        }
+        // validate the optional field `authorized_subcontractors` (array)
+        var _iterator = _createForOfIteratorHelper(data['authorized_subcontractors']),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var item = _step.value;
+            _GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner["default"].validateJSON(item);
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        ;
       }
       // ensure the json data is a string
       if (data['uri'] && !(typeof data['uri'] === 'string' || data['uri'] instanceof String)) {
@@ -197,6 +242,12 @@ GetPartnerActivationsResponseSystemsInner.prototype['system_type'] = undefined;
 GetPartnerActivationsResponseSystemsInner.prototype['status'] = undefined;
 
 /**
+ * System's timezone.
+ * @member {String} timezone
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['timezone'] = undefined;
+
+/**
  * What stage of the activation process this activation is in. System-generated.
  * @member {Number} stage
  */
@@ -232,7 +283,7 @@ GetPartnerActivationsResponseSystemsInner.prototype['owner'] = undefined;
 GetPartnerActivationsResponseSystemsInner.prototype['owner_id'] = undefined;
 
 /**
- * Name of the system host. Please see \"Specifying an Owner and Lease Arrangement\", above, for more information.
+ * Name of the system host.
  * @member {String} host
  */
 GetPartnerActivationsResponseSystemsInner.prototype['host'] = undefined;
@@ -250,10 +301,28 @@ GetPartnerActivationsResponseSystemsInner.prototype['host_id'] = undefined;
 GetPartnerActivationsResponseSystemsInner.prototype['installer_name'] = undefined;
 
 /**
- * Enlighten ID of the installer of this system. Defaults to current user's company ID.
+ * Enlighten ID of the installer of this system.
  * @member {Number} installer_id
  */
 GetPartnerActivationsResponseSystemsInner.prototype['installer_id'] = undefined;
+
+/**
+ * Name of the maintainer.
+ * @member {String} maintainer_name
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['maintainer_name'] = undefined;
+
+/**
+ * Enlighten ID of the maintainer of this system.
+ * @member {Number} maintainer_id
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['maintainer_id'] = undefined;
+
+/**
+ * List of sub-contractors of this system.
+ * @member {Array.<module:model/GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner>} authorized_subcontractors
+ */
+GetPartnerActivationsResponseSystemsInner.prototype['authorized_subcontractors'] = undefined;
 
 /**
  * URI for this activation.

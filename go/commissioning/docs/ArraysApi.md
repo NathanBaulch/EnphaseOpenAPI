@@ -4,17 +4,17 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteSystemArray**](ArraysApi.md#DeleteSystemArray) | **Delete** /systems/{system_id}/arrays/{id} | Delete an array by ID
-[**GetSystemArray**](ArraysApi.md#GetSystemArray) | **Get** /systems/{system_id}/arrays/{id} | Fetch array details by ID
-[**GetSystemArrays**](ArraysApi.md#GetSystemArrays) | **Get** /systems/{system_id}/arrays | Fetch particular system Array details
-[**UpdateSystemArray**](ArraysApi.md#UpdateSystemArray) | **Put** /systems/{system_id}/arrays/{id} | Update particular system array details
-[**UpdateSystemArrays**](ArraysApi.md#UpdateSystemArrays) | **Put** /systems/{system_id}/arrays | Update all arrays for system
+[**DeleteSystemArray**](ArraysApi.md#DeleteSystemArray) | **Delete** /partner/systems/{system_id}/arrays/{array_id} | Delete an array by ID
+[**GetSystemArray**](ArraysApi.md#GetSystemArray) | **Get** /partner/systems/{system_id}/arrays/{array_id} | Fetch array details by ID
+[**GetSystemArrays**](ArraysApi.md#GetSystemArrays) | **Get** /partner/systems/{system_id}/arrays | Fetch particular system Array details
+[**UpdateSystemArray**](ArraysApi.md#UpdateSystemArray) | **Put** /partner/systems/{system_id}/arrays/{array_id} | Update particular system array details
+[**UpdateSystemArrays**](ArraysApi.md#UpdateSystemArrays) | **Put** /partner/systems/{system_id}/arrays | Update all arrays for system
 
 
 
 ## DeleteSystemArray
 
-> DeleteSystemArrayResponse DeleteSystemArray(ctx, systemId, id).Execute()
+> DeleteSystemArrayResponse DeleteSystemArray(ctx, systemId, arrayId).Execute()
 
 Delete an array by ID
 
@@ -34,11 +34,11 @@ import (
 
 func main() {
     systemId := int32(56) // int32 | System ID.
-    id := int32(56) // int32 | Array ID.
+    arrayId := int32(56) // int32 | Array ID.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ArraysApi.DeleteSystemArray(context.Background(), systemId, id).Execute()
+    resp, r, err := apiClient.ArraysApi.DeleteSystemArray(context.Background(), systemId, arrayId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArraysApi.DeleteSystemArray``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **systemId** | **int32** | System ID. | 
-**id** | **int32** | Array ID. | 
+**arrayId** | **int32** | Array ID. | 
 
 ### Other Parameters
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## GetSystemArray
 
-> Array GetSystemArray(ctx, systemId, id).Execute()
+> Array GetSystemArray(ctx, systemId, arrayId).Execute()
 
 Fetch array details by ID
 
@@ -107,11 +107,11 @@ import (
 
 func main() {
     systemId := int32(56) // int32 | System ID.
-    id := int32(56) // int32 | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
+    arrayId := int32(56) // int32 | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ArraysApi.GetSystemArray(context.Background(), systemId, id).Execute()
+    resp, r, err := apiClient.ArraysApi.GetSystemArray(context.Background(), systemId, arrayId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArraysApi.GetSystemArray``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **systemId** | **int32** | System ID. | 
-**id** | **int32** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. | 
+**arrayId** | **int32** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. | 
 
 ### Other Parameters
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSystemArray
 
-> Array UpdateSystemArray(ctx, systemId, id).Params(params).Execute()
+> Array UpdateSystemArray(ctx, systemId, arrayId).Params(params).Execute()
 
 Update particular system array details
 
@@ -250,12 +250,12 @@ import (
 
 func main() {
     systemId := int32(56) // int32 | System ID.
-    id := int32(56) // int32 | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
+    arrayId := int32(56) // int32 | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
     params := ArrayParams(987) // ArrayParams |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ArraysApi.UpdateSystemArray(context.Background(), systemId, id).Params(params).Execute()
+    resp, r, err := apiClient.ArraysApi.UpdateSystemArray(context.Background(), systemId, arrayId).Params(params).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArraysApi.UpdateSystemArray``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **systemId** | **int32** | System ID. | 
-**id** | **int32** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. | 
+**arrayId** | **int32** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. | 
 
 ### Other Parameters
 

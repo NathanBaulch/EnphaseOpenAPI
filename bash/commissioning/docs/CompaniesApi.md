@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createCompanyUser**](CompaniesApi.md#createCompanyUser) | **POST** /companies/{company_id}/users | Create company user
 [**getCompanyUser**](CompaniesApi.md#getCompanyUser) | **GET** /companies/{company_id}/users/{user_id} | Returns the requested user
 [**getCompanyUsers**](CompaniesApi.md#getCompanyUsers) | **GET** /companies/{company_id}/users | Get all users with in a company
+[**getSelfCompanyAuthorizedSubcontractors**](CompaniesApi.md#getSelfCompanyAuthorizedSubcontractors) | **GET** /companies/self/authorized_subcontractors | User&#39;s company and its authorized subcontractors.
 [**getSelfCompanyBranches**](CompaniesApi.md#getSelfCompanyBranches) | **GET** /companies/self/branches | User&#39;s company and its branches
 [**updateCompanyUser**](CompaniesApi.md#updateCompanyUser) | **PUT** /companies/{company_id}/users/{user_id} | Update company user
 
@@ -109,6 +110,38 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetCompanyUsersResponse**](GetCompanyUsersResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## getSelfCompanyAuthorizedSubcontractors
+
+User's company and its authorized subcontractors.
+
+Returns all the authorized subcontractors of a given company, if any.
+
+### Example
+
+```bash
+ getSelfCompanyAuthorizedSubcontractors
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetSelfCompanyAuthorizedSubcontractorsResponse**](GetSelfCompanyAuthorizedSubcontractorsResponse.md)
 
 ### Authorization
 

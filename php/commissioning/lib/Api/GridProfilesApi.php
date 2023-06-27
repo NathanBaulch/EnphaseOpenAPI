@@ -436,7 +436,7 @@ class GridProfilesApi
     {
 
 
-        $resourcePath = '/grid_profiles';
+        $resourcePath = '/partner/grid_profiles';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

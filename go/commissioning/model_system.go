@@ -26,6 +26,8 @@ type System struct {
 	SystemType *SystemTypeEnum `json:"system_type,omitempty"`
 	// System's status.
 	Status *string `json:"status,omitempty"`
+	// System's timezone.
+	Timezone *string `json:"timezone,omitempty"`
 	// What stage of the activation process this activation is in. System-generated.
 	Stage *int32 `json:"stage,omitempty"`
 	InternetConnection *SystemInternetConnectionEnum `json:"internet_connection,omitempty"`
@@ -43,6 +45,12 @@ type System struct {
 	InstallerName *string `json:"installer_name,omitempty"`
 	// Enlighten ID of the installer of this system. Defaults to current user's company ID.
 	InstallerId *int32 `json:"installer_id,omitempty"`
+	// Name of the maintainer.
+	MaintainerName *string `json:"maintainer_name,omitempty"`
+	// The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+	MaintainerId *int32 `json:"maintainer_id,omitempty"`
+	// List of sub-contractors of this system.
+	AuthorizedSubcontractors []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner `json:"authorized_subcontractors,omitempty"`
 	// URI for this activation.
 	Uri *string `json:"uri,omitempty"`
 	// Activation last updated timestamp.
@@ -245,6 +253,38 @@ func (o *System) HasStatus() bool {
 // SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *System) SetStatus(v string) {
 	o.Status = &v
+}
+
+// GetTimezone returns the Timezone field value if set, zero value otherwise.
+func (o *System) GetTimezone() string {
+	if o == nil || IsNil(o.Timezone) {
+		var ret string
+		return ret
+	}
+	return *o.Timezone
+}
+
+// GetTimezoneOk returns a tuple with the Timezone field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *System) GetTimezoneOk() (*string, bool) {
+	if o == nil || IsNil(o.Timezone) {
+		return nil, false
+	}
+	return o.Timezone, true
+}
+
+// HasTimezone returns a boolean if a field has been set.
+func (o *System) HasTimezone() bool {
+	if o != nil && !IsNil(o.Timezone) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimezone gets a reference to the given string and assigns it to the Timezone field.
+func (o *System) SetTimezone(v string) {
+	o.Timezone = &v
 }
 
 // GetStage returns the Stage field value if set, zero value otherwise.
@@ -565,6 +605,102 @@ func (o *System) HasInstallerId() bool {
 // SetInstallerId gets a reference to the given int32 and assigns it to the InstallerId field.
 func (o *System) SetInstallerId(v int32) {
 	o.InstallerId = &v
+}
+
+// GetMaintainerName returns the MaintainerName field value if set, zero value otherwise.
+func (o *System) GetMaintainerName() string {
+	if o == nil || IsNil(o.MaintainerName) {
+		var ret string
+		return ret
+	}
+	return *o.MaintainerName
+}
+
+// GetMaintainerNameOk returns a tuple with the MaintainerName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *System) GetMaintainerNameOk() (*string, bool) {
+	if o == nil || IsNil(o.MaintainerName) {
+		return nil, false
+	}
+	return o.MaintainerName, true
+}
+
+// HasMaintainerName returns a boolean if a field has been set.
+func (o *System) HasMaintainerName() bool {
+	if o != nil && !IsNil(o.MaintainerName) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintainerName gets a reference to the given string and assigns it to the MaintainerName field.
+func (o *System) SetMaintainerName(v string) {
+	o.MaintainerName = &v
+}
+
+// GetMaintainerId returns the MaintainerId field value if set, zero value otherwise.
+func (o *System) GetMaintainerId() int32 {
+	if o == nil || IsNil(o.MaintainerId) {
+		var ret int32
+		return ret
+	}
+	return *o.MaintainerId
+}
+
+// GetMaintainerIdOk returns a tuple with the MaintainerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *System) GetMaintainerIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaintainerId) {
+		return nil, false
+	}
+	return o.MaintainerId, true
+}
+
+// HasMaintainerId returns a boolean if a field has been set.
+func (o *System) HasMaintainerId() bool {
+	if o != nil && !IsNil(o.MaintainerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintainerId gets a reference to the given int32 and assigns it to the MaintainerId field.
+func (o *System) SetMaintainerId(v int32) {
+	o.MaintainerId = &v
+}
+
+// GetAuthorizedSubcontractors returns the AuthorizedSubcontractors field value if set, zero value otherwise.
+func (o *System) GetAuthorizedSubcontractors() []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner {
+	if o == nil || IsNil(o.AuthorizedSubcontractors) {
+		var ret []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner
+		return ret
+	}
+	return o.AuthorizedSubcontractors
+}
+
+// GetAuthorizedSubcontractorsOk returns a tuple with the AuthorizedSubcontractors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *System) GetAuthorizedSubcontractorsOk() ([]GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner, bool) {
+	if o == nil || IsNil(o.AuthorizedSubcontractors) {
+		return nil, false
+	}
+	return o.AuthorizedSubcontractors, true
+}
+
+// HasAuthorizedSubcontractors returns a boolean if a field has been set.
+func (o *System) HasAuthorizedSubcontractors() bool {
+	if o != nil && !IsNil(o.AuthorizedSubcontractors) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthorizedSubcontractors gets a reference to the given []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner and assigns it to the AuthorizedSubcontractors field.
+func (o *System) SetAuthorizedSubcontractors(v []GetPartnerActivationsResponseSystemsInnerAuthorizedSubcontractorsInner) {
+	o.AuthorizedSubcontractors = v
 }
 
 // GetUri returns the Uri field value if set, zero value otherwise.
@@ -1613,6 +1749,9 @@ func (o System) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
+	if !IsNil(o.Timezone) {
+		toSerialize["timezone"] = o.Timezone
+	}
 	if !IsNil(o.Stage) {
 		toSerialize["stage"] = o.Stage
 	}
@@ -1642,6 +1781,15 @@ func (o System) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.InstallerId) {
 		toSerialize["installer_id"] = o.InstallerId
+	}
+	if !IsNil(o.MaintainerName) {
+		toSerialize["maintainer_name"] = o.MaintainerName
+	}
+	if !IsNil(o.MaintainerId) {
+		toSerialize["maintainer_id"] = o.MaintainerId
+	}
+	if !IsNil(o.AuthorizedSubcontractors) {
+		toSerialize["authorized_subcontractors"] = o.AuthorizedSubcontractors
 	}
 	if !IsNil(o.Uri) {
 		toSerialize["uri"] = o.Uri

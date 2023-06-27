@@ -96,19 +96,19 @@ var ActivationsApi = /*#__PURE__*/function () {
     /**
      * Delete an activation by ID
      * To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
-     * @param {Number} id Enlighten ID of the activation(system).
+     * @param {Number} activationId Enlighten ID of the activation(system).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivationResponse} and HTTP response
      */
   }, {
     key: "deleteActivationWithHttpInfo",
-    value: function deleteActivationWithHttpInfo(id) {
+    value: function deleteActivationWithHttpInfo(activationId) {
       var postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteActivation");
+      // verify the required parameter 'activationId' is set
+      if (activationId === undefined || activationId === null) {
+        throw new Error("Missing the required parameter 'activationId' when calling deleteActivation");
       }
       var pathParams = {
-        'id': id
+        'activation_id': activationId
       };
       var queryParams = {};
       var headerParams = {};
@@ -117,19 +117,19 @@ var ActivationsApi = /*#__PURE__*/function () {
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = _DeleteActivationResponse["default"];
-      return this.apiClient.callApi('/activations/{id}', 'DELETE', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/activations/{activation_id}', 'DELETE', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**
      * Delete an activation by ID
      * To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
-     * @param {Number} id Enlighten ID of the activation(system).
+     * @param {Number} activationId Enlighten ID of the activation(system).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivationResponse}
      */
   }, {
     key: "deleteActivation",
-    value: function deleteActivation(id) {
-      return this.deleteActivationWithHttpInfo(id).then(function (response_and_data) {
+    value: function deleteActivation(activationId) {
+      return this.deleteActivationWithHttpInfo(activationId).then(function (response_and_data) {
         return response_and_data.data;
       });
     }
@@ -178,22 +178,22 @@ var ActivationsApi = /*#__PURE__*/function () {
     /**
      * Retrieves an Activation by ID
      * By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner's name within the system hash, the response includes detailed information about the owner by using expand=owner. You can also expand the owner's company by using expand=owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand=host will include details about the system host. You can also expand the host's company by using expand=host.company. The response now includes information about the host and the company he belongs to.
-     * @param {Number} id Enlighten ID of the activation(system). System-generated.
+     * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemExpandEnum} [expand] Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
      */
   }, {
     key: "getPartnerActivationWithHttpInfo",
-    value: function getPartnerActivationWithHttpInfo(id, opts) {
+    value: function getPartnerActivationWithHttpInfo(activationId, opts) {
       opts = opts || {};
       var postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getPartnerActivation");
+      // verify the required parameter 'activationId' is set
+      if (activationId === undefined || activationId === null) {
+        throw new Error("Missing the required parameter 'activationId' when calling getPartnerActivation");
       }
       var pathParams = {
-        'id': id
+        'activation_id': activationId
       };
       var queryParams = {
         'expand': opts['expand']
@@ -204,21 +204,21 @@ var ActivationsApi = /*#__PURE__*/function () {
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = _System["default"];
-      return this.apiClient.callApi('/partner/activations/{id}', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/activations/{activation_id}', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**
      * Retrieves an Activation by ID
      * By default, the body of the response looks like the example below. However, you can choose to retrieve more information about the activation using response expansion, for example instead of returning only the owner's name within the system hash, the response includes detailed information about the owner by using expand=owner. You can also expand the owner's company by using expand=owner.company. The response now includes information about the owner and the company he belongs to, if any. By using expand=host will include details about the system host. You can also expand the host's company by using expand=host.company. The response now includes information about the host and the company he belongs to.
-     * @param {Number} id Enlighten ID of the activation(system). System-generated.
+     * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemExpandEnum} opts.expand Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
      */
   }, {
     key: "getPartnerActivation",
-    value: function getPartnerActivation(id, opts) {
-      return this.getPartnerActivationWithHttpInfo(id, opts).then(function (response_and_data) {
+    value: function getPartnerActivation(activationId, opts) {
+      return this.getPartnerActivationWithHttpInfo(activationId, opts).then(function (response_and_data) {
         return response_and_data.data;
       });
     }
@@ -229,7 +229,7 @@ var ActivationsApi = /*#__PURE__*/function () {
      * @param {Object} opts Optional parameters
      * @param {String} [next] If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field.
      * @param {Number} [limit] There is a limit to the number of activations which can be returned at one time.
-     * @param {module:model/SystemStageEnum} [stage] Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems.
+     * @param {module:model/SystemStageEnum} [stage] Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value.
      * @param {String} [reference] Filter activations by company reference.
      * @param {Number} [installerId] Filter activations by installer ID.
      * @param {String} [systemName] Filter activations by system name.
@@ -270,7 +270,7 @@ var ActivationsApi = /*#__PURE__*/function () {
      * @param {Object} opts Optional parameters
      * @param {String} opts.next If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field.
      * @param {Number} opts.limit There is a limit to the number of activations which can be returned at one time.
-     * @param {module:model/SystemStageEnum} opts.stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems.
+     * @param {module:model/SystemStageEnum} opts.stage Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value.
      * @param {String} opts.reference Filter activations by company reference.
      * @param {Number} opts.installerId Filter activations by installer ID.
      * @param {String} opts.systemName Filter activations by system name.
@@ -432,22 +432,22 @@ var ActivationsApi = /*#__PURE__*/function () {
     /**
      * Update an activation.
      * Update an activation.
-     * @param {Number} id Enlighten ID of the activation(system). System-generated.
+     * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} [params] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/System} and HTTP response
      */
   }, {
     key: "updatePartnerActivationWithHttpInfo",
-    value: function updatePartnerActivationWithHttpInfo(id, opts) {
+    value: function updatePartnerActivationWithHttpInfo(activationId, opts) {
       opts = opts || {};
       var postBody = opts['params'];
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling updatePartnerActivation");
+      // verify the required parameter 'activationId' is set
+      if (activationId === undefined || activationId === null) {
+        throw new Error("Missing the required parameter 'activationId' when calling updatePartnerActivation");
       }
       var pathParams = {
-        'id': id
+        'activation_id': activationId
       };
       var queryParams = {};
       var headerParams = {};
@@ -456,21 +456,21 @@ var ActivationsApi = /*#__PURE__*/function () {
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = _System["default"];
-      return this.apiClient.callApi('/partner/activations/{id}', 'PUT', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/activations/{activation_id}', 'PUT', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**
      * Update an activation.
      * Update an activation.
-     * @param {Number} id Enlighten ID of the activation(system). System-generated.
+     * @param {Number} activationId Enlighten ID of the activation(system). System-generated.
      * @param {Object} opts Optional parameters
      * @param {module:model/SystemParams} opts.params 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/System}
      */
   }, {
     key: "updatePartnerActivation",
-    value: function updatePartnerActivation(id, opts) {
-      return this.updatePartnerActivationWithHttpInfo(id, opts).then(function (response_and_data) {
+    value: function updatePartnerActivation(activationId, opts) {
+      return this.updatePartnerActivationWithHttpInfo(activationId, opts).then(function (response_and_data) {
         return response_and_data.data;
       });
     }

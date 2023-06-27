@@ -53,24 +53,24 @@ var ArraysApi = /*#__PURE__*/function () {
    * Delete an array by ID
    * Delete an array by ID.
    * @param {Number} systemId System ID.
-   * @param {Number} id Array ID.
+   * @param {Number} arrayId Array ID.
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteSystemArrayResponse} and HTTP response
    */
   _createClass(ArraysApi, [{
     key: "deleteSystemArrayWithHttpInfo",
-    value: function deleteSystemArrayWithHttpInfo(systemId, id) {
+    value: function deleteSystemArrayWithHttpInfo(systemId, arrayId) {
       var postBody = null;
       // verify the required parameter 'systemId' is set
       if (systemId === undefined || systemId === null) {
         throw new Error("Missing the required parameter 'systemId' when calling deleteSystemArray");
       }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteSystemArray");
+      // verify the required parameter 'arrayId' is set
+      if (arrayId === undefined || arrayId === null) {
+        throw new Error("Missing the required parameter 'arrayId' when calling deleteSystemArray");
       }
       var pathParams = {
         'system_id': systemId,
-        'id': id
+        'array_id': arrayId
       };
       var queryParams = {};
       var headerParams = {};
@@ -79,20 +79,20 @@ var ArraysApi = /*#__PURE__*/function () {
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = _DeleteSystemArrayResponse["default"];
-      return this.apiClient.callApi('/systems/{system_id}/arrays/{id}', 'DELETE', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/systems/{system_id}/arrays/{array_id}', 'DELETE', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**
      * Delete an array by ID
      * Delete an array by ID.
      * @param {Number} systemId System ID.
-     * @param {Number} id Array ID.
+     * @param {Number} arrayId Array ID.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteSystemArrayResponse}
      */
   }, {
     key: "deleteSystemArray",
-    value: function deleteSystemArray(systemId, id) {
-      return this.deleteSystemArrayWithHttpInfo(systemId, id).then(function (response_and_data) {
+    value: function deleteSystemArray(systemId, arrayId) {
+      return this.deleteSystemArrayWithHttpInfo(systemId, arrayId).then(function (response_and_data) {
         return response_and_data.data;
       });
     }
@@ -101,24 +101,24 @@ var ArraysApi = /*#__PURE__*/function () {
      * Fetch array details by ID
      * Fetch array details by ID.
      * @param {Number} systemId System ID.
-     * @param {Number} id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
+     * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ModelArray} and HTTP response
      */
   }, {
     key: "getSystemArrayWithHttpInfo",
-    value: function getSystemArrayWithHttpInfo(systemId, id) {
+    value: function getSystemArrayWithHttpInfo(systemId, arrayId) {
       var postBody = null;
       // verify the required parameter 'systemId' is set
       if (systemId === undefined || systemId === null) {
         throw new Error("Missing the required parameter 'systemId' when calling getSystemArray");
       }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getSystemArray");
+      // verify the required parameter 'arrayId' is set
+      if (arrayId === undefined || arrayId === null) {
+        throw new Error("Missing the required parameter 'arrayId' when calling getSystemArray");
       }
       var pathParams = {
         'system_id': systemId,
-        'id': id
+        'array_id': arrayId
       };
       var queryParams = {};
       var headerParams = {};
@@ -127,20 +127,20 @@ var ArraysApi = /*#__PURE__*/function () {
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = _ModelArray["default"];
-      return this.apiClient.callApi('/systems/{system_id}/arrays/{id}', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/systems/{system_id}/arrays/{array_id}', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**
      * Fetch array details by ID
      * Fetch array details by ID.
      * @param {Number} systemId System ID.
-     * @param {Number} id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
+     * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ModelArray}
      */
   }, {
     key: "getSystemArray",
-    value: function getSystemArray(systemId, id) {
-      return this.getSystemArrayWithHttpInfo(systemId, id).then(function (response_and_data) {
+    value: function getSystemArray(systemId, arrayId) {
+      return this.getSystemArrayWithHttpInfo(systemId, arrayId).then(function (response_and_data) {
         return response_and_data.data;
       });
     }
@@ -169,7 +169,7 @@ var ArraysApi = /*#__PURE__*/function () {
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = _Arrays["default"];
-      return this.apiClient.callApi('/systems/{system_id}/arrays', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/systems/{system_id}/arrays', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**
@@ -190,27 +190,27 @@ var ArraysApi = /*#__PURE__*/function () {
      * Update particular system array details
      * Update particular system array details. The angle, left, and top fields in the request parameter must be of integer type. Enlighten will rearrange the top and left values of the modules to fit the modules properly and avoid overlap. Therefore, the top and left values in the response may be slightly different from the top and left values passed in the request parameters. In array level, top and left is the total size of the modules inside that array. Overall in arrays, the top and left values should not overlap. In the module level, the size of a panel is 100 units long in the x axis and 200 units long in the y axis. Please pass the left and top values in the request parameter in multiples of 100 and 200 respectively.
      * @param {Number} systemId System ID.
-     * @param {Number} id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
+     * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
      * @param {Object} opts Optional parameters
      * @param {module:model/ArrayParams} [params] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ModelArray} and HTTP response
      */
   }, {
     key: "updateSystemArrayWithHttpInfo",
-    value: function updateSystemArrayWithHttpInfo(systemId, id, opts) {
+    value: function updateSystemArrayWithHttpInfo(systemId, arrayId, opts) {
       opts = opts || {};
       var postBody = opts['params'];
       // verify the required parameter 'systemId' is set
       if (systemId === undefined || systemId === null) {
         throw new Error("Missing the required parameter 'systemId' when calling updateSystemArray");
       }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling updateSystemArray");
+      // verify the required parameter 'arrayId' is set
+      if (arrayId === undefined || arrayId === null) {
+        throw new Error("Missing the required parameter 'arrayId' when calling updateSystemArray");
       }
       var pathParams = {
         'system_id': systemId,
-        'id': id
+        'array_id': arrayId
       };
       var queryParams = {};
       var headerParams = {};
@@ -219,22 +219,22 @@ var ArraysApi = /*#__PURE__*/function () {
       var contentTypes = ['application/text'];
       var accepts = ['application/json'];
       var returnType = _ModelArray["default"];
-      return this.apiClient.callApi('/systems/{system_id}/arrays/{id}', 'PUT', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/systems/{system_id}/arrays/{array_id}', 'PUT', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**
      * Update particular system array details
      * Update particular system array details. The angle, left, and top fields in the request parameter must be of integer type. Enlighten will rearrange the top and left values of the modules to fit the modules properly and avoid overlap. Therefore, the top and left values in the response may be slightly different from the top and left values passed in the request parameters. In array level, top and left is the total size of the modules inside that array. Overall in arrays, the top and left values should not overlap. In the module level, the size of a panel is 100 units long in the x axis and 200 units long in the y axis. Please pass the left and top values in the request parameter in multiples of 100 and 200 respectively.
      * @param {Number} systemId System ID.
-     * @param {Number} id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
+     * @param {Number} arrayId Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
      * @param {Object} opts Optional parameters
      * @param {module:model/ArrayParams} opts.params 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ModelArray}
      */
   }, {
     key: "updateSystemArray",
-    value: function updateSystemArray(systemId, id, opts) {
-      return this.updateSystemArrayWithHttpInfo(systemId, id, opts).then(function (response_and_data) {
+    value: function updateSystemArray(systemId, arrayId, opts) {
+      return this.updateSystemArrayWithHttpInfo(systemId, arrayId, opts).then(function (response_and_data) {
         return response_and_data.data;
       });
     }
@@ -266,7 +266,7 @@ var ArraysApi = /*#__PURE__*/function () {
       var contentTypes = ['application/text'];
       var accepts = ['application/json'];
       var returnType = _Arrays["default"];
-      return this.apiClient.callApi('/systems/{system_id}/arrays', 'PUT', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+      return this.apiClient.callApi('/partner/systems/{system_id}/arrays', 'PUT', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
     }
 
     /**

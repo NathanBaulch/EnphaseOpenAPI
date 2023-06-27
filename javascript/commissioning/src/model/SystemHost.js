@@ -23,7 +23,7 @@ import UserRoleEnum from './UserRoleEnum';
 class SystemHost {
     /**
      * Constructs a new <code>SystemHost</code>.
-     * Name of the system host. Please see \&quot;Specifying an Owner and Lease Arrangement\&quot;, above, for more information. If the query parameter &#39;expand&#x3D;host&#39; passed in the request host detail will appear in the response.
+     * Name of the system host. If the query parameter &#39;expand&#x3D;host&#39; passed in the request host detail will appear in the response.
      * @alias module:model/SystemHost
      */
     constructor() { 

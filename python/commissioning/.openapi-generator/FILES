@@ -65,6 +65,8 @@ commissioning/model/get_pv_manufacturer_models_response.py
 commissioning/model/get_pv_manufacturer_models_response.pyi
 commissioning/model/get_pv_manufacturers_response.py
 commissioning/model/get_pv_manufacturers_response.pyi
+commissioning/model/get_self_company_authorized_subcontractors_response.py
+commissioning/model/get_self_company_authorized_subcontractors_response.pyi
 commissioning/model/get_self_company_branches_response.py
 commissioning/model/get_self_company_branches_response.pyi
 commissioning/model/get_self_user_response.py
@@ -207,6 +209,7 @@ docs/models/GetPartnerActivationResponse.md
 docs/models/GetPartnerActivationsResponse.md
 docs/models/GetPvManufacturerModelsResponse.md
 docs/models/GetPvManufacturersResponse.md
+docs/models/GetSelfCompanyAuthorizedSubcontractorsResponse.md
 docs/models/GetSelfCompanyBranchesResponse.md
 docs/models/GetSelfUserResponse.md
 docs/models/GetSystemArrayResponse.md

@@ -140,16 +140,16 @@ class ArraysApi
      * Delete an array by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. (required)
+     * @param  int $array_id Array ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSystemArray'] to see the possible values for this operation
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EnphaseOpenAPI\Commissioning\Model\DeleteSystemArrayResponse|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
-    public function deleteSystemArray($system_id, $id, string $contentType = self::contentTypes['deleteSystemArray'][0])
+    public function deleteSystemArray($system_id, $array_id, string $contentType = self::contentTypes['deleteSystemArray'][0])
     {
-        list($response) = $this->deleteSystemArrayWithHttpInfo($system_id, $id, $contentType);
+        list($response) = $this->deleteSystemArrayWithHttpInfo($system_id, $array_id, $contentType);
         return $response;
     }
 
@@ -159,16 +159,16 @@ class ArraysApi
      * Delete an array by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. (required)
+     * @param  int $array_id Array ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSystemArray'] to see the possible values for this operation
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EnphaseOpenAPI\Commissioning\Model\DeleteSystemArrayResponse|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSystemArrayWithHttpInfo($system_id, $id, string $contentType = self::contentTypes['deleteSystemArray'][0])
+    public function deleteSystemArrayWithHttpInfo($system_id, $array_id, string $contentType = self::contentTypes['deleteSystemArray'][0])
     {
-        $request = $this->deleteSystemArrayRequest($system_id, $id, $contentType);
+        $request = $this->deleteSystemArrayRequest($system_id, $array_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -398,15 +398,15 @@ class ArraysApi
      * Delete an array by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. (required)
+     * @param  int $array_id Array ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSystemArrayAsync($system_id, $id, string $contentType = self::contentTypes['deleteSystemArray'][0])
+    public function deleteSystemArrayAsync($system_id, $array_id, string $contentType = self::contentTypes['deleteSystemArray'][0])
     {
-        return $this->deleteSystemArrayAsyncWithHttpInfo($system_id, $id, $contentType)
+        return $this->deleteSystemArrayAsyncWithHttpInfo($system_id, $array_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -420,16 +420,16 @@ class ArraysApi
      * Delete an array by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. (required)
+     * @param  int $array_id Array ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSystemArrayAsyncWithHttpInfo($system_id, $id, string $contentType = self::contentTypes['deleteSystemArray'][0])
+    public function deleteSystemArrayAsyncWithHttpInfo($system_id, $array_id, string $contentType = self::contentTypes['deleteSystemArray'][0])
     {
         $returnType = '\EnphaseOpenAPI\Commissioning\Model\DeleteSystemArrayResponse';
-        $request = $this->deleteSystemArrayRequest($system_id, $id, $contentType);
+        $request = $this->deleteSystemArrayRequest($system_id, $array_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -471,13 +471,13 @@ class ArraysApi
      * Create request for operation 'deleteSystemArray'
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. (required)
+     * @param  int $array_id Array ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteSystemArrayRequest($system_id, $id, string $contentType = self::contentTypes['deleteSystemArray'][0])
+    public function deleteSystemArrayRequest($system_id, $array_id, string $contentType = self::contentTypes['deleteSystemArray'][0])
     {
 
         // verify the required parameter 'system_id' is set
@@ -487,15 +487,15 @@ class ArraysApi
             );
         }
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'array_id' is set
+        if ($array_id === null || (is_array($array_id) && count($array_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteSystemArray'
+                'Missing the required parameter $array_id when calling deleteSystemArray'
             );
         }
 
 
-        $resourcePath = '/systems/{system_id}/arrays/{id}';
+        $resourcePath = '/partner/systems/{system_id}/arrays/{array_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -513,10 +513,10 @@ class ArraysApi
             );
         }
         // path params
-        if ($id !== null) {
+        if ($array_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'array_id' . '}',
+                ObjectSerializer::toPathValue($array_id),
                 $resourcePath
             );
         }
@@ -590,16 +590,16 @@ class ArraysApi
      * Fetch array details by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemArray'] to see the possible values for this operation
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
-    public function getSystemArray($system_id, $id, string $contentType = self::contentTypes['getSystemArray'][0])
+    public function getSystemArray($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
-        list($response) = $this->getSystemArrayWithHttpInfo($system_id, $id, $contentType);
+        list($response) = $this->getSystemArrayWithHttpInfo($system_id, $array_id, $contentType);
         return $response;
     }
 
@@ -609,16 +609,16 @@ class ArraysApi
      * Fetch array details by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemArray'] to see the possible values for this operation
      *
      * @throws \EnphaseOpenAPI\Commissioning\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemArrayWithHttpInfo($system_id, $id, string $contentType = self::contentTypes['getSystemArray'][0])
+    public function getSystemArrayWithHttpInfo($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
-        $request = $this->getSystemArrayRequest($system_id, $id, $contentType);
+        $request = $this->getSystemArrayRequest($system_id, $array_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -848,15 +848,15 @@ class ArraysApi
      * Fetch array details by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemArrayAsync($system_id, $id, string $contentType = self::contentTypes['getSystemArray'][0])
+    public function getSystemArrayAsync($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
-        return $this->getSystemArrayAsyncWithHttpInfo($system_id, $id, $contentType)
+        return $this->getSystemArrayAsyncWithHttpInfo($system_id, $array_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -870,16 +870,16 @@ class ArraysApi
      * Fetch array details by ID
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemArrayAsyncWithHttpInfo($system_id, $id, string $contentType = self::contentTypes['getSystemArray'][0])
+    public function getSystemArrayAsyncWithHttpInfo($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
         $returnType = '\EnphaseOpenAPI\Commissioning\Model\ModelArray';
-        $request = $this->getSystemArrayRequest($system_id, $id, $contentType);
+        $request = $this->getSystemArrayRequest($system_id, $array_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -921,13 +921,13 @@ class ArraysApi
      * Create request for operation 'getSystemArray'
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Fetch particular system Array details&#39; endpoint. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemArrayRequest($system_id, $id, string $contentType = self::contentTypes['getSystemArray'][0])
+    public function getSystemArrayRequest($system_id, $array_id, string $contentType = self::contentTypes['getSystemArray'][0])
     {
 
         // verify the required parameter 'system_id' is set
@@ -937,15 +937,15 @@ class ArraysApi
             );
         }
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'array_id' is set
+        if ($array_id === null || (is_array($array_id) && count($array_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getSystemArray'
+                'Missing the required parameter $array_id when calling getSystemArray'
             );
         }
 
 
-        $resourcePath = '/systems/{system_id}/arrays/{id}';
+        $resourcePath = '/partner/systems/{system_id}/arrays/{array_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -963,10 +963,10 @@ class ArraysApi
             );
         }
         // path params
-        if ($id !== null) {
+        if ($array_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'array_id' . '}',
+                ObjectSerializer::toPathValue($array_id),
                 $resourcePath
             );
         }
@@ -1360,7 +1360,7 @@ class ArraysApi
         }
 
 
-        $resourcePath = '/systems/{system_id}/arrays';
+        $resourcePath = '/partner/systems/{system_id}/arrays';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1447,7 +1447,7 @@ class ArraysApi
      * Update particular system array details
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\ArrayParams $params params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemArray'] to see the possible values for this operation
      *
@@ -1455,9 +1455,9 @@ class ArraysApi
      * @throws \InvalidArgumentException
      * @return \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError
      */
-    public function updateSystemArray($system_id, $id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
+    public function updateSystemArray($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
-        list($response) = $this->updateSystemArrayWithHttpInfo($system_id, $id, $params, $contentType);
+        list($response) = $this->updateSystemArrayWithHttpInfo($system_id, $array_id, $params, $contentType);
         return $response;
     }
 
@@ -1467,7 +1467,7 @@ class ArraysApi
      * Update particular system array details
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\ArrayParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemArray'] to see the possible values for this operation
      *
@@ -1475,9 +1475,9 @@ class ArraysApi
      * @throws \InvalidArgumentException
      * @return array of \EnphaseOpenAPI\Commissioning\Model\ModelArray|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\ServerError|\EnphaseOpenAPI\Commissioning\Model\UnprocessableEntityError|\EnphaseOpenAPI\Commissioning\Model\TooManyRequestsError|\EnphaseOpenAPI\Commissioning\Model\ServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSystemArrayWithHttpInfo($system_id, $id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
+    public function updateSystemArrayWithHttpInfo($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
-        $request = $this->updateSystemArrayRequest($system_id, $id, $params, $contentType);
+        $request = $this->updateSystemArrayRequest($system_id, $array_id, $params, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1707,16 +1707,16 @@ class ArraysApi
      * Update particular system array details
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\ArrayParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSystemArrayAsync($system_id, $id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
+    public function updateSystemArrayAsync($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
-        return $this->updateSystemArrayAsyncWithHttpInfo($system_id, $id, $params, $contentType)
+        return $this->updateSystemArrayAsyncWithHttpInfo($system_id, $array_id, $params, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1730,17 +1730,17 @@ class ArraysApi
      * Update particular system array details
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\ArrayParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSystemArrayAsyncWithHttpInfo($system_id, $id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
+    public function updateSystemArrayAsyncWithHttpInfo($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
         $returnType = '\EnphaseOpenAPI\Commissioning\Model\ModelArray';
-        $request = $this->updateSystemArrayRequest($system_id, $id, $params, $contentType);
+        $request = $this->updateSystemArrayRequest($system_id, $array_id, $params, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1782,14 +1782,14 @@ class ArraysApi
      * Create request for operation 'updateSystemArray'
      *
      * @param  int $system_id System ID. (required)
-     * @param  int $id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
+     * @param  int $array_id Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. (required)
      * @param  \EnphaseOpenAPI\Commissioning\Model\ArrayParams $params (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemArray'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSystemArrayRequest($system_id, $id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
+    public function updateSystemArrayRequest($system_id, $array_id, $params = null, string $contentType = self::contentTypes['updateSystemArray'][0])
     {
 
         // verify the required parameter 'system_id' is set
@@ -1799,16 +1799,16 @@ class ArraysApi
             );
         }
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'array_id' is set
+        if ($array_id === null || (is_array($array_id) && count($array_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateSystemArray'
+                'Missing the required parameter $array_id when calling updateSystemArray'
             );
         }
 
 
 
-        $resourcePath = '/systems/{system_id}/arrays/{id}';
+        $resourcePath = '/partner/systems/{system_id}/arrays/{array_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1826,10 +1826,10 @@ class ArraysApi
             );
         }
         // path params
-        if ($id !== null) {
+        if ($array_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'array_id' . '}',
+                ObjectSerializer::toPathValue($array_id),
                 $resourcePath
             );
         }
@@ -2259,7 +2259,7 @@ class ArraysApi
 
 
 
-        $resourcePath = '/systems/{system_id}/arrays';
+        $resourcePath = '/partner/systems/{system_id}/arrays';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -5,14 +5,14 @@ All URIs are relative to */api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createPartnerActivation**](ActivationsApi.md#createPartnerActivation) | **POST** /partner/activations | Create new activation
-[**deleteActivation**](ActivationsApi.md#deleteActivation) | **DELETE** /activations/{id} | Delete an activation by ID
+[**deleteActivation**](ActivationsApi.md#deleteActivation) | **DELETE** /partner/activations/{activation_id} | Delete an activation by ID
 [**getActivationOpsProductionMode**](ActivationsApi.md#getActivationOpsProductionMode) | **GET** /activations/{activation_id}/ops/production_mode | Get production mode
-[**getPartnerActivation**](ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{id} | Retrieves an Activation by ID
+[**getPartnerActivation**](ActivationsApi.md#getPartnerActivation) | **GET** /partner/activations/{activation_id} | Retrieves an Activation by ID
 [**getPartnerActivations**](ActivationsApi.md#getPartnerActivations) | **GET** /partner/activations | List of Activations
 [**grantActivationUserAccess**](ActivationsApi.md#grantActivationUserAccess) | **POST** /activations/{activation_id}/users/{user_id} | Grant Access
 [**revokeActivationUserAccess**](ActivationsApi.md#revokeActivationUserAccess) | **DELETE** /activations/{activation_id}/users/{user_id} | Revoke Access
 [**setActivationOpsProductionMode**](ActivationsApi.md#setActivationOpsProductionMode) | **POST** /activations/{activation_id}/ops/production_mode | Set production mode
-[**updatePartnerActivation**](ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{id} | Update an activation.
+[**updatePartnerActivation**](ActivationsApi.md#updatePartnerActivation) | **PUT** /partner/activations/{activation_id} | Update an activation.
 
 
 
@@ -60,7 +60,7 @@ To delete an activation, the activation stage must be less than 3 and there are 
 ### Example
 
 ```bash
- deleteActivation id=value
+ deleteActivation activation_id=value
 ```
 
 ### Parameters
@@ -68,7 +68,7 @@ To delete an activation, the activation stage must be less than 3 and there are 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | Enlighten ID of the activation(system). | [default to null]
+ **activationId** | **integer** | Enlighten ID of the activation(system). | [default to null]
 
 ### Return type
 
@@ -130,7 +130,7 @@ By default, the body of the response looks like the example below. However, you 
 ### Example
 
 ```bash
- getPartnerActivation id=value  expand=value
+ getPartnerActivation activation_id=value  expand=value
 ```
 
 ### Parameters
@@ -138,7 +138,7 @@ By default, the body of the response looks like the example below. However, you 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | Enlighten ID of the activation(system). System-generated. | [default to null]
+ **activationId** | **integer** | Enlighten ID of the activation(system). System-generated. | [default to null]
  **expand** | [**SystemExpandEnum**](.md) | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. | [optional] [default to null]
 
 ### Return type
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **next** | **string** | If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field. | [optional] [default to null]
  **limit** | **integer** | There is a limit to the number of activations which can be returned at one time. | [optional] [default to null]
- **stage** | [**SystemStageEnum**](.md) | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. | [optional] [default to null]
+ **stage** | [**SystemStageEnum**](.md) | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. | [optional] [default to null]
  **reference** | **string** | Filter activations by company reference. | [optional] [default to null]
  **installerId** | **integer** | Filter activations by installer ID. | [optional] [default to null]
  **systemName** | **string** | Filter activations by system name. | [optional] [default to null]
@@ -317,7 +317,7 @@ Update an activation.
 ### Example
 
 ```bash
- updatePartnerActivation id=value
+ updatePartnerActivation activation_id=value
 ```
 
 ### Parameters
@@ -325,7 +325,7 @@ Update an activation.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | Enlighten ID of the activation(system). System-generated. | [default to null]
+ **activationId** | **integer** | Enlighten ID of the activation(system). System-generated. | [default to null]
  **params** | **SystemParams** |  | [optional]
 
 ### Return type
