@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: The Enphase Commissioning API
   description: Commissioning API can be used to create and update activations on a site, manage companies and users, update Tariff, etc.
-  version: "4.0"
+  version: '4.0'
   termsOfService: https://enphase.com/legal/terms-of-service
   license:
     name: Enphase Energy API License Agreement.
@@ -35,7 +35,7 @@ paths:
         - name: stage
           in: query
           description: Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter.
-            E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems.
+            E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value.
           schema:
             $ref: '#/components/schemas/SystemStageEnum'
         - name: reference
@@ -131,7 +131,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
-  /partner/activations/{id}:
+  /partner/activations/{activation_id}:
     get:
       operationId: GetPartnerActivation
       tags:
@@ -143,7 +143,7 @@ paths:
         By using expand=host will include details about the system host. You can also expand the host's company by using expand=host.company.
         The response now includes information about the host and the company he belongs to.
       parameters:
-        - name: id
+        - name: activation_id
           in: path
           description: Enlighten ID of the activation(system). System-generated.
           required: true
@@ -178,7 +178,7 @@ paths:
       summary: Update an activation.
       description: Update an activation.
       parameters:
-        - name: id
+        - name: activation_id
           in: path
           description: Enlighten ID of the activation(system). System-generated.
           required: true
@@ -215,7 +215,6 @@ paths:
         501:
           $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
-  /activations/{id}:
     delete:
       operationId: DeleteActivation
       tags:
@@ -223,7 +222,7 @@ paths:
       summary: Delete an activation by ID
       description: To delete an activation, the activation stage must be less than 3 and there are no active devices associated with it.
       parameters:
-        - name: id
+        - name: activation_id
           in: path
           description: Enlighten ID of the activation(system).
           required: true
@@ -805,7 +804,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
-  /users/{user_id}:
+  /partner/users/{user_id}:
     get:
       operationId: GetUser
       tags:
@@ -851,6 +850,7 @@ paths:
           $ref: '#/components/responses/TooManyRequestsError'
         501:
           $ref: '#/components/responses/NotImplementedError'
+  /users/{user_id}:
     put:
       operationId: UpdateUser
       tags:
@@ -898,7 +898,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
-  /users/self:
+  /partner/users/self:
     get:
       operationId: GetSelfUser
       tags:
@@ -952,6 +952,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetSelfCompanyBranchesResponse'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        405:
+          $ref: '#/components/responses/MethodNotAllowedError'
+        429:
+          $ref: '#/components/responses/TooManyRequestsError'
+        501:
+          $ref: '#/components/responses/NotImplementedError'
+  /companies/self/authorized_subcontractors:
+    get:
+      operationId: GetSelfCompanyAuthorizedSubcontractors
+      tags:
+        - Companies
+      summary: User's company and its authorized subcontractors.
+      description: Returns all the authorized subcontractors of a given company, if any.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSelfCompanyAuthorizedSubcontractorsResponse'
         401:
           $ref: '#/components/responses/UnauthorizedError'
         405:
@@ -1038,7 +1060,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
-  /grid_profiles:
+  /partner/grid_profiles:
     get:
       operationId: GetGridProfiles
       tags:
@@ -1321,7 +1343,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
-  /systems/{system_id}/arrays:
+  /partner/systems/{system_id}/arrays:
     get:
       operationId: GetSystemArrays
       tags:
@@ -1402,7 +1424,7 @@ paths:
         501:
           $ref: '#/components/responses/NotImplementedError'
       x-codegen-request-body-name: params
-  /systems/{system_id}/arrays/{id}:
+  /partner/systems/{system_id}/arrays/{array_id}:
     get:
       operationId: GetSystemArray
       tags:
@@ -1416,7 +1438,7 @@ paths:
           required: true
           schema:
             type: integer
-        - name: id
+        - name: array_id
           in: path
           description: Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Fetch particular system Array details' endpoint.
           required: true
@@ -1466,7 +1488,7 @@ paths:
           required: true
           schema:
             type: integer
-        - name: id
+        - name: array_id
           in: path
           description: Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
           required: true
@@ -1517,7 +1539,7 @@ paths:
           required: true
           schema:
             type: integer
-        - name: id
+        - name: array_id
           in: path
           description: Array ID.
           required: true
@@ -1571,6 +1593,9 @@ components:
               status:
                 type: string
                 description: System's status.
+              timezone:
+                type: string
+                description: System's timezone.
               stage:
                 type: integer
                 description: What stage of the activation process this activation is in. System-generated.
@@ -1590,7 +1615,7 @@ components:
                 description: Enlighten ID of this system owner. System-generated.
               host:
                 type: string
-                description: Name of the system host. Please see "Specifying an Owner and Lease Arrangement", above, for more information.
+                description: Name of the system host.
               host_id:
                 type: integer
                 description: Enlighten ID of this system host. System-generated.
@@ -1599,7 +1624,28 @@ components:
                 description: Name of the installer.
               installer_id:
                 type: integer
-                description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
+                description: Enlighten ID of the installer of this system.
+              maintainer_name:
+                type: string
+                description: Name of the maintainer.
+              maintainer_id:
+                type: integer
+                description: Enlighten ID of the maintainer of this system.
+              authorized_subcontractors:
+                type: array
+                description: List of sub-contractors of this system.
+                items:
+                  type: object
+                  properties:
+                    authorized_subcontractor_id:
+                      type: integer
+                      description: The Enlighten ID of the sub-contractor of this system. System-generated.
+                    authorized_subcontractor_name:
+                      type: string
+                      description: Name of the sub-contractor of this system.
+                    status:
+                      type: string
+                      description: Current status of the subcontractor for the site. This field will be shown only for pending and rejected sub-contractors.
               uri:
                 type: string
                 description: URI for this activation.
@@ -1629,6 +1675,7 @@ components:
             system_name: System name
             system_type: residential
             status: Normal
+            timezone: US/Pacific
             stage: 5
             internet_connection: dialup
             lease: false
@@ -1639,6 +1686,14 @@ components:
             host_id: Host name
             installer_name: Enphase & Energy
             installer_id: 1
+            maintainer_name: Enphase & Energy
+            maintainer_id: 5
+            authorized_subcontractors:
+              - authorized_subcontractor_id: 67
+                authorized_subcontractor_name: Enphase India
+              - authorized_subcontractor_id: 68
+                authorized_subcontractor_name: Enphase India
+                status: Pending for system owner approval
             uri: /api/v4/partner/activations/12345.json
             updated_at: 1628153151
             reference: ENPH123
@@ -1648,7 +1703,7 @@ components:
               street1: Bangalore Lane
               city: San Diego
               state: CA
-              postal_code: "92126"
+              postal_code: '92126'
               country: US
               latitude: 32.912785
               longitude: -117.153778
@@ -1887,6 +1942,51 @@ components:
             roles:
               - installer
             uri: /api/v4/companies/81.json
+    GetSelfCompanyAuthorizedSubcontractorsResponse:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          description: Enlighten ID of the API user's company.
+        company_name:
+          type: string
+          description: Name of the API user's company.
+        authorized_subcontractors:
+          type: array
+          description: A list of subcontractors belonging to the API user's company. May be empty.
+          items:
+            type: object
+            properties:
+              company_id:
+                type: integer
+                description: Enlighten ID of the company.
+              company_name:
+                type: string
+                description: Name of the company.
+              location:
+                type: string
+                description: Company location.
+              roles:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyRoleEnum'
+              uri:
+                type: string
+                description: URI to the show() method for the company. System-generated.
+              status:
+                type: string
+                description: Whether the subcontractor is enabled or disabled.
+      example:
+        company_id: 9
+        company_name: Super Solar
+        authorized_subcontractors:
+          - company_id: 81
+            company_name: Super Solar North
+            location: Petaluma, CA - US
+            roles:
+              - installer
+            uri: /api/v4/companies/81.json
+            status: Enabled
     GetActivationEstimateResponse:
       $ref: '#/components/schemas/SystemEstimate'
     UpdateActivationEstimateRequest:
@@ -2013,7 +2113,7 @@ components:
           type: string
           description: Meter state.
       example:
-        serial_number: "123456789012"
+        serial_number: '123456789012'
         manufacturer: Enphase Energy
         model: Envoy S
         type: production
@@ -2021,7 +2121,7 @@ components:
         first_report_date: 2020-06-11T22:15:00-08:00
         last_report_date: 2020-06-14T22:15:00-08:00
         phase: L1(A)
-        envoy_serial_number: "121832000404"
+        envoy_serial_number: '121832000404'
         status: normal
         state: enabled
     UpdateSystemMeterResponse:
@@ -2044,7 +2144,7 @@ components:
           format: date
           description: Operational date.
       example:
-        serial_number: "123456789012"
+        serial_number: '123456789012'
         manufacturer: Enphase Energy
         model: Envoy S
         type: production
@@ -2064,7 +2164,7 @@ components:
           items:
             type: string
       example:
-        reason: "200"
+        reason: '200'
         message:
           - Enable task sent to meter. Please wait until meter is enabled
     GetPvManufacturersResponse:
@@ -2219,6 +2319,9 @@ components:
         status:
           type: string
           description: System's status.
+        timezone:
+          type: string
+          description: System's timezone.
         stage:
           type: integer
           description: What stage of the activation process this activation is in. System-generated.
@@ -2284,8 +2387,7 @@ components:
           description: Enlighten ID of this system owner. System-generated. This field is optional.
         host:
           type: object
-          description: Name of the system host. Please see "Specifying an Owner and Lease Arrangement", above, for more information.
-            If the query parameter 'expand=host' passed in the request host detail will appear in the response.
+          description: Name of the system host. If the query parameter 'expand=host' passed in the request host detail will appear in the response.
           properties:
             first_name:
               type: string
@@ -2340,6 +2442,27 @@ components:
         installer_id:
           type: integer
           description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
+        maintainer_name:
+          type: string
+          description: Name of the maintainer.
+        maintainer_id:
+          type: integer
+          description: The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+        authorized_subcontractors:
+          type: array
+          description: List of sub-contractors of this system.
+          items:
+            type: object
+            properties:
+              authorized_subcontractor_id:
+                type: integer
+                description: The Enlighten ID of the sub-contractor of this system. System-generated.
+              authorized_subcontractor_name:
+                type: string
+                description: Name of the sub-contractor of this system.
+              status:
+                type: string
+                description: Current status of the subcontractor for the site. This field will be shown only for pending and rejected sub-contractors.
         uri:
           type: string
           description: URI for this activation.
@@ -2470,6 +2593,7 @@ components:
         system_name: Enphase system
         system_type: residential
         status: Microinverters Not Reporting
+        timezone: US/Pacific
         stage: 5
         internet_connection: dialup
         lease: false
@@ -2478,7 +2602,7 @@ components:
           first_name: Test
           last_name: Owner
           email: testowner@domain.com
-          phone: "9876543210"
+          phone: '9876543210'
           active: true
           user_id: 246
           user_roles: [ ]
@@ -2498,7 +2622,7 @@ components:
           first_name: Test
           last_name: User
           email: testhost@domain.com
-          phone: "9876543210"
+          phone: '9876543210'
           active: true
           user_id: 248
           user_roles: [ ]
@@ -2516,13 +2640,18 @@ components:
         host_id: 248
         installer_name: Enphase & Energy
         installer_id: 5
+        maintainer_name: Enphase & Energy
+        maintainer_id: 5
+        authorized_subcontractors:
+          - authorized_subcontractor_id: 67
+            authorized_subcontractor_name: Enphase India
         uri: /api/v4/partner/activations/12345.json
         updated_at: 1628156578
         allow_public_access: true
         source: microinverters
         production_mode: on
         envoy_serial_numbers:
-          - "202040004942"
+          - '202040004942'
         expected_envoy_count: 1
         expected_pcu_count: 4
         expected_acb_count: 0
@@ -2531,21 +2660,21 @@ components:
         expected_encharge_count: 4
         expected_enpower_count: 1
         encharge:
-          - envoy_serial_number: "202040004942"
+          - envoy_serial_number: '202040004942'
             encharge_serial_numbers:
-              - "122038023664"
-              - "122038023672"
-              - "122050050473"
-              - "122050050474"
+              - '122038023664'
+              - '122038023672'
+              - '122050050473'
+              - '122050050474'
         enpower:
-          - envoy_serial_number: "202040004942"
+          - envoy_serial_number: '202040004942'
             enpower_serial_numbers:
-              - "122051103228"
+              - '122051103228'
         address:
           street1: Bangalore Lane
           city: San Diego
           state: CA
-          postal_code: "92126"
+          postal_code: '92126'
           country: US
           latitude: 32.912785
           longitude: -117.153778
@@ -2577,9 +2706,33 @@ components:
           description: Enlighten ID of the system host. System host must be an Enlighten user. Optional.
             If the user of the API is an installer then use the Search user API to get the host user ID.
             If the host not exist in the enlighten then use Create home owner API to create it newly.
+        authorized_subcontractor_id:
+          type: integer
+          description: Enlighten ID of the sub-contractor you want to add to the system. Optional. If you are the home owner, you cannot add subcontractors for the site.
         installer_id:
           type: integer
           description: Enlighten ID of the installer of this system. Defaults to current user's company ID.
+        maintainer_name:
+          type: string
+          description: Name of the maintainer.
+        maintainer_id:
+          type: integer
+          description: The Enlighten ID of the maintainer of this system. Defaults to current user's company ID.
+        authorized_subcontractors:
+          type: array
+          description: List of sub-contractors of this system.
+          items:
+            type: object
+            properties:
+              authorized_subcontractor_id:
+                type: integer
+                description: The Enlighten ID of the sub-contractor of this system. System-generated.
+              authorized_subcontractor_name:
+                type: string
+                description: Name of the sub-contractor of this system.
+              status:
+                type: string
+                description: Current status of the subcontractor for the site. This field will be shown only for pending and rejected sub-contractors.
         allow_public_access:
           type: boolean
           description: When true, the system will be eligible to appear in the public systems lists of Enphase and the system's installer. Default true.
@@ -2812,20 +2965,20 @@ components:
             type: string
       example:
         system_id: 67
-        degrade_factor: "0.4"
+        degrade_factor: '0.4'
         month_estimates:
-          - "3112.0"
-          - "3248.0"
-          - "3805.0"
-          - "4437.0"
-          - "4266.0"
-          - "3998.0"
-          - "4034.0"
-          - "3840.0"
-          - "3647.0"
-          - "3551.0"
-          - "2926.0"
-          - "2872.0"
+          - '3112.0'
+          - '3248.0'
+          - '3805.0'
+          - '4437.0'
+          - '4266.0'
+          - '3998.0'
+          - '4034.0'
+          - '3840.0'
+          - '3647.0'
+          - '3551.0'
+          - '2926.0'
+          - '2872.0'
     TariffSettings:
       type: object
       properties:
@@ -2870,8 +3023,8 @@ components:
           currency:
             code: AUD
           single_rate:
-            rate: "1"
-            sell: "1"
+            rate: '1'
+            sell: '1'
           seasons:
             - id: all_year_long
               start: 1/1
@@ -2883,27 +3036,27 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "10"
+                      rate: '10'
                       error: { }
                     - id: period_2
                       start: 240
-                      rate: "12"
+                      rate: '12'
                       error: { }
                     - id: period_3
                       start: 480
-                      rate: "10"
+                      rate: '10'
                       error: { }
                     - id: period_4
                       start: 720
-                      rate: "12"
+                      rate: '12'
                       error: { }
                     - id: period_5
                       start: 960
-                      rate: "10"
+                      rate: '10'
                       error: { }
                     - id: period_6
                       start: 1200
-                      rate: "12"
+                      rate: '12'
                       error: { }
                   enable_charge_from_grid: true
                   enable_discharge_to_grid: true
@@ -2914,7 +3067,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
                   enable_charge_from_grid: false
                   enable_discharge_to_grid: false
             - id: summer
@@ -2927,7 +3080,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
                 - id: weekend
                   days: Sun,Sat
                   must_charge_start: 0
@@ -2935,7 +3088,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
             - id: fall
               start: 6/1
               days:
@@ -2946,7 +3099,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
                 - id: weekend
                   days: Sun,Sat
                   must_charge_start: 0
@@ -2954,7 +3107,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
             - id: winter
               start: 9/1
               days:
@@ -2965,7 +3118,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
                 - id: weekend
                   days: Sun,Sat
                   must_charge_start: 0
@@ -2973,7 +3126,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
             - id: spring
               start: 10/1
               days:
@@ -2984,7 +3137,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
                 - id: weekend
                   days: Sun,Sat
                   must_charge_start: 0
@@ -2992,7 +3145,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
           seasons_sell:
             - id: all_year_long
               start: 1/1
@@ -3004,7 +3157,7 @@ components:
                   periods:
                     - id: period_1
                       start: 0
-                      rate: "1"
+                      rate: '1'
         task:
           status: pending
           created_at: 2021-06-24T13:29:16Z
@@ -3086,10 +3239,10 @@ components:
           - id: 207359
             label: First
             angle: 0
-            tilt: "30.0"
+            tilt: '30.0'
             reporting_envoys:
-              - "121625050638"
-            provisioned_envoy: "121616035667"
+              - '121625050638'
+            provisioned_envoy: '121616035667'
             updated_at: 1500983465
             left: 29
             top: -3
@@ -3098,17 +3251,17 @@ components:
                 left: 300
                 top: 202
                 angle: 0
-                serial_num: "121501065212"
+                serial_num: '121501065212'
         inventory:
-          - "121418008963"
-          - "121338007327"
+          - '121418008963'
+          - '121338007327'
         inventory_details:
           - type: Wireless Range Extender
             count: 1
-            serialNum: "212323223351"
+            serialNum: '212323223351'
           - type: M215
             count: 1
-            serialNum: "222323223363"
+            serialNum: '222323223363'
         layers:
           - file: example.jpg
             scale: 34
@@ -3175,10 +3328,10 @@ components:
         id: 207359
         label: First
         angle: 0
-        tilt: "30.0"
+        tilt: '30.0'
         reporting_envoys:
-          - "121625050638"
-        provisioned_envoy: "121625050638"
+          - '121625050638'
+        provisioned_envoy: '121625050638'
         updated_at: 1567074167
         left: 29
         top: -3
@@ -3187,7 +3340,7 @@ components:
             left: 300
             top: 202
             angle: 0
-            serial_num: "121501065212"
+            serial_num: '121501065212'
     ArrayParams:
       required:
         - angle
@@ -3323,11 +3476,11 @@ components:
     SystemStageEnum:
       type: string
       enum:
-        - "1"
-        - "2"
-        - "3"
-        - "4"
-        - "5"
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
         - in_progress
     SystemExpandEnum:
       type: string
@@ -3433,7 +3586,7 @@ components:
           type: integer
           description: Limit count for the period.
       example:
-        reason: "429"
+        reason: '429'
         message:
           - Usage limit exceeded for plan Partner (custom)
         period: minute
@@ -3457,7 +3610,7 @@ components:
           schema:
             $ref: '#/components/schemas/ServerError'
           example:
-            reason: "401"
+            reason: '401'
             message:
               - Not authorized to access requested resource.
               - API Key missing in url/headers!
@@ -3468,7 +3621,7 @@ components:
           schema:
             $ref: '#/components/schemas/ServerError'
           example:
-            reason: "404"
+            reason: '404'
             message:
               - System not found
     MethodNotAllowedError:
@@ -3478,7 +3631,7 @@ components:
           schema:
             $ref: '#/components/schemas/ServerError'
           example:
-            reason: "405"
+            reason: '405'
             message:
               - Method not allowed
     TooManyRequestsError:
@@ -3494,7 +3647,7 @@ components:
           schema:
             $ref: '#/components/schemas/ServerError'
           example:
-            reason: "501"
+            reason: '501'
             message:
               - Not Implemented
   securitySchemes:
