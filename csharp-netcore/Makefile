@@ -42,6 +42,7 @@ define generate
 	$(OPENAPICLI) generate -i ../$(1).yaml -g $(lang) -o ./$(1) --package-name $(proj).$(shell str=$(1); echo $${str^}) --git-user-id $(author) --git-repo-id $(proj) --http-user-agent $(proj)/$(lang) -p useDateTimeOffset=true
 	cd ./$(1)
 	dos2unix -o ./.openapi-generator/FILES
+	sed -Ei -z "s/(\"-\w+\"\)]\n\s+\w+)/\1Desc/g" ./src/EnphaseOpenAPI.Monitoring/Model/*Enum.cs || true
 	dotnet outdated -vl major -u
 	dotnet build
 endef

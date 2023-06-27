@@ -54,19 +54,19 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// Enum Id for value: -id
         /// </summary>
         [EnumMember(Value = "-id")]
-        Id = 4,
+        IdDesc = 4,
 
         /// <summary>
         /// Enum Name for value: -name
         /// </summary>
         [EnumMember(Value = "-name")]
-        Name = 5,
+        NameDesc = 5,
 
         /// <summary>
         /// Enum LastReportDate for value: -last_report_date
         /// </summary>
         [EnumMember(Value = "-last_report_date")]
-        LastReportDate = 6
+        LastReportDateDesc = 6
 
     }
 
