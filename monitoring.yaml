@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: The Enphase Monitoring API
   description: Monitoring API can be used to fetch system details on a site, system-level production and consumption data, and device-level production data.
-  version: "4.0"
+  version: '4.0'
   termsOfService: https://enphase.com/legal/terms-of-service
   license:
     name: Enphase Energy API License Agreement.
@@ -1211,7 +1211,7 @@ paths:
                 $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
-                details: System doesn't have encharges
+                details: System doesn't have encharge
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequestsError'
@@ -1219,6 +1219,51 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplementedError'
+    put:
+      operationId: UpdateSystemBatterySettings
+      tags:
+        - System Configurations
+      summary: Updates the current battery settings of a system
+      description: Updates the current battery settings of a system.
+      parameters:
+        - $ref: '#/components/parameters/SystemId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemBatterySettingsRequest'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemBatterySettingsResponse'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        403:
+          $ref: '#/components/responses/ForbiddenError'
+        404:
+          $ref: '#/components/responses/NotFoundError'
+        405:
+          $ref: '#/components/responses/MethodNotAllowedError'
+        422:
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+              example:
+                message: Unprocessable Entity
+                details: System doesn't have encharge
+                code: 422
+        429:
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+        501:
+          $ref: '#/components/responses/NotImplementedError'
+      x-codegen-request-body-name: battery_settings
   /systems/config/{system_id}/storm_guard:
     get:
       operationId: GetSystemStormGuardSettings
@@ -1251,7 +1296,7 @@ paths:
                 $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
-                details: System doesn't have encharges
+                details: System doesn't have encharge
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequestsError'
@@ -1259,13 +1304,60 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplementedError'
+    put:
+      operationId: UpdateSystemStormGuardSettings
+      tags:
+        - System Configurations
+      summary: Updates the current storm guard settings of a system
+      description: Updates the current storm guard status of a system.
+      parameters:
+        - $ref: '#/components/parameters/SystemId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemStormGuardSettingsRequest'
+      responses:
+        200:
+          description: storm_guard
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemStormGuardSettingsResponse'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        403:
+          $ref: '#/components/responses/ForbiddenError'
+        404:
+          $ref: '#/components/responses/NotFoundError'
+        405:
+          $ref: '#/components/responses/MethodNotAllowedError'
+        422:
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+              example:
+                message: Unprocessable Entity
+                details: System doesn't have encharge
+                code: 422
+        429:
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+        501:
+          $ref: '#/components/responses/NotImplementedError'
+      x-codegen-request-body-name: storm_guard
   /systems/config/{system_id}/grid_status:
     get:
       operationId: GetSystemGridStatusSettings
       tags:
         - System Configurations
-      summary: Returns the current grid status settings of a system
-      description: Returns the current grid status settings of a system.
+      summary: Returns the current grid status of a system.
+      description: |-
+        Returns the current grid status of a system.
+        Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
       parameters:
         - $ref: '#/components/parameters/SystemId'
       responses:
@@ -1291,7 +1383,7 @@ paths:
                 $ref: '#/components/schemas/ClientError'
               example:
                 message: Unprocessable Entity
-                details: System doesn't have encharges
+                details: grid_state not available as the site has not reported yet
                 code: 422
         429:
           $ref: '#/components/responses/TooManyRequestsError'
@@ -1323,16 +1415,40 @@ paths:
           $ref: '#/components/responses/NotFoundError'
         405:
           $ref: '#/components/responses/MethodNotAllowedError'
-        422:
-          description: Unprocessable Entity
+        429:
+          $ref: '#/components/responses/TooManyRequestsError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+        501:
+          $ref: '#/components/responses/NotImplementedError'
+    put:
+      operationId: UpdateSystemLoadControlSettings
+      tags:
+        - System Configurations
+      summary: Updates the current load control settings of a system
+      description: Updates the current load control settings of a system.
+      parameters:
+        - $ref: '#/components/parameters/SystemId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemLoadControlSettingsRequest'
+      responses:
+        200:
+          description: load_control
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientError'
-              example:
-                message: Unprocessable Entity
-                details: System doesn't have encharges
-                code: 422
+                $ref: '#/components/schemas/UpdateSystemLoadControlSettingsResponse'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        403:
+          $ref: '#/components/responses/ForbiddenError'
+        404:
+          $ref: '#/components/responses/NotFoundError'
+        405:
+          $ref: '#/components/responses/MethodNotAllowedError'
         429:
           $ref: '#/components/responses/TooManyRequestsError'
         500:
@@ -1348,7 +1464,7 @@ paths:
       description: |-
         Retrieves energy imported from grid in regular intervals.
         If no start_at is specified, defaults to midnight today, in the timezone of the system.
-        If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
         The end_at is calculated as the minimum of the time of the request and (start time + granularity).
         The meaning of granularity is as follows:
         
@@ -1372,7 +1488,7 @@ paths:
             $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
-          description: Telemetry for all production micros.
+          description: Energy import telemetry in intervals.
           content:
             application/json:
               schema:
@@ -1411,7 +1527,7 @@ paths:
       summary: Retrieves energy exported to grid in regular intervals
       description: |-
         Retrieves energy exported to grid in regular intervals. If no start_at is specified, defaults to midnight today, in the timezone of the system.
-        If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
         The end_at is calculated as the minimum of the time of the request and (start time + granularity).
         The meaning of granularity is as follows:
         
@@ -1435,7 +1551,7 @@ paths:
             $ref: '#/components/schemas/TelemetryGranularityEnum'
       responses:
         200:
-          description: Telemetry for all production micros.
+          description: Energy export telemetry in intervals.
           content:
             application/json:
               schema:
@@ -1466,6 +1582,557 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         501:
           $ref: '#/components/responses/NotImplementedError'
+  /systems/{system_id}/live_data:
+    get:
+      operationId: StreamSystemLiveData
+      tags:
+        - Streaming APIs
+      summary: Site Level Live Status
+      description: |-
+        API users can get real time live status data on demand for a given system.
+        User can retrieve real time power for PV Production, Grid Import/Export, Consumption, Battery Charge/Discharge, and Generator.
+        Users can also retrieve Grid Status, Battery Mode, and Battery State of Charge.
+        User will receive the stream for a duration of 30 seconds by default and can configure the time in seconds by passing 'duration' as a header parameter with a minimum value of 30 and maximum value of 300.
+      parameters:
+        - $ref: '#/components/parameters/SystemId'
+        - name: duration
+          in: header
+          description: Duration of the stream in seconds. Default=30, Min=30, Max=300, e.g=30.
+          schema:
+            type: integer
+            minimum: 30
+            maximum: 300
+      responses:
+        200:
+          description: successful operation
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveDataResponse'
+        401:
+          description: User will get 401 in the below cases. Response content type is application/json.
+            NOT_AUTHENTICATED - API key is missing
+            UNAUTHORIZED - Access token is invalid
+            UNAUTHORIZED - Access token has expired
+            NOT_AUTHENTICATED - API Key is invalid
+            UNAUTHORIZED - Application is not authorized to access the requested resource
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '401'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: API Key is missing.
+                      status:
+                        type: string
+                        description: NOT_AUTHENTICATED
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: authentication_error
+              example:
+                error:
+                  code: 401
+                  details:
+                    - { }
+                  message: API Key is invalid
+                  status: NOT_AUTHENTICATED
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: authentication_error
+        403:
+          description: User is not authorized. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '403'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: API Key is invalid.
+                      status:
+                        type: string
+                        description: FORBIDDEN
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: authorization_error
+              example:
+                error:
+                  code: 403
+                  details:
+                    - { }
+                  message: User is not authorized
+                  status: FORBIDDEN
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: authorization_error
+        429:
+          description: Too Many Requests. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '429'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Too Many Requests.
+                      status:
+                        type: string
+                        description: TOO_MANY_REQUESTS
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: request_exceeded_error
+              example:
+                error:
+                  code: 429
+                  details:
+                    - { }
+                  message: Too Many Requests
+                  status: TOO_MANY_REQUESTS
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: request_exceeded_error
+        461:
+          description: Duration is less than 30 seconds. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '461'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Duration cannot be less than 30.
+                      status:
+                        type: string
+                        description: INVALID_DURATION
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: validation_error
+              example:
+                error:
+                  code: 461
+                  details:
+                    - { }
+                  message: Duration cannot be less than 30
+                  status: INVALID_DURATION
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+        462:
+          description: Duration is greater then 300 seconds. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '462'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Duration cannot be greater than 900.
+                      status:
+                        type: string
+                        description: INVALID_DURATION
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: validation_error
+              example:
+                error:
+                  code: 462
+                  details:
+                    - { }
+                  message: Duration cannot be greater than 300
+                  status: INVALID_DURATION
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+        463:
+          description: Duration is not integer. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '463'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Duration must be an integer.
+                      status:
+                        type: string
+                        description: INVALID_DURATION
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: validation_error
+              example:
+                error:
+                  code: 463
+                  details:
+                    - { }
+                  message: Duration must be an integer
+                  status: INVALID_DURATION
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+        466:
+          description: Envoy must be active and envoy version must be at least 6.0.0. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '466'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Envoy must be active and envoy version must be at least 6.0.0.
+                      status:
+                        type: string
+                        description: UNSUPPORTED_ENVOY
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: validation_error
+              example:
+                error:
+                  code: 466
+                  details:
+                    - { }
+                  message: Envoy must be active and envoy version must be at least 6.0.0.
+                  status: UNSUPPORTED_ENVOY
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+        468:
+          description: System ID does not exist. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '468'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: System ID doesn't exist.
+                      status:
+                        type: string
+                        description: INVALID_SYSTEM_ID
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: validation_error
+              example:
+                error:
+                  code: 468
+                  details:
+                    - { }
+                  message: System ID doesn't exist
+                  status: INVALID_SYSTEM_ID
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+        472:
+          description: |-
+            For Ensemble sites, live stream will be supported in the following cases:
+            If site has an active battery or active system controller, then site must have active production meter and active consumption meter.
+            Otherwise, site must have active production meter. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '472'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: The system doesn't support live stream.
+                      status:
+                        type: string
+                        description: LIVE_STREAM_NOT_SUPPORTED
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: validation_error
+              example:
+                error:
+                  code: 472
+                  details:
+                    - { }
+                  message: The system doesn't support live stream
+                  status: LIVE_STREAM_NOT_SUPPORTED
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+        550:
+          description: Service unreachable. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '550'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Service unreachable, please try again.
+                      status:
+                        type: string
+                        description: SERVICE_UNREACHABLE
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: server_error
+              example:
+                error:
+                  code: 550
+                  details:
+                    - { }
+                  message: Service unreachable, please try again
+                  status: SERVICE_UNREACHABLE
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: server_error
+        551:
+          description: Service unreachable. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '551'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Service unreachable, please try again.
+                      status:
+                        type: string
+                        description: SERVICE_UNREACHABLE
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: server_error
+              example:
+                error:
+                  code: 551
+                  details:
+                    - { }
+                  message: Service unreachable, please try again
+                  status: SERVICE_UNREACHABLE
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: server_error
+        552:
+          description: Unable to connect. Response content type is application/json.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        description: '552'
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties: { }
+                      message:
+                        type: string
+                        description: Unable to connect, please try again.
+                      status:
+                        type: string
+                        description: CONNECTION_NOT_ESTABLISHED
+                  timestamp_epoch:
+                    type: integer
+                    description: Timestamp in epoch format.
+                  timestamp_utc:
+                    type: string
+                    description: Timestamp in UTC format.
+                  type:
+                    type: string
+                    description: server_error
+              example:
+                error:
+                  code: 552
+                  details:
+                    - { }
+                  message: Unable to connect, please try again
+                  status: CONNECTION_NOT_ESTABLISHED
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: server_error
 components:
   parameters:
     SystemId:
@@ -1513,9 +2180,10 @@ components:
             public_name: Residential System
             timezone: Australia/Sydney
             address:
+              city: Sydney
               state: NSW
               country: AU
-              postal_code: "2127"
+              postal_code: '2127'
             connection_type: ethernet
             energy_lifetime: 0
             energy_today: 0
@@ -1524,18 +2192,22 @@ components:
             last_report_at: 1508174262
             last_energy_at: 1508174172
             operational_at: 1497445200
-            reference: "106015287"
+            reference: '106015287'
             other_references:
-              - "106015287"
+              - '106015287'
           - system_id: 698906018
             name: Enphase Public System
             public_name: Residential System
             timezone: US/Pacific
             address:
+              city: Los Angeles
               state: CA
               country: US
-              postal_code: "94954"
+              postal_code: '94954'
             connection_type: ethernet
+            energy_lifetime: 0
+            energy_today: 0
+            system_size: 0
             status: normal
             last_report_at: 1508174262
             last_energy_at: 1508174172
@@ -1601,19 +2273,36 @@ components:
           - system_id: 698910067
             name: Enphase System
             public_name: Residential System
-            address: { }
+            timezone: Australia/Sydney
+            address:
+              city: Sydney
+              state: NSW
+              country: AU
+              postal_code: '2127'
             connection_type: ethernet
+            energy_lifetime: 0
+            energy_today: 0
+            system_size: 112.3
             status: micro
-            last_report_at: 1557400231
+            last_report_at: 1508174262
+            last_energy_at: 1508174172
+            operational_at: 1497445200
+            reference: '106015287'
+            other_references:
+              - '106015287'
           - system_id: 698906018
             name: Enphase Public System
             public_name: Residential System
             timezone: US/Pacific
             address:
+              city: Los Angeles
               state: CA
               country: US
-              postal_code: "94954"
+              postal_code: '94954'
             connection_type: ethernet
+            energy_lifetime: 0
+            energy_today: 0
+            system_size: 0
             status: normal
             last_report_at: 1508174262
             last_energy_at: 1508174172
@@ -1745,7 +2434,7 @@ components:
             - id: 1023273222
               last_report_at: 1508174262
               name: Microinverter  902167438951
-              serial_number: "902167438951"
+              serial_number: '902167438951'
               part_number: 800-01333-r01
               sku: IQ8A-72-2-US
               model: M250
@@ -1754,7 +2443,7 @@ components:
             - id: 1023273243
               last_report_at: 1508174262
               name: Microinverter  902372021616
-              serial_number: "902372021616"
+              serial_number: '902372021616'
               part_number: 800-01333-r01
               sku: IQ8A-72-2-US
               model: M250
@@ -1785,7 +2474,7 @@ components:
             - id: 1059563029
               last_report_at: 1508174262
               name: Envoy 901553005272
-              serial_number: "901553005272"
+              serial_number: '901553005272'
               part_number: 800-00655-r08
               emu_sw_version: D4.6.11.170403 (799d2d)
               sku: ENV-IQ-AM1-240
@@ -1793,7 +2482,7 @@ components:
               status: normal
               active: true
               cellular_modem:
-                imei: "352009112238477"
+                imei: '352009112238477'
                 part_num: 860-00157-r01
                 sku: CELLMODEM-M1
                 plan_start_date: 1614796200
@@ -1802,7 +2491,7 @@ components:
             - id: 1059640316
               last_report_at: 1508174262
               name: Q Relay 912158973973
-              serial_number: "912158973973"
+              serial_number: '912158973973'
               part_number: 800-00595-r01
               sku: Q-RELAY-1P-INT
               status: normal
@@ -1810,7 +2499,7 @@ components:
             - id: 1059640326
               last_report_at: 1508174262
               name: Q Relay 912163603334
-              serial_number: "912163603334"
+              serial_number: '912163603334'
               part_number: 800-00595-r01
               sku: Q-RELAY-1P-INT
               status: normal
@@ -1819,7 +2508,7 @@ components:
             - id: 1059640321
               last_report_at: 1508174262
               name: AC Battery 911364446952
-              serial_number: "911364446952"
+              serial_number: '911364446952'
               part_number: 800-00560-r03
               sku: IQ7-B1200-LN-I-INT01-RV0
               status: normal
@@ -1827,7 +2516,7 @@ components:
             - id: 1059640321
               last_report_at: 1508174262
               name: AC Battery 911499228280
-              serial_number: "911499228280"
+              serial_number: '911499228280'
               part_number: 800-00560-r03
               sku: IQ7-B1200-LN-I-INT01-RV0
               status: normal
@@ -1836,7 +2525,7 @@ components:
             - id: 1059640295
               last_report_at: 1508174262
               name: Encharge 121593621979
-              serial_number: "121593621979"
+              serial_number: '121593621979'
               part_number: 800-00562-r01
               sku: B03-A01-US00-1-3
               status: normal
@@ -1845,7 +2534,7 @@ components:
             - id: 1059640294
               last_report_at: 1508174262
               name: Enpower 121245173988
-              serial_number: "121245173988"
+              serial_number: '121245173988'
               part_number: 800-01135-r02
               sku: EP200G101-M240US00
               status: normal
@@ -1977,8 +2666,8 @@ components:
             wh_del: 34
             devices_reporting: 2
         meter_intervals:
-          - meter_serial_number: "1218676784"
-            envoy_serial_number: "1218347675"
+          - meter_serial_number: '1218676784'
+            envoy_serial_number: '1218347675'
             intervals:
               - channel: 1
                 end_at: 1384122700
@@ -2000,8 +2689,8 @@ components:
                 end_at: 1384126300
                 wh_del: 20.0
                 curr_w: 80
-          - meter_serial_number: "1218676791"
-            envoy_serial_number: "1218347675"
+          - meter_serial_number: '1218676791'
+            envoy_serial_number: '1218347675'
             intervals:
               - channel: 1
                 end_at: 1384122700
@@ -2306,7 +2995,7 @@ components:
         - signal_strength: 5
           micro_inverters:
             - id: 1059689835
-              serial_number: "688346865858"
+              serial_number: '688346865858'
               model: M215
               part_number: 800-00107-r01
               sku: M215-60-2LL-S22-NA
@@ -2317,7 +3006,7 @@ components:
                 precision: 0
               proc_load: 521-00005-r00-v02.32.01
               param_table: 549-00018-r00-v02.32.01
-              envoy_serial_number: "121842012242"
+              envoy_serial_number: '121842012242'
               energy:
                 value: 232
                 units: Wh
@@ -2325,7 +3014,7 @@ components:
               grid_profile: 57227c50e4d7973ae602c4e6
               last_report_date: 2020-09-18T11:17:23-04:00
             - id: 1059689836
-              serial_number: "686868727227"
+              serial_number: '686868727227'
               model: M215
               part_number: 800-00107-r01
               sku: M215-60-2LL-S22-NA
@@ -2333,7 +3022,7 @@ components:
               power_produced: 20
               proc_load: 521-00005-r00-v02.32.01
               param_table: 549-00018-r00-v02.32.01
-              envoy_serial_number: "121842012242"
+              envoy_serial_number: '121842012242'
               energy:
                 value: 120
                 units: Wh
@@ -2645,7 +3334,7 @@ components:
                 description: Energy produced (in Watt-Hours) from all the microinverters combined during that period.
       example:
         system_id: 1765
-        serial_number: "12345"
+        serial_number: '12345'
         granularity: day
         total_devices: 1
         start_at: 1496526300
@@ -2663,42 +3352,38 @@ components:
     GetSystemEnchargeDeviceTelemetryResponse:
       $ref: '#/components/schemas/BatteryDeviceTelemetry'
     GetSystemBatterySettingsResponse:
+      $ref: '#/components/schemas/BatterySettings'
+    UpdateSystemBatterySettingsRequest:
       type: object
       properties:
-        system_id:
-          type: integer
         battery_mode:
           type: string
-          description: Current battery mode of the system.
+          description: To update battery mode of the system (case sensitive). Available values are Savings Mode, Self-consumption, Full Backup.
         reserve_soc:
           type: integer
-          description: Reserve soc for the current mode.
-        battery_shutdown_level:
-          type: integer
-          description: Level at which battery shutdowns to conserve energy.
-            Battery restarts by using the conserved energy when the utility grid restores power or solar panels start producing energy.
-      example:
-        system_id: 1765
-        battery_mode: self-consumption
-        reserve_soc: 95
-        energy_independence: enabled
-        charge_from_grid: disabled
-        battery_shutdown_level: 13
+          description: Reserve soc for the current mode. Cannot be less than vls.
+        energy_independence:
+          type: string
+          description: |-
+            Energy independence after peak hours "enabled"/"disabled".
+            Enabled: Battery will discharge to save money during peak hours when electricity rates are high. Once that is done, energy independence is prioritized.
+            This will increase the energy self-sufficiency until the reserve soc is hit. Battery will charge from solar in the morning to get ready for the next period.
+            Disabled: Battery will discharge only during peak hours when electricity rates are high.
+            During other times, battery will be idle or will charge from solar in the morning to get ready for the next period.
+    UpdateSystemBatterySettingsResponse:
+      $ref: '#/components/schemas/BatterySettings'
     GetSystemStormGuardSettingsResponse:
+      $ref: '#/components/schemas/StormGuardSettings'
+    UpdateSystemStormGuardSettingsRequest:
       type: object
       properties:
-        system_id:
-          type: integer
         storm_guard_status:
           type: string
-          description: Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality.
-        storm_alert:
-          type: boolean
-          description: True if severe weather condition alert is issued in the locality.
-      example:
-        system_id: 1765
-        storm_guard_status: enabled
-        storm_alert: false
+          description: Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality. Available values are enabled, disabled.
+      required:
+        - storm_guard_status
+    UpdateSystemStormGuardSettingsResponse:
+      $ref: '#/components/schemas/StormGuardSettings'
     GetSystemGridStatusSettingsResponse:
       type: object
       properties:
@@ -2706,71 +3391,44 @@ components:
           type: integer
         grid_state:
           type: string
-          description: Indicates whether the site is connected to the grid.
+          description: Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown.
         last_report_date:
-          type: string
+          type: integer
           format: date-time
-          description: Timestamp of the last report.
+          description: Timestamp (in epoch format) at which the system's Envoy last submitted a report.
       example:
         system_id: 1765
-        grid_state: Connected
-        last_report_date: 2018-04-04T02:27:06-04:00
+        grid_state: On Grid
+        last_report_date: 1676029267
     GetSystemLoadControlSettingsResponse:
+      $ref: '#/components/schemas/LoadControlSettings'
+    UpdateSystemLoadControlSettingsRequest:
       type: object
       properties:
-        system_id:
+        name:
+          type: string
+          description: Name of the dry contact. Name cannot be changed. It is only used to identify the dry contact that needs to be updated.
+        load_name:
+          type: string
+          description: Load Name of the load. Load Name cannot be changed. It is only used to identify the dry contact that needs to be updated.
+        mode:
+          type: string
+          description: Mode. Available values are "Scheduled", "Basic", "Advanced_BatteryPowered", "Manual_always_not_powered", "Manual_always_powered", "Advanced_GeneratorPowered".
+        soc_low:
           type: integer
-        load_control_data:
-          type: array
-          description: Load control data for all the configured loads.
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Name of the dry contact.
-              load_name:
-                type: string
-                description: Name of the load.
-              owner_can_override:
-                type: string
-                description: HOs ability to override the load control settings.
-              config:
-                type: string
-                description: Enabled/disabled.
-              soc_low:
-                type: integer
-                description: Applicable for advanced mode. Load will be powered off when the battery soc reaches this level.
-              soc_high:
-                type: integer
-                description: Applicable for advanced mode. Load powers off when battery reaches soc_low. The load will be powered on when the battery soc reaches soc_high.
-              essential_start_time:
-                type: integer
-                description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
-              essential_end_time:
-                type: integer
-                description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
-      example:
-        system_id: 1932237
-        load_control_data:
-          - name: NC1
-            load_name: Downstairs A/C
-            owner_can_override: true
-            config: off_when_off_grid
-            soc_low: 30
-            soc_high: 50
-            status: enabled
-            essential_start_time: 32400
-            essential_end_time: 57600
-          - name: NC2
-            load_name: Upstairs A/C
-            owner_can_override: true
-            config: off_when_off_grid
-            soc_low: 30
-            soc_high: 50
-            status: enabled
-            essential_start_time: 32400
-            essential_end_time: 57600
+          description: Applicable for advanced mode. Load will be powered off when the battery soc reaches this level. It can be between 10 to 90.
+          minimum: 10
+          maximum: 90
+        essential_start_time:
+          type: integer
+          description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
+        essential_end_time:
+          type: integer
+          description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
+      required:
+        - name
+    UpdateSystemLoadControlSettingsResponse:
+      $ref: '#/components/schemas/LoadControlSettings'
     GetSystemEnergyImportTelemetryResponse:
       type: object
       properties:
@@ -2909,6 +3567,9 @@ components:
           type: object
           description: Address object for the system.
           properties:
+            city:
+              type: string
+              description: City in which the system is located.
             state:
               type: string
               description: State in which the system is located.
@@ -2927,9 +3588,8 @@ components:
           type: integer
           description: Energy generated by the system today in Wh. It is returned only if the count is less than or equal to 100.
         system_size:
-          type: number
+          type: integer
           description: Size of the system. It is returned only if the count is less than or equal to 100.
-          format: float
         status:
           $ref: '#/components/schemas/SystemStatusEnum'
         last_report_at:
@@ -2966,9 +3626,10 @@ components:
         public_name: Residential System
         timezone: America/Los_Angeles
         address:
+          city: Los Angeles
           state: CA
           country: US
-          postal_code: "94954"
+          postal_code: '94954'
         connection_type: cellular
         energy_lifetime: 0
         energy_today: 0
@@ -2979,9 +3640,9 @@ components:
         operational_at: 1357023600
         attachment_type: acm
         interconnect_date: 2012-10-13
-        reference: "106015287"
+        reference: '106015287'
         other_references:
-          - "106015287"
+          - '106015287'
     Meta:
       type: object
       description: Information about the system such as its status, when it became operational and last reported to Envoy.
@@ -3060,7 +3721,7 @@ components:
           description: Last reported soc percentage.
       example:
         system_id: 1765
-        serial_number: "12345"
+        serial_number: '12345'
         granularity: day
         total_devices: 1
         start_at: 1496526300
@@ -3076,6 +3737,182 @@ components:
               percent: 25
         last_reported_time: 1650349170
         last_reported_soc: 99%
+    BatterySettings:
+      type: object
+      properties:
+        system_id:
+          type: integer
+        battery_mode:
+          type: string
+          description: Current battery mode of the system. Available values are Savings Mode, Full Backup, and Self - Consumption.
+        reserve_soc:
+          type: integer
+          description: Reserve soc for the current mode.
+        energy_independence:
+          type: string
+          description: |-
+            Energy independence after peak hours enabled/disabled.
+            Enabled: Battery will discharge to save money during peak hours when electricity rates are high. Once that is done, energy independence is prioritized.
+            This will increase the energy self-sufficiency until the reserve soc is hit. Battery will charge from solar in the morning to get ready for the next period.
+            Disabled: Battery will discharge only during peak hours when electricity rates are high.
+            During other times, battery will be idle or will charge from solar in the morning to get ready for the next period.
+        charge_from_grid:
+          type: string
+          description: |-
+            Charge battery from grid enabled/disabled.
+            Enabled: Battery may also charge from the grid when in full backup mode or when battery charge is below the reserve capacity in savings or self-consumption mode.
+        battery_shutdown_level:
+          type: integer
+          description: Level at which battery shutdowns to conserve energy.
+            Battery restarts by using the conserved energy when the utility grid restores power or solar panels start producing energy.
+      example:
+        system_id: 1765
+        battery_mode: Self - Consumption
+        reserve_soc: 95
+        energy_independence: enabled
+        charge_from_grid: disabled
+        battery_shutdown_level: 13
+    StormGuardSettings:
+      type: object
+      properties:
+        system_id:
+          type: integer
+        storm_guard_status:
+          type: string
+          description: Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality.
+        storm_alert:
+          type: boolean
+          description: True if severe weather condition alert is issued in the locality.
+      example:
+        system_id: 1765
+        storm_guard_status: enabled
+        storm_alert: false
+    LoadControlSettings:
+      type: object
+      properties:
+        system_id:
+          type: integer
+        load_control_data:
+          type: array
+          description: Load control data for all the configured loads.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the dry contact.
+              load_name:
+                type: string
+                description: Name of the load.
+              owner_can_override:
+                type: string
+                description: HOs ability to override the load control settings.
+              mode:
+                type: string
+                description: Current load control configuration.
+              soc_low:
+                type: integer
+                description: Applicable for advanced mode. Load will be powered off when the battery soc reaches this level.
+              soc_high:
+                type: integer
+                description: Applicable for advanced mode. Load powers off when battery reaches soc_low. The load will be powered on when the battery soc reaches soc_high.
+              status:
+                type: string
+                description: Available values are enabled, disabled.
+              essential_start_time:
+                type: integer
+                description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
+              essential_end_time:
+                type: integer
+                description: Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time.
+      example:
+        system_id: 1932237
+        load_control_data:
+          - name: NC1
+            load_name: Downstairs A/C
+            owner_can_override: true
+            mode: Basic
+            soc_low: 30
+            soc_high: 50
+            status: enabled
+            essential_start_time: 32400
+            essential_end_time: 57600
+          - name: NC2
+            load_name: Upstairs A/C
+            owner_can_override: true
+            mode: Basic
+            soc_low: 30
+            soc_high: 50
+            status: enabled
+            essential_start_time: 32400
+            essential_end_time: 57600
+    StreamSystemLiveDataResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            data:
+              type: object
+              properties:
+                battery_mode:
+                  type: string
+                  description: Battery mode of the site. Available values are Savings Mode, Full Backup, and Self-consumption.
+                battery_power:
+                  type: integer
+                  description: Battery power in watts; Power will be positive in case of discharge and negative in case of charge.
+                battery_soc:
+                  type: integer
+                  description: Battery soc in percentage.
+                consumption_power:
+                  type: integer
+                  description: Consumption power in watts.
+                envoy_serial_number:
+                  type: array
+                  items:
+                    type: string
+                    description: Serial number of the envoy; For multi-envoy sites, the data will be returned only for one of the envoys.
+                generator_power:
+                  type: integer
+                  description: Generator power in watts.
+                grid_power:
+                  type: integer
+                  description: Grid power in watts; Power will be negative in case of export and positive in case of import.
+                grid_status:
+                  type: string
+                  description: Grid state of the site. Available values are On Grid, Off Grid, Unknown.
+                pv_power:
+                  type: integer
+                  description: PV power in watts.
+                system_id:
+                  type: integer
+                  description: The unique numeric ID of the system.
+            timestamp_epoch:
+              type: integer
+              description: Timestamp in epoch format.
+            timestamp_utc:
+              type: string
+              description: Timestamp in UTC format.
+            type:
+              type: string
+              description: response
+      example:
+        data:
+          data:
+            battery_mode: Savings Mode
+            battery_power: 5
+            battery_soc: 40
+            consumption_power: 15
+            envoy_serial_number:
+              - '1234'
+            generator_power: 0
+            grid_power: -10
+            grid_status: On Grid
+            pv_power: 30
+            system_id: 123
+          timestamp_epoch: 1679041508556
+          timestamp_utc: 2023-03-17 08:25:08.556
+          type: response
     SystemSortByEnum:
       type: string
       description: Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>.
@@ -3273,7 +4110,7 @@ components:
           schema:
             $ref: '#/components/schemas/MethodNotAllowedError'
           example:
-            reason: "405"
+            reason: '405'
             message:
               - Method not allowed
     TooManyRequestsError:
@@ -3316,7 +4153,7 @@ components:
           schema:
             $ref: '#/components/schemas/NotImplementedError'
           example:
-            reason: "501"
+            reason: '501'
             message:
               - Not Implemented
   securitySchemes:
