@@ -28,9 +28,9 @@ from monitoring import schemas  # noqa: F401
 from monitoring.model.not_implemented_error import NotImplementedError
 from monitoring.model.internal_server_error import InternalServerError
 from monitoring.model.client_error import ClientError
+from monitoring.model.storm_guard_settings import StormGuardSettings
 from monitoring.model.data_temporarily_unavailable_error import DataTemporarilyUnavailableError
 from monitoring.model.too_many_requests_error import TooManyRequestsError
-from monitoring.model.get_system_storm_guard_settings_response import GetSystemStormGuardSettingsResponse
 from monitoring.model.method_not_allowed_error import MethodNotAllowedError
 
 # Path params
@@ -59,7 +59,7 @@ request_path_system_id = api_client.PathParameter(
     schema=SystemIdSchema,
     required=True,
 )
-SchemaFor200ResponseBodyApplicationJson = GetSystemStormGuardSettingsResponse
+SchemaFor200ResponseBodyApplicationJson = StormGuardSettings
 
 
 @dataclass

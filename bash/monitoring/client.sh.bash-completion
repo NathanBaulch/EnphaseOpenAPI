@@ -84,10 +84,14 @@ _()
     operations["getSystemProductionMeterTelemetry"]=1
     operations["getSystemProductionMicroTelemetry"]=1
     operations["getSystemRgmStats"]=1
+    operations["streamSystemLiveData"]=1
     operations["getSystemBatterySettings"]=1
     operations["getSystemGridStatusSettings"]=1
     operations["getSystemLoadControlSettings"]=1
     operations["getSystemStormGuardSettings"]=1
+    operations["updateSystemBatterySettings"]=1
+    operations["updateSystemLoadControlSettings"]=1
+    operations["updateSystemStormGuardSettings"]=1
     operations["getInvertersSummaryByEnvoyOrSite"]=1
     operations["getSystem"]=1
     operations["getSystemDevices"]=1
@@ -115,10 +119,14 @@ _()
     operation_parameters["getSystemProductionMeterTelemetry"]="system_id= start_at= granularity= "
     operation_parameters["getSystemProductionMicroTelemetry"]="system_id= start_at= granularity= "
     operation_parameters["getSystemRgmStats"]="system_id= start_at= end_at= "
+    operation_parameters["streamSystemLiveData"]="system_id= duration: "
     operation_parameters["getSystemBatterySettings"]="system_id= "
     operation_parameters["getSystemGridStatusSettings"]="system_id= "
     operation_parameters["getSystemLoadControlSettings"]="system_id= "
     operation_parameters["getSystemStormGuardSettings"]="system_id= "
+    operation_parameters["updateSystemBatterySettings"]="system_id= "
+    operation_parameters["updateSystemLoadControlSettings"]="system_id= "
+    operation_parameters["updateSystemStormGuardSettings"]="system_id= "
     operation_parameters["getInvertersSummaryByEnvoyOrSite"]="site_id= envoy_serial_number= "
     operation_parameters["getSystem"]="system_id= "
     operation_parameters["getSystemDevices"]="system_id= "

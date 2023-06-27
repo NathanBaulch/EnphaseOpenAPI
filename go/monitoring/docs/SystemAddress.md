@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**City** | Pointer to **string** | City in which the system is located. | [optional] 
 **State** | Pointer to **string** | State in which the system is located. | [optional] 
 **Country** | Pointer to **string** | Country in which the system is located. | [optional] 
 **PostalCode** | Pointer to **string** | Postal code of the system&#39;s location. | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewSystemAddressWithDefaults instantiates a new SystemAddress object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCity
+
+`func (o *SystemAddress) GetCity() string`
+
+GetCity returns the City field if non-nil, zero value otherwise.
+
+### GetCityOk
+
+`func (o *SystemAddress) GetCityOk() (*string, bool)`
+
+GetCityOk returns a tuple with the City field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCity
+
+`func (o *SystemAddress) SetCity(v string)`
+
+SetCity sets City field to given value.
+
+### HasCity
+
+`func (o *SystemAddress) HasCity() bool`
+
+HasCity returns a boolean if a field has been set.
 
 ### GetState
 

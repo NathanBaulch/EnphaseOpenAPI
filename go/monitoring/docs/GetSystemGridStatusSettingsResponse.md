@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SystemId** | Pointer to **int32** |  | [optional] 
-**GridState** | Pointer to **string** | Indicates whether the site is connected to the grid. | [optional] 
-**LastReportDate** | Pointer to **time.Time** | Timestamp of the last report. | [optional] 
+**GridState** | Pointer to **string** | Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown. | [optional] 
+**LastReportDate** | Pointer to **int32** | Timestamp (in epoch format) at which the system&#39;s Envoy last submitted a report. | [optional] 
 
 ## Methods
 
@@ -79,20 +79,20 @@ HasGridState returns a boolean if a field has been set.
 
 ### GetLastReportDate
 
-`func (o *GetSystemGridStatusSettingsResponse) GetLastReportDate() time.Time`
+`func (o *GetSystemGridStatusSettingsResponse) GetLastReportDate() int32`
 
 GetLastReportDate returns the LastReportDate field if non-nil, zero value otherwise.
 
 ### GetLastReportDateOk
 
-`func (o *GetSystemGridStatusSettingsResponse) GetLastReportDateOk() (*time.Time, bool)`
+`func (o *GetSystemGridStatusSettingsResponse) GetLastReportDateOk() (*int32, bool)`
 
 GetLastReportDateOk returns a tuple with the LastReportDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastReportDate
 
-`func (o *GetSystemGridStatusSettingsResponse) SetLastReportDate(v time.Time)`
+`func (o *GetSystemGridStatusSettingsResponse) SetLastReportDate(v int32)`
 
 SetLastReportDate sets LastReportDate field to given value.
 

@@ -5,6 +5,7 @@ Address object for the system.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**City** | **string** | City in which the system is located. | [optional] 
 **State** | **string** | State in which the system is located. | [optional] 
 **Country** | **string** | Country in which the system is located. | [optional] 
 **PostalCode** | **string** | Postal code of the system&#39;s location. | [optional] 

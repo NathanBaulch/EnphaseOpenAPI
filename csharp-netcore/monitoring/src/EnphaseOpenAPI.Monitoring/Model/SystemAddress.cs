@@ -34,15 +34,24 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemAddress" /> class.
         /// </summary>
+        /// <param name="city">City in which the system is located..</param>
         /// <param name="state">State in which the system is located..</param>
         /// <param name="country">Country in which the system is located..</param>
         /// <param name="postalCode">Postal code of the system&#39;s location..</param>
-        public SystemAddress(string state = default(string), string country = default(string), string postalCode = default(string))
+        public SystemAddress(string city = default(string), string state = default(string), string country = default(string), string postalCode = default(string))
         {
+            this.City = city;
             this.State = state;
             this.Country = country;
             this.PostalCode = postalCode;
         }
+
+        /// <summary>
+        /// City in which the system is located.
+        /// </summary>
+        /// <value>City in which the system is located.</value>
+        [DataMember(Name = "city", EmitDefaultValue = false)]
+        public string City { get; set; }
 
         /// <summary>
         /// State in which the system is located.
@@ -73,6 +82,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SystemAddress {\n");
+            sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
@@ -112,6 +122,11 @@ namespace EnphaseOpenAPI.Monitoring.Model
             }
             return 
                 (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
                     this.State == input.State ||
                     (this.State != null &&
                     this.State.Equals(input.State))
@@ -137,6 +152,10 @@ namespace EnphaseOpenAPI.Monitoring.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.City != null)
+                {
+                    hashCode = (hashCode * 59) + this.City.GetHashCode();
+                }
                 if (this.State != null)
                 {
                     hashCode = (hashCode * 59) + this.State.GetHashCode();

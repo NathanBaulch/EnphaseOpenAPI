@@ -58,6 +58,7 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'city' => 'string',
         'state' => 'string',
         'country' => 'string',
         'postal_code' => 'string'
@@ -71,6 +72,7 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'city' => null,
         'state' => null,
         'country' => null,
         'postal_code' => null
@@ -82,7 +84,8 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'state' => false,
+        'city' => false,
+		'state' => false,
 		'country' => false,
 		'postal_code' => false
     ];
@@ -173,6 +176,7 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'city' => 'city',
         'state' => 'state',
         'country' => 'country',
         'postal_code' => 'postal_code'
@@ -184,6 +188,7 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'city' => 'setCity',
         'state' => 'setState',
         'country' => 'setCountry',
         'postal_code' => 'setPostalCode'
@@ -195,6 +200,7 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'city' => 'getCity',
         'state' => 'getState',
         'country' => 'getCountry',
         'postal_code' => 'getPostalCode'
@@ -257,6 +263,7 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('city', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('postal_code', $data ?? [], null);
@@ -303,6 +310,33 @@ class SystemAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets city
+     *
+     * @return string|null
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string|null $city City in which the system is located.
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        if (is_null($city)) {
+            throw new \InvalidArgumentException('non-nullable city cannot be null');
+        }
+        $this->container['city'] = $city;
+
+        return $this;
+    }
 
     /**
      * Gets state

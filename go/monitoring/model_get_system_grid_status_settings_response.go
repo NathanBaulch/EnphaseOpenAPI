@@ -12,7 +12,6 @@ package monitoring
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetSystemGridStatusSettingsResponse type satisfies the MappedNullable interface at compile time
@@ -21,10 +20,10 @@ var _ MappedNullable = &GetSystemGridStatusSettingsResponse{}
 // GetSystemGridStatusSettingsResponse struct for GetSystemGridStatusSettingsResponse
 type GetSystemGridStatusSettingsResponse struct {
 	SystemId *int32 `json:"system_id,omitempty"`
-	// Indicates whether the site is connected to the grid.
+	// Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown.
 	GridState *string `json:"grid_state,omitempty"`
-	// Timestamp of the last report.
-	LastReportDate *time.Time `json:"last_report_date,omitempty"`
+	// Timestamp (in epoch format) at which the system's Envoy last submitted a report.
+	LastReportDate *int32 `json:"last_report_date,omitempty"`
 }
 
 // NewGetSystemGridStatusSettingsResponse instantiates a new GetSystemGridStatusSettingsResponse object
@@ -109,9 +108,9 @@ func (o *GetSystemGridStatusSettingsResponse) SetGridState(v string) {
 }
 
 // GetLastReportDate returns the LastReportDate field value if set, zero value otherwise.
-func (o *GetSystemGridStatusSettingsResponse) GetLastReportDate() time.Time {
+func (o *GetSystemGridStatusSettingsResponse) GetLastReportDate() int32 {
 	if o == nil || IsNil(o.LastReportDate) {
-		var ret time.Time
+		var ret int32
 		return ret
 	}
 	return *o.LastReportDate
@@ -119,7 +118,7 @@ func (o *GetSystemGridStatusSettingsResponse) GetLastReportDate() time.Time {
 
 // GetLastReportDateOk returns a tuple with the LastReportDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetSystemGridStatusSettingsResponse) GetLastReportDateOk() (*time.Time, bool) {
+func (o *GetSystemGridStatusSettingsResponse) GetLastReportDateOk() (*int32, bool) {
 	if o == nil || IsNil(o.LastReportDate) {
 		return nil, false
 	}
@@ -135,8 +134,8 @@ func (o *GetSystemGridStatusSettingsResponse) HasLastReportDate() bool {
 	return false
 }
 
-// SetLastReportDate gets a reference to the given time.Time and assigns it to the LastReportDate field.
-func (o *GetSystemGridStatusSettingsResponse) SetLastReportDate(v time.Time) {
+// SetLastReportDate gets a reference to the given int32 and assigns it to the LastReportDate field.
+func (o *GetSystemGridStatusSettingsResponse) SetLastReportDate(v int32) {
 	o.LastReportDate = &v
 }
 

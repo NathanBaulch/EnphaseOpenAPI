@@ -48,6 +48,9 @@ class SystemAddress {
         if (data) {
             obj = obj || new SystemAddress();
 
+            if (data.hasOwnProperty('city')) {
+                obj['city'] = ApiClient.convertToType(data['city'], 'String');
+            }
             if (data.hasOwnProperty('state')) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
@@ -68,6 +71,10 @@ class SystemAddress {
      */
     static validateJSON(data) {
         // ensure the json data is a string
+        if (data['city'] && !(typeof data['city'] === 'string' || data['city'] instanceof String)) {
+            throw new Error("Expected the field `city` to be a primitive type in the JSON string but got " + data['city']);
+        }
+        // ensure the json data is a string
         if (data['state'] && !(typeof data['state'] === 'string' || data['state'] instanceof String)) {
             throw new Error("Expected the field `state` to be a primitive type in the JSON string but got " + data['state']);
         }
@@ -87,6 +94,12 @@ class SystemAddress {
 }
 
 
+
+/**
+ * City in which the system is located.
+ * @member {String} city
+ */
+SystemAddress.prototype['city'] = undefined;
 
 /**
  * State in which the system is located.

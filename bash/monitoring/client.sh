@@ -146,10 +146,18 @@ operation_parameters_minimum_occurrences["getSystemProductionMicroTelemetry:::gr
 operation_parameters_minimum_occurrences["getSystemRgmStats:::system_id"]=1
 operation_parameters_minimum_occurrences["getSystemRgmStats:::start_at"]=0
 operation_parameters_minimum_occurrences["getSystemRgmStats:::end_at"]=0
+operation_parameters_minimum_occurrences["streamSystemLiveData:::system_id"]=1
+operation_parameters_minimum_occurrences["streamSystemLiveData:::duration"]=0
 operation_parameters_minimum_occurrences["getSystemBatterySettings:::system_id"]=1
 operation_parameters_minimum_occurrences["getSystemGridStatusSettings:::system_id"]=1
 operation_parameters_minimum_occurrences["getSystemLoadControlSettings:::system_id"]=1
 operation_parameters_minimum_occurrences["getSystemStormGuardSettings:::system_id"]=1
+operation_parameters_minimum_occurrences["updateSystemBatterySettings:::system_id"]=1
+operation_parameters_minimum_occurrences["updateSystemBatterySettings:::battery_settings"]=0
+operation_parameters_minimum_occurrences["updateSystemLoadControlSettings:::system_id"]=1
+operation_parameters_minimum_occurrences["updateSystemLoadControlSettings:::UpdateSystemLoadControlSettingsRequest"]=0
+operation_parameters_minimum_occurrences["updateSystemStormGuardSettings:::system_id"]=1
+operation_parameters_minimum_occurrences["updateSystemStormGuardSettings:::storm_guard"]=0
 operation_parameters_minimum_occurrences["getInvertersSummaryByEnvoyOrSite:::site_id"]=0
 operation_parameters_minimum_occurrences["getInvertersSummaryByEnvoyOrSite:::envoy_serial_number"]=0
 operation_parameters_minimum_occurrences["getSystem:::system_id"]=1
@@ -221,10 +229,18 @@ operation_parameters_maximum_occurrences["getSystemProductionMicroTelemetry:::gr
 operation_parameters_maximum_occurrences["getSystemRgmStats:::system_id"]=0
 operation_parameters_maximum_occurrences["getSystemRgmStats:::start_at"]=0
 operation_parameters_maximum_occurrences["getSystemRgmStats:::end_at"]=0
+operation_parameters_maximum_occurrences["streamSystemLiveData:::system_id"]=0
+operation_parameters_maximum_occurrences["streamSystemLiveData:::duration"]=0
 operation_parameters_maximum_occurrences["getSystemBatterySettings:::system_id"]=0
 operation_parameters_maximum_occurrences["getSystemGridStatusSettings:::system_id"]=0
 operation_parameters_maximum_occurrences["getSystemLoadControlSettings:::system_id"]=0
 operation_parameters_maximum_occurrences["getSystemStormGuardSettings:::system_id"]=0
+operation_parameters_maximum_occurrences["updateSystemBatterySettings:::system_id"]=0
+operation_parameters_maximum_occurrences["updateSystemBatterySettings:::battery_settings"]=0
+operation_parameters_maximum_occurrences["updateSystemLoadControlSettings:::system_id"]=0
+operation_parameters_maximum_occurrences["updateSystemLoadControlSettings:::UpdateSystemLoadControlSettingsRequest"]=0
+operation_parameters_maximum_occurrences["updateSystemStormGuardSettings:::system_id"]=0
+operation_parameters_maximum_occurrences["updateSystemStormGuardSettings:::storm_guard"]=0
 operation_parameters_maximum_occurrences["getInvertersSummaryByEnvoyOrSite:::site_id"]=0
 operation_parameters_maximum_occurrences["getInvertersSummaryByEnvoyOrSite:::envoy_serial_number"]=0
 operation_parameters_maximum_occurrences["getSystem:::system_id"]=0
@@ -293,10 +309,18 @@ operation_parameters_collection_type["getSystemProductionMicroTelemetry:::granul
 operation_parameters_collection_type["getSystemRgmStats:::system_id"]=""
 operation_parameters_collection_type["getSystemRgmStats:::start_at"]=""
 operation_parameters_collection_type["getSystemRgmStats:::end_at"]=""
+operation_parameters_collection_type["streamSystemLiveData:::system_id"]=""
+operation_parameters_collection_type["streamSystemLiveData:::duration"]=""
 operation_parameters_collection_type["getSystemBatterySettings:::system_id"]=""
 operation_parameters_collection_type["getSystemGridStatusSettings:::system_id"]=""
 operation_parameters_collection_type["getSystemLoadControlSettings:::system_id"]=""
 operation_parameters_collection_type["getSystemStormGuardSettings:::system_id"]=""
+operation_parameters_collection_type["updateSystemBatterySettings:::system_id"]=""
+operation_parameters_collection_type["updateSystemBatterySettings:::battery_settings"]=""
+operation_parameters_collection_type["updateSystemLoadControlSettings:::system_id"]=""
+operation_parameters_collection_type["updateSystemLoadControlSettings:::UpdateSystemLoadControlSettingsRequest"]=""
+operation_parameters_collection_type["updateSystemStormGuardSettings:::system_id"]=""
+operation_parameters_collection_type["updateSystemStormGuardSettings:::storm_guard"]=""
 operation_parameters_collection_type["getInvertersSummaryByEnvoyOrSite:::site_id"]=""
 operation_parameters_collection_type["getInvertersSummaryByEnvoyOrSite:::envoy_serial_number"]=""
 operation_parameters_collection_type["getSystem:::system_id"]=""
@@ -742,12 +766,21 @@ read -r -d '' ops <<EOF
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
+    echo -e "${BOLD}${WHITE}[streamingAPIs]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}streamSystemLiveData${OFF};Site Level Live Status (AUTH) (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
     echo -e "${BOLD}${WHITE}[systemConfigurations]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}getSystemBatterySettings${OFF};Returns the current battery settings of a system (AUTH) (AUTH)
-  ${CYAN}getSystemGridStatusSettings${OFF};Returns the current grid status settings of a system (AUTH) (AUTH)
+  ${CYAN}getSystemGridStatusSettings${OFF};Returns the current grid status of a system. (AUTH) (AUTH)
   ${CYAN}getSystemLoadControlSettings${OFF};Returns the current load control settings of a system (AUTH) (AUTH)
   ${CYAN}getSystemStormGuardSettings${OFF};Returns the current storm guard settings of a system (AUTH) (AUTH)
+  ${CYAN}updateSystemBatterySettings${OFF};Updates the current battery settings of a system (AUTH) (AUTH)
+  ${CYAN}updateSystemLoadControlSettings${OFF};Updates the current load control settings of a system (AUTH) (AUTH)
+  ${CYAN}updateSystemStormGuardSettings${OFF};Updates the current storm guard settings of a system (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -1185,7 +1218,7 @@ print_getSystemEnergyExportTelemetry_help() {
     echo -e "${BOLD}${WHITE}getSystemEnergyExportTelemetry - Retrieves energy exported to grid in regular intervals${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Retrieves energy exported to grid in regular intervals. If no start_at is specified, defaults to midnight today, in the timezone of the system.
-If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
 The end_at is calculated as the minimum of the time of the request and (start time + granularity).
 The meaning of granularity is as follows:
 
@@ -1202,7 +1235,7 @@ The requested start date must be within 2 years from current date." | paste -sd'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Telemetry for all production micros.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Energy export telemetry in intervals.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=401
     echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=403
@@ -1269,7 +1302,7 @@ print_getSystemEnergyImportTelemetry_help() {
     echo -e ""
     echo -e "Retrieves energy imported from grid in regular intervals.
 If no start_at is specified, defaults to midnight today, in the timezone of the system.
-If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
 The end_at is calculated as the minimum of the time of the request and (start time + granularity).
 The meaning of granularity is as follows:
 
@@ -1286,7 +1319,7 @@ The requested start date must be within 2 years from current date." | paste -sd'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Telemetry for all production micros.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Energy import telemetry in intervals.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=401
     echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=403
@@ -1532,6 +1565,54 @@ If the start_at specified is earlier than the system's first reported date, then
 }
 ##############################################################################
 #
+# Print help for streamSystemLiveData operation
+#
+##############################################################################
+print_streamSystemLiveData_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}streamSystemLiveData - Site Level Live Status${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "API users can get real time live status data on demand for a given system.
+User can retrieve real time power for PV Production, Grid Import/Export, Consumption, Battery Charge/Discharge, and Generator.
+Users can also retrieve Grid Status, Battery Mode, and Battery State of Charge.
+User will receive the stream for a duration of 30 seconds by default and can configure the time in seconds by passing 'duration' as a header parameter with a minimum value of 30 and maximum value of 300." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Unique numeric ID of the system. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}duration${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Duration of the stream in seconds. Default=30, Min=30, Max=300, e.g=30. ${YELLOW}Specify as: duration:value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;successful operation${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;User will get 401 in the below cases. Response content type is application/json. NOT_AUTHENTICATED - API key is missing UNAUTHORIZED - Access token is invalid UNAUTHORIZED - Access token has expired NOT_AUTHENTICATED - API Key is invalid UNAUTHORIZED - Application is not authorized to access the requested resource${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;User is not authorized. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=429
+    echo -e "${result_color_table[${code:0:1}]}  429;Too Many Requests. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=461
+    echo -e "${result_color_table[${code:0:1}]}  461;Duration is less than 30 seconds. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=462
+    echo -e "${result_color_table[${code:0:1}]}  462;Duration is greater then 300 seconds. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=463
+    echo -e "${result_color_table[${code:0:1}]}  463;Duration is not integer. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=466
+    echo -e "${result_color_table[${code:0:1}]}  466;Envoy must be active and envoy version must be at least 6.0.0. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=468
+    echo -e "${result_color_table[${code:0:1}]}  468;System ID does not exist. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=472
+    echo -e "${result_color_table[${code:0:1}]}  472;For Ensemble sites, live stream will be supported in the following cases:
+If site has an active battery or active system controller, then site must have active production meter and active consumption meter.
+Otherwise, site must have active production meter. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=550
+    echo -e "${result_color_table[${code:0:1}]}  550;Service unreachable. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=551
+    echo -e "${result_color_table[${code:0:1}]}  551;Service unreachable. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=552
+    echo -e "${result_color_table[${code:0:1}]}  552;Unable to connect. Response content type is application/json.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
 # Print help for getSystemBatterySettings operation
 #
 ##############################################################################
@@ -1571,9 +1652,10 @@ print_getSystemBatterySettings_help() {
 ##############################################################################
 print_getSystemGridStatusSettings_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getSystemGridStatusSettings - Returns the current grid status settings of a system${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getSystemGridStatusSettings - Returns the current grid status of a system.${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Returns the current grid status settings of a system." | paste -sd' ' | fold -sw 80
+    echo -e "Returns the current grid status of a system.
+Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Unique numeric ID of the system. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1623,8 +1705,6 @@ print_getSystemLoadControlSettings_help() {
     echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=405
     echo -e "${result_color_table[${code:0:1}]}  405;Method Not Allowed${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=422
-    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=429
     echo -e "${result_color_table[${code:0:1}]}  429;Too Many Requests${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=500
@@ -1645,6 +1725,112 @@ print_getSystemStormGuardSettings_help() {
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Unique numeric ID of the system. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;storm_guard${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=405
+    echo -e "${result_color_table[${code:0:1}]}  405;Method Not Allowed${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=422
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=429
+    echo -e "${result_color_table[${code:0:1}]}  429;Too Many Requests${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Internal Server Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=501
+    echo -e "${result_color_table[${code:0:1}]}  501;Not Implemented${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for updateSystemBatterySettings operation
+#
+##############################################################################
+print_updateSystemBatterySettings_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}updateSystemBatterySettings - Updates the current battery settings of a system${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Updates the current battery settings of a system." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Unique numeric ID of the system. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=405
+    echo -e "${result_color_table[${code:0:1}]}  405;Method Not Allowed${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=422
+    echo -e "${result_color_table[${code:0:1}]}  422;Unprocessable Entity${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=429
+    echo -e "${result_color_table[${code:0:1}]}  429;Too Many Requests${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Internal Server Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=501
+    echo -e "${result_color_table[${code:0:1}]}  501;Not Implemented${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for updateSystemLoadControlSettings operation
+#
+##############################################################################
+print_updateSystemLoadControlSettings_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}updateSystemLoadControlSettings - Updates the current load control settings of a system${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Updates the current load control settings of a system." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Unique numeric ID of the system. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;load_control${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=405
+    echo -e "${result_color_table[${code:0:1}]}  405;Method Not Allowed${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=429
+    echo -e "${result_color_table[${code:0:1}]}  429;Too Many Requests${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Internal Server Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=501
+    echo -e "${result_color_table[${code:0:1}]}  501;Not Implemented${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for updateSystemStormGuardSettings operation
+#
+##############################################################################
+print_updateSystemStormGuardSettings_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}updateSystemStormGuardSettings - Updates the current storm guard settings of a system${OFF}${BLUE}(AUTH - OAuth2)${OFF}${BLUE}(AUTH - QUERY)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Updates the current storm guard status of a system." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}system_id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Unique numeric ID of the system. ${YELLOW}Specify as: system_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2478,6 +2664,42 @@ call_getSystemRgmStats() {
 
 ##############################################################################
 #
+# Call streamSystemLiveData operation
+#
+##############################################################################
+call_streamSystemLiveData() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(system_id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(   key )
+    local path
+
+    if ! path=$(build_request_path "/api/v4/systems/{system_id}/live_data" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
 # Call getSystemBatterySettings operation
 #
 ##############################################################################
@@ -2617,6 +2839,240 @@ call_getSystemStormGuardSettings() {
         echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
     else
         eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call updateSystemBatterySettings operation
+#
+##############################################################################
+call_updateSystemBatterySettings() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(system_id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(   key )
+    local path
+
+    if ! path=$(build_request_path "/api/v4/systems/config/{system_id}/battery_settings" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="PUT"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambiguously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call updateSystemLoadControlSettings operation
+#
+##############################################################################
+call_updateSystemLoadControlSettings() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(system_id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(   key )
+    local path
+
+    if ! path=$(build_request_path "/api/v4/systems/config/{system_id}/load_control" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="PUT"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambiguously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call updateSystemStormGuardSettings operation
+#
+##############################################################################
+call_updateSystemStormGuardSettings() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(system_id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(   key )
+    local path
+
+    if ! path=$(build_request_path "/api/v4/systems/config/{system_id}/storm_guard" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="PUT"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambiguously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
     fi
 }
 
@@ -3059,6 +3515,9 @@ case $key in
     getSystemRgmStats)
     operation="getSystemRgmStats"
     ;;
+    streamSystemLiveData)
+    operation="streamSystemLiveData"
+    ;;
     getSystemBatterySettings)
     operation="getSystemBatterySettings"
     ;;
@@ -3070,6 +3529,15 @@ case $key in
     ;;
     getSystemStormGuardSettings)
     operation="getSystemStormGuardSettings"
+    ;;
+    updateSystemBatterySettings)
+    operation="updateSystemBatterySettings"
+    ;;
+    updateSystemLoadControlSettings)
+    operation="updateSystemLoadControlSettings"
+    ;;
+    updateSystemStormGuardSettings)
+    operation="updateSystemStormGuardSettings"
     ;;
     getInvertersSummaryByEnvoyOrSite)
     operation="getInvertersSummaryByEnvoyOrSite"
@@ -3217,6 +3685,9 @@ case $operation in
     getSystemRgmStats)
     call_getSystemRgmStats
     ;;
+    streamSystemLiveData)
+    call_streamSystemLiveData
+    ;;
     getSystemBatterySettings)
     call_getSystemBatterySettings
     ;;
@@ -3228,6 +3699,15 @@ case $operation in
     ;;
     getSystemStormGuardSettings)
     call_getSystemStormGuardSettings
+    ;;
+    updateSystemBatterySettings)
+    call_updateSystemBatterySettings
+    ;;
+    updateSystemLoadControlSettings)
+    call_updateSystemLoadControlSettings
+    ;;
+    updateSystemStormGuardSettings)
+    call_updateSystemStormGuardSettings
     ;;
     getInvertersSummaryByEnvoyOrSite)
     call_getInvertersSummaryByEnvoyOrSite

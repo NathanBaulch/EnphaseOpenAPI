@@ -223,12 +223,19 @@ font-style: italic;
   <li><a href="#getSystemProductionMicroTelemetry"><code><span class="http-method">get</span> /systems/{system_id}/telemetry/production_micro</code></a></li>
   <li><a href="#getSystemRgmStats"><code><span class="http-method">get</span> /systems/{system_id}/rgm_stats</code></a></li>
   </ul>
+  <h4><a href="#StreamingAPIs">StreamingAPIs</a></h4>
+  <ul>
+  <li><a href="#streamSystemLiveData"><code><span class="http-method">get</span> /systems/{system_id}/live_data</code></a></li>
+  </ul>
   <h4><a href="#SystemConfigurations">SystemConfigurations</a></h4>
   <ul>
   <li><a href="#getSystemBatterySettings"><code><span class="http-method">get</span> /systems/config/{system_id}/battery_settings</code></a></li>
   <li><a href="#getSystemGridStatusSettings"><code><span class="http-method">get</span> /systems/config/{system_id}/grid_status</code></a></li>
   <li><a href="#getSystemLoadControlSettings"><code><span class="http-method">get</span> /systems/config/{system_id}/load_control</code></a></li>
   <li><a href="#getSystemStormGuardSettings"><code><span class="http-method">get</span> /systems/config/{system_id}/storm_guard</code></a></li>
+  <li><a href="#updateSystemBatterySettings"><code><span class="http-method">put</span> /systems/config/{system_id}/battery_settings</code></a></li>
+  <li><a href="#updateSystemLoadControlSettings"><code><span class="http-method">put</span> /systems/config/{system_id}/load_control</code></a></li>
+  <li><a href="#updateSystemStormGuardSettings"><code><span class="http-method">put</span> /systems/config/{system_id}/storm_guard</code></a></li>
   </ul>
   <h4><a href="#SystemDetails">SystemDetails</a></h4>
   <ul>
@@ -1050,7 +1057,7 @@ By default end_at will appear in response. If end_date parameter is passed in th
     <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/energy_export_telemetry</code></pre></div>
     <div class="method-summary">Retrieves energy exported to grid in regular intervals (<span class="nickname">getSystemEnergyExportTelemetry</span>)</div>
     <div class="method-notes"><p>Retrieves energy exported to grid in regular intervals. If no start_at is specified, defaults to midnight today, in the timezone of the system.
-If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
 The end_at is calculated as the minimum of the time of the request and (start time + granularity).
 The meaning of granularity is as follows:</p>
 <p>If granularity is 15mins, maximum 1 intervals will appear in response. If granularity is day, maximum 96 intervals will appear in response where each interval is of 15 mins duration.</p>
@@ -1118,7 +1125,7 @@ The meaning of granularity is as follows:</p>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Telemetry for all production micros.
+    Energy export telemetry in intervals.
         <a href="#GetSystemEnergyExportTelemetryResponse">GetSystemEnergyExportTelemetryResponse</a>
     <h4 class="field-label">401</h4>
     Unauthorized
@@ -1239,7 +1246,7 @@ The meaning of granularity is as follows:</p>
     <div class="method-summary">Retrieves energy imported from grid in regular intervals (<span class="nickname">getSystemEnergyImportTelemetry</span>)</div>
     <div class="method-notes"><p>Retrieves energy imported from grid in regular intervals.
 If no start_at is specified, defaults to midnight today, in the timezone of the system.
-If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
 The end_at is calculated as the minimum of the time of the request and (start time + granularity).
 The meaning of granularity is as follows:</p>
 <p>If granularity is 15mins, maximum 1 intervals will appear in response. If granularity is day, maximum 96 intervals will appear in response where each interval is of 15 mins duration.</p>
@@ -1307,7 +1314,7 @@ The meaning of granularity is as follows:</p>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Telemetry for all production micros.
+    Energy import telemetry in intervals.
         <a href="#GetSystemEnergyImportTelemetryResponse">GetSystemEnergyImportTelemetryResponse</a>
     <h4 class="field-label">401</h4>
     Unauthorized
@@ -1905,6 +1912,99 @@ If the start_at specified is earlier than the system's first reported date, then
         <a href="#NotImplementedError">NotImplementedError</a>
   </div> <!-- method -->
   <hr/>
+  <h1><a name="StreamingAPIs">StreamingAPIs</a></h1>
+  <div class="method"><a name="streamSystemLiveData"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/{system_id}/live_data</code></pre></div>
+    <div class="method-summary">Site Level Live Status (<span class="nickname">streamSystemLiveData</span>)</div>
+    <div class="method-notes">API users can get real time live status data on demand for a given system.
+User can retrieve real time power for PV Production, Grid Import/Export, Consumption, Battery Charge/Discharge, and Generator.
+Users can also retrieve Grid Status, Battery Mode, and Battery State of Charge.
+User will receive the stream for a duration of 30 seconds by default and can configure the time in seconds by passing 'duration' as a header parameter with a minimum value of 30 and maximum value of 300.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique numeric ID of the system. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">duration (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Duration of the stream in seconds. Default=30, Min=30, Max=300, e.g=30. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StreamSystemLiveDataResponse">StreamSystemLiveDataResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: text/event-stream</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: text/event-stream</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>text/event-stream</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#StreamSystemLiveDataResponse">StreamSystemLiveDataResponse</a>
+    <h4 class="field-label">401</h4>
+    User will get 401 in the below cases. Response content type is application/json. NOT_AUTHENTICATED - API key is missing UNAUTHORIZED - Access token is invalid UNAUTHORIZED - Access token has expired NOT_AUTHENTICATED - API Key is invalid UNAUTHORIZED - Application is not authorized to access the requested resource
+        <a href="#StreamSystemLiveData_401_response">StreamSystemLiveData_401_response</a>
+    <h4 class="field-label">403</h4>
+    User is not authorized. Response content type is application/json.
+        <a href="#StreamSystemLiveData_403_response">StreamSystemLiveData_403_response</a>
+    <h4 class="field-label">429</h4>
+    Too Many Requests. Response content type is application/json.
+        <a href="#StreamSystemLiveData_429_response">StreamSystemLiveData_429_response</a>
+    <h4 class="field-label">461</h4>
+    Duration is less than 30 seconds. Response content type is application/json.
+        <a href="#StreamSystemLiveData_461_response">StreamSystemLiveData_461_response</a>
+    <h4 class="field-label">462</h4>
+    Duration is greater then 300 seconds. Response content type is application/json.
+        <a href="#StreamSystemLiveData_462_response">StreamSystemLiveData_462_response</a>
+    <h4 class="field-label">463</h4>
+    Duration is not integer. Response content type is application/json.
+        <a href="#StreamSystemLiveData_463_response">StreamSystemLiveData_463_response</a>
+    <h4 class="field-label">466</h4>
+    Envoy must be active and envoy version must be at least 6.0.0. Response content type is application/json.
+        <a href="#StreamSystemLiveData_466_response">StreamSystemLiveData_466_response</a>
+    <h4 class="field-label">468</h4>
+    System ID does not exist. Response content type is application/json.
+        <a href="#StreamSystemLiveData_468_response">StreamSystemLiveData_468_response</a>
+    <h4 class="field-label">472</h4>
+    For Ensemble sites, live stream will be supported in the following cases:
+If site has an active battery or active system controller, then site must have active production meter and active consumption meter.
+Otherwise, site must have active production meter. Response content type is application/json.
+        <a href="#StreamSystemLiveData_472_response">StreamSystemLiveData_472_response</a>
+    <h4 class="field-label">550</h4>
+    Service unreachable. Response content type is application/json.
+        <a href="#StreamSystemLiveData_550_response">StreamSystemLiveData_550_response</a>
+    <h4 class="field-label">551</h4>
+    Service unreachable. Response content type is application/json.
+        <a href="#StreamSystemLiveData_551_response">StreamSystemLiveData_551_response</a>
+    <h4 class="field-label">552</h4>
+    Unable to connect. Response content type is application/json.
+        <a href="#StreamSystemLiveData_552_response">StreamSystemLiveData_552_response</a>
+  </div> <!-- method -->
+  <hr/>
   <h1><a name="SystemConfigurations">SystemConfigurations</a></h1>
   <div class="method"><a name="getSystemBatterySettings"/>
     <div class="method-path">
@@ -1927,7 +2027,7 @@ If the start_at specified is earlier than the system's first reported date, then
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#GetSystemBatterySettingsResponse">GetSystemBatterySettingsResponse</a>
+      <a href="#BatterySettings">BatterySettings</a>
       
     </div>
 
@@ -1937,7 +2037,7 @@ If the start_at specified is earlier than the system's first reported date, then
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
   "system_id" : 1765,
-  "battery_mode" : "self-consumption",
+  "battery_mode" : "Self - Consumption",
   "reserve_soc" : 95,
   "energy_independence" : "enabled",
   "charge_from_grid" : "disabled",
@@ -1954,7 +2054,7 @@ If the start_at specified is earlier than the system's first reported date, then
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     battery_settings
-        <a href="#GetSystemBatterySettingsResponse">GetSystemBatterySettingsResponse</a>
+        <a href="#BatterySettings">BatterySettings</a>
     <h4 class="field-label">401</h4>
     Unauthorized
         <a href="#ClientError">ClientError</a>
@@ -1985,8 +2085,9 @@ If the start_at specified is earlier than the system's first reported date, then
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /systems/config/{system_id}/grid_status</code></pre></div>
-    <div class="method-summary">Returns the current grid status settings of a system (<span class="nickname">getSystemGridStatusSettings</span>)</div>
-    <div class="method-notes">Returns the current grid status settings of a system.</div>
+    <div class="method-summary">Returns the current grid status of a system. (<span class="nickname">getSystemGridStatusSettings</span>)</div>
+    <div class="method-notes">Returns the current grid status of a system.
+Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -2012,8 +2113,8 @@ If the start_at specified is earlier than the system's first reported date, then
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
   "system_id" : 1765,
-  "grid_state" : "Connected",
-  "last_report_date" : "2018-04-04T02:27:06-04:00"
+  "grid_state" : "On Grid",
+  "last_report_date" : 1676029267
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -2074,7 +2175,7 @@ If the start_at specified is earlier than the system's first reported date, then
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#GetSystemLoadControlSettingsResponse">GetSystemLoadControlSettingsResponse</a>
+      <a href="#LoadControlSettings">LoadControlSettings</a>
       
     </div>
 
@@ -2088,7 +2189,7 @@ If the start_at specified is earlier than the system's first reported date, then
     "name" : "NC1",
     "load_name" : "Downstairs A/C",
     "owner_can_override" : true,
-    "config" : "off_when_off_grid",
+    "mode" : "Basic",
     "soc_low" : 30,
     "soc_high" : 50,
     "status" : "enabled",
@@ -2098,7 +2199,7 @@ If the start_at specified is earlier than the system's first reported date, then
     "name" : "NC2",
     "load_name" : "Upstairs A/C",
     "owner_can_override" : true,
-    "config" : "off_when_off_grid",
+    "mode" : "Basic",
     "soc_low" : 30,
     "soc_high" : 50,
     "status" : "enabled",
@@ -2117,7 +2218,7 @@ If the start_at specified is earlier than the system's first reported date, then
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     load_control
-        <a href="#GetSystemLoadControlSettingsResponse">GetSystemLoadControlSettingsResponse</a>
+        <a href="#LoadControlSettings">LoadControlSettings</a>
     <h4 class="field-label">401</h4>
     Unauthorized
         <a href="#ClientError">ClientError</a>
@@ -2130,9 +2231,6 @@ If the start_at specified is earlier than the system's first reported date, then
     <h4 class="field-label">405</h4>
     Method Not Allowed
         <a href="#MethodNotAllowedError">MethodNotAllowedError</a>
-    <h4 class="field-label">422</h4>
-    Unprocessable Entity
-        <a href="#ClientError">ClientError</a>
     <h4 class="field-label">429</h4>
     Too Many Requests
         <a href="#TooManyRequestsError">TooManyRequestsError</a>
@@ -2165,7 +2263,7 @@ If the start_at specified is earlier than the system's first reported date, then
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#GetSystemStormGuardSettingsResponse">GetSystemStormGuardSettingsResponse</a>
+      <a href="#StormGuardSettings">StormGuardSettings</a>
       
     </div>
 
@@ -2189,7 +2287,278 @@ If the start_at specified is earlier than the system's first reported date, then
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     storm_guard
-        <a href="#GetSystemStormGuardSettingsResponse">GetSystemStormGuardSettingsResponse</a>
+        <a href="#StormGuardSettings">StormGuardSettings</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#MethodNotAllowedError">MethodNotAllowedError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">429</h4>
+    Too Many Requests
+        <a href="#TooManyRequestsError">TooManyRequestsError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#GetSystems_500_response">GetSystems_500_response</a>
+    <h4 class="field-label">501</h4>
+    Not Implemented
+        <a href="#NotImplementedError">NotImplementedError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateSystemBatterySettings"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /systems/config/{system_id}/battery_settings</code></pre></div>
+    <div class="method-summary">Updates the current battery settings of a system (<span class="nickname">updateSystemBatterySettings</span>)</div>
+    <div class="method-notes">Updates the current battery settings of a system.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique numeric ID of the system. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">battery_settings <a href="#UpdateSystemBatterySettingsRequest">UpdateSystemBatterySettingsRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BatterySettings">BatterySettings</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 1765,
+  "battery_mode" : "Self - Consumption",
+  "reserve_soc" : 95,
+  "energy_independence" : "enabled",
+  "charge_from_grid" : "disabled",
+  "battery_shutdown_level" : 13
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BatterySettings">BatterySettings</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#MethodNotAllowedError">MethodNotAllowedError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">429</h4>
+    Too Many Requests
+        <a href="#TooManyRequestsError">TooManyRequestsError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#GetSystems_500_response">GetSystems_500_response</a>
+    <h4 class="field-label">501</h4>
+    Not Implemented
+        <a href="#NotImplementedError">NotImplementedError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateSystemLoadControlSettings"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /systems/config/{system_id}/load_control</code></pre></div>
+    <div class="method-summary">Updates the current load control settings of a system (<span class="nickname">updateSystemLoadControlSettings</span>)</div>
+    <div class="method-notes">Updates the current load control settings of a system.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique numeric ID of the system. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateSystemLoadControlSettingsRequest <a href="#UpdateSystemLoadControlSettingsRequest">UpdateSystemLoadControlSettingsRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LoadControlSettings">LoadControlSettings</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 1932237,
+  "load_control_data" : [ {
+    "name" : "NC1",
+    "load_name" : "Downstairs A/C",
+    "owner_can_override" : true,
+    "mode" : "Basic",
+    "soc_low" : 30,
+    "soc_high" : 50,
+    "status" : "enabled",
+    "essential_start_time" : 32400,
+    "essential_end_time" : 57600
+  }, {
+    "name" : "NC2",
+    "load_name" : "Upstairs A/C",
+    "owner_can_override" : true,
+    "mode" : "Basic",
+    "soc_low" : 30,
+    "soc_high" : 50,
+    "status" : "enabled",
+    "essential_start_time" : 32400,
+    "essential_end_time" : 57600
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    load_control
+        <a href="#LoadControlSettings">LoadControlSettings</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#ClientError">ClientError</a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#MethodNotAllowedError">MethodNotAllowedError</a>
+    <h4 class="field-label">429</h4>
+    Too Many Requests
+        <a href="#TooManyRequestsError">TooManyRequestsError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#GetSystems_500_response">GetSystems_500_response</a>
+    <h4 class="field-label">501</h4>
+    Not Implemented
+        <a href="#NotImplementedError">NotImplementedError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateSystemStormGuardSettings"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /systems/config/{system_id}/storm_guard</code></pre></div>
+    <div class="method-summary">Updates the current storm guard settings of a system (<span class="nickname">updateSystemStormGuardSettings</span>)</div>
+    <div class="method-notes">Updates the current storm guard status of a system.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">system_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique numeric ID of the system. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">storm_guard <a href="#UpdateSystemStormGuardSettingsRequest">UpdateSystemStormGuardSettingsRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StormGuardSettings">StormGuardSettings</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "system_id" : 1765,
+  "storm_guard_status" : "enabled",
+  "storm_alert" : false
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    storm_guard
+        <a href="#StormGuardSettings">StormGuardSettings</a>
     <h4 class="field-label">401</h4>
     Unauthorized
         <a href="#ClientError">ClientError</a>
@@ -2359,6 +2728,7 @@ If the start_at specified is earlier than the system's first reported date, then
   "public_name" : "Residential System",
   "timezone" : "America/Los_Angeles",
   "address" : {
+    "city" : "Los Angeles",
     "state" : "CA",
     "country" : "US",
     "postal_code" : "94954"
@@ -2724,6 +3094,7 @@ If the start_at specified is earlier than the system's first reported date, then
     "public_name" : "Residential System",
     "timezone" : "Australia/Sydney",
     "address" : {
+      "city" : "Sydney",
       "state" : "NSW",
       "country" : "AU",
       "postal_code" : "2127"
@@ -2744,11 +3115,15 @@ If the start_at specified is earlier than the system's first reported date, then
     "public_name" : "Residential System",
     "timezone" : "US/Pacific",
     "address" : {
+      "city" : "Los Angeles",
       "state" : "CA",
       "country" : "US",
       "postal_code" : "94954"
     },
     "connection_type" : "ethernet",
+    "energy_lifetime" : 0,
+    "energy_today" : 0,
+    "system_size" : 0,
     "status" : "normal",
     "last_report_at" : 1508174262,
     "last_energy_at" : 1508174172,
@@ -2907,21 +3282,38 @@ If the start_at specified is earlier than the system's first reported date, then
     "system_id" : 698910067,
     "name" : "Enphase System",
     "public_name" : "Residential System",
-    "address" : { },
+    "timezone" : "Australia/Sydney",
+    "address" : {
+      "city" : "Sydney",
+      "state" : "NSW",
+      "country" : "AU",
+      "postal_code" : "2127"
+    },
     "connection_type" : "ethernet",
+    "energy_lifetime" : 0,
+    "energy_today" : 0,
+    "system_size" : 112.3,
     "status" : "micro",
-    "last_report_at" : 1557400231
+    "last_report_at" : 1508174262,
+    "last_energy_at" : 1508174172,
+    "operational_at" : 1497445200,
+    "reference" : "106015287",
+    "other_references" : [ "106015287" ]
   }, {
     "system_id" : 698906018,
     "name" : "Enphase Public System",
     "public_name" : "Residential System",
     "timezone" : "US/Pacific",
     "address" : {
+      "city" : "Los Angeles",
       "state" : "CA",
       "country" : "US",
       "postal_code" : "94954"
     },
     "connection_type" : "ethernet",
+    "energy_lifetime" : 0,
+    "energy_today" : 0,
+    "system_size" : 0,
     "status" : "normal",
     "last_report_at" : 1508174262,
     "last_energy_at" : 1508174172,
@@ -2971,6 +3363,7 @@ If the start_at specified is earlier than the system's first reported date, then
     <li><a href="#BatteryDeviceTelemetry_intervals_inner_charge"><code>BatteryDeviceTelemetry_intervals_inner_charge</code> - </a></li>
     <li><a href="#BatteryDeviceTelemetry_intervals_inner_discharge"><code>BatteryDeviceTelemetry_intervals_inner_discharge</code> - </a></li>
     <li><a href="#BatteryDeviceTelemetry_intervals_inner_soc"><code>BatteryDeviceTelemetry_intervals_inner_soc</code> - </a></li>
+    <li><a href="#BatterySettings"><code>BatterySettings</code> - </a></li>
     <li><a href="#ClientError"><code>ClientError</code> - </a></li>
     <li><a href="#DataTemporarilyUnavailableError"><code>DataTemporarilyUnavailableError</code> - </a></li>
     <li><a href="#GetInvertersSummaryByEnvoyOrSiteResponse_inner"><code>GetInvertersSummaryByEnvoyOrSiteResponse_inner</code> - </a></li>
@@ -2978,7 +3371,6 @@ If the start_at specified is earlier than the system's first reported date, then
     <li><a href="#GetInvertersSummaryByEnvoyOrSiteResponse_inner_micro_inverters_inner_energy"><code>GetInvertersSummaryByEnvoyOrSiteResponse_inner_micro_inverters_inner_energy</code> - </a></li>
     <li><a href="#GetInvertersSummaryByEnvoyOrSiteResponse_inner_micro_inverters_inner_power_produced"><code>GetInvertersSummaryByEnvoyOrSiteResponse_inner_micro_inverters_inner_power_produced</code> - </a></li>
     <li><a href="#GetSystemBatteryLifetimeResponse"><code>GetSystemBatteryLifetimeResponse</code> - </a></li>
-    <li><a href="#GetSystemBatterySettingsResponse"><code>GetSystemBatterySettingsResponse</code> - </a></li>
     <li><a href="#GetSystemBatteryTelemetryResponse"><code>GetSystemBatteryTelemetryResponse</code> - </a></li>
     <li><a href="#GetSystemBatteryTelemetryResponse_intervals_inner"><code>GetSystemBatteryTelemetryResponse_intervals_inner</code> - </a></li>
     <li><a href="#GetSystemBatteryTelemetryResponse_intervals_inner_charge"><code>GetSystemBatteryTelemetryResponse_intervals_inner_charge</code> - </a></li>
@@ -2998,8 +3390,6 @@ If the start_at specified is earlier than the system's first reported date, then
     <li><a href="#GetSystemEnergyImportTelemetryResponse_intervals_inner_inner"><code>GetSystemEnergyImportTelemetryResponse_intervals_inner_inner</code> - </a></li>
     <li><a href="#GetSystemEnergyLifetimeResponse"><code>GetSystemEnergyLifetimeResponse</code> - </a></li>
     <li><a href="#GetSystemGridStatusSettingsResponse"><code>GetSystemGridStatusSettingsResponse</code> - </a></li>
-    <li><a href="#GetSystemLoadControlSettingsResponse"><code>GetSystemLoadControlSettingsResponse</code> - </a></li>
-    <li><a href="#GetSystemLoadControlSettingsResponse_load_control_data_inner"><code>GetSystemLoadControlSettingsResponse_load_control_data_inner</code> - </a></li>
     <li><a href="#GetSystemMicroDeviceTelemetryResponse"><code>GetSystemMicroDeviceTelemetryResponse</code> - </a></li>
     <li><a href="#GetSystemMicroDeviceTelemetryResponse_intervals_inner"><code>GetSystemMicroDeviceTelemetryResponse_intervals_inner</code> - </a></li>
     <li><a href="#GetSystemProductionMeterReadingsResponse"><code>GetSystemProductionMeterReadingsResponse</code> - </a></li>
@@ -3012,11 +3402,12 @@ If the start_at specified is earlier than the system's first reported date, then
     <li><a href="#GetSystemRgmStatsResponse_intervals_inner"><code>GetSystemRgmStatsResponse_intervals_inner</code> - </a></li>
     <li><a href="#GetSystemRgmStatsResponse_meter_intervals_inner"><code>GetSystemRgmStatsResponse_meter_intervals_inner</code> - </a></li>
     <li><a href="#GetSystemRgmStatsResponse_meter_intervals_inner_intervals_inner"><code>GetSystemRgmStatsResponse_meter_intervals_inner_intervals_inner</code> - </a></li>
-    <li><a href="#GetSystemStormGuardSettingsResponse"><code>GetSystemStormGuardSettingsResponse</code> - </a></li>
     <li><a href="#GetSystemSummaryResponse"><code>GetSystemSummaryResponse</code> - </a></li>
     <li><a href="#GetSystemsResponse"><code>GetSystemsResponse</code> - </a></li>
     <li><a href="#GetSystems_500_response"><code>GetSystems_500_response</code> - </a></li>
     <li><a href="#InternalServerError"><code>InternalServerError</code> - </a></li>
+    <li><a href="#LoadControlSettings"><code>LoadControlSettings</code> - </a></li>
+    <li><a href="#LoadControlSettings_load_control_data_inner"><code>LoadControlSettings_load_control_data_inner</code> - </a></li>
     <li><a href="#Meta"><code>Meta</code> - </a></li>
     <li><a href="#MethodNotAllowedError"><code>MethodNotAllowedError</code> - </a></li>
     <li><a href="#NotImplementedError"><code>NotImplementedError</code> - </a></li>
@@ -3024,6 +3415,34 @@ If the start_at specified is earlier than the system's first reported date, then
     <li><a href="#SearchSystemsRequest"><code>SearchSystemsRequest</code> - </a></li>
     <li><a href="#SearchSystemsRequest_system"><code>SearchSystemsRequest_system</code> - </a></li>
     <li><a href="#SearchSystemsResponse"><code>SearchSystemsResponse</code> - </a></li>
+    <li><a href="#StormGuardSettings"><code>StormGuardSettings</code> - </a></li>
+    <li><a href="#StreamSystemLiveDataResponse"><code>StreamSystemLiveDataResponse</code> - </a></li>
+    <li><a href="#StreamSystemLiveDataResponse_data"><code>StreamSystemLiveDataResponse_data</code> - </a></li>
+    <li><a href="#StreamSystemLiveDataResponse_data_data"><code>StreamSystemLiveDataResponse_data_data</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_401_response"><code>StreamSystemLiveData_401_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_401_response_error"><code>StreamSystemLiveData_401_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_403_response"><code>StreamSystemLiveData_403_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_403_response_error"><code>StreamSystemLiveData_403_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_429_response"><code>StreamSystemLiveData_429_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_429_response_error"><code>StreamSystemLiveData_429_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_461_response"><code>StreamSystemLiveData_461_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_461_response_error"><code>StreamSystemLiveData_461_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_462_response"><code>StreamSystemLiveData_462_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_462_response_error"><code>StreamSystemLiveData_462_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_463_response"><code>StreamSystemLiveData_463_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_463_response_error"><code>StreamSystemLiveData_463_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_466_response"><code>StreamSystemLiveData_466_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_466_response_error"><code>StreamSystemLiveData_466_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_468_response"><code>StreamSystemLiveData_468_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_468_response_error"><code>StreamSystemLiveData_468_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_472_response"><code>StreamSystemLiveData_472_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_472_response_error"><code>StreamSystemLiveData_472_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_550_response"><code>StreamSystemLiveData_550_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_550_response_error"><code>StreamSystemLiveData_550_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_551_response"><code>StreamSystemLiveData_551_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_551_response_error"><code>StreamSystemLiveData_551_response_error</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_552_response"><code>StreamSystemLiveData_552_response</code> - </a></li>
+    <li><a href="#StreamSystemLiveData_552_response_error"><code>StreamSystemLiveData_552_response_error</code> - </a></li>
     <li><a href="#System"><code>System</code> - </a></li>
     <li><a href="#SystemAttachmentTypeEnum"><code>SystemAttachmentTypeEnum</code> - </a></li>
     <li><a href="#SystemConnectionTypeEnum"><code>SystemConnectionTypeEnum</code> - </a></li>
@@ -3034,6 +3453,9 @@ If the start_at specified is earlier than the system's first reported date, then
     <li><a href="#System_address"><code>System_address</code> - </a></li>
     <li><a href="#TelemetryGranularityEnum"><code>TelemetryGranularityEnum</code> - </a></li>
     <li><a href="#TooManyRequestsError"><code>TooManyRequestsError</code> - </a></li>
+    <li><a href="#UpdateSystemBatterySettingsRequest"><code>UpdateSystemBatterySettingsRequest</code> - </a></li>
+    <li><a href="#UpdateSystemLoadControlSettingsRequest"><code>UpdateSystemLoadControlSettingsRequest</code> - </a></li>
+    <li><a href="#UpdateSystemStormGuardSettingsRequest"><code>UpdateSystemStormGuardSettingsRequest</code> - </a></li>
   </ol>
 
   <div class="model">
@@ -3081,6 +3503,23 @@ If the start_at specified is earlier than the system's first reported date, then
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">percent (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Battery soc percentage. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatterySettings"><code>BatterySettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">battery_mode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Current battery mode of the system. Available values are Savings Mode, Full Backup, and Self - Consumption. </div>
+<div class="param">reserve_soc (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Reserve soc for the current mode. </div>
+<div class="param">energy_independence (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Energy independence after peak hours enabled/disabled.
+Enabled: Battery will discharge to save money during peak hours when electricity rates are high. Once that is done, energy independence is prioritized.
+This will increase the energy self-sufficiency until the reserve soc is hit. Battery will charge from solar in the morning to get ready for the next period.
+Disabled: Battery will discharge only during peak hours when electricity rates are high.
+During other times, battery will be idle or will charge from solar in the morning to get ready for the next period. </div>
+<div class="param">charge_from_grid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Charge battery from grid enabled/disabled.
+Enabled: Battery may also charge from the grid when in full backup mode or when battery charge is below the reserve capacity in savings or self-consumption mode. </div>
+<div class="param">battery_shutdown_level (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Level at which battery shutdowns to conserve energy. Battery restarts by using the conserved energy when the utility grid restores power or solar panels start producing energy. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -3154,16 +3593,6 @@ If the start_at specified is earlier than the system's first reported date, then
 <div class="param">charge (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span> An array of charge measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty. </div>
 <div class="param">discharge (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span> An array of discharge measurements, one for each day since the system started producing, or one for each day of the requested period. If the system has never produced energy, the array may be empty. </div>
 <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="GetSystemBatterySettingsResponse"><code>GetSystemBatterySettingsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">battery_mode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Current battery mode of the system. </div>
-<div class="param">reserve_soc (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Reserve soc for the current mode. </div>
-<div class="param">battery_shutdown_level (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Level at which battery shutdowns to conserve energy. Battery restarts by using the conserved energy when the utility grid restores power or solar panels start producing energy. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -3369,30 +3798,8 @@ If the start_at specified is earlier than the system's first reported date, then
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">grid_state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Indicates whether the site is connected to the grid. </div>
-<div class="param">last_report_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Timestamp of the last report. format: date-time</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="GetSystemLoadControlSettingsResponse"><code>GetSystemLoadControlSettingsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">load_control_data (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetSystemLoadControlSettingsResponse_load_control_data_inner">array[GetSystemLoadControlSettingsResponse_load_control_data_inner]</a></span> Load control data for all the configured loads. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="GetSystemLoadControlSettingsResponse_load_control_data_inner"><code>GetSystemLoadControlSettingsResponse_load_control_data_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the dry contact. </div>
-<div class="param">load_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the load. </div>
-<div class="param">owner_can_override (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HOs ability to override the load control settings. </div>
-<div class="param">config (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enabled/disabled. </div>
-<div class="param">soc_low (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for advanced mode. Load will be powered off when the battery soc reaches this level. </div>
-<div class="param">soc_high (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for advanced mode. Load powers off when battery reaches soc_low. The load will be powered on when the battery soc reaches soc_high. </div>
-<div class="param">essential_start_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time. </div>
-<div class="param">essential_end_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time. </div>
+<div class="param">grid_state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown. </div>
+<div class="param">last_report_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp (in epoch format) at which the system's Envoy last submitted a report. format: date-time</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -3522,15 +3929,6 @@ If the start_at specified is earlier than the system's first reported date, then
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="GetSystemStormGuardSettingsResponse"><code>GetSystemStormGuardSettingsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">storm_guard_status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality. </div>
-<div class="param">storm_alert (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> True if severe weather condition alert is issued in the locality. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
     <h3><a name="GetSystemSummaryResponse"><code>GetSystemSummaryResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
@@ -3576,6 +3974,29 @@ If the start_at specified is earlier than the system's first reported date, then
     <div class="field-items">
       <div class="param">reason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LoadControlSettings"><code>LoadControlSettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">load_control_data (optional)</div><div class="param-desc"><span class="param-type"><a href="#LoadControlSettings_load_control_data_inner">array[LoadControlSettings_load_control_data_inner]</a></span> Load control data for all the configured loads. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LoadControlSettings_load_control_data_inner"><code>LoadControlSettings_load_control_data_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the dry contact. </div>
+<div class="param">load_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the load. </div>
+<div class="param">owner_can_override (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HOs ability to override the load control settings. </div>
+<div class="param">mode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Current load control configuration. </div>
+<div class="param">soc_low (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for advanced mode. Load will be powered off when the battery soc reaches this level. </div>
+<div class="param">soc_high (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for advanced mode. Load powers off when battery reaches soc_low. The load will be powered on when the battery soc reaches soc_high. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Available values are enabled, disabled. </div>
+<div class="param">essential_start_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time. </div>
+<div class="param">essential_end_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -3644,6 +4065,288 @@ If the start_at specified is earlier than the system's first reported date, then
     </div>  <!-- field-items -->
   </div>
   <div class="model">
+    <h3><a name="StormGuardSettings"><code>StormGuardSettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">storm_guard_status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality. </div>
+<div class="param">storm_alert (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> True if severe weather condition alert is issued in the locality. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveDataResponse"><code>StreamSystemLiveDataResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveDataResponse_data">StreamSystemLiveDataResponse_data</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveDataResponse_data"><code>StreamSystemLiveDataResponse_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveDataResponse_data_data">StreamSystemLiveDataResponse_data_data</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> response </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveDataResponse_data_data"><code>StreamSystemLiveDataResponse_data_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">battery_mode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Battery mode of the site. Available values are Savings Mode, Full Backup, and Self-consumption. </div>
+<div class="param">battery_power (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Battery power in watts; Power will be positive in case of discharge and negative in case of charge. </div>
+<div class="param">battery_soc (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Battery soc in percentage. </div>
+<div class="param">consumption_power (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Consumption power in watts. </div>
+<div class="param">envoy_serial_number (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">generator_power (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Generator power in watts. </div>
+<div class="param">grid_power (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Grid power in watts; Power will be negative in case of export and positive in case of import. </div>
+<div class="param">grid_status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Grid state of the site. Available values are On Grid, Off Grid, Unknown. </div>
+<div class="param">pv_power (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> PV power in watts. </div>
+<div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The unique numeric ID of the system. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_401_response"><code>StreamSystemLiveData_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_401_response_error">StreamSystemLiveData_401_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> authentication_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_401_response_error"><code>StreamSystemLiveData_401_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 401 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> API Key is missing. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> NOT_AUTHENTICATED </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_403_response"><code>StreamSystemLiveData_403_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_403_response_error">StreamSystemLiveData_403_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> authorization_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_403_response_error"><code>StreamSystemLiveData_403_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 403 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> API Key is invalid. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> FORBIDDEN </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_429_response"><code>StreamSystemLiveData_429_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_429_response_error">StreamSystemLiveData_429_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> request_exceeded_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_429_response_error"><code>StreamSystemLiveData_429_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 429 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Too Many Requests. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> TOO_MANY_REQUESTS </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_461_response"><code>StreamSystemLiveData_461_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_461_response_error">StreamSystemLiveData_461_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_461_response_error"><code>StreamSystemLiveData_461_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 461 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Duration cannot be less than 30. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_DURATION </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_462_response"><code>StreamSystemLiveData_462_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_462_response_error">StreamSystemLiveData_462_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_462_response_error"><code>StreamSystemLiveData_462_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 462 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Duration cannot be greater than 900. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_DURATION </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_463_response"><code>StreamSystemLiveData_463_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_463_response_error">StreamSystemLiveData_463_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_463_response_error"><code>StreamSystemLiveData_463_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 463 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Duration must be an integer. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_DURATION </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_466_response"><code>StreamSystemLiveData_466_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_466_response_error">StreamSystemLiveData_466_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_466_response_error"><code>StreamSystemLiveData_466_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 466 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Envoy must be active and envoy version must be at least 6.0.0. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> UNSUPPORTED_ENVOY </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_468_response"><code>StreamSystemLiveData_468_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_468_response_error">StreamSystemLiveData_468_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_468_response_error"><code>StreamSystemLiveData_468_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 468 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> System ID doesn't exist. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_SYSTEM_ID </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_472_response"><code>StreamSystemLiveData_472_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_472_response_error">StreamSystemLiveData_472_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_472_response_error"><code>StreamSystemLiveData_472_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 472 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The system doesn't support live stream. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> LIVE_STREAM_NOT_SUPPORTED </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_550_response"><code>StreamSystemLiveData_550_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_550_response_error">StreamSystemLiveData_550_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> server_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_550_response_error"><code>StreamSystemLiveData_550_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 550 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Service unreachable, please try again. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SERVICE_UNREACHABLE </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_551_response"><code>StreamSystemLiveData_551_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_551_response_error">StreamSystemLiveData_551_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> server_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_551_response_error"><code>StreamSystemLiveData_551_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 551 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Service unreachable, please try again. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SERVICE_UNREACHABLE </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_552_response"><code>StreamSystemLiveData_552_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_552_response_error">StreamSystemLiveData_552_response_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> server_error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveData_552_response_error"><code>StreamSystemLiveData_552_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 552 </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unable to connect, please try again. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> CONNECTION_NOT_ESTABLISHED </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
     <h3><a name="System"><code>System</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
@@ -3655,7 +4358,7 @@ If the start_at specified is earlier than the system's first reported date, then
 <div class="param">connection_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemConnectionTypeEnum">SystemConnectionTypeEnum</a></span>  </div>
 <div class="param">energy_lifetime (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy generated by the system during its lifetime in Wh. It is returned only if the count is less than or equal to 100. </div>
 <div class="param">energy_today (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Energy generated by the system today in Wh. It is returned only if the count is less than or equal to 100. </div>
-<div class="param">system_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> Size of the system. It is returned only if the count is less than or equal to 100. format: float</div>
+<div class="param">system_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Size of the system. It is returned only if the count is less than or equal to 100. </div>
 <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#SystemStatusEnum">SystemStatusEnum</a></span>  </div>
 <div class="param">last_report_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Timestamp (in epoch format) at which the system's Envoy last submitted a report. format: int64</div>
 <div class="param">last_energy_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Timestamp (in epoch format) at which the system's produced energy was last reported. Even if the last produced energy is 0, its timestamp will be returned. format: int64</div>
@@ -3706,7 +4409,8 @@ If the start_at specified is earlier than the system's first reported date, then
     <h3><a name="System_address"><code>System_address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'>Address object for the system.</div>
     <div class="field-items">
-      <div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State in which the system is located. </div>
+      <div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> City in which the system is located. </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State in which the system is located. </div>
 <div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Country in which the system is located. </div>
 <div class="param">postal_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal code of the system's location. </div>
     </div>  <!-- field-items -->
@@ -3728,6 +4432,38 @@ If the start_at specified is earlier than the system's first reported date, then
 <div class="param">period_start (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Starting period timestamp. </div>
 <div class="param">period_end (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Ending period timestamp. </div>
 <div class="param">limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Limit count for the period. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateSystemBatterySettingsRequest"><code>UpdateSystemBatterySettingsRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">battery_mode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> To update battery mode of the system (case sensitive). Available values are Savings Mode, Self-consumption, Full Backup. </div>
+<div class="param">reserve_soc (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Reserve soc for the current mode. Cannot be less than vls. </div>
+<div class="param">energy_independence (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Energy independence after peak hours &quot;enabled&quot;/&quot;disabled&quot;.
+Enabled: Battery will discharge to save money during peak hours when electricity rates are high. Once that is done, energy independence is prioritized.
+This will increase the energy self-sufficiency until the reserve soc is hit. Battery will charge from solar in the morning to get ready for the next period.
+Disabled: Battery will discharge only during peak hours when electricity rates are high.
+During other times, battery will be idle or will charge from solar in the morning to get ready for the next period. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateSystemLoadControlSettingsRequest"><code>UpdateSystemLoadControlSettingsRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the dry contact. Name cannot be changed. It is only used to identify the dry contact that needs to be updated. </div>
+<div class="param">load_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Load Name of the load. Load Name cannot be changed. It is only used to identify the dry contact that needs to be updated. </div>
+<div class="param">mode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Mode. Available values are &quot;Scheduled&quot;, &quot;Basic&quot;, &quot;Advanced_BatteryPowered&quot;, &quot;Manual_always_not_powered&quot;, &quot;Manual_always_powered&quot;, &quot;Advanced_GeneratorPowered&quot;. </div>
+<div class="param">soc_low (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for advanced mode. Load will be powered off when the battery soc reaches this level. It can be between 10 to 90. </div>
+<div class="param">essential_start_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time. </div>
+<div class="param">essential_end_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Applicable for scheduled mode. Time in seconds. Load will powered on between essential_start_time and essential_end_time. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateSystemStormGuardSettingsRequest"><code>UpdateSystemStormGuardSettingsRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">storm_guard_status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Overrides your battery profile to full backup mode when a severe weather condition alert is issued in the locality. Available values are enabled, disabled. </div>
     </div>  <!-- field-items -->
   </div>
   </body>

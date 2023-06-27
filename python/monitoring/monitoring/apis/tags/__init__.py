@@ -9,5 +9,6 @@ class TagValues(str, enum.Enum):
     DEVICE_LEVEL_PRODUCTION_MONITORING = "Device Level Production Monitoring"
     SITE_LEVEL_CONSUMPTION_MONITORING = "Site Level Consumption Monitoring"
     SITE_LEVEL_PRODUCTION_MONITORING = "Site Level Production Monitoring"
+    STREAMING_APIS = "Streaming APIs"
     SYSTEM_CONFIGURATIONS = "System Configurations"
     SYSTEM_DETAILS = "System Details"

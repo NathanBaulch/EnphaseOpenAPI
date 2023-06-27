@@ -13,15 +13,18 @@
 
 
 import ApiClient from "../ApiClient";
+import BatterySettings from '../model/BatterySettings';
 import ClientError from '../model/ClientError';
-import GetSystemBatterySettingsResponse from '../model/GetSystemBatterySettingsResponse';
 import GetSystemGridStatusSettingsResponse from '../model/GetSystemGridStatusSettingsResponse';
-import GetSystemLoadControlSettingsResponse from '../model/GetSystemLoadControlSettingsResponse';
-import GetSystemStormGuardSettingsResponse from '../model/GetSystemStormGuardSettingsResponse';
 import GetSystems500Response from '../model/GetSystems500Response';
+import LoadControlSettings from '../model/LoadControlSettings';
 import MethodNotAllowedError from '../model/MethodNotAllowedError';
 import NotImplementedError from '../model/NotImplementedError';
+import StormGuardSettings from '../model/StormGuardSettings';
 import TooManyRequestsError from '../model/TooManyRequestsError';
+import UpdateSystemBatterySettingsRequest from '../model/UpdateSystemBatterySettingsRequest';
+import UpdateSystemLoadControlSettingsRequest from '../model/UpdateSystemLoadControlSettingsRequest';
+import UpdateSystemStormGuardSettingsRequest from '../model/UpdateSystemStormGuardSettingsRequest';
 
 /**
 * SystemConfigurations service.
@@ -47,7 +50,7 @@ export default class SystemConfigurationsApi {
      * Returns the current battery settings of a system
      * Returns the current battery settings of a system.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetSystemBatterySettingsResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BatterySettings} and HTTP response
      */
     getSystemBatterySettingsWithHttpInfo(systemId) {
       let postBody = null;
@@ -69,7 +72,7 @@ export default class SystemConfigurationsApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetSystemBatterySettingsResponse;
+      let returnType = BatterySettings;
       return this.apiClient.callApi(
         '/systems/config/{system_id}/battery_settings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -81,7 +84,7 @@ export default class SystemConfigurationsApi {
      * Returns the current battery settings of a system
      * Returns the current battery settings of a system.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetSystemBatterySettingsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BatterySettings}
      */
     getSystemBatterySettings(systemId) {
       return this.getSystemBatterySettingsWithHttpInfo(systemId)
@@ -92,8 +95,8 @@ export default class SystemConfigurationsApi {
 
 
     /**
-     * Returns the current grid status settings of a system
-     * Returns the current grid status settings of a system.
+     * Returns the current grid status of a system.
+     * Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
      * @param {Number} systemId Unique numeric ID of the system.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetSystemGridStatusSettingsResponse} and HTTP response
      */
@@ -126,8 +129,8 @@ export default class SystemConfigurationsApi {
     }
 
     /**
-     * Returns the current grid status settings of a system
-     * Returns the current grid status settings of a system.
+     * Returns the current grid status of a system.
+     * Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
      * @param {Number} systemId Unique numeric ID of the system.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetSystemGridStatusSettingsResponse}
      */
@@ -143,7 +146,7 @@ export default class SystemConfigurationsApi {
      * Returns the current load control settings of a system
      * Returns the current load control settings of a system.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetSystemLoadControlSettingsResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LoadControlSettings} and HTTP response
      */
     getSystemLoadControlSettingsWithHttpInfo(systemId) {
       let postBody = null;
@@ -165,7 +168,7 @@ export default class SystemConfigurationsApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetSystemLoadControlSettingsResponse;
+      let returnType = LoadControlSettings;
       return this.apiClient.callApi(
         '/systems/config/{system_id}/load_control', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -177,7 +180,7 @@ export default class SystemConfigurationsApi {
      * Returns the current load control settings of a system
      * Returns the current load control settings of a system.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetSystemLoadControlSettingsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LoadControlSettings}
      */
     getSystemLoadControlSettings(systemId) {
       return this.getSystemLoadControlSettingsWithHttpInfo(systemId)
@@ -191,7 +194,7 @@ export default class SystemConfigurationsApi {
      * Returns the current storm guard settings of a system
      * Returns the current storm guard settings of a system.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetSystemStormGuardSettingsResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StormGuardSettings} and HTTP response
      */
     getSystemStormGuardSettingsWithHttpInfo(systemId) {
       let postBody = null;
@@ -213,7 +216,7 @@ export default class SystemConfigurationsApi {
       let authNames = ['OAuth2', 'ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetSystemStormGuardSettingsResponse;
+      let returnType = StormGuardSettings;
       return this.apiClient.callApi(
         '/systems/config/{system_id}/storm_guard', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -225,10 +228,169 @@ export default class SystemConfigurationsApi {
      * Returns the current storm guard settings of a system
      * Returns the current storm guard settings of a system.
      * @param {Number} systemId Unique numeric ID of the system.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetSystemStormGuardSettingsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StormGuardSettings}
      */
     getSystemStormGuardSettings(systemId) {
       return this.getSystemStormGuardSettingsWithHttpInfo(systemId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Updates the current battery settings of a system
+     * Updates the current battery settings of a system.
+     * @param {Number} systemId Unique numeric ID of the system.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSystemBatterySettingsRequest} [batterySettings] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BatterySettings} and HTTP response
+     */
+    updateSystemBatterySettingsWithHttpInfo(systemId, opts) {
+      opts = opts || {};
+      let postBody = opts['batterySettings'];
+      // verify the required parameter 'systemId' is set
+      if (systemId === undefined || systemId === null) {
+        throw new Error("Missing the required parameter 'systemId' when calling updateSystemBatterySettings");
+      }
+
+      let pathParams = {
+        'system_id': systemId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = BatterySettings;
+      return this.apiClient.callApi(
+        '/systems/config/{system_id}/battery_settings', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Updates the current battery settings of a system
+     * Updates the current battery settings of a system.
+     * @param {Number} systemId Unique numeric ID of the system.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSystemBatterySettingsRequest} opts.batterySettings 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BatterySettings}
+     */
+    updateSystemBatterySettings(systemId, opts) {
+      return this.updateSystemBatterySettingsWithHttpInfo(systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Updates the current load control settings of a system
+     * Updates the current load control settings of a system.
+     * @param {Number} systemId Unique numeric ID of the system.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSystemLoadControlSettingsRequest} [updateSystemLoadControlSettingsRequest] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LoadControlSettings} and HTTP response
+     */
+    updateSystemLoadControlSettingsWithHttpInfo(systemId, opts) {
+      opts = opts || {};
+      let postBody = opts['updateSystemLoadControlSettingsRequest'];
+      // verify the required parameter 'systemId' is set
+      if (systemId === undefined || systemId === null) {
+        throw new Error("Missing the required parameter 'systemId' when calling updateSystemLoadControlSettings");
+      }
+
+      let pathParams = {
+        'system_id': systemId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = LoadControlSettings;
+      return this.apiClient.callApi(
+        '/systems/config/{system_id}/load_control', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Updates the current load control settings of a system
+     * Updates the current load control settings of a system.
+     * @param {Number} systemId Unique numeric ID of the system.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSystemLoadControlSettingsRequest} opts.updateSystemLoadControlSettingsRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LoadControlSettings}
+     */
+    updateSystemLoadControlSettings(systemId, opts) {
+      return this.updateSystemLoadControlSettingsWithHttpInfo(systemId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Updates the current storm guard settings of a system
+     * Updates the current storm guard status of a system.
+     * @param {Number} systemId Unique numeric ID of the system.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSystemStormGuardSettingsRequest} [stormGuard] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StormGuardSettings} and HTTP response
+     */
+    updateSystemStormGuardSettingsWithHttpInfo(systemId, opts) {
+      opts = opts || {};
+      let postBody = opts['stormGuard'];
+      // verify the required parameter 'systemId' is set
+      if (systemId === undefined || systemId === null) {
+        throw new Error("Missing the required parameter 'systemId' when calling updateSystemStormGuardSettings");
+      }
+
+      let pathParams = {
+        'system_id': systemId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['OAuth2', 'ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = StormGuardSettings;
+      return this.apiClient.callApi(
+        '/systems/config/{system_id}/storm_guard', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Updates the current storm guard settings of a system
+     * Updates the current storm guard status of a system.
+     * @param {Number} systemId Unique numeric ID of the system.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateSystemStormGuardSettingsRequest} opts.stormGuard 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StormGuardSettings}
+     */
+    updateSystemStormGuardSettings(systemId, opts) {
+      return this.updateSystemStormGuardSettingsWithHttpInfo(systemId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

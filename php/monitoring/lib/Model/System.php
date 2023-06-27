@@ -65,7 +65,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'connection_type' => '\EnphaseOpenAPI\Monitoring\Model\SystemConnectionTypeEnum',
         'energy_lifetime' => 'int',
         'energy_today' => 'int',
-        'system_size' => 'float',
+        'system_size' => 'int',
         'status' => '\EnphaseOpenAPI\Monitoring\Model\SystemStatusEnum',
         'last_report_at' => 'int',
         'last_energy_at' => 'int',
@@ -92,7 +92,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
         'connection_type' => null,
         'energy_lifetime' => null,
         'energy_today' => null,
-        'system_size' => 'float',
+        'system_size' => null,
         'status' => null,
         'last_report_at' => 'int64',
         'last_energy_at' => 'int64',
@@ -620,7 +620,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets system_size
      *
-     * @return float|null
+     * @return int|null
      */
     public function getSystemSize()
     {
@@ -630,7 +630,7 @@ class System implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets system_size
      *
-     * @param float|null $system_size Size of the system. It is returned only if the count is less than or equal to 100.
+     * @param int|null $system_size Size of the system. It is returned only if the count is less than or equal to 100.
      *
      * @return self
      */

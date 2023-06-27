@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 Retrieves energy exported to grid in regular intervals
 
 Retrieves energy exported to grid in regular intervals. If no start_at is specified, defaults to midnight today, in the timezone of the system.
-If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
 The end_at is calculated as the minimum of the time of the request and (start time + granularity).
 The meaning of granularity is as follows:
 
@@ -310,7 +310,7 @@ Retrieves energy imported from grid in regular intervals
 
 Retrieves energy imported from grid in regular intervals.
 If no start_at is specified, defaults to midnight today, in the timezone of the system.
-If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
 The end_at is calculated as the minimum of the time of the request and (start time + granularity).
 The meaning of granularity is as follows:
 

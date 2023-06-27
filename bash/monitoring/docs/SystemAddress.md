@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**city** | **string** |  | [optional] [default to null]
 **state** | **string** |  | [optional] [default to null]
 **country** | **string** |  | [optional] [default to null]
 **postalUnderscorecode** | **string** |  | [optional] [default to null]

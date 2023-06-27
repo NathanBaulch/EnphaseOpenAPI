@@ -18,6 +18,7 @@ import BatteryDeviceTelemetryIntervalsInner from './model/BatteryDeviceTelemetry
 import BatteryDeviceTelemetryIntervalsInnerCharge from './model/BatteryDeviceTelemetryIntervalsInnerCharge';
 import BatteryDeviceTelemetryIntervalsInnerDischarge from './model/BatteryDeviceTelemetryIntervalsInnerDischarge';
 import BatteryDeviceTelemetryIntervalsInnerSoc from './model/BatteryDeviceTelemetryIntervalsInnerSoc';
+import BatterySettings from './model/BatterySettings';
 import ClientError from './model/ClientError';
 import DataTemporarilyUnavailableError from './model/DataTemporarilyUnavailableError';
 import GetInvertersSummaryByEnvoyOrSiteResponseInner from './model/GetInvertersSummaryByEnvoyOrSiteResponseInner';
@@ -25,7 +26,6 @@ import GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInner from './
 import GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy from './model/GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy';
 import GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced from './model/GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced';
 import GetSystemBatteryLifetimeResponse from './model/GetSystemBatteryLifetimeResponse';
-import GetSystemBatterySettingsResponse from './model/GetSystemBatterySettingsResponse';
 import GetSystemBatteryTelemetryResponse from './model/GetSystemBatteryTelemetryResponse';
 import GetSystemBatteryTelemetryResponseIntervalsInner from './model/GetSystemBatteryTelemetryResponseIntervalsInner';
 import GetSystemBatteryTelemetryResponseIntervalsInnerCharge from './model/GetSystemBatteryTelemetryResponseIntervalsInnerCharge';
@@ -45,8 +45,6 @@ import GetSystemEnergyImportTelemetryResponse from './model/GetSystemEnergyImpor
 import GetSystemEnergyImportTelemetryResponseIntervalsInnerInner from './model/GetSystemEnergyImportTelemetryResponseIntervalsInnerInner';
 import GetSystemEnergyLifetimeResponse from './model/GetSystemEnergyLifetimeResponse';
 import GetSystemGridStatusSettingsResponse from './model/GetSystemGridStatusSettingsResponse';
-import GetSystemLoadControlSettingsResponse from './model/GetSystemLoadControlSettingsResponse';
-import GetSystemLoadControlSettingsResponseLoadControlDataInner from './model/GetSystemLoadControlSettingsResponseLoadControlDataInner';
 import GetSystemMicroDeviceTelemetryResponse from './model/GetSystemMicroDeviceTelemetryResponse';
 import GetSystemMicroDeviceTelemetryResponseIntervalsInner from './model/GetSystemMicroDeviceTelemetryResponseIntervalsInner';
 import GetSystemProductionMeterReadingsResponse from './model/GetSystemProductionMeterReadingsResponse';
@@ -59,11 +57,12 @@ import GetSystemRgmStatsResponse from './model/GetSystemRgmStatsResponse';
 import GetSystemRgmStatsResponseIntervalsInner from './model/GetSystemRgmStatsResponseIntervalsInner';
 import GetSystemRgmStatsResponseMeterIntervalsInner from './model/GetSystemRgmStatsResponseMeterIntervalsInner';
 import GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner from './model/GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner';
-import GetSystemStormGuardSettingsResponse from './model/GetSystemStormGuardSettingsResponse';
 import GetSystemSummaryResponse from './model/GetSystemSummaryResponse';
 import GetSystems500Response from './model/GetSystems500Response';
 import GetSystemsResponse from './model/GetSystemsResponse';
 import InternalServerError from './model/InternalServerError';
+import LoadControlSettings from './model/LoadControlSettings';
+import LoadControlSettingsLoadControlDataInner from './model/LoadControlSettingsLoadControlDataInner';
 import Meta from './model/Meta';
 import MethodNotAllowedError from './model/MethodNotAllowedError';
 import NotImplementedError from './model/NotImplementedError';
@@ -71,6 +70,34 @@ import RetrieveSystemIdResponse from './model/RetrieveSystemIdResponse';
 import SearchSystemsRequest from './model/SearchSystemsRequest';
 import SearchSystemsRequestSystem from './model/SearchSystemsRequestSystem';
 import SearchSystemsResponse from './model/SearchSystemsResponse';
+import StormGuardSettings from './model/StormGuardSettings';
+import StreamSystemLiveData401Response from './model/StreamSystemLiveData401Response';
+import StreamSystemLiveData401ResponseError from './model/StreamSystemLiveData401ResponseError';
+import StreamSystemLiveData403Response from './model/StreamSystemLiveData403Response';
+import StreamSystemLiveData403ResponseError from './model/StreamSystemLiveData403ResponseError';
+import StreamSystemLiveData429Response from './model/StreamSystemLiveData429Response';
+import StreamSystemLiveData429ResponseError from './model/StreamSystemLiveData429ResponseError';
+import StreamSystemLiveData461Response from './model/StreamSystemLiveData461Response';
+import StreamSystemLiveData461ResponseError from './model/StreamSystemLiveData461ResponseError';
+import StreamSystemLiveData462Response from './model/StreamSystemLiveData462Response';
+import StreamSystemLiveData462ResponseError from './model/StreamSystemLiveData462ResponseError';
+import StreamSystemLiveData463Response from './model/StreamSystemLiveData463Response';
+import StreamSystemLiveData463ResponseError from './model/StreamSystemLiveData463ResponseError';
+import StreamSystemLiveData466Response from './model/StreamSystemLiveData466Response';
+import StreamSystemLiveData466ResponseError from './model/StreamSystemLiveData466ResponseError';
+import StreamSystemLiveData468Response from './model/StreamSystemLiveData468Response';
+import StreamSystemLiveData468ResponseError from './model/StreamSystemLiveData468ResponseError';
+import StreamSystemLiveData472Response from './model/StreamSystemLiveData472Response';
+import StreamSystemLiveData472ResponseError from './model/StreamSystemLiveData472ResponseError';
+import StreamSystemLiveData550Response from './model/StreamSystemLiveData550Response';
+import StreamSystemLiveData550ResponseError from './model/StreamSystemLiveData550ResponseError';
+import StreamSystemLiveData551Response from './model/StreamSystemLiveData551Response';
+import StreamSystemLiveData551ResponseError from './model/StreamSystemLiveData551ResponseError';
+import StreamSystemLiveData552Response from './model/StreamSystemLiveData552Response';
+import StreamSystemLiveData552ResponseError from './model/StreamSystemLiveData552ResponseError';
+import StreamSystemLiveDataResponse from './model/StreamSystemLiveDataResponse';
+import StreamSystemLiveDataResponseData from './model/StreamSystemLiveDataResponseData';
+import StreamSystemLiveDataResponseDataData from './model/StreamSystemLiveDataResponseDataData';
 import System from './model/System';
 import SystemAddress from './model/SystemAddress';
 import SystemAttachmentTypeEnum from './model/SystemAttachmentTypeEnum';
@@ -81,9 +108,13 @@ import SystemSortByEnum from './model/SystemSortByEnum';
 import SystemStatusEnum from './model/SystemStatusEnum';
 import TelemetryGranularityEnum from './model/TelemetryGranularityEnum';
 import TooManyRequestsError from './model/TooManyRequestsError';
+import UpdateSystemBatterySettingsRequest from './model/UpdateSystemBatterySettingsRequest';
+import UpdateSystemLoadControlSettingsRequest from './model/UpdateSystemLoadControlSettingsRequest';
+import UpdateSystemStormGuardSettingsRequest from './model/UpdateSystemStormGuardSettingsRequest';
 import DeviceLevelProductionMonitoringApi from './api/DeviceLevelProductionMonitoringApi';
 import SiteLevelConsumptionMonitoringApi from './api/SiteLevelConsumptionMonitoringApi';
 import SiteLevelProductionMonitoringApi from './api/SiteLevelProductionMonitoringApi';
+import StreamingAPIsApi from './api/StreamingAPIsApi';
 import SystemConfigurationsApi from './api/SystemConfigurationsApi';
 import SystemDetailsApi from './api/SystemDetailsApi';
 
@@ -157,6 +188,12 @@ export {
     BatteryDeviceTelemetryIntervalsInnerSoc,
 
     /**
+     * The BatterySettings model constructor.
+     * @property {module:model/BatterySettings}
+     */
+    BatterySettings,
+
+    /**
      * The ClientError model constructor.
      * @property {module:model/ClientError}
      */
@@ -197,12 +234,6 @@ export {
      * @property {module:model/GetSystemBatteryLifetimeResponse}
      */
     GetSystemBatteryLifetimeResponse,
-
-    /**
-     * The GetSystemBatterySettingsResponse model constructor.
-     * @property {module:model/GetSystemBatterySettingsResponse}
-     */
-    GetSystemBatterySettingsResponse,
 
     /**
      * The GetSystemBatteryTelemetryResponse model constructor.
@@ -319,18 +350,6 @@ export {
     GetSystemGridStatusSettingsResponse,
 
     /**
-     * The GetSystemLoadControlSettingsResponse model constructor.
-     * @property {module:model/GetSystemLoadControlSettingsResponse}
-     */
-    GetSystemLoadControlSettingsResponse,
-
-    /**
-     * The GetSystemLoadControlSettingsResponseLoadControlDataInner model constructor.
-     * @property {module:model/GetSystemLoadControlSettingsResponseLoadControlDataInner}
-     */
-    GetSystemLoadControlSettingsResponseLoadControlDataInner,
-
-    /**
      * The GetSystemMicroDeviceTelemetryResponse model constructor.
      * @property {module:model/GetSystemMicroDeviceTelemetryResponse}
      */
@@ -403,12 +422,6 @@ export {
     GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner,
 
     /**
-     * The GetSystemStormGuardSettingsResponse model constructor.
-     * @property {module:model/GetSystemStormGuardSettingsResponse}
-     */
-    GetSystemStormGuardSettingsResponse,
-
-    /**
      * The GetSystemSummaryResponse model constructor.
      * @property {module:model/GetSystemSummaryResponse}
      */
@@ -431,6 +444,18 @@ export {
      * @property {module:model/InternalServerError}
      */
     InternalServerError,
+
+    /**
+     * The LoadControlSettings model constructor.
+     * @property {module:model/LoadControlSettings}
+     */
+    LoadControlSettings,
+
+    /**
+     * The LoadControlSettingsLoadControlDataInner model constructor.
+     * @property {module:model/LoadControlSettingsLoadControlDataInner}
+     */
+    LoadControlSettingsLoadControlDataInner,
 
     /**
      * The Meta model constructor.
@@ -473,6 +498,174 @@ export {
      * @property {module:model/SearchSystemsResponse}
      */
     SearchSystemsResponse,
+
+    /**
+     * The StormGuardSettings model constructor.
+     * @property {module:model/StormGuardSettings}
+     */
+    StormGuardSettings,
+
+    /**
+     * The StreamSystemLiveData401Response model constructor.
+     * @property {module:model/StreamSystemLiveData401Response}
+     */
+    StreamSystemLiveData401Response,
+
+    /**
+     * The StreamSystemLiveData401ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData401ResponseError}
+     */
+    StreamSystemLiveData401ResponseError,
+
+    /**
+     * The StreamSystemLiveData403Response model constructor.
+     * @property {module:model/StreamSystemLiveData403Response}
+     */
+    StreamSystemLiveData403Response,
+
+    /**
+     * The StreamSystemLiveData403ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData403ResponseError}
+     */
+    StreamSystemLiveData403ResponseError,
+
+    /**
+     * The StreamSystemLiveData429Response model constructor.
+     * @property {module:model/StreamSystemLiveData429Response}
+     */
+    StreamSystemLiveData429Response,
+
+    /**
+     * The StreamSystemLiveData429ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData429ResponseError}
+     */
+    StreamSystemLiveData429ResponseError,
+
+    /**
+     * The StreamSystemLiveData461Response model constructor.
+     * @property {module:model/StreamSystemLiveData461Response}
+     */
+    StreamSystemLiveData461Response,
+
+    /**
+     * The StreamSystemLiveData461ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData461ResponseError}
+     */
+    StreamSystemLiveData461ResponseError,
+
+    /**
+     * The StreamSystemLiveData462Response model constructor.
+     * @property {module:model/StreamSystemLiveData462Response}
+     */
+    StreamSystemLiveData462Response,
+
+    /**
+     * The StreamSystemLiveData462ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData462ResponseError}
+     */
+    StreamSystemLiveData462ResponseError,
+
+    /**
+     * The StreamSystemLiveData463Response model constructor.
+     * @property {module:model/StreamSystemLiveData463Response}
+     */
+    StreamSystemLiveData463Response,
+
+    /**
+     * The StreamSystemLiveData463ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData463ResponseError}
+     */
+    StreamSystemLiveData463ResponseError,
+
+    /**
+     * The StreamSystemLiveData466Response model constructor.
+     * @property {module:model/StreamSystemLiveData466Response}
+     */
+    StreamSystemLiveData466Response,
+
+    /**
+     * The StreamSystemLiveData466ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData466ResponseError}
+     */
+    StreamSystemLiveData466ResponseError,
+
+    /**
+     * The StreamSystemLiveData468Response model constructor.
+     * @property {module:model/StreamSystemLiveData468Response}
+     */
+    StreamSystemLiveData468Response,
+
+    /**
+     * The StreamSystemLiveData468ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData468ResponseError}
+     */
+    StreamSystemLiveData468ResponseError,
+
+    /**
+     * The StreamSystemLiveData472Response model constructor.
+     * @property {module:model/StreamSystemLiveData472Response}
+     */
+    StreamSystemLiveData472Response,
+
+    /**
+     * The StreamSystemLiveData472ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData472ResponseError}
+     */
+    StreamSystemLiveData472ResponseError,
+
+    /**
+     * The StreamSystemLiveData550Response model constructor.
+     * @property {module:model/StreamSystemLiveData550Response}
+     */
+    StreamSystemLiveData550Response,
+
+    /**
+     * The StreamSystemLiveData550ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData550ResponseError}
+     */
+    StreamSystemLiveData550ResponseError,
+
+    /**
+     * The StreamSystemLiveData551Response model constructor.
+     * @property {module:model/StreamSystemLiveData551Response}
+     */
+    StreamSystemLiveData551Response,
+
+    /**
+     * The StreamSystemLiveData551ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData551ResponseError}
+     */
+    StreamSystemLiveData551ResponseError,
+
+    /**
+     * The StreamSystemLiveData552Response model constructor.
+     * @property {module:model/StreamSystemLiveData552Response}
+     */
+    StreamSystemLiveData552Response,
+
+    /**
+     * The StreamSystemLiveData552ResponseError model constructor.
+     * @property {module:model/StreamSystemLiveData552ResponseError}
+     */
+    StreamSystemLiveData552ResponseError,
+
+    /**
+     * The StreamSystemLiveDataResponse model constructor.
+     * @property {module:model/StreamSystemLiveDataResponse}
+     */
+    StreamSystemLiveDataResponse,
+
+    /**
+     * The StreamSystemLiveDataResponseData model constructor.
+     * @property {module:model/StreamSystemLiveDataResponseData}
+     */
+    StreamSystemLiveDataResponseData,
+
+    /**
+     * The StreamSystemLiveDataResponseDataData model constructor.
+     * @property {module:model/StreamSystemLiveDataResponseDataData}
+     */
+    StreamSystemLiveDataResponseDataData,
 
     /**
      * The System model constructor.
@@ -535,6 +728,24 @@ export {
     TooManyRequestsError,
 
     /**
+     * The UpdateSystemBatterySettingsRequest model constructor.
+     * @property {module:model/UpdateSystemBatterySettingsRequest}
+     */
+    UpdateSystemBatterySettingsRequest,
+
+    /**
+     * The UpdateSystemLoadControlSettingsRequest model constructor.
+     * @property {module:model/UpdateSystemLoadControlSettingsRequest}
+     */
+    UpdateSystemLoadControlSettingsRequest,
+
+    /**
+     * The UpdateSystemStormGuardSettingsRequest model constructor.
+     * @property {module:model/UpdateSystemStormGuardSettingsRequest}
+     */
+    UpdateSystemStormGuardSettingsRequest,
+
+    /**
     * The DeviceLevelProductionMonitoringApi service constructor.
     * @property {module:api/DeviceLevelProductionMonitoringApi}
     */
@@ -551,6 +762,12 @@ export {
     * @property {module:api/SiteLevelProductionMonitoringApi}
     */
     SiteLevelProductionMonitoringApi,
+
+    /**
+    * The StreamingAPIsApi service constructor.
+    * @property {module:api/StreamingAPIsApi}
+    */
+    StreamingAPIsApi,
 
     /**
     * The SystemConfigurationsApi service constructor.

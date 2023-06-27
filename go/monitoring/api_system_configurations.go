@@ -29,7 +29,7 @@ type ApiGetSystemBatterySettingsRequest struct {
 	systemId int32
 }
 
-func (r ApiGetSystemBatterySettingsRequest) Execute() (*GetSystemBatterySettingsResponse, *http.Response, error) {
+func (r ApiGetSystemBatterySettingsRequest) Execute() (*BatterySettings, *http.Response, error) {
 	return r.ApiService.GetSystemBatterySettingsExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *SystemConfigurationsApiService) GetSystemBatterySettings(ctx context.Co
 }
 
 // Execute executes the request
-//  @return GetSystemBatterySettingsResponse
-func (a *SystemConfigurationsApiService) GetSystemBatterySettingsExecute(r ApiGetSystemBatterySettingsRequest) (*GetSystemBatterySettingsResponse, *http.Response, error) {
+//  @return BatterySettings
+func (a *SystemConfigurationsApiService) GetSystemBatterySettingsExecute(r ApiGetSystemBatterySettingsRequest) (*BatterySettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSystemBatterySettingsResponse
+		localVarReturnValue  *BatterySettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemConfigurationsApiService.GetSystemBatterySettings")
@@ -238,9 +238,10 @@ func (r ApiGetSystemGridStatusSettingsRequest) Execute() (*GetSystemGridStatusSe
 }
 
 /*
-GetSystemGridStatusSettings Returns the current grid status settings of a system
+GetSystemGridStatusSettings Returns the current grid status of a system.
 
-Returns the current grid status settings of a system.
+Returns the current grid status of a system.
+Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId Unique numeric ID of the system.
@@ -437,7 +438,7 @@ type ApiGetSystemLoadControlSettingsRequest struct {
 	systemId int32
 }
 
-func (r ApiGetSystemLoadControlSettingsRequest) Execute() (*GetSystemLoadControlSettingsResponse, *http.Response, error) {
+func (r ApiGetSystemLoadControlSettingsRequest) Execute() (*LoadControlSettings, *http.Response, error) {
 	return r.ApiService.GetSystemLoadControlSettingsExecute(r)
 }
 
@@ -459,13 +460,13 @@ func (a *SystemConfigurationsApiService) GetSystemLoadControlSettings(ctx contex
 }
 
 // Execute executes the request
-//  @return GetSystemLoadControlSettingsResponse
-func (a *SystemConfigurationsApiService) GetSystemLoadControlSettingsExecute(r ApiGetSystemLoadControlSettingsRequest) (*GetSystemLoadControlSettingsResponse, *http.Response, error) {
+//  @return LoadControlSettings
+func (a *SystemConfigurationsApiService) GetSystemLoadControlSettingsExecute(r ApiGetSystemLoadControlSettingsRequest) (*LoadControlSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSystemLoadControlSettingsResponse
+		localVarReturnValue  *LoadControlSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemConfigurationsApiService.GetSystemLoadControlSettings")
@@ -474,6 +475,199 @@ func (a *SystemConfigurationsApiService) GetSystemLoadControlSettingsExecute(r A
 	}
 
 	localVarPath := localBasePath + "/systems/config/{system_id}/load_control"
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("key", key)
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 405 {
+			var v MethodNotAllowedError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v TooManyRequestsError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v GetSystems500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 501 {
+			var v NotImplementedError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetSystemStormGuardSettingsRequest struct {
+	ctx context.Context
+	ApiService *SystemConfigurationsApiService
+	systemId int32
+}
+
+func (r ApiGetSystemStormGuardSettingsRequest) Execute() (*StormGuardSettings, *http.Response, error) {
+	return r.ApiService.GetSystemStormGuardSettingsExecute(r)
+}
+
+/*
+GetSystemStormGuardSettings Returns the current storm guard settings of a system
+
+Returns the current storm guard settings of a system.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param systemId Unique numeric ID of the system.
+ @return ApiGetSystemStormGuardSettingsRequest
+*/
+func (a *SystemConfigurationsApiService) GetSystemStormGuardSettings(ctx context.Context, systemId int32) ApiGetSystemStormGuardSettingsRequest {
+	return ApiGetSystemStormGuardSettingsRequest{
+		ApiService: a,
+		ctx: ctx,
+		systemId: systemId,
+	}
+}
+
+// Execute executes the request
+//  @return StormGuardSettings
+func (a *SystemConfigurationsApiService) GetSystemStormGuardSettingsExecute(r ApiGetSystemStormGuardSettingsRequest) (*StormGuardSettings, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *StormGuardSettings
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemConfigurationsApiService.GetSystemStormGuardSettings")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/systems/config/{system_id}/storm_guard"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -635,27 +829,33 @@ func (a *SystemConfigurationsApiService) GetSystemLoadControlSettingsExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSystemStormGuardSettingsRequest struct {
+type ApiUpdateSystemBatterySettingsRequest struct {
 	ctx context.Context
 	ApiService *SystemConfigurationsApiService
 	systemId int32
+	batterySettings *UpdateSystemBatterySettingsRequest
 }
 
-func (r ApiGetSystemStormGuardSettingsRequest) Execute() (*GetSystemStormGuardSettingsResponse, *http.Response, error) {
-	return r.ApiService.GetSystemStormGuardSettingsExecute(r)
+func (r ApiUpdateSystemBatterySettingsRequest) BatterySettings(batterySettings UpdateSystemBatterySettingsRequest) ApiUpdateSystemBatterySettingsRequest {
+	r.batterySettings = &batterySettings
+	return r
+}
+
+func (r ApiUpdateSystemBatterySettingsRequest) Execute() (*BatterySettings, *http.Response, error) {
+	return r.ApiService.UpdateSystemBatterySettingsExecute(r)
 }
 
 /*
-GetSystemStormGuardSettings Returns the current storm guard settings of a system
+UpdateSystemBatterySettings Updates the current battery settings of a system
 
-Returns the current storm guard settings of a system.
+Updates the current battery settings of a system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param systemId Unique numeric ID of the system.
- @return ApiGetSystemStormGuardSettingsRequest
+ @return ApiUpdateSystemBatterySettingsRequest
 */
-func (a *SystemConfigurationsApiService) GetSystemStormGuardSettings(ctx context.Context, systemId int32) ApiGetSystemStormGuardSettingsRequest {
-	return ApiGetSystemStormGuardSettingsRequest{
+func (a *SystemConfigurationsApiService) UpdateSystemBatterySettings(ctx context.Context, systemId int32) ApiUpdateSystemBatterySettingsRequest {
+	return ApiUpdateSystemBatterySettingsRequest{
 		ApiService: a,
 		ctx: ctx,
 		systemId: systemId,
@@ -663,21 +863,21 @@ func (a *SystemConfigurationsApiService) GetSystemStormGuardSettings(ctx context
 }
 
 // Execute executes the request
-//  @return GetSystemStormGuardSettingsResponse
-func (a *SystemConfigurationsApiService) GetSystemStormGuardSettingsExecute(r ApiGetSystemStormGuardSettingsRequest) (*GetSystemStormGuardSettingsResponse, *http.Response, error) {
+//  @return BatterySettings
+func (a *SystemConfigurationsApiService) UpdateSystemBatterySettingsExecute(r ApiUpdateSystemBatterySettingsRequest) (*BatterySettings, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSystemStormGuardSettingsResponse
+		localVarReturnValue  *BatterySettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemConfigurationsApiService.GetSystemStormGuardSettings")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemConfigurationsApiService.UpdateSystemBatterySettings")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/systems/config/{system_id}/storm_guard"
+	localVarPath := localBasePath + "/systems/config/{system_id}/battery_settings"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -685,7 +885,7 @@ func (a *SystemConfigurationsApiService) GetSystemStormGuardSettingsExecute(r Ap
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -701,6 +901,421 @@ func (a *SystemConfigurationsApiService) GetSystemStormGuardSettingsExecute(r Ap
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.batterySettings
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("key", key)
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 405 {
+			var v MethodNotAllowedError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v TooManyRequestsError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v GetSystems500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 501 {
+			var v NotImplementedError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateSystemLoadControlSettingsRequest struct {
+	ctx context.Context
+	ApiService *SystemConfigurationsApiService
+	systemId int32
+	updateSystemLoadControlSettingsRequest *UpdateSystemLoadControlSettingsRequest
+}
+
+func (r ApiUpdateSystemLoadControlSettingsRequest) UpdateSystemLoadControlSettingsRequest(updateSystemLoadControlSettingsRequest UpdateSystemLoadControlSettingsRequest) ApiUpdateSystemLoadControlSettingsRequest {
+	r.updateSystemLoadControlSettingsRequest = &updateSystemLoadControlSettingsRequest
+	return r
+}
+
+func (r ApiUpdateSystemLoadControlSettingsRequest) Execute() (*LoadControlSettings, *http.Response, error) {
+	return r.ApiService.UpdateSystemLoadControlSettingsExecute(r)
+}
+
+/*
+UpdateSystemLoadControlSettings Updates the current load control settings of a system
+
+Updates the current load control settings of a system.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param systemId Unique numeric ID of the system.
+ @return ApiUpdateSystemLoadControlSettingsRequest
+*/
+func (a *SystemConfigurationsApiService) UpdateSystemLoadControlSettings(ctx context.Context, systemId int32) ApiUpdateSystemLoadControlSettingsRequest {
+	return ApiUpdateSystemLoadControlSettingsRequest{
+		ApiService: a,
+		ctx: ctx,
+		systemId: systemId,
+	}
+}
+
+// Execute executes the request
+//  @return LoadControlSettings
+func (a *SystemConfigurationsApiService) UpdateSystemLoadControlSettingsExecute(r ApiUpdateSystemLoadControlSettingsRequest) (*LoadControlSettings, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LoadControlSettings
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemConfigurationsApiService.UpdateSystemLoadControlSettings")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/systems/config/{system_id}/load_control"
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.updateSystemLoadControlSettingsRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("key", key)
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ClientError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 405 {
+			var v MethodNotAllowedError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v TooManyRequestsError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v GetSystems500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 501 {
+			var v NotImplementedError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateSystemStormGuardSettingsRequest struct {
+	ctx context.Context
+	ApiService *SystemConfigurationsApiService
+	systemId int32
+	stormGuard *UpdateSystemStormGuardSettingsRequest
+}
+
+func (r ApiUpdateSystemStormGuardSettingsRequest) StormGuard(stormGuard UpdateSystemStormGuardSettingsRequest) ApiUpdateSystemStormGuardSettingsRequest {
+	r.stormGuard = &stormGuard
+	return r
+}
+
+func (r ApiUpdateSystemStormGuardSettingsRequest) Execute() (*StormGuardSettings, *http.Response, error) {
+	return r.ApiService.UpdateSystemStormGuardSettingsExecute(r)
+}
+
+/*
+UpdateSystemStormGuardSettings Updates the current storm guard settings of a system
+
+Updates the current storm guard status of a system.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param systemId Unique numeric ID of the system.
+ @return ApiUpdateSystemStormGuardSettingsRequest
+*/
+func (a *SystemConfigurationsApiService) UpdateSystemStormGuardSettings(ctx context.Context, systemId int32) ApiUpdateSystemStormGuardSettingsRequest {
+	return ApiUpdateSystemStormGuardSettingsRequest{
+		ApiService: a,
+		ctx: ctx,
+		systemId: systemId,
+	}
+}
+
+// Execute executes the request
+//  @return StormGuardSettings
+func (a *SystemConfigurationsApiService) UpdateSystemStormGuardSettingsExecute(r ApiUpdateSystemStormGuardSettingsRequest) (*StormGuardSettings, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *StormGuardSettings
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemConfigurationsApiService.UpdateSystemStormGuardSettings")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/systems/config/{system_id}/storm_guard"
+	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", url.PathEscape(parameterValueToString(r.systemId, "systemId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.stormGuard
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -309,10 +309,13 @@ case $state in
             "getSystemProductionMeterReadings[production_meter_readings]" \
             "getSystemProductionMeterTelemetry[Retrieves telemetry for all production meters for a system]" \
             "getSystemProductionMicroTelemetry[Retrieves telemetry for all production micros for a system]" \
-            "getSystemRgmStats[rgm_stats]"             "getSystemBatterySettings[Returns the current battery settings of a system]" \
-            "getSystemGridStatusSettings[Returns the current grid status settings of a system]" \
+            "getSystemRgmStats[rgm_stats]"             "streamSystemLiveData[Site Level Live Status]"             "getSystemBatterySettings[Returns the current battery settings of a system]" \
+            "getSystemGridStatusSettings[Returns the current grid status of a system.]" \
             "getSystemLoadControlSettings[Returns the current load control settings of a system]" \
-            "getSystemStormGuardSettings[Returns the current storm guard settings of a system]"             "getInvertersSummaryByEnvoyOrSite[inverters_summary_by_envoy_or_site]" \
+            "getSystemStormGuardSettings[Returns the current storm guard settings of a system]" \
+            "updateSystemBatterySettings[Updates the current battery settings of a system]" \
+            "updateSystemLoadControlSettings[Updates the current load control settings of a system]" \
+            "updateSystemStormGuardSettings[Updates the current storm guard settings of a system]"             "getInvertersSummaryByEnvoyOrSite[inverters_summary_by_envoy_or_site]" \
             "getSystem[Retrieves a System by ID]" \
             "getSystemDevices[Retrieves devices for a given system]" \
             "getSystemSummary[Retrieves a system summary]" \
@@ -473,6 +476,14 @@ case $state in
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      streamSystemLiveData)
+        local -a _op_arguments
+        _op_arguments=(
+          "system_id=:[PATH] Unique numeric ID of the system."
+                    "duration\::[HEADER] Duration of the stream in seconds. Default&#x3D;30, Min&#x3D;30, Max&#x3D;300, e.g&#x3D;30."
+)
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       getSystemBatterySettings)
         local -a _op_arguments
         _op_arguments=(
@@ -495,6 +506,27 @@ case $state in
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getSystemStormGuardSettings)
+        local -a _op_arguments
+        _op_arguments=(
+          "system_id=:[PATH] Unique numeric ID of the system."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateSystemBatterySettings)
+        local -a _op_arguments
+        _op_arguments=(
+          "system_id=:[PATH] Unique numeric ID of the system."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateSystemLoadControlSettings)
+        local -a _op_arguments
+        _op_arguments=(
+          "system_id=:[PATH] Unique numeric ID of the system."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateSystemStormGuardSettings)
         local -a _op_arguments
         _op_arguments=(
           "system_id=:[PATH] Unique numeric ID of the system."

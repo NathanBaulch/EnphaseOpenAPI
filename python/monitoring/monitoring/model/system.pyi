@@ -50,14 +50,19 @@ class System(
                 class MetaOapg:
                     
                     class properties:
+                        city = schemas.StrSchema
                         state = schemas.StrSchema
                         country = schemas.StrSchema
                         postal_code = schemas.StrSchema
                         __annotations__ = {
+                            "city": city,
                             "state": state,
                             "country": country,
                             "postal_code": postal_code,
                         }
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["city"]) -> MetaOapg.properties.city: ...
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["state"]) -> MetaOapg.properties.state: ...
@@ -71,10 +76,13 @@ class System(
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["state", "country", "postal_code", ], str]):
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["city", "state", "country", "postal_code", ], str]):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["city"]) -> typing.Union[MetaOapg.properties.city, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["state"]) -> typing.Union[MetaOapg.properties.state, schemas.Unset]: ...
@@ -88,13 +96,14 @@ class System(
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["state", "country", "postal_code", ], str]):
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["city", "state", "country", "postal_code", ], str]):
                     return super().get_item_oapg(name)
                 
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
+                    city: typing.Union[MetaOapg.properties.city, str, schemas.Unset] = schemas.unset,
                     state: typing.Union[MetaOapg.properties.state, str, schemas.Unset] = schemas.unset,
                     country: typing.Union[MetaOapg.properties.country, str, schemas.Unset] = schemas.unset,
                     postal_code: typing.Union[MetaOapg.properties.postal_code, str, schemas.Unset] = schemas.unset,
@@ -104,6 +113,7 @@ class System(
                     return super().__new__(
                         cls,
                         *_args,
+                        city=city,
                         state=state,
                         country=country,
                         postal_code=postal_code,
@@ -116,7 +126,7 @@ class System(
                 return SystemConnectionTypeEnum
             energy_lifetime = schemas.IntSchema
             energy_today = schemas.IntSchema
-            system_size = schemas.Float32Schema
+            system_size = schemas.IntSchema
         
             @staticmethod
             def status() -> typing.Type['SystemStatusEnum']:
@@ -301,7 +311,7 @@ class System(
         connection_type: typing.Union['SystemConnectionTypeEnum', schemas.Unset] = schemas.unset,
         energy_lifetime: typing.Union[MetaOapg.properties.energy_lifetime, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         energy_today: typing.Union[MetaOapg.properties.energy_today, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        system_size: typing.Union[MetaOapg.properties.system_size, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        system_size: typing.Union[MetaOapg.properties.system_size, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         status: typing.Union['SystemStatusEnum', schemas.Unset] = schemas.unset,
         last_report_at: typing.Union[MetaOapg.properties.last_report_at, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         last_energy_at: typing.Union[MetaOapg.properties.last_energy_at, decimal.Decimal, int, schemas.Unset] = schemas.unset,

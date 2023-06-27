@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **connectionUnderscoretype** | [**SystemConnectionTypeEnum**](SystemConnectionTypeEnum.md) |  | [optional] [default to null]
 **energyUnderscorelifetime** | **integer** |  | [optional] [default to null]
 **energyUnderscoretoday** | **integer** |  | [optional] [default to null]
-**systemUnderscoresize** | **float** |  | [optional] [default to null]
+**systemUnderscoresize** | **integer** |  | [optional] [default to null]
 **status** | [**SystemStatusEnum**](SystemStatusEnum.md) |  | [optional] [default to null]
 **lastUnderscorereportUnderscoreat** | **integer** |  | [optional] [default to null]
 **lastUnderscoreenergyUnderscoreat** | **integer** |  | [optional] [default to null]

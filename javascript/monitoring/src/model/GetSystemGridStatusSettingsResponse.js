@@ -54,7 +54,7 @@ class GetSystemGridStatusSettingsResponse {
                 obj['grid_state'] = ApiClient.convertToType(data['grid_state'], 'String');
             }
             if (data.hasOwnProperty('last_report_date')) {
-                obj['last_report_date'] = ApiClient.convertToType(data['last_report_date'], 'Date');
+                obj['last_report_date'] = ApiClient.convertToType(data['last_report_date'], 'Number');
             }
         }
         return obj;
@@ -85,14 +85,14 @@ class GetSystemGridStatusSettingsResponse {
 GetSystemGridStatusSettingsResponse.prototype['system_id'] = undefined;
 
 /**
- * Indicates whether the site is connected to the grid.
+ * Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown.
  * @member {String} grid_state
  */
 GetSystemGridStatusSettingsResponse.prototype['grid_state'] = undefined;
 
 /**
- * Timestamp of the last report.
- * @member {Date} last_report_date
+ * Timestamp (in epoch format) at which the system's Envoy last submitted a report.
+ * @member {Number} last_report_date
  */
 GetSystemGridStatusSettingsResponse.prototype['last_report_date'] = undefined;
 

@@ -35,9 +35,9 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// Initializes a new instance of the <see cref="GetSystemGridStatusSettingsResponse" /> class.
         /// </summary>
         /// <param name="systemId">systemId.</param>
-        /// <param name="gridState">Indicates whether the site is connected to the grid..</param>
-        /// <param name="lastReportDate">Timestamp of the last report..</param>
-        public GetSystemGridStatusSettingsResponse(int systemId = default(int), string gridState = default(string), DateTimeOffset lastReportDate = default(DateTimeOffset))
+        /// <param name="gridState">Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown..</param>
+        /// <param name="lastReportDate">Timestamp (in epoch format) at which the system&#39;s Envoy last submitted a report..</param>
+        public GetSystemGridStatusSettingsResponse(int systemId = default(int), string gridState = default(string), int lastReportDate = default(int))
         {
             this.SystemId = systemId;
             this.GridState = gridState;
@@ -51,18 +51,18 @@ namespace EnphaseOpenAPI.Monitoring.Model
         public int SystemId { get; set; }
 
         /// <summary>
-        /// Indicates whether the site is connected to the grid.
+        /// Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown.
         /// </summary>
-        /// <value>Indicates whether the site is connected to the grid.</value>
+        /// <value>Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown.</value>
         [DataMember(Name = "grid_state", EmitDefaultValue = false)]
         public string GridState { get; set; }
 
         /// <summary>
-        /// Timestamp of the last report.
+        /// Timestamp (in epoch format) at which the system&#39;s Envoy last submitted a report.
         /// </summary>
-        /// <value>Timestamp of the last report.</value>
+        /// <value>Timestamp (in epoch format) at which the system&#39;s Envoy last submitted a report.</value>
         [DataMember(Name = "last_report_date", EmitDefaultValue = false)]
-        public DateTimeOffset LastReportDate { get; set; }
+        public int LastReportDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,8 +121,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
                 ) && 
                 (
                     this.LastReportDate == input.LastReportDate ||
-                    (this.LastReportDate != null &&
-                    this.LastReportDate.Equals(input.LastReportDate))
+                    this.LastReportDate.Equals(input.LastReportDate)
                 );
         }
 
@@ -140,10 +139,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
                 {
                     hashCode = (hashCode * 59) + this.GridState.GetHashCode();
                 }
-                if (this.LastReportDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastReportDate.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.LastReportDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -36,8 +36,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetSystemBatterySettingsResponse</returns>
-        GetSystemBatterySettingsResponse GetSystemBatterySettings(int systemId, int operationIndex = 0);
+        /// <returns>BatterySettings</returns>
+        BatterySettings GetSystemBatterySettings(int systemId, int operationIndex = 0);
 
         /// <summary>
         /// Returns the current battery settings of a system
@@ -48,13 +48,13 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetSystemBatterySettingsResponse</returns>
-        ApiResponse<GetSystemBatterySettingsResponse> GetSystemBatterySettingsWithHttpInfo(int systemId, int operationIndex = 0);
+        /// <returns>ApiResponse of BatterySettings</returns>
+        ApiResponse<BatterySettings> GetSystemBatterySettingsWithHttpInfo(int systemId, int operationIndex = 0);
         /// <summary>
-        /// Returns the current grid status settings of a system
+        /// Returns the current grid status of a system.
         /// </summary>
         /// <remarks>
-        /// Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -63,10 +63,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         GetSystemGridStatusSettingsResponse GetSystemGridStatusSettings(int systemId, int operationIndex = 0);
 
         /// <summary>
-        /// Returns the current grid status settings of a system
+        /// Returns the current grid status of a system.
         /// </summary>
         /// <remarks>
-        /// Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -82,8 +82,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetSystemLoadControlSettingsResponse</returns>
-        GetSystemLoadControlSettingsResponse GetSystemLoadControlSettings(int systemId, int operationIndex = 0);
+        /// <returns>LoadControlSettings</returns>
+        LoadControlSettings GetSystemLoadControlSettings(int systemId, int operationIndex = 0);
 
         /// <summary>
         /// Returns the current load control settings of a system
@@ -94,8 +94,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetSystemLoadControlSettingsResponse</returns>
-        ApiResponse<GetSystemLoadControlSettingsResponse> GetSystemLoadControlSettingsWithHttpInfo(int systemId, int operationIndex = 0);
+        /// <returns>ApiResponse of LoadControlSettings</returns>
+        ApiResponse<LoadControlSettings> GetSystemLoadControlSettingsWithHttpInfo(int systemId, int operationIndex = 0);
         /// <summary>
         /// Returns the current storm guard settings of a system
         /// </summary>
@@ -105,8 +105,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetSystemStormGuardSettingsResponse</returns>
-        GetSystemStormGuardSettingsResponse GetSystemStormGuardSettings(int systemId, int operationIndex = 0);
+        /// <returns>StormGuardSettings</returns>
+        StormGuardSettings GetSystemStormGuardSettings(int systemId, int operationIndex = 0);
 
         /// <summary>
         /// Returns the current storm guard settings of a system
@@ -117,8 +117,83 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetSystemStormGuardSettingsResponse</returns>
-        ApiResponse<GetSystemStormGuardSettingsResponse> GetSystemStormGuardSettingsWithHttpInfo(int systemId, int operationIndex = 0);
+        /// <returns>ApiResponse of StormGuardSettings</returns>
+        ApiResponse<StormGuardSettings> GetSystemStormGuardSettingsWithHttpInfo(int systemId, int operationIndex = 0);
+        /// <summary>
+        /// Updates the current battery settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current battery settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>BatterySettings</returns>
+        BatterySettings UpdateSystemBatterySettings(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Updates the current battery settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current battery settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of BatterySettings</returns>
+        ApiResponse<BatterySettings> UpdateSystemBatterySettingsWithHttpInfo(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0);
+        /// <summary>
+        /// Updates the current load control settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current load control settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>LoadControlSettings</returns>
+        LoadControlSettings UpdateSystemLoadControlSettings(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Updates the current load control settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current load control settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of LoadControlSettings</returns>
+        ApiResponse<LoadControlSettings> UpdateSystemLoadControlSettingsWithHttpInfo(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0);
+        /// <summary>
+        /// Updates the current storm guard settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current storm guard status of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StormGuardSettings</returns>
+        StormGuardSettings UpdateSystemStormGuardSettings(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Updates the current storm guard settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current storm guard status of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StormGuardSettings</returns>
+        ApiResponse<StormGuardSettings> UpdateSystemStormGuardSettingsWithHttpInfo(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -138,8 +213,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSystemBatterySettingsResponse</returns>
-        System.Threading.Tasks.Task<GetSystemBatterySettingsResponse> GetSystemBatterySettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of BatterySettings</returns>
+        System.Threading.Tasks.Task<BatterySettings> GetSystemBatterySettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the current battery settings of a system
@@ -151,13 +226,13 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSystemBatterySettingsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSystemBatterySettingsResponse>> GetSystemBatterySettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (BatterySettings)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatterySettings>> GetSystemBatterySettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Returns the current grid status settings of a system
+        /// Returns the current grid status of a system.
         /// </summary>
         /// <remarks>
-        /// Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -167,10 +242,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         System.Threading.Tasks.Task<GetSystemGridStatusSettingsResponse> GetSystemGridStatusSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Returns the current grid status settings of a system
+        /// Returns the current grid status of a system.
         /// </summary>
         /// <remarks>
-        /// Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </remarks>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -188,8 +263,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSystemLoadControlSettingsResponse</returns>
-        System.Threading.Tasks.Task<GetSystemLoadControlSettingsResponse> GetSystemLoadControlSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of LoadControlSettings</returns>
+        System.Threading.Tasks.Task<LoadControlSettings> GetSystemLoadControlSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the current load control settings of a system
@@ -201,8 +276,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSystemLoadControlSettingsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSystemLoadControlSettingsResponse>> GetSystemLoadControlSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (LoadControlSettings)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LoadControlSettings>> GetSystemLoadControlSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the current storm guard settings of a system
         /// </summary>
@@ -213,8 +288,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSystemStormGuardSettingsResponse</returns>
-        System.Threading.Tasks.Task<GetSystemStormGuardSettingsResponse> GetSystemStormGuardSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of StormGuardSettings</returns>
+        System.Threading.Tasks.Task<StormGuardSettings> GetSystemStormGuardSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the current storm guard settings of a system
@@ -226,8 +301,89 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSystemStormGuardSettingsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSystemStormGuardSettingsResponse>> GetSystemStormGuardSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (StormGuardSettings)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StormGuardSettings>> GetSystemStormGuardSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Updates the current battery settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current battery settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatterySettings</returns>
+        System.Threading.Tasks.Task<BatterySettings> UpdateSystemBatterySettingsAsync(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Updates the current battery settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current battery settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatterySettings)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatterySettings>> UpdateSystemBatterySettingsWithHttpInfoAsync(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Updates the current load control settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current load control settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LoadControlSettings</returns>
+        System.Threading.Tasks.Task<LoadControlSettings> UpdateSystemLoadControlSettingsAsync(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Updates the current load control settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current load control settings of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LoadControlSettings)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LoadControlSettings>> UpdateSystemLoadControlSettingsWithHttpInfoAsync(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Updates the current storm guard settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current storm guard status of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StormGuardSettings</returns>
+        System.Threading.Tasks.Task<StormGuardSettings> UpdateSystemStormGuardSettingsAsync(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Updates the current storm guard settings of a system
+        /// </summary>
+        /// <remarks>
+        /// Updates the current storm guard status of a system.
+        /// </remarks>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StormGuardSettings)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StormGuardSettings>> UpdateSystemStormGuardSettingsWithHttpInfoAsync(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -354,10 +510,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetSystemBatterySettingsResponse</returns>
-        public GetSystemBatterySettingsResponse GetSystemBatterySettings(int systemId, int operationIndex = 0)
+        /// <returns>BatterySettings</returns>
+        public BatterySettings GetSystemBatterySettings(int systemId, int operationIndex = 0)
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemBatterySettingsResponse> localVarResponse = GetSystemBatterySettingsWithHttpInfo(systemId);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings> localVarResponse = GetSystemBatterySettingsWithHttpInfo(systemId);
             return localVarResponse.Data;
         }
 
@@ -367,8 +523,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetSystemBatterySettingsResponse</returns>
-        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemBatterySettingsResponse> GetSystemBatterySettingsWithHttpInfo(int systemId, int operationIndex = 0)
+        /// <returns>ApiResponse of BatterySettings</returns>
+        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings> GetSystemBatterySettingsWithHttpInfo(int systemId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
 
@@ -420,7 +576,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetSystemBatterySettingsResponse>("/systems/config/{system_id}/battery_settings", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<BatterySettings>("/systems/config/{system_id}/battery_settings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemBatterySettings", localVarResponse);
@@ -440,10 +596,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSystemBatterySettingsResponse</returns>
-        public async System.Threading.Tasks.Task<GetSystemBatterySettingsResponse> GetSystemBatterySettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of BatterySettings</returns>
+        public async System.Threading.Tasks.Task<BatterySettings> GetSystemBatterySettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemBatterySettingsResponse> localVarResponse = await GetSystemBatterySettingsWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings> localVarResponse = await GetSystemBatterySettingsWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -454,8 +610,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSystemBatterySettingsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemBatterySettingsResponse>> GetSystemBatterySettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (BatterySettings)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings>> GetSystemBatterySettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
@@ -508,7 +664,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetSystemBatterySettingsResponse>("/systems/config/{system_id}/battery_settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BatterySettings>("/systems/config/{system_id}/battery_settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -523,7 +679,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
         }
 
         /// <summary>
-        /// Returns the current grid status settings of a system Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -536,7 +692,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
         }
 
         /// <summary>
-        /// Returns the current grid status settings of a system Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -608,7 +764,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
         }
 
         /// <summary>
-        /// Returns the current grid status settings of a system Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -622,7 +778,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
         }
 
         /// <summary>
-        /// Returns the current grid status settings of a system Returns the current grid status settings of a system.
+        /// Returns the current grid status of a system. Returns the current grid status of a system. Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
         /// </summary>
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
@@ -702,10 +858,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetSystemLoadControlSettingsResponse</returns>
-        public GetSystemLoadControlSettingsResponse GetSystemLoadControlSettings(int systemId, int operationIndex = 0)
+        /// <returns>LoadControlSettings</returns>
+        public LoadControlSettings GetSystemLoadControlSettings(int systemId, int operationIndex = 0)
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemLoadControlSettingsResponse> localVarResponse = GetSystemLoadControlSettingsWithHttpInfo(systemId);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings> localVarResponse = GetSystemLoadControlSettingsWithHttpInfo(systemId);
             return localVarResponse.Data;
         }
 
@@ -715,8 +871,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetSystemLoadControlSettingsResponse</returns>
-        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemLoadControlSettingsResponse> GetSystemLoadControlSettingsWithHttpInfo(int systemId, int operationIndex = 0)
+        /// <returns>ApiResponse of LoadControlSettings</returns>
+        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings> GetSystemLoadControlSettingsWithHttpInfo(int systemId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
 
@@ -768,7 +924,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetSystemLoadControlSettingsResponse>("/systems/config/{system_id}/load_control", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<LoadControlSettings>("/systems/config/{system_id}/load_control", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemLoadControlSettings", localVarResponse);
@@ -788,10 +944,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSystemLoadControlSettingsResponse</returns>
-        public async System.Threading.Tasks.Task<GetSystemLoadControlSettingsResponse> GetSystemLoadControlSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of LoadControlSettings</returns>
+        public async System.Threading.Tasks.Task<LoadControlSettings> GetSystemLoadControlSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemLoadControlSettingsResponse> localVarResponse = await GetSystemLoadControlSettingsWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings> localVarResponse = await GetSystemLoadControlSettingsWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -802,8 +958,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSystemLoadControlSettingsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemLoadControlSettingsResponse>> GetSystemLoadControlSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (LoadControlSettings)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings>> GetSystemLoadControlSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
@@ -856,7 +1012,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetSystemLoadControlSettingsResponse>("/systems/config/{system_id}/load_control", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<LoadControlSettings>("/systems/config/{system_id}/load_control", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -876,10 +1032,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetSystemStormGuardSettingsResponse</returns>
-        public GetSystemStormGuardSettingsResponse GetSystemStormGuardSettings(int systemId, int operationIndex = 0)
+        /// <returns>StormGuardSettings</returns>
+        public StormGuardSettings GetSystemStormGuardSettings(int systemId, int operationIndex = 0)
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemStormGuardSettingsResponse> localVarResponse = GetSystemStormGuardSettingsWithHttpInfo(systemId);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings> localVarResponse = GetSystemStormGuardSettingsWithHttpInfo(systemId);
             return localVarResponse.Data;
         }
 
@@ -889,8 +1045,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetSystemStormGuardSettingsResponse</returns>
-        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemStormGuardSettingsResponse> GetSystemStormGuardSettingsWithHttpInfo(int systemId, int operationIndex = 0)
+        /// <returns>ApiResponse of StormGuardSettings</returns>
+        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings> GetSystemStormGuardSettingsWithHttpInfo(int systemId, int operationIndex = 0)
         {
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
 
@@ -942,7 +1098,7 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetSystemStormGuardSettingsResponse>("/systems/config/{system_id}/storm_guard", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<StormGuardSettings>("/systems/config/{system_id}/storm_guard", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemStormGuardSettings", localVarResponse);
@@ -962,10 +1118,10 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSystemStormGuardSettingsResponse</returns>
-        public async System.Threading.Tasks.Task<GetSystemStormGuardSettingsResponse> GetSystemStormGuardSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of StormGuardSettings</returns>
+        public async System.Threading.Tasks.Task<StormGuardSettings> GetSystemStormGuardSettingsAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemStormGuardSettingsResponse> localVarResponse = await GetSystemStormGuardSettingsWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings> localVarResponse = await GetSystemStormGuardSettingsWithHttpInfoAsync(systemId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -976,8 +1132,8 @@ namespace EnphaseOpenAPI.Monitoring.Api
         /// <param name="systemId">Unique numeric ID of the system.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSystemStormGuardSettingsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<GetSystemStormGuardSettingsResponse>> GetSystemStormGuardSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (StormGuardSettings)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings>> GetSystemStormGuardSettingsWithHttpInfoAsync(int systemId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
@@ -1030,11 +1186,557 @@ namespace EnphaseOpenAPI.Monitoring.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetSystemStormGuardSettingsResponse>("/systems/config/{system_id}/storm_guard", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<StormGuardSettings>("/systems/config/{system_id}/storm_guard", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemStormGuardSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the current battery settings of a system Updates the current battery settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>BatterySettings</returns>
+        public BatterySettings UpdateSystemBatterySettings(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings> localVarResponse = UpdateSystemBatterySettingsWithHttpInfo(systemId, batterySettings);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the current battery settings of a system Updates the current battery settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of BatterySettings</returns>
+        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings> UpdateSystemBatterySettingsWithHttpInfo(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToString(systemId)); // path parameter
+            localVarRequestOptions.Data = batterySettings;
+
+            localVarRequestOptions.Operation = "SystemConfigurationsApi.UpdateSystemBatterySettings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<BatterySettings>("/systems/config/{system_id}/battery_settings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSystemBatterySettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the current battery settings of a system Updates the current battery settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatterySettings</returns>
+        public async System.Threading.Tasks.Task<BatterySettings> UpdateSystemBatterySettingsAsync(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings> localVarResponse = await UpdateSystemBatterySettingsWithHttpInfoAsync(systemId, batterySettings, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the current battery settings of a system Updates the current battery settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="batterySettings"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatterySettings)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<BatterySettings>> UpdateSystemBatterySettingsWithHttpInfoAsync(int systemId, UpdateSystemBatterySettingsRequest batterySettings = default(UpdateSystemBatterySettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToString(systemId)); // path parameter
+            localVarRequestOptions.Data = batterySettings;
+
+            localVarRequestOptions.Operation = "SystemConfigurationsApi.UpdateSystemBatterySettings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<BatterySettings>("/systems/config/{system_id}/battery_settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSystemBatterySettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the current load control settings of a system Updates the current load control settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>LoadControlSettings</returns>
+        public LoadControlSettings UpdateSystemLoadControlSettings(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings> localVarResponse = UpdateSystemLoadControlSettingsWithHttpInfo(systemId, updateSystemLoadControlSettingsRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the current load control settings of a system Updates the current load control settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of LoadControlSettings</returns>
+        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings> UpdateSystemLoadControlSettingsWithHttpInfo(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToString(systemId)); // path parameter
+            localVarRequestOptions.Data = updateSystemLoadControlSettingsRequest;
+
+            localVarRequestOptions.Operation = "SystemConfigurationsApi.UpdateSystemLoadControlSettings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<LoadControlSettings>("/systems/config/{system_id}/load_control", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSystemLoadControlSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the current load control settings of a system Updates the current load control settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LoadControlSettings</returns>
+        public async System.Threading.Tasks.Task<LoadControlSettings> UpdateSystemLoadControlSettingsAsync(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings> localVarResponse = await UpdateSystemLoadControlSettingsWithHttpInfoAsync(systemId, updateSystemLoadControlSettingsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the current load control settings of a system Updates the current load control settings of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="updateSystemLoadControlSettingsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LoadControlSettings)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<LoadControlSettings>> UpdateSystemLoadControlSettingsWithHttpInfoAsync(int systemId, UpdateSystemLoadControlSettingsRequest updateSystemLoadControlSettingsRequest = default(UpdateSystemLoadControlSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToString(systemId)); // path parameter
+            localVarRequestOptions.Data = updateSystemLoadControlSettingsRequest;
+
+            localVarRequestOptions.Operation = "SystemConfigurationsApi.UpdateSystemLoadControlSettings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<LoadControlSettings>("/systems/config/{system_id}/load_control", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSystemLoadControlSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the current storm guard settings of a system Updates the current storm guard status of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StormGuardSettings</returns>
+        public StormGuardSettings UpdateSystemStormGuardSettings(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings> localVarResponse = UpdateSystemStormGuardSettingsWithHttpInfo(systemId, stormGuard);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the current storm guard settings of a system Updates the current storm guard status of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StormGuardSettings</returns>
+        public EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings> UpdateSystemStormGuardSettingsWithHttpInfo(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0)
+        {
+            EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToString(systemId)); // path parameter
+            localVarRequestOptions.Data = stormGuard;
+
+            localVarRequestOptions.Operation = "SystemConfigurationsApi.UpdateSystemStormGuardSettings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<StormGuardSettings>("/systems/config/{system_id}/storm_guard", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSystemStormGuardSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the current storm guard settings of a system Updates the current storm guard status of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StormGuardSettings</returns>
+        public async System.Threading.Tasks.Task<StormGuardSettings> UpdateSystemStormGuardSettingsAsync(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings> localVarResponse = await UpdateSystemStormGuardSettingsWithHttpInfoAsync(systemId, stormGuard, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the current storm guard settings of a system Updates the current storm guard status of a system.
+        /// </summary>
+        /// <exception cref="EnphaseOpenAPI.Monitoring.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="systemId">Unique numeric ID of the system.</param>
+        /// <param name="stormGuard"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StormGuardSettings)</returns>
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Monitoring.Client.ApiResponse<StormGuardSettings>> UpdateSystemStormGuardSettingsWithHttpInfoAsync(int systemId, UpdateSystemStormGuardSettingsRequest stormGuard = default(UpdateSystemStormGuardSettingsRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            EnphaseOpenAPI.Monitoring.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Monitoring.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EnphaseOpenAPI.Monitoring.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("system_id", EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToString(systemId)); // path parameter
+            localVarRequestOptions.Data = stormGuard;
+
+            localVarRequestOptions.Operation = "SystemConfigurationsApi.UpdateSystemStormGuardSettings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (OAuth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+            // authentication (ApiKey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("key")))
+            {
+                localVarRequestOptions.QueryParameters.Add(EnphaseOpenAPI.Monitoring.Client.ClientUtils.ParameterToMultiMap("", "key", this.Configuration.GetApiKeyWithPrefix("key")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<StormGuardSettings>("/systems/config/{system_id}/storm_guard", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSystemStormGuardSettings", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

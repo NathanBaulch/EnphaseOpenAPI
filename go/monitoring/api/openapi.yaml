@@ -2941,7 +2941,7 @@ paths:
             application/json:
               example:
                 message: Unprocessable Entity
-                details: System doesn't have encharges
+                details: System doesn't have encharge
                 code: 422
               schema:
                 $ref: '#/components/schemas/ClientError'
@@ -2992,6 +2992,127 @@ paths:
       summary: Returns the current battery settings of a system
       tags:
       - System Configurations
+    put:
+      description: Updates the current battery settings of a system.
+      operationId: UpdateSystemBatterySettings
+      parameters:
+      - description: Unique numeric ID of the system.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemBatterySettingsRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemBatterySettingsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              example:
+                message: Not Authorized
+                details: User is not authorized
+                code: 401
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              example:
+                message: Forbidden
+                details: Not authorized to access this resource
+                code: 403
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              example:
+                message: Not Found
+                details: "System not found for {:id=>\"1\"}"
+                code: 404
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                message: Unprocessable Entity
+                details: System doesn't have encharge
+                code: 422
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Unprocessable Entity
+        "429":
+          content:
+            application/json:
+              example:
+                message: Too Many Requests
+                details: Usage limit exceeded for plan Kilowatt
+                code: 429
+                period: minute
+                period_start: 1623825660
+                period_end: 1623825720
+                limit: 5
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  value:
+                    message: Internal Server Error
+                    details: "Problem parsing time. Is time passed correctly in the\
+                      \ following fields {:start_date=>\"2019-08-33\", :end_at=>\"\
+                      2019-08-29\"}"
+                    code: 500
+                DataTemporarilyUnavailableError:
+                  value:
+                    errorCode: 7
+                    errorMessages:
+                    - Data is temporarily unavailable
+              schema:
+                $ref: '#/components/schemas/GetSystems_500_response'
+          description: Internal Server Error
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/NotImplementedError'
+          description: Not Implemented
+      summary: Updates the current battery settings of a system
+      tags:
+      - System Configurations
+      x-codegen-request-body-name: battery_settings
   /systems/config/{system_id}/storm_guard:
     get:
       description: Returns the current storm guard settings of a system.
@@ -3057,7 +3178,7 @@ paths:
             application/json:
               example:
                 message: Unprocessable Entity
-                details: System doesn't have encharges
+                details: System doesn't have encharge
                 code: 422
               schema:
                 $ref: '#/components/schemas/ClientError'
@@ -3108,9 +3229,132 @@ paths:
       summary: Returns the current storm guard settings of a system
       tags:
       - System Configurations
+    put:
+      description: Updates the current storm guard status of a system.
+      operationId: UpdateSystemStormGuardSettings
+      parameters:
+      - description: Unique numeric ID of the system.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemStormGuardSettingsRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemStormGuardSettingsResponse'
+          description: storm_guard
+        "401":
+          content:
+            application/json:
+              example:
+                message: Not Authorized
+                details: User is not authorized
+                code: 401
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              example:
+                message: Forbidden
+                details: Not authorized to access this resource
+                code: 403
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              example:
+                message: Not Found
+                details: "System not found for {:id=>\"1\"}"
+                code: 404
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+          description: Method Not Allowed
+        "422":
+          content:
+            application/json:
+              example:
+                message: Unprocessable Entity
+                details: System doesn't have encharge
+                code: 422
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Unprocessable Entity
+        "429":
+          content:
+            application/json:
+              example:
+                message: Too Many Requests
+                details: Usage limit exceeded for plan Kilowatt
+                code: 429
+                period: minute
+                period_start: 1623825660
+                period_end: 1623825720
+                limit: 5
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  value:
+                    message: Internal Server Error
+                    details: "Problem parsing time. Is time passed correctly in the\
+                      \ following fields {:start_date=>\"2019-08-33\", :end_at=>\"\
+                      2019-08-29\"}"
+                    code: 500
+                DataTemporarilyUnavailableError:
+                  value:
+                    errorCode: 7
+                    errorMessages:
+                    - Data is temporarily unavailable
+              schema:
+                $ref: '#/components/schemas/GetSystems_500_response'
+          description: Internal Server Error
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/NotImplementedError'
+          description: Not Implemented
+      summary: Updates the current storm guard settings of a system
+      tags:
+      - System Configurations
+      x-codegen-request-body-name: storm_guard
   /systems/config/{system_id}/grid_status:
     get:
-      description: Returns the current grid status settings of a system.
+      description: |-
+        Returns the current grid status of a system.
+        Please note that the status returned in the response is not real-time and is updated only after the IQ Gateway sends a new report to the Enphase cloud.
       operationId: GetSystemGridStatusSettings
       parameters:
       - description: Unique numeric ID of the system.
@@ -3173,7 +3417,7 @@ paths:
             application/json:
               example:
                 message: Unprocessable Entity
-                details: System doesn't have encharges
+                details: grid_state not available as the site has not reported yet
                 code: 422
               schema:
                 $ref: '#/components/schemas/ClientError'
@@ -3221,7 +3465,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotImplementedError'
           description: Not Implemented
-      summary: Returns the current grid status settings of a system
+      summary: Returns the current grid status of a system.
       tags:
       - System Configurations
   /systems/config/{system_id}/load_control:
@@ -3284,16 +3528,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/MethodNotAllowedError'
           description: Method Not Allowed
-        "422":
-          content:
-            application/json:
-              example:
-                message: Unprocessable Entity
-                details: System doesn't have encharges
-                code: 422
-              schema:
-                $ref: '#/components/schemas/ClientError'
-          description: Unprocessable Entity
         "429":
           content:
             application/json:
@@ -3340,12 +3574,122 @@ paths:
       summary: Returns the current load control settings of a system
       tags:
       - System Configurations
+    put:
+      description: Updates the current load control settings of a system.
+      operationId: UpdateSystemLoadControlSettings
+      parameters:
+      - description: Unique numeric ID of the system.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSystemLoadControlSettingsRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSystemLoadControlSettingsResponse'
+          description: load_control
+        "401":
+          content:
+            application/json:
+              example:
+                message: Not Authorized
+                details: User is not authorized
+                code: 401
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              example:
+                message: Forbidden
+                details: Not authorized to access this resource
+                code: 403
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              example:
+                message: Not Found
+                details: "System not found for {:id=>\"1\"}"
+                code: 404
+              schema:
+                $ref: '#/components/schemas/ClientError'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              example:
+                reason: "405"
+                message:
+                - Method not allowed
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedError'
+          description: Method Not Allowed
+        "429":
+          content:
+            application/json:
+              example:
+                message: Too Many Requests
+                details: Usage limit exceeded for plan Kilowatt
+                code: 429
+                period: minute
+                period_start: 1623825660
+                period_end: 1623825720
+                limit: 5
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  value:
+                    message: Internal Server Error
+                    details: "Problem parsing time. Is time passed correctly in the\
+                      \ following fields {:start_date=>\"2019-08-33\", :end_at=>\"\
+                      2019-08-29\"}"
+                    code: 500
+                DataTemporarilyUnavailableError:
+                  value:
+                    errorCode: 7
+                    errorMessages:
+                    - Data is temporarily unavailable
+              schema:
+                $ref: '#/components/schemas/GetSystems_500_response'
+          description: Internal Server Error
+        "501":
+          content:
+            application/json:
+              example:
+                reason: "501"
+                message:
+                - Not Implemented
+              schema:
+                $ref: '#/components/schemas/NotImplementedError'
+          description: Not Implemented
+      summary: Updates the current load control settings of a system
+      tags:
+      - System Configurations
   /systems/{system_id}/energy_import_telemetry:
     get:
       description: |-
         Retrieves energy imported from grid in regular intervals.
         If no start_at is specified, defaults to midnight today, in the timezone of the system.
-        If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
         The end_at is calculated as the minimum of the time of the request and (start time + granularity).
         The meaning of granularity is as follows:
 
@@ -3389,7 +3733,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetSystemEnergyImportTelemetryResponse'
-          description: Telemetry for all production micros.
+          description: Energy import telemetry in intervals.
         "401":
           content:
             application/json:
@@ -3492,7 +3836,7 @@ paths:
     get:
       description: |-
         Retrieves energy exported to grid in regular intervals. If no start_at is specified, defaults to midnight today, in the timezone of the system.
-        If the start_at specified is earlier than the system’s first reported date, then midnight of the system’s first reported date is considered as start_at.
+        If the start_at specified is earlier than the system's first reported date, then midnight of the system's first reported date is considered as start_at.
         The end_at is calculated as the minimum of the time of the request and (start time + granularity).
         The meaning of granularity is as follows:
 
@@ -3536,7 +3880,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetSystemEnergyExportTelemetryResponse'
-          description: Telemetry for all production micros.
+          description: Energy export telemetry in intervals.
         "401":
           content:
             application/json:
@@ -3635,6 +3979,247 @@ paths:
       summary: Retrieves energy exported to grid in regular intervals
       tags:
       - Site Level Consumption Monitoring
+  /systems/{system_id}/live_data:
+    get:
+      description: |-
+        API users can get real time live status data on demand for a given system.
+        User can retrieve real time power for PV Production, Grid Import/Export, Consumption, Battery Charge/Discharge, and Generator.
+        Users can also retrieve Grid Status, Battery Mode, and Battery State of Charge.
+        User will receive the stream for a duration of 30 seconds by default and can configure the time in seconds by passing 'duration' as a header parameter with a minimum value of 30 and maximum value of 300.
+      operationId: StreamSystemLiveData
+      parameters:
+      - description: Unique numeric ID of the system.
+        explode: false
+        in: path
+        name: system_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: "Duration of the stream in seconds. Default=30, Min=30, Max=300,\
+          \ e.g=30."
+        explode: false
+        in: header
+        name: duration
+        required: false
+        schema:
+          maximum: 300
+          minimum: 30
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveDataResponse'
+          description: successful operation
+        "401":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 401
+                  details:
+                  - {}
+                  message: API Key is invalid
+                  status: NOT_AUTHENTICATED
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: authentication_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_401_response'
+          description: User will get 401 in the below cases. Response content type
+            is application/json. NOT_AUTHENTICATED - API key is missing UNAUTHORIZED
+            - Access token is invalid UNAUTHORIZED - Access token has expired NOT_AUTHENTICATED
+            - API Key is invalid UNAUTHORIZED - Application is not authorized to access
+            the requested resource
+        "403":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 403
+                  details:
+                  - {}
+                  message: User is not authorized
+                  status: FORBIDDEN
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: authorization_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_403_response'
+          description: User is not authorized. Response content type is application/json.
+        "429":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 429
+                  details:
+                  - {}
+                  message: Too Many Requests
+                  status: TOO_MANY_REQUESTS
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: request_exceeded_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_429_response'
+          description: Too Many Requests. Response content type is application/json.
+        "461":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 461
+                  details:
+                  - {}
+                  message: Duration cannot be less than 30
+                  status: INVALID_DURATION
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_461_response'
+          description: Duration is less than 30 seconds. Response content type is
+            application/json.
+        "462":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 462
+                  details:
+                  - {}
+                  message: Duration cannot be greater than 300
+                  status: INVALID_DURATION
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_462_response'
+          description: Duration is greater then 300 seconds. Response content type
+            is application/json.
+        "463":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 463
+                  details:
+                  - {}
+                  message: Duration must be an integer
+                  status: INVALID_DURATION
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_463_response'
+          description: Duration is not integer. Response content type is application/json.
+        "466":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 466
+                  details:
+                  - {}
+                  message: Envoy must be active and envoy version must be at least
+                    6.0.0
+                  status: UNSUPPORTED_ENVOY
+                timestamp_epoch: 1679041508556
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_466_response'
+          description: Envoy must be active and envoy version must be at least 6.0.0.
+            Response content type is application/json.
+        "468":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 468
+                  details:
+                  - {}
+                  message: System ID doesn't exist
+                  status: INVALID_SYSTEM_ID
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_468_response'
+          description: System ID does not exist. Response content type is application/json.
+        "472":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 472
+                  details:
+                  - {}
+                  message: The system doesn't support live stream
+                  status: LIVE_STREAM_NOT_SUPPORTED
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: validation_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_472_response'
+          description: |-
+            For Ensemble sites, live stream will be supported in the following cases:
+            If site has an active battery or active system controller, then site must have active production meter and active consumption meter.
+            Otherwise, site must have active production meter. Response content type is application/json.
+        "550":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 550
+                  details:
+                  - {}
+                  message: "Service unreachable, please try again"
+                  status: SERVICE_UNREACHABLE
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: server_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_550_response'
+          description: Service unreachable. Response content type is application/json.
+        "551":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 551
+                  details:
+                  - {}
+                  message: "Service unreachable, please try again"
+                  status: SERVICE_UNREACHABLE
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: server_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_551_response'
+          description: Service unreachable. Response content type is application/json.
+        "552":
+          content:
+            text/event-stream:
+              example:
+                error:
+                  code: 552
+                  details:
+                  - {}
+                  message: "Unable to connect, please try again"
+                  status: CONNECTION_NOT_ESTABLISHED
+                timestamp_epoch: 1677854252
+                timestamp_utc: 2023-03-17 08:25:08.556
+                type: server_error
+              schema:
+                $ref: '#/components/schemas/StreamSystemLiveData_552_response'
+          description: Unable to connect. Response content type is application/json.
+      summary: Site Level Live Status
+      tags:
+      - Streaming APIs
 components:
   parameters:
     SystemId:
@@ -3743,6 +4328,7 @@ components:
           public_name: Residential System
           timezone: Australia/Sydney
           address:
+            city: Sydney
             state: NSW
             country: AU
             postal_code: "2127"
@@ -3762,10 +4348,14 @@ components:
           public_name: Residential System
           timezone: US/Pacific
           address:
+            city: Los Angeles
             state: CA
             country: US
             postal_code: "94954"
           connection_type: ethernet
+          energy_lifetime: 0
+          energy_today: 0
+          system_size: 0
           status: normal
           last_report_at: 1508174262
           last_energy_at: 1508174172
@@ -3827,19 +4417,36 @@ components:
         - system_id: 698910067
           name: Enphase System
           public_name: Residential System
-          address: {}
+          timezone: Australia/Sydney
+          address:
+            city: Sydney
+            state: NSW
+            country: AU
+            postal_code: "2127"
           connection_type: ethernet
+          energy_lifetime: 0
+          energy_today: 0
+          system_size: 112.3
           status: micro
-          last_report_at: 1557400231
+          last_report_at: 1508174262
+          last_energy_at: 1508174172
+          operational_at: 1497445200
+          reference: "106015287"
+          other_references:
+          - "106015287"
         - system_id: 698906018
           name: Enphase Public System
           public_name: Residential System
           timezone: US/Pacific
           address:
+            city: Los Angeles
             state: CA
             country: US
             postal_code: "94954"
           connection_type: ethernet
+          energy_lifetime: 0
+          energy_today: 0
+          system_size: 0
           status: normal
           last_report_at: 1508174262
           last_energy_at: 1508174172
@@ -4714,91 +5321,108 @@ components:
     GetSystemEnchargeDeviceTelemetryResponse:
       $ref: '#/components/schemas/BatteryDeviceTelemetry'
     GetSystemBatterySettingsResponse:
+      $ref: '#/components/schemas/BatterySettings'
+    UpdateSystemBatterySettingsRequest:
       example:
-        system_id: 1765
-        battery_mode: self-consumption
-        reserve_soc: 95
-        energy_independence: enabled
-        charge_from_grid: disabled
-        battery_shutdown_level: 13
+        reserve_soc: 0
+        battery_mode: battery_mode
+        energy_independence: energy_independence
       properties:
-        system_id:
-          type: integer
         battery_mode:
-          description: Current battery mode of the system.
+          description: "To update battery mode of the system (case sensitive). Available\
+            \ values are Savings Mode, Self-consumption, Full Backup."
           type: string
         reserve_soc:
-          description: Reserve soc for the current mode.
+          description: Reserve soc for the current mode. Cannot be less than vls.
           type: integer
-        battery_shutdown_level:
-          description: Level at which battery shutdowns to conserve energy. Battery
-            restarts by using the conserved energy when the utility grid restores
-            power or solar panels start producing energy.
-          type: integer
-      type: object
-    GetSystemStormGuardSettingsResponse:
-      example:
-        system_id: 1765
-        storm_guard_status: enabled
-        storm_alert: false
-      properties:
-        system_id:
-          type: integer
-        storm_guard_status:
-          description: Overrides your battery profile to full backup mode when a severe
-            weather condition alert is issued in the locality.
+        energy_independence:
+          description: |-
+            Energy independence after peak hours "enabled"/"disabled".
+            Enabled: Battery will discharge to save money during peak hours when electricity rates are high. Once that is done, energy independence is prioritized.
+            This will increase the energy self-sufficiency until the reserve soc is hit. Battery will charge from solar in the morning to get ready for the next period.
+            Disabled: Battery will discharge only during peak hours when electricity rates are high.
+            During other times, battery will be idle or will charge from solar in the morning to get ready for the next period.
           type: string
-        storm_alert:
-          description: True if severe weather condition alert is issued in the locality.
-          type: boolean
       type: object
+    UpdateSystemBatterySettingsResponse:
+      $ref: '#/components/schemas/BatterySettings'
+    GetSystemStormGuardSettingsResponse:
+      $ref: '#/components/schemas/StormGuardSettings'
+    UpdateSystemStormGuardSettingsRequest:
+      example:
+        storm_guard_status: storm_guard_status
+      properties:
+        storm_guard_status:
+          description: "Overrides your battery profile to full backup mode when a\
+            \ severe weather condition alert is issued in the locality. Available\
+            \ values are enabled, disabled."
+          type: string
+      required:
+      - storm_guard_status
+      type: object
+    UpdateSystemStormGuardSettingsResponse:
+      $ref: '#/components/schemas/StormGuardSettings'
     GetSystemGridStatusSettingsResponse:
       example:
         system_id: 1765
-        grid_state: Connected
-        last_report_date: 2018-04-04T02:27:06-04:00
+        grid_state: On Grid
+        last_report_date: 1676029267
       properties:
         system_id:
           type: integer
         grid_state:
-          description: Indicates whether the site is connected to the grid.
+          description: "Indicates whether the site is On Grid, Off Grid or grid status\
+            \ of site is Unknown."
           type: string
         last_report_date:
-          description: Timestamp of the last report.
+          description: Timestamp (in epoch format) at which the system's Envoy last
+            submitted a report.
           format: date-time
-          type: string
+          type: integer
       type: object
     GetSystemLoadControlSettingsResponse:
+      $ref: '#/components/schemas/LoadControlSettings'
+    UpdateSystemLoadControlSettingsRequest:
       example:
-        system_id: 1932237
-        load_control_data:
-        - name: NC1
-          load_name: Downstairs A/C
-          owner_can_override: true
-          config: off_when_off_grid
-          soc_low: 30
-          soc_high: 50
-          status: enabled
-          essential_start_time: 32400
-          essential_end_time: 57600
-        - name: NC2
-          load_name: Upstairs A/C
-          owner_can_override: true
-          config: off_when_off_grid
-          soc_low: 30
-          soc_high: 50
-          status: enabled
-          essential_start_time: 32400
-          essential_end_time: 57600
+        mode: mode
+        load_name: load_name
+        name: name
+        essential_start_time: 6
+        soc_low: 16
+        essential_end_time: 1
       properties:
-        system_id:
+        name:
+          description: Name of the dry contact. Name cannot be changed. It is only
+            used to identify the dry contact that needs to be updated.
+          type: string
+        load_name:
+          description: Load Name of the load. Load Name cannot be changed. It is only
+            used to identify the dry contact that needs to be updated.
+          type: string
+        mode:
+          description: "Mode. Available values are \"Scheduled\", \"Basic\", \"Advanced_BatteryPowered\"\
+            , \"Manual_always_not_powered\", \"Manual_always_powered\", \"Advanced_GeneratorPowered\"\
+            ."
+          type: string
+        soc_low:
+          description: Applicable for advanced mode. Load will be powered off when
+            the battery soc reaches this level. It can be between 10 to 90.
+          maximum: 90
+          minimum: 10
           type: integer
-        load_control_data:
-          description: Load control data for all the configured loads.
-          items:
-            $ref: '#/components/schemas/GetSystemLoadControlSettingsResponse_load_control_data_inner'
-          type: array
+        essential_start_time:
+          description: Applicable for scheduled mode. Time in seconds. Load will powered
+            on between essential_start_time and essential_end_time.
+          type: integer
+        essential_end_time:
+          description: Applicable for scheduled mode. Time in seconds. Load will powered
+            on between essential_start_time and essential_end_time.
+          type: integer
+      required:
+      - name
       type: object
+    UpdateSystemLoadControlSettingsResponse:
+      $ref: '#/components/schemas/LoadControlSettings'
     GetSystemEnergyImportTelemetryResponse:
       example:
         system_id: 698905955
@@ -4912,6 +5536,7 @@ components:
         public_name: Residential System
         timezone: America/Los_Angeles
         address:
+          city: Los Angeles
           state: CA
           country: US
           postal_code: "94954"
@@ -4958,8 +5583,7 @@ components:
         system_size:
           description: Size of the system. It is returned only if the count is less
             than or equal to 100.
-          format: float
-          type: number
+          type: integer
         status:
           $ref: '#/components/schemas/SystemStatusEnum'
         last_report_at:
@@ -5075,6 +5699,112 @@ components:
         last_reported_soc:
           description: Last reported soc percentage.
           type: string
+      type: object
+    BatterySettings:
+      example:
+        system_id: 1765
+        battery_mode: Self - Consumption
+        reserve_soc: 95
+        energy_independence: enabled
+        charge_from_grid: disabled
+        battery_shutdown_level: 13
+      properties:
+        system_id:
+          type: integer
+        battery_mode:
+          description: "Current battery mode of the system. Available values are Savings\
+            \ Mode, Full Backup, and Self - Consumption."
+          type: string
+        reserve_soc:
+          description: Reserve soc for the current mode.
+          type: integer
+        energy_independence:
+          description: |-
+            Energy independence after peak hours enabled/disabled.
+            Enabled: Battery will discharge to save money during peak hours when electricity rates are high. Once that is done, energy independence is prioritized.
+            This will increase the energy self-sufficiency until the reserve soc is hit. Battery will charge from solar in the morning to get ready for the next period.
+            Disabled: Battery will discharge only during peak hours when electricity rates are high.
+            During other times, battery will be idle or will charge from solar in the morning to get ready for the next period.
+          type: string
+        charge_from_grid:
+          description: |-
+            Charge battery from grid enabled/disabled.
+            Enabled: Battery may also charge from the grid when in full backup mode or when battery charge is below the reserve capacity in savings or self-consumption mode.
+          type: string
+        battery_shutdown_level:
+          description: Level at which battery shutdowns to conserve energy. Battery
+            restarts by using the conserved energy when the utility grid restores
+            power or solar panels start producing energy.
+          type: integer
+      type: object
+    StormGuardSettings:
+      example:
+        system_id: 1765
+        storm_guard_status: enabled
+        storm_alert: false
+      properties:
+        system_id:
+          type: integer
+        storm_guard_status:
+          description: Overrides your battery profile to full backup mode when a severe
+            weather condition alert is issued in the locality.
+          type: string
+        storm_alert:
+          description: True if severe weather condition alert is issued in the locality.
+          type: boolean
+      type: object
+    LoadControlSettings:
+      example:
+        system_id: 1932237
+        load_control_data:
+        - name: NC1
+          load_name: Downstairs A/C
+          owner_can_override: true
+          mode: Basic
+          soc_low: 30
+          soc_high: 50
+          status: enabled
+          essential_start_time: 32400
+          essential_end_time: 57600
+        - name: NC2
+          load_name: Upstairs A/C
+          owner_can_override: true
+          mode: Basic
+          soc_low: 30
+          soc_high: 50
+          status: enabled
+          essential_start_time: 32400
+          essential_end_time: 57600
+      properties:
+        system_id:
+          type: integer
+        load_control_data:
+          description: Load control data for all the configured loads.
+          items:
+            $ref: '#/components/schemas/LoadControlSettings_load_control_data_inner'
+          type: array
+      type: object
+    StreamSystemLiveDataResponse:
+      example:
+        data:
+          data:
+            battery_mode: Savings Mode
+            battery_power: 5
+            battery_soc: 40
+            consumption_power: 15
+            envoy_serial_number:
+            - "1234"
+            generator_power: 0
+            grid_power: -10
+            grid_status: On Grid
+            pv_power: 30
+            system_id: 123
+          timestamp_epoch: 1679041508556
+          timestamp_utc: 2023-03-17 08:25:08.556
+          type: response
+      properties:
+        data:
+          $ref: '#/components/schemas/StreamSystemLiveDataResponse_data'
       type: object
     SystemSortByEnum:
       description: "Returns list of systems sorted by <sort_by> field. To get ASC\
@@ -5242,6 +5972,378 @@ components:
       oneOf:
       - $ref: '#/components/schemas/InternalServerError'
       - $ref: '#/components/schemas/DataTemporarilyUnavailableError'
+    StreamSystemLiveData_401_response_error:
+      properties:
+        code:
+          description: "401"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: API Key is missing.
+          type: string
+        status:
+          description: NOT_AUTHENTICATED
+          type: string
+      type: object
+    StreamSystemLiveData_401_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_401_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: authentication_error
+          type: string
+      type: object
+    StreamSystemLiveData_403_response_error:
+      properties:
+        code:
+          description: "403"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: API Key is invalid.
+          type: string
+        status:
+          description: FORBIDDEN
+          type: string
+      type: object
+    StreamSystemLiveData_403_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_403_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: authorization_error
+          type: string
+      type: object
+    StreamSystemLiveData_429_response_error:
+      properties:
+        code:
+          description: "429"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: Too Many Requests.
+          type: string
+        status:
+          description: TOO_MANY_REQUESTS
+          type: string
+      type: object
+    StreamSystemLiveData_429_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_429_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: request_exceeded_error
+          type: string
+      type: object
+    StreamSystemLiveData_461_response_error:
+      properties:
+        code:
+          description: "461"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: Duration cannot be less than 30.
+          type: string
+        status:
+          description: INVALID_DURATION
+          type: string
+      type: object
+    StreamSystemLiveData_461_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_461_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: validation_error
+          type: string
+      type: object
+    StreamSystemLiveData_462_response_error:
+      properties:
+        code:
+          description: "462"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: Duration cannot be greater than 900.
+          type: string
+        status:
+          description: INVALID_DURATION
+          type: string
+      type: object
+    StreamSystemLiveData_462_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_462_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: validation_error
+          type: string
+      type: object
+    StreamSystemLiveData_463_response_error:
+      properties:
+        code:
+          description: "463"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: Duration must be an integer.
+          type: string
+        status:
+          description: INVALID_DURATION
+          type: string
+      type: object
+    StreamSystemLiveData_463_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_463_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: validation_error
+          type: string
+      type: object
+    StreamSystemLiveData_466_response_error:
+      properties:
+        code:
+          description: "466"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: Envoy must be active and envoy version must be at least 6.0.0.
+          type: string
+        status:
+          description: UNSUPPORTED_ENVOY
+          type: string
+      type: object
+    StreamSystemLiveData_466_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_466_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: validation_error
+          type: string
+      type: object
+    StreamSystemLiveData_468_response_error:
+      properties:
+        code:
+          description: "468"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: System ID doesn't exist.
+          type: string
+        status:
+          description: INVALID_SYSTEM_ID
+          type: string
+      type: object
+    StreamSystemLiveData_468_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_468_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: validation_error
+          type: string
+      type: object
+    StreamSystemLiveData_472_response_error:
+      properties:
+        code:
+          description: "472"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: The system doesn't support live stream.
+          type: string
+        status:
+          description: LIVE_STREAM_NOT_SUPPORTED
+          type: string
+      type: object
+    StreamSystemLiveData_472_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_472_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: validation_error
+          type: string
+      type: object
+    StreamSystemLiveData_550_response_error:
+      properties:
+        code:
+          description: "550"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: "Service unreachable, please try again."
+          type: string
+        status:
+          description: SERVICE_UNREACHABLE
+          type: string
+      type: object
+    StreamSystemLiveData_550_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_550_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: server_error
+          type: string
+      type: object
+    StreamSystemLiveData_551_response_error:
+      properties:
+        code:
+          description: "551"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: "Service unreachable, please try again."
+          type: string
+        status:
+          description: SERVICE_UNREACHABLE
+          type: string
+      type: object
+    StreamSystemLiveData_551_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_551_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: server_error
+          type: string
+      type: object
+    StreamSystemLiveData_552_response_error:
+      properties:
+        code:
+          description: "552"
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          description: "Unable to connect, please try again."
+          type: string
+        status:
+          description: CONNECTION_NOT_ESTABLISHED
+          type: string
+      type: object
+    StreamSystemLiveData_552_response:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveData_552_response_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: server_error
+          type: string
+      type: object
     SearchSystemsRequest_system:
       example:
         connection_type: null
@@ -5549,38 +6651,6 @@ components:
             combined during that period.
           type: integer
       type: object
-    GetSystemLoadControlSettingsResponse_load_control_data_inner:
-      properties:
-        name:
-          description: Name of the dry contact.
-          type: string
-        load_name:
-          description: Name of the load.
-          type: string
-        owner_can_override:
-          description: HOs ability to override the load control settings.
-          type: string
-        config:
-          description: Enabled/disabled.
-          type: string
-        soc_low:
-          description: Applicable for advanced mode. Load will be powered off when
-            the battery soc reaches this level.
-          type: integer
-        soc_high:
-          description: Applicable for advanced mode. Load powers off when battery
-            reaches soc_low. The load will be powered on when the battery soc reaches
-            soc_high.
-          type: integer
-        essential_start_time:
-          description: Applicable for scheduled mode. Time in seconds. Load will powered
-            on between essential_start_time and essential_end_time.
-          type: integer
-        essential_end_time:
-          description: Applicable for scheduled mode. Time in seconds. Load will powered
-            on between essential_start_time and essential_end_time.
-          type: integer
-      type: object
     GetSystemEnergyImportTelemetryResponse_intervals_inner_inner:
       properties:
         end_at:
@@ -5604,6 +6674,9 @@ components:
     System_address:
       description: Address object for the system.
       properties:
+        city:
+          description: City in which the system is located.
+          type: string
         state:
           description: State in which the system is located.
           type: string
@@ -5644,6 +6717,95 @@ components:
           $ref: '#/components/schemas/BatteryDeviceTelemetry_intervals_inner_discharge'
         soc:
           $ref: '#/components/schemas/BatteryDeviceTelemetry_intervals_inner_soc'
+      type: object
+    LoadControlSettings_load_control_data_inner:
+      properties:
+        name:
+          description: Name of the dry contact.
+          type: string
+        load_name:
+          description: Name of the load.
+          type: string
+        owner_can_override:
+          description: HOs ability to override the load control settings.
+          type: string
+        mode:
+          description: Current load control configuration.
+          type: string
+        soc_low:
+          description: Applicable for advanced mode. Load will be powered off when
+            the battery soc reaches this level.
+          type: integer
+        soc_high:
+          description: Applicable for advanced mode. Load powers off when battery
+            reaches soc_low. The load will be powered on when the battery soc reaches
+            soc_high.
+          type: integer
+        status:
+          description: "Available values are enabled, disabled."
+          type: string
+        essential_start_time:
+          description: Applicable for scheduled mode. Time in seconds. Load will powered
+            on between essential_start_time and essential_end_time.
+          type: integer
+        essential_end_time:
+          description: Applicable for scheduled mode. Time in seconds. Load will powered
+            on between essential_start_time and essential_end_time.
+          type: integer
+      type: object
+    StreamSystemLiveDataResponse_data_data:
+      properties:
+        battery_mode:
+          description: "Battery mode of the site. Available values are Savings Mode,\
+            \ Full Backup, and Self-consumption."
+          type: string
+        battery_power:
+          description: Battery power in watts; Power will be positive in case of discharge
+            and negative in case of charge.
+          type: integer
+        battery_soc:
+          description: Battery soc in percentage.
+          type: integer
+        consumption_power:
+          description: Consumption power in watts.
+          type: integer
+        envoy_serial_number:
+          items:
+            description: "Serial number of the envoy; For multi-envoy sites, the data\
+              \ will be returned only for one of the envoys."
+            type: string
+          type: array
+        generator_power:
+          description: Generator power in watts.
+          type: integer
+        grid_power:
+          description: Grid power in watts; Power will be negative in case of export
+            and positive in case of import.
+          type: integer
+        grid_status:
+          description: "Grid state of the site. Available values are On Grid, Off\
+            \ Grid, Unknown."
+          type: string
+        pv_power:
+          description: PV power in watts.
+          type: integer
+        system_id:
+          description: The unique numeric ID of the system.
+          type: integer
+      type: object
+    StreamSystemLiveDataResponse_data:
+      properties:
+        data:
+          $ref: '#/components/schemas/StreamSystemLiveDataResponse_data_data'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          description: response
+          type: string
       type: object
   securitySchemes:
     OAuth2:

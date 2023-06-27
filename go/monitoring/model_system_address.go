@@ -19,6 +19,8 @@ var _ MappedNullable = &SystemAddress{}
 
 // SystemAddress Address object for the system.
 type SystemAddress struct {
+	// City in which the system is located.
+	City *string `json:"city,omitempty"`
 	// State in which the system is located.
 	State *string `json:"state,omitempty"`
 	// Country in which the system is located.
@@ -42,6 +44,38 @@ func NewSystemAddress() *SystemAddress {
 func NewSystemAddressWithDefaults() *SystemAddress {
 	this := SystemAddress{}
 	return &this
+}
+
+// GetCity returns the City field value if set, zero value otherwise.
+func (o *SystemAddress) GetCity() string {
+	if o == nil || IsNil(o.City) {
+		var ret string
+		return ret
+	}
+	return *o.City
+}
+
+// GetCityOk returns a tuple with the City field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemAddress) GetCityOk() (*string, bool) {
+	if o == nil || IsNil(o.City) {
+		return nil, false
+	}
+	return o.City, true
+}
+
+// HasCity returns a boolean if a field has been set.
+func (o *SystemAddress) HasCity() bool {
+	if o != nil && !IsNil(o.City) {
+		return true
+	}
+
+	return false
+}
+
+// SetCity gets a reference to the given string and assigns it to the City field.
+func (o *SystemAddress) SetCity(v string) {
+	o.City = &v
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -150,6 +184,9 @@ func (o SystemAddress) MarshalJSON() ([]byte, error) {
 
 func (o SystemAddress) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.City) {
+		toSerialize["city"] = o.City
+	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}

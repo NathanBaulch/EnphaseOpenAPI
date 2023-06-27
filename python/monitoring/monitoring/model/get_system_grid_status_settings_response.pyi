@@ -38,7 +38,7 @@ class GetSystemGridStatusSettingsResponse(
         class properties:
             system_id = schemas.IntSchema
             grid_state = schemas.StrSchema
-            last_report_date = schemas.DateTimeSchema
+            last_report_date = schemas.IntSchema
             __annotations__ = {
                 "system_id": system_id,
                 "grid_state": grid_state,
@@ -83,7 +83,7 @@ class GetSystemGridStatusSettingsResponse(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         system_id: typing.Union[MetaOapg.properties.system_id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         grid_state: typing.Union[MetaOapg.properties.grid_state, str, schemas.Unset] = schemas.unset,
-        last_report_date: typing.Union[MetaOapg.properties.last_report_date, str, datetime, schemas.Unset] = schemas.unset,
+        last_report_date: typing.Union[MetaOapg.properties.last_report_date, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'GetSystemGridStatusSettingsResponse':

@@ -33,3 +33,4 @@ class PathValues(str, enum.Enum):
     SYSTEMS_CONFIG_SYSTEM_ID_LOAD_CONTROL = "/systems/config/{system_id}/load_control"
     SYSTEMS_SYSTEM_ID_ENERGY_IMPORT_TELEMETRY = "/systems/{system_id}/energy_import_telemetry"
     SYSTEMS_SYSTEM_ID_ENERGY_EXPORT_TELEMETRY = "/systems/{system_id}/energy_export_telemetry"
+    SYSTEMS_SYSTEM_ID_LIVE_DATA = "/systems/{system_id}/live_data"

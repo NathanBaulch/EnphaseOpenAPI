@@ -83,6 +83,15 @@ class SystemConfigurationsApi
         'getSystemStormGuardSettings' => [
             'application/json',
         ],
+        'updateSystemBatterySettings' => [
+            'application/json',
+        ],
+        'updateSystemLoadControlSettings' => [
+            'application/json',
+        ],
+        'updateSystemStormGuardSettings' => [
+            'application/json',
+        ],
     ];
 
 /**
@@ -141,7 +150,7 @@ class SystemConfigurationsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\BatterySettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemBatterySettings($system_id, string $contentType = self::contentTypes['getSystemBatterySettings'][0])
     {
@@ -159,7 +168,7 @@ class SystemConfigurationsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\BatterySettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemBatterySettingsWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemBatterySettings'][0])
     {
@@ -202,17 +211,17 @@ class SystemConfigurationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\BatterySettings' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\BatterySettings' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\BatterySettings', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -338,7 +347,7 @@ class SystemConfigurationsApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\BatterySettings';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -359,7 +368,7 @@ class SystemConfigurationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\BatterySettings',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -467,7 +476,7 @@ class SystemConfigurationsApi
      */
     public function getSystemBatterySettingsAsyncWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemBatterySettings'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemBatterySettingsResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\BatterySettings';
         $request = $this->getSystemBatterySettingsRequest($system_id, $contentType);
 
         return $this->client
@@ -610,7 +619,7 @@ class SystemConfigurationsApi
     /**
      * Operation getSystemGridStatusSettings
      *
-     * Returns the current grid status settings of a system
+     * Returns the current grid status of a system.
      *
      * @param  int $system_id Unique numeric ID of the system. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemGridStatusSettings'] to see the possible values for this operation
@@ -628,7 +637,7 @@ class SystemConfigurationsApi
     /**
      * Operation getSystemGridStatusSettingsWithHttpInfo
      *
-     * Returns the current grid status settings of a system
+     * Returns the current grid status of a system.
      *
      * @param  int $system_id Unique numeric ID of the system. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemGridStatusSettings'] to see the possible values for this operation
@@ -912,7 +921,7 @@ class SystemConfigurationsApi
     /**
      * Operation getSystemGridStatusSettingsAsync
      *
-     * Returns the current grid status settings of a system
+     * Returns the current grid status of a system.
      *
      * @param  int $system_id Unique numeric ID of the system. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemGridStatusSettings'] to see the possible values for this operation
@@ -933,7 +942,7 @@ class SystemConfigurationsApi
     /**
      * Operation getSystemGridStatusSettingsAsyncWithHttpInfo
      *
-     * Returns the current grid status settings of a system
+     * Returns the current grid status of a system.
      *
      * @param  int $system_id Unique numeric ID of the system. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemGridStatusSettings'] to see the possible values for this operation
@@ -1093,7 +1102,7 @@ class SystemConfigurationsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\LoadControlSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemLoadControlSettings($system_id, string $contentType = self::contentTypes['getSystemLoadControlSettings'][0])
     {
@@ -1111,7 +1120,7 @@ class SystemConfigurationsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\LoadControlSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemLoadControlSettingsWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemLoadControlSettings'][0])
     {
@@ -1154,17 +1163,17 @@ class SystemConfigurationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1228,21 +1237,6 @@ class SystemConfigurationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
-                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 429:
                     if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -1290,7 +1284,7 @@ class SystemConfigurationsApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1311,7 +1305,7 @@ class SystemConfigurationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1344,14 +1338,6 @@ class SystemConfigurationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1419,7 +1405,7 @@ class SystemConfigurationsApi
      */
     public function getSystemLoadControlSettingsAsyncWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemLoadControlSettings'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemLoadControlSettingsResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings';
         $request = $this->getSystemLoadControlSettingsRequest($system_id, $contentType);
 
         return $this->client
@@ -1569,7 +1555,7 @@ class SystemConfigurationsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
+     * @return \EnphaseOpenAPI\Monitoring\Model\StormGuardSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
      */
     public function getSystemStormGuardSettings($system_id, string $contentType = self::contentTypes['getSystemStormGuardSettings'][0])
     {
@@ -1587,7 +1573,7 @@ class SystemConfigurationsApi
      *
      * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\StormGuardSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSystemStormGuardSettingsWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemStormGuardSettings'][0])
     {
@@ -1630,17 +1616,17 @@ class SystemConfigurationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse' === '\SplFileObject') {
+                    if ('\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse' !== 'string') {
+                        if ('\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse', []),
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1766,7 +1752,7 @@ class SystemConfigurationsApi
                     ];
             }
 
-            $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse';
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1787,7 +1773,7 @@ class SystemConfigurationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse',
+                        '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1895,7 +1881,7 @@ class SystemConfigurationsApi
      */
     public function getSystemStormGuardSettingsAsyncWithHttpInfo($system_id, string $contentType = self::contentTypes['getSystemStormGuardSettings'][0])
     {
-        $returnType = '\EnphaseOpenAPI\Monitoring\Model\GetSystemStormGuardSettingsResponse';
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings';
         $request = $this->getSystemStormGuardSettingsRequest($system_id, $contentType);
 
         return $this->client
@@ -2029,6 +2015,1450 @@ class SystemConfigurationsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSystemBatterySettings
+     *
+     * Updates the current battery settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemBatterySettingsRequest $battery_settings battery_settings (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemBatterySettings'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \EnphaseOpenAPI\Monitoring\Model\BatterySettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
+     */
+    public function updateSystemBatterySettings($system_id, $battery_settings = null, string $contentType = self::contentTypes['updateSystemBatterySettings'][0])
+    {
+        list($response) = $this->updateSystemBatterySettingsWithHttpInfo($system_id, $battery_settings, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateSystemBatterySettingsWithHttpInfo
+     *
+     * Updates the current battery settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemBatterySettingsRequest $battery_settings (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemBatterySettings'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\BatterySettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSystemBatterySettingsWithHttpInfo($system_id, $battery_settings = null, string $contentType = self::contentTypes['updateSystemBatterySettings'][0])
+    {
+        $request = $this->updateSystemBatterySettingsRequest($system_id, $battery_settings, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\BatterySettings' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\BatterySettings' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\BatterySettings', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 501:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\BatterySettings';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\BatterySettings',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 501:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateSystemBatterySettingsAsync
+     *
+     * Updates the current battery settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemBatterySettingsRequest $battery_settings (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemBatterySettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSystemBatterySettingsAsync($system_id, $battery_settings = null, string $contentType = self::contentTypes['updateSystemBatterySettings'][0])
+    {
+        return $this->updateSystemBatterySettingsAsyncWithHttpInfo($system_id, $battery_settings, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSystemBatterySettingsAsyncWithHttpInfo
+     *
+     * Updates the current battery settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemBatterySettingsRequest $battery_settings (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemBatterySettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSystemBatterySettingsAsyncWithHttpInfo($system_id, $battery_settings = null, string $contentType = self::contentTypes['updateSystemBatterySettings'][0])
+    {
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\BatterySettings';
+        $request = $this->updateSystemBatterySettingsRequest($system_id, $battery_settings, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSystemBatterySettings'
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemBatterySettingsRequest $battery_settings (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemBatterySettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSystemBatterySettingsRequest($system_id, $battery_settings = null, string $contentType = self::contentTypes['updateSystemBatterySettings'][0])
+    {
+
+        // verify the required parameter 'system_id' is set
+        if ($system_id === null || (is_array($system_id) && count($system_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $system_id when calling updateSystemBatterySettings'
+            );
+        }
+
+
+
+        $resourcePath = '/systems/config/{system_id}/battery_settings';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($system_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'system_id' . '}',
+                ObjectSerializer::toPathValue($system_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($battery_settings)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($battery_settings));
+            } else {
+                $httpBody = $battery_settings;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('key');
+        if ($apiKey !== null) {
+            $queryParams['key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSystemLoadControlSettings
+     *
+     * Updates the current load control settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemLoadControlSettingsRequest $update_system_load_control_settings_request update_system_load_control_settings_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemLoadControlSettings'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \EnphaseOpenAPI\Monitoring\Model\LoadControlSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
+     */
+    public function updateSystemLoadControlSettings($system_id, $update_system_load_control_settings_request = null, string $contentType = self::contentTypes['updateSystemLoadControlSettings'][0])
+    {
+        list($response) = $this->updateSystemLoadControlSettingsWithHttpInfo($system_id, $update_system_load_control_settings_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateSystemLoadControlSettingsWithHttpInfo
+     *
+     * Updates the current load control settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemLoadControlSettingsRequest $update_system_load_control_settings_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemLoadControlSettings'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\LoadControlSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSystemLoadControlSettingsWithHttpInfo($system_id, $update_system_load_control_settings_request = null, string $contentType = self::contentTypes['updateSystemLoadControlSettings'][0])
+    {
+        $request = $this->updateSystemLoadControlSettingsRequest($system_id, $update_system_load_control_settings_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 501:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 501:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateSystemLoadControlSettingsAsync
+     *
+     * Updates the current load control settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemLoadControlSettingsRequest $update_system_load_control_settings_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemLoadControlSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSystemLoadControlSettingsAsync($system_id, $update_system_load_control_settings_request = null, string $contentType = self::contentTypes['updateSystemLoadControlSettings'][0])
+    {
+        return $this->updateSystemLoadControlSettingsAsyncWithHttpInfo($system_id, $update_system_load_control_settings_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSystemLoadControlSettingsAsyncWithHttpInfo
+     *
+     * Updates the current load control settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemLoadControlSettingsRequest $update_system_load_control_settings_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemLoadControlSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSystemLoadControlSettingsAsyncWithHttpInfo($system_id, $update_system_load_control_settings_request = null, string $contentType = self::contentTypes['updateSystemLoadControlSettings'][0])
+    {
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\LoadControlSettings';
+        $request = $this->updateSystemLoadControlSettingsRequest($system_id, $update_system_load_control_settings_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSystemLoadControlSettings'
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemLoadControlSettingsRequest $update_system_load_control_settings_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemLoadControlSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSystemLoadControlSettingsRequest($system_id, $update_system_load_control_settings_request = null, string $contentType = self::contentTypes['updateSystemLoadControlSettings'][0])
+    {
+
+        // verify the required parameter 'system_id' is set
+        if ($system_id === null || (is_array($system_id) && count($system_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $system_id when calling updateSystemLoadControlSettings'
+            );
+        }
+
+
+
+        $resourcePath = '/systems/config/{system_id}/load_control';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($system_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'system_id' . '}',
+                ObjectSerializer::toPathValue($system_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_system_load_control_settings_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_system_load_control_settings_request));
+            } else {
+                $httpBody = $update_system_load_control_settings_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('key');
+        if ($apiKey !== null) {
+            $queryParams['key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSystemStormGuardSettings
+     *
+     * Updates the current storm guard settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemStormGuardSettingsRequest $storm_guard storm_guard (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemStormGuardSettings'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \EnphaseOpenAPI\Monitoring\Model\StormGuardSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError
+     */
+    public function updateSystemStormGuardSettings($system_id, $storm_guard = null, string $contentType = self::contentTypes['updateSystemStormGuardSettings'][0])
+    {
+        list($response) = $this->updateSystemStormGuardSettingsWithHttpInfo($system_id, $storm_guard, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateSystemStormGuardSettingsWithHttpInfo
+     *
+     * Updates the current storm guard settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemStormGuardSettingsRequest $storm_guard (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemStormGuardSettings'] to see the possible values for this operation
+     *
+     * @throws \EnphaseOpenAPI\Monitoring\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \EnphaseOpenAPI\Monitoring\Model\StormGuardSettings|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError|\EnphaseOpenAPI\Monitoring\Model\ClientError|\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError|\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response|\EnphaseOpenAPI\Monitoring\Model\NotImplementedError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSystemStormGuardSettingsWithHttpInfo($system_id, $storm_guard = null, string $contentType = self::contentTypes['updateSystemStormGuardSettings'][0])
+    {
+        $request = $this->updateSystemStormGuardSettingsRequest($system_id, $storm_guard, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\ClientError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\ClientError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 501:
+                    if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EnphaseOpenAPI\Monitoring\Model\NotImplementedError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\MethodNotAllowedError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\ClientError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\TooManyRequestsError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\GetSystems500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 501:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EnphaseOpenAPI\Monitoring\Model\NotImplementedError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateSystemStormGuardSettingsAsync
+     *
+     * Updates the current storm guard settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemStormGuardSettingsRequest $storm_guard (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemStormGuardSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSystemStormGuardSettingsAsync($system_id, $storm_guard = null, string $contentType = self::contentTypes['updateSystemStormGuardSettings'][0])
+    {
+        return $this->updateSystemStormGuardSettingsAsyncWithHttpInfo($system_id, $storm_guard, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSystemStormGuardSettingsAsyncWithHttpInfo
+     *
+     * Updates the current storm guard settings of a system
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemStormGuardSettingsRequest $storm_guard (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemStormGuardSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSystemStormGuardSettingsAsyncWithHttpInfo($system_id, $storm_guard = null, string $contentType = self::contentTypes['updateSystemStormGuardSettings'][0])
+    {
+        $returnType = '\EnphaseOpenAPI\Monitoring\Model\StormGuardSettings';
+        $request = $this->updateSystemStormGuardSettingsRequest($system_id, $storm_guard, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSystemStormGuardSettings'
+     *
+     * @param  int $system_id Unique numeric ID of the system. (required)
+     * @param  \EnphaseOpenAPI\Monitoring\Model\UpdateSystemStormGuardSettingsRequest $storm_guard (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSystemStormGuardSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSystemStormGuardSettingsRequest($system_id, $storm_guard = null, string $contentType = self::contentTypes['updateSystemStormGuardSettings'][0])
+    {
+
+        // verify the required parameter 'system_id' is set
+        if ($system_id === null || (is_array($system_id) && count($system_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $system_id when calling updateSystemStormGuardSettings'
+            );
+        }
+
+
+
+        $resourcePath = '/systems/config/{system_id}/storm_guard';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($system_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'system_id' . '}',
+                ObjectSerializer::toPathValue($system_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($storm_guard)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($storm_guard));
+            } else {
+                $httpBody = $storm_guard;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('key');
+        if ($apiKey !== null) {
+            $queryParams['key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

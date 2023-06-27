@@ -127,10 +127,14 @@ Class | Method | HTTP request | Description
 *SiteLevelProductionMonitoringApi* | [**GetSystemProductionMeterTelemetry**](docs\SiteLevelProductionMonitoringApi.md#getsystemproductionmetertelemetry) | **GET** /systems/{system_id}/telemetry/production_meter | Retrieves telemetry for all production meters for a system
 *SiteLevelProductionMonitoringApi* | [**GetSystemProductionMicroTelemetry**](docs\SiteLevelProductionMonitoringApi.md#getsystemproductionmicrotelemetry) | **GET** /systems/{system_id}/telemetry/production_micro | Retrieves telemetry for all production micros for a system
 *SiteLevelProductionMonitoringApi* | [**GetSystemRgmStats**](docs\SiteLevelProductionMonitoringApi.md#getsystemrgmstats) | **GET** /systems/{system_id}/rgm_stats | rgm_stats
+*StreamingAPIsApi* | [**StreamSystemLiveData**](docs\StreamingAPIsApi.md#streamsystemlivedata) | **GET** /systems/{system_id}/live_data | Site Level Live Status
 *SystemConfigurationsApi* | [**GetSystemBatterySettings**](docs\SystemConfigurationsApi.md#getsystembatterysettings) | **GET** /systems/config/{system_id}/battery_settings | Returns the current battery settings of a system
-*SystemConfigurationsApi* | [**GetSystemGridStatusSettings**](docs\SystemConfigurationsApi.md#getsystemgridstatussettings) | **GET** /systems/config/{system_id}/grid_status | Returns the current grid status settings of a system
+*SystemConfigurationsApi* | [**GetSystemGridStatusSettings**](docs\SystemConfigurationsApi.md#getsystemgridstatussettings) | **GET** /systems/config/{system_id}/grid_status | Returns the current grid status of a system.
 *SystemConfigurationsApi* | [**GetSystemLoadControlSettings**](docs\SystemConfigurationsApi.md#getsystemloadcontrolsettings) | **GET** /systems/config/{system_id}/load_control | Returns the current load control settings of a system
 *SystemConfigurationsApi* | [**GetSystemStormGuardSettings**](docs\SystemConfigurationsApi.md#getsystemstormguardsettings) | **GET** /systems/config/{system_id}/storm_guard | Returns the current storm guard settings of a system
+*SystemConfigurationsApi* | [**UpdateSystemBatterySettings**](docs\SystemConfigurationsApi.md#updatesystembatterysettings) | **PUT** /systems/config/{system_id}/battery_settings | Updates the current battery settings of a system
+*SystemConfigurationsApi* | [**UpdateSystemLoadControlSettings**](docs\SystemConfigurationsApi.md#updatesystemloadcontrolsettings) | **PUT** /systems/config/{system_id}/load_control | Updates the current load control settings of a system
+*SystemConfigurationsApi* | [**UpdateSystemStormGuardSettings**](docs\SystemConfigurationsApi.md#updatesystemstormguardsettings) | **PUT** /systems/config/{system_id}/storm_guard | Updates the current storm guard settings of a system
 *SystemDetailsApi* | [**GetInvertersSummaryByEnvoyOrSite**](docs\SystemDetailsApi.md#getinverterssummarybyenvoyorsite) | **GET** /systems/inverters_summary_by_envoy_or_site | inverters_summary_by_envoy_or_site
 *SystemDetailsApi* | [**GetSystem**](docs\SystemDetailsApi.md#getsystem) | **GET** /systems/{system_id} | Retrieves a System by ID
 *SystemDetailsApi* | [**GetSystemDevices**](docs\SystemDetailsApi.md#getsystemdevices) | **GET** /systems/{system_id}/devices | Retrieves devices for a given system
@@ -148,6 +152,7 @@ Class | Method | HTTP request | Description
  - [Model.BatteryDeviceTelemetryIntervalsInnerCharge](docs\BatteryDeviceTelemetryIntervalsInnerCharge.md)
  - [Model.BatteryDeviceTelemetryIntervalsInnerDischarge](docs\BatteryDeviceTelemetryIntervalsInnerDischarge.md)
  - [Model.BatteryDeviceTelemetryIntervalsInnerSoc](docs\BatteryDeviceTelemetryIntervalsInnerSoc.md)
+ - [Model.BatterySettings](docs\BatterySettings.md)
  - [Model.ClientError](docs\ClientError.md)
  - [Model.DataTemporarilyUnavailableError](docs\DataTemporarilyUnavailableError.md)
  - [Model.GetInvertersSummaryByEnvoyOrSiteResponseInner](docs\GetInvertersSummaryByEnvoyOrSiteResponseInner.md)
@@ -155,7 +160,6 @@ Class | Method | HTTP request | Description
  - [Model.GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy](docs\GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerEnergy.md)
  - [Model.GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced](docs\GetInvertersSummaryByEnvoyOrSiteResponseInnerMicroInvertersInnerPowerProduced.md)
  - [Model.GetSystemBatteryLifetimeResponse](docs\GetSystemBatteryLifetimeResponse.md)
- - [Model.GetSystemBatterySettingsResponse](docs\GetSystemBatterySettingsResponse.md)
  - [Model.GetSystemBatteryTelemetryResponse](docs\GetSystemBatteryTelemetryResponse.md)
  - [Model.GetSystemBatteryTelemetryResponseIntervalsInner](docs\GetSystemBatteryTelemetryResponseIntervalsInner.md)
  - [Model.GetSystemBatteryTelemetryResponseIntervalsInnerCharge](docs\GetSystemBatteryTelemetryResponseIntervalsInnerCharge.md)
@@ -175,8 +179,6 @@ Class | Method | HTTP request | Description
  - [Model.GetSystemEnergyImportTelemetryResponseIntervalsInnerInner](docs\GetSystemEnergyImportTelemetryResponseIntervalsInnerInner.md)
  - [Model.GetSystemEnergyLifetimeResponse](docs\GetSystemEnergyLifetimeResponse.md)
  - [Model.GetSystemGridStatusSettingsResponse](docs\GetSystemGridStatusSettingsResponse.md)
- - [Model.GetSystemLoadControlSettingsResponse](docs\GetSystemLoadControlSettingsResponse.md)
- - [Model.GetSystemLoadControlSettingsResponseLoadControlDataInner](docs\GetSystemLoadControlSettingsResponseLoadControlDataInner.md)
  - [Model.GetSystemMicroDeviceTelemetryResponse](docs\GetSystemMicroDeviceTelemetryResponse.md)
  - [Model.GetSystemMicroDeviceTelemetryResponseIntervalsInner](docs\GetSystemMicroDeviceTelemetryResponseIntervalsInner.md)
  - [Model.GetSystemProductionMeterReadingsResponse](docs\GetSystemProductionMeterReadingsResponse.md)
@@ -189,11 +191,12 @@ Class | Method | HTTP request | Description
  - [Model.GetSystemRgmStatsResponseIntervalsInner](docs\GetSystemRgmStatsResponseIntervalsInner.md)
  - [Model.GetSystemRgmStatsResponseMeterIntervalsInner](docs\GetSystemRgmStatsResponseMeterIntervalsInner.md)
  - [Model.GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner](docs\GetSystemRgmStatsResponseMeterIntervalsInnerIntervalsInner.md)
- - [Model.GetSystemStormGuardSettingsResponse](docs\GetSystemStormGuardSettingsResponse.md)
  - [Model.GetSystemSummaryResponse](docs\GetSystemSummaryResponse.md)
  - [Model.GetSystems500Response](docs\GetSystems500Response.md)
  - [Model.GetSystemsResponse](docs\GetSystemsResponse.md)
  - [Model.InternalServerError](docs\InternalServerError.md)
+ - [Model.LoadControlSettings](docs\LoadControlSettings.md)
+ - [Model.LoadControlSettingsLoadControlDataInner](docs\LoadControlSettingsLoadControlDataInner.md)
  - [Model.Meta](docs\Meta.md)
  - [Model.MethodNotAllowedError](docs\MethodNotAllowedError.md)
  - [Model.NotImplementedError](docs\NotImplementedError.md)
@@ -201,6 +204,34 @@ Class | Method | HTTP request | Description
  - [Model.SearchSystemsRequest](docs\SearchSystemsRequest.md)
  - [Model.SearchSystemsRequestSystem](docs\SearchSystemsRequestSystem.md)
  - [Model.SearchSystemsResponse](docs\SearchSystemsResponse.md)
+ - [Model.StormGuardSettings](docs\StormGuardSettings.md)
+ - [Model.StreamSystemLiveData401Response](docs\StreamSystemLiveData401Response.md)
+ - [Model.StreamSystemLiveData401ResponseError](docs\StreamSystemLiveData401ResponseError.md)
+ - [Model.StreamSystemLiveData403Response](docs\StreamSystemLiveData403Response.md)
+ - [Model.StreamSystemLiveData403ResponseError](docs\StreamSystemLiveData403ResponseError.md)
+ - [Model.StreamSystemLiveData429Response](docs\StreamSystemLiveData429Response.md)
+ - [Model.StreamSystemLiveData429ResponseError](docs\StreamSystemLiveData429ResponseError.md)
+ - [Model.StreamSystemLiveData461Response](docs\StreamSystemLiveData461Response.md)
+ - [Model.StreamSystemLiveData461ResponseError](docs\StreamSystemLiveData461ResponseError.md)
+ - [Model.StreamSystemLiveData462Response](docs\StreamSystemLiveData462Response.md)
+ - [Model.StreamSystemLiveData462ResponseError](docs\StreamSystemLiveData462ResponseError.md)
+ - [Model.StreamSystemLiveData463Response](docs\StreamSystemLiveData463Response.md)
+ - [Model.StreamSystemLiveData463ResponseError](docs\StreamSystemLiveData463ResponseError.md)
+ - [Model.StreamSystemLiveData466Response](docs\StreamSystemLiveData466Response.md)
+ - [Model.StreamSystemLiveData466ResponseError](docs\StreamSystemLiveData466ResponseError.md)
+ - [Model.StreamSystemLiveData468Response](docs\StreamSystemLiveData468Response.md)
+ - [Model.StreamSystemLiveData468ResponseError](docs\StreamSystemLiveData468ResponseError.md)
+ - [Model.StreamSystemLiveData472Response](docs\StreamSystemLiveData472Response.md)
+ - [Model.StreamSystemLiveData472ResponseError](docs\StreamSystemLiveData472ResponseError.md)
+ - [Model.StreamSystemLiveData550Response](docs\StreamSystemLiveData550Response.md)
+ - [Model.StreamSystemLiveData550ResponseError](docs\StreamSystemLiveData550ResponseError.md)
+ - [Model.StreamSystemLiveData551Response](docs\StreamSystemLiveData551Response.md)
+ - [Model.StreamSystemLiveData551ResponseError](docs\StreamSystemLiveData551ResponseError.md)
+ - [Model.StreamSystemLiveData552Response](docs\StreamSystemLiveData552Response.md)
+ - [Model.StreamSystemLiveData552ResponseError](docs\StreamSystemLiveData552ResponseError.md)
+ - [Model.StreamSystemLiveDataResponse](docs\StreamSystemLiveDataResponse.md)
+ - [Model.StreamSystemLiveDataResponseData](docs\StreamSystemLiveDataResponseData.md)
+ - [Model.StreamSystemLiveDataResponseDataData](docs\StreamSystemLiveDataResponseDataData.md)
  - [Model.System](docs\System.md)
  - [Model.SystemAddress](docs\SystemAddress.md)
  - [Model.SystemAttachmentTypeEnum](docs\SystemAttachmentTypeEnum.md)
@@ -211,6 +242,9 @@ Class | Method | HTTP request | Description
  - [Model.SystemStatusEnum](docs\SystemStatusEnum.md)
  - [Model.TelemetryGranularityEnum](docs\TelemetryGranularityEnum.md)
  - [Model.TooManyRequestsError](docs\TooManyRequestsError.md)
+ - [Model.UpdateSystemBatterySettingsRequest](docs\UpdateSystemBatterySettingsRequest.md)
+ - [Model.UpdateSystemLoadControlSettingsRequest](docs\UpdateSystemLoadControlSettingsRequest.md)
+ - [Model.UpdateSystemStormGuardSettingsRequest](docs\UpdateSystemStormGuardSettingsRequest.md)
 
 
 <a id="documentation-for-authorization"></a>

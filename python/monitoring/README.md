@@ -212,10 +212,14 @@ Class | Method | HTTP request | Description
 *SiteLevelProductionMonitoringApi* | [**get_system_production_meter_telemetry**](docs/apis/tags/SiteLevelProductionMonitoringApi.md#get_system_production_meter_telemetry) | **get** /systems/{system_id}/telemetry/production_meter | Retrieves telemetry for all production meters for a system
 *SiteLevelProductionMonitoringApi* | [**get_system_production_micro_telemetry**](docs/apis/tags/SiteLevelProductionMonitoringApi.md#get_system_production_micro_telemetry) | **get** /systems/{system_id}/telemetry/production_micro | Retrieves telemetry for all production micros for a system
 *SiteLevelProductionMonitoringApi* | [**get_system_rgm_stats**](docs/apis/tags/SiteLevelProductionMonitoringApi.md#get_system_rgm_stats) | **get** /systems/{system_id}/rgm_stats | rgm_stats
+*StreamingAPIsApi* | [**stream_system_live_data**](docs/apis/tags/StreamingAPIsApi.md#stream_system_live_data) | **get** /systems/{system_id}/live_data | Site Level Live Status
 *SystemConfigurationsApi* | [**get_system_battery_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_battery_settings) | **get** /systems/config/{system_id}/battery_settings | Returns the current battery settings of a system
-*SystemConfigurationsApi* | [**get_system_grid_status_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_grid_status_settings) | **get** /systems/config/{system_id}/grid_status | Returns the current grid status settings of a system
+*SystemConfigurationsApi* | [**get_system_grid_status_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_grid_status_settings) | **get** /systems/config/{system_id}/grid_status | Returns the current grid status of a system.
 *SystemConfigurationsApi* | [**get_system_load_control_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_load_control_settings) | **get** /systems/config/{system_id}/load_control | Returns the current load control settings of a system
 *SystemConfigurationsApi* | [**get_system_storm_guard_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_storm_guard_settings) | **get** /systems/config/{system_id}/storm_guard | Returns the current storm guard settings of a system
+*SystemConfigurationsApi* | [**update_system_battery_settings**](docs/apis/tags/SystemConfigurationsApi.md#update_system_battery_settings) | **put** /systems/config/{system_id}/battery_settings | Updates the current battery settings of a system
+*SystemConfigurationsApi* | [**update_system_load_control_settings**](docs/apis/tags/SystemConfigurationsApi.md#update_system_load_control_settings) | **put** /systems/config/{system_id}/load_control | Updates the current load control settings of a system
+*SystemConfigurationsApi* | [**update_system_storm_guard_settings**](docs/apis/tags/SystemConfigurationsApi.md#update_system_storm_guard_settings) | **put** /systems/config/{system_id}/storm_guard | Updates the current storm guard settings of a system
 *SystemDetailsApi* | [**get_inverters_summary_by_envoy_or_site**](docs/apis/tags/SystemDetailsApi.md#get_inverters_summary_by_envoy_or_site) | **get** /systems/inverters_summary_by_envoy_or_site | inverters_summary_by_envoy_or_site
 *SystemDetailsApi* | [**get_system**](docs/apis/tags/SystemDetailsApi.md#get_system) | **get** /systems/{system_id} | Retrieves a System by ID
 *SystemDetailsApi* | [**get_system_devices**](docs/apis/tags/SystemDetailsApi.md#get_system_devices) | **get** /systems/{system_id}/devices | Retrieves devices for a given system
@@ -227,6 +231,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [BatteryDeviceTelemetry](docs/models/BatteryDeviceTelemetry.md)
+ - [BatterySettings](docs/models/BatterySettings.md)
  - [ClientError](docs/models/ClientError.md)
  - [DataTemporarilyUnavailableError](docs/models/DataTemporarilyUnavailableError.md)
  - [GetInvertersSummaryByEnvoyOrSiteResponse](docs/models/GetInvertersSummaryByEnvoyOrSiteResponse.md)
@@ -255,12 +260,15 @@ Class | Method | HTTP request | Description
  - [GetSystemSummaryResponse](docs/models/GetSystemSummaryResponse.md)
  - [GetSystemsResponse](docs/models/GetSystemsResponse.md)
  - [InternalServerError](docs/models/InternalServerError.md)
+ - [LoadControlSettings](docs/models/LoadControlSettings.md)
  - [Meta](docs/models/Meta.md)
  - [MethodNotAllowedError](docs/models/MethodNotAllowedError.md)
  - [NotImplementedError](docs/models/NotImplementedError.md)
  - [RetrieveSystemIdResponse](docs/models/RetrieveSystemIdResponse.md)
  - [SearchSystemsRequest](docs/models/SearchSystemsRequest.md)
  - [SearchSystemsResponse](docs/models/SearchSystemsResponse.md)
+ - [StormGuardSettings](docs/models/StormGuardSettings.md)
+ - [StreamSystemLiveDataResponse](docs/models/StreamSystemLiveDataResponse.md)
  - [System](docs/models/System.md)
  - [SystemAttachmentTypeEnum](docs/models/SystemAttachmentTypeEnum.md)
  - [SystemConnectionTypeEnum](docs/models/SystemConnectionTypeEnum.md)
@@ -270,6 +278,12 @@ Class | Method | HTTP request | Description
  - [SystemStatusEnum](docs/models/SystemStatusEnum.md)
  - [TelemetryGranularityEnum](docs/models/TelemetryGranularityEnum.md)
  - [TooManyRequestsError](docs/models/TooManyRequestsError.md)
+ - [UpdateSystemBatterySettingsRequest](docs/models/UpdateSystemBatterySettingsRequest.md)
+ - [UpdateSystemBatterySettingsResponse](docs/models/UpdateSystemBatterySettingsResponse.md)
+ - [UpdateSystemLoadControlSettingsRequest](docs/models/UpdateSystemLoadControlSettingsRequest.md)
+ - [UpdateSystemLoadControlSettingsResponse](docs/models/UpdateSystemLoadControlSettingsResponse.md)
+ - [UpdateSystemStormGuardSettingsRequest](docs/models/UpdateSystemStormGuardSettingsRequest.md)
+ - [UpdateSystemStormGuardSettingsResponse](docs/models/UpdateSystemStormGuardSettingsResponse.md)
 
 ## Documentation For Authorization
 
@@ -291,6 +305,7 @@ Authentication schemes defined for the API:
 
 
 ## Author
+
 
 
 

@@ -69,7 +69,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// <param name="interconnectDate">Date on which the system was approved to connect to the grid..</param>
         /// <param name="reference">If the calling user belongs to a company and that company has provided its own identifier for a system, that ID is included here. Otherwise, this attribute is not returned..</param>
         /// <param name="otherReferences">If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned..</param>
-        public System(int systemId = default(int), string name = default(string), string publicName = default(string), string timezone = default(string), SystemAddress address = default(SystemAddress), SystemConnectionTypeEnum? connectionType = default(SystemConnectionTypeEnum?), int energyLifetime = default(int), int energyToday = default(int), float systemSize = default(float), SystemStatusEnum? status = default(SystemStatusEnum?), long lastReportAt = default(long), long lastEnergyAt = default(long), long operationalAt = default(long), SystemAttachmentTypeEnum? attachmentType = default(SystemAttachmentTypeEnum?), DateTimeOffset interconnectDate = default(DateTimeOffset), string reference = default(string), List<string> otherReferences = default(List<string>))
+        public System(int systemId = default(int), string name = default(string), string publicName = default(string), string timezone = default(string), SystemAddress address = default(SystemAddress), SystemConnectionTypeEnum? connectionType = default(SystemConnectionTypeEnum?), int energyLifetime = default(int), int energyToday = default(int), int systemSize = default(int), SystemStatusEnum? status = default(SystemStatusEnum?), long lastReportAt = default(long), long lastEnergyAt = default(long), long operationalAt = default(long), SystemAttachmentTypeEnum? attachmentType = default(SystemAttachmentTypeEnum?), DateTimeOffset interconnectDate = default(DateTimeOffset), string reference = default(string), List<string> otherReferences = default(List<string>))
         {
             this.SystemId = systemId;
             this.Name = name;
@@ -143,7 +143,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// </summary>
         /// <value>Size of the system. It is returned only if the count is less than or equal to 100.</value>
         [DataMember(Name = "system_size", EmitDefaultValue = false)]
-        public float SystemSize { get; set; }
+        public int SystemSize { get; set; }
 
         /// <summary>
         /// Timestamp (in epoch format) at which the system&#39;s Envoy last submitted a report.

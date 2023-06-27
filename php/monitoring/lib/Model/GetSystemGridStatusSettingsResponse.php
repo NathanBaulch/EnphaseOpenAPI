@@ -59,7 +59,7 @@ class GetSystemGridStatusSettingsResponse implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'system_id' => 'int',
         'grid_state' => 'string',
-        'last_report_date' => '\DateTime'
+        'last_report_date' => 'int'
     ];
 
     /**
@@ -343,7 +343,7 @@ class GetSystemGridStatusSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets grid_state
      *
-     * @param string|null $grid_state Indicates whether the site is connected to the grid.
+     * @param string|null $grid_state Indicates whether the site is On Grid, Off Grid or grid status of site is Unknown.
      *
      * @return self
      */
@@ -360,7 +360,7 @@ class GetSystemGridStatusSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets last_report_date
      *
-     * @return \DateTime|null
+     * @return int|null
      */
     public function getLastReportDate()
     {
@@ -370,7 +370,7 @@ class GetSystemGridStatusSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets last_report_date
      *
-     * @param \DateTime|null $last_report_date Timestamp of the last report.
+     * @param int|null $last_report_date Timestamp (in epoch format) at which the system's Envoy last submitted a report.
      *
      * @return self
      */

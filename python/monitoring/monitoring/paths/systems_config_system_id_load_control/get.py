@@ -26,9 +26,9 @@ import frozendict  # noqa: F401
 from monitoring import schemas  # noqa: F401
 
 from monitoring.model.not_implemented_error import NotImplementedError
+from monitoring.model.load_control_settings import LoadControlSettings
 from monitoring.model.internal_server_error import InternalServerError
 from monitoring.model.client_error import ClientError
-from monitoring.model.get_system_load_control_settings_response import GetSystemLoadControlSettingsResponse
 from monitoring.model.data_temporarily_unavailable_error import DataTemporarilyUnavailableError
 from monitoring.model.too_many_requests_error import TooManyRequestsError
 from monitoring.model.method_not_allowed_error import MethodNotAllowedError
@@ -65,7 +65,7 @@ _auth = [
     'OAuth2',
     'ApiKey',
 ]
-SchemaFor200ResponseBodyApplicationJson = GetSystemLoadControlSettingsResponse
+SchemaFor200ResponseBodyApplicationJson = LoadControlSettings
 
 
 @dataclass
@@ -158,25 +158,6 @@ _response_for_405 = api_client.OpenApiResponse(
     content={
         'application/json': api_client.MediaType(
             schema=SchemaFor405ResponseBodyApplicationJson),
-    },
-)
-SchemaFor422ResponseBodyApplicationJson = ClientError
-
-
-@dataclass
-class ApiResponseFor422(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor422ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_422 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor422,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor422ResponseBodyApplicationJson),
     },
 )
 SchemaFor429ResponseBodyApplicationJson = TooManyRequestsError
@@ -278,7 +259,6 @@ _status_code_to_response = {
     '403': _response_for_403,
     '404': _response_for_404,
     '405': _response_for_405,
-    '422': _response_for_422,
     '429': _response_for_429,
     '500': _response_for_500,
     '501': _response_for_501,

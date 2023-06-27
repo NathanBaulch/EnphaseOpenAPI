@@ -28,6 +28,7 @@ from monitoring.apis.paths.systems_config_system_id_grid_status import SystemsCo
 from monitoring.apis.paths.systems_config_system_id_load_control import SystemsConfigSystemIdLoadControl
 from monitoring.apis.paths.systems_system_id_energy_import_telemetry import SystemsSystemIdEnergyImportTelemetry
 from monitoring.apis.paths.systems_system_id_energy_export_telemetry import SystemsSystemIdEnergyExportTelemetry
+from monitoring.apis.paths.systems_system_id_live_data import SystemsSystemIdLiveData
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
@@ -59,6 +60,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.SYSTEMS_CONFIG_SYSTEM_ID_LOAD_CONTROL: SystemsConfigSystemIdLoadControl,
         PathValues.SYSTEMS_SYSTEM_ID_ENERGY_IMPORT_TELEMETRY: SystemsSystemIdEnergyImportTelemetry,
         PathValues.SYSTEMS_SYSTEM_ID_ENERGY_EXPORT_TELEMETRY: SystemsSystemIdEnergyExportTelemetry,
+        PathValues.SYSTEMS_SYSTEM_ID_LIVE_DATA: SystemsSystemIdLiveData,
     }
 )
 
@@ -91,5 +93,6 @@ path_to_api = PathToApi(
         PathValues.SYSTEMS_CONFIG_SYSTEM_ID_LOAD_CONTROL: SystemsConfigSystemIdLoadControl,
         PathValues.SYSTEMS_SYSTEM_ID_ENERGY_IMPORT_TELEMETRY: SystemsSystemIdEnergyImportTelemetry,
         PathValues.SYSTEMS_SYSTEM_ID_ENERGY_EXPORT_TELEMETRY: SystemsSystemIdEnergyExportTelemetry,
+        PathValues.SYSTEMS_SYSTEM_ID_LIVE_DATA: SystemsSystemIdLiveData,
     }
 )
