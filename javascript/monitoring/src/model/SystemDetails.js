@@ -26,10 +26,11 @@ class SystemDetails {
     /**
      * Constructs a new <code>SystemDetails</code>.
      * @alias module:model/SystemDetails
+     * @param systemId {Number} Unique numeric ID of the system.
      */
-    constructor() { 
+    constructor(systemId) { 
         
-        SystemDetails.initialize(this);
+        SystemDetails.initialize(this, systemId);
     }
 
     /**
@@ -37,7 +38,8 @@ class SystemDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, systemId) { 
+        obj['system_id'] = systemId;
     }
 
     /**
@@ -112,6 +114,12 @@ class SystemDetails {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SystemDetails</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of SystemDetails.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
@@ -143,7 +151,7 @@ class SystemDetails {
 
 }
 
-
+SystemDetails.RequiredProperties = ["system_id"];
 
 /**
  * Unique numeric ID of the system.

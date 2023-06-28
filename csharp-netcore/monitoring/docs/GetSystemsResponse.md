@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Total** | **int** | Total number of systems. | [optional] 
 **CurrentPage** | **int** | Number of the current page fetched. | [optional] 
-**Size** | **int** | Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100. | [optional] 
-**Count** | **int** | Total number of systems actually returned for the current page. | [optional] 
+**Size** | **int** | Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100. | 
+**Count** | **int** | Total number of systems actually returned for the current page. | 
 **Items** | **string** | Named key of the list data. In this endpoint, it is systems. | [optional] 
 **Systems** | [**List&lt;SystemDetails&gt;**](SystemDetails.md) | List of systems. | [optional] 
 

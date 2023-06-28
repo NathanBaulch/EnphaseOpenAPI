@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Total** | Pointer to **int32** | Total number of systems. | [optional] 
 **CurrentPage** | Pointer to **int32** | Number of the current page fetched. | [optional] 
-**Size** | Pointer to **int32** | Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100. | [optional] 
-**Count** | Pointer to **int32** | Total number of systems actually returned for the current page. | [optional] 
+**Size** | **int32** | Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100. | 
+**Count** | **int32** | Total number of systems actually returned for the current page. | 
 **Items** | Pointer to **string** | Named key of the list data. In this endpoint, it is systems. | [optional] 
 **Systems** | Pointer to [**[]SystemDetails**](SystemDetails.md) | List of systems. | [optional] 
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewGetSystemsResponse
 
-`func NewGetSystemsResponse() *GetSystemsResponse`
+`func NewGetSystemsResponse(size int32, count int32, ) *GetSystemsResponse`
 
 NewGetSystemsResponse instantiates a new GetSystemsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -99,11 +99,6 @@ and a boolean to check if the value has been set.
 
 SetSize sets Size field to given value.
 
-### HasSize
-
-`func (o *GetSystemsResponse) HasSize() bool`
-
-HasSize returns a boolean if a field has been set.
 
 ### GetCount
 
@@ -124,11 +119,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *GetSystemsResponse) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetItems
 

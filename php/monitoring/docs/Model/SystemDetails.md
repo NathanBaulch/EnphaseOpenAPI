@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**system_id** | **int** | Unique numeric ID of the system. | [optional]
+**system_id** | **int** | Unique numeric ID of the system. |
 **name** | **string** | Name of the system. | [optional]
 **public_name** | **string** | Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default&#x3D;&#39;Residential System&#39;. Only for systems that allow public access. | [optional]
 **timezone** | **string** | Timezone to which the system belongs. | [optional]

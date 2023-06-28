@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total** | **integer** |  | [optional] [default to null]
 **currentUnderscorepage** | **integer** |  | [optional] [default to null]
-**size** | **integer** |  | [optional] [default to null]
-**count** | **integer** |  | [optional] [default to null]
+**size** | **integer** |  | [default to null]
+**count** | **integer** |  | [default to null]
 **items** | **string** |  | [optional] [default to null]
 **systems** | [**array[SystemDetails]**](SystemDetails.md) |  | [optional] [default to null]
 

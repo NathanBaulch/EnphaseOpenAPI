@@ -34,18 +34,23 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetSystemsResponse" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected GetSystemsResponse() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetSystemsResponse" /> class.
+        /// </summary>
         /// <param name="total">Total number of systems..</param>
         /// <param name="currentPage">Number of the current page fetched..</param>
-        /// <param name="size">Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100..</param>
-        /// <param name="count">Total number of systems actually returned for the current page..</param>
+        /// <param name="size">Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100. (required).</param>
+        /// <param name="count">Total number of systems actually returned for the current page. (required).</param>
         /// <param name="items">Named key of the list data. In this endpoint, it is systems..</param>
         /// <param name="systems">List of systems..</param>
         public GetSystemsResponse(int total = default(int), int currentPage = default(int), int size = default(int), int count = default(int), string items = default(string), List<SystemDetails> systems = default(List<SystemDetails>))
         {
-            this.Total = total;
-            this.CurrentPage = currentPage;
             this.Size = size;
             this.Count = count;
+            this.Total = total;
+            this.CurrentPage = currentPage;
             this.Items = items;
             this.Systems = systems;
         }
@@ -68,14 +73,14 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100.
         /// </summary>
         /// <value>Maximum number of records shown per page. Default&#x3D;10, Min&#x3D;1, Max&#x3D;100.</value>
-        [DataMember(Name = "size", EmitDefaultValue = false)]
+        [DataMember(Name = "size", IsRequired = true, EmitDefaultValue = true)]
         public int Size { get; set; }
 
         /// <summary>
         /// Total number of systems actually returned for the current page.
         /// </summary>
         /// <value>Total number of systems actually returned for the current page.</value>
-        [DataMember(Name = "count", EmitDefaultValue = false)]
+        [DataMember(Name = "count", IsRequired = true, EmitDefaultValue = true)]
         public int Count { get; set; }
 
         /// <summary>

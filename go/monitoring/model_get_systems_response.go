@@ -24,9 +24,9 @@ type GetSystemsResponse struct {
 	// Number of the current page fetched.
 	CurrentPage *int32 `json:"current_page,omitempty"`
 	// Maximum number of records shown per page. Default=10, Min=1, Max=100.
-	Size *int32 `json:"size,omitempty"`
+	Size int32 `json:"size"`
 	// Total number of systems actually returned for the current page.
-	Count *int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	// Named key of the list data. In this endpoint, it is systems.
 	Items *string `json:"items,omitempty"`
 	// List of systems.
@@ -37,8 +37,10 @@ type GetSystemsResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetSystemsResponse() *GetSystemsResponse {
+func NewGetSystemsResponse(size int32, count int32) *GetSystemsResponse {
 	this := GetSystemsResponse{}
+	this.Size = size
+	this.Count = count
 	return &this
 }
 
@@ -114,68 +116,52 @@ func (o *GetSystemsResponse) SetCurrentPage(v int32) {
 	o.CurrentPage = &v
 }
 
-// GetSize returns the Size field value if set, zero value otherwise.
+// GetSize returns the Size field value
 func (o *GetSystemsResponse) GetSize() int32 {
-	if o == nil || IsNil(o.Size) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Size
+
+	return o.Size
 }
 
-// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetSystemsResponse) GetSizeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Size) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Size, true
+	return &o.Size, true
 }
 
-// HasSize returns a boolean if a field has been set.
-func (o *GetSystemsResponse) HasSize() bool {
-	if o != nil && !IsNil(o.Size) {
-		return true
-	}
-
-	return false
-}
-
-// SetSize gets a reference to the given int32 and assigns it to the Size field.
+// SetSize sets field value
 func (o *GetSystemsResponse) SetSize(v int32) {
-	o.Size = &v
+	o.Size = v
 }
 
-// GetCount returns the Count field value if set, zero value otherwise.
+// GetCount returns the Count field value
 func (o *GetSystemsResponse) GetCount() int32 {
-	if o == nil || IsNil(o.Count) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Count
+
+	return o.Count
 }
 
-// GetCountOk returns a tuple with the Count field value if set, nil otherwise
+// GetCountOk returns a tuple with the Count field value
 // and a boolean to check if the value has been set.
 func (o *GetSystemsResponse) GetCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Count) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Count, true
+	return &o.Count, true
 }
 
-// HasCount returns a boolean if a field has been set.
-func (o *GetSystemsResponse) HasCount() bool {
-	if o != nil && !IsNil(o.Count) {
-		return true
-	}
-
-	return false
-}
-
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
+// SetCount sets field value
 func (o *GetSystemsResponse) SetCount(v int32) {
-	o.Count = &v
+	o.Count = v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
@@ -258,12 +244,8 @@ func (o GetSystemsResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CurrentPage) {
 		toSerialize["current_page"] = o.CurrentPage
 	}
-	if !IsNil(o.Size) {
-		toSerialize["size"] = o.Size
-	}
-	if !IsNil(o.Count) {
-		toSerialize["count"] = o.Count
-	}
+	toSerialize["size"] = o.Size
+	toSerialize["count"] = o.Count
 	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
 	}

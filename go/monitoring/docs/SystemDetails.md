@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SystemId** | Pointer to **int32** | Unique numeric ID of the system. | [optional] 
+**SystemId** | **int32** | Unique numeric ID of the system. | 
 **Name** | Pointer to **string** | Name of the system. | [optional] 
 **PublicName** | Pointer to **string** | Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default&#x3D;&#39;Residential System&#39;. Only for systems that allow public access. | [optional] 
 **Timezone** | Pointer to **string** | Timezone to which the system belongs. | [optional] 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewSystemDetails
 
-`func NewSystemDetails() *SystemDetails`
+`func NewSystemDetails(systemId int32, ) *SystemDetails`
 
 NewSystemDetails instantiates a new SystemDetails object
 This constructor will assign default values to properties that have it defined,
@@ -60,11 +60,6 @@ and a boolean to check if the value has been set.
 
 SetSystemId sets SystemId field to given value.
 
-### HasSystemId
-
-`func (o *SystemDetails) HasSystemId() bool`
-
-HasSystemId returns a boolean if a field has been set.
 
 ### GetName
 

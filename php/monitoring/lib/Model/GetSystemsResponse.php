@@ -309,14 +309,20 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['size']) && ($this->container['size'] > 100)) {
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
+        if (($this->container['size'] > 100)) {
             $invalidProperties[] = "invalid value for 'size', must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['size']) && ($this->container['size'] < 1)) {
+        if (($this->container['size'] < 1)) {
             $invalidProperties[] = "invalid value for 'size', must be bigger than or equal to 1.";
         }
 
+        if ($this->container['count'] === null) {
+            $invalidProperties[] = "'count' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -389,7 +395,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets size
      *
-     * @return int|null
+     * @return int
      */
     public function getSize()
     {
@@ -399,7 +405,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets size
      *
-     * @param int|null $size Maximum number of records shown per page. Default=10, Min=1, Max=100.
+     * @param int $size Maximum number of records shown per page. Default=10, Min=1, Max=100.
      *
      * @return self
      */
@@ -424,7 +430,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets count
      *
-     * @return int|null
+     * @return int
      */
     public function getCount()
     {
@@ -434,7 +440,7 @@ class GetSystemsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets count
      *
-     * @param int|null $count Total number of systems actually returned for the current page.
+     * @param int $count Total number of systems actually returned for the current page.
      *
      * @return self
      */

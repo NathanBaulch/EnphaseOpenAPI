@@ -8,7 +8,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**system_id** | decimal.Decimal, int,  | decimal.Decimal,  | Unique numeric ID of the system. | [optional] 
+**system_id** | decimal.Decimal, int,  | decimal.Decimal,  | Unique numeric ID of the system. | 
 **name** | str,  | str,  | Name of the system. | [optional] 
 **public_name** | str,  | str,  | Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default&#x3D;&#x27;Residential System&#x27;. Only for systems that allow public access. | [optional] 
 **timezone** | str,  | str,  | Timezone to which the system belongs. | [optional] 

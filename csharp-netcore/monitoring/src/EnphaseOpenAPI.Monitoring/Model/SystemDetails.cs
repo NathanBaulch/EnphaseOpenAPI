@@ -52,7 +52,12 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemDetails" /> class.
         /// </summary>
-        /// <param name="systemId">Unique numeric ID of the system..</param>
+        [JsonConstructorAttribute]
+        protected SystemDetails() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SystemDetails" /> class.
+        /// </summary>
+        /// <param name="systemId">Unique numeric ID of the system. (required).</param>
         /// <param name="name">Name of the system..</param>
         /// <param name="publicName">Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default&#x3D;&#39;Residential System&#39;. Only for systems that allow public access..</param>
         /// <param name="timezone">Timezone to which the system belongs..</param>
@@ -94,7 +99,7 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// Unique numeric ID of the system.
         /// </summary>
         /// <value>Unique numeric ID of the system.</value>
-        [DataMember(Name = "system_id", EmitDefaultValue = false)]
+        [DataMember(Name = "system_id", IsRequired = true, EmitDefaultValue = true)]
         public int SystemId { get; set; }
 
         /// <summary>

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**systemUnderscoreid** | **integer** |  | [optional] [default to null]
+**systemUnderscoreid** | **integer** |  | [default to null]
 **name** | **string** |  | [optional] [default to null]
 **publicUnderscorename** | **string** |  | [optional] [default to null]
 **timezone** | **string** |  | [optional] [default to null]

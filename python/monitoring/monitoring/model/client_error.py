@@ -34,19 +34,23 @@ class ClientError(
 
 
     class MetaOapg:
+        required = {
+            "code",
+            "details",
+        }
         
         class properties:
-            message = schemas.StrSchema
             details = schemas.StrSchema
             code = schemas.IntSchema
+            message = schemas.StrSchema
             __annotations__ = {
-                "message": message,
                 "details": details,
                 "code": code,
+                "message": message,
             }
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
+    code: MetaOapg.properties.code
+    details: MetaOapg.properties.details
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["details"]) -> MetaOapg.properties.details: ...
@@ -55,44 +59,47 @@ class ClientError(
     def __getitem__(self, name: typing_extensions.Literal["code"]) -> MetaOapg.properties.code: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", "details", "code", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["details", "code", "message", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["details"]) -> MetaOapg.properties.details: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["code"]) -> MetaOapg.properties.code: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["details"]) -> typing.Union[MetaOapg.properties.details, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["code"]) -> typing.Union[MetaOapg.properties.code, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", "details", "code", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["details", "code", "message", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
+        code: typing.Union[MetaOapg.properties.code, decimal.Decimal, int, ],
+        details: typing.Union[MetaOapg.properties.details, str, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
-        details: typing.Union[MetaOapg.properties.details, str, schemas.Unset] = schemas.unset,
-        code: typing.Union[MetaOapg.properties.code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ClientError':
         return super().__new__(
             cls,
             *_args,
-            message=message,
-            details=details,
             code=code,
+            details=details,
+            message=message,
             _configuration=_configuration,
             **kwargs,
         )

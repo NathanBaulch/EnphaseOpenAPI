@@ -34,14 +34,24 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientError" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected ClientError() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClientError" /> class.
+        /// </summary>
         /// <param name="message">Error type..</param>
-        /// <param name="details">Error details..</param>
-        /// <param name="code">Error code..</param>
+        /// <param name="details">Error details. (required).</param>
+        /// <param name="code">Error code. (required).</param>
         public ClientError(string message = default(string), string details = default(string), int code = default(int))
         {
-            this.Message = message;
+            // to ensure "details" is required (not null)
+            if (details == null)
+            {
+                throw new ArgumentNullException("details is a required property for ClientError and cannot be null");
+            }
             this.Details = details;
             this.Code = code;
+            this.Message = message;
         }
 
         /// <summary>
@@ -55,14 +65,14 @@ namespace EnphaseOpenAPI.Monitoring.Model
         /// Error details.
         /// </summary>
         /// <value>Error details.</value>
-        [DataMember(Name = "details", EmitDefaultValue = false)]
+        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
         public string Details { get; set; }
 
         /// <summary>
         /// Error code.
         /// </summary>
         /// <value>Error code.</value>
-        [DataMember(Name = "code", EmitDefaultValue = false)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public int Code { get; set; }
 
         /// <summary>

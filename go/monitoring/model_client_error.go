@@ -22,17 +22,19 @@ type ClientError struct {
 	// Error type.
 	Message *string `json:"message,omitempty"`
 	// Error details.
-	Details *string `json:"details,omitempty"`
+	Details string `json:"details"`
 	// Error code.
-	Code *int32 `json:"code,omitempty"`
+	Code int32 `json:"code"`
 }
 
 // NewClientError instantiates a new ClientError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClientError() *ClientError {
+func NewClientError(details string, code int32) *ClientError {
 	this := ClientError{}
+	this.Details = details
+	this.Code = code
 	return &this
 }
 
@@ -76,68 +78,52 @@ func (o *ClientError) SetMessage(v string) {
 	o.Message = &v
 }
 
-// GetDetails returns the Details field value if set, zero value otherwise.
+// GetDetails returns the Details field value
 func (o *ClientError) GetDetails() string {
-	if o == nil || IsNil(o.Details) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Details
+
+	return o.Details
 }
 
-// GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
+// GetDetailsOk returns a tuple with the Details field value
 // and a boolean to check if the value has been set.
 func (o *ClientError) GetDetailsOk() (*string, bool) {
-	if o == nil || IsNil(o.Details) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Details, true
+	return &o.Details, true
 }
 
-// HasDetails returns a boolean if a field has been set.
-func (o *ClientError) HasDetails() bool {
-	if o != nil && !IsNil(o.Details) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetails gets a reference to the given string and assigns it to the Details field.
+// SetDetails sets field value
 func (o *ClientError) SetDetails(v string) {
-	o.Details = &v
+	o.Details = v
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *ClientError) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *ClientError) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ClientError) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
+// SetCode sets field value
 func (o *ClientError) SetCode(v int32) {
-	o.Code = &v
+	o.Code = v
 }
 
 func (o ClientError) MarshalJSON() ([]byte, error) {
@@ -153,12 +139,8 @@ func (o ClientError) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if !IsNil(o.Details) {
-		toSerialize["details"] = o.Details
-	}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
+	toSerialize["details"] = o.Details
+	toSerialize["code"] = o.Code
 	return toSerialize, nil
 }
 

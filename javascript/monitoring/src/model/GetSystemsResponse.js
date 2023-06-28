@@ -23,10 +23,12 @@ class GetSystemsResponse {
     /**
      * Constructs a new <code>GetSystemsResponse</code>.
      * @alias module:model/GetSystemsResponse
+     * @param size {Number} Maximum number of records shown per page. Default=10, Min=1, Max=100.
+     * @param count {Number} Total number of systems actually returned for the current page.
      */
-    constructor() { 
+    constructor(size, count) { 
         
-        GetSystemsResponse.initialize(this);
+        GetSystemsResponse.initialize(this, size, count);
     }
 
     /**
@@ -34,7 +36,9 @@ class GetSystemsResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, size, count) { 
+        obj['size'] = size;
+        obj['count'] = count;
     }
 
     /**
@@ -76,6 +80,12 @@ class GetSystemsResponse {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GetSystemsResponse</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of GetSystemsResponse.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['items'] && !(typeof data['items'] === 'string' || data['items'] instanceof String)) {
             throw new Error("Expected the field `items` to be a primitive type in the JSON string but got " + data['items']);
@@ -97,7 +107,7 @@ class GetSystemsResponse {
 
 }
 
-
+GetSystemsResponse.RequiredProperties = ["size", "count"];
 
 /**
  * Total number of systems.

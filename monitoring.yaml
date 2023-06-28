@@ -2168,6 +2168,9 @@ components:
           description: List of systems.
           items:
             $ref: '#/components/schemas/SystemDetails'
+      required:
+        - size
+        - count
       example:
         total: 28
         current_page: 1
@@ -3620,6 +3623,8 @@ components:
           description: If any other companies have provided their own identifiers for a system, those identifiers are included here. Otherwise, this attribute is not returned.
           items:
             type: string
+      required:
+        - system_id
       example:
         system_id: 72
         name: Enphase System
@@ -4007,6 +4012,9 @@ components:
         code:
           type: integer
           description: Error code.
+      required:
+        - details
+        - code
     MethodNotAllowedError:
       type: object
       properties:

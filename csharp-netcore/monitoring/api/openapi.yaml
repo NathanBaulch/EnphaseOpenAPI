@@ -4384,6 +4384,9 @@ components:
           items:
             $ref: '#/components/schemas/SystemDetails'
           type: array
+      required:
+      - count
+      - size
       type: object
     SearchSystemsRequest:
       example:
@@ -5621,6 +5624,8 @@ components:
           items:
             type: string
           type: array
+      required:
+      - system_id
       type: object
     Meta:
       description: "Information about the system such as its status, when it became\
@@ -5902,6 +5907,9 @@ components:
         code:
           description: Error code.
           type: integer
+      required:
+      - code
+      - details
       type: object
     MethodNotAllowedError:
       properties:

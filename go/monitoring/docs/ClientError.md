@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Message** | Pointer to **string** | Error type. | [optional] 
-**Details** | Pointer to **string** | Error details. | [optional] 
-**Code** | Pointer to **int32** | Error code. | [optional] 
+**Details** | **string** | Error details. | 
+**Code** | **int32** | Error code. | 
 
 ## Methods
 
 ### NewClientError
 
-`func NewClientError() *ClientError`
+`func NewClientError(details string, code int32, ) *ClientError`
 
 NewClientError instantiates a new ClientError object
 This constructor will assign default values to properties that have it defined,
@@ -71,11 +71,6 @@ and a boolean to check if the value has been set.
 
 SetDetails sets Details field to given value.
 
-### HasDetails
-
-`func (o *ClientError) HasDetails() bool`
-
-HasDetails returns a boolean if a field has been set.
 
 ### GetCode
 
@@ -96,11 +91,6 @@ and a boolean to check if the value has been set.
 
 SetCode sets Code field to given value.
 
-### HasCode
-
-`func (o *ClientError) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

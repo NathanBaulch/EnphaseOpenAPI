@@ -20,7 +20,7 @@ var _ MappedNullable = &SystemDetails{}
 // SystemDetails struct for SystemDetails
 type SystemDetails struct {
 	// Unique numeric ID of the system.
-	SystemId *int32 `json:"system_id,omitempty"`
+	SystemId int32 `json:"system_id"`
 	// Name of the system.
 	Name *string `json:"name,omitempty"`
 	// Name displayed on the public system page. Available values are All, Residential System, Commercial etc. Default='Residential System'. Only for systems that allow public access.
@@ -55,8 +55,9 @@ type SystemDetails struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSystemDetails() *SystemDetails {
+func NewSystemDetails(systemId int32) *SystemDetails {
 	this := SystemDetails{}
+	this.SystemId = systemId
 	return &this
 }
 
@@ -68,36 +69,28 @@ func NewSystemDetailsWithDefaults() *SystemDetails {
 	return &this
 }
 
-// GetSystemId returns the SystemId field value if set, zero value otherwise.
+// GetSystemId returns the SystemId field value
 func (o *SystemDetails) GetSystemId() int32 {
-	if o == nil || IsNil(o.SystemId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.SystemId
+
+	return o.SystemId
 }
 
-// GetSystemIdOk returns a tuple with the SystemId field value if set, nil otherwise
+// GetSystemIdOk returns a tuple with the SystemId field value
 // and a boolean to check if the value has been set.
 func (o *SystemDetails) GetSystemIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.SystemId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SystemId, true
+	return &o.SystemId, true
 }
 
-// HasSystemId returns a boolean if a field has been set.
-func (o *SystemDetails) HasSystemId() bool {
-	if o != nil && !IsNil(o.SystemId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSystemId gets a reference to the given int32 and assigns it to the SystemId field.
+// SetSystemId sets field value
 func (o *SystemDetails) SetSystemId(v int32) {
-	o.SystemId = &v
+	o.SystemId = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -622,9 +615,7 @@ func (o SystemDetails) MarshalJSON() ([]byte, error) {
 
 func (o SystemDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SystemId) {
-		toSerialize["system_id"] = o.SystemId
-	}
+	toSerialize["system_id"] = o.SystemId
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}

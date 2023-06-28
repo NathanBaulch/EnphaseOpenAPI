@@ -34,6 +34,9 @@ class SystemDetails(
 
 
     class MetaOapg:
+        required = {
+            "system_id",
+        }
         
         class properties:
             system_id = schemas.IntSchema
@@ -183,6 +186,8 @@ class SystemDetails(
                 "other_references": other_references,
             }
     
+    system_id: MetaOapg.properties.system_id
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["system_id"]) -> MetaOapg.properties.system_id: ...
     
@@ -243,7 +248,7 @@ class SystemDetails(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["system_id"]) -> typing.Union[MetaOapg.properties.system_id, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["system_id"]) -> MetaOapg.properties.system_id: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
@@ -303,7 +308,7 @@ class SystemDetails(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        system_id: typing.Union[MetaOapg.properties.system_id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        system_id: typing.Union[MetaOapg.properties.system_id, decimal.Decimal, int, ],
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
         public_name: typing.Union[MetaOapg.properties.public_name, str, schemas.Unset] = schemas.unset,
         timezone: typing.Union[MetaOapg.properties.timezone, str, schemas.Unset] = schemas.unset,

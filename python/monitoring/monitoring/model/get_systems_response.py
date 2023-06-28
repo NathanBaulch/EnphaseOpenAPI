@@ -34,10 +34,12 @@ class GetSystemsResponse(
 
 
     class MetaOapg:
+        required = {
+            "size",
+            "count",
+        }
         
         class properties:
-            total = schemas.IntSchema
-            current_page = schemas.IntSchema
             
             
             class size(
@@ -49,6 +51,8 @@ class GetSystemsResponse(
                     inclusive_maximum = 100
                     inclusive_minimum = 1
             count = schemas.IntSchema
+            total = schemas.IntSchema
+            current_page = schemas.IntSchema
             items = schemas.StrSchema
             
             
@@ -77,25 +81,28 @@ class GetSystemsResponse(
                 def __getitem__(self, i: int) -> 'SystemDetails':
                     return super().__getitem__(i)
             __annotations__ = {
-                "total": total,
-                "current_page": current_page,
                 "size": size,
                 "count": count,
+                "total": total,
+                "current_page": current_page,
                 "items": items,
                 "systems": systems,
             }
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["total"]) -> MetaOapg.properties.total: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["current_page"]) -> MetaOapg.properties.current_page: ...
+    size: MetaOapg.properties.size
+    count: MetaOapg.properties.count
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["size"]) -> MetaOapg.properties.size: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["count"]) -> MetaOapg.properties.count: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["total"]) -> MetaOapg.properties.total: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["current_page"]) -> MetaOapg.properties.current_page: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["items"]) -> MetaOapg.properties.items: ...
@@ -106,22 +113,22 @@ class GetSystemsResponse(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["total", "current_page", "size", "count", "items", "systems", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["size", "count", "total", "current_page", "items", "systems", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["size"]) -> MetaOapg.properties.size: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["count"]) -> MetaOapg.properties.count: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["total"]) -> typing.Union[MetaOapg.properties.total, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["current_page"]) -> typing.Union[MetaOapg.properties.current_page, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["size"]) -> typing.Union[MetaOapg.properties.size, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["count"]) -> typing.Union[MetaOapg.properties.count, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["items"]) -> typing.Union[MetaOapg.properties.items, schemas.Unset]: ...
@@ -132,17 +139,17 @@ class GetSystemsResponse(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["total", "current_page", "size", "count", "items", "systems", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["size", "count", "total", "current_page", "items", "systems", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
+        size: typing.Union[MetaOapg.properties.size, decimal.Decimal, int, ],
+        count: typing.Union[MetaOapg.properties.count, decimal.Decimal, int, ],
         total: typing.Union[MetaOapg.properties.total, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         current_page: typing.Union[MetaOapg.properties.current_page, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        size: typing.Union[MetaOapg.properties.size, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        count: typing.Union[MetaOapg.properties.count, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         items: typing.Union[MetaOapg.properties.items, str, schemas.Unset] = schemas.unset,
         systems: typing.Union[MetaOapg.properties.systems, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -151,10 +158,10 @@ class GetSystemsResponse(
         return super().__new__(
             cls,
             *_args,
-            total=total,
-            current_page=current_page,
             size=size,
             count=count,
+            total=total,
+            current_page=current_page,
             items=items,
             systems=systems,
             _configuration=_configuration,

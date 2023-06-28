@@ -386,6 +386,9 @@ class SystemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['system_id'] === null) {
+            $invalidProperties[] = "'system_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -404,7 +407,7 @@ class SystemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets system_id
      *
-     * @return int|null
+     * @return int
      */
     public function getSystemId()
     {
@@ -414,7 +417,7 @@ class SystemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets system_id
      *
-     * @param int|null $system_id Unique numeric ID of the system.
+     * @param int $system_id Unique numeric ID of the system.
      *
      * @return self
      */

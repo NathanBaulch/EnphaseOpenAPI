@@ -288,6 +288,12 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['details'] === null) {
+            $invalidProperties[] = "'details' can't be null";
+        }
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -333,7 +339,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets details
      *
-     * @return string|null
+     * @return string
      */
     public function getDetails()
     {
@@ -343,7 +349,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets details
      *
-     * @param string|null $details Error details.
+     * @param string $details Error details.
      *
      * @return self
      */
@@ -360,7 +366,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets code
      *
-     * @return int|null
+     * @return int
      */
     public function getCode()
     {
@@ -370,7 +376,7 @@ class ClientError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets code
      *
-     * @param int|null $code Error code.
+     * @param int $code Error code.
      *
      * @return self
      */
