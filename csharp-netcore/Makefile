@@ -44,7 +44,7 @@ define generate
 	dos2unix -o ./.openapi-generator/FILES
 	sed -Ei -z "s/(\"-\w+\"\)]\n\s+\w+)/\1Desc/g" ./src/EnphaseOpenAPI.Monitoring/Model/*Enum.cs || true
 	dotnet outdated -vl major -u
-	dotnet build
+	dotnet build /nowarn:CS0612
 endef
 
 $(OPENAPICLI):
