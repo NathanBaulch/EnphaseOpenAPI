@@ -148,7 +148,7 @@ Class | Method | HTTP request | Description
 *TheEnphaseMonitoringApi.SiteLevelProductionMonitoringApi* | [**getSystemProductionMeterTelemetry**](docs/SiteLevelProductionMonitoringApi.md#getSystemProductionMeterTelemetry) | **GET** /systems/{system_id}/telemetry/production_meter | Retrieves telemetry for all production meters for a system
 *TheEnphaseMonitoringApi.SiteLevelProductionMonitoringApi* | [**getSystemProductionMicroTelemetry**](docs/SiteLevelProductionMonitoringApi.md#getSystemProductionMicroTelemetry) | **GET** /systems/{system_id}/telemetry/production_micro | Retrieves telemetry for all production micros for a system
 *TheEnphaseMonitoringApi.SiteLevelProductionMonitoringApi* | [**getSystemRgmStats**](docs/SiteLevelProductionMonitoringApi.md#getSystemRgmStats) | **GET** /systems/{system_id}/rgm_stats | rgm_stats
-*TheEnphaseMonitoringApi.StreamingAPIsApi* | [**streamSystemLiveData**](docs/StreamingAPIsApi.md#streamSystemLiveData) | **GET** /systems/{system_id}/live_data | Site Level Live Status
+*TheEnphaseMonitoringApi.StreamingApi* | [**streamSystemLiveData**](docs/StreamingApi.md#streamSystemLiveData) | **GET** /systems/{system_id}/live_data | Site Level Live Status
 *TheEnphaseMonitoringApi.SystemConfigurationsApi* | [**getSystemBatterySettings**](docs/SystemConfigurationsApi.md#getSystemBatterySettings) | **GET** /systems/config/{system_id}/battery_settings | Returns the current battery settings of a system
 *TheEnphaseMonitoringApi.SystemConfigurationsApi* | [**getSystemGridStatusSettings**](docs/SystemConfigurationsApi.md#getSystemGridStatusSettings) | **GET** /systems/config/{system_id}/grid_status | Returns the current grid status of a system.
 *TheEnphaseMonitoringApi.SystemConfigurationsApi* | [**getSystemLoadControlSettings**](docs/SystemConfigurationsApi.md#getSystemLoadControlSettings) | **GET** /systems/config/{system_id}/load_control | Returns the current load control settings of a system
@@ -225,30 +225,8 @@ Class | Method | HTTP request | Description
  - [TheEnphaseMonitoringApi.SearchSystemsRequestSystem](docs/SearchSystemsRequestSystem.md)
  - [TheEnphaseMonitoringApi.SearchSystemsResponse](docs/SearchSystemsResponse.md)
  - [TheEnphaseMonitoringApi.StormGuardSettings](docs/StormGuardSettings.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData401Response](docs/StreamSystemLiveData401Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData401ResponseError](docs/StreamSystemLiveData401ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData403Response](docs/StreamSystemLiveData403Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData403ResponseError](docs/StreamSystemLiveData403ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData429Response](docs/StreamSystemLiveData429Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData429ResponseError](docs/StreamSystemLiveData429ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData461Response](docs/StreamSystemLiveData461Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData461ResponseError](docs/StreamSystemLiveData461ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData462Response](docs/StreamSystemLiveData462Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData462ResponseError](docs/StreamSystemLiveData462ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData463Response](docs/StreamSystemLiveData463Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData463ResponseError](docs/StreamSystemLiveData463ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData466Response](docs/StreamSystemLiveData466Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData466ResponseError](docs/StreamSystemLiveData466ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData468Response](docs/StreamSystemLiveData468Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData468ResponseError](docs/StreamSystemLiveData468ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData472Response](docs/StreamSystemLiveData472Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData472ResponseError](docs/StreamSystemLiveData472ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData550Response](docs/StreamSystemLiveData550Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData550ResponseError](docs/StreamSystemLiveData550ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData551Response](docs/StreamSystemLiveData551Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData551ResponseError](docs/StreamSystemLiveData551ResponseError.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData552Response](docs/StreamSystemLiveData552Response.md)
- - [TheEnphaseMonitoringApi.StreamSystemLiveData552ResponseError](docs/StreamSystemLiveData552ResponseError.md)
+ - [TheEnphaseMonitoringApi.StreamSystemLiveDataError](docs/StreamSystemLiveDataError.md)
+ - [TheEnphaseMonitoringApi.StreamSystemLiveDataErrorError](docs/StreamSystemLiveDataErrorError.md)
  - [TheEnphaseMonitoringApi.StreamSystemLiveDataResponse](docs/StreamSystemLiveDataResponse.md)
  - [TheEnphaseMonitoringApi.StreamSystemLiveDataResponseData](docs/StreamSystemLiveDataResponseData.md)
  - [TheEnphaseMonitoringApi.StreamSystemLiveDataResponseDataData](docs/StreamSystemLiveDataResponseDataData.md)

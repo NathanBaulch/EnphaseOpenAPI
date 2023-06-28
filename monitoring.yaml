@@ -1586,7 +1586,7 @@ paths:
     get:
       operationId: StreamSystemLiveData
       tags:
-        - Streaming APIs
+        - Streaming
       summary: Site Level Live Status
       description: |-
         API users can get real time live status data on demand for a given system.
@@ -1619,34 +1619,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '401'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: API Key is missing.
-                      status:
-                        type: string
-                        description: NOT_AUTHENTICATED
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: authentication_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 401
@@ -1662,34 +1635,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '403'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: API Key is invalid.
-                      status:
-                        type: string
-                        description: FORBIDDEN
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: authorization_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 403
@@ -1705,34 +1651,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '429'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Too Many Requests.
-                      status:
-                        type: string
-                        description: TOO_MANY_REQUESTS
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: request_exceeded_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 429
@@ -1748,34 +1667,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '461'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Duration cannot be less than 30.
-                      status:
-                        type: string
-                        description: INVALID_DURATION
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: validation_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 461
@@ -1791,34 +1683,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '462'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Duration cannot be greater than 900.
-                      status:
-                        type: string
-                        description: INVALID_DURATION
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: validation_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 462
@@ -1834,34 +1699,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '463'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Duration must be an integer.
-                      status:
-                        type: string
-                        description: INVALID_DURATION
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: validation_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 463
@@ -1877,34 +1715,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '466'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Envoy must be active and envoy version must be at least 6.0.0.
-                      status:
-                        type: string
-                        description: UNSUPPORTED_ENVOY
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: validation_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 466
@@ -1920,34 +1731,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '468'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: System ID doesn't exist.
-                      status:
-                        type: string
-                        description: INVALID_SYSTEM_ID
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: validation_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 468
@@ -1966,34 +1750,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '472'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: The system doesn't support live stream.
-                      status:
-                        type: string
-                        description: LIVE_STREAM_NOT_SUPPORTED
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: validation_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 472
@@ -2009,34 +1766,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '550'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Service unreachable, please try again.
-                      status:
-                        type: string
-                        description: SERVICE_UNREACHABLE
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: server_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 550
@@ -2052,34 +1782,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '551'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Service unreachable, please try again.
-                      status:
-                        type: string
-                        description: SERVICE_UNREACHABLE
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: server_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 551
@@ -2095,34 +1798,7 @@ paths:
           content:
             text/event-stream:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: object
-                    properties:
-                      code:
-                        type: integer
-                        description: '552'
-                      details:
-                        type: array
-                        items:
-                          type: object
-                          properties: { }
-                      message:
-                        type: string
-                        description: Unable to connect, please try again.
-                      status:
-                        type: string
-                        description: CONNECTION_NOT_ESTABLISHED
-                  timestamp_epoch:
-                    type: integer
-                    description: Timestamp in epoch format.
-                  timestamp_utc:
-                    type: string
-                    description: Timestamp in UTC format.
-                  type:
-                    type: string
-                    description: server_error
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
               example:
                 error:
                   code: 552
@@ -3918,6 +3594,31 @@ components:
           timestamp_epoch: 1679041508556
           timestamp_utc: 2023-03-17 08:25:08.556
           type: response
+    StreamSystemLiveDataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            details:
+              type: array
+              items:
+                type: object
+                properties: { }
+            message:
+              type: string
+            status:
+              type: string
+        timestamp_epoch:
+          type: integer
+          description: Timestamp in epoch format.
+        timestamp_utc:
+          type: string
+          description: Timestamp in UTC format.
+        type:
+          type: string
     SystemSortByEnum:
       type: string
       description: Returns list of systems sorted by <sort_by> field. To get ASC order sorted list, user sort_by = <key>. To get DESC order sorted list, use sort_by = (-)<key>.

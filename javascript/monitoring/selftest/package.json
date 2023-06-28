@@ -1,0 +1,11 @@
+{
+  "name": "selftest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "superagent-throttle": "^1.0.1",
+    "the_enlighten_systems_api": "file:..",
+    "yargs": "^17.0.1"
+  }
+}

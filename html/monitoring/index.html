@@ -223,7 +223,7 @@ font-style: italic;
   <li><a href="#getSystemProductionMicroTelemetry"><code><span class="http-method">get</span> /systems/{system_id}/telemetry/production_micro</code></a></li>
   <li><a href="#getSystemRgmStats"><code><span class="http-method">get</span> /systems/{system_id}/rgm_stats</code></a></li>
   </ul>
-  <h4><a href="#StreamingAPIs">StreamingAPIs</a></h4>
+  <h4><a href="#Streaming">Streaming</a></h4>
   <ul>
   <li><a href="#streamSystemLiveData"><code><span class="http-method">get</span> /systems/{system_id}/live_data</code></a></li>
   </ul>
@@ -1912,7 +1912,7 @@ If the start_at specified is earlier than the system's first reported date, then
         <a href="#NotImplementedError">NotImplementedError</a>
   </div> <!-- method -->
   <hr/>
-  <h1><a name="StreamingAPIs">StreamingAPIs</a></h1>
+  <h1><a name="Streaming">Streaming</a></h1>
   <div class="method"><a name="streamSystemLiveData"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1967,42 +1967,42 @@ User will receive the stream for a duration of 30 seconds by default and can con
         <a href="#StreamSystemLiveDataResponse">StreamSystemLiveDataResponse</a>
     <h4 class="field-label">401</h4>
     User will get 401 in the below cases. Response content type is application/json. NOT_AUTHENTICATED - API key is missing UNAUTHORIZED - Access token is invalid UNAUTHORIZED - Access token has expired NOT_AUTHENTICATED - API Key is invalid UNAUTHORIZED - Application is not authorized to access the requested resource
-        <a href="#StreamSystemLiveData_401_response">StreamSystemLiveData_401_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">403</h4>
     User is not authorized. Response content type is application/json.
-        <a href="#StreamSystemLiveData_403_response">StreamSystemLiveData_403_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">429</h4>
     Too Many Requests. Response content type is application/json.
-        <a href="#StreamSystemLiveData_429_response">StreamSystemLiveData_429_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">461</h4>
     Duration is less than 30 seconds. Response content type is application/json.
-        <a href="#StreamSystemLiveData_461_response">StreamSystemLiveData_461_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">462</h4>
     Duration is greater then 300 seconds. Response content type is application/json.
-        <a href="#StreamSystemLiveData_462_response">StreamSystemLiveData_462_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">463</h4>
     Duration is not integer. Response content type is application/json.
-        <a href="#StreamSystemLiveData_463_response">StreamSystemLiveData_463_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">466</h4>
     Envoy must be active and envoy version must be at least 6.0.0. Response content type is application/json.
-        <a href="#StreamSystemLiveData_466_response">StreamSystemLiveData_466_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">468</h4>
     System ID does not exist. Response content type is application/json.
-        <a href="#StreamSystemLiveData_468_response">StreamSystemLiveData_468_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">472</h4>
     For Ensemble sites, live stream will be supported in the following cases:
 If site has an active battery or active system controller, then site must have active production meter and active consumption meter.
 Otherwise, site must have active production meter. Response content type is application/json.
-        <a href="#StreamSystemLiveData_472_response">StreamSystemLiveData_472_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">550</h4>
     Service unreachable. Response content type is application/json.
-        <a href="#StreamSystemLiveData_550_response">StreamSystemLiveData_550_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">551</h4>
     Service unreachable. Response content type is application/json.
-        <a href="#StreamSystemLiveData_551_response">StreamSystemLiveData_551_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
     <h4 class="field-label">552</h4>
     Unable to connect. Response content type is application/json.
-        <a href="#StreamSystemLiveData_552_response">StreamSystemLiveData_552_response</a>
+        <a href="#StreamSystemLiveDataError">StreamSystemLiveDataError</a>
   </div> <!-- method -->
   <hr/>
   <h1><a name="SystemConfigurations">SystemConfigurations</a></h1>
@@ -3416,33 +3416,11 @@ Please note that the status returned in the response is not real-time and is upd
     <li><a href="#SearchSystemsRequest_system"><code>SearchSystemsRequest_system</code> - </a></li>
     <li><a href="#SearchSystemsResponse"><code>SearchSystemsResponse</code> - </a></li>
     <li><a href="#StormGuardSettings"><code>StormGuardSettings</code> - </a></li>
+    <li><a href="#StreamSystemLiveDataError"><code>StreamSystemLiveDataError</code> - </a></li>
+    <li><a href="#StreamSystemLiveDataError_error"><code>StreamSystemLiveDataError_error</code> - </a></li>
     <li><a href="#StreamSystemLiveDataResponse"><code>StreamSystemLiveDataResponse</code> - </a></li>
     <li><a href="#StreamSystemLiveDataResponse_data"><code>StreamSystemLiveDataResponse_data</code> - </a></li>
     <li><a href="#StreamSystemLiveDataResponse_data_data"><code>StreamSystemLiveDataResponse_data_data</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_401_response"><code>StreamSystemLiveData_401_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_401_response_error"><code>StreamSystemLiveData_401_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_403_response"><code>StreamSystemLiveData_403_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_403_response_error"><code>StreamSystemLiveData_403_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_429_response"><code>StreamSystemLiveData_429_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_429_response_error"><code>StreamSystemLiveData_429_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_461_response"><code>StreamSystemLiveData_461_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_461_response_error"><code>StreamSystemLiveData_461_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_462_response"><code>StreamSystemLiveData_462_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_462_response_error"><code>StreamSystemLiveData_462_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_463_response"><code>StreamSystemLiveData_463_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_463_response_error"><code>StreamSystemLiveData_463_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_466_response"><code>StreamSystemLiveData_466_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_466_response_error"><code>StreamSystemLiveData_466_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_468_response"><code>StreamSystemLiveData_468_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_468_response_error"><code>StreamSystemLiveData_468_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_472_response"><code>StreamSystemLiveData_472_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_472_response_error"><code>StreamSystemLiveData_472_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_550_response"><code>StreamSystemLiveData_550_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_550_response_error"><code>StreamSystemLiveData_550_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_551_response"><code>StreamSystemLiveData_551_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_551_response_error"><code>StreamSystemLiveData_551_response_error</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_552_response"><code>StreamSystemLiveData_552_response</code> - </a></li>
-    <li><a href="#StreamSystemLiveData_552_response_error"><code>StreamSystemLiveData_552_response_error</code> - </a></li>
     <li><a href="#SystemAttachmentTypeEnum"><code>SystemAttachmentTypeEnum</code> - </a></li>
     <li><a href="#SystemConnectionTypeEnum"><code>SystemConnectionTypeEnum</code> - </a></li>
     <li><a href="#SystemDetails"><code>SystemDetails</code> - </a></li>
@@ -4074,6 +4052,26 @@ Enabled: Battery may also charge from the grid when in full backup mode or when 
     </div>  <!-- field-items -->
   </div>
   <div class="model">
+    <h3><a name="StreamSystemLiveDataError"><code>StreamSystemLiveDataError</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveDataError_error">StreamSystemLiveDataError_error</a></span>  </div>
+<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
+<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamSystemLiveDataError_error"><code>StreamSystemLiveDataError_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
     <h3><a name="StreamSystemLiveDataResponse"><code>StreamSystemLiveDataResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
@@ -4104,246 +4102,6 @@ Enabled: Battery may also charge from the grid when in full backup mode or when 
 <div class="param">grid_status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Grid state of the site. Available values are On Grid, Off Grid, Unknown. </div>
 <div class="param">pv_power (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> PV power in watts. </div>
 <div class="param">system_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The unique numeric ID of the system. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_401_response"><code>StreamSystemLiveData_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_401_response_error">StreamSystemLiveData_401_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> authentication_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_401_response_error"><code>StreamSystemLiveData_401_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 401 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> API Key is missing. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> NOT_AUTHENTICATED </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_403_response"><code>StreamSystemLiveData_403_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_403_response_error">StreamSystemLiveData_403_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> authorization_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_403_response_error"><code>StreamSystemLiveData_403_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 403 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> API Key is invalid. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> FORBIDDEN </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_429_response"><code>StreamSystemLiveData_429_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_429_response_error">StreamSystemLiveData_429_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> request_exceeded_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_429_response_error"><code>StreamSystemLiveData_429_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 429 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Too Many Requests. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> TOO_MANY_REQUESTS </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_461_response"><code>StreamSystemLiveData_461_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_461_response_error">StreamSystemLiveData_461_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_461_response_error"><code>StreamSystemLiveData_461_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 461 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Duration cannot be less than 30. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_DURATION </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_462_response"><code>StreamSystemLiveData_462_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_462_response_error">StreamSystemLiveData_462_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_462_response_error"><code>StreamSystemLiveData_462_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 462 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Duration cannot be greater than 900. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_DURATION </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_463_response"><code>StreamSystemLiveData_463_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_463_response_error">StreamSystemLiveData_463_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_463_response_error"><code>StreamSystemLiveData_463_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 463 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Duration must be an integer. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_DURATION </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_466_response"><code>StreamSystemLiveData_466_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_466_response_error">StreamSystemLiveData_466_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_466_response_error"><code>StreamSystemLiveData_466_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 466 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Envoy must be active and envoy version must be at least 6.0.0. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> UNSUPPORTED_ENVOY </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_468_response"><code>StreamSystemLiveData_468_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_468_response_error">StreamSystemLiveData_468_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_468_response_error"><code>StreamSystemLiveData_468_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 468 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> System ID doesn't exist. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> INVALID_SYSTEM_ID </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_472_response"><code>StreamSystemLiveData_472_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_472_response_error">StreamSystemLiveData_472_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> validation_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_472_response_error"><code>StreamSystemLiveData_472_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 472 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The system doesn't support live stream. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> LIVE_STREAM_NOT_SUPPORTED </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_550_response"><code>StreamSystemLiveData_550_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_550_response_error">StreamSystemLiveData_550_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> server_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_550_response_error"><code>StreamSystemLiveData_550_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 550 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Service unreachable, please try again. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SERVICE_UNREACHABLE </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_551_response"><code>StreamSystemLiveData_551_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_551_response_error">StreamSystemLiveData_551_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> server_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_551_response_error"><code>StreamSystemLiveData_551_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 551 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Service unreachable, please try again. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SERVICE_UNREACHABLE </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_552_response"><code>StreamSystemLiveData_552_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamSystemLiveData_552_response_error">StreamSystemLiveData_552_response_error</a></span>  </div>
-<div class="param">timestamp_epoch (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Timestamp in epoch format. </div>
-<div class="param">timestamp_utc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timestamp in UTC format. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> server_error </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StreamSystemLiveData_552_response_error"><code>StreamSystemLiveData_552_response_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 552 </div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unable to connect, please try again. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> CONNECTION_NOT_ESTABLISHED </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

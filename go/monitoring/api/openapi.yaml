@@ -4028,7 +4028,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: authentication_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_401_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: User will get 401 in the below cases. Response content type
             is application/json. NOT_AUTHENTICATED - API key is missing UNAUTHORIZED
             - Access token is invalid UNAUTHORIZED - Access token has expired NOT_AUTHENTICATED
@@ -4048,7 +4048,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: authorization_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_403_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: User is not authorized. Response content type is application/json.
         "429":
           content:
@@ -4064,7 +4064,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: request_exceeded_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_429_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Too Many Requests. Response content type is application/json.
         "461":
           content:
@@ -4080,7 +4080,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: validation_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_461_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Duration is less than 30 seconds. Response content type is
             application/json.
         "462":
@@ -4097,7 +4097,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: validation_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_462_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Duration is greater then 300 seconds. Response content type
             is application/json.
         "463":
@@ -4114,7 +4114,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: validation_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_463_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Duration is not integer. Response content type is application/json.
         "466":
           content:
@@ -4125,13 +4125,13 @@ paths:
                   details:
                   - {}
                   message: Envoy must be active and envoy version must be at least
-                    6.0.0
+                    6.0.0.
                   status: UNSUPPORTED_ENVOY
                 timestamp_epoch: 1679041508556
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: validation_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_466_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Envoy must be active and envoy version must be at least 6.0.0.
             Response content type is application/json.
         "468":
@@ -4148,7 +4148,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: validation_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_468_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: System ID does not exist. Response content type is application/json.
         "472":
           content:
@@ -4164,7 +4164,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: validation_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_472_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: |-
             For Ensemble sites, live stream will be supported in the following cases:
             If site has an active battery or active system controller, then site must have active production meter and active consumption meter.
@@ -4183,7 +4183,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: server_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_550_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Service unreachable. Response content type is application/json.
         "551":
           content:
@@ -4199,7 +4199,7 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: server_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_551_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Service unreachable. Response content type is application/json.
         "552":
           content:
@@ -4215,11 +4215,11 @@ paths:
                 timestamp_utc: 2023-03-17 08:25:08.556
                 type: server_error
               schema:
-                $ref: '#/components/schemas/StreamSystemLiveData_552_response'
+                $ref: '#/components/schemas/StreamSystemLiveDataError'
           description: Unable to connect. Response content type is application/json.
       summary: Site Level Live Status
       tags:
-      - Streaming APIs
+      - Streaming
 components:
   parameters:
     SystemId:
@@ -5811,6 +5811,19 @@ components:
         data:
           $ref: '#/components/schemas/StreamSystemLiveDataResponse_data'
       type: object
+    StreamSystemLiveDataError:
+      properties:
+        error:
+          $ref: '#/components/schemas/StreamSystemLiveDataError_error'
+        timestamp_epoch:
+          description: Timestamp in epoch format.
+          type: integer
+        timestamp_utc:
+          description: Timestamp in UTC format.
+          type: string
+        type:
+          type: string
+      type: object
     SystemSortByEnum:
       description: "Returns list of systems sorted by <sort_by> field. To get ASC\
         \ order sorted list, user sort_by = <key>. To get DESC order sorted list,\
@@ -5980,378 +5993,6 @@ components:
       oneOf:
       - $ref: '#/components/schemas/InternalServerError'
       - $ref: '#/components/schemas/DataTemporarilyUnavailableError'
-    StreamSystemLiveData_401_response_error:
-      properties:
-        code:
-          description: "401"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: API Key is missing.
-          type: string
-        status:
-          description: NOT_AUTHENTICATED
-          type: string
-      type: object
-    StreamSystemLiveData_401_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_401_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: authentication_error
-          type: string
-      type: object
-    StreamSystemLiveData_403_response_error:
-      properties:
-        code:
-          description: "403"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: API Key is invalid.
-          type: string
-        status:
-          description: FORBIDDEN
-          type: string
-      type: object
-    StreamSystemLiveData_403_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_403_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: authorization_error
-          type: string
-      type: object
-    StreamSystemLiveData_429_response_error:
-      properties:
-        code:
-          description: "429"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: Too Many Requests.
-          type: string
-        status:
-          description: TOO_MANY_REQUESTS
-          type: string
-      type: object
-    StreamSystemLiveData_429_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_429_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: request_exceeded_error
-          type: string
-      type: object
-    StreamSystemLiveData_461_response_error:
-      properties:
-        code:
-          description: "461"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: Duration cannot be less than 30.
-          type: string
-        status:
-          description: INVALID_DURATION
-          type: string
-      type: object
-    StreamSystemLiveData_461_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_461_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: validation_error
-          type: string
-      type: object
-    StreamSystemLiveData_462_response_error:
-      properties:
-        code:
-          description: "462"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: Duration cannot be greater than 900.
-          type: string
-        status:
-          description: INVALID_DURATION
-          type: string
-      type: object
-    StreamSystemLiveData_462_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_462_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: validation_error
-          type: string
-      type: object
-    StreamSystemLiveData_463_response_error:
-      properties:
-        code:
-          description: "463"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: Duration must be an integer.
-          type: string
-        status:
-          description: INVALID_DURATION
-          type: string
-      type: object
-    StreamSystemLiveData_463_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_463_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: validation_error
-          type: string
-      type: object
-    StreamSystemLiveData_466_response_error:
-      properties:
-        code:
-          description: "466"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: Envoy must be active and envoy version must be at least 6.0.0.
-          type: string
-        status:
-          description: UNSUPPORTED_ENVOY
-          type: string
-      type: object
-    StreamSystemLiveData_466_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_466_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: validation_error
-          type: string
-      type: object
-    StreamSystemLiveData_468_response_error:
-      properties:
-        code:
-          description: "468"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: System ID doesn't exist.
-          type: string
-        status:
-          description: INVALID_SYSTEM_ID
-          type: string
-      type: object
-    StreamSystemLiveData_468_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_468_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: validation_error
-          type: string
-      type: object
-    StreamSystemLiveData_472_response_error:
-      properties:
-        code:
-          description: "472"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: The system doesn't support live stream.
-          type: string
-        status:
-          description: LIVE_STREAM_NOT_SUPPORTED
-          type: string
-      type: object
-    StreamSystemLiveData_472_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_472_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: validation_error
-          type: string
-      type: object
-    StreamSystemLiveData_550_response_error:
-      properties:
-        code:
-          description: "550"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: "Service unreachable, please try again."
-          type: string
-        status:
-          description: SERVICE_UNREACHABLE
-          type: string
-      type: object
-    StreamSystemLiveData_550_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_550_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: server_error
-          type: string
-      type: object
-    StreamSystemLiveData_551_response_error:
-      properties:
-        code:
-          description: "551"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: "Service unreachable, please try again."
-          type: string
-        status:
-          description: SERVICE_UNREACHABLE
-          type: string
-      type: object
-    StreamSystemLiveData_551_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_551_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: server_error
-          type: string
-      type: object
-    StreamSystemLiveData_552_response_error:
-      properties:
-        code:
-          description: "552"
-          type: integer
-        details:
-          items:
-            properties: {}
-            type: object
-          type: array
-        message:
-          description: "Unable to connect, please try again."
-          type: string
-        status:
-          description: CONNECTION_NOT_ESTABLISHED
-          type: string
-      type: object
-    StreamSystemLiveData_552_response:
-      properties:
-        error:
-          $ref: '#/components/schemas/StreamSystemLiveData_552_response_error'
-        timestamp_epoch:
-          description: Timestamp in epoch format.
-          type: integer
-        timestamp_utc:
-          description: Timestamp in UTC format.
-          type: string
-        type:
-          description: server_error
-          type: string
-      type: object
     SearchSystemsRequest_system:
       example:
         connection_type: null
@@ -6813,6 +6454,20 @@ components:
           type: string
         type:
           description: response
+          type: string
+      type: object
+    StreamSystemLiveDataError_error:
+      properties:
+        code:
+          type: integer
+        details:
+          items:
+            properties: {}
+            type: object
+          type: array
+        message:
+          type: string
+        status:
           type: string
       type: object
   securitySchemes:

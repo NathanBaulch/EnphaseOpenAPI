@@ -3,7 +3,7 @@ README.md
 docs/apis/tags/DeviceLevelProductionMonitoringApi.md
 docs/apis/tags/SiteLevelConsumptionMonitoringApi.md
 docs/apis/tags/SiteLevelProductionMonitoringApi.md
-docs/apis/tags/StreamingAPIsApi.md
+docs/apis/tags/StreamingApi.md
 docs/apis/tags/SystemConfigurationsApi.md
 docs/apis/tags/SystemDetailsApi.md
 docs/models/BatteryDeviceTelemetry.md
@@ -44,6 +44,7 @@ docs/models/RetrieveSystemIdResponse.md
 docs/models/SearchSystemsRequest.md
 docs/models/SearchSystemsResponse.md
 docs/models/StormGuardSettings.md
+docs/models/StreamSystemLiveDataError.md
 docs/models/StreamSystemLiveDataResponse.md
 docs/models/SystemAttachmentTypeEnum.md
 docs/models/SystemConnectionTypeEnum.md
@@ -66,7 +67,7 @@ monitoring/apis/__init__.py
 monitoring/apis/tags/device_level_production_monitoring_api.py
 monitoring/apis/tags/site_level_consumption_monitoring_api.py
 monitoring/apis/tags/site_level_production_monitoring_api.py
-monitoring/apis/tags/streaming_apis_api.py
+monitoring/apis/tags/streaming_api.py
 monitoring/apis/tags/system_configurations_api.py
 monitoring/apis/tags/system_details_api.py
 monitoring/configuration.py
@@ -148,6 +149,8 @@ monitoring/model/search_systems_response.py
 monitoring/model/search_systems_response.pyi
 monitoring/model/storm_guard_settings.py
 monitoring/model/storm_guard_settings.pyi
+monitoring/model/stream_system_live_data_error.py
+monitoring/model/stream_system_live_data_error.pyi
 monitoring/model/stream_system_live_data_response.py
 monitoring/model/stream_system_live_data_response.pyi
 monitoring/model/system_attachment_type_enum.py

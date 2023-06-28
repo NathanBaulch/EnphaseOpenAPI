@@ -94,7 +94,7 @@ Class | Method | HTTP request | Description
 *SiteLevelProductionMonitoringApi* | [**GetSystemProductionMeterTelemetry**](docs/SiteLevelProductionMonitoringApi.md#getsystemproductionmetertelemetry) | **Get** /systems/{system_id}/telemetry/production_meter | Retrieves telemetry for all production meters for a system
 *SiteLevelProductionMonitoringApi* | [**GetSystemProductionMicroTelemetry**](docs/SiteLevelProductionMonitoringApi.md#getsystemproductionmicrotelemetry) | **Get** /systems/{system_id}/telemetry/production_micro | Retrieves telemetry for all production micros for a system
 *SiteLevelProductionMonitoringApi* | [**GetSystemRgmStats**](docs/SiteLevelProductionMonitoringApi.md#getsystemrgmstats) | **Get** /systems/{system_id}/rgm_stats | rgm_stats
-*StreamingAPIsApi* | [**StreamSystemLiveData**](docs/StreamingAPIsApi.md#streamsystemlivedata) | **Get** /systems/{system_id}/live_data | Site Level Live Status
+*StreamingApi* | [**StreamSystemLiveData**](docs/StreamingApi.md#streamsystemlivedata) | **Get** /systems/{system_id}/live_data | Site Level Live Status
 *SystemConfigurationsApi* | [**GetSystemBatterySettings**](docs/SystemConfigurationsApi.md#getsystembatterysettings) | **Get** /systems/config/{system_id}/battery_settings | Returns the current battery settings of a system
 *SystemConfigurationsApi* | [**GetSystemGridStatusSettings**](docs/SystemConfigurationsApi.md#getsystemgridstatussettings) | **Get** /systems/config/{system_id}/grid_status | Returns the current grid status of a system.
 *SystemConfigurationsApi* | [**GetSystemLoadControlSettings**](docs/SystemConfigurationsApi.md#getsystemloadcontrolsettings) | **Get** /systems/config/{system_id}/load_control | Returns the current load control settings of a system
@@ -171,30 +171,8 @@ Class | Method | HTTP request | Description
  - [SearchSystemsRequestSystem](docs/SearchSystemsRequestSystem.md)
  - [SearchSystemsResponse](docs/SearchSystemsResponse.md)
  - [StormGuardSettings](docs/StormGuardSettings.md)
- - [StreamSystemLiveData401Response](docs/StreamSystemLiveData401Response.md)
- - [StreamSystemLiveData401ResponseError](docs/StreamSystemLiveData401ResponseError.md)
- - [StreamSystemLiveData403Response](docs/StreamSystemLiveData403Response.md)
- - [StreamSystemLiveData403ResponseError](docs/StreamSystemLiveData403ResponseError.md)
- - [StreamSystemLiveData429Response](docs/StreamSystemLiveData429Response.md)
- - [StreamSystemLiveData429ResponseError](docs/StreamSystemLiveData429ResponseError.md)
- - [StreamSystemLiveData461Response](docs/StreamSystemLiveData461Response.md)
- - [StreamSystemLiveData461ResponseError](docs/StreamSystemLiveData461ResponseError.md)
- - [StreamSystemLiveData462Response](docs/StreamSystemLiveData462Response.md)
- - [StreamSystemLiveData462ResponseError](docs/StreamSystemLiveData462ResponseError.md)
- - [StreamSystemLiveData463Response](docs/StreamSystemLiveData463Response.md)
- - [StreamSystemLiveData463ResponseError](docs/StreamSystemLiveData463ResponseError.md)
- - [StreamSystemLiveData466Response](docs/StreamSystemLiveData466Response.md)
- - [StreamSystemLiveData466ResponseError](docs/StreamSystemLiveData466ResponseError.md)
- - [StreamSystemLiveData468Response](docs/StreamSystemLiveData468Response.md)
- - [StreamSystemLiveData468ResponseError](docs/StreamSystemLiveData468ResponseError.md)
- - [StreamSystemLiveData472Response](docs/StreamSystemLiveData472Response.md)
- - [StreamSystemLiveData472ResponseError](docs/StreamSystemLiveData472ResponseError.md)
- - [StreamSystemLiveData550Response](docs/StreamSystemLiveData550Response.md)
- - [StreamSystemLiveData550ResponseError](docs/StreamSystemLiveData550ResponseError.md)
- - [StreamSystemLiveData551Response](docs/StreamSystemLiveData551Response.md)
- - [StreamSystemLiveData551ResponseError](docs/StreamSystemLiveData551ResponseError.md)
- - [StreamSystemLiveData552Response](docs/StreamSystemLiveData552Response.md)
- - [StreamSystemLiveData552ResponseError](docs/StreamSystemLiveData552ResponseError.md)
+ - [StreamSystemLiveDataError](docs/StreamSystemLiveDataError.md)
+ - [StreamSystemLiveDataErrorError](docs/StreamSystemLiveDataErrorError.md)
  - [StreamSystemLiveDataResponse](docs/StreamSystemLiveDataResponse.md)
  - [StreamSystemLiveDataResponseData](docs/StreamSystemLiveDataResponseData.md)
  - [StreamSystemLiveDataResponseDataData](docs/StreamSystemLiveDataResponseDataData.md)

@@ -212,7 +212,7 @@ Class | Method | HTTP request | Description
 *SiteLevelProductionMonitoringApi* | [**get_system_production_meter_telemetry**](docs/apis/tags/SiteLevelProductionMonitoringApi.md#get_system_production_meter_telemetry) | **get** /systems/{system_id}/telemetry/production_meter | Retrieves telemetry for all production meters for a system
 *SiteLevelProductionMonitoringApi* | [**get_system_production_micro_telemetry**](docs/apis/tags/SiteLevelProductionMonitoringApi.md#get_system_production_micro_telemetry) | **get** /systems/{system_id}/telemetry/production_micro | Retrieves telemetry for all production micros for a system
 *SiteLevelProductionMonitoringApi* | [**get_system_rgm_stats**](docs/apis/tags/SiteLevelProductionMonitoringApi.md#get_system_rgm_stats) | **get** /systems/{system_id}/rgm_stats | rgm_stats
-*StreamingAPIsApi* | [**stream_system_live_data**](docs/apis/tags/StreamingAPIsApi.md#stream_system_live_data) | **get** /systems/{system_id}/live_data | Site Level Live Status
+*StreamingApi* | [**stream_system_live_data**](docs/apis/tags/StreamingApi.md#stream_system_live_data) | **get** /systems/{system_id}/live_data | Site Level Live Status
 *SystemConfigurationsApi* | [**get_system_battery_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_battery_settings) | **get** /systems/config/{system_id}/battery_settings | Returns the current battery settings of a system
 *SystemConfigurationsApi* | [**get_system_grid_status_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_grid_status_settings) | **get** /systems/config/{system_id}/grid_status | Returns the current grid status of a system.
 *SystemConfigurationsApi* | [**get_system_load_control_settings**](docs/apis/tags/SystemConfigurationsApi.md#get_system_load_control_settings) | **get** /systems/config/{system_id}/load_control | Returns the current load control settings of a system
@@ -268,6 +268,7 @@ Class | Method | HTTP request | Description
  - [SearchSystemsRequest](docs/models/SearchSystemsRequest.md)
  - [SearchSystemsResponse](docs/models/SearchSystemsResponse.md)
  - [StormGuardSettings](docs/models/StormGuardSettings.md)
+ - [StreamSystemLiveDataError](docs/models/StreamSystemLiveDataError.md)
  - [StreamSystemLiveDataResponse](docs/models/StreamSystemLiveDataResponse.md)
  - [SystemAttachmentTypeEnum](docs/models/SystemAttachmentTypeEnum.md)
  - [SystemConnectionTypeEnum](docs/models/SystemConnectionTypeEnum.md)

@@ -766,7 +766,7 @@ read -r -d '' ops <<EOF
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[streamingAPIs]${OFF}"
+    echo -e "${BOLD}${WHITE}[streaming]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}streamSystemLiveData${OFF};Site Level Live Status (AUTH) (AUTH)
 EOF

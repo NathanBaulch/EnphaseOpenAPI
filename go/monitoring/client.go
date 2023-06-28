@@ -56,7 +56,7 @@ type APIClient struct {
 
 	SiteLevelProductionMonitoringApi *SiteLevelProductionMonitoringApiService
 
-	StreamingAPIsApi *StreamingAPIsApiService
+	StreamingApi *StreamingApiService
 
 	SystemConfigurationsApi *SystemConfigurationsApiService
 
@@ -82,7 +82,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DeviceLevelProductionMonitoringApi = (*DeviceLevelProductionMonitoringApiService)(&c.common)
 	c.SiteLevelConsumptionMonitoringApi = (*SiteLevelConsumptionMonitoringApiService)(&c.common)
 	c.SiteLevelProductionMonitoringApi = (*SiteLevelProductionMonitoringApiService)(&c.common)
-	c.StreamingAPIsApi = (*StreamingAPIsApiService)(&c.common)
+	c.StreamingApi = (*StreamingApiService)(&c.common)
 	c.SystemConfigurationsApi = (*SystemConfigurationsApiService)(&c.common)
 	c.SystemDetailsApi = (*SystemDetailsApiService)(&c.common)
 
