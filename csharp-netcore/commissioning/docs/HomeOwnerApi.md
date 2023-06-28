@@ -8,7 +8,7 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 <a id="createuser"></a>
 # **CreateUser**
-> User CreateUser (CreateUserRequest _params = null)
+> User CreateUser (CreateUserRequest? _params = null)
 
 Create Home owner
 
@@ -38,7 +38,7 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new HomeOwnerApi(config);
-            var _params = new CreateUserRequest(); // CreateUserRequest |  (optional) 
+            var _params = new CreateUserRequest?(); // CreateUserRequest? |  (optional) 
 
             try
             {
@@ -81,7 +81,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **_params** | [**CreateUserRequest**](CreateUserRequest.md) |  | [optional]  |
+| **_params** | [**CreateUserRequest?**](CreateUserRequest?.md) |  | [optional]  |
 
 ### Return type
 

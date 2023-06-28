@@ -58,7 +58,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpdateSystemTariffSettingsResponse</returns>
-        UpdateSystemTariffSettingsResponse UpdateSystemTariffSettings(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0);
+        UpdateSystemTariffSettingsResponse UpdateSystemTariffSettings(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0);
 
         /// <summary>
         /// Update tariff for a system
@@ -71,7 +71,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpdateSystemTariffSettingsResponse</returns>
-        ApiResponse<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsWithHttpInfo(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0);
+        ApiResponse<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsWithHttpInfo(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -118,7 +118,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpdateSystemTariffSettingsResponse</returns>
-        System.Threading.Tasks.Task<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsAsync(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsAsync(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update tariff for a system
@@ -132,7 +132,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpdateSystemTariffSettingsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpdateSystemTariffSettingsResponse>> UpdateSystemTariffSettingsWithHttpInfoAsync(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpdateSystemTariffSettingsResponse>> UpdateSystemTariffSettingsWithHttpInfoAsync(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -435,7 +435,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpdateSystemTariffSettingsResponse</returns>
-        public UpdateSystemTariffSettingsResponse UpdateSystemTariffSettings(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0)
+        public UpdateSystemTariffSettingsResponse UpdateSystemTariffSettings(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<UpdateSystemTariffSettingsResponse> localVarResponse = UpdateSystemTariffSettingsWithHttpInfo(systemId, _params);
             return localVarResponse.Data;
@@ -449,7 +449,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpdateSystemTariffSettingsResponse</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsWithHttpInfo(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsWithHttpInfo(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -525,7 +525,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpdateSystemTariffSettingsResponse</returns>
-        public async System.Threading.Tasks.Task<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsAsync(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpdateSystemTariffSettingsResponse> UpdateSystemTariffSettingsAsync(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<UpdateSystemTariffSettingsResponse> localVarResponse = await UpdateSystemTariffSettingsWithHttpInfoAsync(systemId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -540,7 +540,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpdateSystemTariffSettingsResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<UpdateSystemTariffSettingsResponse>> UpdateSystemTariffSettingsWithHttpInfoAsync(int systemId, TariffSettings _params = default(TariffSettings), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<UpdateSystemTariffSettingsResponse>> UpdateSystemTariffSettingsWithHttpInfoAsync(int systemId, TariffSettings? _params = default(TariffSettings?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();

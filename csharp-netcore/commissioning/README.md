@@ -81,7 +81,7 @@ namespace Example
             // config.ApiKeyPrefix.Add("key", "Bearer");
 
             var apiInstance = new ActivationsApi(config);
-            var _params = new SystemParams();  // SystemParams |  (optional) 
+            var _params = new SystemParams();  // SystemParams? |  (optional) 
 
             try
             {

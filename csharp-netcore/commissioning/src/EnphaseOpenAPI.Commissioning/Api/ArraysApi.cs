@@ -112,7 +112,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemArray</returns>
-        SystemArray UpdateSystemArray(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0);
+        SystemArray UpdateSystemArray(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0);
 
         /// <summary>
         /// Update particular system array details
@@ -126,7 +126,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemArray</returns>
-        ApiResponse<SystemArray> UpdateSystemArrayWithHttpInfo(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0);
+        ApiResponse<SystemArray> UpdateSystemArrayWithHttpInfo(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0);
         /// <summary>
         /// Update all arrays for system
         /// </summary>
@@ -138,7 +138,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemArrays</returns>
-        SystemArrays UpdateSystemArrays(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0);
+        SystemArrays UpdateSystemArrays(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Update all arrays for system
@@ -151,7 +151,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemArrays</returns>
-        ApiResponse<SystemArrays> UpdateSystemArraysWithHttpInfo(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0);
+        ApiResponse<SystemArrays> UpdateSystemArraysWithHttpInfo(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -253,7 +253,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemArray</returns>
-        System.Threading.Tasks.Task<SystemArray> UpdateSystemArrayAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SystemArray> UpdateSystemArrayAsync(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update particular system array details
@@ -268,7 +268,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemArray)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SystemArray>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SystemArray>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update all arrays for system
         /// </summary>
@@ -281,7 +281,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemArrays</returns>
-        System.Threading.Tasks.Task<SystemArrays> UpdateSystemArraysAsync(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SystemArrays> UpdateSystemArraysAsync(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update all arrays for system
@@ -295,7 +295,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemArrays)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SystemArrays>> UpdateSystemArraysWithHttpInfoAsync(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SystemArrays>> UpdateSystemArraysWithHttpInfoAsync(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -959,7 +959,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemArray</returns>
-        public SystemArray UpdateSystemArray(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0)
+        public SystemArray UpdateSystemArray(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArray> localVarResponse = UpdateSystemArrayWithHttpInfo(systemId, arrayId, _params);
             return localVarResponse.Data;
@@ -974,7 +974,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemArray</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArray> UpdateSystemArrayWithHttpInfo(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArray> UpdateSystemArrayWithHttpInfo(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1052,7 +1052,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemArray</returns>
-        public async System.Threading.Tasks.Task<SystemArray> UpdateSystemArrayAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SystemArray> UpdateSystemArrayAsync(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArray> localVarResponse = await UpdateSystemArrayWithHttpInfoAsync(systemId, arrayId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1068,7 +1068,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemArray)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArray>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int arrayId, ArrayParams _params = default(ArrayParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArray>> UpdateSystemArrayWithHttpInfoAsync(int systemId, int arrayId, ArrayParams? _params = default(ArrayParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -1146,7 +1146,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemArrays</returns>
-        public SystemArrays UpdateSystemArrays(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0)
+        public SystemArrays UpdateSystemArrays(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArrays> localVarResponse = UpdateSystemArraysWithHttpInfo(systemId, _params);
             return localVarResponse.Data;
@@ -1160,7 +1160,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemArrays</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArrays> UpdateSystemArraysWithHttpInfo(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArrays> UpdateSystemArraysWithHttpInfo(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1236,7 +1236,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemArrays</returns>
-        public async System.Threading.Tasks.Task<SystemArrays> UpdateSystemArraysAsync(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SystemArrays> UpdateSystemArraysAsync(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArrays> localVarResponse = await UpdateSystemArraysWithHttpInfoAsync(systemId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1251,7 +1251,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemArrays)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArrays>> UpdateSystemArraysWithHttpInfoAsync(int systemId, UpdateSystemArraysRequest _params = default(UpdateSystemArraysRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemArrays>> UpdateSystemArraysWithHttpInfoAsync(int systemId, UpdateSystemArraysRequest? _params = default(UpdateSystemArraysRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();

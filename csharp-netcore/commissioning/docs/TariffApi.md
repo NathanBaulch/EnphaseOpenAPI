@@ -112,7 +112,7 @@ catch (ApiException e)
 
 <a id="updatesystemtariffsettings"></a>
 # **UpdateSystemTariffSettings**
-> UpdateSystemTariffSettingsResponse UpdateSystemTariffSettings (int systemId, TariffSettings _params = null)
+> UpdateSystemTariffSettingsResponse UpdateSystemTariffSettings (int systemId, TariffSettings? _params = null)
 
 Update tariff for a system
 
@@ -141,7 +141,7 @@ namespace Example
 
             var apiInstance = new TariffApi(config);
             var systemId = 56;  // int | Unique numeric ID of the system.
-            var _params = new TariffSettings();  // TariffSettings |  (optional) 
+            var _params = new TariffSettings();  // TariffSettings? |  (optional) 
 
             try
             {
@@ -185,7 +185,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **systemId** | **int** | Unique numeric ID of the system. |  |
-| **_params** | **TariffSettings** |  | [optional]  |
+| **_params** | **TariffSettings?** |  | [optional]  |
 
 ### Return type
 

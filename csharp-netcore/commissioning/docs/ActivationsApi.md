@@ -16,7 +16,7 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 <a id="createpartneractivation"></a>
 # **CreatePartnerActivation**
-> Activation CreatePartnerActivation (SystemParams _params = null)
+> Activation CreatePartnerActivation (SystemParams? _params = null)
 
 Create new activation
 
@@ -46,7 +46,7 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new ActivationsApi(config);
-            var _params = new SystemParams();  // SystemParams |  (optional) 
+            var _params = new SystemParams();  // SystemParams? |  (optional) 
 
             try
             {
@@ -89,7 +89,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **_params** | **SystemParams** |  | [optional]  |
+| **_params** | **SystemParams?** |  | [optional]  |
 
 ### Return type
 
@@ -358,7 +358,7 @@ namespace Example
 
             var apiInstance = new ActivationsApi(config);
             var activationId = 56;  // int | Enlighten ID of the activation(system). System-generated.
-            var expand = (SystemExpandEnum) "owner";  // SystemExpandEnum? | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional) 
+            var expand = new SystemExpandEnum?(); // SystemExpandEnum? | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. (optional) 
 
             try
             {
@@ -402,7 +402,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **activationId** | **int** | Enlighten ID of the activation(system). System-generated. |  |
-| **expand** | **SystemExpandEnum?** | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. | [optional]  |
+| **expand** | [**SystemExpandEnum?**](SystemExpandEnum?.md) | Retrieve more information about the activation. The expand query parameter is a comma-separated list of associations to expand. | [optional]  |
 
 ### Return type
 
@@ -432,7 +432,7 @@ catch (ApiException e)
 
 <a id="getpartneractivations"></a>
 # **GetPartnerActivations**
-> GetPartnerActivationsResponse GetPartnerActivations (string next = null, int? limit = null, SystemStageEnum? stage = null, string reference = null, int? installerId = null, string systemName = null, string address = null, string region = null, string search = null)
+> GetPartnerActivationsResponse GetPartnerActivations (string? next = null, int? limit = null, SystemStageEnum? stage = null, string? reference = null, int? installerId = null, string? systemName = null, string? address = null, string? region = null, string? search = null)
 
 List of Activations
 
@@ -462,15 +462,15 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new ActivationsApi(config);
-            var next = "next_example";  // string | If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field. (optional) 
+            var next = "next_example";  // string? | If the first request does not return a full list, use the 'next' attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the 'next' field. (optional) 
             var limit = 56;  // int? | There is a limit to the number of activations which can be returned at one time. (optional) 
-            var stage = (SystemStageEnum) "1";  // SystemStageEnum? | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional) 
-            var reference = "reference_example";  // string | Filter activations by company reference. (optional) 
+            var stage = new SystemStageEnum?(); // SystemStageEnum? | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage=1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. (optional) 
+            var reference = "reference_example";  // string? | Filter activations by company reference. (optional) 
             var installerId = 56;  // int? | Filter activations by installer ID. (optional) 
-            var systemName = "systemName_example";  // string | Filter activations by system name. (optional) 
-            var address = "address_example";  // string | Filter activations by address. This will perform a partial search and return if match found with street1, street2, country, state, zipcode of the activation. (optional) 
-            var region = "region_example";  // string | Filter activations by region. Provide two latitude, longitude values to find activations between them. Format 'latitude1,longitude1,latitude2,longitude2' e.g value '44.968046,-94.420307,44.33328,-89.132008'. (optional) 
-            var search = "search_example";  // string | Filter activations by search. This will perform a partial search and return if match found with system_name, reference, system_id, street1 and street2, country, state, zipcode of the activation. (optional) 
+            var systemName = "systemName_example";  // string? | Filter activations by system name. (optional) 
+            var address = "address_example";  // string? | Filter activations by address. This will perform a partial search and return if match found with street1, street2, country, state, zipcode of the activation. (optional) 
+            var region = "region_example";  // string? | Filter activations by region. Provide two latitude, longitude values to find activations between them. Format 'latitude1,longitude1,latitude2,longitude2' e.g value '44.968046,-94.420307,44.33328,-89.132008'. (optional) 
+            var search = "search_example";  // string? | Filter activations by search. This will perform a partial search and return if match found with system_name, reference, system_id, street1 and street2, country, state, zipcode of the activation. (optional) 
 
             try
             {
@@ -513,15 +513,15 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **next** | **string** | If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. | [optional]  |
+| **next** | **string?** | If the first request does not return a full list, use the &#39;next&#39; attribute in the response body to request the next page. By default, activations are returned in batches of 100. The maximum page size is 1000. If the returned list below the limit, then response does not include the &#39;next&#39; field. | [optional]  |
 | **limit** | **int?** | There is a limit to the number of activations which can be returned at one time. | [optional]  |
-| **stage** | **SystemStageEnum?** | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. | [optional]  |
-| **reference** | **string** | Filter activations by company reference. | [optional]  |
+| **stage** | [**SystemStageEnum?**](SystemStageEnum?.md) | Filter activations by stage. Passing in_progress alone will consider as you have passed all the 1,2,3,4 stages. Passing multiple stage values using comma to filter. E.g. stage&#x3D;1,2,3. Passing in_progress with any other combination will give you empty systems. This parameter searches for an exact match of the input value. | [optional]  |
+| **reference** | **string?** | Filter activations by company reference. | [optional]  |
 | **installerId** | **int?** | Filter activations by installer ID. | [optional]  |
-| **systemName** | **string** | Filter activations by system name. | [optional]  |
-| **address** | **string** | Filter activations by address. This will perform a partial search and return if match found with street1, street2, country, state, zipcode of the activation. | [optional]  |
-| **region** | **string** | Filter activations by region. Provide two latitude, longitude values to find activations between them. Format &#39;latitude1,longitude1,latitude2,longitude2&#39; e.g value &#39;44.968046,-94.420307,44.33328,-89.132008&#39;. | [optional]  |
-| **search** | **string** | Filter activations by search. This will perform a partial search and return if match found with system_name, reference, system_id, street1 and street2, country, state, zipcode of the activation. | [optional]  |
+| **systemName** | **string?** | Filter activations by system name. | [optional]  |
+| **address** | **string?** | Filter activations by address. This will perform a partial search and return if match found with street1, street2, country, state, zipcode of the activation. | [optional]  |
+| **region** | **string?** | Filter activations by region. Provide two latitude, longitude values to find activations between them. Format &#39;latitude1,longitude1,latitude2,longitude2&#39; e.g value &#39;44.968046,-94.420307,44.33328,-89.132008&#39;. | [optional]  |
+| **search** | **string?** | Filter activations by search. This will perform a partial search and return if match found with system_name, reference, system_id, street1 and street2, country, state, zipcode of the activation. | [optional]  |
 
 ### Return type
 
@@ -763,7 +763,7 @@ catch (ApiException e)
 
 <a id="setactivationopsproductionmode"></a>
 # **SetActivationOpsProductionMode**
-> SetActivationOpsProductionModeResponse SetActivationOpsProductionMode (int activationId, SetActivationOpsProductionModeRequest _params = null)
+> SetActivationOpsProductionModeResponse SetActivationOpsProductionMode (int activationId, SetActivationOpsProductionModeRequest? _params = null)
 
 Set production mode
 
@@ -794,7 +794,7 @@ namespace Example
 
             var apiInstance = new ActivationsApi(config);
             var activationId = 56;  // int | Enlighten ID of the activation(system). System-generated.
-            var _params = new SetActivationOpsProductionModeRequest(); // SetActivationOpsProductionModeRequest |  (optional) 
+            var _params = new SetActivationOpsProductionModeRequest?(); // SetActivationOpsProductionModeRequest? |  (optional) 
 
             try
             {
@@ -838,7 +838,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **activationId** | **int** | Enlighten ID of the activation(system). System-generated. |  |
-| **_params** | [**SetActivationOpsProductionModeRequest**](SetActivationOpsProductionModeRequest.md) |  | [optional]  |
+| **_params** | [**SetActivationOpsProductionModeRequest?**](SetActivationOpsProductionModeRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -869,7 +869,7 @@ catch (ApiException e)
 
 <a id="updatepartneractivation"></a>
 # **UpdatePartnerActivation**
-> Activation UpdatePartnerActivation (int activationId, SystemParams _params = null)
+> Activation UpdatePartnerActivation (int activationId, SystemParams? _params = null)
 
 Update an activation.
 
@@ -900,7 +900,7 @@ namespace Example
 
             var apiInstance = new ActivationsApi(config);
             var activationId = 56;  // int | Enlighten ID of the activation(system). System-generated.
-            var _params = new SystemParams();  // SystemParams |  (optional) 
+            var _params = new SystemParams();  // SystemParams? |  (optional) 
 
             try
             {
@@ -944,7 +944,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **activationId** | **int** | Enlighten ID of the activation(system). System-generated. |  |
-| **_params** | **SystemParams** |  | [optional]  |
+| **_params** | **SystemParams?** |  | [optional]  |
 
 ### Return type
 

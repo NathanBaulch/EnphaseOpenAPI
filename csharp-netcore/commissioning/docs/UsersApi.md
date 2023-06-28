@@ -45,7 +45,7 @@ namespace Example
             var apiInstance = new UsersApi(config);
             var activationId = 56;  // int | Enlighten ID of the activation(system). System-generated.
             var userId = 56;  // int | Enlighten ID of the user. System-generated.
-            var expand = (UserExpandEnum) "company";  // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information not include in the response. (optional) 
+            var expand = new UserExpandEnum?(); // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information not include in the response. (optional) 
 
             try
             {
@@ -90,7 +90,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **activationId** | **int** | Enlighten ID of the activation(system). System-generated. |  |
 | **userId** | **int** | Enlighten ID of the user. System-generated. |  |
-| **expand** | **UserExpandEnum?** | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information not include in the response. | [optional]  |
+| **expand** | [**UserExpandEnum?**](UserExpandEnum?.md) | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information not include in the response. | [optional]  |
 
 ### Return type
 
@@ -149,7 +149,7 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var expand = (UserExpandEnum) "company";  // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. (optional) 
+            var expand = new UserExpandEnum?(); // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. (optional) 
 
             try
             {
@@ -192,7 +192,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **expand** | **UserExpandEnum?** | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. | [optional]  |
+| **expand** | [**UserExpandEnum?**](UserExpandEnum?.md) | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. | [optional]  |
 
 ### Return type
 
@@ -254,7 +254,7 @@ namespace Example
 
             var apiInstance = new UsersApi(config);
             var userId = 56;  // int | User ID.
-            var expand = (UserExpandEnum) "company";  // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. (optional) 
+            var expand = new UserExpandEnum?(); // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. (optional) 
 
             try
             {
@@ -298,7 +298,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **int** | User ID. |  |
-| **expand** | **UserExpandEnum?** | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. | [optional]  |
+| **expand** | [**UserExpandEnum?**](UserExpandEnum?.md) | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. | [optional]  |
 
 ### Return type
 
@@ -329,7 +329,7 @@ catch (ApiException e)
 
 <a id="searchusers"></a>
 # **SearchUsers**
-> SearchUsersResponse SearchUsers (string email = null)
+> SearchUsersResponse SearchUsers (string? email = null)
 
 Search user
 
@@ -359,7 +359,7 @@ namespace Example
             // config.AddApiKeyPrefix("key", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var email = "email_example";  // string | Email address of the user. (optional) 
+            var email = "email_example";  // string? | Email address of the user. (optional) 
 
             try
             {
@@ -402,7 +402,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **email** | **string** | Email address of the user. | [optional]  |
+| **email** | **string?** | Email address of the user. | [optional]  |
 
 ### Return type
 
@@ -433,7 +433,7 @@ catch (ApiException e)
 
 <a id="updateactivationuser"></a>
 # **UpdateActivationUser**
-> User UpdateActivationUser (int activationId, int userId, UserParams _params = null)
+> User UpdateActivationUser (int activationId, int userId, UserParams? _params = null)
 
 Update user
 
@@ -465,7 +465,7 @@ namespace Example
             var apiInstance = new UsersApi(config);
             var activationId = 56;  // int | Enlighten ID of the activation(system). System-generated.
             var userId = 56;  // int | Enlighten ID of the user. System-generated.
-            var _params = new UserParams();  // UserParams |  (optional) 
+            var _params = new UserParams();  // UserParams? |  (optional) 
 
             try
             {
@@ -510,7 +510,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **activationId** | **int** | Enlighten ID of the activation(system). System-generated. |  |
 | **userId** | **int** | Enlighten ID of the user. System-generated. |  |
-| **_params** | **UserParams** |  | [optional]  |
+| **_params** | **UserParams?** |  | [optional]  |
 
 ### Return type
 
@@ -541,7 +541,7 @@ catch (ApiException e)
 
 <a id="updateuser"></a>
 # **UpdateUser**
-> User UpdateUser (int userId, UserParams _params = null)
+> User UpdateUser (int userId, UserParams? _params = null)
 
 Update user
 
@@ -572,7 +572,7 @@ namespace Example
 
             var apiInstance = new UsersApi(config);
             var userId = 56;  // int | User ID.
-            var _params = new UserParams();  // UserParams |  (optional) 
+            var _params = new UserParams();  // UserParams? |  (optional) 
 
             try
             {
@@ -616,7 +616,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **int** | User ID. |  |
-| **_params** | **UserParams** |  | [optional]  |
+| **_params** | **UserParams?** |  | [optional]  |
 
 ### Return type
 

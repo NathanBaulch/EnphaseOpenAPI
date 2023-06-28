@@ -13,7 +13,7 @@ All URIs are relative to *https://api.enphaseenergy.com/api/v4*
 
 <a id="createcompanyuser"></a>
 # **CreateCompanyUser**
-> User CreateCompanyUser (int companyId, CreateCompanyUserRequest _params = null)
+> User CreateCompanyUser (int companyId, CreateCompanyUserRequest? _params = null)
 
 Create company user
 
@@ -44,7 +44,7 @@ namespace Example
 
             var apiInstance = new CompaniesApi(config);
             var companyId = 56;  // int | Company ID.
-            var _params = new CreateCompanyUserRequest(); // CreateCompanyUserRequest |  (optional) 
+            var _params = new CreateCompanyUserRequest?(); // CreateCompanyUserRequest? |  (optional) 
 
             try
             {
@@ -88,7 +88,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **companyId** | **int** | Company ID. |  |
-| **_params** | [**CreateCompanyUserRequest**](CreateCompanyUserRequest.md) |  | [optional]  |
+| **_params** | [**CreateCompanyUserRequest?**](CreateCompanyUserRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -151,7 +151,7 @@ namespace Example
             var apiInstance = new CompaniesApi(config);
             var companyId = 56;  // int | Company ID.
             var userId = 56;  // int | User ID.
-            var expand = (UserExpandEnum) "company";  // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. (optional) 
+            var expand = new UserExpandEnum?(); // UserExpandEnum? | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. (optional) 
 
             try
             {
@@ -196,7 +196,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **companyId** | **int** | Company ID. |  |
 | **userId** | **int** | User ID. |  |
-| **expand** | **UserExpandEnum?** | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. | [optional]  |
+| **expand** | [**UserExpandEnum?**](UserExpandEnum?.md) | Passing expand params in the url with valid option, then the response will contain company object fields. Otherwise the company information will not be provided in the response. | [optional]  |
 
 ### Return type
 
@@ -524,7 +524,7 @@ This endpoint does not need any parameter.
 
 <a id="updatecompanyuser"></a>
 # **UpdateCompanyUser**
-> User UpdateCompanyUser (int companyId, int userId, UpdateCompanyUserRequest _params = null)
+> User UpdateCompanyUser (int companyId, int userId, UpdateCompanyUserRequest? _params = null)
 
 Update company user
 
@@ -556,7 +556,7 @@ namespace Example
             var apiInstance = new CompaniesApi(config);
             var companyId = 56;  // int | Company ID.
             var userId = 56;  // int | User ID.
-            var _params = new UpdateCompanyUserRequest(); // UpdateCompanyUserRequest |  (optional) 
+            var _params = new UpdateCompanyUserRequest?(); // UpdateCompanyUserRequest? |  (optional) 
 
             try
             {
@@ -601,7 +601,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **companyId** | **int** | Company ID. |  |
 | **userId** | **int** | User ID. |  |
-| **_params** | [**UpdateCompanyUserRequest**](UpdateCompanyUserRequest.md) |  | [optional]  |
+| **_params** | [**UpdateCompanyUserRequest?**](UpdateCompanyUserRequest?.md) |  | [optional]  |
 
 ### Return type
 

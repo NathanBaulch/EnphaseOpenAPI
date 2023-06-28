@@ -327,7 +327,7 @@ catch (ApiException e)
 
 <a id="updatesystemarray"></a>
 # **UpdateSystemArray**
-> SystemArray UpdateSystemArray (int systemId, int arrayId, ArrayParams _params = null)
+> SystemArray UpdateSystemArray (int systemId, int arrayId, ArrayParams? _params = null)
 
 Update particular system array details
 
@@ -359,7 +359,7 @@ namespace Example
             var apiInstance = new ArraysApi(config);
             var systemId = 56;  // int | System ID.
             var arrayId = 56;  // int | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as 'Update all Arrays' endpoint.
-            var _params = new ArrayParams();  // ArrayParams |  (optional) 
+            var _params = new ArrayParams();  // ArrayParams? |  (optional) 
 
             try
             {
@@ -404,7 +404,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **systemId** | **int** | System ID. |  |
 | **arrayId** | **int** | Array ID. If an empty value is passed in the Array ID, this endpoint behaves as &#39;Update all Arrays&#39; endpoint. |  |
-| **_params** | **ArrayParams** |  | [optional]  |
+| **_params** | **ArrayParams?** |  | [optional]  |
 
 ### Return type
 
@@ -435,7 +435,7 @@ catch (ApiException e)
 
 <a id="updatesystemarrays"></a>
 # **UpdateSystemArrays**
-> SystemArrays UpdateSystemArrays (int systemId, UpdateSystemArraysRequest _params = null)
+> SystemArrays UpdateSystemArrays (int systemId, UpdateSystemArraysRequest? _params = null)
 
 Update all arrays for system
 
@@ -466,7 +466,7 @@ namespace Example
 
             var apiInstance = new ArraysApi(config);
             var systemId = 56;  // int | System ID.
-            var _params = new UpdateSystemArraysRequest(); // UpdateSystemArraysRequest |  (optional) 
+            var _params = new UpdateSystemArraysRequest?(); // UpdateSystemArraysRequest? |  (optional) 
 
             try
             {
@@ -510,7 +510,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **systemId** | **int** | System ID. |  |
-| **_params** | [**UpdateSystemArraysRequest**](UpdateSystemArraysRequest.md) |  | [optional]  |
+| **_params** | [**UpdateSystemArraysRequest?**](UpdateSystemArraysRequest?.md) |  | [optional]  |
 
 ### Return type
 

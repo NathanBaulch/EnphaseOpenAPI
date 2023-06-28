@@ -64,7 +64,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SetActivationMeterStatusResponse</returns>
-        SetActivationMeterStatusResponse SetActivationMeterStatus(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0);
+        SetActivationMeterStatusResponse SetActivationMeterStatus(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Enable or Disable the meters.
@@ -78,7 +78,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SetActivationMeterStatusResponse</returns>
-        ApiResponse<SetActivationMeterStatusResponse> SetActivationMeterStatusWithHttpInfo(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0);
+        ApiResponse<SetActivationMeterStatusResponse> SetActivationMeterStatusWithHttpInfo(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0);
         /// <summary>
         /// Update the operational date of a meter by serial number.
         /// </summary>
@@ -155,7 +155,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SetActivationMeterStatusResponse</returns>
-        System.Threading.Tasks.Task<SetActivationMeterStatusResponse> SetActivationMeterStatusAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SetActivationMeterStatusResponse> SetActivationMeterStatusAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Enable or Disable the meters.
@@ -170,7 +170,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SetActivationMeterStatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SetActivationMeterStatusResponse>> SetActivationMeterStatusWithHttpInfoAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SetActivationMeterStatusResponse>> SetActivationMeterStatusWithHttpInfoAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the operational date of a meter by serial number.
         /// </summary>
@@ -521,7 +521,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SetActivationMeterStatusResponse</returns>
-        public SetActivationMeterStatusResponse SetActivationMeterStatus(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0)
+        public SetActivationMeterStatusResponse SetActivationMeterStatus(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SetActivationMeterStatusResponse> localVarResponse = SetActivationMeterStatusWithHttpInfo(activationId, serialNumber, _params);
             return localVarResponse.Data;
@@ -536,7 +536,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SetActivationMeterStatusResponse</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SetActivationMeterStatusResponse> SetActivationMeterStatusWithHttpInfo(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SetActivationMeterStatusResponse> SetActivationMeterStatusWithHttpInfo(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'serialNumber' is set
             if (serialNumber == null)
@@ -620,7 +620,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SetActivationMeterStatusResponse</returns>
-        public async System.Threading.Tasks.Task<SetActivationMeterStatusResponse> SetActivationMeterStatusAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SetActivationMeterStatusResponse> SetActivationMeterStatusAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SetActivationMeterStatusResponse> localVarResponse = await SetActivationMeterStatusWithHttpInfoAsync(activationId, serialNumber, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -636,7 +636,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SetActivationMeterStatusResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SetActivationMeterStatusResponse>> SetActivationMeterStatusWithHttpInfoAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest _params = default(SetActivationMeterStatusRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SetActivationMeterStatusResponse>> SetActivationMeterStatusWithHttpInfoAsync(int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = default(SetActivationMeterStatusRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'serialNumber' is set
             if (serialNumber == null)

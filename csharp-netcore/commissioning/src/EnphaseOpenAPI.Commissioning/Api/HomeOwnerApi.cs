@@ -37,7 +37,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        User CreateUser(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0);
+        User CreateUser(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Create Home owner
@@ -49,7 +49,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0);
+        ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -70,7 +70,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Home owner
@@ -83,7 +83,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -211,7 +211,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        public User CreateUser(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0)
+        public User CreateUser(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = CreateUserWithHttpInfo(_params);
             return localVarResponse.Data;
@@ -224,7 +224,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -298,7 +298,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = await CreateUserWithHttpInfoAsync(_params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -312,7 +312,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest _params = default(CreateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest? _params = default(CreateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();

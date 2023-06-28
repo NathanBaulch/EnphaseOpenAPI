@@ -112,7 +112,7 @@ catch (ApiException e)
 
 <a id="updateactivationestimate"></a>
 # **UpdateActivationEstimate**
-> SystemEstimate UpdateActivationEstimate (int activationId, UpdateActivationEstimateRequest _params = null)
+> SystemEstimate UpdateActivationEstimate (int activationId, UpdateActivationEstimateRequest? _params = null)
 
 Update the estimate for this system.
 
@@ -143,7 +143,7 @@ namespace Example
 
             var apiInstance = new EstimateApi(config);
             var activationId = 56;  // int | Activation ID.
-            var _params = new UpdateActivationEstimateRequest(); // UpdateActivationEstimateRequest |  (optional) 
+            var _params = new UpdateActivationEstimateRequest?(); // UpdateActivationEstimateRequest? |  (optional) 
 
             try
             {
@@ -187,7 +187,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **activationId** | **int** | Activation ID. |  |
-| **_params** | [**UpdateActivationEstimateRequest**](UpdateActivationEstimateRequest.md) |  | [optional]  |
+| **_params** | [**UpdateActivationEstimateRequest?**](UpdateActivationEstimateRequest?.md) |  | [optional]  |
 
 ### Return type
 

@@ -112,7 +112,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="email">Email address of the user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchUsersResponse</returns>
-        SearchUsersResponse SearchUsers(string email = default(string), int operationIndex = 0);
+        SearchUsersResponse SearchUsers(string? email = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Search user
@@ -124,7 +124,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="email">Email address of the user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchUsersResponse</returns>
-        ApiResponse<SearchUsersResponse> SearchUsersWithHttpInfo(string email = default(string), int operationIndex = 0);
+        ApiResponse<SearchUsersResponse> SearchUsersWithHttpInfo(string? email = default(string?), int operationIndex = 0);
         /// <summary>
         /// Update user
         /// </summary>
@@ -137,7 +137,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        User UpdateActivationUser(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0);
+        User UpdateActivationUser(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0);
 
         /// <summary>
         /// Update user
@@ -151,7 +151,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> UpdateActivationUserWithHttpInfo(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0);
+        ApiResponse<User> UpdateActivationUserWithHttpInfo(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0);
         /// <summary>
         /// Update user
         /// </summary>
@@ -163,7 +163,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        User UpdateUser(int userId, UserParams _params = default(UserParams), int operationIndex = 0);
+        User UpdateUser(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0);
 
         /// <summary>
         /// Update user
@@ -176,7 +176,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> UpdateUserWithHttpInfo(int userId, UserParams _params = default(UserParams), int operationIndex = 0);
+        ApiResponse<User> UpdateUserWithHttpInfo(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -278,7 +278,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchUsersResponse</returns>
-        System.Threading.Tasks.Task<SearchUsersResponse> SearchUsersAsync(string email = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchUsersResponse> SearchUsersAsync(string? email = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search user
@@ -291,7 +291,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchUsersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchUsersResponse>> SearchUsersWithHttpInfoAsync(string email = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SearchUsersResponse>> SearchUsersWithHttpInfoAsync(string? email = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update user
         /// </summary>
@@ -305,7 +305,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> UpdateActivationUserAsync(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> UpdateActivationUserAsync(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update user
@@ -320,7 +320,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> UpdateActivationUserWithHttpInfoAsync(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> UpdateActivationUserWithHttpInfoAsync(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update user
         /// </summary>
@@ -333,7 +333,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> UpdateUserAsync(int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> UpdateUserAsync(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update user
@@ -347,7 +347,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserWithHttpInfoAsync(int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserWithHttpInfoAsync(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1033,7 +1033,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="email">Email address of the user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchUsersResponse</returns>
-        public SearchUsersResponse SearchUsers(string email = default(string), int operationIndex = 0)
+        public SearchUsersResponse SearchUsers(string? email = default(string?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SearchUsersResponse> localVarResponse = SearchUsersWithHttpInfo(email);
             return localVarResponse.Data;
@@ -1046,7 +1046,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="email">Email address of the user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchUsersResponse</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SearchUsersResponse> SearchUsersWithHttpInfo(string email = default(string), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SearchUsersResponse> SearchUsersWithHttpInfo(string? email = default(string?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1122,7 +1122,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchUsersResponse</returns>
-        public async System.Threading.Tasks.Task<SearchUsersResponse> SearchUsersAsync(string email = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchUsersResponse> SearchUsersAsync(string? email = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SearchUsersResponse> localVarResponse = await SearchUsersWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1136,7 +1136,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchUsersResponse)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SearchUsersResponse>> SearchUsersWithHttpInfoAsync(string email = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SearchUsersResponse>> SearchUsersWithHttpInfoAsync(string? email = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -1215,7 +1215,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        public User UpdateActivationUser(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0)
+        public User UpdateActivationUser(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = UpdateActivationUserWithHttpInfo(activationId, userId, _params);
             return localVarResponse.Data;
@@ -1230,7 +1230,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> UpdateActivationUserWithHttpInfo(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> UpdateActivationUserWithHttpInfo(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1308,7 +1308,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> UpdateActivationUserAsync(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> UpdateActivationUserAsync(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = await UpdateActivationUserWithHttpInfoAsync(activationId, userId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1324,7 +1324,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> UpdateActivationUserWithHttpInfoAsync(int activationId, int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> UpdateActivationUserWithHttpInfoAsync(int activationId, int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -1402,7 +1402,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        public User UpdateUser(int userId, UserParams _params = default(UserParams), int operationIndex = 0)
+        public User UpdateUser(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = UpdateUserWithHttpInfo(userId, _params);
             return localVarResponse.Data;
@@ -1416,7 +1416,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> UpdateUserWithHttpInfo(int userId, UserParams _params = default(UserParams), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> UpdateUserWithHttpInfo(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1492,7 +1492,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> UpdateUserAsync(int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> UpdateUserAsync(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = await UpdateUserWithHttpInfoAsync(userId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1507,7 +1507,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> UpdateUserWithHttpInfoAsync(int userId, UserParams _params = default(UserParams), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> UpdateUserWithHttpInfoAsync(int userId, UserParams? _params = default(UserParams?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();

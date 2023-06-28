@@ -38,7 +38,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        User CreateCompanyUser(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0);
+        User CreateCompanyUser(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Create company user
@@ -51,7 +51,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> CreateCompanyUserWithHttpInfo(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0);
+        ApiResponse<User> CreateCompanyUserWithHttpInfo(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0);
         /// <summary>
         /// Returns the requested user
         /// </summary>
@@ -156,7 +156,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        User UpdateCompanyUser(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0);
+        User UpdateCompanyUser(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Update company user
@@ -170,7 +170,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> UpdateCompanyUserWithHttpInfo(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0);
+        ApiResponse<User> UpdateCompanyUserWithHttpInfo(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -192,7 +192,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> CreateCompanyUserAsync(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> CreateCompanyUserAsync(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create company user
@@ -206,7 +206,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> CreateCompanyUserWithHttpInfoAsync(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> CreateCompanyUserWithHttpInfoAsync(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the requested user
         /// </summary>
@@ -320,7 +320,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> UpdateCompanyUserAsync(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> UpdateCompanyUserAsync(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update company user
@@ -335,7 +335,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> UpdateCompanyUserWithHttpInfoAsync(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> UpdateCompanyUserWithHttpInfoAsync(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -464,7 +464,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        public User CreateCompanyUser(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0)
+        public User CreateCompanyUser(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = CreateCompanyUserWithHttpInfo(companyId, _params);
             return localVarResponse.Data;
@@ -478,7 +478,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> CreateCompanyUserWithHttpInfo(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> CreateCompanyUserWithHttpInfo(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -554,7 +554,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> CreateCompanyUserAsync(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> CreateCompanyUserAsync(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = await CreateCompanyUserWithHttpInfoAsync(companyId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -569,7 +569,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> CreateCompanyUserWithHttpInfoAsync(int companyId, CreateCompanyUserRequest _params = default(CreateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> CreateCompanyUserWithHttpInfoAsync(int companyId, CreateCompanyUserRequest? _params = default(CreateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
@@ -1349,7 +1349,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>User</returns>
-        public User UpdateCompanyUser(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0)
+        public User UpdateCompanyUser(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = UpdateCompanyUserWithHttpInfo(companyId, userId, _params);
             return localVarResponse.Data;
@@ -1364,7 +1364,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of User</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> UpdateCompanyUserWithHttpInfo(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> UpdateCompanyUserWithHttpInfo(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -1442,7 +1442,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> UpdateCompanyUserAsync(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> UpdateCompanyUserAsync(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<User> localVarResponse = await UpdateCompanyUserWithHttpInfoAsync(companyId, userId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1458,7 +1458,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> UpdateCompanyUserWithHttpInfoAsync(int companyId, int userId, UpdateCompanyUserRequest _params = default(UpdateCompanyUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<User>> UpdateCompanyUserWithHttpInfoAsync(int companyId, int userId, UpdateCompanyUserRequest? _params = default(UpdateCompanyUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();

@@ -61,7 +61,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemEstimate</returns>
-        SystemEstimate UpdateActivationEstimate(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0);
+        SystemEstimate UpdateActivationEstimate(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Update the estimate for this system.
@@ -74,7 +74,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemEstimate</returns>
-        ApiResponse<SystemEstimate> UpdateActivationEstimateWithHttpInfo(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0);
+        ApiResponse<SystemEstimate> UpdateActivationEstimateWithHttpInfo(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -121,7 +121,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemEstimate</returns>
-        System.Threading.Tasks.Task<SystemEstimate> UpdateActivationEstimateAsync(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SystemEstimate> UpdateActivationEstimateAsync(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update the estimate for this system.
@@ -135,7 +135,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemEstimate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SystemEstimate>> UpdateActivationEstimateWithHttpInfoAsync(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SystemEstimate>> UpdateActivationEstimateWithHttpInfoAsync(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -438,7 +438,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SystemEstimate</returns>
-        public SystemEstimate UpdateActivationEstimate(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0)
+        public SystemEstimate UpdateActivationEstimate(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemEstimate> localVarResponse = UpdateActivationEstimateWithHttpInfo(activationId, _params);
             return localVarResponse.Data;
@@ -452,7 +452,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="_params"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SystemEstimate</returns>
-        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemEstimate> UpdateActivationEstimateWithHttpInfo(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0)
+        public EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemEstimate> UpdateActivationEstimateWithHttpInfo(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0)
         {
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();
 
@@ -528,7 +528,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SystemEstimate</returns>
-        public async System.Threading.Tasks.Task<SystemEstimate> UpdateActivationEstimateAsync(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SystemEstimate> UpdateActivationEstimateAsync(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemEstimate> localVarResponse = await UpdateActivationEstimateWithHttpInfoAsync(activationId, _params, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -543,7 +543,7 @@ namespace EnphaseOpenAPI.Commissioning.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SystemEstimate)</returns>
-        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemEstimate>> UpdateActivationEstimateWithHttpInfoAsync(int activationId, UpdateActivationEstimateRequest _params = default(UpdateActivationEstimateRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnphaseOpenAPI.Commissioning.Client.ApiResponse<SystemEstimate>> UpdateActivationEstimateWithHttpInfoAsync(int activationId, UpdateActivationEstimateRequest? _params = default(UpdateActivationEstimateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EnphaseOpenAPI.Commissioning.Client.RequestOptions localVarRequestOptions = new EnphaseOpenAPI.Commissioning.Client.RequestOptions();

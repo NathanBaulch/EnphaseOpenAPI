@@ -115,7 +115,7 @@ catch (ApiException e)
 
 <a id="setactivationmeterstatus"></a>
 # **SetActivationMeterStatus**
-> SetActivationMeterStatusResponse SetActivationMeterStatus (int activationId, string serialNumber, SetActivationMeterStatusRequest _params = null)
+> SetActivationMeterStatusResponse SetActivationMeterStatus (int activationId, string serialNumber, SetActivationMeterStatusRequest? _params = null)
 
 Enable or Disable the meters.
 
@@ -147,7 +147,7 @@ namespace Example
             var apiInstance = new MetersApi(config);
             var activationId = 56;  // int | Activation ID.
             var serialNumber = "serialNumber_example";  // string | Meter serial number.
-            var _params = new SetActivationMeterStatusRequest(); // SetActivationMeterStatusRequest |  (optional) 
+            var _params = new SetActivationMeterStatusRequest?(); // SetActivationMeterStatusRequest? |  (optional) 
 
             try
             {
@@ -192,7 +192,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **activationId** | **int** | Activation ID. |  |
 | **serialNumber** | **string** | Meter serial number. |  |
-| **_params** | [**SetActivationMeterStatusRequest**](SetActivationMeterStatusRequest.md) |  | [optional]  |
+| **_params** | [**SetActivationMeterStatusRequest?**](SetActivationMeterStatusRequest?.md) |  | [optional]  |
 
 ### Return type
 
